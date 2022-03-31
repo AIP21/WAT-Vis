@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=LogEntry
+comment1.params=time\ playerName\ position\ chunk
+comment1.target=LogEntry(java.time.LocalDateTime,\ java.lang.String,\ Vector3,\ boolean)
+comment2.params=
+comment2.target=java.lang.String\ toString()
+comment3.params=o
+comment3.target=int\ compareTo(java.lang.Object)
+numComments=4

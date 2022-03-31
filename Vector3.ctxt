@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Vector3
+comment1.params=x\ y\ z
+comment1.target=Vector3(int,\ int,\ int)
+comment2.params=input
+comment2.target=Vector3\ parseVector3(java.lang.String)
+comment3.params=input\ scaleMult
+comment3.target=Vector3\ parseVector3(java.lang.String,\ float)
+comment4.params=input\ convertToBlockPos
+comment4.target=Vector3\ parseVector3FromChunk(java.lang.String,\ boolean)
+comment5.params=input\ convertToBlockPos\ scaleMult
+comment5.target=Vector3\ parseVector3FromChunk(java.lang.String,\ boolean,\ float)
+comment6.params=
+comment6.target=java.awt.Point\ toPoint()
+comment7.params=input
+comment7.target=java.lang.String\ toString(Vector3)
+comment8.params=
+comment8.target=java.lang.String\ toString()
+comment9.params=toAdd
+comment9.target=void\ Add(int)
+numComments=10

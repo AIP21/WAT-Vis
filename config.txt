@@ -1,0 +1,11 @@
+size: 1 //Change the default position marker dot radius, 0 disables using dots to instead use a pixel to mark a position
+convertChunkPositions: true //Convert logged chunk positions into block positions, this is done by multiplying the chunk position by 16
+maxEntries: 2500 //The limit to the amount of data entries to compile into the final image or gif, useful when wanting a less-detailed, but quick output or when with low memory. Set to 0 to disable
+dotShrinking: true //Whether or not to shrink logged dots if they are covering another logged dot. Disabled if individualPoints is false
+maxAreaDensity: 5.0 //The maximum area density that can be used to grow the dot radius
+pixelAlpha: true //Whether or not pixels should be slightly transparent so they don't overlap
+drawType: 1 //The way to represent the positions. 0 = Pixel, 1 = Dot, 2 = Heatmap, 3 = Lines
+lineThreshold: 200 //The maximum distance a player can move until its position change doesn't draw a line. This is to fix issues where massive lines are drawn across the map when players nether travel or die.
+upscale: 1 //The scale multiplier. The higher the upscaling, the higher the final resolution. HIGHER VALUES DRASTICALLY INCREASE FILE SIZE AND PROCESSING TIME!
+fancyLines: false //Whether or not to show arrows at data points when drawing using lines
+hiddenLines: false //Whether or not to show lines that were hidden for being above the threshold

@@ -173,7 +173,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     
         g2.setColor(Color.white);
         if(selectedEntry != null){
-            g2.drawOval(selectedEntry.position.x - 2, selectedEntry.position.z - 2, 4, 4);
+            g2.drawRect(selectedEntry.position.x - 1, selectedEntry.position.z - 1, 3, 3);
         }
         
         renderedPointsLabel.setText("" + renderedPoints);
@@ -329,7 +329,8 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         for (LocalDateTime time : logEntriesGroupedByTime.keySet()) {
             ArrayList<LogEntry> entries = logEntriesGroupedByTime.get(time);
             for (LogEntry entry : entries) {
-                if (Math.abs(entry.position.x - mousePosition.x) < 4 && Math.abs(entry.position.z - mousePosition.y) < 4) {
+                if (Math.abs(entry.position.x - mousePosition.x) < 1 && Math.abs(entry.position.z - mousePosition.y) < 1) {
+                    selectedEntry = entry;
                     SelectedEntryLabel.setText(entry.toString());
                 }
             }

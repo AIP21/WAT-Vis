@@ -1,0 +1,100 @@
+<2022-04-05; 20:25:29> Player Tracker Decoder App v1.4.0 - LOG FILE
+<2022-04-05; 20:25:29> Initializing logger
+<2022-04-05; 20:25:29> Logger successfully initialized
+<2022-04-05; 20:25:29> Initializing primary system
+<2022-04-05; 20:25:29> Initializing settings subsystem
+<2022-04-05; 20:25:29> Fetching and parsing settings from config file
+<2022-04-05; 20:25:29> args: 12
+<2022-04-05; 20:25:29> 50
+<2022-04-05; 20:25:29> true
+<2022-04-05; 20:25:29> 0
+<2022-04-05; 20:25:29> true
+<2022-04-05; 20:25:29> 5.0
+<2022-04-05; 20:25:29> true
+<2022-04-05; 20:25:29> 0
+<2022-04-05; 20:25:29> 216
+<2022-04-05; 20:25:29> false
+<2022-04-05; 20:25:29> false
+<2022-04-05; 20:25:29> false
+<2022-04-05; 20:25:29> Successfully fetched and parsed settings from config file
+<2022-04-05; 20:25:29> Successfully initialized settings subsystem
+<2022-04-05; 20:25:29> Initializing decoder subsystem
+<2022-04-05; 20:25:29> Successfully initialized decoder subsystem
+<2022-04-05; 20:25:29> Initializing primary frame subsystem
+<2022-04-05; 20:25:29> Initializing main display subsystem
+<2022-04-05; 20:25:29> Successfuly initialized main display subsystem
+<2022-04-05; 20:25:29> Successfully initialized primary frame subsystem
+<2022-04-05; 20:25:29> Successfully initialized all subsystems
+<2022-04-05; 20:25:36> Decoding process started
+<2022-04-05; 20:25:36> Decoding data
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:36> Fetched and indexed input file
+<2022-04-05; 20:25:37> maxX: 8634 minX: -6267; maxY: 2590 minY: -5018
+<2022-04-05; 20:25:37> xRange: 14901 yRange: 7608
+
+<2022-04-05; 20:25:37> Successfully decoded data
+<2022-04-05; 20:25:37> Setting data to display
+<2022-04-05; 20:25:37> Successfully set data to display
+<2022-04-05; 20:25:37> Updating points
+<2022-04-05; 20:25:37> Updated points: 102567
+<2022-04-05; 20:25:37> Decoding process finished successfully
+<2022-04-05; 20:25:37> Initializing toolbar subsystem
+<2022-04-05; 20:25:39> Successfully initialized toolbar subsystem
+<2022-04-05; 20:25:39> Selected files: 57
+<2022-04-05; 20:25:44> Started saving current screen as an image
+<2022-04-05; 20:25:44> Successfully saved current screen as an image

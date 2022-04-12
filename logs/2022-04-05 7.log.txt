@@ -1,0 +1,148 @@
+<2022-04-05; 09:28:11> Player Tracker Decoder App v1.4.0 - LOG FILE
+<2022-04-05; 09:28:11> Initializing logger
+<2022-04-05; 09:28:11> Logger successfully initialized
+<2022-04-05; 09:28:11> Initializing primary system
+<2022-04-05; 09:28:11> Initializing settings subsystem
+<2022-04-05; 09:28:11> Fetching and parsing settings from config file
+<2022-04-05; 09:28:11> args: 12
+<2022-04-05; 09:28:11> 1
+<2022-04-05; 09:28:11> true
+<2022-04-05; 09:28:11> 0
+<2022-04-05; 09:28:11> true
+<2022-04-05; 09:28:11> 5.0
+<2022-04-05; 09:28:11> true
+<2022-04-05; 09:28:11> 0
+<2022-04-05; 09:28:11> 216
+<2022-04-05; 09:28:11> false
+<2022-04-05; 09:28:11> false
+<2022-04-05; 09:28:11> false
+<2022-04-05; 09:28:11> Successfully fetched and parsed settings from config file
+<2022-04-05; 09:28:11> Successfully initialized settings subsystem
+<2022-04-05; 09:28:11> Initializing decoder subsystem
+<2022-04-05; 09:28:11> Successfully initialized decoder subsystem
+<2022-04-05; 09:28:11> Initializing primary frame subsystem
+<2022-04-05; 09:28:11> Initializing main display subsystem
+<2022-04-05; 09:28:11> Successfuly initialized main display subsystem
+<2022-04-05; 09:28:11> Successfully initialized primary frame subsystem
+<2022-04-05; 09:28:12> Successfully initialized all subsystems
+<2022-04-05; 09:28:17> Decoding process started
+<2022-04-05; 09:28:17> Decoding data
+<2022-04-05; 09:28:17> Fetched and indexed input file
+<2022-04-05; 09:28:17> Fetched and indexed input file
+<2022-04-05; 09:28:17> Fetched and indexed input file
+<2022-04-05; 09:28:17> Fetched and indexed input file
+<2022-04-05; 09:28:17> Fetched and indexed input file
+<2022-04-05; 09:28:17> Fetched and indexed input file
+<2022-04-05; 09:28:17> Fetched and indexed input file
+<2022-04-05; 09:28:17> Fetched and indexed input file
+<2022-04-05; 09:28:17> Fetched and indexed input file
+<2022-04-05; 09:28:17> Fetched and indexed input file
+<2022-04-05; 09:28:17> Fetched and indexed input file
+<2022-04-05; 09:28:17> Fetched and indexed input file
+<2022-04-05; 09:28:17> Fetched and indexed input file
+<2022-04-05; 09:28:17> Fetched and indexed input file
+<2022-04-05; 09:28:17> Fetched and indexed input file
+<2022-04-05; 09:28:17> Fetched and indexed input file
+<2022-04-05; 09:28:17> Fetched and indexed input file
+<2022-04-05; 09:28:17> Fetched and indexed input file
+<2022-04-05; 09:28:17> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:18> Fetched and indexed input file
+<2022-04-05; 09:28:19> maxX: 8634 minX: -6267; maxY: 2590 minY: -5018
+<2022-04-05; 09:28:19> xRange: 14901 yRange: 7608
+
+<2022-04-05; 09:28:19> Successfully decoded data
+<2022-04-05; 09:28:19> Setting data to display
+<2022-04-05; 09:28:19> Successfully set data to display
+<2022-04-05; 09:28:19> Updating points
+<2022-04-05; 09:28:19> Updated points: 102567
+<2022-04-05; 09:28:19> Decoding process finished successfully
+<2022-04-05; 09:28:19> Initializing toolbar subsystem
+<2022-04-05; 09:28:22> Successfully initialized toolbar subsystem
+<2022-04-05; 09:28:22> Selected files: 57
+<2022-04-05; 09:28:23> Updating points
+<2022-04-05; 09:28:23> Updated points: 102567
+<2022-04-05; 09:28:23> Changed date range slider: 2022-01-21T20:29:53 to 2022-04-03T22:39:39
+<2022-04-05; 09:28:23> Updating points
+<2022-04-05; 09:28:23> Updated points: 1
+<2022-04-05; 09:28:23> Changed date range slider: 2022-04-03T22:39:39 to 2022-04-03T22:39:39
+<2022-04-05; 09:28:23> Updating points
+<2022-04-05; 09:28:23> Updated points: 1
+<2022-04-05; 09:28:23> Changed date range slider: 2022-04-03T22:39:39 to 2022-04-03T22:39:39
+<2022-04-05; 09:28:25> Updating points
+<2022-04-05; 09:28:26> Updated points: 1
+<2022-04-05; 09:28:26> Changed date range slider: 2022-04-03T22:39:39 to 2022-04-03T22:39:39
+<2022-04-05; 09:28:26> Updating points
+<2022-04-05; 09:28:26> Updated points: 411
+<2022-04-05; 09:28:26> Changed date range slider: 2022-04-03T22:05:29 to 2022-04-03T22:39:39
+<2022-04-05; 09:28:26> Updating points
+<2022-04-05; 09:28:26> Updated points: 34826
+<2022-04-05; 09:28:26> Changed date range slider: 2022-03-13T23:05:07 to 2022-04-03T22:39:39
+<2022-04-05; 09:28:26> Updating points
+<2022-04-05; 09:28:26> Updated points: 102567
+<2022-04-05; 09:28:26> Changed date range slider: 2022-01-21T21:04:31 to 2022-04-03T22:39:39
+<2022-04-05; 09:28:26> Updating points
+<2022-04-05; 09:28:26> Updated points: 102567
+<2022-04-05; 09:28:26> Changed date range slider: 2022-01-21T20:29:53 to 2022-04-03T22:39:39
+<2022-04-05; 09:28:26> Updating points
+<2022-04-05; 09:28:26> Updated points: 102567
+<2022-04-05; 09:28:26> Changed date range slider: 2022-01-21T20:29:53 to 2022-04-03T22:39:39
+<2022-04-05; 09:28:37> Selected a log entry: Entry:  legoDBuddy, 2022-03-13T16:08:15, (-132, 64, -173)
+<2022-04-05; 09:28:40> Selected a log entry: Entry:  Pearlwave789, 2022-03-13T21:13:54, (-135, 65, -170)
+<2022-04-05; 09:28:41> Selected a log entry: Entry:  Gangmaster_2014, 2022-02-21T21:14:39, (-137, 64, -169)
+<2022-04-05; 09:28:42> Selected a log entry: Entry:  Gangmaster_2014, 2022-02-21T21:14:39, (-137, 64, -169)
+<2022-04-05; 09:28:42> Selected a log entry: Entry:  Pearlwave789, 2022-03-13T21:13:54, (-135, 65, -170)
+<2022-04-05; 09:28:42> Selected a log entry: Entry:  Gangmaster_2014, 2022-02-21T21:14:39, (-137, 64, -169)
+<2022-04-05; 09:28:45> Selected a log entry: Entry:  legoDBuddy, 2022-03-13T20:53:19, (-146, 64, -169)
+<2022-04-05; 09:28:45> Selected a log entry: Entry:  Anip24, 2022-03-13T20:58:04, (-145, 67, -171)
+<2022-04-05; 09:28:46> Selected a log entry: Entry:  legoDBuddy, 2022-03-13T20:53:19, (-146, 64, -169)
+<2022-04-05; 09:28:47> Selected a log entry: Entry:  Anip24, 2022-03-13T20:53:19, (-146, 64, -167)
+<2022-04-05; 09:28:50> Selected a log entry: Entry:  legoDBuddy, 2022-03-13T20:53:19, (-146, 64, -169)
+<2022-04-05; 09:28:50> Selected a log entry: Entry:  Anip24, 2022-03-13T20:58:04, (-145, 67, -171)
+<2022-04-05; 09:28:51> Selected a log entry: Entry:  Anip24, 2022-03-13T20:53:19, (-146, 64, -167)
+<2022-04-05; 09:28:51> Selected a log entry: Entry:  legoDBuddy, 2022-03-13T20:53:19, (-146, 64, -169)
+<2022-04-05; 09:28:52> Selected a log entry: Entry:  Anip24, 2022-03-13T20:53:19, (-146, 64, -167)
+<2022-04-05; 09:28:53> Selected a log entry: Entry:  legoDBuddy, 2022-03-13T20:53:19, (-146, 64, -169)
+<2022-04-05; 09:28:53> Selected a log entry: Entry:  Anip24, 2022-03-13T20:58:04, (-145, 67, -171)
+<2022-04-05; 09:28:54> Selected a log entry: Entry:  Anip24, 2022-03-13T20:53:19, (-146, 64, -167)
+<2022-04-05; 09:28:55> Selected a log entry: Entry:  legoDBuddy, 2022-03-13T20:53:19, (-146, 64, -169)
+<2022-04-05; 09:28:55> Selected a log entry: Entry:  Anip24, 2022-03-13T20:58:04, (-145, 67, -171)
+<2022-04-05; 09:29:01> Selected a log entry: Entry:  legoDBuddy, 2022-03-13T20:53:19, (-146, 64, -169)
+<2022-04-05; 09:29:03> Selected a log entry: Entry:  Anip24, 2022-03-13T20:53:14, (-136, 64, -173)
+<2022-04-05; 09:29:07> Selected a log entry: Entry:  Gangmaster_2014, 2022-02-21T21:07:49, (-113, 64, -170)

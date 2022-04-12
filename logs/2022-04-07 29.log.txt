@@ -1,0 +1,31 @@
+[INFO] <2022-04-07; 10:48:16> Player Tracker Decoder App v1.5.4 - LOG FILE
+   [INFO] <2022-04-07; 10:48:16> Initializing logger
+   [INFO] <2022-04-07; 10:48:16> Logger successfully initialized
+   [INFO] <2022-04-07; 10:48:16> Initializing primary systems
+   [INFO] <2022-04-07; 10:48:16> Initializing settings subsystem
+   [INFO] <2022-04-07; 10:48:16> Fetching and parsing settings from config file
+   [INFO] <2022-04-07; 10:48:16> Settings: 12
+   [INFO] <2022-04-07; 10:48:16> 0
+   [INFO] <2022-04-07; 10:48:16> true
+   [INFO] <2022-04-07; 10:48:16> 0
+   [INFO] <2022-04-07; 10:48:16> true
+   [INFO] <2022-04-07; 10:48:16> 5.0
+   [INFO] <2022-04-07; 10:48:16> true
+   [INFO] <2022-04-07; 10:48:16> LINE
+   [INFO] <2022-04-07; 10:48:16> 237
+   [INFO] <2022-04-07; 10:48:16> false
+   [INFO] <2022-04-07; 10:48:16> false
+   [INFO] <2022-04-07; 10:48:16> false
+   [INFO] <2022-04-07; 10:48:16> Successfully fetched and parsed settings from config file
+   [INFO] <2022-04-07; 10:48:16> Successfully initialized settings subsystem
+   [INFO] <2022-04-07; 10:48:16> Initializing decoder subsystem
+   [INFO] <2022-04-07; 10:48:16> Successfully initialized decoder subsystem
+   [INFO] <2022-04-07; 10:48:16> Initializing primary frame subsystem
+   [INFO] <2022-04-07; 10:48:16> Initializing main display subsystem
+   [INFO] <2022-04-07; 10:48:16> Successfully initialized main display subsystem
+   [INFO] <2022-04-07; 10:48:16> Successfully initialized primary frame subsystem
+   [INFO] <2022-04-07; 10:48:17> Successfully initialized all subsystems
+   [INFO] <2022-04-07; 10:48:20> Decoding process started
+   [INFO] <2022-04-07; 10:48:20> Decoding data
+   [INFO] <2022-04-07; 10:48:20> Fetched and indexed input file
+   

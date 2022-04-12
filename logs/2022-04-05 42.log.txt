@@ -1,0 +1,54 @@
+<2022-04-05; 20:36:43> Player Tracker Decoder App v1.4.0 - LOG FILE
+<2022-04-05; 20:36:43> Initializing logger
+<2022-04-05; 20:36:43> Logger successfully initialized
+<2022-04-05; 20:36:43> Initializing primary system
+<2022-04-05; 20:36:43> Initializing settings subsystem
+<2022-04-05; 20:36:43> Fetching and parsing settings from config file
+<2022-04-05; 20:36:43> args: 12
+<2022-04-05; 20:36:43> 50
+<2022-04-05; 20:36:43> true
+<2022-04-05; 20:36:43> 0
+<2022-04-05; 20:36:43> true
+<2022-04-05; 20:36:43> 5.0
+<2022-04-05; 20:36:43> true
+<2022-04-05; 20:36:43> 0
+<2022-04-05; 20:36:43> 216
+<2022-04-05; 20:36:43> false
+<2022-04-05; 20:36:43> false
+<2022-04-05; 20:36:43> false
+<2022-04-05; 20:36:43> Successfully fetched and parsed settings from config file
+<2022-04-05; 20:36:43> Successfully initialized settings subsystem
+<2022-04-05; 20:36:43> Initializing decoder subsystem
+<2022-04-05; 20:36:43> Successfully initialized decoder subsystem
+<2022-04-05; 20:36:43> Initializing primary frame subsystem
+<2022-04-05; 20:36:43> Initializing main display subsystem
+<2022-04-05; 20:36:43> Successfuly initialized main display subsystem
+<2022-04-05; 20:36:43> Successfully initialized primary frame subsystem
+<2022-04-05; 20:36:44> Successfully initialized all subsystems
+<2022-04-05; 20:36:51> Decoding process started
+<2022-04-05; 20:36:51> Decoding data
+<2022-04-05; 20:36:51> Fetched and indexed input file
+<2022-04-05; 20:36:51> Fetched and indexed input file
+<2022-04-05; 20:36:51> Fetched and indexed input file
+<2022-04-05; 20:36:51> Fetched and indexed input file
+<2022-04-05; 20:36:51> Fetched and indexed input file
+<2022-04-05; 20:36:51> Fetched and indexed input file
+<2022-04-05; 20:36:51> Fetched and indexed input file
+<2022-04-05; 20:36:51> Fetched and indexed input file
+<2022-04-05; 20:36:51> Fetched and indexed input file
+<2022-04-05; 20:36:51> maxX: 2210 minX: -547; maxY: 64 minY: -2201
+<2022-04-05; 20:36:51> xRange: 2757 yRange: 2265
+
+<2022-04-05; 20:36:51> Successfully decoded data
+<2022-04-05; 20:36:51> Setting data to display
+<2022-04-05; 20:36:51> Successfully set data to display
+<2022-04-05; 20:36:51> Updating points
+<2022-04-05; 20:36:51> Updated points: 16190
+<2022-04-05; 20:36:51> Decoding process finished successfully
+<2022-04-05; 20:36:51> Initializing toolbar subsystem
+<2022-04-05; 20:36:52> Successfully initialized toolbar subsystem
+<2022-04-05; 20:36:52> Selected files: 9
+<2022-04-05; 20:36:55> Started saving current screen as an image
+<2022-04-05; 20:36:55> Successfully saved current screen as an image
+<2022-04-05; 20:37:00> Started saving current screen as an image
+<2022-04-05; 20:37:00> Successfully saved current screen as an image

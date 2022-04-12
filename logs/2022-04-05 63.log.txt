@@ -1,0 +1,45 @@
+<2022-04-05; 21:36:41> Player Tracker Decoder App v1.4.0 - LOG FILE
+<2022-04-05; 21:36:41> Initializing logger
+<2022-04-05; 21:36:41> Logger successfully initialized
+<2022-04-05; 21:36:41> Initializing primary system
+<2022-04-05; 21:36:41> Initializing settings subsystem
+<2022-04-05; 21:36:41> Fetching and parsing settings from config file
+<2022-04-05; 21:36:41> args: 12
+<2022-04-05; 21:36:41> 0
+<2022-04-05; 21:36:41> true
+<2022-04-05; 21:36:41> 0
+<2022-04-05; 21:36:41> true
+<2022-04-05; 21:36:41> 5.0
+<2022-04-05; 21:36:41> true
+<2022-04-05; 21:36:41> 2
+<2022-04-05; 21:36:41> 216
+<2022-04-05; 21:36:41> false
+<2022-04-05; 21:36:41> false
+<2022-04-05; 21:36:41> false
+<2022-04-05; 21:36:41> Successfully fetched and parsed settings from config file
+<2022-04-05; 21:36:41> Successfully initialized settings subsystem
+<2022-04-05; 21:36:41> Initializing decoder subsystem
+<2022-04-05; 21:36:41> Successfully initialized decoder subsystem
+<2022-04-05; 21:36:41> Initializing primary frame subsystem
+<2022-04-05; 21:36:41> Initializing main display subsystem
+<2022-04-05; 21:36:41> Successfuly initialized main display subsystem
+<2022-04-05; 21:36:41> Successfully initialized primary frame subsystem
+<2022-04-05; 21:36:41> Successfully initialized all subsystems
+<2022-04-05; 21:36:45> Decoding process started
+<2022-04-05; 21:36:45> Decoding data
+<2022-04-05; 21:36:45> Fetched and indexed input file
+<2022-04-05; 21:36:45> maxX: 2069 minX: -374; maxY: 58 minY: -1563
+<2022-04-05; 21:36:45> xRange: 2443 yRange: 1621
+
+<2022-04-05; 21:36:45> Successfully decoded data
+<2022-04-05; 21:36:45> Setting data to display
+<2022-04-05; 21:36:45> Successfully set data to display
+<2022-04-05; 21:36:45> Updating points
+<2022-04-05; 21:36:45> Updated points: 2514
+<2022-04-05; 21:36:45> Decoding process finished successfully
+<2022-04-05; 21:36:45> Initializing toolbar subsystem
+<2022-04-05; 21:36:45> Successfully initialized toolbar subsystem
+<2022-04-05; 21:36:45> Selected files: 1
+<2022-04-05; 21:36:47> Changed export upscale to: 0
+<2022-04-05; 21:36:48> Changed export upscale to: 1
+<2022-04-05; 21:36:48> Changed export upscale to: 1

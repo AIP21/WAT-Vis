@@ -1,0 +1,360 @@
+[INFO] <2022-04-07; 09:39:42> Player Tracker Decoder App v1.5.1 - LOG FILE
+   [INFO] <2022-04-07; 09:39:42> Initializing logger
+   [INFO] <2022-04-07; 09:39:42> Logger successfully initialized
+   [INFO] <2022-04-07; 09:39:42> Initializing primary systems
+   [INFO] <2022-04-07; 09:39:42> Initializing settings subsystem
+   [INFO] <2022-04-07; 09:39:42> Fetching and parsing settings from config file
+   [INFO] <2022-04-07; 09:39:42> Settings: 12
+   [INFO] <2022-04-07; 09:39:42> 50
+   [INFO] <2022-04-07; 09:39:42> true
+   [INFO] <2022-04-07; 09:39:42> 0
+   [INFO] <2022-04-07; 09:39:42> true
+   [INFO] <2022-04-07; 09:39:42> 5.0
+   [INFO] <2022-04-07; 09:39:42> true
+   [INFO] <2022-04-07; 09:39:42> PIXEL
+   [INFO] <2022-04-07; 09:39:42> 216
+   [INFO] <2022-04-07; 09:39:42> false
+   [INFO] <2022-04-07; 09:39:42> false
+   [INFO] <2022-04-07; 09:39:42> false
+   [INFO] <2022-04-07; 09:39:42> Successfully fetched and parsed settings from config file
+   [INFO] <2022-04-07; 09:39:42> Successfully initialized settings subsystem
+   [INFO] <2022-04-07; 09:39:42> Initializing decoder subsystem
+   [INFO] <2022-04-07; 09:39:42> Successfully initialized decoder subsystem
+   [INFO] <2022-04-07; 09:39:42> Initializing primary frame subsystem
+   [INFO] <2022-04-07; 09:39:42> Initializing main display subsystem
+   [INFO] <2022-04-07; 09:39:42> Successfully initialized main display subsystem
+   [INFO] <2022-04-07; 09:39:42> Successfully initialized primary frame subsystem
+   [INFO] <2022-04-07; 09:39:43> Successfully initialized all subsystems
+   [INFO] <2022-04-07; 09:39:49> Decoding process started
+   [INFO] <2022-04-07; 09:39:49> Decoding data
+   [INFO] <2022-04-07; 09:39:49> Fetched and indexed input file
+   [INFO] <2022-04-07; 09:39:49> maxX: 0 minX: -330; maxY: 59 minY: -1553
+   [INFO] <2022-04-07; 09:39:49> xRange: 330 yRange: 1612
+   [INFO] <2022-04-07; 09:39:49> Successfully decoded data
+   [INFO] <2022-04-07; 09:39:49> Setting data to display
+   [INFO] <2022-04-07; 09:39:49> Successfully set data to display
+   [INFO] <2022-04-07; 09:39:49> Updating points
+   [INFO] <2022-04-07; 09:39:49> Updated points: 461
+   [INFO] <2022-04-07; 09:39:49> Decoding process finished successfully
+   [INFO] <2022-04-07; 09:39:49> Initializing toolbar subsystem
+   [INFO] <2022-04-07; 09:39:49> Successfully initialized toolbar subsystem
+   [INFO] <2022-04-07; 09:39:49> Selected files: 1
+   [INFO] <2022-04-07; 09:39:49> World background images are present
+   opening selection screen
+   [INFO] <2022-04-07; 09:39:49> World background image is present
+   loading world background image
+   [INFO] <2022-04-07; 09:39:51> Selected world background images: 1
+   [INFO] <2022-04-07; 09:40:09> Loading world background image took 17250ms.
+   [INFO] <2022-04-07; 09:40:09> Successfully loaded world background image
+   [INFO] <2022-04-07; 09:40:10> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:10> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:10> Changed draw size to: 50
+   [INFO] <2022-04-07; 09:40:10> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:10> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:10> Changed draw size to: 35
+   [INFO] <2022-04-07; 09:40:10> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:10> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:10> Changed draw size to: 35
+   [INFO] <2022-04-07; 09:40:11> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:11> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:11> Changed draw size to: 35
+   [INFO] <2022-04-07; 09:40:11> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:11> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:11> Changed draw size to: 8
+   [INFO] <2022-04-07; 09:40:11> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:11> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:11> Changed draw size to: 8
+   [INFO] <2022-04-07; 09:40:14> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:14> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:14> Changed draw size to: 8
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 9
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 10
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 16
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 19
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 23
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 26
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 29
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 32
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 33
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 34
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 35
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 36
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 37
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 38
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 39
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 40
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 39
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 38
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 37
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 36
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 35
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 34
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 33
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 31
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 30
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 29
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 28
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 27
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 26
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 25
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 23
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 22
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 21
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 20
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 19
+   [INFO] <2022-04-07; 09:40:15> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:15> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:15> Changed draw size to: 18
+   [INFO] <2022-04-07; 09:40:16> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:16> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:16> Changed draw size to: 17
+   [INFO] <2022-04-07; 09:40:16> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:16> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:16> Changed draw size to: 17
+   [INFO] <2022-04-07; 09:40:17> Updating points
+   [INFO] <2022-04-07; 09:40:17> Updated points: 461
+   [INFO] <2022-04-07; 09:40:17> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:17> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:17> Changed draw type to: LINE
+   [INFO] <2022-04-07; 09:40:18> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:18> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:18> Changed draw size to: 17
+   [INFO] <2022-04-07; 09:40:18> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:18> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:18> Changed draw size to: 21
+   [INFO] <2022-04-07; 09:40:18> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:18> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:18> Changed draw size to: 21
+   [INFO] <2022-04-07; 09:40:18> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:18> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:18> Changed draw size to: 21
+   [INFO] <2022-04-07; 09:40:18> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:18> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:18> Changed draw size to: 22
+   [INFO] <2022-04-07; 09:40:18> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:18> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:18> Changed draw size to: 24
+   [INFO] <2022-04-07; 09:40:18> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:18> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:18> Changed draw size to: 28
+   [INFO] <2022-04-07; 09:40:18> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:18> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:18> Changed draw size to: 29
+   [INFO] <2022-04-07; 09:40:18> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:18> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:18> Changed draw size to: 39
+   [INFO] <2022-04-07; 09:40:18> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:18> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:18> Changed draw size to: 41
+   [INFO] <2022-04-07; 09:40:18> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:18> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:18> Changed draw size to: 46
+   [INFO] <2022-04-07; 09:40:18> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:18> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:18> Changed draw size to: 50
+   [INFO] <2022-04-07; 09:40:18> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:18> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:18> Changed draw size to: 50
+   [INFO] <2022-04-07; 09:40:20> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:20> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:20> Changed draw size to: 50
+   [INFO] <2022-04-07; 09:40:20> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:20> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:20> Changed draw size to: 12
+   [INFO] <2022-04-07; 09:40:20> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:20> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:20> Changed draw size to: 12
+   [INFO] <2022-04-07; 09:40:20> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:20> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:20> Changed draw size to: 12
+   [INFO] <2022-04-07; 09:40:20> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:20> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:20> Changed draw size to: 12
+   [INFO] <2022-04-07; 09:40:20> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:20> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:20> Changed draw size to: 12
+   [INFO] <2022-04-07; 09:40:20> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:20> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:20> Changed draw size to: 6
+   [INFO] <2022-04-07; 09:40:20> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:20> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:20> Changed draw size to: 6
+   [INFO] <2022-04-07; 09:40:20> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:20> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:20> Changed draw size to: 6
+   [INFO] <2022-04-07; 09:40:20> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:20> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:20> Changed draw size to: 5
+   [INFO] <2022-04-07; 09:40:21> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:21> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:21> Changed draw size to: 5
+   [INFO] <2022-04-07; 09:40:26> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:26> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:26> Changed draw size to: 5
+   [INFO] <2022-04-07; 09:40:26> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:26> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:26> Changed draw size to: 1
+   [INFO] <2022-04-07; 09:40:26> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:26> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:26> Changed draw size to: 1
+   [INFO] <2022-04-07; 09:40:26> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:26> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:26> Changed draw size to: 1
+   [INFO] <2022-04-07; 09:40:26> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:26> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:26> Changed draw size to: 0
+   [INFO] <2022-04-07; 09:40:27> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:27> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:27> Changed draw size to: 1
+   [INFO] <2022-04-07; 09:40:28> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:28> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:28> Changed draw size to: 2
+   [INFO] <2022-04-07; 09:40:28> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:28> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:28> Changed draw size to: 1
+   [INFO] <2022-04-07; 09:40:28> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:28> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:28> Changed draw size to: 0
+   [INFO] <2022-04-07; 09:40:28> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:28> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:28> Changed draw size to: 0
+   [INFO] <2022-04-07; 09:40:33> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:34> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:34> Changed draw size to: 0
+   [INFO] <2022-04-07; 09:40:34> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:34> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:34> Changed draw size to: 1
+   [INFO] <2022-04-07; 09:40:34> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:34> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:34> Changed draw size to: 1
+   [INFO] <2022-04-07; 09:40:50> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:50> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:50> Changed draw size to: 1
+   [INFO] <2022-04-07; 09:40:51> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:51> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:51> Changed draw size to: 0
+   [INFO] <2022-04-07; 09:40:52> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:52> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:52> Changed draw size to: 1
+   [INFO] <2022-04-07; 09:40:52> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:52> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:52> Changed draw size to: 2
+   [INFO] <2022-04-07; 09:40:52> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:52> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:52> Changed draw size to: 2
+   [INFO] <2022-04-07; 09:40:54> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:54> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:54> Changed draw size to: 2
+   [INFO] <2022-04-07; 09:40:56> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:56> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:56> Changed draw size to: 1
+   [INFO] <2022-04-07; 09:40:56> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:56> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:56> Changed draw size to: 1
+   [INFO] <2022-04-07; 09:40:57> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:57> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:57> Changed line threshold to: 216
+   [INFO] <2022-04-07; 09:40:57> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:57> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:57> Changed line threshold to: 215
+   [INFO] <2022-04-07; 09:40:57> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:57> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:57> Changed line threshold to: 217
+   [INFO] <2022-04-07; 09:40:57> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:57> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:57> Changed line threshold to: 224
+   [INFO] <2022-04-07; 09:40:57> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:57> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:57> Changed line threshold to: 237
+   [INFO] <2022-04-07; 09:40:58> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:40:58> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:40:58> Changed line threshold to: 237
+   [INFO] <2022-04-07; 09:41:02> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:41:02> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:41:02> Toggled fancy lines to: true
+   [INFO] <2022-04-07; 09:41:03> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:41:03> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:41:03> Toggled fancy lines to: false
+   [INFO] <2022-04-07; 09:41:03> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:41:03> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:41:03> Toggled fancy lines to: true
+   [INFO] <2022-04-07; 09:41:04> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:41:04> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:41:04> Toggled fancy lines to: false
+   [INFO] <2022-04-07; 09:41:05> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:41:05> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:41:05> Toggled hidden lines to: true
+   [INFO] <2022-04-07; 09:41:06> Saving and writing settings to config file
+   [INFO] <2022-04-07; 09:41:06> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 09:41:06> Toggled hidden lines to: false
+   

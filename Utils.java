@@ -28,10 +28,11 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
- 
- 
- 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import javax.swing.ImageIcon;
  
 /* Utils.java is used by FileChooserDemo2.java. */
@@ -57,7 +58,7 @@ public class Utils {
         }
         return ext;
     }
- 
+
     /** Returns an ImageIcon, or null if the path was invalid. */
     protected static ImageIcon createImageIcon(String path) {
         java.net.URL imgURL = Utils.class.getResource(path);
@@ -67,5 +68,15 @@ public class Utils {
             System.err.println("Couldn't find file: " + path);
             return null;
         }
+    }
+
+    public static boolean isEmpty(Path path) throws IOException {
+        if (Files.isDirectory(path)) {
+            try (DirectoryStream<Path> directory = Files.newDirectoryStream(path)) {
+                return !directory.iterator().hasNext();
+            }
+        }
+
+        return false;
     }
 }

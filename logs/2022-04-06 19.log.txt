@@ -1,0 +1,54 @@
+<2022-04-06; 12:03:43> Player Tracker Decoder App v1.4.1 - LOG FILE
+<2022-04-06; 12:03:43> Initializing logger
+<2022-04-06; 12:03:43> Logger successfully initialized
+<2022-04-06; 12:03:43> Initializing primary system
+<2022-04-06; 12:03:43> Initializing settings subsystem
+<2022-04-06; 12:03:43> Fetching and parsing settings from config file
+<2022-04-06; 12:03:43> args: 12
+<2022-04-06; 12:03:43> 0
+<2022-04-06; 12:03:43> true
+<2022-04-06; 12:03:43> 0
+<2022-04-06; 12:03:43> true
+<2022-04-06; 12:03:43> 5.0
+<2022-04-06; 12:03:43> true
+<2022-04-06; 12:03:43> 2
+<2022-04-06; 12:03:43> 216
+<2022-04-06; 12:03:43> false
+<2022-04-06; 12:03:43> false
+<2022-04-06; 12:03:43> false
+<2022-04-06; 12:03:43> Successfully fetched and parsed settings from config file
+<2022-04-06; 12:03:43> Successfully initialized settings subsystem
+<2022-04-06; 12:03:43> Initializing map renderer subsystem
+<2022-04-06; 12:03:45> inputRegion: worldInput/.DS_Store/region
+<2022-04-06; 12:03:45> inputPath: worldInput/.DS_Store
+<2022-04-06; 12:03:45> outputPath: worldOutput
+<2022-04-06; 12:03:45> Error initializing map renderer subsystem:
+<ERROR>   [java.base/sun.nio.fs.UnixFileSystemProvider.newDirectoryStream(UnixFileSystemProvider.java:420),
+<ERROR>   java.base/java.nio.file.Files.newDirectoryStream(Files.java:482),
+<ERROR>   java.base/java.nio.file.Files.list(Files.java:3792),
+<ERROR>   de.piegames.blockmap.world.RegionFolder$WorldRegionFolder.load(RegionFolder.java:254),
+<ERROR>   MapRenderer.RenderMap(MapRenderer.java:40),
+<ERROR>   Main.initMapRend(Main.java:201),
+<ERROR>   Main.<init>(Main.java:131),
+<ERROR>   Main$2.run(Main.java:180),
+<ERROR>   java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:318),
+<ERROR>   java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:771),
+<ERROR>   java.desktop/java.awt.EventQueue$4.run(EventQueue.java:722),
+<ERROR>   java.desktop/java.awt.EventQueue$4.run(EventQueue.java:716),
+<ERROR>   java.base/java.security.AccessController.doPrivileged(AccessController.java:399),
+<ERROR>   java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86),
+<ERROR>   java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:741),
+<ERROR>   java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203),
+<ERROR>   java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124),
+<ERROR>   java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113),
+<ERROR>   java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109),
+<ERROR>   java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101),
+<ERROR>   java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)]
+<2022-04-06; 12:03:45> Successfully initialized the map renderer subsystem
+<2022-04-06; 12:03:45> Initializing decoder subsystem
+<2022-04-06; 12:03:45> Successfully initialized decoder subsystem
+<2022-04-06; 12:03:45> Initializing primary frame subsystem
+<2022-04-06; 12:03:45> Initializing main display subsystem
+<2022-04-06; 12:03:45> Successfuly initialized main display subsystem
+<2022-04-06; 12:03:45> Successfully initialized primary frame subsystem
+<2022-04-06; 12:03:46> Successfully initialized all subsystems

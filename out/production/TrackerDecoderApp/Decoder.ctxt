@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Decoder
+comment1.params=set\ log
+comment1.target=Decoder(Settings,\ Logger)
+comment2.params=files
+comment2.target=void\ Decode(java.io.File[])
+comment3.params=
+comment3.target=java.awt.Color\ randomColor()
+comment4.params=listToCheck\ colorToCheck
+comment4.target=boolean\ containsSimilarColor(java.util.ArrayList,\ java.awt.Color)
+comment5.params=a\ b
+comment5.target=boolean\ isSimilarColor(java.awt.Color,\ java.awt.Color)
+comment6.params=a\ b\ threshold
+comment6.target=boolean\ approximately(int,\ int,\ float)
+comment7.params=input
+comment7.target=void\ print(java.lang.Object)
+numComments=8

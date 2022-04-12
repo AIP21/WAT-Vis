@@ -1,0 +1,88 @@
+[INFO] <2022-04-07; 11:04:34> Player Tracker Decoder App v1.5.4 - LOG FILE
+   [INFO] <2022-04-07; 11:04:34> Initializing logger
+   [INFO] <2022-04-07; 11:04:34> Logger successfully initialized
+   [INFO] <2022-04-07; 11:04:34> Initializing primary systems
+   [INFO] <2022-04-07; 11:04:34> Initializing settings subsystem
+   [INFO] <2022-04-07; 11:04:34> Fetching and parsing settings from config file
+   [INFO] <2022-04-07; 11:04:34> Settings: 12
+   [INFO] <2022-04-07; 11:04:34> 0
+   [INFO] <2022-04-07; 11:04:34> true
+   [INFO] <2022-04-07; 11:04:34> 0
+   [INFO] <2022-04-07; 11:04:34> true
+   [INFO] <2022-04-07; 11:04:34> 5.0
+   [INFO] <2022-04-07; 11:04:34> true
+   [INFO] <2022-04-07; 11:04:34> LINE
+   [INFO] <2022-04-07; 11:04:34> 237
+   [INFO] <2022-04-07; 11:04:34> false
+   [INFO] <2022-04-07; 11:04:34> false
+   [INFO] <2022-04-07; 11:04:34> false
+   [INFO] <2022-04-07; 11:04:34> Successfully fetched and parsed settings from config file
+   [INFO] <2022-04-07; 11:04:34> Successfully initialized settings subsystem
+   [INFO] <2022-04-07; 11:04:34> Initializing decoder subsystem
+   [INFO] <2022-04-07; 11:04:34> Successfully initialized decoder subsystem
+   [INFO] <2022-04-07; 11:04:34> Initializing primary frame subsystem
+   [INFO] <2022-04-07; 11:04:34> Initializing main display subsystem
+   [INFO] <2022-04-07; 11:04:34> Successfully initialized main display subsystem
+   [INFO] <2022-04-07; 11:04:34> Successfully initialized primary frame subsystem
+   [INFO] <2022-04-07; 11:04:35> Successfully initialized all subsystems
+   [INFO] <2022-04-07; 11:04:41> Decoding process started
+   [INFO] <2022-04-07; 11:04:41> Decoding data
+   [INFO] <2022-04-07; 11:04:41> Fetched and indexed input file
+   [INFO] <2022-04-07; 11:04:41> maxX: 0 minX: -327; maxY: 58 minY: -1500
+   [INFO] <2022-04-07; 11:04:41> xRange: 327 yRange: 1558
+   [INFO] <2022-04-07; 11:04:41> Successfully decoded data
+   [INFO] <2022-04-07; 11:04:41> Setting data to display
+   [INFO] <2022-04-07; 11:04:41> Successfully set data to display
+   [INFO] <2022-04-07; 11:04:41> Updating points
+   [INFO] <2022-04-07; 11:04:41> Updated points: 732
+   [INFO] <2022-04-07; 11:04:41> Decoding process finished successfully
+   [INFO] <2022-04-07; 11:04:41> Initializing toolbar subsystem
+   [INFO] <2022-04-07; 11:04:41> Successfully initialized toolbar subsystem
+   [INFO] <2022-04-07; 11:04:41> Selected files: 1
+   [INFO] <2022-04-07; 11:04:41> World background images are present, opening selection screen
+   [INFO] <2022-04-07; 11:04:41> World background image is present, loading world background image
+   [INFO] <2022-04-07; 11:04:42> Selected world background images: 1
+   [INFO] <2022-04-07; 11:04:54> Saving and writing settings to config file
+   [INFO] <2022-04-07; 11:04:54> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 11:04:54> Changed draw size to: 0
+   [INFO] <2022-04-07; 11:04:54> Saving and writing settings to config file
+   [INFO] <2022-04-07; 11:04:54> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 11:04:54> Changed draw size to: 21
+   [INFO] <2022-04-07; 11:04:54> Saving and writing settings to config file
+   [INFO] <2022-04-07; 11:04:54> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 11:04:54> Changed draw size to: 21
+   [INFO] <2022-04-07; 11:04:54> Saving and writing settings to config file
+   [INFO] <2022-04-07; 11:04:54> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 11:04:54> Changed draw size to: 21
+   [INFO] <2022-04-07; 11:04:54> Saving and writing settings to config file
+   [INFO] <2022-04-07; 11:04:54> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 11:04:54> Changed draw size to: 22
+   [INFO] <2022-04-07; 11:04:54> Saving and writing settings to config file
+   [INFO] <2022-04-07; 11:04:54> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 11:04:54> Changed draw size to: 22
+   [INFO] <2022-04-07; 11:04:55> Saving and writing settings to config file
+   [INFO] <2022-04-07; 11:04:55> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 11:04:55> Changed draw size to: 22
+   [INFO] <2022-04-07; 11:04:55> Saving and writing settings to config file
+   [INFO] <2022-04-07; 11:04:55> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 11:04:55> Changed draw size to: 14
+   [INFO] <2022-04-07; 11:04:55> Saving and writing settings to config file
+   [INFO] <2022-04-07; 11:04:55> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 11:04:55> Changed draw size to: 14
+   [INFO] <2022-04-07; 11:04:55> Saving and writing settings to config file
+   [INFO] <2022-04-07; 11:04:55> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 11:04:55> Changed draw size to: 14
+   [INFO] <2022-04-07; 11:04:55> Saving and writing settings to config file
+   [INFO] <2022-04-07; 11:04:55> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 11:04:55> Changed draw size to: 13
+   [INFO] <2022-04-07; 11:04:55> Saving and writing settings to config file
+   [INFO] <2022-04-07; 11:04:55> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 11:04:55> Changed draw size to: 12
+   [INFO] <2022-04-07; 11:04:55> Saving and writing settings to config file
+   [INFO] <2022-04-07; 11:04:55> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 11:04:55> Changed draw size to: 11
+   [INFO] <2022-04-07; 11:04:55> Saving and writing settings to config file
+   [INFO] <2022-04-07; 11:04:55> Successfully saved and wrote settings to config file
+   [INFO] <2022-04-07; 11:04:55> Changed draw size to: 11
+   [INFO] <2022-04-07; 11:04:59> Loading world background image took 16683ms.
+   

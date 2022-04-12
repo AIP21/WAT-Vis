@@ -1,0 +1,27 @@
+<2022-04-05; 08:44:18> Player Tracker Decoder App v1.3.0 - LOG FILE
+<2022-04-05; 08:44:18> Initializing logger
+<2022-04-05; 08:44:18> Logger successfully initialized
+<2022-04-05; 08:44:18> Initializing primary system
+<2022-04-05; 08:44:18> Initializing settings subsystem
+<2022-04-05; 08:44:18> Fetching and parsing settings from config file
+<2022-04-05; 08:44:18> args: 12
+<2022-04-05; 08:44:18> 0
+<2022-04-05; 08:44:18> true
+<2022-04-05; 08:44:18> 0
+<2022-04-05; 08:44:18> true
+<2022-04-05; 08:44:18> 5.0
+<2022-04-05; 08:44:18> true
+<2022-04-05; 08:44:18> 2
+<2022-04-05; 08:44:18> 216
+<2022-04-05; 08:44:18> false
+<2022-04-05; 08:44:18> false
+<2022-04-05; 08:44:18> false
+<2022-04-05; 08:44:18> Successfully fetched and parsed settings from config file
+<2022-04-05; 08:44:18> Successfully initialized settings subsystem
+<2022-04-05; 08:44:18> Initializing decoder subsystem
+<2022-04-05; 08:44:18> Successfully initialized decoder subsystem
+<2022-04-05; 08:44:18> Initializing primary frame subsystem
+<2022-04-05; 08:44:18> Initializing main display subsystem
+<2022-04-05; 08:44:18> Successfuly initialized main display subsystem
+<2022-04-05; 08:44:18> Successfully initialized primary frame subsystem
+<2022-04-05; 08:44:19> Successfully initialized all subsystems

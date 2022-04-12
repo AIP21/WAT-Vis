@@ -1,0 +1,44 @@
+<2022-04-05; 20:17:25> Player Tracker Decoder App v1.4.0 - LOG FILE
+<2022-04-05; 20:17:25> Initializing logger
+<2022-04-05; 20:17:25> Logger successfully initialized
+<2022-04-05; 20:17:25> Initializing primary system
+<2022-04-05; 20:17:25> Initializing settings subsystem
+<2022-04-05; 20:17:25> Fetching and parsing settings from config file
+<2022-04-05; 20:17:25> args: 12
+<2022-04-05; 20:17:25> 50
+<2022-04-05; 20:17:25> true
+<2022-04-05; 20:17:25> 0
+<2022-04-05; 20:17:25> true
+<2022-04-05; 20:17:25> 5.0
+<2022-04-05; 20:17:25> true
+<2022-04-05; 20:17:25> 0
+<2022-04-05; 20:17:25> 216
+<2022-04-05; 20:17:25> false
+<2022-04-05; 20:17:25> false
+<2022-04-05; 20:17:25> false
+<2022-04-05; 20:17:25> Successfully fetched and parsed settings from config file
+<2022-04-05; 20:17:25> Successfully initialized settings subsystem
+<2022-04-05; 20:17:25> Initializing decoder subsystem
+<2022-04-05; 20:17:25> Successfully initialized decoder subsystem
+<2022-04-05; 20:17:25> Initializing primary frame subsystem
+<2022-04-05; 20:17:25> Initializing main display subsystem
+<2022-04-05; 20:17:25> Successfuly initialized main display subsystem
+<2022-04-05; 20:17:25> Successfully initialized primary frame subsystem
+<2022-04-05; 20:17:26> Successfully initialized all subsystems
+<2022-04-05; 20:17:30> Decoding process started
+<2022-04-05; 20:17:30> Decoding data
+<2022-04-05; 20:17:30> Fetched and indexed input file
+<2022-04-05; 20:17:30> maxX: 2062 minX: -327; maxY: 59 minY: -1570
+<2022-04-05; 20:17:30> xRange: 2389 yRange: 1629
+
+<2022-04-05; 20:17:30> Successfully decoded data
+<2022-04-05; 20:17:30> Setting data to display
+<2022-04-05; 20:17:30> Successfully set data to display
+<2022-04-05; 20:17:30> Updating points
+<2022-04-05; 20:17:30> Updated points: 301
+<2022-04-05; 20:17:30> Decoding process finished successfully
+<2022-04-05; 20:17:30> Initializing toolbar subsystem
+<2022-04-05; 20:17:30> Successfully initialized toolbar subsystem
+<2022-04-05; 20:17:30> Selected files: 1
+<2022-04-05; 20:17:32> Started saving current screen as an image
+<2022-04-05; 20:17:33> Successfully saved current screen as an image

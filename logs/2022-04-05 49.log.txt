@@ -1,0 +1,210 @@
+<2022-04-05; 20:57:52> Player Tracker Decoder App v1.4.0 - LOG FILE
+<2022-04-05; 20:57:52> Initializing logger
+<2022-04-05; 20:57:52> Logger successfully initialized
+<2022-04-05; 20:57:52> Initializing primary system
+<2022-04-05; 20:57:52> Initializing settings subsystem
+<2022-04-05; 20:57:52> Fetching and parsing settings from config file
+<2022-04-05; 20:57:52> args: 12
+<2022-04-05; 20:57:52> 50
+<2022-04-05; 20:57:52> true
+<2022-04-05; 20:57:52> 0
+<2022-04-05; 20:57:52> true
+<2022-04-05; 20:57:52> 5.0
+<2022-04-05; 20:57:52> true
+<2022-04-05; 20:57:52> 0
+<2022-04-05; 20:57:52> 216
+<2022-04-05; 20:57:52> false
+<2022-04-05; 20:57:52> false
+<2022-04-05; 20:57:52> false
+<2022-04-05; 20:57:52> Successfully fetched and parsed settings from config file
+<2022-04-05; 20:57:52> Successfully initialized settings subsystem
+<2022-04-05; 20:57:52> Initializing decoder subsystem
+<2022-04-05; 20:57:52> Successfully initialized decoder subsystem
+<2022-04-05; 20:57:52> Initializing primary frame subsystem
+<2022-04-05; 20:57:52> Initializing main display subsystem
+<2022-04-05; 20:57:52> Successfuly initialized main display subsystem
+<2022-04-05; 20:57:52> Successfully initialized primary frame subsystem
+<2022-04-05; 20:57:53> Successfully initialized all subsystems
+<2022-04-05; 20:57:58> Decoding process started
+<2022-04-05; 20:57:58> Decoding data
+<2022-04-05; 20:57:58> Fetched and indexed input file
+<2022-04-05; 20:57:58> Fetched and indexed input file
+<2022-04-05; 20:57:58> maxX: 2069 minX: -374; maxY: 58 minY: -1563
+<2022-04-05; 20:57:58> xRange: 2443 yRange: 1621
+
+<2022-04-05; 20:57:58> Successfully decoded data
+<2022-04-05; 20:57:58> Setting data to display
+<2022-04-05; 20:57:58> Successfully set data to display
+<2022-04-05; 20:57:58> Updating points
+<2022-04-05; 20:57:58> Updated points: 3246
+<2022-04-05; 20:57:58> Decoding process finished successfully
+<2022-04-05; 20:57:58> Initializing toolbar subsystem
+<2022-04-05; 20:57:58> Successfully initialized toolbar subsystem
+<2022-04-05; 20:57:58> Selected files: 2
+<2022-04-05; 20:58:05> Started saving current screen as an image
+<2022-04-05; 20:58:05> Successfully saved current screen as an image
+<2022-04-05; 20:58:16> Updating points
+<2022-04-05; 20:58:16> Updated points: 3246
+<2022-04-05; 20:58:16> Saving and writing settings to config file
+<2022-04-05; 20:58:16> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:16> Changed draw type to: LINE
+<2022-04-05; 20:58:17> Saving and writing settings to config file
+<2022-04-05; 20:58:17> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:17> Changed draw size to: 50
+<2022-04-05; 20:58:17> Saving and writing settings to config file
+<2022-04-05; 20:58:17> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:17> Changed draw size to: 49
+<2022-04-05; 20:58:17> Saving and writing settings to config file
+<2022-04-05; 20:58:17> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:17> Changed draw size to: 48
+<2022-04-05; 20:58:17> Saving and writing settings to config file
+<2022-04-05; 20:58:17> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:17> Changed draw size to: 46
+<2022-04-05; 20:58:17> Saving and writing settings to config file
+<2022-04-05; 20:58:17> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:17> Changed draw size to: 42
+<2022-04-05; 20:58:17> Saving and writing settings to config file
+<2022-04-05; 20:58:17> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:17> Changed draw size to: 40
+<2022-04-05; 20:58:17> Saving and writing settings to config file
+<2022-04-05; 20:58:17> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:17> Changed draw size to: 37
+<2022-04-05; 20:58:17> Saving and writing settings to config file
+<2022-04-05; 20:58:17> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:17> Changed draw size to: 36
+<2022-04-05; 20:58:18> Saving and writing settings to config file
+<2022-04-05; 20:58:18> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:18> Changed draw size to: 35
+<2022-04-05; 20:58:18> Saving and writing settings to config file
+<2022-04-05; 20:58:18> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:18> Changed draw size to: 34
+<2022-04-05; 20:58:18> Saving and writing settings to config file
+<2022-04-05; 20:58:18> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:18> Changed draw size to: 33
+<2022-04-05; 20:58:18> Saving and writing settings to config file
+<2022-04-05; 20:58:18> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:18> Changed draw size to: 32
+<2022-04-05; 20:58:18> Saving and writing settings to config file
+<2022-04-05; 20:58:18> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:18> Changed draw size to: 31
+<2022-04-05; 20:58:18> Saving and writing settings to config file
+<2022-04-05; 20:58:18> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:18> Changed draw size to: 30
+<2022-04-05; 20:58:18> Saving and writing settings to config file
+<2022-04-05; 20:58:18> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:18> Changed draw size to: 29
+<2022-04-05; 20:58:18> Saving and writing settings to config file
+<2022-04-05; 20:58:18> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:18> Changed draw size to: 28
+<2022-04-05; 20:58:18> Saving and writing settings to config file
+<2022-04-05; 20:58:18> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:18> Changed draw size to: 27
+<2022-04-05; 20:58:18> Saving and writing settings to config file
+<2022-04-05; 20:58:18> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:18> Changed draw size to: 26
+<2022-04-05; 20:58:18> Saving and writing settings to config file
+<2022-04-05; 20:58:18> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:18> Changed draw size to: 25
+<2022-04-05; 20:58:18> Saving and writing settings to config file
+<2022-04-05; 20:58:18> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:18> Changed draw size to: 24
+<2022-04-05; 20:58:18> Saving and writing settings to config file
+<2022-04-05; 20:58:18> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:18> Changed draw size to: 23
+<2022-04-05; 20:58:18> Saving and writing settings to config file
+<2022-04-05; 20:58:18> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:18> Changed draw size to: 22
+<2022-04-05; 20:58:18> Saving and writing settings to config file
+<2022-04-05; 20:58:18> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:18> Changed draw size to: 21
+<2022-04-05; 20:58:18> Saving and writing settings to config file
+<2022-04-05; 20:58:18> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:18> Changed draw size to: 20
+<2022-04-05; 20:58:18> Saving and writing settings to config file
+<2022-04-05; 20:58:18> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:18> Changed draw size to: 19
+<2022-04-05; 20:58:18> Saving and writing settings to config file
+<2022-04-05; 20:58:18> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:18> Changed draw size to: 18
+<2022-04-05; 20:58:18> Saving and writing settings to config file
+<2022-04-05; 20:58:18> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:18> Changed draw size to: 17
+<2022-04-05; 20:58:18> Saving and writing settings to config file
+<2022-04-05; 20:58:18> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:18> Changed draw size to: 16
+<2022-04-05; 20:58:18> Saving and writing settings to config file
+<2022-04-05; 20:58:18> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:18> Changed draw size to: 15
+<2022-04-05; 20:58:18> Saving and writing settings to config file
+<2022-04-05; 20:58:18> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:18> Changed draw size to: 14
+<2022-04-05; 20:58:18> Saving and writing settings to config file
+<2022-04-05; 20:58:18> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:18> Changed draw size to: 13
+<2022-04-05; 20:58:18> Saving and writing settings to config file
+<2022-04-05; 20:58:18> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:18> Changed draw size to: 12
+<2022-04-05; 20:58:18> Saving and writing settings to config file
+<2022-04-05; 20:58:18> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:18> Changed draw size to: 11
+<2022-04-05; 20:58:18> Saving and writing settings to config file
+<2022-04-05; 20:58:18> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:18> Changed draw size to: 10
+<2022-04-05; 20:58:19> Saving and writing settings to config file
+<2022-04-05; 20:58:19> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:19> Changed draw size to: 9
+<2022-04-05; 20:58:19> Saving and writing settings to config file
+<2022-04-05; 20:58:19> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:19> Changed draw size to: 8
+<2022-04-05; 20:58:19> Saving and writing settings to config file
+<2022-04-05; 20:58:19> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:19> Changed draw size to: 7
+<2022-04-05; 20:58:19> Saving and writing settings to config file
+<2022-04-05; 20:58:19> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:19> Changed draw size to: 7
+<2022-04-05; 20:58:21> Updating points
+<2022-04-05; 20:58:21> Updated points: 3246
+<2022-04-05; 20:58:21> Saving and writing settings to config file
+<2022-04-05; 20:58:21> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:21> Changed draw type to: PIXEL
+<2022-04-05; 20:58:22> Saving and writing settings to config file
+<2022-04-05; 20:58:22> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:22> Changed draw size to: 7
+<2022-04-05; 20:58:22> Saving and writing settings to config file
+<2022-04-05; 20:58:22> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:22> Changed draw size to: 25
+<2022-04-05; 20:58:22> Saving and writing settings to config file
+<2022-04-05; 20:58:22> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:22> Changed draw size to: 25
+<2022-04-05; 20:58:22> Saving and writing settings to config file
+<2022-04-05; 20:58:22> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:22> Changed draw size to: 25
+<2022-04-05; 20:58:22> Saving and writing settings to config file
+<2022-04-05; 20:58:22> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:22> Changed draw size to: 26
+<2022-04-05; 20:58:23> Saving and writing settings to config file
+<2022-04-05; 20:58:23> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:23> Changed draw size to: 25
+<2022-04-05; 20:58:23> Saving and writing settings to config file
+<2022-04-05; 20:58:23> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:23> Changed draw size to: 24
+<2022-04-05; 20:58:23> Saving and writing settings to config file
+<2022-04-05; 20:58:23> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:23> Changed draw size to: 20
+<2022-04-05; 20:58:23> Saving and writing settings to config file
+<2022-04-05; 20:58:23> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:23> Changed draw size to: 17
+<2022-04-05; 20:58:23> Saving and writing settings to config file
+<2022-04-05; 20:58:23> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:23> Changed draw size to: 14
+<2022-04-05; 20:58:23> Saving and writing settings to config file
+<2022-04-05; 20:58:23> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:23> Changed draw size to: 12
+<2022-04-05; 20:58:23> Saving and writing settings to config file
+<2022-04-05; 20:58:23> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:23> Changed draw size to: 12
+<2022-04-05; 20:58:24> Updating points
+<2022-04-05; 20:58:24> Updated points: 3246
+<2022-04-05; 20:58:24> Saving and writing settings to config file
+<2022-04-05; 20:58:24> Successfully saved and wrote settings to config file
+<2022-04-05; 20:58:24> Changed draw type to: LINE

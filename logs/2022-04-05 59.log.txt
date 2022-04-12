@@ -1,0 +1,40 @@
+<2022-04-05; 21:32:58> Player Tracker Decoder App v1.4.0 - LOG FILE
+<2022-04-05; 21:32:58> Initializing logger
+<2022-04-05; 21:32:58> Logger successfully initialized
+<2022-04-05; 21:32:58> Initializing primary system
+<2022-04-05; 21:32:58> Initializing settings subsystem
+<2022-04-05; 21:32:58> Fetching and parsing settings from config file
+<2022-04-05; 21:32:58> args: 12
+<2022-04-05; 21:32:58> 0
+<2022-04-05; 21:32:58> true
+<2022-04-05; 21:32:58> 0
+<2022-04-05; 21:32:58> true
+<2022-04-05; 21:32:58> 5.0
+<2022-04-05; 21:32:58> true
+<2022-04-05; 21:32:58> 2
+<2022-04-05; 21:32:58> 216
+<2022-04-05; 21:32:58> false
+<2022-04-05; 21:32:58> false
+<2022-04-05; 21:32:58> false
+<2022-04-05; 21:32:58> Successfully fetched and parsed settings from config file
+<2022-04-05; 21:32:58> Successfully initialized settings subsystem
+<2022-04-05; 21:32:58> Initializing decoder subsystem
+<2022-04-05; 21:32:58> Successfully initialized decoder subsystem
+<2022-04-05; 21:32:58> Initializing primary frame subsystem
+<2022-04-05; 21:32:58> Initializing main display subsystem
+<2022-04-05; 21:32:58> Successfuly initialized main display subsystem
+<2022-04-05; 21:32:58> Successfully initialized primary frame subsystem
+<2022-04-05; 21:32:59> Successfully initialized all subsystems
+<2022-04-05; 21:33:02> Decoding process started
+<2022-04-05; 21:33:02> Decoding data
+<2022-04-05; 21:33:02> Fetched and indexed input file
+<2022-04-05; 21:33:02> maxX: 2210 minX: -427; maxY: 64 minY: -1562
+<2022-04-05; 21:33:02> xRange: 2637 yRange: 1626
+
+<2022-04-05; 21:33:02> Successfully decoded data
+<2022-04-05; 21:33:02> Setting data to display
+<2022-04-05; 21:33:02> Successfully set data to display
+<2022-04-05; 21:33:02> Updating points
+<2022-04-05; 21:33:02> Updated points: 5834
+<2022-04-05; 21:33:02> Decoding process finished successfully
+<2022-04-05; 21:33:02> Initializing toolbar subsystem

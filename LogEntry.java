@@ -1,4 +1,5 @@
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class LogEntry implements Comparable {
   public LocalDateTime time;
@@ -17,7 +18,7 @@ public class LogEntry implements Comparable {
   }
   
   public String toString() {
-    return "Entry: " + this.playerName + ", " + this.time.toString() + ", " + this.position.toString();
+    return "Entry: " + this.playerName + ", " + this.time.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + ", " + this.position.toString();
   }
   
   public int compareTo(Object o) {

@@ -1,0 +1,51 @@
+<2022-04-05; 21:40:21> Player Tracker Decoder App v1.4.0 - LOG FILE
+<2022-04-05; 21:40:21> Initializing logger
+<2022-04-05; 21:40:21> Logger successfully initialized
+<2022-04-05; 21:40:21> Initializing primary system
+<2022-04-05; 21:40:21> Initializing settings subsystem
+<2022-04-05; 21:40:21> Fetching and parsing settings from config file
+<2022-04-05; 21:40:21> args: 12
+<2022-04-05; 21:40:21> 0
+<2022-04-05; 21:40:21> true
+<2022-04-05; 21:40:21> 0
+<2022-04-05; 21:40:21> true
+<2022-04-05; 21:40:21> 5.0
+<2022-04-05; 21:40:21> true
+<2022-04-05; 21:40:21> 2
+<2022-04-05; 21:40:21> 216
+<2022-04-05; 21:40:21> false
+<2022-04-05; 21:40:21> false
+<2022-04-05; 21:40:21> false
+<2022-04-05; 21:40:21> Successfully fetched and parsed settings from config file
+<2022-04-05; 21:40:21> Successfully initialized settings subsystem
+<2022-04-05; 21:40:21> Initializing decoder subsystem
+<2022-04-05; 21:40:21> Successfully initialized decoder subsystem
+<2022-04-05; 21:40:21> Initializing primary frame subsystem
+<2022-04-05; 21:40:21> Initializing main display subsystem
+<2022-04-05; 21:40:21> Successfuly initialized main display subsystem
+<2022-04-05; 21:40:21> Successfully initialized primary frame subsystem
+<2022-04-05; 21:40:22> Successfully initialized all subsystems
+<2022-04-05; 21:40:26> Decoding process started
+<2022-04-05; 21:40:26> Decoding data
+<2022-04-05; 21:40:26> Fetched and indexed input file
+<2022-04-05; 21:40:26> Fetched and indexed input file
+<2022-04-05; 21:40:26> Fetched and indexed input file
+<2022-04-05; 21:40:26> Fetched and indexed input file
+<2022-04-05; 21:40:26> maxX: 2210 minX: -427; maxY: 64 minY: -1570
+<2022-04-05; 21:40:26> xRange: 2637 yRange: 1634
+
+<2022-04-05; 21:40:26> Successfully decoded data
+<2022-04-05; 21:40:26> Setting data to display
+<2022-04-05; 21:40:26> Successfully set data to display
+<2022-04-05; 21:40:26> Updating points
+<2022-04-05; 21:40:26> Updated points: 9381
+<2022-04-05; 21:40:26> Decoding process finished successfully
+<2022-04-05; 21:40:26> Initializing toolbar subsystem
+<2022-04-05; 21:40:27> Successfully initialized toolbar subsystem
+<2022-04-05; 21:40:27> Selected files: 4
+<2022-04-05; 21:40:32> Started saving current screen as an image. Currently preparing the image
+<2022-04-05; 21:40:32> Starting to save the exported image file
+<2022-04-05; 21:40:32> Successfully saved current screen as an image
+<2022-04-05; 21:40:36> Started saving current screen as an image. Currently preparing the image
+<2022-04-05; 21:40:36> Starting to save the exported image file
+<2022-04-05; 21:40:36> Successfully saved current screen as an image

@@ -1,0 +1,47 @@
+
+[INFO]  <2022-04-06; 15:09:11> Player Tracker Decoder App v1.4.1 - LOG FILE
+[INFO]  <2022-04-06; 15:09:11> Initializing logger
+[INFO]  <2022-04-06; 15:09:11> Logger successfully initialized
+[INFO]  <2022-04-06; 15:09:11> Initializing primary system
+[INFO]  <2022-04-06; 15:09:11> Initializing settings subsystem
+[INFO]  <2022-04-06; 15:09:11> Fetching and parsing settings from config file
+[INFO]  <2022-04-06; 15:09:11> Settings: 12
+[INFO]  <2022-04-06; 15:09:11> 0
+[INFO]  <2022-04-06; 15:09:11> true
+[INFO]  <2022-04-06; 15:09:11> 0
+[INFO]  <2022-04-06; 15:09:11> true
+[INFO]  <2022-04-06; 15:09:11> 5.0
+[INFO]  <2022-04-06; 15:09:11> true
+[INFO]  <2022-04-06; 15:09:11> LINE
+[INFO]  <2022-04-06; 15:09:11> 216
+[INFO]  <2022-04-06; 15:09:11> false
+[INFO]  <2022-04-06; 15:09:11> false
+[INFO]  <2022-04-06; 15:09:11> false
+[INFO]  <2022-04-06; 15:09:11> Successfully fetched and parsed settings from config file
+[INFO]  <2022-04-06; 15:09:11> Successfully initialized settings subsystem
+[INFO]  <2022-04-06; 15:09:11> Initializing decoder subsystem
+[INFO]  <2022-04-06; 15:09:11> Successfully initialized decoder subsystem
+[INFO]  <2022-04-06; 15:09:11> Initializing primary frame subsystem
+[INFO]  <2022-04-06; 15:09:11> Initializing main display subsystem
+[INFO]  <2022-04-06; 15:09:11> Successfuly initialized main display subsystem
+[INFO]  <2022-04-06; 15:09:11> Successfully initialized primary frame subsystem
+[INFO]  <2022-04-06; 15:09:12> Successfully initialized all subsystems
+[INFO]  <2022-04-06; 15:09:23> Decoding process started
+[INFO]  <2022-04-06; 15:09:23> Decoding data
+[ERROR]  <2022-04-06; 15:09:23> Fetched and indexed input file
+[INFO]  <2022-04-06; 15:09:24> maxX: 2210 minX: -427; maxY: 64 minY: -1562
+[INFO]  <2022-04-06; 15:09:24> xRange: 2637 yRange: 1626
+[INFO]  <2022-04-06; 15:09:24> Successfully decoded data
+[INFO]  <2022-04-06; 15:09:24> Setting data to display
+[INFO]  <2022-04-06; 15:09:24> Successfully set data to display
+[INFO]  <2022-04-06; 15:09:24> Updating points
+[INFO]  <2022-04-06; 15:09:24> Updated points:
+5834
+[INFO]  <2022-04-06; 15:09:24> Decoding process finished successfully
+[INFO]  <2022-04-06; 15:09:24> Initializing toolbar subsystem
+[INFO]  <2022-04-06; 15:09:24> Successfully initialized toolbar subsystem
+[INFO]  <2022-04-06; 15:09:24> Selected files: 1
+[INFO]  <2022-04-06; 15:09:24> Initializing map renderer subsystem
+[INFO]  <2022-04-06; 15:09:24> Starting to render the inputted world
+[INFO]  <2022-04-06; 15:09:32> Successfully rendered the inputted world
+[INFO]  <2022-04-06; 15:09:32> Successfully initialized the map renderer subsystem

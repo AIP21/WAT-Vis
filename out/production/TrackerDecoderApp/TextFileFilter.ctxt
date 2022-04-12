@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=TextFileFilter
+comment0.text=ImageFilter.java\ is\ used\ by\ FileChooserDemo2.java.
+comment1.params=f
+comment1.target=boolean\ accept(java.io.File)
+comment2.params=
+comment2.target=java.lang.String\ getDescription()
+numComments=3

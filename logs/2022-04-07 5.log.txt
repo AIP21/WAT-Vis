@@ -1,0 +1,57 @@
+
+[INFO] <2022-04-07; 08:52:20> Player Tracker Decoder App v1.5.1 - LOG FILE
+[INFO] <2022-04-07; 08:52:20> Initializing logger
+[INFO] <2022-04-07; 08:52:20> Logger successfully initialized
+[INFO] <2022-04-07; 08:52:20> Initializing primary systems
+[INFO] <2022-04-07; 08:52:20> Initializing settings subsystem
+[INFO] <2022-04-07; 08:52:20> Fetching and parsing settings from config file
+[INFO] <2022-04-07; 08:52:20> Settings: 12
+[INFO] <2022-04-07; 08:52:20> 0
+[INFO] <2022-04-07; 08:52:20> true
+[INFO] <2022-04-07; 08:52:20> 0
+[INFO] <2022-04-07; 08:52:20> true
+[INFO] <2022-04-07; 08:52:20> 5.0
+[INFO] <2022-04-07; 08:52:20> true
+[INFO] <2022-04-07; 08:52:20> LINE
+[INFO] <2022-04-07; 08:52:20> 216
+[INFO] <2022-04-07; 08:52:20> false
+[INFO] <2022-04-07; 08:52:20> false
+[INFO] <2022-04-07; 08:52:20> false
+[INFO] <2022-04-07; 08:52:20> Successfully fetched and parsed settings from config file
+[INFO] <2022-04-07; 08:52:20> Successfully initialized settings subsystem
+[INFO] <2022-04-07; 08:52:20> Initializing decoder subsystem
+[INFO] <2022-04-07; 08:52:20> Successfully initialized decoder subsystem
+[INFO] <2022-04-07; 08:52:20> Initializing primary frame subsystem
+[INFO] <2022-04-07; 08:52:20> Initializing main display subsystem
+[INFO] <2022-04-07; 08:52:20> Successfully initialized main display subsystem
+[INFO] <2022-04-07; 08:52:20> Successfully initialized primary frame subsystem
+[INFO] <2022-04-07; 08:52:21> Successfully initialized all subsystems
+[INFO] <2022-04-07; 08:52:33> Decoding process started
+[INFO] <2022-04-07; 08:52:33> Decoding data
+[INFO] <2022-04-07; 08:52:33> Fetched and indexed input file
+[INFO] <2022-04-07; 08:52:33> Fetched and indexed input file
+[INFO] <2022-04-07; 08:52:33> Fetched and indexed input file
+[INFO] <2022-04-07; 08:52:33> maxX: 2210 minX: -427; maxY: 64 minY: -1570
+[INFO] <2022-04-07; 08:52:33> xRange: 2637 yRange: 1634
+[INFO] <2022-04-07; 08:52:33> Successfully decoded data
+[INFO] <2022-04-07; 08:52:33> Setting data to display
+[INFO] <2022-04-07; 08:52:33> Successfully set data to display
+[INFO] <2022-04-07; 08:52:33> Updating points
+[INFO] <2022-04-07; 08:52:33> Updated points: 8649
+[INFO] <2022-04-07; 08:52:33> Decoding process finished successfully
+[INFO] <2022-04-07; 08:52:33> Initializing toolbar subsystem
+[INFO] <2022-04-07; 08:52:33> Successfully initialized toolbar subsystem
+[INFO] <2022-04-07; 08:52:33> Selected files: 3
+[INFO] <2022-04-07; 08:52:33> World background images are present
+[INFO]   opening selection screen
+[INFO] <2022-04-07; 08:52:33> World background image is present
+[INFO]   loading world background image
+[ERROR] <2022-04-07; 08:52:35> Error reading selected world background image:
+[java.desktop/sun.awt.SunToolkit.imageCached(SunToolkit.java:878)
+[ERROR]   java.desktop/sun.lwawt.macosx.LWCToolkit.getImage(LWCToolkit.java:645)
+[ERROR]   Panel.LoadBackgroundImage(Panel.java:146)
+[ERROR]   Main.loadWorldImage(Main.java:221)
+[ERROR]   Main$1$1.run(Main.java:184)
+[ERROR]   java.base/java.lang.Thread.run(Thread.java:833)]
+[INFO] <2022-04-07; 08:52:35> Selected world background images: 3
+[INFO] <2022-04-07; 08:52:35> Successfully loaded world background image

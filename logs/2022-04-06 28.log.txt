@@ -1,0 +1,32 @@
+
+[INFO]   [INFO]  <2022-04-06; 14:37:45> Player Tracker Decoder App v1.4.1 - LOG FILE
+[INFO]   [INFO]  <2022-04-06; 14:37:45> Initializing logger
+[INFO]   [INFO]  <2022-04-06; 14:37:45> Logger successfully initialized
+[INFO]   [INFO]  <2022-04-06; 14:37:45> Initializing primary system
+[INFO]   [INFO]  <2022-04-06; 14:37:45> Initializing settings subsystem
+[INFO]   [INFO]  <2022-04-06; 14:37:45> Fetching and parsing settings from config file
+[INFO]   [INFO]  <2022-04-06; 14:37:45> Settings: 12
+[INFO]   [INFO]  <2022-04-06; 14:37:45> 0
+[INFO]   [INFO]  <2022-04-06; 14:37:45> true
+[INFO]   [INFO]  <2022-04-06; 14:37:45> 0
+[INFO]   [INFO]  <2022-04-06; 14:37:45> true
+[INFO]   [INFO]  <2022-04-06; 14:37:45> 5.0
+[INFO]   [INFO]  <2022-04-06; 14:37:45> true
+[INFO]   [INFO]  <2022-04-06; 14:37:45> LINE
+[INFO]   [INFO]  <2022-04-06; 14:37:45> 216
+[INFO]   [INFO]  <2022-04-06; 14:37:45> false
+[INFO]   [INFO]  <2022-04-06; 14:37:45> false
+[INFO]   [INFO]  <2022-04-06; 14:37:45> false
+[INFO]   [INFO]  <2022-04-06; 14:37:45> Successfully fetched and parsed settings from config file
+[INFO]   [INFO]  <2022-04-06; 14:37:45> Successfully initialized settings subsystem
+[INFO]   [INFO]  <2022-04-06; 14:37:45> Initializing map renderer subsystem
+[INFO]   [INFO]  <2022-04-06; 14:37:45> Starting to render the inputted world
+[INFO]   [INFO]  <2022-04-06; 14:37:52> Successfully rendered the inputted world
+[INFO]   [INFO]  <2022-04-06; 14:37:52> Successfully initialized the map renderer subsystem
+[INFO]   [INFO]  <2022-04-06; 14:37:52> Initializing decoder subsystem
+[INFO]   [INFO]  <2022-04-06; 14:37:52> Successfully initialized decoder subsystem
+[INFO]   [INFO]  <2022-04-06; 14:37:52> Initializing primary frame subsystem
+[INFO]   [INFO]  <2022-04-06; 14:37:52> Initializing main display subsystem
+[INFO]   [INFO]  <2022-04-06; 14:37:52> Successfuly initialized main display subsystem
+[INFO]   [INFO]  <2022-04-06; 14:37:52> Successfully initialized primary frame subsystem
+[INFO]   [INFO]  <2022-04-06; 14:37:53> Successfully initialized all subsystems

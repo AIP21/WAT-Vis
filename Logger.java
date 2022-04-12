@@ -1,35 +1,62 @@
 import java.io.File;
-import java.io.PrintWriter;
+import java.io.FileWriter;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
+import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 
-public class Logger
-{
+public class Logger {
     private File logFile;
-    
-    public Logger()
-    {
-        if(!new File("logs").exists()){
+
+    public Logger(String version) {
+        boolean created = false;
+        if (!new File("logs").exists()) {
             new File("logs").mkdir();
+            created = true;
         }
-        
-        logFile = new File("logs/log-" + LocalDateTime.now().toString() + ".txt");
+
+        String name = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        File[] logFiles = new File("logs/").listFiles();
+        int count = 0;
+
+        for (File file : logFiles) {
+            if (file.getName().contains(name)) {
+                count++;
+            }
+        }
+
+        name += (count != 0 ? " " + count : "") + ".log.txt";
+
+        logFile = new File("logs/" + name);
+        Log("Player Tracker Decoder App v" + version + " - LOG FILE", MessageType.INFO);
+        Log("Initializing logger", MessageType.INFO);
+
+        if (created) Log("Log file directory didn't exist, so it was created", MessageType.WARNING);
+
+        Log("Logger successfully initialized", MessageType.INFO);
     }
-    
-    public void Log(Object message) {
-        System.out.println(message);
-        try {
-            PrintWriter writer = new PrintWriter(logFile, StandardCharsets.UTF_8);
-            writer.println(LocalTime.now() + ": " +  message);
-            writer.close();
-        } catch(Exception e) {
-            e.printStackTrace();
+
+    public void Log(Object message, MessageType type) {
+        String toLog = ("[" + type.toString() + "] <" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd; HH:mm:ss")) + "> " + message + "\n   ");
+
+        if (type == MessageType.ERROR) {
+            toLog.replace(", ", "\n   ");
+            System.err.print(toLog);
+        } else {
+            System.out.print(toLog);
         }
+
+        try {
+            FileWriter writer = new FileWriter(logFile, true);
+            writer.append(toLog);
+            writer.close();
+        } catch (Exception e) {
+            Log("Error logging message:\n   " + Arrays.toString(e.getStackTrace()), MessageType.ERROR);
+        }
+    }
+
+    public enum MessageType {
+        INFO,
+        WARNING,
+        ERROR,
     }
 }

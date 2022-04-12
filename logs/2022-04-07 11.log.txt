@@ -1,0 +1,56 @@
+[INFO] <2022-04-07; 09:01:34> Player Tracker Decoder App v1.5.1 - LOG FILE
+   [INFO] <2022-04-07; 09:01:34> Initializing logger
+   [INFO] <2022-04-07; 09:01:34> Logger successfully initialized
+   [INFO] <2022-04-07; 09:01:34> Initializing primary systems
+   [INFO] <2022-04-07; 09:01:34> Initializing settings subsystem
+   [INFO] <2022-04-07; 09:01:34> Fetching and parsing settings from config file
+   [INFO] <2022-04-07; 09:01:34> Settings: 12
+   [INFO] <2022-04-07; 09:01:34> 0
+   [INFO] <2022-04-07; 09:01:34> true
+   [INFO] <2022-04-07; 09:01:34> 0
+   [INFO] <2022-04-07; 09:01:34> true
+   [INFO] <2022-04-07; 09:01:34> 5.0
+   [INFO] <2022-04-07; 09:01:34> true
+   [INFO] <2022-04-07; 09:01:34> LINE
+   [INFO] <2022-04-07; 09:01:34> 216
+   [INFO] <2022-04-07; 09:01:34> false
+   [INFO] <2022-04-07; 09:01:34> false
+   [INFO] <2022-04-07; 09:01:34> false
+   [INFO] <2022-04-07; 09:01:34> Successfully fetched and parsed settings from config file
+   [INFO] <2022-04-07; 09:01:34> Successfully initialized settings subsystem
+   [INFO] <2022-04-07; 09:01:34> Initializing decoder subsystem
+   [INFO] <2022-04-07; 09:01:34> Successfully initialized decoder subsystem
+   [INFO] <2022-04-07; 09:01:34> Initializing primary frame subsystem
+   [INFO] <2022-04-07; 09:01:34> Initializing main display subsystem
+   [INFO] <2022-04-07; 09:01:34> Successfully initialized main display subsystem
+   [INFO] <2022-04-07; 09:01:34> Successfully initialized primary frame subsystem
+   [INFO] <2022-04-07; 09:01:34> Successfully initialized all subsystems
+   [INFO] <2022-04-07; 09:01:38> Decoding process started
+   [INFO] <2022-04-07; 09:01:38> Decoding data
+   [INFO] <2022-04-07; 09:01:38> Fetched and indexed input file
+   [INFO] <2022-04-07; 09:01:38> maxX: 0 minX: -330; maxY: 59 minY: -1553
+   [INFO] <2022-04-07; 09:01:38> xRange: 330 yRange: 1612
+   [INFO] <2022-04-07; 09:01:38> Successfully decoded data
+   [INFO] <2022-04-07; 09:01:38> Setting data to display
+   [INFO] <2022-04-07; 09:01:38> Successfully set data to display
+   [INFO] <2022-04-07; 09:01:38> Updating points
+   [INFO] <2022-04-07; 09:01:38> Updated points: 461
+   [INFO] <2022-04-07; 09:01:38> Decoding process finished successfully
+   [INFO] <2022-04-07; 09:01:38> Initializing toolbar subsystem
+   [INFO] <2022-04-07; 09:01:38> Successfully initialized toolbar subsystem
+   [INFO] <2022-04-07; 09:01:38> Selected files: 1
+   [INFO] <2022-04-07; 09:01:38> World background images are present
+   opening selection screen
+   [INFO] <2022-04-07; 09:01:38> World background image is present
+   loading world background image
+   [INFO] <2022-04-07; 09:01:39> Selected world background images: 1
+   [INFO] <2022-04-07; 09:01:39> PATH: /Users/alexanderip/Home/TrackerDecoderApp/worldImages/NewHidden-WorldMapImage.png
+   [INFO] <2022-04-07; 09:01:39> res: null
+   [ERROR] <2022-04-07; 09:01:39> Error reading selected world background image:
+   [java.desktop/sun.awt.SunToolkit.imageCached(SunToolkit.java:878)
+   java.desktop/sun.lwawt.macosx.LWCToolkit.getImage(LWCToolkit.java:645)
+   Panel.LoadBackgroundImage(Panel.java:148)
+   Main.loadWorldImage(Main.java:223)
+   Main$1$1.run(Main.java:184)
+   java.base/java.lang.Thread.run(Thread.java:833)]
+   

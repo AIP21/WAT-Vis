@@ -1,0 +1,229 @@
+<2022-04-05; 09:18:33> Player Tracker Decoder App v1.4.0 - LOG FILE
+<2022-04-05; 09:18:33> Initializing logger
+<2022-04-05; 09:18:33> Logger successfully initialized
+<2022-04-05; 09:18:33> Initializing primary system
+<2022-04-05; 09:18:33> Initializing settings subsystem
+<2022-04-05; 09:18:33> Fetching and parsing settings from config file
+<2022-04-05; 09:18:33> args: 12
+<2022-04-05; 09:18:33> 0
+<2022-04-05; 09:18:33> true
+<2022-04-05; 09:18:33> 0
+<2022-04-05; 09:18:33> true
+<2022-04-05; 09:18:33> 5.0
+<2022-04-05; 09:18:33> true
+<2022-04-05; 09:18:33> 0
+<2022-04-05; 09:18:33> 216
+<2022-04-05; 09:18:33> false
+<2022-04-05; 09:18:33> false
+<2022-04-05; 09:18:33> false
+<2022-04-05; 09:18:33> Successfully fetched and parsed settings from config file
+<2022-04-05; 09:18:33> Successfully initialized settings subsystem
+<2022-04-05; 09:18:33> Initializing decoder subsystem
+<2022-04-05; 09:18:33> Successfully initialized decoder subsystem
+<2022-04-05; 09:18:33> Initializing primary frame subsystem
+<2022-04-05; 09:18:33> Initializing main display subsystem
+<2022-04-05; 09:18:33> Successfuly initialized main display subsystem
+<2022-04-05; 09:18:33> Successfully initialized primary frame subsystem
+<2022-04-05; 09:18:34> Successfully initialized all subsystems
+<2022-04-05; 09:18:37> Decoding process started
+<2022-04-05; 09:18:37> Decoding data
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:37> Fetched and indexed input file
+<2022-04-05; 09:18:39> maxX: 8634 minX: -6267; maxY: 2590 minY: -5018
+<2022-04-05; 09:18:39> xRange: 14901 yRange: 7608
+
+<2022-04-05; 09:18:39> Successfully decoded data
+<2022-04-05; 09:18:39> Setting data to display
+<2022-04-05; 09:18:39> Successfully set data to display
+<2022-04-05; 09:18:39> Updating points
+<2022-04-05; 09:18:39> Updated points: 102567
+<2022-04-05; 09:18:39> Decoding process finished successfully
+<2022-04-05; 09:18:39> Initializing toolbar subsystem
+<2022-04-05; 09:18:42> Successfully initialized toolbar subsystem
+<2022-04-05; 09:18:42> Selected files: 57
+<2022-04-05; 09:18:45> Saving and writing settings to config file
+<2022-04-05; 09:18:45> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:45> Changed draw size to: 0
+<2022-04-05; 09:18:45> Saving and writing settings to config file
+<2022-04-05; 09:18:45> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:45> Changed draw size to: 1
+<2022-04-05; 09:18:45> Saving and writing settings to config file
+<2022-04-05; 09:18:45> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:45> Changed draw size to: 2
+<2022-04-05; 09:18:45> Saving and writing settings to config file
+<2022-04-05; 09:18:45> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:45> Changed draw size to: 2
+<2022-04-05; 09:18:46> Saving and writing settings to config file
+<2022-04-05; 09:18:46> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:46> Changed draw size to: 2
+<2022-04-05; 09:18:46> Saving and writing settings to config file
+<2022-04-05; 09:18:46> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:46> Changed draw size to: 1
+<2022-04-05; 09:18:46> Saving and writing settings to config file
+<2022-04-05; 09:18:46> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:46> Changed draw size to: 0
+<2022-04-05; 09:18:46> Saving and writing settings to config file
+<2022-04-05; 09:18:46> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:46> Changed draw size to: 1
+<2022-04-05; 09:18:46> Saving and writing settings to config file
+<2022-04-05; 09:18:46> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:46> Changed draw size to: 2
+<2022-04-05; 09:18:46> Saving and writing settings to config file
+<2022-04-05; 09:18:46> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:46> Changed draw size to: 3
+<2022-04-05; 09:18:46> Saving and writing settings to config file
+<2022-04-05; 09:18:46> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:46> Changed draw size to: 4
+<2022-04-05; 09:18:46> Saving and writing settings to config file
+<2022-04-05; 09:18:46> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:46> Changed draw size to: 5
+<2022-04-05; 09:18:46> Saving and writing settings to config file
+<2022-04-05; 09:18:46> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:46> Changed draw size to: 7
+<2022-04-05; 09:18:46> Saving and writing settings to config file
+<2022-04-05; 09:18:46> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:46> Changed draw size to: 8
+<2022-04-05; 09:18:47> Saving and writing settings to config file
+<2022-04-05; 09:18:47> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:47> Changed draw size to: 9
+<2022-04-05; 09:18:47> Saving and writing settings to config file
+<2022-04-05; 09:18:47> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:47> Changed draw size to: 10
+<2022-04-05; 09:18:47> Saving and writing settings to config file
+<2022-04-05; 09:18:47> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:47> Changed draw size to: 12
+<2022-04-05; 09:18:47> Saving and writing settings to config file
+<2022-04-05; 09:18:47> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:47> Changed draw size to: 13
+<2022-04-05; 09:18:47> Saving and writing settings to config file
+<2022-04-05; 09:18:47> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:47> Changed draw size to: 14
+<2022-04-05; 09:18:47> Saving and writing settings to config file
+<2022-04-05; 09:18:47> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:47> Changed draw size to: 15
+<2022-04-05; 09:18:47> Saving and writing settings to config file
+<2022-04-05; 09:18:47> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:47> Changed draw size to: 16
+<2022-04-05; 09:18:47> Saving and writing settings to config file
+<2022-04-05; 09:18:47> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:47> Changed draw size to: 17
+<2022-04-05; 09:18:47> Saving and writing settings to config file
+<2022-04-05; 09:18:47> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:47> Changed draw size to: 16
+<2022-04-05; 09:18:47> Saving and writing settings to config file
+<2022-04-05; 09:18:47> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:47> Changed draw size to: 15
+<2022-04-05; 09:18:47> Saving and writing settings to config file
+<2022-04-05; 09:18:47> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:47> Changed draw size to: 14
+<2022-04-05; 09:18:47> Saving and writing settings to config file
+<2022-04-05; 09:18:47> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:47> Changed draw size to: 13
+<2022-04-05; 09:18:47> Saving and writing settings to config file
+<2022-04-05; 09:18:47> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:47> Changed draw size to: 12
+<2022-04-05; 09:18:47> Saving and writing settings to config file
+<2022-04-05; 09:18:47> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:47> Changed draw size to: 11
+<2022-04-05; 09:18:47> Saving and writing settings to config file
+<2022-04-05; 09:18:47> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:47> Changed draw size to: 10
+<2022-04-05; 09:18:47> Saving and writing settings to config file
+<2022-04-05; 09:18:47> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:47> Changed draw size to: 9
+<2022-04-05; 09:18:47> Saving and writing settings to config file
+<2022-04-05; 09:18:47> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:47> Changed draw size to: 8
+<2022-04-05; 09:18:47> Saving and writing settings to config file
+<2022-04-05; 09:18:47> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:47> Changed draw size to: 7
+<2022-04-05; 09:18:47> Saving and writing settings to config file
+<2022-04-05; 09:18:47> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:47> Changed draw size to: 6
+<2022-04-05; 09:18:47> Saving and writing settings to config file
+<2022-04-05; 09:18:47> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:47> Changed draw size to: 5
+<2022-04-05; 09:18:47> Saving and writing settings to config file
+<2022-04-05; 09:18:47> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:47> Changed draw size to: 4
+<2022-04-05; 09:18:48> Saving and writing settings to config file
+<2022-04-05; 09:18:48> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:48> Changed draw size to: 3
+<2022-04-05; 09:18:48> Saving and writing settings to config file
+<2022-04-05; 09:18:48> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:48> Changed draw size to: 3
+<2022-04-05; 09:18:52> Saving and writing settings to config file
+<2022-04-05; 09:18:52> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:52> Changed draw size to: 3
+<2022-04-05; 09:18:52> Saving and writing settings to config file
+<2022-04-05; 09:18:52> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:52> Changed draw size to: 2
+<2022-04-05; 09:18:53> Saving and writing settings to config file
+<2022-04-05; 09:18:53> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:53> Changed draw size to: 1
+<2022-04-05; 09:18:53> Saving and writing settings to config file
+<2022-04-05; 09:18:53> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:53> Changed draw size to: 0
+<2022-04-05; 09:18:54> Saving and writing settings to config file
+<2022-04-05; 09:18:54> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:54> Changed draw size to: 1
+<2022-04-05; 09:18:54> Saving and writing settings to config file
+<2022-04-05; 09:18:54> Successfully saved and wrote settings to config file
+<2022-04-05; 09:18:54> Changed draw size to: 1
+<2022-04-05; 09:19:03> Selected a log entry
+<2022-04-05; 09:19:06> Selected a log entry

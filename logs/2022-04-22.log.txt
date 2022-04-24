@@ -1,0 +1,28 @@
+[INFO] <2022-04-22; 12:24:00> Player Tracker Decoder App v1.5.5 - LOG FILE
+   [INFO] <2022-04-22; 12:24:00> Initializing logger
+   [INFO] <2022-04-22; 12:24:00> Logger successfully initialized
+   [INFO] <2022-04-22; 12:24:00> Initializing primary systems
+   [INFO] <2022-04-22; 12:24:00> Initializing settings subsystem
+   [INFO] <2022-04-22; 12:24:00> Fetching and parsing settings from config file
+   [INFO] <2022-04-22; 12:24:00> Settings: 12
+   [INFO] <2022-04-22; 12:24:00> 0
+   [INFO] <2022-04-22; 12:24:00> true
+   [INFO] <2022-04-22; 12:24:00> 0
+   [INFO] <2022-04-22; 12:24:00> true
+   [INFO] <2022-04-22; 12:24:00> 5.0
+   [INFO] <2022-04-22; 12:24:00> true
+   [INFO] <2022-04-22; 12:24:00> LINE
+   [INFO] <2022-04-22; 12:24:00> 260
+   [INFO] <2022-04-22; 12:24:00> false
+   [INFO] <2022-04-22; 12:24:00> false
+   [INFO] <2022-04-22; 12:24:00> false
+   [INFO] <2022-04-22; 12:24:00> Successfully fetched and parsed settings from config file
+   [INFO] <2022-04-22; 12:24:00> Successfully initialized settings subsystem
+   [INFO] <2022-04-22; 12:24:00> Initializing decoder subsystem
+   [INFO] <2022-04-22; 12:24:00> Successfully initialized decoder subsystem
+   [INFO] <2022-04-22; 12:24:00> Initializing primary frame subsystem
+   [INFO] <2022-04-22; 12:24:00> Initializing main display subsystem
+   [INFO] <2022-04-22; 12:24:00> Successfully initialized main display subsystem
+   [INFO] <2022-04-22; 12:24:00> Successfully initialized primary frame subsystem
+   [INFO] <2022-04-22; 12:24:02> Successfully initialized all subsystems
+   

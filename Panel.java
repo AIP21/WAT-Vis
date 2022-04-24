@@ -422,10 +422,10 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     public void mouseExited(MouseEvent e) {
     }
 
-    public void SaveAsImage(Main main) {
+    public void SaveAsImage(PlayerTrackerDecoder playerTrackerDecoder) {
         logger.Log("Started saving current screen as an image. Currently preparing the image", Logger.MessageType.INFO);
         imageExportStatus.setText("  Processing...");
-        main.repaint();
+        playerTrackerDecoder.repaint();
 
         System.gc();
 

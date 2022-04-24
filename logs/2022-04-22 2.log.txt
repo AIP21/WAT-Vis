@@ -1,0 +1,56 @@
+[INFO] <2022-04-22; 12:24:09> Player Tracker Decoder App v1.5.5 - LOG FILE
+   [INFO] <2022-04-22; 12:24:09> Initializing logger
+   [INFO] <2022-04-22; 12:24:09> Logger successfully initialized
+   [INFO] <2022-04-22; 12:24:09> Initializing primary systems
+   [INFO] <2022-04-22; 12:24:09> Initializing settings subsystem
+   [INFO] <2022-04-22; 12:24:09> Fetching and parsing settings from config file
+   [INFO] <2022-04-22; 12:24:09> Settings: 12
+   [INFO] <2022-04-22; 12:24:09> 0
+   [INFO] <2022-04-22; 12:24:09> true
+   [INFO] <2022-04-22; 12:24:09> 0
+   [INFO] <2022-04-22; 12:24:09> true
+   [INFO] <2022-04-22; 12:24:09> 5.0
+   [INFO] <2022-04-22; 12:24:09> true
+   [INFO] <2022-04-22; 12:24:09> LINE
+   [INFO] <2022-04-22; 12:24:09> 260
+   [INFO] <2022-04-22; 12:24:09> false
+   [INFO] <2022-04-22; 12:24:09> false
+   [INFO] <2022-04-22; 12:24:09> false
+   [INFO] <2022-04-22; 12:24:09> Successfully fetched and parsed settings from config file
+   [INFO] <2022-04-22; 12:24:09> Successfully initialized settings subsystem
+   [INFO] <2022-04-22; 12:24:09> Initializing decoder subsystem
+   [INFO] <2022-04-22; 12:24:09> Successfully initialized decoder subsystem
+   [INFO] <2022-04-22; 12:24:09> Initializing primary frame subsystem
+   [INFO] <2022-04-22; 12:24:09> Initializing main display subsystem
+   [INFO] <2022-04-22; 12:24:09> Successfully initialized main display subsystem
+   [INFO] <2022-04-22; 12:24:09> Successfully initialized primary frame subsystem
+   [INFO] <2022-04-22; 12:24:10> Successfully initialized all subsystems
+   [INFO] <2022-04-22; 12:24:21> Decoding process started
+   [INFO] <2022-04-22; 12:24:21> Decoding data
+   [INFO] <2022-04-22; 12:24:21> Fetched and indexed input file
+   [INFO] <2022-04-22; 12:24:21> Fetched and indexed input file
+   [INFO] <2022-04-22; 12:24:21> Fetched and indexed input file
+   [INFO] <2022-04-22; 12:24:21> Fetched and indexed input file
+   [INFO] <2022-04-22; 12:24:21> Fetched and indexed input file
+   [INFO] <2022-04-22; 12:24:21> Fetched and indexed input file
+   [INFO] <2022-04-22; 12:24:21> Fetched and indexed input file
+   [INFO] <2022-04-22; 12:24:21> Fetched and indexed input file
+   [INFO] <2022-04-22; 12:24:21> Fetched and indexed input file
+   [INFO] <2022-04-22; 12:24:21> Fetched and indexed input file
+   [INFO] <2022-04-22; 12:24:21> maxX: 1121 minX: -386; maxY: 388 minY: -1074
+   [INFO] <2022-04-22; 12:24:21> xRange: 1507 yRange: 1462
+   [INFO] <2022-04-22; 12:24:21> Successfully decoded data
+   [INFO] <2022-04-22; 12:24:21> Setting data to display
+   [INFO] <2022-04-22; 12:24:21> Successfully set data to display
+   [INFO] <2022-04-22; 12:24:21> Updating points
+   [INFO] <2022-04-22; 12:24:21> Updated points: 6231
+   [INFO] <2022-04-22; 12:24:21> Decoding process finished successfully
+   [INFO] <2022-04-22; 12:24:21> Initializing toolbar subsystem
+   [INFO] <2022-04-22; 12:24:21> Successfully initialized toolbar subsystem
+   [INFO] <2022-04-22; 12:24:21> Selected files: 10
+   [INFO] <2022-04-22; 12:24:21> World background images are present, opening selection screen
+   [INFO] <2022-04-22; 12:24:21> World background image is present, loading world background image
+   [INFO] <2022-04-22; 12:24:23> Selected world background images: 10
+   [INFO] <2022-04-22; 12:24:29> Loading world background image took 5860ms.
+   [INFO] <2022-04-22; 12:24:30> Successfully loaded world background image
+   

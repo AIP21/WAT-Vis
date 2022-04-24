@@ -1,7 +1,7 @@
 #BlueJ class context
-comment0.target=Main
+comment0.target=PlayerTrackerDecoder
 comment1.params=
-comment1.target=Main()
+comment1.target=PlayerTrackerDecoder()
 comment10.params=ev
 comment10.target=void\ itemStateChanged(java.awt.event.ItemEvent)
 comment11.params=event
@@ -25,7 +25,7 @@ comment19.target=void\ print(java.lang.Object)
 comment2.params=event
 comment2.target=void\ actionPerformed(java.awt.event.ActionEvent)
 comment3.params=args
-comment3.target=void\ main(java.lang.String[])
+comment3.target=void\ playerTrackerDecoder(java.lang.String[])
 comment4.params=
 comment4.target=void\ run()
 comment5.params=

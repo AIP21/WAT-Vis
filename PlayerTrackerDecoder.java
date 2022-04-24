@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Main extends JFrame {
+public class PlayerTrackerDecoder extends JFrame {
     private final JFileChooser chooser;
 
     private final JMenuBar menuBar;
@@ -128,7 +128,7 @@ public class Main extends JFrame {
 
     private final String version = "1.5.5";
 
-    public Main() {
+    public PlayerTrackerDecoder() {
         logger = new Logger(version);
 
         logger.Log("Initializing primary systems", Logger.MessageType.INFO);
@@ -168,7 +168,7 @@ public class Main extends JFrame {
 
         dataFileImportButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
-                int returnVal = chooser.showOpenDialog(Main.this);
+                int returnVal = chooser.showOpenDialog(PlayerTrackerDecoder.this);
                 files = chooser.getSelectedFiles();
                 if (returnVal == JFileChooser.APPROVE_OPTION) {
                     try {
@@ -210,7 +210,7 @@ public class Main extends JFrame {
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Main myFrame = new Main();
+                PlayerTrackerDecoder myFrame = new PlayerTrackerDecoder();
                 myFrame.setVisible(true);
             }
         });
@@ -256,7 +256,7 @@ public class Main extends JFrame {
         imgChooser.addChoosableFileFilter(new ImageFileFilter());
         imgChooser.setAcceptAllFileFilterUsed(false);
 
-        int returnVal = imgChooser.showOpenDialog(Main.this);
+        int returnVal = imgChooser.showOpenDialog(PlayerTrackerDecoder.this);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             logger.Log("Selected world background images: " + files.length, Logger.MessageType.INFO);
 
@@ -265,16 +265,19 @@ public class Main extends JFrame {
                 mainPanel.backgroundImage = mainPanel.LoadBackgroundImage(imgFile);
 
                 JComponent backgroundImagePanel = new JPanel();
+                backgroundImagePanel.setLayout(new GridLayout(0, 2));
+
                 backgroundImagePanel.add(new JLabel("World Background Image Offset:   "));
 
                 int width = mainPanel.backgroundImage.getWidth();
                 int height = mainPanel.backgroundImage.getHeight();
-                int defaultX = imgFile.getName().contains("Nether") ? -1020 : -6384;
-                int defaultY = imgFile.getName().contains("Nether") ? -2000 : -5376;
+                int defaultX = imgFile.getName().contains("Nether") ? -1008 : -6384;
+                int defaultY = imgFile.getName().contains("Nether") ? -1969 : -5376;
 
-                backgroundImagePanel.add(new JLabel("Overworld offset: (-6384, -5376) \n Nether offset: (-1020, -2000)"));
+                backgroundImagePanel.add(new JLabel("Overworld offset: (-6384, -5376) Nether offset: (-1008, -1969)"));
 
                 xOffsetSlider = new JSlider(0, -width, width, defaultX);
+                xOffsetSlider.setPreferredSize(new Dimension(100, 10));
                 xOffsetSlider.setPaintTicks(false);
                 xOffsetSlider.setMajorTickSpacing(1);
                 xOffsetSlider.setMinorTickSpacing(0);
@@ -307,7 +310,7 @@ public class Main extends JFrame {
                     public void stateChanged(ChangeEvent e) {
                         JSlider source = (JSlider) e.getSource();
                         int y = source.getValue();
-                        xLabel.setText("Y Offset: " + Integer.toString(y));
+                        yLabel.setText("Y Offset: " + Integer.toString(y));
                         mainPanel.yBackgroundOffset = y;
                         mainPanel.update = true;
                         mainPanel.repaint();
@@ -364,8 +367,9 @@ public class Main extends JFrame {
 
         //region Data
         JComponent dataPanel = new JPanel();
-        dataPanel.add(new JLabel("Dates To Represent:   "));
+        dataPanel.setLayout(new FlowLayout(1, 5, 5));
 
+        dataPanel.add(new JLabel("Dates To Represent:   "));
         dateRangeSlider = new RangeSlider(0, logDates.size() - 1);
         dateRangeSlider.setPreferredSize(new Dimension(600, 25));
         dateRangeSlider.setValue(0);
@@ -404,6 +408,8 @@ public class Main extends JFrame {
 
         //region Players
         JComponent playerPanel = new JPanel();
+        playerPanel.setLayout(new FlowLayout(1, 5, 5));
+
         playerPanel.add(new JLabel("Players"));
         playerColorButtons = new ArrayList<>();
         playerColorToggles = new ArrayList<>();
@@ -418,7 +424,7 @@ public class Main extends JFrame {
 
             colButton.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent event) {
-                    Color selectedColor = JColorChooser.showDialog(Main.this, "Select player color", mainPanel.playerNameColorMap.get(player));
+                    Color selectedColor = JColorChooser.showDialog(PlayerTrackerDecoder.this, "Select player color", mainPanel.playerNameColorMap.get(player));
                     colButton.setForeground(selectedColor);
                     mainPanel.playerNameColorMap.put(player, selectedColor);
                     mainPanel.update = true;
@@ -444,6 +450,8 @@ public class Main extends JFrame {
 
         //region Render
         JComponent renderPanel = new JPanel();
+        renderPanel.setLayout(new FlowLayout(1, 5, 5));
+
         drawTypeChooser = new JComboBox<>(new Decoder.DrawType[]{Decoder.DrawType.PIXEL, Decoder.DrawType.DOT, Decoder.DrawType.LINE});
         drawTypeChooser.setSelectedItem(settings._drawType);
         drawTypeChooser.addActionListener(new ActionListener() {
@@ -554,10 +562,12 @@ public class Main extends JFrame {
 
         //region Export
         JComponent exportPanel = new JPanel();
+        exportPanel.setLayout(new FlowLayout(1, 5, 5));
+
         exportAsImageButton = new JMenuItem("Export As Image");
         exportAsImageButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
-                mainPanel.SaveAsImage(Main.this);
+                mainPanel.SaveAsImage(PlayerTrackerDecoder.this);
             }
         });
         exportPanel.add(exportAsImageButton);

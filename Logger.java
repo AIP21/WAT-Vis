@@ -27,7 +27,7 @@ public class Logger {
         name += (count != 0 ? " " + count : "") + ".log.txt";
 
         logFile = new File("logs/" + name);
-        Log("Player Tracker Decoder App v" + version + " - LOG FILE", MessageType.INFO);
+        Log("   Player Tracker Decoder App v" + version + " - LOG FILE", MessageType.INFO);
         Log("Initializing logger", MessageType.INFO);
 
         if (created) Log("Log file directory didn't exist, so it was created", MessageType.WARNING);
@@ -36,13 +36,14 @@ public class Logger {
     }
 
     public void Log(Object message, MessageType type) {
-        String toLog = ("[" + type.toString() + "] <" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd; HH:mm:ss")) + "> " + message + "\n   ");
+        String toLog = ("[" + type.toString() + "] <" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd; HH:mm:ss.SSS")) + "> " + message + "\n   ");
 
         if (type == MessageType.ERROR) {
-            toLog.replace(", ", "\n   ");
-            System.err.print(toLog);
+            System.err.print("\u001B[0m" + toLog.replace(", ", "\n   "));
+        } else if (type == MessageType.WARNING) {
+            System.out.print("\u001B[33m" + toLog);
         } else {
-            System.out.print(toLog);
+            System.out.print("\u001B[0m" + toLog);
         }
 
         try {

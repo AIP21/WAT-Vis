@@ -44,11 +44,7 @@ public class TextFileFilter extends FileFilter {
  
         String extension = Utils.getExtension(f);
         if (extension != null) {
-            if (extension.equals(Utils.txt)) {
-                    return true;
-            } else {
-                return false;
-            }
+            return extension.equals(Utils.txt);
         }
  
         return false;

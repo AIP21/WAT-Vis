@@ -1,1 +1,0 @@
-17:39:56.399485: Decoding and parsing text file successfully completed

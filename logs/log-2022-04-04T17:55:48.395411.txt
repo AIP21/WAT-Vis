@@ -1,1 +1,0 @@
-17:55:55.726633: [Ljava.lang.StackTraceElement;@37a58cbb

@@ -10,24 +10,21 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 public class Panel extends JPanel implements MouseWheelListener, MouseListener, MouseMotionListener, Runnable {
-    private final float ZOOM_INCREMENT = 1.05F;
-
-    private final int MAX_ZOOM = 50;
-
-    private final float MIN_ZOOM = 0.02F;
 
     private final Settings settings;
 
-    private final boolean isRunning = true;
+    private boolean isRunning = true;
 
     public boolean update = false;
 
     public ArrayList<LogEntry> logEntries = new ArrayList<>();
+    public ArrayList<LocalDateTime> logDates = new ArrayList<>();
 
     public Map<String, Color> playerNameColorMap = new LinkedHashMap<>();
-    public Map<String, Boolean> playerNameEnabledMap = new LinkedHashMap<>();
-
     public Map<String, Vector3> playerLastPosMap = new LinkedHashMap<>();
+    public Map<String, Integer> playerMarkerCount = new LinkedHashMap<>();
+
+    public Map<String, Boolean> playerNameEnabledMap = new LinkedHashMap<>();
 
     public JLabel CoordinateLabel;
 
@@ -75,22 +72,12 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
     public int xBackgroundOffset, yBackgroundOffset;
 
-    //public boolean singleDate = false;
-
-    //public LocalDateTime selectedDate;
-
     public LocalDateTime startDate;
 
     public LocalDateTime endDate;
 
     public int upscale = 1;
     public JLabel imageExportStatus;
-
-    //public int selectedHour;
-
-    //private int startHour;
-
-    //private int endHour;
 
     private Map<LocalDateTime, ArrayList<LogEntry>> logEntriesGroupedByTime = new LinkedHashMap<>();
 
@@ -104,12 +91,23 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
     private int totalData;
 
-    private Logger logger;
+    private final Logger logger;
 
     public float backgroundOpacity = 0.5f;
 
-    public Panel(Settings set, Logger log) {
+    public boolean isPlaying = false;
+    public int timesCount;
+
+    public int dateTimeIndex = 0;
+    private final int TARGET_FPS = 30;
+    private final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;
+
+    private PlayerTrackerDecoder main;
+
+    public Panel(Settings set, Logger log, PlayerTrackerDecoder main) {
         super(true);
+
+        this.main = main;
         logger = log;
 
         logger.Log("Initializing main display subsystem", Logger.MessageType.INFO);
@@ -137,9 +135,6 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
         BufferedImage image = ImageIO.read(imageFile);
 
-        //BufferedImage convertedImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_ARGB);
-        //convertedImage.getGraphics().drawImage(image, 0, 0, null);
-
         final long durMs = System.currentTimeMillis() - nowMs;
 
         logger.Log("Loading world background image took " + durMs + "ms.", Logger.MessageType.INFO);
@@ -147,8 +142,46 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         return image;
     }
 
+    /*
+     * Game Loop of the app. It uses fixed timestep.
+     * Optimal time represents time needed to update one frame.
+     * Update time represents time actually taken to update one frame.
+     *
+     * By calculating the difference between optimal and actual time,
+     * we can let Thread to sleep for the exact time we are aiming for, which is 60 FPS.
+     */
     public void run() {
+        long now;
+        long updateTime;
+        long wait;
 
+        while (isRunning) {
+            now = System.nanoTime();
+
+            if (isPlaying) {
+                if (dateTimeIndex < timesCount) {
+                    endDate = logDates.get(dateTimeIndex);
+                    updatePoints(false);
+                    dateTimeIndex++;
+                } else {
+                    logger.Log("Finished playing", Logger.MessageType.INFO);
+                    isPlaying = false;
+                }
+
+                main.dateRangeSlider.setUpperValue(dateTimeIndex);
+                main.startDateLabel.setText(startDate.toString().replace("T", "; "));
+                main.endDateLabel.setText(endDate.toString().replace("T", "; "));
+            }
+
+            updateTime = System.nanoTime() - now;
+            wait = (OPTIMAL_TIME - updateTime) / 1000000;
+
+            try {
+                Thread.sleep(wait);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void paintComponent(Graphics g) {
@@ -246,29 +279,48 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         Point pt = new Point();
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         renderedPoints = 0;
+        playerLastPosMap.clear();
+        ArrayList<String> playerFirst = new ArrayList<>();
+        Map<String, Integer> playerOccurences = new LinkedHashMap<>();
+
         for (LocalDateTime time : logEntriesGroupedByTime.keySet()) {
             ArrayList<LogEntry> entries = logEntriesGroupedByTime.get(time);
+
             for (LogEntry entry : entries) {
                 if (playerNameEnabledMap.get(entry.playerName)) {
+                    if (!playerOccurences.containsKey(entry.playerName)) playerOccurences.put(entry.playerName, 1);
+                    else {
+                        playerOccurences.put(entry.playerName, playerOccurences.get(entry.playerName) + 1);
+                    }
+
                     if (at != null) at.transform(entry.position.toPoint(), pt);
 
                     int x = (entry.position.x + (offset != 0 ? -minX : 0) + offset) * upscale;
                     int y = (entry.position.z + (offset != 0 ? -minY : 0) + offset) * upscale;
 
-                    if (!useCulling || (pt.x >= -50 && pt.x <= screenSize.width + 50 && pt.y >= -50 && pt.y <= screenSize.height + 50)) {
-                        renderedPoints++;
+                    if (settings.terminusPoints && !playerFirst.contains(entry.playerName)) {
+                        playerFirst.add(entry.playerName);
                         g2d.setColor(playerNameColorMap.get(entry.playerName));
+                        drawDot(g2d, x, y, settings.size + 7, false);
+                    }
+
+                    if (!useCulling || (pt.x >= -50 && pt.x <= screenSize.width + 50 && pt.y >= -50 && pt.y <= screenSize.height + 50)) {
+                        Color col = playerNameColorMap.get(entry.playerName);
+                        int val = settings.ageFade ? Utils.lerp(0, 255, (float) playerOccurences.get(entry.playerName) / (float) (settings.ageFadeThreshold == 0 ? playerMarkerCount.get(entry.playerName) : settings.ageFadeThreshold)) : 255;
+                        g2d.setColor(new Color(col.getRed(), col.getGreen(), col.getBlue(), Math.max(0, Math.min(255, val))));
 
                         if (settings._drawType == Decoder.DrawType.PIXEL) {
                             drawRectangle(g2d, x, y, settings.size, true);
+                            renderedPoints++;
                         } else if (settings._drawType == Decoder.DrawType.DOT) {
                             drawDot(g2d, x, y, settings.size, true);
+                            renderedPoints++;
                         } else if (settings._drawType == Decoder.DrawType.LINE) {
                             Vector3 lastPos = playerLastPosMap.get(entry.playerName);
 
-                            if (settings.hiddenLines || (Math.abs(entry.position.x - lastPos.x) <= settings.lineThreshold && Math.abs(entry.position.z - lastPos.z) <= settings.lineThreshold)) {
+                            if (lastPos != null && (settings.hiddenLines || (Math.abs(entry.position.x - lastPos.x) <= settings.lineThreshold && Math.abs(entry.position.z - lastPos.z) <= settings.lineThreshold))) {
                                 if (settings.hiddenLines && (Math.abs(entry.position.x - lastPos.x) > settings.lineThreshold || Math.abs(entry.position.z - lastPos.z) > settings.lineThreshold)) {
-                                    g2d.setStroke(new BasicStroke((settings.size / 2), 0, 0, 10.0F, new float[]{9.0F}, 0.0F));
+                                    g2d.setStroke(new BasicStroke((settings.size / 2.0F), BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10.0F, new float[]{9.0F}, 0.0F));
                                 } else {
                                     g2d.setStroke(new BasicStroke(settings.size));
                                 }
@@ -278,10 +330,28 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
                                 } else {
                                     drawLine(g2d, x, y, (lastPos.x + (offset != 0 ? -minX : 0) + offset) * upscale, (lastPos.z + (offset != 0 ? -minY : 0) + offset) * upscale, settings.size);
                                 }
+                                renderedPoints++;
                             }
 
                             playerLastPosMap.put(entry.playerName, entry.position);
                         }
+                    }
+                }
+            }
+        }
+
+        if (settings.terminusPoints && settings._drawType == Decoder.DrawType.LINE) {
+            for (String name : playerLastPosMap.keySet()) {
+                if (playerNameEnabledMap.get(name)) {
+                    Vector3 pos = playerLastPosMap.get(name);
+                    if (at != null) at.transform(pos.toPoint(), pt);
+
+                    int x = (pos.x + (offset != 0 ? -minX : 0) + offset) * upscale;
+                    int y = (pos.z + (offset != 0 ? -minY : 0) + offset) * upscale;
+
+                    if (!useCulling || (pt.x >= -50 && pt.x <= screenSize.width + 50 && pt.y >= -50 && pt.y <= screenSize.height + 50)) {
+                        g2d.setColor(playerNameColorMap.get(name));
+                        drawDot(g2d, x, y, settings.size + 5, false);
                     }
                 }
             }
@@ -317,35 +387,50 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         g2d.fillPolygon(new int[]{(int) x2, (int) xm, (int) xn}, new int[]{(int) y2, (int) ym, (int) yn}, 3);
     }
 
-    public void updatePoints() {
-        logger.Log("Updating points", Logger.MessageType.INFO);
+    public void updatePoints(boolean log) {
+        if (log) logger.Log("Updating points", Logger.MessageType.INFO);
 
         logEntriesGroupedByTime = new LinkedHashMap<>();
+        playerMarkerCount = new LinkedHashMap<>();
+
         for (LogEntry entry : logEntries) {
             //if (((singleDate && !entry.isChunk && entry.time.toLocalDate().equals(selectedDate)) || (!singleDate && ((entry.time.toLocalDate().isAfter(startDate) && entry.time.toLocalDate().isBefore(endDate)) || entry.time.toLocalDate().equals(startDate) || entry.time.toLocalDate().equals(endDate)))) && ((
             //  singleTime && entry.time.toLocalTime().getHour() == selectedHour) || (!singleTime && entry.time.toLocalTime().getHour() >= startHour && entry.time.toLocalTime().getHour() <= endHour))) {
             if (!entry.isChunk && ((entry.time.isAfter(startDate) && entry.time.isBefore(endDate)) || entry.time.equals(startDate) || entry.time.equals(endDate))) {
                 logEntriesGroupedByTime.putIfAbsent(entry.time, new ArrayList<>());
                 logEntriesGroupedByTime.get(entry.time).add(entry);
+
+                if (!playerMarkerCount.containsKey(entry.playerName)) playerMarkerCount.put(entry.playerName, 1);
+                else {
+                    playerMarkerCount.put(entry.playerName, playerMarkerCount.get(entry.playerName) + 1);
+                }
             }
         }
         update = true;
         repaint();
 
-        logger.Log("Updated points: " + logEntriesGroupedByTime.size(), Logger.MessageType.INFO);
+        if (log) logger.Log("Updated points: " + logEntriesGroupedByTime.size(), Logger.MessageType.INFO);
     }
 
     public void setData(Decoder dec) {
         logger.Log("Setting data to display", Logger.MessageType.INFO);
 
         _Decoder = dec;
-        logEntries = new ArrayList<>();
-        playerNameColorMap = new LinkedHashMap<>();
-        playerLastPosMap = new LinkedHashMap<>();
         logEntries = _Decoder.logEntries;
+        logDates = _Decoder.logDates;
+
+        for (LogEntry entry : logEntries) {
+            logEntriesGroupedByTime.putIfAbsent(entry.time, new ArrayList<>());
+            logEntriesGroupedByTime.get(entry.time).add(entry);
+        }
+        timesCount = logEntriesGroupedByTime.size();
+        logEntriesGroupedByTime.clear();
+
         playerNameColorMap = _Decoder.playerNameColorMap;
         playerNameEnabledMap = _Decoder.playerNameEnabledMap;
+
         playerLastPosMap = _Decoder.playerLastPosMap;
+
         minX = _Decoder.minX;
         minY = _Decoder.minY;
         maxX = _Decoder.maxX;
@@ -398,7 +483,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
                     selectedEntry = entry;
                     SelectedEntryLabel.setText(entry.toString());
 
-                    logger.Log("Selected a log entry:\n" + entry.toString(), Logger.MessageType.INFO);
+                    logger.Log("Selected a log entry:\n" + entry, Logger.MessageType.INFO);
                 }
             }
         }
@@ -457,29 +542,35 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         logger.Log("Starting to save the exported image file", Logger.MessageType.INFO);
 
         if (!new File("outputs").exists()) {
-            new File("outputs").mkdir();
-            logger.Log("Outputs folder to save exported image didn't exist so it was just created", Logger.MessageType.WARNING);
+            boolean val = new File("outputs").mkdir();
+            logger.Log("Outputs folder to save exported image didn't exist so it was just created with result: " + val, Logger.MessageType.WARNING);
         }
 
         String name = settings._drawType + "-pointMap-" + _Decoder.dataWorld + "-" + _Decoder.dataDate;
         File[] logFiles = new File("outputs/").listFiles();
         int count = 0;
 
-        for (File file : logFiles) {
-            if (file.getName().contains(name)) {
-                count++;
+        if (logFiles != null) {
+            for (File file : logFiles) {
+                if (file.getName().contains(name)) {
+                    count++;
+                }
             }
+
+            name += (count != 0 ? " " + count : "") + ".png";
+
+            try {
+                if (image != null) {
+                    ImageIO.write(image, "png", new File("outputs/" + name));
+                    logger.Log("Successfully saved current screen as an image", Logger.MessageType.INFO);
+                } else {
+                    logger.Log("Image to save is null", Logger.MessageType.ERROR);
+                }
+            } catch (Exception e) {
+                logger.Log("Error saving current screen as an image:\n   " + Arrays.toString(e.getStackTrace()), Logger.MessageType.ERROR);
+            }
+
+            imageExportStatus.setText("   Done!");
         }
-
-        name += (count != 0 ? " " + count : "") + ".png";
-
-        try {
-            ImageIO.write(image, "png", new File("outputs/" + name));
-            logger.Log("Successfully saved current screen as an image", Logger.MessageType.INFO);
-        } catch (Exception e) {
-            logger.Log("Error saving current screen as an image:\n   " + Arrays.toString(e.getStackTrace()), Logger.MessageType.ERROR);
-        }
-
-        imageExportStatus.setText("   Done!");
     }
 }

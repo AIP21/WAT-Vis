@@ -28,13 +28,14 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+
+import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import javax.swing.ImageIcon;
- 
+
 /* Utils.java is used by FileChooserDemo2.java. */
 public class Utils {
     public final static String jpeg = "jpeg";
@@ -44,7 +45,7 @@ public class Utils {
     public final static String tif = "tif";
     public final static String png = "png";
     public final static String txt = "txt";
- 
+
     /*
      * Get the extension of a file.
      */
@@ -52,14 +53,16 @@ public class Utils {
         String ext = null;
         String s = f.getName();
         int i = s.lastIndexOf('.');
- 
-        if (i > 0 &&  i < s.length() - 1) {
-            ext = s.substring(i+1).toLowerCase();
+
+        if (i > 0 && i < s.length() - 1) {
+            ext = s.substring(i + 1).toLowerCase();
         }
         return ext;
     }
 
-    /** Returns an ImageIcon, or null if the path was invalid. */
+    /**
+     * Returns an ImageIcon, or null if the path was invalid.
+     */
     protected static ImageIcon createImageIcon(String path) {
         java.net.URL imgURL = Utils.class.getResource(path);
         if (imgURL != null) {
@@ -78,5 +81,13 @@ public class Utils {
         }
 
         return false;
+    }
+
+    public static float lerp(float a, float b, float f) {
+        return a + f * (b - a);
+    }
+
+    public static int lerp(int a, int b, float f) {
+        return (int)(a + f * (b - a));
     }
 }

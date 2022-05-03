@@ -3,17 +3,12 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.text.NumberFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Decoder {
     private final Random rand = new Random();
-
-    private final Runtime runtime = Runtime.getRuntime();
-
-    private final NumberFormat format = NumberFormat.getInstance();
 
     private final ArrayList<File> inputFiles = new ArrayList<>();
 
@@ -43,10 +38,7 @@ public class Decoder {
 
     public int yRange;
 
-    private Logger logger;
-
-    public LocalDateTime firstDate = null;
-    public LocalDateTime lastDate = null;
+    private final Logger logger;
 
     public String dataWorld;
     public String dataDate;
@@ -69,7 +61,7 @@ public class Decoder {
                 for (File file : files) {
                     if (file.isFile() && file.getName().endsWith(".txt")) {
                         inputFiles.add(file);
-                        String str = file.getName().substring(file.getName().lastIndexOf('-') - 7, file.getName().lastIndexOf('-') + 3);
+//                        String str = file.getName().substring(file.getName().lastIndexOf('-') - 7, file.getName().lastIndexOf('-') + 3);
 
                         logger.Log("Fetched and indexed input file", Logger.MessageType.INFO);
                     }
@@ -90,36 +82,35 @@ public class Decoder {
 
                         String[] items = line.split(";");
 
+                        LocalDateTime date;
                         if (items[0].length() < 8) {
-                            LocalDateTime date = LocalDateTime.parse(inputFile.getName().substring(inputFile.getName().lastIndexOf('-') - 7, inputFile.getName().lastIndexOf('-') + 3) + ":" + items[0], DateTimeFormatter.ofPattern("yyyy-MM-dd:HH:mm"));
-                            logEntries.add(new LogEntry(date, items[1], items[2].contains("(") ? Vector3.parseVector3(items[2], settings.upscaleMultiplier) : Vector3.parseVector3FromChunk(items[2], settings.convertChunkPosToBlockPos, settings.upscaleMultiplier), items[2].contains("[")));
-                            logDates.add(date);
+                            date = LocalDateTime.parse(inputFile.getName().substring(inputFile.getName().lastIndexOf('-') - 7, inputFile.getName().lastIndexOf('-') + 3) + ":" + items[0], DateTimeFormatter.ofPattern("yyyy-MM-dd:HH:mm"));
                         } else {
-                            LocalDateTime date = LocalDateTime.parse(inputFile.getName().substring(inputFile.getName().lastIndexOf('-') - 7, inputFile.getName().lastIndexOf('-') + 3) + ":" + items[0], DateTimeFormatter.ofPattern("yyyy-MM-dd:HH:mm:ss"));
-                            logEntries.add(new LogEntry(date, items[1], items[2].contains("(") ? Vector3.parseVector3(items[2], settings.upscaleMultiplier) : Vector3.parseVector3FromChunk(items[2], settings.convertChunkPosToBlockPos, settings.upscaleMultiplier), items[2].contains("[")));
-                            logDates.add(date);
+                            date = LocalDateTime.parse(inputFile.getName().substring(inputFile.getName().lastIndexOf('-') - 7, inputFile.getName().lastIndexOf('-') + 3) + ":" + items[0], DateTimeFormatter.ofPattern("yyyy-MM-dd:HH:mm:ss"));
                         }
+                        logEntries.add(new LogEntry(date, items[1], items[2].contains("(") ? Vector3.parseVector3(items[2], settings.upscaleMultiplier) : Vector3.parseVector3FromChunk(items[2], settings.convertChunkPosToBlockPos, settings.upscaleMultiplier), items[2].contains("[")));
+                        logDates.add(date);
 
                         if (!playerNameColorMap.containsKey(items[1]))
-                            playerNameColorMap.put(items[1], randomColor());
+                            playerNameColorMap.put(items[1], randomColor(0));
 
                         if (!playerNameEnabledMap.containsKey(items[1]))
                             playerNameEnabledMap.put(items[1], true);
 
                         if (!playerLastPosMap.containsKey(items[1]))
-                            playerLastPosMap.put(items[1], ((LogEntry) logEntries.get(logEntries.size() - 1)).position);
+                            playerLastPosMap.put(items[1], logEntries.get(logEntries.size() - 1).position);
 
-                        if (((LogEntry) logEntries.get(logEntries.size() - 1)).position.x < minX)
-                            minX = ((LogEntry) logEntries.get(logEntries.size() - 1)).position.x;
+                        if (logEntries.get(logEntries.size() - 1).position.x < minX)
+                            minX = logEntries.get(logEntries.size() - 1).position.x;
 
-                        if (((LogEntry) logEntries.get(logEntries.size() - 1)).position.x > maxX)
-                            maxX = ((LogEntry) logEntries.get(logEntries.size() - 1)).position.x;
+                        if (logEntries.get(logEntries.size() - 1).position.x > maxX)
+                            maxX = logEntries.get(logEntries.size() - 1).position.x;
 
-                        if (((LogEntry) logEntries.get(logEntries.size() - 1)).position.z < minY)
-                            minY = ((LogEntry) logEntries.get(logEntries.size() - 1)).position.z;
+                        if (logEntries.get(logEntries.size() - 1).position.z < minY)
+                            minY = logEntries.get(logEntries.size() - 1).position.z;
 
-                        if (((LogEntry) logEntries.get(logEntries.size() - 1)).position.z > maxY)
-                            maxY = ((LogEntry) logEntries.get(logEntries.size() - 1)).position.z;
+                        if (logEntries.get(logEntries.size() - 1).position.z > maxY)
+                            maxY = logEntries.get(logEntries.size() - 1).position.z;
                     }
                     br.close();
                 } catch (IOException e) {
@@ -145,11 +136,11 @@ public class Decoder {
         }
     }
 
-    private Color randomColor() {
+    private Color randomColor(int iter) {
         Color col = (new Color(rand.nextFloat(), rand.nextFloat(), rand.nextFloat())).darker();
         col = col.darker();
-        if (containsSimilarColor(generatedColors, col))
-            return randomColor();
+        if (containsSimilarColor(generatedColors, col) && iter < 100)
+            return randomColor(iter + 1);
         generatedColors.add(col);
         return col;
     }
@@ -173,6 +164,6 @@ public class Decoder {
     }
 
     public enum DrawType {
-        PIXEL, DOT, LINE;
+        PIXEL, DOT, LINE
     }
 }

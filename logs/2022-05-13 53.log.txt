@@ -1,0 +1,61 @@
+[INFO] <2022-05-13; 17:37:10.416>    Player Tracker Decoder App v1.7.0 - LOG FILE
+   [INFO] <2022-05-13; 17:37:10.418> Initializing logger
+   [INFO] <2022-05-13; 17:37:10.418> Logger successfully initialized
+   [INFO] <2022-05-13; 17:37:10.418> Initializing primary systems
+   [INFO] <2022-05-13; 17:37:10.420> Initializing settings subsystem
+   [INFO] <2022-05-13; 17:37:10.420> Fetching and parsing settings from config file
+   [INFO] <2022-05-13; 17:37:10.421> Settings: 17
+   [INFO] <2022-05-13; 17:37:10.422> 1
+   [INFO] <2022-05-13; 17:37:10.422> true
+   [INFO] <2022-05-13; 17:37:10.423> 0
+   [INFO] <2022-05-13; 17:37:10.423> true
+   [INFO] <2022-05-13; 17:37:10.424> 5.0
+   [INFO] <2022-05-13; 17:37:10.425> true
+   [INFO] <2022-05-13; 17:37:10.425> Heat
+   [INFO] <2022-05-13; 17:37:10.426> 200
+   [INFO] <2022-05-13; 17:37:10.426> false
+   [INFO] <2022-05-13; 17:37:10.426> true
+   [INFO] <2022-05-13; 17:37:10.426> false
+   [INFO] <2022-05-13; 17:37:10.427> false
+   [INFO] <2022-05-13; 17:37:10.427> true
+   [INFO] <2022-05-13; 17:37:10.427> ageFadeThreshold: 0
+   [INFO] <2022-05-13; 17:37:10.427> ChangeSize
+   [INFO] <2022-05-13; 17:37:10.428> 0
+   [INFO] <2022-05-13; 17:37:10.428> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-13; 17:37:10.429> Successfully initialized settings subsystem
+   [INFO] <2022-05-13; 17:37:10.430> Initializing decoder subsystem
+   [INFO] <2022-05-13; 17:37:10.430> Successfully initialized decoder subsystem
+   [INFO] <2022-05-13; 17:37:10.430> Initializing primary frame subsystem
+   [INFO] <2022-05-13; 17:37:10.435> Initializing main display subsystem
+   [INFO] <2022-05-13; 17:37:10.435> Antialiasing enabled on main display panel
+   [INFO] <2022-05-13; 17:37:10.436> Successfully initialized main display subsystem
+   [INFO] <2022-05-13; 17:37:10.444> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-13; 17:37:10.444> Loading resources
+   [INFO] <2022-05-13; 17:37:11.412> Successfully initialized all subsystems
+   [INFO] <2022-05-13; 17:37:18.780> Selected files: 6
+   [INFO] <2022-05-13; 17:37:18.781> Decoding process started
+   [INFO] <2022-05-13; 17:37:18.782> Decoding data
+   [INFO] <2022-05-13; 17:37:18.783> Fetched and indexed input file: server-overworld-log-2022-03-30.txt
+   [INFO] <2022-05-13; 17:37:18.784> Fetched and indexed input file: server-overworld-log-2022-03-29.txt
+   [INFO] <2022-05-13; 17:37:18.784> Fetched and indexed input file: server-overworld-log-2022-03-28.txt
+   [INFO] <2022-05-13; 17:37:18.785> Fetched and indexed input file: server-overworld-log-2022-03-27.txt
+   [INFO] <2022-05-13; 17:37:18.786> Fetched and indexed input file: server-overworld-log-2022-03-26.txt
+   [INFO] <2022-05-13; 17:37:18.788> Fetched and indexed input file: server-overworld-log-2022-03-25.txt
+   [INFO] <2022-05-13; 17:37:18.959> maxX: 2928 minX: -2507; maxY: 0 minY: -2504
+   [INFO] <2022-05-13; 17:37:18.960> xRange: 5435 yRange: 2504
+   [INFO] <2022-05-13; 17:37:18.960> Successfully decoded data
+   [INFO] <2022-05-13; 17:37:18.960> Setting data to display
+   [INFO] <2022-05-13; 17:37:18.981> Successfully set data to display
+   [INFO] <2022-05-13; 17:37:18.981> Updating points
+   [INFO] <2022-05-13; 17:37:18.990> Updated points: 4993
+   [INFO] <2022-05-13; 17:37:18.991> Initializing toolbar subsystem
+   [INFO] <2022-05-13; 17:37:19.263> Successfully initialized toolbar subsystem
+   [INFO] <2022-05-13; 17:37:19.264> Selected files: 6
+   [INFO] <2022-05-13; 17:37:19.264> World background images are present, opening selection screen
+   [INFO] <2022-05-13; 17:37:19.265> Decoding process finished successfully
+   [INFO] <2022-05-13; 17:37:19.265> Opening world background image dialog
+   [WARNING] <2022-05-13; 17:37:20.659> No world background images selected
+   [INFO] <2022-05-13; 17:37:35.485> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:37:35.494> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:37:35.495> Changed draw type to: Dot
+   

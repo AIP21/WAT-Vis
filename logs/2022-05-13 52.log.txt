@@ -1,0 +1,92 @@
+[INFO] <2022-05-13; 17:36:17.416>    Player Tracker Decoder App v1.7.0 - LOG FILE
+   [INFO] <2022-05-13; 17:36:17.418> Initializing logger
+   [INFO] <2022-05-13; 17:36:17.418> Logger successfully initialized
+   [INFO] <2022-05-13; 17:36:17.419> Initializing primary systems
+   [INFO] <2022-05-13; 17:36:17.421> Initializing settings subsystem
+   [INFO] <2022-05-13; 17:36:17.421> Fetching and parsing settings from config file
+   [INFO] <2022-05-13; 17:36:17.422> Settings: 17
+   [INFO] <2022-05-13; 17:36:17.423> 1
+   [INFO] <2022-05-13; 17:36:17.423> true
+   [INFO] <2022-05-13; 17:36:17.423> 0
+   [INFO] <2022-05-13; 17:36:17.424> true
+   [INFO] <2022-05-13; 17:36:17.424> 5.0
+   [INFO] <2022-05-13; 17:36:17.425> true
+   [INFO] <2022-05-13; 17:36:17.425> Heat
+   [INFO] <2022-05-13; 17:36:17.426> 200
+   [INFO] <2022-05-13; 17:36:17.426> false
+   [INFO] <2022-05-13; 17:36:17.426> true
+   [INFO] <2022-05-13; 17:36:17.427> false
+   [INFO] <2022-05-13; 17:36:17.427> false
+   [INFO] <2022-05-13; 17:36:17.427> false
+   [INFO] <2022-05-13; 17:36:17.427> ageFadeThreshold: 0
+   [INFO] <2022-05-13; 17:36:17.428> ChangeSize
+   [INFO] <2022-05-13; 17:36:17.428> 0
+   [INFO] <2022-05-13; 17:36:17.429> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-13; 17:36:17.429> Successfully initialized settings subsystem
+   [INFO] <2022-05-13; 17:36:17.430> Initializing decoder subsystem
+   [INFO] <2022-05-13; 17:36:17.430> Successfully initialized decoder subsystem
+   [INFO] <2022-05-13; 17:36:17.430> Initializing primary frame subsystem
+   [INFO] <2022-05-13; 17:36:17.435> Initializing main display subsystem
+   [INFO] <2022-05-13; 17:36:17.435> Antialiasing enabled on main display panel
+   [INFO] <2022-05-13; 17:36:17.435> Successfully initialized main display subsystem
+   [INFO] <2022-05-13; 17:36:17.444> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-13; 17:36:17.444> Loading resources
+   [INFO] <2022-05-13; 17:36:18.438> Successfully initialized all subsystems
+   [INFO] <2022-05-13; 17:36:21.924> Selected files: 10
+   [INFO] <2022-05-13; 17:36:21.925> Decoding process started
+   [INFO] <2022-05-13; 17:36:21.926> Decoding data
+   [INFO] <2022-05-13; 17:36:21.927> Fetched and indexed input file: server-overworld-log-2022-01-21.txt
+   [INFO] <2022-05-13; 17:36:21.927> Fetched and indexed input file: server-overworld-log-2022-01-22.txt
+   [INFO] <2022-05-13; 17:36:21.928> Fetched and indexed input file: server-overworld-log-2022-01-23.txt
+   [INFO] <2022-05-13; 17:36:21.929> Fetched and indexed input file: server-overworld-log-2022-01-24.txt
+   [INFO] <2022-05-13; 17:36:21.929> Fetched and indexed input file: server-overworld-log-2022-01-25.txt
+   [INFO] <2022-05-13; 17:36:21.930> Fetched and indexed input file: server-overworld-log-2022-01-28.txt
+   [INFO] <2022-05-13; 17:36:21.931> Fetched and indexed input file: server-overworld-log-2022-01-29.txt
+   [INFO] <2022-05-13; 17:36:21.931> Fetched and indexed input file: server-overworld-log-2022-01-30.txt
+   [INFO] <2022-05-13; 17:36:21.931> Fetched and indexed input file: server-overworld-log-2022-01-31.txt
+   [INFO] <2022-05-13; 17:36:21.932> Fetched and indexed input file: server-overworld-log-2022-02-01.txt
+   [INFO] <2022-05-13; 17:36:22.312> maxX: 4144 minX: -547; maxY: 2304 minY: -2400
+   [INFO] <2022-05-13; 17:36:22.312> xRange: 4691 yRange: 4704
+   [INFO] <2022-05-13; 17:36:22.312> Successfully decoded data
+   [INFO] <2022-05-13; 17:36:22.313> Setting data to display
+   [INFO] <2022-05-13; 17:36:22.335> Successfully set data to display
+   [INFO] <2022-05-13; 17:36:22.336> Updating points
+   [INFO] <2022-05-13; 17:36:22.357> Updated points: 14623
+   [INFO] <2022-05-13; 17:36:22.357> Initializing toolbar subsystem
+   [INFO] <2022-05-13; 17:36:22.953> Successfully initialized toolbar subsystem
+   [INFO] <2022-05-13; 17:36:22.954> Selected files: 10
+   [INFO] <2022-05-13; 17:36:22.954> World background images are present, opening selection screen
+   [INFO] <2022-05-13; 17:36:22.955> Decoding process finished successfully
+   [INFO] <2022-05-13; 17:36:22.955> Opening world background image dialog
+   [WARNING] <2022-05-13; 17:36:24.963> No world background images selected
+   [INFO] <2022-05-13; 17:36:27.530> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:36:27.537> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:36:27.538> Toggled age fade to: true
+   [INFO] <2022-05-13; 17:36:29.132> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:36:29.133> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:36:29.135> Changed draw type to: Line
+   [INFO] <2022-05-13; 17:36:30.527> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:36:30.528> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:36:30.529> Changed draw type to: Dot
+   [INFO] <2022-05-13; 17:36:31.793> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:36:31.795> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:36:31.795> Changed draw type to: Heat
+   [INFO] <2022-05-13; 17:36:34.610> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:36:34.612> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:36:34.612> Changed draw type to: Line
+   [INFO] <2022-05-13; 17:36:35.494> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:36:35.495> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:36:35.496> Changed draw type to: Heat
+   [INFO] <2022-05-13; 17:36:37.559> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:36:37.560> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:36:37.561> Changed draw type to: Pixel
+   [INFO] <2022-05-13; 17:36:38.964> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:36:38.968> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:36:38.970> Changed draw type to: Heat
+   [INFO] <2022-05-13; 17:36:42.883> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:36:42.884> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:36:42.885> Changed draw type to: Line
+   [INFO] <2022-05-13; 17:36:43.993> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:36:43.995> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:36:43.996> Changed draw type to: Heat
+   

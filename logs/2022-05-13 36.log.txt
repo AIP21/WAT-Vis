@@ -1,0 +1,35 @@
+[INFO] <2022-05-13; 16:49:09.647>    Player Tracker Decoder App v1.6.3 - LOG FILE
+   [INFO] <2022-05-13; 16:49:09.648> Initializing logger
+   [INFO] <2022-05-13; 16:49:09.649> Logger successfully initialized
+   [INFO] <2022-05-13; 16:49:09.649> Initializing primary systems
+   [ERROR] <2022-05-13; 16:49:09.650> equal
+   [INFO] <2022-05-13; 16:49:09.651> Initializing settings subsystem
+   [INFO] <2022-05-13; 16:49:09.651> Fetching and parsing settings from config file
+   [INFO] <2022-05-13; 16:49:09.653> Settings: 16
+   [INFO] <2022-05-13; 16:49:09.653> 1
+   [INFO] <2022-05-13; 16:49:09.653> true
+   [INFO] <2022-05-13; 16:49:09.654> 0
+   [INFO] <2022-05-13; 16:49:09.654> true
+   [INFO] <2022-05-13; 16:49:09.654> 5.0
+   [INFO] <2022-05-13; 16:49:09.655> true
+   [INFO] <2022-05-13; 16:49:09.655> Heat
+   [INFO] <2022-05-13; 16:49:09.656> 200
+   [INFO] <2022-05-13; 16:49:09.656> false
+   [INFO] <2022-05-13; 16:49:09.656> true
+   [INFO] <2022-05-13; 16:49:09.657> false
+   [INFO] <2022-05-13; 16:49:09.657> false
+   [INFO] <2022-05-13; 16:49:09.657> false
+   [INFO] <2022-05-13; 16:49:09.657> ageFadeThreshold: 0
+   [INFO] <2022-05-13; 16:49:09.658> ChangeSize
+   [INFO] <2022-05-13; 16:49:09.658> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-13; 16:49:09.658> Successfully initialized settings subsystem
+   [INFO] <2022-05-13; 16:49:09.660> Initializing decoder subsystem
+   [INFO] <2022-05-13; 16:49:09.660> Successfully initialized decoder subsystem
+   [INFO] <2022-05-13; 16:49:09.660> Initializing primary frame subsystem
+   [INFO] <2022-05-13; 16:49:09.666> Initializing main display subsystem
+   [INFO] <2022-05-13; 16:49:09.666> Antialiasing enabled on main display panel
+   [INFO] <2022-05-13; 16:49:09.666> Successfully initialized main display subsystem
+   [INFO] <2022-05-13; 16:49:09.675> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-13; 16:49:09.676> Loading resources
+   [INFO] <2022-05-13; 16:49:10.641> Successfully initialized all subsystems
+   

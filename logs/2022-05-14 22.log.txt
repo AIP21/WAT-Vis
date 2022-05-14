@@ -1,0 +1,22 @@
+[INFO] <2022-05-14; 15:25:43.565>    Player Tracker Decoder App v1.7.2 - LOG FILE
+   [INFO] <2022-05-14; 15:25:43.567> Initializing logger
+   [INFO] <2022-05-14; 15:25:43.568> Logger successfully initialized
+   [INFO] <2022-05-14; 15:25:43.568> Initializing primary systems
+   [INFO] <2022-05-14; 15:25:43.570> Initializing settings subsystem
+   [INFO] <2022-05-14; 15:25:43.570> Fetching and parsing settings from config file
+   [INFO] <2022-05-14; 15:25:43.571> Settings: 0
+   [INFO] <2022-05-14; 15:25:43.571> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-14; 15:25:43.571> Successfully initialized settings subsystem
+   [INFO] <2022-05-14; 15:25:43.572> Initializing decoder subsystem
+   [INFO] <2022-05-14; 15:25:43.575> Successfully initialized decoder subsystem
+   [INFO] <2022-05-14; 15:25:43.576> Initializing primary frame subsystem
+   [INFO] <2022-05-14; 15:25:43.621> Initializing main display subsystem
+   [INFO] <2022-05-14; 15:25:43.622> Antialiasing enabled on main display panel
+   [INFO] <2022-05-14; 15:25:43.622> Successfully initialized main display subsystem
+   [INFO] <2022-05-14; 15:25:43.641> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-14; 15:25:43.642> Loading resources
+   [INFO] <2022-05-14; 15:25:44.469> Successfully initialized all subsystems
+   [INFO] <2022-05-14; 15:27:51.256> Opening world background image dialog
+   [INFO] <2022-05-14; 15:27:53.158> Selected world background image: E:\TrackerDecoderApp\worldImages\SMOL-NewHidden-WorldMapImage.jpg
+   [INFO] <2022-05-14; 15:28:03.777> Loading world background image took 10617ms.
+   

@@ -1,0 +1,1404 @@
+[INFO] <2022-05-14; 12:06:51.668>    Player Tracker Decoder App v1.7.0 - LOG FILE
+   [INFO] <2022-05-14; 12:06:51.669> Initializing logger
+   [INFO] <2022-05-14; 12:06:51.670> Logger successfully initialized
+   [INFO] <2022-05-14; 12:06:51.670> Initializing primary systems
+   [INFO] <2022-05-14; 12:06:51.672> Initializing settings subsystem
+   [INFO] <2022-05-14; 12:06:51.673> Fetching and parsing settings from config file
+   [INFO] <2022-05-14; 12:06:51.674> 1
+   [INFO] <2022-05-14; 12:06:51.674> true
+   [INFO] <2022-05-14; 12:06:51.675> 0
+   [INFO] <2022-05-14; 12:06:51.675> true
+   [INFO] <2022-05-14; 12:06:51.676> 5.0
+   [INFO] <2022-05-14; 12:06:51.676> true
+   [INFO] <2022-05-14; 12:06:51.676> Heat
+   [INFO] <2022-05-14; 12:06:51.679> 200
+   [INFO] <2022-05-14; 12:06:51.681> false
+   [INFO] <2022-05-14; 12:06:51.681> true
+   [INFO] <2022-05-14; 12:06:51.681> false
+   [INFO] <2022-05-14; 12:06:51.682> true
+   [INFO] <2022-05-14; 12:06:51.682> true
+   [INFO] <2022-05-14; 12:06:51.682> ageFadeThreshold: 180
+   [INFO] <2022-05-14; 12:06:51.683> ChangeSize
+   [INFO] <2022-05-14; 12:06:51.683> 0
+   [INFO] <2022-05-14; 12:06:51.684> Settings: 15
+   [INFO] <2022-05-14; 12:06:51.684> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-14; 12:06:51.685> Successfully initialized settings subsystem
+   [INFO] <2022-05-14; 12:06:51.686> Initializing decoder subsystem
+   [INFO] <2022-05-14; 12:06:51.686> Successfully initialized decoder subsystem
+   [INFO] <2022-05-14; 12:06:51.687> Initializing primary frame subsystem
+   [INFO] <2022-05-14; 12:06:51.728> Initializing main display subsystem
+   [INFO] <2022-05-14; 12:06:51.729> Antialiasing enabled on main display panel
+   [INFO] <2022-05-14; 12:06:51.730> Successfully initialized main display subsystem
+   [INFO] <2022-05-14; 12:06:51.748> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-14; 12:06:51.748> Loading resources
+   [INFO] <2022-05-14; 12:06:52.570> Successfully initialized all subsystems
+   [INFO] <2022-05-14; 12:07:01.985> Selected files: 57
+   [INFO] <2022-05-14; 12:07:01.986> Decoding process started
+   [INFO] <2022-05-14; 12:07:01.987> Decoding data
+   [INFO] <2022-05-14; 12:07:01.987> Fetched and indexed input file: server-overworld-log-2022-01-21.txt
+   [INFO] <2022-05-14; 12:07:01.988> Fetched and indexed input file: server-overworld-log-2022-01-22.txt
+   [INFO] <2022-05-14; 12:07:01.988> Fetched and indexed input file: server-overworld-log-2022-01-23.txt
+   [INFO] <2022-05-14; 12:07:01.988> Fetched and indexed input file: server-overworld-log-2022-01-24.txt
+   [INFO] <2022-05-14; 12:07:01.989> Fetched and indexed input file: server-overworld-log-2022-01-25.txt
+   [INFO] <2022-05-14; 12:07:01.989> Fetched and indexed input file: server-overworld-log-2022-01-28.txt
+   [INFO] <2022-05-14; 12:07:01.989> Fetched and indexed input file: server-overworld-log-2022-01-29.txt
+   [INFO] <2022-05-14; 12:07:01.990> Fetched and indexed input file: server-overworld-log-2022-01-30.txt
+   [INFO] <2022-05-14; 12:07:01.990> Fetched and indexed input file: server-overworld-log-2022-01-31.txt
+   [INFO] <2022-05-14; 12:07:01.990> Fetched and indexed input file: server-overworld-log-2022-02-01.txt
+   [INFO] <2022-05-14; 12:07:01.990> Fetched and indexed input file: server-overworld-log-2022-02-02.txt
+   [INFO] <2022-05-14; 12:07:01.991> Fetched and indexed input file: server-overworld-log-2022-02-03.txt
+   [INFO] <2022-05-14; 12:07:01.991> Fetched and indexed input file: server-overworld-log-2022-02-04.txt
+   [INFO] <2022-05-14; 12:07:01.991> Fetched and indexed input file: server-overworld-log-2022-02-05.txt
+   [INFO] <2022-05-14; 12:07:01.992> Fetched and indexed input file: server-overworld-log-2022-02-06.txt
+   [INFO] <2022-05-14; 12:07:01.992> Fetched and indexed input file: server-overworld-log-2022-02-08.txt
+   [INFO] <2022-05-14; 12:07:01.992> Fetched and indexed input file: server-overworld-log-2022-02-09.txt
+   [INFO] <2022-05-14; 12:07:01.992> Fetched and indexed input file: server-overworld-log-2022-02-10.txt
+   [INFO] <2022-05-14; 12:07:01.994> Fetched and indexed input file: server-overworld-log-2022-02-11.txt
+   [INFO] <2022-05-14; 12:07:01.994> Fetched and indexed input file: server-overworld-log-2022-02-12.txt
+   [INFO] <2022-05-14; 12:07:01.994> Fetched and indexed input file: server-overworld-log-2022-02-13.txt
+   [INFO] <2022-05-14; 12:07:01.995> Fetched and indexed input file: server-overworld-log-2022-02-14.txt
+   [INFO] <2022-05-14; 12:07:01.995> Fetched and indexed input file: server-overworld-log-2022-02-15.txt
+   [INFO] <2022-05-14; 12:07:01.996> Fetched and indexed input file: server-overworld-log-2022-02-17.txt
+   [INFO] <2022-05-14; 12:07:01.996> Fetched and indexed input file: server-overworld-log-2022-02-18.txt
+   [INFO] <2022-05-14; 12:07:01.996> Fetched and indexed input file: server-overworld-log-2022-02-19.txt
+   [INFO] <2022-05-14; 12:07:01.996> Fetched and indexed input file: server-overworld-log-2022-02-20.txt
+   [INFO] <2022-05-14; 12:07:01.997> Fetched and indexed input file: server-overworld-log-2022-02-21.txt
+   [INFO] <2022-05-14; 12:07:01.997> Fetched and indexed input file: server-overworld-log-2022-02-22.txt
+   [INFO] <2022-05-14; 12:07:01.998> Fetched and indexed input file: server-overworld-log-2022-02-23.txt
+   [INFO] <2022-05-14; 12:07:01.998> Fetched and indexed input file: server-overworld-log-2022-02-24.txt
+   [INFO] <2022-05-14; 12:07:01.998> Fetched and indexed input file: server-overworld-log-2022-02-25.txt
+   [INFO] <2022-05-14; 12:07:01.999> Fetched and indexed input file: server-overworld-log-2022-02-26.txt
+   [INFO] <2022-05-14; 12:07:01.999> Fetched and indexed input file: server-overworld-log-2022-02-27.txt
+   [INFO] <2022-05-14; 12:07:01.999> Fetched and indexed input file: server-overworld-log-2022-03-03.txt
+   [INFO] <2022-05-14; 12:07:01.999> Fetched and indexed input file: server-overworld-log-2022-03-05.txt
+   [INFO] <2022-05-14; 12:07:02.000> Fetched and indexed input file: server-overworld-log-2022-03-06.txt
+   [INFO] <2022-05-14; 12:07:02.000> Fetched and indexed input file: server-overworld-log-2022-03-11.txt
+   [INFO] <2022-05-14; 12:07:02.000> Fetched and indexed input file: server-overworld-log-2022-03-12.txt
+   [INFO] <2022-05-14; 12:07:02.001> Fetched and indexed input file: server-overworld-log-2022-03-13.txt
+   [INFO] <2022-05-14; 12:07:02.001> Fetched and indexed input file: server-overworld-log-2022-03-14.txt
+   [INFO] <2022-05-14; 12:07:02.001> Fetched and indexed input file: server-overworld-log-2022-03-15.txt
+   [INFO] <2022-05-14; 12:07:02.002> Fetched and indexed input file: server-overworld-log-2022-03-18.txt
+   [INFO] <2022-05-14; 12:07:02.002> Fetched and indexed input file: server-overworld-log-2022-03-21.txt
+   [INFO] <2022-05-14; 12:07:02.002> Fetched and indexed input file: server-overworld-log-2022-03-22.txt
+   [INFO] <2022-05-14; 12:07:02.003> Fetched and indexed input file: server-overworld-log-2022-03-23.txt
+   [INFO] <2022-05-14; 12:07:02.003> Fetched and indexed input file: server-overworld-log-2022-03-24.txt
+   [INFO] <2022-05-14; 12:07:02.003> Fetched and indexed input file: server-overworld-log-2022-03-25.txt
+   [INFO] <2022-05-14; 12:07:02.004> Fetched and indexed input file: server-overworld-log-2022-03-26.txt
+   [INFO] <2022-05-14; 12:07:02.004> Fetched and indexed input file: server-overworld-log-2022-03-27.txt
+   [INFO] <2022-05-14; 12:07:02.004> Fetched and indexed input file: server-overworld-log-2022-03-28.txt
+   [INFO] <2022-05-14; 12:07:02.004> Fetched and indexed input file: server-overworld-log-2022-03-29.txt
+   [INFO] <2022-05-14; 12:07:02.005> Fetched and indexed input file: server-overworld-log-2022-03-30.txt
+   [INFO] <2022-05-14; 12:07:02.005> Fetched and indexed input file: server-overworld-log-2022-03-31.txt
+   [INFO] <2022-05-14; 12:07:02.005> Fetched and indexed input file: server-overworld-log-2022-04-01.txt
+   [INFO] <2022-05-14; 12:07:02.006> Fetched and indexed input file: server-overworld-log-2022-04-02.txt
+   [INFO] <2022-05-14; 12:07:02.006> Fetched and indexed input file: server-overworld-log-2022-04-03.txt
+   [INFO] <2022-05-14; 12:07:02.576> maxX: 8634 minX: -6267; maxY: 2590 minY: -5018
+   [INFO] <2022-05-14; 12:07:02.577> xRange: 14901 yRange: 7608
+   [INFO] <2022-05-14; 12:07:02.577> Successfully decoded data
+   [INFO] <2022-05-14; 12:07:02.578> Setting data to display
+   [INFO] <2022-05-14; 12:07:02.667> Successfully set data to display
+   [INFO] <2022-05-14; 12:07:02.667> Updating points
+   [INFO] <2022-05-14; 12:07:02.761> Updated points: 102567
+   [INFO] <2022-05-14; 12:07:02.762> Initializing toolbar subsystem
+   [INFO] <2022-05-14; 12:07:03.905> Successfully initialized toolbar subsystem
+   [INFO] <2022-05-14; 12:07:03.908> Selected files: 57
+   [INFO] <2022-05-14; 12:07:03.909> World background images are present, opening selection screen
+   [INFO] <2022-05-14; 12:07:03.910> Decoding process finished successfully
+   [INFO] <2022-05-14; 12:07:03.910> Opening world background image dialog
+   [INFO] <2022-05-14; 12:07:05.049> Selected world background images: 57
+   [INFO] <2022-05-14; 12:07:15.205> Loading world background image took 10153ms.
+   [INFO] <2022-05-14; 12:07:15.514> Successfully loaded world background image
+   [INFO] <2022-05-14; 12:07:17.634> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:17.638> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:17.639> Toggled age fade to: true
+   [INFO] <2022-05-14; 12:07:19.316> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:19.317> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:19.317> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:19.317> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:19.318> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:19.318> Changed age fade threshold to: 20
+   [INFO] <2022-05-14; 12:07:19.724> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:19.724> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:19.725> Changed age fade threshold to: 20
+   [INFO] <2022-05-14; 12:07:20.427> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:20.427> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:20.428> Changed age fade threshold to: 20
+   [INFO] <2022-05-14; 12:07:20.428> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:20.428> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:20.429> Changed age fade threshold to: 40
+   [INFO] <2022-05-14; 12:07:21.091> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.091> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.091> Changed age fade threshold to: 40
+   [INFO] <2022-05-14; 12:07:21.772> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.773> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.773> Changed age fade threshold to: 40
+   [INFO] <2022-05-14; 12:07:21.774> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.774> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.774> Changed age fade threshold to: 41
+   [INFO] <2022-05-14; 12:07:21.783> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.784> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.784> Changed age fade threshold to: 44
+   [INFO] <2022-05-14; 12:07:21.794> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.794> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.795> Changed age fade threshold to: 50
+   [INFO] <2022-05-14; 12:07:21.801> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.801> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.801> Changed age fade threshold to: 51
+   [INFO] <2022-05-14; 12:07:21.827> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.828> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.828> Changed age fade threshold to: 69
+   [INFO] <2022-05-14; 12:07:21.835> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.835> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.836> Changed age fade threshold to: 74
+   [INFO] <2022-05-14; 12:07:21.843> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.844> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.844> Changed age fade threshold to: 81
+   [INFO] <2022-05-14; 12:07:21.850> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.851> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.851> Changed age fade threshold to: 85
+   [INFO] <2022-05-14; 12:07:21.857> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.858> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.858> Changed age fade threshold to: 91
+   [INFO] <2022-05-14; 12:07:21.864> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.865> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.865> Changed age fade threshold to: 96
+   [INFO] <2022-05-14; 12:07:21.872> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.872> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.872> Changed age fade threshold to: 100
+   [INFO] <2022-05-14; 12:07:21.881> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.882> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.882> Changed age fade threshold to: 110
+   [INFO] <2022-05-14; 12:07:21.889> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.890> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.890> Changed age fade threshold to: 116
+   [INFO] <2022-05-14; 12:07:21.896> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.897> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.897> Changed age fade threshold to: 119
+   [INFO] <2022-05-14; 12:07:21.904> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.905> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.905> Changed age fade threshold to: 122
+   [INFO] <2022-05-14; 12:07:21.911> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.912> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.912> Changed age fade threshold to: 125
+   [INFO] <2022-05-14; 12:07:21.918> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.919> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.919> Changed age fade threshold to: 126
+   [INFO] <2022-05-14; 12:07:21.926> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.927> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.927> Changed age fade threshold to: 129
+   [INFO] <2022-05-14; 12:07:21.933> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.934> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.934> Changed age fade threshold to: 131
+   [INFO] <2022-05-14; 12:07:21.942> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.942> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.943> Changed age fade threshold to: 134
+   [INFO] <2022-05-14; 12:07:21.949> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.949> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.950> Changed age fade threshold to: 137
+   [INFO] <2022-05-14; 12:07:21.956> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.957> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.958> Changed age fade threshold to: 140
+   [INFO] <2022-05-14; 12:07:21.964> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.964> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.965> Changed age fade threshold to: 141
+   [INFO] <2022-05-14; 12:07:21.971> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.971> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.972> Changed age fade threshold to: 143
+   [INFO] <2022-05-14; 12:07:21.978> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.978> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.979> Changed age fade threshold to: 146
+   [INFO] <2022-05-14; 12:07:21.985> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.986> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.986> Changed age fade threshold to: 149
+   [INFO] <2022-05-14; 12:07:21.992> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:21.993> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:21.993> Changed age fade threshold to: 151
+   [INFO] <2022-05-14; 12:07:21.999> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.000> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.000> Changed age fade threshold to: 154
+   [INFO] <2022-05-14; 12:07:22.006> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.006> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.007> Changed age fade threshold to: 156
+   [INFO] <2022-05-14; 12:07:22.012> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.013> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.013> Changed age fade threshold to: 159
+   [INFO] <2022-05-14; 12:07:22.020> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.021> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.021> Changed age fade threshold to: 168
+   [INFO] <2022-05-14; 12:07:22.028> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.028> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.029> Changed age fade threshold to: 171
+   [INFO] <2022-05-14; 12:07:22.035> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.035> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.035> Changed age fade threshold to: 175
+   [INFO] <2022-05-14; 12:07:22.046> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.046> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.047> Changed age fade threshold to: 178
+   [INFO] <2022-05-14; 12:07:22.053> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.053> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.054> Changed age fade threshold to: 181
+   [INFO] <2022-05-14; 12:07:22.060> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.061> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.061> Changed age fade threshold to: 185
+   [INFO] <2022-05-14; 12:07:22.067> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.067> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.068> Changed age fade threshold to: 187
+   [INFO] <2022-05-14; 12:07:22.074> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.075> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.075> Changed age fade threshold to: 190
+   [INFO] <2022-05-14; 12:07:22.081> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.081> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.082> Changed age fade threshold to: 191
+   [INFO] <2022-05-14; 12:07:22.088> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.089> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.089> Changed age fade threshold to: 193
+   [INFO] <2022-05-14; 12:07:22.095> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.095> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.095> Changed age fade threshold to: 196
+   [INFO] <2022-05-14; 12:07:22.102> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.102> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.103> Changed age fade threshold to: 200
+   [INFO] <2022-05-14; 12:07:22.417> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.418> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.418> Changed age fade threshold to: 196
+   [INFO] <2022-05-14; 12:07:22.436> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.436> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.436> Changed age fade threshold to: 156
+   [INFO] <2022-05-14; 12:07:22.437> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.437> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.437> Changed age fade threshold to: 151
+   [INFO] <2022-05-14; 12:07:22.444> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.444> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.445> Changed age fade threshold to: 137
+   [INFO] <2022-05-14; 12:07:22.455> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.455> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.455> Changed age fade threshold to: 112
+   [INFO] <2022-05-14; 12:07:22.456> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.456> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.456> Changed age fade threshold to: 104
+   [INFO] <2022-05-14; 12:07:22.463> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.463> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.463> Changed age fade threshold to: 90
+   [INFO] <2022-05-14; 12:07:22.464> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.464> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.464> Changed age fade threshold to: 79
+   [INFO] <2022-05-14; 12:07:22.474> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.474> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.474> Changed age fade threshold to: 47
+   [INFO] <2022-05-14; 12:07:22.485> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.485> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.486> Changed age fade threshold to: 19
+   [INFO] <2022-05-14; 12:07:22.486> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.486> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.486> Changed age fade threshold to: 13
+   [INFO] <2022-05-14; 12:07:22.492> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.493> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.493> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:22.701> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.701> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.702> Changed age fade threshold to: 1
+   [INFO] <2022-05-14; 12:07:22.708> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.709> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.709> Changed age fade threshold to: 26
+   [INFO] <2022-05-14; 12:07:22.716> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.717> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.717> Changed age fade threshold to: 57
+   [INFO] <2022-05-14; 12:07:22.725> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.725> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.726> Changed age fade threshold to: 84
+   [INFO] <2022-05-14; 12:07:22.732> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.732> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.732> Changed age fade threshold to: 104
+   [INFO] <2022-05-14; 12:07:22.744> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.744> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.744> Changed age fade threshold to: 140
+   [INFO] <2022-05-14; 12:07:22.760> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.761> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.761> Changed age fade threshold to: 188
+   [INFO] <2022-05-14; 12:07:22.761> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.762> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.762> Changed age fade threshold to: 193
+   [INFO] <2022-05-14; 12:07:22.773> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:22.773> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:22.774> Changed age fade threshold to: 200
+   [INFO] <2022-05-14; 12:07:23.012> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:23.013> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:23.013> Changed age fade threshold to: 196
+   [INFO] <2022-05-14; 12:07:23.020> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:23.021> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:23.021> Changed age fade threshold to: 174
+   [INFO] <2022-05-14; 12:07:23.029> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:23.030> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:23.030> Changed age fade threshold to: 149
+   [INFO] <2022-05-14; 12:07:23.040> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:23.041> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:23.041> Changed age fade threshold to: 110
+   [INFO] <2022-05-14; 12:07:23.048> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:23.049> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:23.049> Changed age fade threshold to: 84
+   [INFO] <2022-05-14; 12:07:23.057> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:23.057> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:23.058> Changed age fade threshold to: 44
+   [INFO] <2022-05-14; 12:07:23.064> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:23.064> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:23.065> Changed age fade threshold to: 21
+   [INFO] <2022-05-14; 12:07:23.065> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:23.065> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:23.065> Changed age fade threshold to: 19
+   [INFO] <2022-05-14; 12:07:23.072> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:23.073> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:23.073> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:23.210> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:23.211> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:23.211> Changed age fade threshold to: 3
+   [INFO] <2022-05-14; 12:07:23.218> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:23.219> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:23.219> Changed age fade threshold to: 28
+   [INFO] <2022-05-14; 12:07:23.228> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:23.229> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:23.229> Changed age fade threshold to: 68
+   [INFO] <2022-05-14; 12:07:23.238> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:23.238> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:23.239> Changed age fade threshold to: 100
+   [INFO] <2022-05-14; 12:07:23.239> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:23.240> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:23.240> Changed age fade threshold to: 109
+   [INFO] <2022-05-14; 12:07:23.251> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:23.251> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:23.252> Changed age fade threshold to: 163
+   [INFO] <2022-05-14; 12:07:23.264> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:23.265> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:23.265> Changed age fade threshold to: 200
+   [INFO] <2022-05-14; 12:07:23.482> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:23.482> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:23.482> Changed age fade threshold to: 196
+   [INFO] <2022-05-14; 12:07:23.490> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:23.490> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:23.491> Changed age fade threshold to: 166
+   [INFO] <2022-05-14; 12:07:23.498> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:23.498> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:23.498> Changed age fade threshold to: 140
+   [INFO] <2022-05-14; 12:07:23.507> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:23.508> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:23.508> Changed age fade threshold to: 101
+   [INFO] <2022-05-14; 12:07:23.515> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:23.515> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:23.515> Changed age fade threshold to: 75
+   [INFO] <2022-05-14; 12:07:23.516> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:23.516> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:23.516> Changed age fade threshold to: 74
+   [INFO] <2022-05-14; 12:07:23.526> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:23.526> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:23.526> Changed age fade threshold to: 38
+   [INFO] <2022-05-14; 12:07:23.533> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:23.534> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:23.534> Changed age fade threshold to: 16
+   [INFO] <2022-05-14; 12:07:23.541> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:23.542> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:23.542> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:23.687> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:23.688> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:23.688> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:24.293> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:24.293> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:24.294> Toggled age fade to: false
+   [INFO] <2022-05-14; 12:07:25.353> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.354> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.354> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.354> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.355> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.355> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.379> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.379> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.379> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.394> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.395> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.395> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.403> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.404> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.404> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.413> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.413> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.413> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.421> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.421> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.421> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.430> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.430> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.430> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.444> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.444> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.445> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.462> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.462> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.463> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.478> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.478> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.479> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.539> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.539> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.540> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.557> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.557> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.558> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.572> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.572> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.572> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.579> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.580> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.580> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.588> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.588> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.589> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.604> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.605> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.605> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.621> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.621> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.621> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.629> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.629> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.629> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.643> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.643> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.643> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.654> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.654> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.655> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.661> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.661> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.661> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.668> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.668> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.668> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.678> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.679> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.679> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.687> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.687> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.687> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.701> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.701> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.702> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.707> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.708> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.708> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.714> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.715> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.715> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.721> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.721> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.721> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.727> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.728> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.728> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.735> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.735> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.735> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.744> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.744> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.744> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.751> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.752> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.752> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.765> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.765> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.765> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.773> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.774> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.774> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.781> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.781> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.782> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.789> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.789> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.789> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.796> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.796> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.796> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.803> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.803> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.803> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.810> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.811> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.811> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.817> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.817> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.818> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.824> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.824> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.825> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.831> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.832> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.832> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.839> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.840> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.840> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.846> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.847> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.847> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.854> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.855> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.855> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.860> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.861> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.861> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.866> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.867> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.867> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.874> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.874> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.874> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.880> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.880> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.881> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.887> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.887> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.888> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.893> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.894> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.894> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.900> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.900> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.900> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.906> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.906> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.906> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.912> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.912> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.913> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.919> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.919> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.919> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.925> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.925> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.926> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.932> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.933> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.933> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.939> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.939> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.939> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.945> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.946> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.946> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.952> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.953> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.953> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.959> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.959> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.959> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:25.965> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:25.966> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:25.966> Changed age fade threshold to: 1
+   [INFO] <2022-05-14; 12:07:26.196> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.197> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.197> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.207> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.207> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.207> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.215> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.216> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.216> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.224> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.225> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.225> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.232> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.233> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.233> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.243> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.243> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.243> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.252> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.252> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.253> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.261> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.261> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.261> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.262> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.262> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.262> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.269> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.270> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.270> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.270> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.270> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.271> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.277> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.277> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.277> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.283> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.284> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.284> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.290> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.290> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.291> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.296> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.297> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.297> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.303> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.303> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.303> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.310> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.310> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.311> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.318> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.319> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.319> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.559> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.559> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.560> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.566> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.566> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.566> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.574> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.574> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.574> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.582> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.582> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.582> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.592> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.593> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.593> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.599> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.599> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.599> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.606> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.606> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.606> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.612> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.612> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.613> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.620> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.620> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.620> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.626> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.627> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.627> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.633> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.633> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.634> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.639> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.639> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.640> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.646> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.647> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.648> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.655> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.655> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.656> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.662> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.663> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.663> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.669> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.670> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.670> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.675> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.676> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.676> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.682> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.683> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.683> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.690> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.691> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.691> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.697> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.697> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.697> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.702> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.703> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.703> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.709> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.710> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.710> Changed age fade threshold to: 1
+   [INFO] <2022-05-14; 12:07:26.937> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.938> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.938> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.945> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.945> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.946> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.952> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.953> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.953> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.960> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.962> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.963> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.971> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.972> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.972> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.978> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.979> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.979> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.985> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.985> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.985> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.991> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.991> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.992> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.997> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.998> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.998> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:26.998> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:26.998> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:26.999> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.006> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.007> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.007> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.012> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.013> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.013> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.019> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.019> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.019> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.026> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.027> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.027> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.034> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.034> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.034> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.040> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.041> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.041> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.046> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.047> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.047> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.053> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.054> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.054> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.061> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.061> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.062> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.067> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.068> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.068> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.073> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.074> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.074> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.080> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.080> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.080> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.086> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.086> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.087> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.092> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.093> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.093> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.099> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.099> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.099> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.106> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.106> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.106> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.112> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.113> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.113> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.119> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.119> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.120> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.126> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.126> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.126> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.133> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.133> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.133> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.141> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.141> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.141> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.147> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.148> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.148> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.159> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.160> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.160> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.165> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.165> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.166> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.171> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.172> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.172> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.178> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.178> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.178> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.188> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.189> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.189> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.195> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.196> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.196> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.202> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.202> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.202> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.208> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.208> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.208> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.215> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.215> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.215> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.222> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.223> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.223> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.230> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.230> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.230> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.236> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.237> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.237> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.242> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.243> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.243> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.248> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.249> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.249> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.254> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.255> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.255> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.261> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.261> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.262> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.268> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.269> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.269> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.275> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.275> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.275> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.282> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.283> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.283> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.290> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.291> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.291> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.308> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.308> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.308> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.315> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.315> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.315> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.335> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.336> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.336> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.360> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.361> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.361> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.542> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.543> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.543> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.553> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.556> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.557> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.559> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.561> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.562> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.570> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.571> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.571> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.580> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.580> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.581> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.594> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.594> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.594> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.610> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.610> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.610> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.616> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.616> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.616> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.630> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.631> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.631> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.638> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.638> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.638> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.645> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.646> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.646> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.652> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.652> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.652> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.659> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.659> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.659> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.669> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.670> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.670> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.676> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.676> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.677> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.703> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.704> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.704> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.704> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.705> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.705> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.728> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.730> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.730> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.736> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.737> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.737> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.744> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.744> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.744> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.751> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.752> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.752> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.760> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.760> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.760> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.767> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.767> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.767> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.777> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.778> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.778> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.784> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.785> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.785> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.791> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.792> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.792> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.799> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.799> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.799> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.808> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.808> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.808> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.814> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.815> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.815> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.821> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.822> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.822> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.829> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.830> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.830> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.836> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.837> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.837> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.844> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.844> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.844> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.851> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.851> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.852> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.858> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.858> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.858> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.864> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.865> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.865> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.871> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.872> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.872> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.878> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.878> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.878> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.884> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.885> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.885> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.891> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.892> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.892> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.897> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.898> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.898> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.904> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.904> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.905> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.910> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.911> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.911> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.918> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.918> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.918> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.918> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.919> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.919> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.925> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.926> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.926> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.931> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.932> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.932> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.938> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.939> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.939> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.945> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.945> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.945> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:27.952> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:27.952> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:27.952> Changed age fade threshold to: 1
+   [INFO] <2022-05-14; 12:07:28.136> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.136> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.136> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.144> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.145> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.145> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.152> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.152> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.152> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.153> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.153> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.153> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.160> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.160> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.160> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.167> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.167> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.167> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.174> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.174> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.174> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.181> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.181> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.181> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.182> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.182> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.182> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.189> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.189> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.189> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.190> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.190> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.190> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.197> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.197> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.197> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.198> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.198> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.198> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.205> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.205> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.205> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.206> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.206> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.206> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.213> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.214> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.214> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.404> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.404> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.405> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.412> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.412> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.412> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.420> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.421> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.421> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.428> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.428> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.428> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.429> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.429> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.429> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.436> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.436> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.437> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.443> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.443> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.444> Changed age fade threshold to: 1
+   [INFO] <2022-05-14; 12:07:28.663> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.664> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.664> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.672> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.672> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.672> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.679> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.680> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.680> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.687> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.687> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.687> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.694> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.694> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.694> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.700> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.701> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.701> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.707> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.708> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.708> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.714> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.714> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.714> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.721> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.721> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.721> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.730> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.731> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.731> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:28.757> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:28.757> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:28.757> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 12:07:29.434> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:29.434> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:29.435> Changed draw size to: 1.0
+   [INFO] <2022-05-14; 12:07:29.435> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:29.435> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:29.435> Changed draw size to: 0.0
+   [INFO] <2022-05-14; 12:07:30.247> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:30.247> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:30.247> Changed draw size to: 0.0
+   [INFO] <2022-05-14; 12:07:30.779> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:30.779> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:30.780> Changed draw size to: 0.1
+   [INFO] <2022-05-14; 12:07:31.019> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:31.020> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:31.020> Changed draw size to: 0.2
+   [INFO] <2022-05-14; 12:07:31.228> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:31.228> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:31.229> Changed draw size to: 0.3
+   [INFO] <2022-05-14; 12:07:31.915> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:31.916> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:31.916> Changed draw size to: 0.2
+   [INFO] <2022-05-14; 12:07:32.540> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:32.541> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:32.541> Changed draw size to: 0.3
+   [INFO] <2022-05-14; 12:07:32.747> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:32.747> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:32.747> Changed draw size to: 0.4
+   [INFO] <2022-05-14; 12:07:33.323> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:33.323> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:33.324> Changed draw size to: 0.3
+   [INFO] <2022-05-14; 12:07:35.358> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:35.359> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:35.360> Changed draw type to: Line
+   [INFO] <2022-05-14; 12:07:36.672> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:36.672> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:36.672> Changed draw size to: 0.3
+   [INFO] <2022-05-14; 12:07:36.672> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:36.673> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:36.673> Changed draw size to: 1.3
+   [INFO] <2022-05-14; 12:07:36.802> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:36.802> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:36.802> Changed draw size to: 1.3
+   [INFO] <2022-05-14; 12:07:37.191> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:37.191> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:37.192> Changed draw size to: 1.3
+   [INFO] <2022-05-14; 12:07:37.192> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:37.192> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:37.192> Changed draw size to: 0.3
+   [INFO] <2022-05-14; 12:07:37.368> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:37.368> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:37.368> Changed draw size to: 0.3
+   [INFO] <2022-05-14; 12:07:37.865> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:37.865> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:37.866> Changed draw size to: 0.3
+   [INFO] <2022-05-14; 12:07:37.921> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:37.921> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:37.921> Changed draw size to: 0.6
+   [INFO] <2022-05-14; 12:07:37.951> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:37.952> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:37.952> Changed draw size to: 1.0
+   [INFO] <2022-05-14; 12:07:38.004> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:38.005> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:38.005> Changed draw size to: 1.2
+   [INFO] <2022-05-14; 12:07:38.005> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:38.005> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:38.006> Changed draw size to: 1.1
+   [INFO] <2022-05-14; 12:07:38.045> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:38.045> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:38.045> Changed draw size to: 1.2
+   [INFO] <2022-05-14; 12:07:38.112> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:38.113> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:38.113> Changed draw size to: 1.1
+   [INFO] <2022-05-14; 12:07:38.320> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:38.320> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:38.320> Changed draw size to: 1.0
+   [INFO] <2022-05-14; 12:07:38.349> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:38.350> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:38.350> Changed draw size to: 0.9
+   [INFO] <2022-05-14; 12:07:38.390> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:38.390> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:38.390> Changed draw size to: 0.6
+   [INFO] <2022-05-14; 12:07:38.419> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:38.419> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:38.419> Changed draw size to: 0.5
+   [INFO] <2022-05-14; 12:07:38.448> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:38.448> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:38.448> Changed draw size to: 0.4
+   [INFO] <2022-05-14; 12:07:38.523> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:38.523> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:38.523> Changed draw size to: 0.3
+   [INFO] <2022-05-14; 12:07:38.599> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:38.600> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:38.600> Changed draw size to: 0.2
+   [INFO] <2022-05-14; 12:07:38.692> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:38.693> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:38.693> Changed draw size to: 0.1
+   [INFO] <2022-05-14; 12:07:38.766> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:38.766> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:38.766> Changed draw size to: 0.0
+   [INFO] <2022-05-14; 12:07:38.803> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:38.803> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:38.803> Changed draw size to: 0.1
+   [INFO] <2022-05-14; 12:07:38.836> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:38.836> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:38.836> Changed draw size to: 0.0
+   [INFO] <2022-05-14; 12:07:39.475> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:39.476> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:39.476> Changed draw size to: 0.0
+   [INFO] <2022-05-14; 12:07:40.010> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:40.011> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:40.011> Changed draw size to: 0.1
+   [INFO] <2022-05-14; 12:07:40.203> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:40.203> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:40.203> Changed draw size to: 0.2
+   [INFO] <2022-05-14; 12:07:40.538> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:40.539> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:40.539> Changed draw size to: 0.3
+   [INFO] <2022-05-14; 12:07:40.843> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:40.843> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:40.843> Changed draw size to: 0.2
+   [INFO] <2022-05-14; 12:07:41.050> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:41.051> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:41.051> Changed draw size to: 0.1
+   [INFO] <2022-05-14; 12:07:41.467> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:41.467> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:41.467> Changed draw size to: 0.2
+   [INFO] <2022-05-14; 12:07:41.610> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:41.611> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:41.611> Changed draw size to: 0.3
+   [INFO] <2022-05-14; 12:07:41.754> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:41.755> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:41.756> Changed draw size to: 0.4
+   [INFO] <2022-05-14; 12:07:41.883> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:41.884> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:41.884> Changed draw size to: 0.5
+   [INFO] <2022-05-14; 12:07:42.027> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:42.028> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:42.028> Changed draw size to: 0.6
+   [INFO] <2022-05-14; 12:07:42.155> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:42.156> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:42.156> Changed draw size to: 0.7
+   [INFO] <2022-05-14; 12:07:42.299> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:42.299> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:42.300> Changed draw size to: 0.8
+   [INFO] <2022-05-14; 12:07:42.459> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:42.459> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:42.459> Changed draw size to: 0.9
+   [INFO] <2022-05-14; 12:07:42.603> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:42.603> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:42.603> Changed draw size to: 1.0
+   [INFO] <2022-05-14; 12:07:42.747> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:42.747> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:42.747> Changed draw size to: 1.1
+   [INFO] <2022-05-14; 12:07:42.859> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:42.860> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:42.860> Changed draw size to: 1.2
+   [INFO] <2022-05-14; 12:07:43.361> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:43.361> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:43.362> Changed draw size to: 1.3
+   [INFO] <2022-05-14; 12:07:43.392> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:43.393> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:43.393> Changed draw size to: 1.4
+   [INFO] <2022-05-14; 12:07:43.440> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:43.441> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:43.441> Changed draw size to: 1.5
+   [INFO] <2022-05-14; 12:07:43.490> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:43.490> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:43.490> Changed draw size to: 1.6
+   [INFO] <2022-05-14; 12:07:43.524> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:43.525> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:43.525> Changed draw size to: 1.7
+   [INFO] <2022-05-14; 12:07:43.557> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:43.557> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:43.557> Changed draw size to: 1.8
+   [INFO] <2022-05-14; 12:07:43.591> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:43.591> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:43.592> Changed draw size to: 1.9
+   [INFO] <2022-05-14; 12:07:43.622> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:43.623> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:43.623> Changed draw size to: 2.0
+   [INFO] <2022-05-14; 12:07:43.665> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:43.666> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:43.666> Changed draw size to: 2.1
+   [INFO] <2022-05-14; 12:07:43.666> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:43.666> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:43.667> Changed draw size to: 2.2
+   [INFO] <2022-05-14; 12:07:43.703> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:43.704> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:43.704> Changed draw size to: 2.3
+   [INFO] <2022-05-14; 12:07:43.735> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:43.736> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:43.736> Changed draw size to: 2.4
+   [INFO] <2022-05-14; 12:07:43.767> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:43.767> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:43.767> Changed draw size to: 2.5
+   [INFO] <2022-05-14; 12:07:43.798> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:43.799> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:43.799> Changed draw size to: 2.6
+   [INFO] <2022-05-14; 12:07:43.830> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:43.830> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:43.830> Changed draw size to: 2.7
+   [INFO] <2022-05-14; 12:07:43.861> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:43.861> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:43.861> Changed draw size to: 2.8
+   [INFO] <2022-05-14; 12:07:43.895> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:43.895> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:43.895> Changed draw size to: 2.9
+   [INFO] <2022-05-14; 12:07:43.925> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:43.925> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:43.926> Changed draw size to: 3.0
+   [INFO] <2022-05-14; 12:07:43.961> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:43.961> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:43.962> Changed draw size to: 3.1
+   [INFO] <2022-05-14; 12:07:43.989> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:43.990> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:43.990> Changed draw size to: 3.2
+   [INFO] <2022-05-14; 12:07:44.035> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:44.035> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:44.035> Changed draw size to: 3.3
+   [INFO] <2022-05-14; 12:07:44.065> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:44.066> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:44.066> Changed draw size to: 3.4
+   [INFO] <2022-05-14; 12:07:44.099> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:44.099> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:44.099> Changed draw size to: 3.5
+   [INFO] <2022-05-14; 12:07:44.131> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:44.131> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:44.132> Changed draw size to: 3.6
+   [INFO] <2022-05-14; 12:07:44.163> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:44.163> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:44.163> Changed draw size to: 3.7
+   [INFO] <2022-05-14; 12:07:44.196> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:44.196> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:44.197> Changed draw size to: 3.8
+   [INFO] <2022-05-14; 12:07:44.228> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:44.229> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:44.229> Changed draw size to: 3.9
+   [INFO] <2022-05-14; 12:07:44.265> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:44.266> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:44.266> Changed draw size to: 4.0
+   [INFO] <2022-05-14; 12:07:44.316> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:44.316> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:44.316> Changed draw size to: 4.1
+   [INFO] <2022-05-14; 12:07:44.344> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:44.344> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:44.345> Changed draw size to: 4.2
+   [INFO] <2022-05-14; 12:07:44.379> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:44.380> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:44.380> Changed draw size to: 4.3
+   [INFO] <2022-05-14; 12:07:44.414> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:44.414> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:44.415> Changed draw size to: 4.4
+   [INFO] <2022-05-14; 12:07:44.448> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:44.449> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:44.449> Changed draw size to: 4.5
+   [INFO] <2022-05-14; 12:07:44.485> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:44.486> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:44.486> Changed draw size to: 4.6
+   [INFO] <2022-05-14; 12:07:44.486> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:44.487> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:44.487> Changed draw size to: 4.7
+   [INFO] <2022-05-14; 12:07:44.525> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:44.526> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:44.526> Changed draw size to: 4.8
+   [INFO] <2022-05-14; 12:07:44.566> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:44.567> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:44.567> Changed draw size to: 4.9
+   [INFO] <2022-05-14; 12:07:44.602> Saving and writing settings to config file
+   [INFO] <2022-05-14; 12:07:44.602> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 12:07:44.602> Changed draw size to: 5.0
+   

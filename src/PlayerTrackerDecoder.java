@@ -1,6 +1,7 @@
 package src;
 
 import src.RangedSlider.RangeSlider;
+import src.ui.ImportForm;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -62,8 +63,10 @@ public class PlayerTrackerDecoder extends JFrame {
     private JLabel exportUpscaleLabel;
 
     private JLabel xLabel;
-    private JLabel yLabel;
+    private JLabel zLabel;
     private JLabel backgroundOpacityLabel;
+
+    private JComponent backgroundImagePanel;
 
     private File[] files;
 
@@ -86,7 +89,7 @@ public class PlayerTrackerDecoder extends JFrame {
     private ImageIcon checkBoxIconON;
     private ImageIcon checkBoxIconOFF;
 
-    private final String version = "1.7.0";
+    private final String version = "1.7.2";
 
     public PlayerTrackerDecoder() {
         logger = new Logger(version);
@@ -145,30 +148,32 @@ public class PlayerTrackerDecoder extends JFrame {
         bottomMenuBar.add(mainPanel.SelectedEntryLabel);
 
         dataFileImportButton.addActionListener(event -> {
-            int returnVal = chooser.showOpenDialog(PlayerTrackerDecoder.this);
-
             mainPanel.isPlaying = false;
             mainPanel.ShouldDraw = false;
 
-            files = chooser.getSelectedFiles();
-            if (returnVal == JFileChooser.APPROVE_OPTION) {
-                try {
-                    if (alreadyImported) {
-                        mainPanel.Reset();
-                    }
+            ImportForm form = new ImportForm(this, settings, logger);
+            form.setVisible(true);
+            form.setLocationRelativeTo(this);
 
-                    decodeAndDisplay();
-                } catch (IOException e) {
-                    logger.Log("Error decoding the selected input log files:\n   " + Arrays.toString(e.getStackTrace()), Logger.MessageType.ERROR);
-                }
-            } else if (returnVal == JFileChooser.ERROR_OPTION) {
-                logger.Log("Error selecting input files", Logger.MessageType.ERROR);
-            } else {
-                logger.Log("No input files selected", Logger.MessageType.WARNING);
-            }
         });
 
         logger.Log("Successfully initialized all subsystems", Logger.MessageType.INFO);
+    }
+
+    public void ConfirmImport(ArrayList<File> files) {
+        this.files = files.toArray(new File[0]);
+        mainPanel.isPlaying = false;
+        mainPanel.ShouldDraw = false;
+
+        try {
+            if (alreadyImported) {
+                mainPanel.Reset();
+            }
+
+            decodeAndDisplay();
+        } catch (IOException e) {
+            logger.Log("Error decoding the selected input log files:\n   " + Arrays.toString(e.getStackTrace()), Logger.MessageType.ERROR);
+        }
     }
 
     public static void main(String[] args) {
@@ -210,107 +215,87 @@ public class PlayerTrackerDecoder extends JFrame {
         logger.Log("Successfully initialized primary frame subsystem", Logger.MessageType.INFO);
     }
 
-    private void loadWorldImage() {
-        logger.Log("Opening world background image dialog", Logger.MessageType.INFO);
+    public void LoadWorldImage(File imgFile) {
+        try {
+            mainPanel.backgroundImage = mainPanel.LoadBackgroundImage(imgFile);
 
-        JFileChooser imgChooser = new JFileChooser("worldImages");
-        imgChooser.setMultiSelectionEnabled(false);
-        imgChooser.addChoosableFileFilter(new ImageFileFilter());
-        imgChooser.setAcceptAllFileFilterUsed(false);
+            backgroundImagePanel = new JPanel();
+            backgroundImagePanel.setLayout(new GridLayout(3, 5));
 
-        int returnVal = imgChooser.showOpenDialog(PlayerTrackerDecoder.this);
+            backgroundImagePanel.add(new JLabel("World Background Image Offset:   "));
 
-        if (returnVal == JFileChooser.APPROVE_OPTION) {
-            logger.Log("Selected world background images: " + files.length, Logger.MessageType.INFO);
+            int width = mainPanel.backgroundImage.getWidth();
+            int height = mainPanel.backgroundImage.getHeight();
+            int defaultX = mainPanel.xBackgroundOffset;
+            int defaultZ = mainPanel.zBackgroundOffset;
 
-            try {
-                File imgFile = imgChooser.getSelectedFile();
-                mainPanel.backgroundImage = mainPanel.LoadBackgroundImage(imgFile);
+            backgroundImagePanel.add(new JLabel("Overworld offset: (-6384, -5376)  Nether offset: (-1008, -1969)"));
 
-                JComponent backgroundImagePanel = new JPanel();
-                backgroundImagePanel.setLayout(new GridLayout(3, 5));
+            JSlider xOffsetSlider = new JSlider(0, -width, width, defaultX);
+            xOffsetSlider.setPreferredSize(new Dimension(100, 48));
+            xOffsetSlider.setPaintTicks(false);
+            xOffsetSlider.setMajorTickSpacing(1);
+            xOffsetSlider.setMinorTickSpacing(0);
+            xOffsetSlider.setPaintLabels(false);
+            mainPanel.xBackgroundOffset = defaultX;
+            xLabel = new JLabel("X Offset: " + defaultX);
+            xOffsetSlider.addChangeListener(e -> {
+                JSlider source = (JSlider) e.getSource();
+                int x = source.getValue();
+                xLabel.setText("X Offset: " + x);
+                mainPanel.xBackgroundOffset = x;
+                mainPanel.update = true;
+                mainPanel.repaint();
 
-                backgroundImagePanel.add(new JLabel("World Background Image Offset:   "));
+                logger.Log("Changed the world background image X offset to: " + x, Logger.MessageType.INFO);
+            });
+            backgroundImagePanel.add(xOffsetSlider);
+            backgroundImagePanel.add(xLabel);
 
-                int width = mainPanel.backgroundImage.getWidth();
-                int height = mainPanel.backgroundImage.getHeight();
-                int defaultX = imgFile.getName().contains("Nether") ? -1008 : -6384;
-                int defaultY = imgFile.getName().contains("Nether") ? -1969 : -5376;
+            JSlider zOffsetSlider = new JSlider(0, -height, height, defaultZ);
+            zOffsetSlider.setPreferredSize(new Dimension(100, 48));
+            zOffsetSlider.setPaintTicks(false);
+            zOffsetSlider.setMajorTickSpacing(1);
+            zOffsetSlider.setMinorTickSpacing(0);
+            zOffsetSlider.setPaintLabels(false);
+            mainPanel.zBackgroundOffset = defaultZ;
+            zLabel = new JLabel("Y Offset: " + defaultZ);
+            zOffsetSlider.addChangeListener(e -> {
+                JSlider source = (JSlider) e.getSource();
+                int z = source.getValue();
+                zLabel.setText("Y Offset: " + z);
+                mainPanel.zBackgroundOffset = z;
+                mainPanel.update = true;
+                mainPanel.repaint();
 
-                backgroundImagePanel.add(new JLabel("Overworld offset: (-6384, -5376) Nether offset: (-1008, -1969)"));
+                logger.Log("Changed the world background image Y offset to: " + z, Logger.MessageType.INFO);
+            });
+            backgroundImagePanel.add(zOffsetSlider);
+            backgroundImagePanel.add(zLabel);
 
-                JSlider xOffsetSlider = new JSlider(0, -width, width, defaultX);
-                xOffsetSlider.setPreferredSize(new Dimension(100, 48));
-                xOffsetSlider.setPaintTicks(false);
-                xOffsetSlider.setMajorTickSpacing(1);
-                xOffsetSlider.setMinorTickSpacing(0);
-                xOffsetSlider.setPaintLabels(false);
-                mainPanel.xBackgroundOffset = defaultX;
-                xLabel = new JLabel("X Offset: " + defaultX);
-                xOffsetSlider.addChangeListener(e -> {
-                    JSlider source = (JSlider) e.getSource();
-                    int x = source.getValue();
-                    xLabel.setText("X Offset: " + x);
-                    mainPanel.xBackgroundOffset = x;
-                    mainPanel.update = true;
-                    mainPanel.repaint();
+            JSlider backgroundOpacitySlider = new JSlider(0, 0, 100, 50);
+            backgroundOpacitySlider.setPreferredSize(new Dimension(100, 48));
+            backgroundOpacitySlider.setPaintTicks(true);
+            backgroundOpacitySlider.setMajorTickSpacing(10);
+            backgroundOpacitySlider.setMinorTickSpacing(5);
+            backgroundOpacitySlider.setPaintLabels(true);
+            backgroundOpacityLabel = new JLabel("Opacity: " + 50 + "%");
+            backgroundOpacitySlider.addChangeListener(e -> {
+                JSlider source = (JSlider) e.getSource();
+                int opacity = source.getValue();
+                backgroundOpacityLabel.setText("Opacity: " + opacity + "%");
+                mainPanel.backgroundOpacity = opacity / 100.0F;
+                mainPanel.update = true;
+                mainPanel.repaint();
 
-                    logger.Log("Changed the world background image X offset to: " + x, Logger.MessageType.INFO);
-                });
-                backgroundImagePanel.add(xOffsetSlider);
-                backgroundImagePanel.add(xLabel);
+                logger.Log("Changed the world background image opacity to: " + opacity, Logger.MessageType.INFO);
+            });
+            backgroundImagePanel.add(backgroundOpacitySlider);
+            backgroundImagePanel.add(backgroundOpacityLabel);
 
-                JSlider yOffsetSlider = new JSlider(0, -height, height, defaultY);
-                yOffsetSlider.setPreferredSize(new Dimension(100, 48));
-                yOffsetSlider.setPaintTicks(false);
-                yOffsetSlider.setMajorTickSpacing(1);
-                yOffsetSlider.setMinorTickSpacing(0);
-                yOffsetSlider.setPaintLabels(false);
-                mainPanel.yBackgroundOffset = defaultY;
-                yLabel = new JLabel("Y Offset: " + defaultY);
-                yOffsetSlider.addChangeListener(e -> {
-                    JSlider source = (JSlider) e.getSource();
-                    int y = source.getValue();
-                    yLabel.setText("Y Offset: " + y);
-                    mainPanel.yBackgroundOffset = y;
-                    mainPanel.update = true;
-                    mainPanel.repaint();
-
-                    logger.Log("Changed the world background image Y offset to: " + y, Logger.MessageType.INFO);
-                });
-                backgroundImagePanel.add(yOffsetSlider);
-                backgroundImagePanel.add(yLabel);
-
-                JSlider backgroundOpacitySlider = new JSlider(0, 0, 100, 50);
-                backgroundOpacitySlider.setPreferredSize(new Dimension(100, 48));
-                backgroundOpacitySlider.setPaintTicks(true);
-                backgroundOpacitySlider.setMajorTickSpacing(10);
-                backgroundOpacitySlider.setMinorTickSpacing(5);
-                backgroundOpacitySlider.setPaintLabels(true);
-                backgroundOpacityLabel = new JLabel("Opacity: " + 50 + "%");
-                backgroundOpacitySlider.addChangeListener(e -> {
-                    JSlider source = (JSlider) e.getSource();
-                    int opacity = source.getValue();
-                    backgroundOpacityLabel.setText("Opacity: " + opacity + "%");
-                    mainPanel.backgroundOpacity = opacity / 100.0F;
-                    mainPanel.update = true;
-                    mainPanel.repaint();
-
-                    logger.Log("Changed the world background image opacity to: " + opacity, Logger.MessageType.INFO);
-                });
-                backgroundImagePanel.add(backgroundOpacitySlider);
-                backgroundImagePanel.add(backgroundOpacityLabel);
-
-                tabbedPane.insertTab("Background", null, backgroundImagePanel, "World background image", 3);
-
-                logger.Log("Successfully loaded world background image", Logger.MessageType.INFO);
-            } catch (IOException e) {
-                logger.Log("Error reading selected world background image:\n   " + Arrays.toString(e.getStackTrace()), Logger.MessageType.ERROR);
-            }
-        } else if (returnVal == JFileChooser.ERROR_OPTION) {
-            logger.Log("Error selecting world background images", Logger.MessageType.ERROR);
-        } else {
-            logger.Log("No world background images selected", Logger.MessageType.WARNING);
+            logger.Log("Successfully loaded world background image", Logger.MessageType.INFO);
+        } catch (IOException e) {
+            logger.Log("Error reading selected world background image:\n   " + Arrays.toString(e.getStackTrace()), Logger.MessageType.ERROR);
         }
     }
 
@@ -513,18 +498,17 @@ public class PlayerTrackerDecoder extends JFrame {
         sizeTypeLabel = new JLabel((settings._drawType == Decoder.DrawType.Dot) ? "Dot Radius" : ((settings._drawType == Decoder.DrawType.Pixel || settings._drawType == Decoder.DrawType.Heat) ? "Pixel Size" : ((settings._drawType == Decoder.DrawType.Line) ? "Line Thickness" : "   -")));
         renderPanel.add(sizeTypeLabel);
 
-        JSlider sizeSlider = new JSlider(0, 0, settings.size > 50 ? (int) (settings.size + (settings.size * 0.1f)) : 50, settings.size);
+        JSlider sizeSlider = new JSlider(0, 0, 50, (int) settings.size * 10);
         sizeSlider.setPreferredSize(new Dimension(200, 48));
         sizeSlider.setPaintTicks(true);
         sizeSlider.setMajorTickSpacing(10);
         sizeSlider.setMinorTickSpacing(0);
         sizeSlider.setPaintLabels(true);
-        sizeLabel = new JLabel(Integer.toString(settings.size));
+        sizeLabel = new JLabel(Float.toString(settings.size));
         sizeSlider.addChangeListener(e -> {
             JSlider source = (JSlider) e.getSource();
-            int radius = source.getValue();
-            settings.size = radius;
-            sizeLabel.setText(Integer.toString(radius));
+            settings.size = (float) source.getValue() / 10.0f;
+            sizeLabel.setText(Float.toString(settings.size));
             mainPanel.update = true;
             mainPanel.repaint();
             settings.SaveSettings();
@@ -696,6 +680,10 @@ public class PlayerTrackerDecoder extends JFrame {
         tabbedPane.addTab("Render", null, renderPanel, "Render settings");
         //endregion
 
+        if (backgroundOpacityLabel != null) {
+            tabbedPane.insertTab("Background", null, backgroundImagePanel, "World background image", 3);
+        }
+
         //region Export
         JComponent exportPanel = new JPanel();
         exportPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
@@ -750,6 +738,8 @@ public class PlayerTrackerDecoder extends JFrame {
         decoder.files = files;
         decoder.main = this;
         (new Thread(decoder)).start();
+
+        setCursor(Cursor.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR));
     }
 
     public void DisplayDecodedData() {
@@ -772,17 +762,6 @@ public class PlayerTrackerDecoder extends JFrame {
 
         logger.Log("Selected files: " + files.length, Logger.MessageType.INFO);
 
-        File[] worldImages = new File("worldImages").listFiles();
-        if (worldImages == null || worldImages.length == 0) {
-            logger.Log("No world background images present in folder \"WorldImages\"", Logger.MessageType.WARNING);
-        } else {
-            logger.Log("World background images are present, opening selection screen", Logger.MessageType.INFO);
-            new Thread(new Runnable() {
-                public void run() {
-                    loadWorldImage();
-                }
-            }).start();
-        }
         alreadyImported = true;
 
         logger.Log("Decoding process finished successfully", Logger.MessageType.INFO);

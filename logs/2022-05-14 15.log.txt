@@ -1,0 +1,19 @@
+[INFO] <2022-05-14; 13:47:23.172>    Player Tracker Decoder App v1.7.0 - LOG FILE
+   [INFO] <2022-05-14; 13:47:23.173> Initializing logger
+   [INFO] <2022-05-14; 13:47:23.174> Logger successfully initialized
+   [INFO] <2022-05-14; 13:47:23.174> Initializing primary systems
+   [INFO] <2022-05-14; 13:47:23.176> Initializing settings subsystem
+   [INFO] <2022-05-14; 13:47:23.176> Fetching and parsing settings from config file
+   [INFO] <2022-05-14; 13:47:23.177> Settings: 0
+   [INFO] <2022-05-14; 13:47:23.177> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-14; 13:47:23.177> Successfully initialized settings subsystem
+   [INFO] <2022-05-14; 13:47:23.179> Initializing decoder subsystem
+   [INFO] <2022-05-14; 13:47:23.183> Successfully initialized decoder subsystem
+   [INFO] <2022-05-14; 13:47:23.185> Initializing primary frame subsystem
+   [INFO] <2022-05-14; 13:47:23.265> Initializing main display subsystem
+   [INFO] <2022-05-14; 13:47:23.266> Antialiasing enabled on main display panel
+   [INFO] <2022-05-14; 13:47:23.266> Successfully initialized main display subsystem
+   [INFO] <2022-05-14; 13:47:23.285> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-14; 13:47:23.286> Loading resources
+   [INFO] <2022-05-14; 13:47:24.108> Successfully initialized all subsystems
+   

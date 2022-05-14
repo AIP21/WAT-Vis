@@ -1,0 +1,196 @@
+[INFO] <2022-05-14; 15:37:58.128>    Player Tracker Decoder App v1.7.2 - LOG FILE
+   [INFO] <2022-05-14; 15:37:58.129> Initializing logger
+   [INFO] <2022-05-14; 15:37:58.130> Logger successfully initialized
+   [INFO] <2022-05-14; 15:37:58.130> Initializing primary systems
+   [INFO] <2022-05-14; 15:37:58.132> Initializing settings subsystem
+   [INFO] <2022-05-14; 15:37:58.132> Fetching and parsing settings from config file
+   [INFO] <2022-05-14; 15:37:58.133> Settings: 0
+   [INFO] <2022-05-14; 15:37:58.133> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-14; 15:37:58.133> Successfully initialized settings subsystem
+   [INFO] <2022-05-14; 15:37:58.134> Initializing decoder subsystem
+   [INFO] <2022-05-14; 15:37:58.137> Successfully initialized decoder subsystem
+   [INFO] <2022-05-14; 15:37:58.138> Initializing primary frame subsystem
+   [INFO] <2022-05-14; 15:37:58.174> Initializing main display subsystem
+   [INFO] <2022-05-14; 15:37:58.175> Antialiasing enabled on main display panel
+   [INFO] <2022-05-14; 15:37:58.176> Successfully initialized main display subsystem
+   [INFO] <2022-05-14; 15:37:58.193> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-14; 15:37:58.193> Loading resources
+   [INFO] <2022-05-14; 15:37:58.989> Successfully initialized all subsystems
+   [INFO] <2022-05-14; 15:48:13.475> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:13.479> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:13.795> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:13.795> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:13.947> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:13.947> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:14.720> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:14.723> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:14.877> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:14.877> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:15.045> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:15.046> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:15.183> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:15.184> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:19.140> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:19.140> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:21.427> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:21.427> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:21.855> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:21.856> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:28.787> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:28.788> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:28.958> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:28.958> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:29.122> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:29.122> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:29.288> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:29.288> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:29.443> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:29.444> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:29.615> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:29.616> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:29.771> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:29.772> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:29.940> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:29.940> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:30.105> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:30.105> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:30.281> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:30.281> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:30.444> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:30.445> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:30.628> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:30.629> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:30.788> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:30.789> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:31.283> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:31.283> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:31.780> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:31.781> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:32.467> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:32.468> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:32.627> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:32.627> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:32.782> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:32.783> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:32.938> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:32.939> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:33.099> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:33.099> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:33.259> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:33.259> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:33.413> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:33.414> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:33.592> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:33.593> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:33.743> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:33.744> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:33.901> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:33.902> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:34.073> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:34.073> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:34.242> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:34.243> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:36.371> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:36.372> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:36.700> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:36.701> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:37.613> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:37.613> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:38.325> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:38.328> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:39.228> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:39.228> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:40.559> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:40.560> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:41.235> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:41.237> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:42.253> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:42.254> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:43.332> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:43.334> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:44.453> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:44.454> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:45.029> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:45.031> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:45.204> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:45.205> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:45.606> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:45.606> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:45.945> Saving and writing settings to config file
+   [INFO] <2022-05-14; 15:48:45.945> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 15:48:48.998> Opening world background image dialog
+   [INFO] <2022-05-14; 15:48:51.323> Selected world background image: E:\TrackerDecoderApp\worldImages\SMOL-NewHidden-WorldMapImage.jpg
+   [INFO] <2022-05-14; 15:49:01.937> Loading world background image took 10611ms.
+   [INFO] <2022-05-14; 15:49:02.640> Successfully loaded world background image
+   [INFO] <2022-05-14; 15:49:12.928> Selected files: 57
+   [INFO] <2022-05-14; 15:49:12.928> Decoding process started
+   [INFO] <2022-05-14; 15:49:12.929> Decoding data
+   [INFO] <2022-05-14; 15:49:12.930> Fetched and indexed input file: server-overworld-log-2022-01-21.txt
+   [INFO] <2022-05-14; 15:49:12.930> Fetched and indexed input file: server-overworld-log-2022-01-22.txt
+   [INFO] <2022-05-14; 15:49:12.930> Fetched and indexed input file: server-overworld-log-2022-01-23.txt
+   [INFO] <2022-05-14; 15:49:12.930> Fetched and indexed input file: server-overworld-log-2022-01-24.txt
+   [INFO] <2022-05-14; 15:49:12.931> Fetched and indexed input file: server-overworld-log-2022-01-25.txt
+   [INFO] <2022-05-14; 15:49:12.931> Fetched and indexed input file: server-overworld-log-2022-01-28.txt
+   [INFO] <2022-05-14; 15:49:12.931> Fetched and indexed input file: server-overworld-log-2022-01-29.txt
+   [INFO] <2022-05-14; 15:49:12.932> Fetched and indexed input file: server-overworld-log-2022-01-30.txt
+   [INFO] <2022-05-14; 15:49:12.933> Fetched and indexed input file: server-overworld-log-2022-01-31.txt
+   [INFO] <2022-05-14; 15:49:12.933> Fetched and indexed input file: server-overworld-log-2022-02-01.txt
+   [INFO] <2022-05-14; 15:49:12.934> Fetched and indexed input file: server-overworld-log-2022-02-02.txt
+   [INFO] <2022-05-14; 15:49:12.934> Fetched and indexed input file: server-overworld-log-2022-02-03.txt
+   [INFO] <2022-05-14; 15:49:12.935> Fetched and indexed input file: server-overworld-log-2022-02-04.txt
+   [INFO] <2022-05-14; 15:49:12.935> Fetched and indexed input file: server-overworld-log-2022-02-05.txt
+   [INFO] <2022-05-14; 15:49:12.936> Fetched and indexed input file: server-overworld-log-2022-02-06.txt
+   [INFO] <2022-05-14; 15:49:12.936> Fetched and indexed input file: server-overworld-log-2022-02-08.txt
+   [INFO] <2022-05-14; 15:49:12.937> Fetched and indexed input file: server-overworld-log-2022-02-09.txt
+   [INFO] <2022-05-14; 15:49:12.937> Fetched and indexed input file: server-overworld-log-2022-02-10.txt
+   [INFO] <2022-05-14; 15:49:12.937> Fetched and indexed input file: server-overworld-log-2022-02-11.txt
+   [INFO] <2022-05-14; 15:49:12.938> Fetched and indexed input file: server-overworld-log-2022-02-12.txt
+   [INFO] <2022-05-14; 15:49:12.938> Fetched and indexed input file: server-overworld-log-2022-02-13.txt
+   [INFO] <2022-05-14; 15:49:12.938> Fetched and indexed input file: server-overworld-log-2022-02-14.txt
+   [INFO] <2022-05-14; 15:49:12.938> Fetched and indexed input file: server-overworld-log-2022-02-15.txt
+   [INFO] <2022-05-14; 15:49:12.939> Fetched and indexed input file: server-overworld-log-2022-02-17.txt
+   [INFO] <2022-05-14; 15:49:12.939> Fetched and indexed input file: server-overworld-log-2022-02-18.txt
+   [INFO] <2022-05-14; 15:49:12.939> Fetched and indexed input file: server-overworld-log-2022-02-19.txt
+   [INFO] <2022-05-14; 15:49:12.939> Fetched and indexed input file: server-overworld-log-2022-02-20.txt
+   [INFO] <2022-05-14; 15:49:12.939> Fetched and indexed input file: server-overworld-log-2022-02-21.txt
+   [INFO] <2022-05-14; 15:49:12.941> Fetched and indexed input file: server-overworld-log-2022-02-22.txt
+   [INFO] <2022-05-14; 15:49:12.941> Fetched and indexed input file: server-overworld-log-2022-02-23.txt
+   [INFO] <2022-05-14; 15:49:12.941> Fetched and indexed input file: server-overworld-log-2022-02-24.txt
+   [INFO] <2022-05-14; 15:49:12.942> Fetched and indexed input file: server-overworld-log-2022-02-25.txt
+   [INFO] <2022-05-14; 15:49:12.942> Fetched and indexed input file: server-overworld-log-2022-02-26.txt
+   [INFO] <2022-05-14; 15:49:12.942> Fetched and indexed input file: server-overworld-log-2022-02-27.txt
+   [INFO] <2022-05-14; 15:49:12.942> Fetched and indexed input file: server-overworld-log-2022-03-03.txt
+   [INFO] <2022-05-14; 15:49:12.943> Fetched and indexed input file: server-overworld-log-2022-03-05.txt
+   [INFO] <2022-05-14; 15:49:12.943> Fetched and indexed input file: server-overworld-log-2022-03-06.txt
+   [INFO] <2022-05-14; 15:49:12.943> Fetched and indexed input file: server-overworld-log-2022-03-11.txt
+   [INFO] <2022-05-14; 15:49:12.943> Fetched and indexed input file: server-overworld-log-2022-03-12.txt
+   [INFO] <2022-05-14; 15:49:12.944> Fetched and indexed input file: server-overworld-log-2022-03-13.txt
+   [INFO] <2022-05-14; 15:49:12.944> Fetched and indexed input file: server-overworld-log-2022-03-14.txt
+   [INFO] <2022-05-14; 15:49:12.944> Fetched and indexed input file: server-overworld-log-2022-03-15.txt
+   [INFO] <2022-05-14; 15:49:12.945> Fetched and indexed input file: server-overworld-log-2022-03-18.txt
+   [INFO] <2022-05-14; 15:49:12.945> Fetched and indexed input file: server-overworld-log-2022-03-21.txt
+   [INFO] <2022-05-14; 15:49:12.946> Fetched and indexed input file: server-overworld-log-2022-03-22.txt
+   [INFO] <2022-05-14; 15:49:12.946> Fetched and indexed input file: server-overworld-log-2022-03-23.txt
+   [INFO] <2022-05-14; 15:49:12.946> Fetched and indexed input file: server-overworld-log-2022-03-24.txt
+   [INFO] <2022-05-14; 15:49:12.947> Fetched and indexed input file: server-overworld-log-2022-03-25.txt
+   [INFO] <2022-05-14; 15:49:12.947> Fetched and indexed input file: server-overworld-log-2022-03-26.txt
+   [INFO] <2022-05-14; 15:49:12.947> Fetched and indexed input file: server-overworld-log-2022-03-27.txt
+   [INFO] <2022-05-14; 15:49:12.948> Fetched and indexed input file: server-overworld-log-2022-03-28.txt
+   [INFO] <2022-05-14; 15:49:12.948> Fetched and indexed input file: server-overworld-log-2022-03-29.txt
+   [INFO] <2022-05-14; 15:49:12.948> Fetched and indexed input file: server-overworld-log-2022-03-30.txt
+   [INFO] <2022-05-14; 15:49:12.948> Fetched and indexed input file: server-overworld-log-2022-03-31.txt
+   [INFO] <2022-05-14; 15:49:12.949> Fetched and indexed input file: server-overworld-log-2022-04-01.txt
+   [INFO] <2022-05-14; 15:49:12.949> Fetched and indexed input file: server-overworld-log-2022-04-02.txt
+   [INFO] <2022-05-14; 15:49:12.949> Fetched and indexed input file: server-overworld-log-2022-04-03.txt
+   [INFO] <2022-05-14; 15:49:13.440> maxX: 8634 minX: -6267; maxY: 2590 minY: -5018
+   [INFO] <2022-05-14; 15:49:13.441> xRange: 14901 yRange: 7608
+   [INFO] <2022-05-14; 15:49:13.442> Successfully decoded data
+   [INFO] <2022-05-14; 15:49:13.442> Setting data to display
+   [INFO] <2022-05-14; 15:49:13.538> Successfully set data to display
+   [INFO] <2022-05-14; 15:49:13.538> Updating points
+   [INFO] <2022-05-14; 15:49:13.632> Updated points: 102567
+   [INFO] <2022-05-14; 15:49:13.633> Initializing toolbar subsystem
+   [INFO] <2022-05-14; 15:49:14.701> Successfully initialized toolbar subsystem
+   [INFO] <2022-05-14; 15:49:14.702> Selected files: 57
+   [INFO] <2022-05-14; 15:49:14.703> Decoding process finished successfully
+   

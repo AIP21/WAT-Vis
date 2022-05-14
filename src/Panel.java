@@ -74,7 +74,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
     public BufferedImage backgroundImage;
 
-    public int xBackgroundOffset, yBackgroundOffset;
+    public int xBackgroundOffset, zBackgroundOffset;
 
     public LocalDateTime startDate;
 
@@ -263,7 +263,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
             // (-6384, -5376), (8959, 2767)
             g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, backgroundOpacity));
 
-            g2.drawImage(backgroundImage, xBackgroundOffset, yBackgroundOffset, null);
+            g2.drawImage(backgroundImage, xBackgroundOffset, zBackgroundOffset, null);
             g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1));
         }
 
@@ -295,6 +295,8 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         Map<String, Integer> playerOccurences = new LinkedHashMap<>();
 
         if (settings._drawType == Decoder.DrawType.Heat) {
+            int newMax = maxActivity + (settings.heatMapThreshold / 2);
+
             Vector3[] positions = posActivityMap.keySet().toArray(new Vector3[0]);
             for (Vector3 vec : positions) {
                 if (at != null) at.transform(vec.toPoint(), pt);
@@ -303,8 +305,8 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
                 int y = (vec.z + (offset != 0 ? -minY : 0) + offset) * upscale;
 
                 if (!useCulling || (pt.x >= -50 && pt.x <= screenSize.width + 50 && pt.y >= -50 && pt.y <= screenSize.height + 50)) {
-//                    logger.Log(posActivityMap.get(vec) + " / " + maxActivity, Logger.MessageType.ERROR);
-                    g2d.setColor(Utils.lerp(Color.darkGray, Color.getHSBColor(0.93f, 0.68f, 0.55f), ((float) Math.min(posActivityMap.get(vec) + settings.heatMapThreshold, maxActivity) / maxActivity)));
+//                    logger.Log(posActivityMap.get(vec) + " / " + maxActivity, Logger.MessageType.INFO);
+                    g2d.setColor(Utils.lerp(Color.darkGray, Color.getHSBColor(0.93f, 0.68f, 0.55f), ((float) Math.min(posActivityMap.get(vec) + settings.heatMapThreshold, newMax) / newMax)));
                     drawRectangle(g2d, x, y, settings.size, true);
                     renderedPoints++;
                 }

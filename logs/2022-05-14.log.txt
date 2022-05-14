@@ -1,0 +1,733 @@
+[INFO] <2022-05-14; 11:52:50.272>    Player Tracker Decoder App v1.7.0 - LOG FILE
+   [INFO] <2022-05-14; 11:52:50.273> Initializing logger
+   [INFO] <2022-05-14; 11:52:50.274> Logger successfully initialized
+   [INFO] <2022-05-14; 11:52:50.274> Initializing primary systems
+   [INFO] <2022-05-14; 11:52:50.276> Initializing settings subsystem
+   [INFO] <2022-05-14; 11:52:50.276> Fetching and parsing settings from config file
+   [INFO] <2022-05-14; 11:52:50.277> Settings: 17
+   [INFO] <2022-05-14; 11:52:50.277> 1
+   [INFO] <2022-05-14; 11:52:50.278> true
+   [INFO] <2022-05-14; 11:52:50.278> 0
+   [INFO] <2022-05-14; 11:52:50.279> true
+   [INFO] <2022-05-14; 11:52:50.279> 5.0
+   [INFO] <2022-05-14; 11:52:50.280> true
+   [INFO] <2022-05-14; 11:52:50.288> Dot
+   [INFO] <2022-05-14; 11:52:50.288> 200
+   [INFO] <2022-05-14; 11:52:50.289> false
+   [INFO] <2022-05-14; 11:52:50.289> true
+   [INFO] <2022-05-14; 11:52:50.289> false
+   [INFO] <2022-05-14; 11:52:50.290> false
+   [INFO] <2022-05-14; 11:52:50.290> false
+   [INFO] <2022-05-14; 11:52:50.290> ageFadeThreshold: 0
+   [INFO] <2022-05-14; 11:52:50.290> ChangeSize
+   [INFO] <2022-05-14; 11:52:50.290> 0
+   [INFO] <2022-05-14; 11:52:50.291> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-14; 11:52:50.291> Successfully initialized settings subsystem
+   [INFO] <2022-05-14; 11:52:50.292> Initializing decoder subsystem
+   [INFO] <2022-05-14; 11:52:50.293> Successfully initialized decoder subsystem
+   [INFO] <2022-05-14; 11:52:50.293> Initializing primary frame subsystem
+   [INFO] <2022-05-14; 11:52:50.453> Initializing main display subsystem
+   [INFO] <2022-05-14; 11:52:50.454> Antialiasing enabled on main display panel
+   [INFO] <2022-05-14; 11:52:50.454> Successfully initialized main display subsystem
+   [INFO] <2022-05-14; 11:52:50.543> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-14; 11:52:50.544> Loading resources
+   [INFO] <2022-05-14; 11:52:51.656> Successfully initialized all subsystems
+   [INFO] <2022-05-14; 11:53:00.875> Selected files: 57
+   [INFO] <2022-05-14; 11:53:00.875> Decoding process started
+   [INFO] <2022-05-14; 11:53:00.876> Decoding data
+   [INFO] <2022-05-14; 11:53:00.876> Fetched and indexed input file: server-overworld-log-2022-01-21.txt
+   [INFO] <2022-05-14; 11:53:00.877> Fetched and indexed input file: server-overworld-log-2022-01-22.txt
+   [INFO] <2022-05-14; 11:53:00.877> Fetched and indexed input file: server-overworld-log-2022-01-23.txt
+   [INFO] <2022-05-14; 11:53:00.877> Fetched and indexed input file: server-overworld-log-2022-01-24.txt
+   [INFO] <2022-05-14; 11:53:00.877> Fetched and indexed input file: server-overworld-log-2022-01-25.txt
+   [INFO] <2022-05-14; 11:53:00.878> Fetched and indexed input file: server-overworld-log-2022-01-28.txt
+   [INFO] <2022-05-14; 11:53:00.878> Fetched and indexed input file: server-overworld-log-2022-01-29.txt
+   [INFO] <2022-05-14; 11:53:00.878> Fetched and indexed input file: server-overworld-log-2022-01-30.txt
+   [INFO] <2022-05-14; 11:53:00.879> Fetched and indexed input file: server-overworld-log-2022-01-31.txt
+   [INFO] <2022-05-14; 11:53:00.879> Fetched and indexed input file: server-overworld-log-2022-02-01.txt
+   [INFO] <2022-05-14; 11:53:00.879> Fetched and indexed input file: server-overworld-log-2022-02-02.txt
+   [INFO] <2022-05-14; 11:53:00.880> Fetched and indexed input file: server-overworld-log-2022-02-03.txt
+   [INFO] <2022-05-14; 11:53:00.880> Fetched and indexed input file: server-overworld-log-2022-02-04.txt
+   [INFO] <2022-05-14; 11:53:00.880> Fetched and indexed input file: server-overworld-log-2022-02-05.txt
+   [INFO] <2022-05-14; 11:53:00.881> Fetched and indexed input file: server-overworld-log-2022-02-06.txt
+   [INFO] <2022-05-14; 11:53:00.881> Fetched and indexed input file: server-overworld-log-2022-02-08.txt
+   [INFO] <2022-05-14; 11:53:00.881> Fetched and indexed input file: server-overworld-log-2022-02-09.txt
+   [INFO] <2022-05-14; 11:53:00.882> Fetched and indexed input file: server-overworld-log-2022-02-10.txt
+   [INFO] <2022-05-14; 11:53:00.882> Fetched and indexed input file: server-overworld-log-2022-02-11.txt
+   [INFO] <2022-05-14; 11:53:00.882> Fetched and indexed input file: server-overworld-log-2022-02-12.txt
+   [INFO] <2022-05-14; 11:53:00.883> Fetched and indexed input file: server-overworld-log-2022-02-13.txt
+   [INFO] <2022-05-14; 11:53:00.883> Fetched and indexed input file: server-overworld-log-2022-02-14.txt
+   [INFO] <2022-05-14; 11:53:00.883> Fetched and indexed input file: server-overworld-log-2022-02-15.txt
+   [INFO] <2022-05-14; 11:53:00.884> Fetched and indexed input file: server-overworld-log-2022-02-17.txt
+   [INFO] <2022-05-14; 11:53:00.884> Fetched and indexed input file: server-overworld-log-2022-02-18.txt
+   [INFO] <2022-05-14; 11:53:00.884> Fetched and indexed input file: server-overworld-log-2022-02-19.txt
+   [INFO] <2022-05-14; 11:53:00.885> Fetched and indexed input file: server-overworld-log-2022-02-20.txt
+   [INFO] <2022-05-14; 11:53:00.885> Fetched and indexed input file: server-overworld-log-2022-02-21.txt
+   [INFO] <2022-05-14; 11:53:00.885> Fetched and indexed input file: server-overworld-log-2022-02-22.txt
+   [INFO] <2022-05-14; 11:53:00.885> Fetched and indexed input file: server-overworld-log-2022-02-23.txt
+   [INFO] <2022-05-14; 11:53:00.886> Fetched and indexed input file: server-overworld-log-2022-02-24.txt
+   [INFO] <2022-05-14; 11:53:00.886> Fetched and indexed input file: server-overworld-log-2022-02-25.txt
+   [INFO] <2022-05-14; 11:53:00.886> Fetched and indexed input file: server-overworld-log-2022-02-26.txt
+   [INFO] <2022-05-14; 11:53:00.887> Fetched and indexed input file: server-overworld-log-2022-02-27.txt
+   [INFO] <2022-05-14; 11:53:00.887> Fetched and indexed input file: server-overworld-log-2022-03-03.txt
+   [INFO] <2022-05-14; 11:53:00.887> Fetched and indexed input file: server-overworld-log-2022-03-05.txt
+   [INFO] <2022-05-14; 11:53:00.888> Fetched and indexed input file: server-overworld-log-2022-03-06.txt
+   [INFO] <2022-05-14; 11:53:00.888> Fetched and indexed input file: server-overworld-log-2022-03-11.txt
+   [INFO] <2022-05-14; 11:53:00.888> Fetched and indexed input file: server-overworld-log-2022-03-12.txt
+   [INFO] <2022-05-14; 11:53:00.889> Fetched and indexed input file: server-overworld-log-2022-03-13.txt
+   [INFO] <2022-05-14; 11:53:00.889> Fetched and indexed input file: server-overworld-log-2022-03-14.txt
+   [INFO] <2022-05-14; 11:53:00.889> Fetched and indexed input file: server-overworld-log-2022-03-15.txt
+   [INFO] <2022-05-14; 11:53:00.890> Fetched and indexed input file: server-overworld-log-2022-03-18.txt
+   [INFO] <2022-05-14; 11:53:00.890> Fetched and indexed input file: server-overworld-log-2022-03-21.txt
+   [INFO] <2022-05-14; 11:53:00.890> Fetched and indexed input file: server-overworld-log-2022-03-22.txt
+   [INFO] <2022-05-14; 11:53:00.890> Fetched and indexed input file: server-overworld-log-2022-03-23.txt
+   [INFO] <2022-05-14; 11:53:00.891> Fetched and indexed input file: server-overworld-log-2022-03-24.txt
+   [INFO] <2022-05-14; 11:53:00.891> Fetched and indexed input file: server-overworld-log-2022-03-25.txt
+   [INFO] <2022-05-14; 11:53:00.891> Fetched and indexed input file: server-overworld-log-2022-03-26.txt
+   [INFO] <2022-05-14; 11:53:00.892> Fetched and indexed input file: server-overworld-log-2022-03-27.txt
+   [INFO] <2022-05-14; 11:53:00.892> Fetched and indexed input file: server-overworld-log-2022-03-28.txt
+   [INFO] <2022-05-14; 11:53:00.893> Fetched and indexed input file: server-overworld-log-2022-03-29.txt
+   [INFO] <2022-05-14; 11:53:00.893> Fetched and indexed input file: server-overworld-log-2022-03-30.txt
+   [INFO] <2022-05-14; 11:53:00.893> Fetched and indexed input file: server-overworld-log-2022-03-31.txt
+   [INFO] <2022-05-14; 11:53:00.894> Fetched and indexed input file: server-overworld-log-2022-04-01.txt
+   [INFO] <2022-05-14; 11:53:00.894> Fetched and indexed input file: server-overworld-log-2022-04-02.txt
+   [INFO] <2022-05-14; 11:53:00.894> Fetched and indexed input file: server-overworld-log-2022-04-03.txt
+   [INFO] <2022-05-14; 11:53:01.685> maxX: 8634 minX: -6267; maxY: 2590 minY: -5018
+   [INFO] <2022-05-14; 11:53:01.686> xRange: 14901 yRange: 7608
+   [INFO] <2022-05-14; 11:53:01.686> Successfully decoded data
+   [INFO] <2022-05-14; 11:53:01.686> Setting data to display
+   [INFO] <2022-05-14; 11:53:01.753> Successfully set data to display
+   [INFO] <2022-05-14; 11:53:01.754> Updating points
+   [INFO] <2022-05-14; 11:53:01.840> Updated points: 102567
+   [INFO] <2022-05-14; 11:53:01.841> Initializing toolbar subsystem
+   [INFO] <2022-05-14; 11:53:02.962> Successfully initialized toolbar subsystem
+   [INFO] <2022-05-14; 11:53:02.964> Selected files: 57
+   [INFO] <2022-05-14; 11:53:02.964> World background images are present, opening selection screen
+   [INFO] <2022-05-14; 11:53:02.967> Opening world background image dialog
+   [INFO] <2022-05-14; 11:53:02.967> Decoding process finished successfully
+   [INFO] <2022-05-14; 11:53:09.138> Selected world background images: 57
+   [INFO] <2022-05-14; 11:53:13.551> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:53:13.555> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:53:13.557> Changed draw type to: Pixel
+   [INFO] <2022-05-14; 11:53:15.621> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:53:15.622> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:53:15.623> Changed draw type to: Line
+   [INFO] <2022-05-14; 11:53:19.535> Loading world background image took 10393ms.
+   [INFO] <2022-05-14; 11:53:19.890> Successfully loaded world background image
+   [INFO] <2022-05-14; 11:53:25.955> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:53:25.956> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:53:25.956> Changed draw size to: 1
+   [INFO] <2022-05-14; 11:53:25.956> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:53:25.957> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:53:25.957> Changed draw size to: 0
+   [INFO] <2022-05-14; 11:53:26.059> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:53:26.060> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:53:26.060> Changed draw size to: 0
+   [INFO] <2022-05-14; 11:53:31.543> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:53:31.544> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:53:31.544> Toggled fancy lines to: true
+   [INFO] <2022-05-14; 11:53:39.505> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:53:39.506> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:53:39.506> Toggled fancy lines to: false
+   [INFO] <2022-05-14; 11:53:40.475> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:53:40.478> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:53:40.480> Toggled terminus points to: true
+   [INFO] <2022-05-14; 11:53:42.967> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:53:42.970> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:53:42.972> Toggled age fade to: true
+   [INFO] <2022-05-14; 11:53:45.410> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:53:45.411> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:53:45.411> Changed draw size to: 0
+   [INFO] <2022-05-14; 11:53:45.453> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:53:45.454> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:53:45.454> Changed draw size to: 1
+   [INFO] <2022-05-14; 11:53:45.534> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:53:45.534> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:53:45.534> Changed draw size to: 2
+   [INFO] <2022-05-14; 11:53:45.875> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:53:45.876> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:53:45.876> Changed draw size to: 1
+   [INFO] <2022-05-14; 11:53:46.253> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:53:46.254> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:53:46.254> Changed draw size to: 1
+   [INFO] <2022-05-14; 11:53:47.911> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:53:47.912> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:53:47.912> Changed draw size to: 1
+   [INFO] <2022-05-14; 11:53:47.952> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:53:47.952> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:53:47.953> Changed draw size to: 0
+   [INFO] <2022-05-14; 11:53:48.204> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:53:48.204> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:53:48.205> Changed draw size to: 0
+   [INFO] <2022-05-14; 11:53:51.255> Changed the world background image X offset to: -6384
+   [INFO] <2022-05-14; 11:53:51.257> Changed the world background image X offset to: -6461
+   [INFO] <2022-05-14; 11:53:51.304> Changed the world background image X offset to: -6945
+   [INFO] <2022-05-14; 11:53:51.361> Changed the world background image X offset to: -7484
+   [INFO] <2022-05-14; 11:53:51.405> Changed the world background image X offset to: -7753
+   [INFO] <2022-05-14; 11:53:51.447> Changed the world background image X offset to: -8076
+   [INFO] <2022-05-14; 11:53:51.485> Changed the world background image X offset to: -8237
+   [INFO] <2022-05-14; 11:53:51.522> Changed the world background image X offset to: -8614
+   [INFO] <2022-05-14; 11:53:51.558> Changed the world background image X offset to: -8830
+   [INFO] <2022-05-14; 11:53:51.593> Changed the world background image X offset to: -8883
+   [INFO] <2022-05-14; 11:53:51.791> Changed the world background image X offset to: -8937
+   [INFO] <2022-05-14; 11:53:51.852> Changed the world background image X offset to: -9314
+   [INFO] <2022-05-14; 11:53:51.889> Changed the world background image X offset to: -9368
+   [INFO] <2022-05-14; 11:53:51.931> Changed the world background image X offset to: -9422
+   [INFO] <2022-05-14; 11:53:52.093> Changed the world background image X offset to: -9476
+   [INFO] <2022-05-14; 11:53:52.137> Changed the world background image X offset to: -9637
+   [INFO] <2022-05-14; 11:53:52.192> Changed the world background image X offset to: -9422
+   [INFO] <2022-05-14; 11:53:52.451> Changed the world background image X offset to: -9368
+   [INFO] <2022-05-14; 11:53:52.499> Changed the world background image X offset to: -9314
+   [INFO] <2022-05-14; 11:53:52.557> Changed the world background image X offset to: -8883
+   [INFO] <2022-05-14; 11:53:52.600> Changed the world background image X offset to: -8830
+   [INFO] <2022-05-14; 11:53:52.644> Changed the world background image X offset to: -8668
+   [INFO] <2022-05-14; 11:53:52.682> Changed the world background image X offset to: -8399
+   [INFO] <2022-05-14; 11:53:52.717> Changed the world background image X offset to: -8237
+   [INFO] <2022-05-14; 11:53:52.752> Changed the world background image X offset to: -8130
+   [INFO] <2022-05-14; 11:53:52.812> Changed the world background image X offset to: -7807
+   [INFO] <2022-05-14; 11:53:52.848> Changed the world background image X offset to: -7699
+   [INFO] <2022-05-14; 11:53:52.886> Changed the world background image X offset to: -7537
+   [INFO] <2022-05-14; 11:53:52.925> Changed the world background image X offset to: -7161
+   [INFO] <2022-05-14; 11:53:52.993> Changed the world background image X offset to: -6999
+   [INFO] <2022-05-14; 11:53:53.048> Changed the world background image X offset to: -6568
+   [INFO] <2022-05-14; 11:53:53.090> Changed the world background image X offset to: -6407
+   [INFO] <2022-05-14; 11:53:53.123> Changed the world background image X offset to: -6245
+   [INFO] <2022-05-14; 11:53:53.161> Changed the world background image X offset to: -6084
+   [INFO] <2022-05-14; 11:53:53.205> Changed the world background image X offset to: -6030
+   [INFO] <2022-05-14; 11:53:53.243> Changed the world background image X offset to: -5815
+   [INFO] <2022-05-14; 11:53:53.286> Changed the world background image X offset to: -5384
+   [INFO] <2022-05-14; 11:53:53.328> Changed the world background image X offset to: -5169
+   [INFO] <2022-05-14; 11:53:53.365> Changed the world background image X offset to: -5061
+   [INFO] <2022-05-14; 11:53:53.407> Changed the world background image X offset to: -4576
+   [INFO] <2022-05-14; 11:53:53.446> Changed the world background image X offset to: -4146
+   [INFO] <2022-05-14; 11:53:53.481> Changed the world background image X offset to: -3607
+   [INFO] <2022-05-14; 11:53:53.528> Changed the world background image X offset to: -3230
+   [INFO] <2022-05-14; 11:53:53.567> Changed the world background image X offset to: -3015
+   [INFO] <2022-05-14; 11:53:53.606> Changed the world background image X offset to: -2800
+   [INFO] <2022-05-14; 11:53:53.606> Changed the world background image X offset to: -2746
+   [INFO] <2022-05-14; 11:53:53.640> Changed the world background image X offset to: -2638
+   [INFO] <2022-05-14; 11:53:53.680> Changed the world background image X offset to: -2154
+   [INFO] <2022-05-14; 11:53:53.731> Changed the world background image X offset to: -1454
+   [INFO] <2022-05-14; 11:53:53.788> Changed the world background image X offset to: -377
+   [INFO] <2022-05-14; 11:53:53.828> Changed the world background image X offset to: 162
+   [INFO] <2022-05-14; 11:53:53.891> Changed the world background image X offset to: 592
+   [INFO] <2022-05-14; 11:53:53.932> Changed the world background image X offset to: 915
+   [INFO] <2022-05-14; 11:53:54.232> Changed the world background image X offset to: 861
+   [INFO] <2022-05-14; 11:53:54.268> Changed the world background image X offset to: 538
+   [INFO] <2022-05-14; 11:53:54.304> Changed the world background image X offset to: 0
+   [INFO] <2022-05-14; 11:53:54.358> Changed the world background image X offset to: -485
+   [INFO] <2022-05-14; 11:53:54.398> Changed the world background image X offset to: -646
+   [INFO] <2022-05-14; 11:53:54.452> Changed the world background image X offset to: -861
+   [INFO] <2022-05-14; 11:53:54.504> Changed the world background image X offset to: -1238
+   [INFO] <2022-05-14; 11:53:54.559> Changed the world background image X offset to: -1454
+   [INFO] <2022-05-14; 11:53:54.620> Changed the world background image X offset to: -1777
+   [INFO] <2022-05-14; 11:53:54.946> Changed the world background image X offset to: -1831
+   [INFO] <2022-05-14; 11:53:54.982> Changed the world background image X offset to: -1884
+   [INFO] <2022-05-14; 11:53:55.026> Changed the world background image X offset to: -1938
+   [INFO] <2022-05-14; 11:53:55.075> Changed the world background image X offset to: -1992
+   [INFO] <2022-05-14; 11:53:55.276> Changed the world background image X offset to: -2046
+   [INFO] <2022-05-14; 11:53:55.321> Changed the world background image X offset to: -2477
+   [INFO] <2022-05-14; 11:53:55.368> Changed the world background image X offset to: -2746
+   [INFO] <2022-05-14; 11:53:55.412> Changed the world background image X offset to: -3284
+   [INFO] <2022-05-14; 11:53:55.470> Changed the world background image X offset to: -3500
+   [INFO] <2022-05-14; 11:53:55.516> Changed the world background image X offset to: -3876
+   [INFO] <2022-05-14; 11:53:55.570> Changed the world background image X offset to: -4307
+   [INFO] <2022-05-14; 11:53:55.617> Changed the world background image X offset to: -4684
+   [INFO] <2022-05-14; 11:53:55.662> Changed the world background image X offset to: -5061
+   [INFO] <2022-05-14; 11:53:55.716> Changed the world background image X offset to: -5599
+   [INFO] <2022-05-14; 11:53:55.765> Changed the world background image X offset to: -5868
+   [INFO] <2022-05-14; 11:53:55.808> Changed the world background image X offset to: -5976
+   [INFO] <2022-05-14; 11:53:56.125> Changed the world background image X offset to: -6030
+   [INFO] <2022-05-14; 11:53:56.317> Changed the world background image X offset to: -6084
+   [INFO] <2022-05-14; 11:53:56.750> Changed the world background image X offset to: -6138
+   [INFO] <2022-05-14; 11:53:56.803> Changed the world background image X offset to: -6191
+   [INFO] <2022-05-14; 11:53:56.866> Changed the world background image X offset to: -6299
+   [INFO] <2022-05-14; 11:53:57.384> Changed the world background image X offset to: -6353
+   [INFO] <2022-05-14; 11:53:57.764> Changed the world background image X offset to: -6407
+   [INFO] <2022-05-14; 11:53:57.849> Changed the world background image X offset to: -6461
+   [INFO] <2022-05-14; 11:53:58.798> Changed the world background image X offset to: -6461
+   [INFO] <2022-05-14; 11:53:59.235> Changed the world background image X offset to: -6460
+   [INFO] <2022-05-14; 11:53:59.428> Changed the world background image X offset to: -6459
+   [INFO] <2022-05-14; 11:53:59.571> Changed the world background image X offset to: -6458
+   [INFO] <2022-05-14; 11:54:00.078> Changed the world background image X offset to: -6457
+   [INFO] <2022-05-14; 11:54:00.135> Changed the world background image X offset to: -6456
+   [INFO] <2022-05-14; 11:54:00.171> Changed the world background image X offset to: -6455
+   [INFO] <2022-05-14; 11:54:00.245> Changed the world background image X offset to: -6454
+   [INFO] <2022-05-14; 11:54:00.246> Changed the world background image X offset to: -6453
+   [INFO] <2022-05-14; 11:54:00.297> Changed the world background image X offset to: -6452
+   [INFO] <2022-05-14; 11:54:00.298> Changed the world background image X offset to: -6451
+   [INFO] <2022-05-14; 11:54:00.346> Changed the world background image X offset to: -6450
+   [INFO] <2022-05-14; 11:54:00.347> Changed the world background image X offset to: -6449
+   [INFO] <2022-05-14; 11:54:00.400> Changed the world background image X offset to: -6448
+   [INFO] <2022-05-14; 11:54:00.455> Changed the world background image X offset to: -6447
+   [INFO] <2022-05-14; 11:54:00.456> Changed the world background image X offset to: -6446
+   [INFO] <2022-05-14; 11:54:00.506> Changed the world background image X offset to: -6445
+   [INFO] <2022-05-14; 11:54:00.558> Changed the world background image X offset to: -6444
+   [INFO] <2022-05-14; 11:54:00.558> Changed the world background image X offset to: -6443
+   [INFO] <2022-05-14; 11:54:00.609> Changed the world background image X offset to: -6442
+   [INFO] <2022-05-14; 11:54:00.609> Changed the world background image X offset to: -6441
+   [INFO] <2022-05-14; 11:54:00.652> Changed the world background image X offset to: -6440
+   [INFO] <2022-05-14; 11:54:00.699> Changed the world background image X offset to: -6439
+   [INFO] <2022-05-14; 11:54:00.748> Changed the world background image X offset to: -6438
+   [INFO] <2022-05-14; 11:54:00.748> Changed the world background image X offset to: -6437
+   [INFO] <2022-05-14; 11:54:00.791> Changed the world background image X offset to: -6436
+   [INFO] <2022-05-14; 11:54:00.834> Changed the world background image X offset to: -6435
+   [INFO] <2022-05-14; 11:54:00.876> Changed the world background image X offset to: -6434
+   [INFO] <2022-05-14; 11:54:00.876> Changed the world background image X offset to: -6433
+   [INFO] <2022-05-14; 11:54:00.922> Changed the world background image X offset to: -6432
+   [INFO] <2022-05-14; 11:54:00.969> Changed the world background image X offset to: -6431
+   [INFO] <2022-05-14; 11:54:00.970> Changed the world background image X offset to: -6430
+   [INFO] <2022-05-14; 11:54:01.012> Changed the world background image X offset to: -6429
+   [INFO] <2022-05-14; 11:54:01.057> Changed the world background image X offset to: -6428
+   [INFO] <2022-05-14; 11:54:01.093> Changed the world background image X offset to: -6427
+   [INFO] <2022-05-14; 11:54:01.129> Changed the world background image X offset to: -6426
+   [INFO] <2022-05-14; 11:54:01.164> Changed the world background image X offset to: -6425
+   [INFO] <2022-05-14; 11:54:01.201> Changed the world background image X offset to: -6424
+   [INFO] <2022-05-14; 11:54:01.201> Changed the world background image X offset to: -6423
+   [INFO] <2022-05-14; 11:54:01.237> Changed the world background image X offset to: -6422
+   [INFO] <2022-05-14; 11:54:01.273> Changed the world background image X offset to: -6421
+   [INFO] <2022-05-14; 11:54:01.310> Changed the world background image X offset to: -6420
+   [INFO] <2022-05-14; 11:54:01.347> Changed the world background image X offset to: -6419
+   [INFO] <2022-05-14; 11:54:01.381> Changed the world background image X offset to: -6418
+   [INFO] <2022-05-14; 11:54:01.416> Changed the world background image X offset to: -6417
+   [INFO] <2022-05-14; 11:54:01.453> Changed the world background image X offset to: -6416
+   [INFO] <2022-05-14; 11:54:01.489> Changed the world background image X offset to: -6415
+   [INFO] <2022-05-14; 11:54:01.526> Changed the world background image X offset to: -6414
+   [INFO] <2022-05-14; 11:54:01.527> Changed the world background image X offset to: -6413
+   [INFO] <2022-05-14; 11:54:01.560> Changed the world background image X offset to: -6412
+   [INFO] <2022-05-14; 11:54:01.604> Changed the world background image X offset to: -6411
+   [INFO] <2022-05-14; 11:54:01.637> Changed the world background image X offset to: -6410
+   [INFO] <2022-05-14; 11:54:01.673> Changed the world background image X offset to: -6409
+   [INFO] <2022-05-14; 11:54:01.710> Changed the world background image X offset to: -6408
+   [INFO] <2022-05-14; 11:54:01.748> Changed the world background image X offset to: -6407
+   [INFO] <2022-05-14; 11:54:01.792> Changed the world background image X offset to: -6406
+   [INFO] <2022-05-14; 11:54:01.831> Changed the world background image X offset to: -6405
+   [INFO] <2022-05-14; 11:54:01.831> Changed the world background image X offset to: -6404
+   [INFO] <2022-05-14; 11:54:01.885> Changed the world background image X offset to: -6403
+   [INFO] <2022-05-14; 11:54:01.924> Changed the world background image X offset to: -6402
+   [INFO] <2022-05-14; 11:54:01.961> Changed the world background image X offset to: -6401
+   [INFO] <2022-05-14; 11:54:01.996> Changed the world background image X offset to: -6400
+   [INFO] <2022-05-14; 11:54:01.997> Changed the world background image X offset to: -6399
+   [INFO] <2022-05-14; 11:54:02.031> Changed the world background image X offset to: -6398
+   [INFO] <2022-05-14; 11:54:02.067> Changed the world background image X offset to: -6397
+   [INFO] <2022-05-14; 11:54:02.105> Changed the world background image X offset to: -6396
+   [INFO] <2022-05-14; 11:54:02.141> Changed the world background image X offset to: -6395
+   [INFO] <2022-05-14; 11:54:02.177> Changed the world background image X offset to: -6394
+   [INFO] <2022-05-14; 11:54:02.213> Changed the world background image X offset to: -6393
+   [INFO] <2022-05-14; 11:54:02.249> Changed the world background image X offset to: -6392
+   [INFO] <2022-05-14; 11:54:02.292> Changed the world background image X offset to: -6391
+   [INFO] <2022-05-14; 11:54:02.403> Changed the world background image X offset to: -6390
+   [INFO] <2022-05-14; 11:54:02.547> Changed the world background image X offset to: -6389
+   [INFO] <2022-05-14; 11:54:02.692> Changed the world background image X offset to: -6388
+   [INFO] <2022-05-14; 11:54:02.836> Changed the world background image X offset to: -6387
+   [INFO] <2022-05-14; 11:54:02.979> Changed the world background image X offset to: -6386
+   [INFO] <2022-05-14; 11:54:03.107> Changed the world background image X offset to: -6385
+   [INFO] <2022-05-14; 11:54:03.236> Changed the world background image X offset to: -6384
+   [INFO] <2022-05-14; 11:54:03.700> Changed the world background image X offset to: -6383
+   [INFO] <2022-05-14; 11:54:04.803> Changed the world background image X offset to: -6384
+   [INFO] <2022-05-14; 11:54:11.165> Changed the world background image opacity to: 50
+   [INFO] <2022-05-14; 11:54:11.165> Changed the world background image opacity to: 45
+   [INFO] <2022-05-14; 11:54:11.744> Changed the world background image opacity to: 45
+   [INFO] <2022-05-14; 11:54:12.236> Changed the world background image opacity to: 45
+   [INFO] <2022-05-14; 11:54:12.309> Changed the world background image opacity to: 47
+   [INFO] <2022-05-14; 11:54:12.389> Changed the world background image opacity to: 60
+   [INFO] <2022-05-14; 11:54:12.482> Changed the world background image opacity to: 63
+   [INFO] <2022-05-14; 11:54:12.578> Changed the world background image opacity to: 66
+   [INFO] <2022-05-14; 11:54:12.671> Changed the world background image opacity to: 71
+   [INFO] <2022-05-14; 11:54:12.755> Changed the world background image opacity to: 77
+   [INFO] <2022-05-14; 11:54:12.836> Changed the world background image opacity to: 83
+   [INFO] <2022-05-14; 11:54:12.923> Changed the world background image opacity to: 84
+   [INFO] <2022-05-14; 11:54:13.015> Changed the world background image opacity to: 83
+   [INFO] <2022-05-14; 11:54:13.100> Changed the world background image opacity to: 78
+   [INFO] <2022-05-14; 11:54:13.178> Changed the world background image opacity to: 66
+   [INFO] <2022-05-14; 11:54:13.264> Changed the world background image opacity to: 48
+   [INFO] <2022-05-14; 11:54:13.341> Changed the world background image opacity to: 31
+   [INFO] <2022-05-14; 11:54:13.435> Changed the world background image opacity to: 21
+   [INFO] <2022-05-14; 11:54:13.524> Changed the world background image opacity to: 17
+   [INFO] <2022-05-14; 11:54:13.607> Changed the world background image opacity to: 15
+   [INFO] <2022-05-14; 11:54:13.693> Changed the world background image opacity to: 9
+   [INFO] <2022-05-14; 11:54:13.804> Changed the world background image opacity to: 7
+   [INFO] <2022-05-14; 11:54:13.892> Changed the world background image opacity to: 10
+   [INFO] <2022-05-14; 11:54:14.010> Changed the world background image opacity to: 23
+   [INFO] <2022-05-14; 11:54:14.096> Changed the world background image opacity to: 29
+   [INFO] <2022-05-14; 11:54:14.180> Changed the world background image opacity to: 40
+   [INFO] <2022-05-14; 11:54:14.262> Changed the world background image opacity to: 56
+   [INFO] <2022-05-14; 11:54:14.371> Changed the world background image opacity to: 93
+   [INFO] <2022-05-14; 11:54:14.371> Changed the world background image opacity to: 94
+   [INFO] <2022-05-14; 11:54:14.461> Changed the world background image opacity to: 100
+   [INFO] <2022-05-14; 11:54:14.625> Changed the world background image opacity to: 99
+   [INFO] <2022-05-14; 11:54:14.697> Changed the world background image opacity to: 76
+   [INFO] <2022-05-14; 11:54:14.798> Changed the world background image opacity to: 55
+   [INFO] <2022-05-14; 11:54:14.893> Changed the world background image opacity to: 54
+   [INFO] <2022-05-14; 11:54:14.989> Changed the world background image opacity to: 75
+   [INFO] <2022-05-14; 11:54:14.989> Changed the world background image opacity to: 76
+   [INFO] <2022-05-14; 11:54:15.095> Changed the world background image opacity to: 100
+   [INFO] <2022-05-14; 11:54:15.648> Changed the world background image opacity to: 99
+   [INFO] <2022-05-14; 11:54:15.721> Changed the world background image opacity to: 75
+   [INFO] <2022-05-14; 11:54:15.787> Changed the world background image opacity to: 67
+   [INFO] <2022-05-14; 11:54:15.860> Changed the world background image opacity to: 62
+   [INFO] <2022-05-14; 11:54:15.930> Changed the world background image opacity to: 52
+   [INFO] <2022-05-14; 11:54:15.930> Changed the world background image opacity to: 51
+   [INFO] <2022-05-14; 11:54:16.004> Changed the world background image opacity to: 38
+   [INFO] <2022-05-14; 11:54:16.065> Changed the world background image opacity to: 29
+   [INFO] <2022-05-14; 11:54:16.134> Changed the world background image opacity to: 25
+   [INFO] <2022-05-14; 11:54:16.210> Changed the world background image opacity to: 21
+   [INFO] <2022-05-14; 11:54:16.285> Changed the world background image opacity to: 15
+   [INFO] <2022-05-14; 11:54:16.370> Changed the world background image opacity to: 8
+   [INFO] <2022-05-14; 11:54:16.446> Changed the world background image opacity to: 5
+   [INFO] <2022-05-14; 11:54:16.446> Changed the world background image opacity to: 4
+   [INFO] <2022-05-14; 11:54:16.512> Changed the world background image opacity to: 3
+   [INFO] <2022-05-14; 11:54:16.580> Changed the world background image opacity to: 2
+   [INFO] <2022-05-14; 11:54:16.815> Changed the world background image opacity to: 3
+   [INFO] <2022-05-14; 11:54:16.892> Changed the world background image opacity to: 10
+   [INFO] <2022-05-14; 11:54:16.960> Changed the world background image opacity to: 13
+   [INFO] <2022-05-14; 11:54:17.085> Changed the world background image opacity to: 14
+   [INFO] <2022-05-14; 11:54:17.338> Changed the world background image opacity to: 14
+   [INFO] <2022-05-14; 11:54:17.953> Changed the world background image opacity to: 14
+   [INFO] <2022-05-14; 11:54:17.953> Changed the world background image opacity to: 9
+   [INFO] <2022-05-14; 11:54:18.577> Changed the world background image opacity to: 9
+   [INFO] <2022-05-14; 11:54:18.663> Changed the world background image opacity to: 9
+   [INFO] <2022-05-14; 11:54:18.663> Changed the world background image opacity to: 14
+   [INFO] <2022-05-14; 11:54:18.913> Changed the world background image opacity to: 14
+   [INFO] <2022-05-14; 11:54:18.994> Changed the world background image opacity to: 14
+   [INFO] <2022-05-14; 11:54:18.994> Changed the world background image opacity to: 19
+   [INFO] <2022-05-14; 11:54:19.130> Changed the world background image opacity to: 19
+   [INFO] <2022-05-14; 11:54:22.494> Hid  Klyze's data
+   [INFO] <2022-05-14; 11:54:22.870> Showed  Klyze's data
+   [INFO] <2022-05-14; 11:54:23.079> Hid  Klyze's data
+   [INFO] <2022-05-14; 11:54:23.537> Showed  Klyze's data
+   [INFO] <2022-05-14; 11:54:25.905> Hid  legoDBuddy's data
+   [INFO] <2022-05-14; 11:54:26.308> Showed  legoDBuddy's data
+   [INFO] <2022-05-14; 11:54:26.688> Hid  legoDBuddy's data
+   [INFO] <2022-05-14; 11:54:26.983> Showed  legoDBuddy's data
+   [INFO] <2022-05-14; 11:54:27.410> Hid  legoDBuddy's data
+   [INFO] <2022-05-14; 11:54:27.749> Showed  legoDBuddy's data
+   [INFO] <2022-05-14; 11:54:36.400> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:54:36.401> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:54:36.401> Changed draw size to: 0
+   [INFO] <2022-05-14; 11:54:36.481> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:54:36.482> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:54:36.482> Changed draw size to: 0
+   [INFO] <2022-05-14; 11:54:37.012> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:54:37.013> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:54:37.013> Changed draw size to: 1
+   [INFO] <2022-05-14; 11:54:46.643> Selected a log entry:
+Entry:  Anip24, 2022-02-22 09:42:14, (-133, 68, 1547)
+   [INFO] <2022-05-14; 11:55:00.890> Selected a log entry:
+Entry:  Anip24, 2022-03-31 23:26:09, (21, 73, -1417)
+   [INFO] <2022-05-14; 11:55:04.180> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:04.180> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:04.180> Changed draw size to: 0
+   [INFO] <2022-05-14; 11:55:06.187> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:06.187> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:06.188> Changed draw type to: Line
+   [INFO] <2022-05-14; 11:55:07.338> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:07.338> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:07.339> Changed draw type to: Heat
+   [INFO] <2022-05-14; 11:55:12.098> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:12.099> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:12.099> Changed draw size to: 1
+   [INFO] <2022-05-14; 11:55:42.402> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.403> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.403> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 11:55:42.404> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.404> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.404> Changed age fade threshold to: 1
+   [INFO] <2022-05-14; 11:55:42.416> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.420> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.421> Changed age fade threshold to: 3
+   [INFO] <2022-05-14; 11:55:42.434> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.435> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.435> Changed age fade threshold to: 7
+   [INFO] <2022-05-14; 11:55:42.442> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.443> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.443> Changed age fade threshold to: 10
+   [INFO] <2022-05-14; 11:55:42.453> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.454> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.454> Changed age fade threshold to: 18
+   [INFO] <2022-05-14; 11:55:42.462> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.462> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.463> Changed age fade threshold to: 19
+   [INFO] <2022-05-14; 11:55:42.470> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.471> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.471> Changed age fade threshold to: 24
+   [INFO] <2022-05-14; 11:55:42.477> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.478> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.478> Changed age fade threshold to: 25
+   [INFO] <2022-05-14; 11:55:42.486> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.486> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.487> Changed age fade threshold to: 28
+   [INFO] <2022-05-14; 11:55:42.493> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.494> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.494> Changed age fade threshold to: 29
+   [INFO] <2022-05-14; 11:55:42.504> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.505> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.505> Changed age fade threshold to: 37
+   [INFO] <2022-05-14; 11:55:42.511> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.511> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.511> Changed age fade threshold to: 38
+   [INFO] <2022-05-14; 11:55:42.518> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.518> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.519> Changed age fade threshold to: 41
+   [INFO] <2022-05-14; 11:55:42.532> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.533> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.533> Changed age fade threshold to: 43
+   [INFO] <2022-05-14; 11:55:42.539> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.540> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.540> Changed age fade threshold to: 44
+   [INFO] <2022-05-14; 11:55:42.547> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.548> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.548> Changed age fade threshold to: 47
+   [INFO] <2022-05-14; 11:55:42.555> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.555> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.555> Changed age fade threshold to: 50
+   [INFO] <2022-05-14; 11:55:42.556> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.556> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.556> Changed age fade threshold to: 51
+   [INFO] <2022-05-14; 11:55:42.563> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.563> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.563> Changed age fade threshold to: 54
+   [INFO] <2022-05-14; 11:55:42.570> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.570> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.570> Changed age fade threshold to: 56
+   [INFO] <2022-05-14; 11:55:42.577> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.578> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.578> Changed age fade threshold to: 57
+   [INFO] <2022-05-14; 11:55:42.584> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.585> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.585> Changed age fade threshold to: 60
+   [INFO] <2022-05-14; 11:55:42.591> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.592> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.592> Changed age fade threshold to: 63
+   [INFO] <2022-05-14; 11:55:42.598> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.599> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.599> Changed age fade threshold to: 65
+   [INFO] <2022-05-14; 11:55:42.606> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.607> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.607> Changed age fade threshold to: 66
+   [INFO] <2022-05-14; 11:55:42.614> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.614> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.615> Changed age fade threshold to: 68
+   [INFO] <2022-05-14; 11:55:42.621> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.622> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.622> Changed age fade threshold to: 69
+   [INFO] <2022-05-14; 11:55:42.636> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.636> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.637> Changed age fade threshold to: 71
+   [INFO] <2022-05-14; 11:55:42.644> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.644> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.644> Changed age fade threshold to: 72
+   [INFO] <2022-05-14; 11:55:42.651> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.651> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.652> Changed age fade threshold to: 76
+   [INFO] <2022-05-14; 11:55:42.658> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.659> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.659> Changed age fade threshold to: 79
+   [INFO] <2022-05-14; 11:55:42.671> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.671> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.672> Changed age fade threshold to: 85
+   [INFO] <2022-05-14; 11:55:42.681> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.681> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.682> Changed age fade threshold to: 90
+   [INFO] <2022-05-14; 11:55:42.689> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.689> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.689> Changed age fade threshold to: 93
+   [INFO] <2022-05-14; 11:55:42.697> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.697> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.698> Changed age fade threshold to: 94
+   [INFO] <2022-05-14; 11:55:42.704> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.704> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.705> Changed age fade threshold to: 97
+   [INFO] <2022-05-14; 11:55:42.711> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.712> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.712> Changed age fade threshold to: 103
+   [INFO] <2022-05-14; 11:55:42.720> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.721> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.721> Changed age fade threshold to: 115
+   [INFO] <2022-05-14; 11:55:42.729> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.729> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.729> Changed age fade threshold to: 121
+   [INFO] <2022-05-14; 11:55:42.729> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.730> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.730> Changed age fade threshold to: 122
+   [INFO] <2022-05-14; 11:55:42.736> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.737> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.737> Changed age fade threshold to: 125
+   [INFO] <2022-05-14; 11:55:42.743> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.744> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.744> Changed age fade threshold to: 129
+   [INFO] <2022-05-14; 11:55:42.750> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.751> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.751> Changed age fade threshold to: 137
+   [INFO] <2022-05-14; 11:55:42.758> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.758> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.758> Changed age fade threshold to: 144
+   [INFO] <2022-05-14; 11:55:42.764> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.765> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.765> Changed age fade threshold to: 150
+   [INFO] <2022-05-14; 11:55:42.771> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.771> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.772> Changed age fade threshold to: 156
+   [INFO] <2022-05-14; 11:55:42.779> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.779> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.779> Changed age fade threshold to: 162
+   [INFO] <2022-05-14; 11:55:42.786> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.786> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.786> Changed age fade threshold to: 169
+   [INFO] <2022-05-14; 11:55:42.793> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.793> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.793> Changed age fade threshold to: 175
+   [INFO] <2022-05-14; 11:55:42.800> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.800> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.800> Changed age fade threshold to: 181
+   [INFO] <2022-05-14; 11:55:42.807> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.808> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.808> Changed age fade threshold to: 185
+   [INFO] <2022-05-14; 11:55:42.814> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.814> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.814> Changed age fade threshold to: 190
+   [INFO] <2022-05-14; 11:55:42.821> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:42.821> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:42.821> Changed age fade threshold to: 200
+   [INFO] <2022-05-14; 11:55:43.025> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.026> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.026> Changed age fade threshold to: 197
+   [INFO] <2022-05-14; 11:55:43.033> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.034> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.034> Changed age fade threshold to: 190
+   [INFO] <2022-05-14; 11:55:43.040> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.040> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.040> Changed age fade threshold to: 182
+   [INFO] <2022-05-14; 11:55:43.046> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.047> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.047> Changed age fade threshold to: 176
+   [INFO] <2022-05-14; 11:55:43.053> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.054> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.054> Changed age fade threshold to: 171
+   [INFO] <2022-05-14; 11:55:43.054> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.055> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.055> Changed age fade threshold to: 165
+   [INFO] <2022-05-14; 11:55:43.062> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.062> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.062> Changed age fade threshold to: 160
+   [INFO] <2022-05-14; 11:55:43.069> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.069> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.069> Changed age fade threshold to: 147
+   [INFO] <2022-05-14; 11:55:43.077> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.077> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.077> Changed age fade threshold to: 137
+   [INFO] <2022-05-14; 11:55:43.084> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.085> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.085> Changed age fade threshold to: 129
+   [INFO] <2022-05-14; 11:55:43.085> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.085> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.086> Changed age fade threshold to: 126
+   [INFO] <2022-05-14; 11:55:43.092> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.092> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.093> Changed age fade threshold to: 121
+   [INFO] <2022-05-14; 11:55:43.100> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.100> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.100> Changed age fade threshold to: 113
+   [INFO] <2022-05-14; 11:55:43.106> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.108> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.108> Changed age fade threshold to: 106
+   [INFO] <2022-05-14; 11:55:43.118> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.119> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.119> Changed age fade threshold to: 94
+   [INFO] <2022-05-14; 11:55:43.134> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.135> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.135> Changed age fade threshold to: 72
+   [INFO] <2022-05-14; 11:55:43.142> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.142> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.143> Changed age fade threshold to: 63
+   [INFO] <2022-05-14; 11:55:43.149> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.149> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.150> Changed age fade threshold to: 53
+   [INFO] <2022-05-14; 11:55:43.157> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.157> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.158> Changed age fade threshold to: 43
+   [INFO] <2022-05-14; 11:55:43.166> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.166> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.166> Changed age fade threshold to: 31
+   [INFO] <2022-05-14; 11:55:43.167> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.167> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.167> Changed age fade threshold to: 28
+   [INFO] <2022-05-14; 11:55:43.175> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.175> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.176> Changed age fade threshold to: 18
+   [INFO] <2022-05-14; 11:55:43.184> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.185> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.185> Changed age fade threshold to: 4
+   [INFO] <2022-05-14; 11:55:43.185> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.186> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.186> Changed age fade threshold to: 3
+   [INFO] <2022-05-14; 11:55:43.193> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.193> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.194> Changed age fade threshold to: 0
+   [INFO] <2022-05-14; 11:55:43.304> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.304> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.304> Changed age fade threshold to: 1
+   [INFO] <2022-05-14; 11:55:43.318> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.319> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.319> Changed age fade threshold to: 21
+   [INFO] <2022-05-14; 11:55:43.319> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.319> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.320> Changed age fade threshold to: 24
+   [INFO] <2022-05-14; 11:55:43.327> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.328> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.328> Changed age fade threshold to: 46
+   [INFO] <2022-05-14; 11:55:43.328> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.328> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.329> Changed age fade threshold to: 49
+   [INFO] <2022-05-14; 11:55:43.335> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.336> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.336> Changed age fade threshold to: 57
+   [INFO] <2022-05-14; 11:55:43.342> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.343> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.343> Changed age fade threshold to: 69
+   [INFO] <2022-05-14; 11:55:43.350> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.350> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.350> Changed age fade threshold to: 81
+   [INFO] <2022-05-14; 11:55:43.351> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.351> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.351> Changed age fade threshold to: 84
+   [INFO] <2022-05-14; 11:55:43.357> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.358> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.358> Changed age fade threshold to: 91
+   [INFO] <2022-05-14; 11:55:43.358> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.359> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.360> Changed age fade threshold to: 96
+   [INFO] <2022-05-14; 11:55:43.367> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.367> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.367> Changed age fade threshold to: 107
+   [INFO] <2022-05-14; 11:55:43.382> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.385> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.386> Changed age fade threshold to: 144
+   [INFO] <2022-05-14; 11:55:43.395> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.396> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.396> Changed age fade threshold to: 169
+   [INFO] <2022-05-14; 11:55:43.396> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.396> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.397> Changed age fade threshold to: 174
+   [INFO] <2022-05-14; 11:55:43.403> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.404> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.404> Changed age fade threshold to: 187
+   [INFO] <2022-05-14; 11:55:43.404> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.404> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.405> Changed age fade threshold to: 191
+   [INFO] <2022-05-14; 11:55:43.410> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.411> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.411> Changed age fade threshold to: 200
+   [INFO] <2022-05-14; 11:55:43.471> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:43.473> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:43.474> Changed age fade threshold to: 200
+   [INFO] <2022-05-14; 11:55:44.641> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:44.641> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:44.641> Changed age fade threshold to: 200
+   [INFO] <2022-05-14; 11:55:44.642> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:44.642> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:44.642> Changed age fade threshold to: 180
+   [INFO] <2022-05-14; 11:55:45.102> Saving and writing settings to config file
+   [INFO] <2022-05-14; 11:55:45.103> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 11:55:45.103> Changed age fade threshold to: 180
+   

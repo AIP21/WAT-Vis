@@ -294,7 +294,6 @@ public class ImportForm extends JFrame {
                 main.LoadWorldImage(imgFile);
 
                 Toolkit.getDefaultToolkit().beep();
-                addWorldImageButton.setEnabled(true);
                 worldImageLabel.setText(" World Image [Imported]");
                 addWorldImageButton.setText("New World Image");
                 setCursor(null);
@@ -303,6 +302,8 @@ public class ImportForm extends JFrame {
             } else {
                 logger.Log("No world background images selected", Logger.MessageType.WARNING);
             }
+
+            addWorldImageButton.setEnabled(true);
         });
 
         imageXOffsetSpinner.addChangeListener(e -> main.mainPanel.xBackgroundOffset = (int) ((JSpinner) e.getSource()).getValue());

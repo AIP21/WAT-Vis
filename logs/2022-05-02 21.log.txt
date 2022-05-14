@@ -1,0 +1,47 @@
+[INFO] <2022-05-02; 17:32:38.724>    Player Tracker Decoder App v1.5.5 - LOG FILE
+   [INFO] <2022-05-02; 17:32:38.725> Initializing logger
+   [INFO] <2022-05-02; 17:32:38.726> Logger successfully initialized
+   [INFO] <2022-05-02; 17:32:38.726> Initializing primary systems
+   [INFO] <2022-05-02; 17:32:38.727> Initializing settings subsystem
+   [INFO] <2022-05-02; 17:32:38.728> Fetching and parsing settings from config file
+   [INFO] <2022-05-02; 17:32:38.729> Settings: 12
+   [INFO] <2022-05-02; 17:32:38.729> 10
+   [INFO] <2022-05-02; 17:32:38.729> true
+   [INFO] <2022-05-02; 17:32:38.730> 0
+   [INFO] <2022-05-02; 17:32:38.730> true
+   [INFO] <2022-05-02; 17:32:38.730> 5.0
+   [INFO] <2022-05-02; 17:32:38.731> true
+   [INFO] <2022-05-02; 17:32:38.732> LINE
+   [INFO] <2022-05-02; 17:32:38.732> 200
+   [INFO] <2022-05-02; 17:32:38.732> false
+   [INFO] <2022-05-02; 17:32:38.733> true
+   [INFO] <2022-05-02; 17:32:38.733> true
+   [INFO] <2022-05-02; 17:32:38.733> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-02; 17:32:38.733> Successfully initialized settings subsystem
+   [INFO] <2022-05-02; 17:32:38.734> Initializing decoder subsystem
+   [INFO] <2022-05-02; 17:32:38.735> Successfully initialized decoder subsystem
+   [INFO] <2022-05-02; 17:32:38.735> Initializing primary frame subsystem
+   [INFO] <2022-05-02; 17:32:38.739> Initializing main display subsystem
+   [INFO] <2022-05-02; 17:32:38.740> Antialiasing enabled on main display panel
+   [INFO] <2022-05-02; 17:32:38.740> Successfully initialized main display subsystem
+   [INFO] <2022-05-02; 17:32:38.748> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-02; 17:32:38.748> Loading resources
+   [INFO] <2022-05-02; 17:32:39.629> Successfully initialized all subsystems
+   [INFO] <2022-05-02; 17:32:42.320> Decoding process started
+   [INFO] <2022-05-02; 17:32:42.320> Decoding data
+   [INFO] <2022-05-02; 17:32:42.321> Fetched and indexed input file
+   [INFO] <2022-05-02; 17:32:42.422> maxX: 2069 minX: -374; maxY: 58 minY: -1563
+   [INFO] <2022-05-02; 17:32:42.423> xRange: 2443 yRange: 1621
+   [INFO] <2022-05-02; 17:32:42.423> Successfully decoded data
+   [INFO] <2022-05-02; 17:32:42.423> Setting data to display
+   [INFO] <2022-05-02; 17:32:42.426> Successfully set data to display
+   [INFO] <2022-05-02; 17:32:42.426> Updating points
+   [INFO] <2022-05-02; 17:32:42.429> Updated points: 2514
+   [INFO] <2022-05-02; 17:32:42.430> Decoding process finished successfully
+   [INFO] <2022-05-02; 17:32:42.430> Initializing toolbar subsystem
+   [INFO] <2022-05-02; 17:32:42.572> Successfully initialized toolbar subsystem
+   [INFO] <2022-05-02; 17:32:42.574> Selected files: 1
+   [INFO] <2022-05-02; 17:32:42.575> World background images are present, opening selection screen
+   [INFO] <2022-05-02; 17:32:42.579> World background image is present, loading world background image
+   [WARNING] <2022-05-02; 17:32:44.269> No world background images selected
+   

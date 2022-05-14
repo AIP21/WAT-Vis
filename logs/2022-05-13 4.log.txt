@@ -1,0 +1,56 @@
+[INFO] <2022-05-13; 09:51:11.285>    Player Tracker src.com.anip24.trackerDecoder.Decoder App v1.6.3 - LOG FILE
+   [INFO] <2022-05-13; 09:51:11.288> Initializing logger
+   [INFO] <2022-05-13; 09:51:11.288> src.com.anip24.trackerDecoder.Logger successfully initialized
+   [INFO] <2022-05-13; 09:51:11.288> Initializing primary systems
+   [INFO] <2022-05-13; 09:51:11.289> Initializing settings subsystem
+   [INFO] <2022-05-13; 09:51:11.290> Fetching and parsing settings from config file
+   [INFO] <2022-05-13; 09:51:11.291> src.com.anip24.trackerDecoder.Settings: 15
+   [INFO] <2022-05-13; 09:51:11.292> 1
+   [INFO] <2022-05-13; 09:51:11.292> true
+   [INFO] <2022-05-13; 09:51:11.292> 0
+   [INFO] <2022-05-13; 09:51:11.293> true
+   [INFO] <2022-05-13; 09:51:11.293> 5.0
+   [INFO] <2022-05-13; 09:51:11.294> true
+   [INFO] <2022-05-13; 09:51:11.294> PIXEL
+   [INFO] <2022-05-13; 09:51:11.295> 200
+   [INFO] <2022-05-13; 09:51:11.295> false
+   [INFO] <2022-05-13; 09:51:11.295> true
+   [INFO] <2022-05-13; 09:51:11.296> false
+   [INFO] <2022-05-13; 09:51:11.296> true
+   [INFO] <2022-05-13; 09:51:11.296> false
+   [INFO] <2022-05-13; 09:51:11.296> ageFadeThreshold: 0
+   [INFO] <2022-05-13; 09:51:11.297> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-13; 09:51:11.297> Successfully initialized settings subsystem
+   [INFO] <2022-05-13; 09:51:11.298> Initializing decoder subsystem
+   [INFO] <2022-05-13; 09:51:11.299> Successfully initialized decoder subsystem
+   [INFO] <2022-05-13; 09:51:11.300> Initializing primary frame subsystem
+   [INFO] <2022-05-13; 09:51:11.307> Initializing main display subsystem
+   [INFO] <2022-05-13; 09:51:11.307> Antialiasing enabled on main display panel
+   [INFO] <2022-05-13; 09:51:11.307> Successfully initialized main display subsystem
+   [INFO] <2022-05-13; 09:51:11.318> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-13; 09:51:11.318> Loading resources
+   [INFO] <2022-05-13; 09:51:12.454> Successfully initialized all subsystems
+   [INFO] <2022-05-13; 09:52:21.231> Selected files: 1
+   [INFO] <2022-05-13; 09:52:21.233> Decoding process started
+   [INFO] <2022-05-13; 09:52:21.235> Decoding data
+   [INFO] <2022-05-13; 09:52:21.235> Fetched and indexed input file
+   [INFO] <2022-05-13; 09:52:23.324> maxX: 108 minX: -103; maxY: 94 minY: -93
+   [INFO] <2022-05-13; 09:52:23.325> xRange: 211 yRange: 187
+   [INFO] <2022-05-13; 09:52:23.325> Successfully decoded data
+   [INFO] <2022-05-13; 09:52:23.326> Setting data to display
+   [INFO] <2022-05-13; 09:52:23.461> Successfully set data to display
+   [INFO] <2022-05-13; 09:52:23.462> Updating points
+   [INFO] <2022-05-13; 09:52:23.597> Updated points: 917
+   [INFO] <2022-05-13; 09:52:23.598> Initializing toolbar subsystem
+   [INFO] <2022-05-13; 09:52:29.472> Successfully initialized toolbar subsystem
+   [INFO] <2022-05-13; 09:52:29.473> Selected files: 1
+   [INFO] <2022-05-13; 09:52:29.503> World background images are present, opening selection screen
+   [INFO] <2022-05-13; 09:52:29.505> Decoding process finished successfully
+   [INFO] <2022-05-13; 09:52:29.506> World background image is present, loading world background image
+   [WARNING] <2022-05-13; 09:52:31.720> No world background images selected
+   [INFO] <2022-05-13; 09:52:37.716> Updating points
+   [INFO] <2022-05-13; 09:52:37.869> Updated points: 917
+   [INFO] <2022-05-13; 09:52:37.869> Saving and writing settings to config file
+   [INFO] <2022-05-13; 09:52:37.877> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 09:52:37.877> Changed draw type to: DOT
+   

@@ -1,0 +1,74 @@
+[INFO] <2022-05-02; 17:33:00.305>    Player Tracker Decoder App v1.5.5 - LOG FILE
+   [INFO] <2022-05-02; 17:33:00.307> Initializing logger
+   [INFO] <2022-05-02; 17:33:00.307> Logger successfully initialized
+   [INFO] <2022-05-02; 17:33:00.307> Initializing primary systems
+   [INFO] <2022-05-02; 17:33:00.308> Initializing settings subsystem
+   [INFO] <2022-05-02; 17:33:00.309> Fetching and parsing settings from config file
+   [INFO] <2022-05-02; 17:33:00.310> Settings: 12
+   [INFO] <2022-05-02; 17:33:00.310> 10
+   [INFO] <2022-05-02; 17:33:00.311> true
+   [INFO] <2022-05-02; 17:33:00.311> 0
+   [INFO] <2022-05-02; 17:33:00.311> true
+   [INFO] <2022-05-02; 17:33:00.312> 5.0
+   [INFO] <2022-05-02; 17:33:00.313> true
+   [INFO] <2022-05-02; 17:33:00.313> LINE
+   [INFO] <2022-05-02; 17:33:00.314> 200
+   [INFO] <2022-05-02; 17:33:00.314> false
+   [INFO] <2022-05-02; 17:33:00.314> true
+   [INFO] <2022-05-02; 17:33:00.315> true
+   [INFO] <2022-05-02; 17:33:00.315> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-02; 17:33:00.315> Successfully initialized settings subsystem
+   [INFO] <2022-05-02; 17:33:00.316> Initializing decoder subsystem
+   [INFO] <2022-05-02; 17:33:00.317> Successfully initialized decoder subsystem
+   [INFO] <2022-05-02; 17:33:00.317> Initializing primary frame subsystem
+   [INFO] <2022-05-02; 17:33:00.321> Initializing main display subsystem
+   [INFO] <2022-05-02; 17:33:00.322> Antialiasing enabled on main display panel
+   [INFO] <2022-05-02; 17:33:00.322> Successfully initialized main display subsystem
+   [INFO] <2022-05-02; 17:33:00.331> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-02; 17:33:00.331> Loading resources
+   [INFO] <2022-05-02; 17:33:01.274> Successfully initialized all subsystems
+   [INFO] <2022-05-02; 17:33:03.921> Decoding process started
+   [INFO] <2022-05-02; 17:33:03.921> Decoding data
+   [INFO] <2022-05-02; 17:33:03.922> Fetched and indexed input file
+   [INFO] <2022-05-02; 17:33:03.995> maxX: 208 minX: -368; maxY: 58 minY: -1560
+   [INFO] <2022-05-02; 17:33:03.996> xRange: 576 yRange: 1618
+   [INFO] <2022-05-02; 17:33:03.996> Successfully decoded data
+   [INFO] <2022-05-02; 17:33:03.996> Setting data to display
+   [INFO] <2022-05-02; 17:33:03.998> Successfully set data to display
+   [INFO] <2022-05-02; 17:33:03.998> Updating points
+   [INFO] <2022-05-02; 17:33:04.002> Updated points: 838
+   [INFO] <2022-05-02; 17:33:04.002> Decoding process finished successfully
+   [INFO] <2022-05-02; 17:33:04.002> Initializing toolbar subsystem
+   [INFO] <2022-05-02; 17:33:04.098> Successfully initialized toolbar subsystem
+   [INFO] <2022-05-02; 17:33:04.099> Selected files: 1
+   [INFO] <2022-05-02; 17:33:04.100> World background images are present, opening selection screen
+   [INFO] <2022-05-02; 17:33:04.101> World background image is present, loading world background image
+   [WARNING] <2022-05-02; 17:33:05.495> No world background images selected
+   [INFO] <2022-05-02; 17:33:08.685> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:33:08.692> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:33:08.692> Toggled age fade to: true
+   [INFO] <2022-05-02; 17:33:10.139> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:33:10.140> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:33:10.141> Toggled age fade to: false
+   [INFO] <2022-05-02; 17:33:10.898> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:33:10.898> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:33:10.899> Toggled age fade to: true
+   [INFO] <2022-05-02; 17:33:13.080> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:33:13.081> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:33:13.082> Toggled age fade to: false
+   [INFO] <2022-05-02; 17:33:18.171> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:33:18.174> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:33:18.174> Toggled age fade to: true
+   [INFO] <2022-05-02; 17:33:19.215> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:33:19.216> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:33:19.216> Toggled age fade to: false
+   [INFO] <2022-05-02; 17:33:19.713> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:33:19.713> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:33:19.714> Toggled age fade to: true
+   [INFO] <2022-05-02; 17:33:20.206> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:33:20.207> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:33:20.207> Toggled age fade to: false
+   [INFO] <2022-05-02; 17:33:38.482> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:33:38.484> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:33:38.485> Toggled age fade to: true
+   

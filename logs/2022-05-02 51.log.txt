@@ -1,0 +1,1264 @@
+[INFO] <2022-05-02; 18:11:48.461>    Player Tracker Decoder App v1.6.1 - LOG FILE
+   [INFO] <2022-05-02; 18:11:48.463> Initializing logger
+   [INFO] <2022-05-02; 18:11:48.464> Logger successfully initialized
+   [INFO] <2022-05-02; 18:11:48.464> Initializing primary systems
+   [INFO] <2022-05-02; 18:11:48.465> Initializing settings subsystem
+   [INFO] <2022-05-02; 18:11:48.466> Fetching and parsing settings from config file
+   [INFO] <2022-05-02; 18:11:48.467> Settings: 15
+   [INFO] <2022-05-02; 18:11:48.467> 1
+   [INFO] <2022-05-02; 18:11:48.467> true
+   [INFO] <2022-05-02; 18:11:48.468> 0
+   [INFO] <2022-05-02; 18:11:48.468> true
+   [INFO] <2022-05-02; 18:11:48.468> 5.0
+   [INFO] <2022-05-02; 18:11:48.469> true
+   [INFO] <2022-05-02; 18:11:48.469> LINE
+   [INFO] <2022-05-02; 18:11:48.469> 200
+   [INFO] <2022-05-02; 18:11:48.470> false
+   [INFO] <2022-05-02; 18:11:48.470> true
+   [INFO] <2022-05-02; 18:11:48.470> false
+   [INFO] <2022-05-02; 18:11:48.471> true
+   [INFO] <2022-05-02; 18:11:48.471> false
+   [INFO] <2022-05-02; 18:11:48.471> ageFadeThreshold: 0
+   [INFO] <2022-05-02; 18:11:48.472> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-02; 18:11:48.472> Successfully initialized settings subsystem
+   [INFO] <2022-05-02; 18:11:48.473> Initializing decoder subsystem
+   [INFO] <2022-05-02; 18:11:48.473> Successfully initialized decoder subsystem
+   [INFO] <2022-05-02; 18:11:48.474> Initializing primary frame subsystem
+   [INFO] <2022-05-02; 18:11:48.478> Initializing main display subsystem
+   [INFO] <2022-05-02; 18:11:48.478> Antialiasing enabled on main display panel
+   [INFO] <2022-05-02; 18:11:48.479> Successfully initialized main display subsystem
+   [INFO] <2022-05-02; 18:11:48.487> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-02; 18:11:48.487> Loading resources
+   [INFO] <2022-05-02; 18:11:49.432> Successfully initialized all subsystems
+   [INFO] <2022-05-02; 18:11:52.279> Decoding process started
+   [INFO] <2022-05-02; 18:11:52.279> Decoding data
+   [INFO] <2022-05-02; 18:11:52.280> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:11:52.280> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:11:52.281> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:11:52.282> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:11:52.282> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:11:52.283> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:11:52.283> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:11:52.284> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:11:52.284> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:11:52.285> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:11:52.285> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:11:52.286> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:11:52.286> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:11:52.286> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:11:52.287> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:11:52.287> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:11:52.287> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:11:52.781> maxX: 4149 minX: -2172; maxY: 1733 minY: -2583
+   [INFO] <2022-05-02; 18:11:52.782> xRange: 6321 yRange: 4316
+   [INFO] <2022-05-02; 18:11:52.783> Successfully decoded data
+   [INFO] <2022-05-02; 18:11:52.783> Setting data to display
+   [INFO] <2022-05-02; 18:11:52.815> Successfully set data to display
+   [INFO] <2022-05-02; 18:11:52.816> Updating points
+   [INFO] <2022-05-02; 18:11:52.850> Updated points: 26293
+   [INFO] <2022-05-02; 18:11:52.851> Decoding process finished successfully
+   [INFO] <2022-05-02; 18:11:52.851> Initializing toolbar subsystem
+   [INFO] <2022-05-02; 18:11:53.612> Successfully initialized toolbar subsystem
+   [INFO] <2022-05-02; 18:11:53.613> Selected files: 17
+   [INFO] <2022-05-02; 18:11:53.614> World background images are present, opening selection screen
+   [INFO] <2022-05-02; 18:11:53.615> World background image is present, loading world background image
+   [WARNING] <2022-05-02; 18:11:55.192> No world background images selected
+   [INFO] <2022-05-02; 18:11:57.708> Updating points
+   [INFO] <2022-05-02; 18:11:57.732> Updated points: 26293
+   [INFO] <2022-05-02; 18:11:57.732> Changed date range slider: From 2022-01-24T12:05:46 to 2022-02-12T23:45:05
+   [INFO] <2022-05-02; 18:11:57.733> Updating points
+   [INFO] <2022-05-02; 18:11:57.747> Updated points: 26021
+   [INFO] <2022-05-02; 18:11:57.747> Changed date range slider: From 2022-01-24T12:05:46 to 2022-02-12T23:16:22
+   [INFO] <2022-05-02; 18:11:57.789> Updating points
+   [INFO] <2022-05-02; 18:11:57.808> Updated points: 18350
+   [INFO] <2022-05-02; 18:11:57.808> Changed date range slider: From 2022-01-24T12:05:46 to 2022-02-04T16:14:31
+   [INFO] <2022-05-02; 18:11:57.842> Updating points
+   [INFO] <2022-05-02; 18:11:57.854> Updated points: 4533
+   [INFO] <2022-05-02; 18:11:57.854> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-29T10:03:51
+   [INFO] <2022-05-02; 18:11:57.872> Updating points
+   [INFO] <2022-05-02; 18:11:57.884> Updated points: 2533
+   [INFO] <2022-05-02; 18:11:57.885> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-28T18:32:42
+   [INFO] <2022-05-02; 18:11:57.899> Updating points
+   [INFO] <2022-05-02; 18:11:57.910> Updated points: 1478
+   [INFO] <2022-05-02; 18:11:57.910> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-28T12:08:22
+   [INFO] <2022-05-02; 18:11:57.919> Updating points
+   [INFO] <2022-05-02; 18:11:57.925> Updated points: 1303
+   [INFO] <2022-05-02; 18:11:57.925> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-28T11:53:47
+   [INFO] <2022-05-02; 18:11:57.933> Updating points
+   [INFO] <2022-05-02; 18:11:57.939> Updated points: 1244
+   [INFO] <2022-05-02; 18:11:57.940> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-28T11:48:52
+   [INFO] <2022-05-02; 18:11:57.948> Updating points
+   [INFO] <2022-05-02; 18:11:57.953> Updated points: 1186
+   [INFO] <2022-05-02; 18:11:57.954> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-25T21:50:58
+   [INFO] <2022-05-02; 18:11:58.027> Updating points
+   [INFO] <2022-05-02; 18:11:58.030> Updated points: 1244
+   [INFO] <2022-05-02; 18:11:58.031> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-28T11:48:52
+   [INFO] <2022-05-02; 18:11:58.078> Updating points
+   [INFO] <2022-05-02; 18:11:58.080> Updated points: 1303
+   [INFO] <2022-05-02; 18:11:58.081> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-28T11:53:47
+   [INFO] <2022-05-02; 18:11:58.128> Updating points
+   [INFO] <2022-05-02; 18:11:58.130> Updated points: 1361
+   [INFO] <2022-05-02; 18:11:58.131> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-28T11:58:37
+   [INFO] <2022-05-02; 18:11:58.162> Updating points
+   [INFO] <2022-05-02; 18:11:58.163> Updated points: 1420
+   [INFO] <2022-05-02; 18:11:58.164> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-28T12:03:32
+   [INFO] <2022-05-02; 18:11:58.295> Updating points
+   [INFO] <2022-05-02; 18:11:58.297> Updated points: 1420
+   [INFO] <2022-05-02; 18:11:58.297> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-28T12:03:32
+   [INFO] <2022-05-02; 18:11:59.438> Started playing animation
+   [INFO] <2022-05-02; 18:11:59.488> isPlaying
+   [INFO] <2022-05-02; 18:11:59.489> Playing
+   [INFO] <2022-05-02; 18:11:59.489> Updating points
+   [INFO] <2022-05-02; 18:11:59.492> Updated points: 1
+   [INFO] <2022-05-02; 18:11:59.494> Updating points
+   [INFO] <2022-05-02; 18:11:59.500> Updated points: 2
+   [INFO] <2022-05-02; 18:11:59.502> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T12:05:51
+   [INFO] <2022-05-02; 18:11:59.592> isPlaying
+   [INFO] <2022-05-02; 18:11:59.593> Playing
+   [INFO] <2022-05-02; 18:11:59.593> Updating points
+   [INFO] <2022-05-02; 18:11:59.596> Updated points: 2
+   [INFO] <2022-05-02; 18:11:59.597> Updating points
+   [INFO] <2022-05-02; 18:11:59.604> Updated points: 3
+   [INFO] <2022-05-02; 18:11:59.606> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T12:05:56
+   [INFO] <2022-05-02; 18:11:59.692> isPlaying
+   [INFO] <2022-05-02; 18:11:59.692> Playing
+   [INFO] <2022-05-02; 18:11:59.692> Updating points
+   [INFO] <2022-05-02; 18:11:59.695> Updated points: 3
+   [INFO] <2022-05-02; 18:11:59.697> Updating points
+   [INFO] <2022-05-02; 18:11:59.707> Updated points: 4
+   [INFO] <2022-05-02; 18:11:59.709> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T12:06:01
+   [INFO] <2022-05-02; 18:11:59.794> isPlaying
+   [INFO] <2022-05-02; 18:11:59.795> Playing
+   [INFO] <2022-05-02; 18:11:59.795> Updating points
+   [INFO] <2022-05-02; 18:11:59.798> Updated points: 4
+   [INFO] <2022-05-02; 18:11:59.799> Updating points
+   [INFO] <2022-05-02; 18:11:59.807> Updated points: 5
+   [INFO] <2022-05-02; 18:11:59.807> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T12:06:06
+   [INFO] <2022-05-02; 18:11:59.897> isPlaying
+   [INFO] <2022-05-02; 18:11:59.898> Playing
+   [INFO] <2022-05-02; 18:11:59.899> Updating points
+   [INFO] <2022-05-02; 18:11:59.903> Updated points: 5
+   [INFO] <2022-05-02; 18:11:59.904> Updating points
+   [INFO] <2022-05-02; 18:11:59.912> Updated points: 6
+   [INFO] <2022-05-02; 18:11:59.913> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T12:06:11
+   [INFO] <2022-05-02; 18:12:00.001> isPlaying
+   [INFO] <2022-05-02; 18:12:00.002> Playing
+   [INFO] <2022-05-02; 18:12:00.002> Updating points
+   [INFO] <2022-05-02; 18:12:00.004> Updated points: 6
+   [INFO] <2022-05-02; 18:12:00.004> Updating points
+   [INFO] <2022-05-02; 18:12:00.006> Updated points: 7
+   [INFO] <2022-05-02; 18:12:00.007> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T12:06:16
+   [INFO] <2022-05-02; 18:12:00.102> isPlaying
+   [INFO] <2022-05-02; 18:12:00.103> Playing
+   [INFO] <2022-05-02; 18:12:00.103> Updating points
+   [INFO] <2022-05-02; 18:12:00.105> Updated points: 7
+   [INFO] <2022-05-02; 18:12:00.106> Updating points
+   [INFO] <2022-05-02; 18:12:00.109> Updated points: 8
+   [INFO] <2022-05-02; 18:12:00.109> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T12:06:21
+   [INFO] <2022-05-02; 18:12:00.202> isPlaying
+   [INFO] <2022-05-02; 18:12:00.203> Playing
+   [INFO] <2022-05-02; 18:12:00.203> Updating points
+   [INFO] <2022-05-02; 18:12:00.206> Updated points: 8
+   [INFO] <2022-05-02; 18:12:00.207> Updating points
+   [INFO] <2022-05-02; 18:12:00.209> Updated points: 9
+   [INFO] <2022-05-02; 18:12:00.210> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T12:06:26
+   [INFO] <2022-05-02; 18:12:00.304> isPlaying
+   [INFO] <2022-05-02; 18:12:00.305> Playing
+   [INFO] <2022-05-02; 18:12:00.305> Updating points
+   [INFO] <2022-05-02; 18:12:00.308> Updated points: 9
+   [INFO] <2022-05-02; 18:12:00.309> Updating points
+   [INFO] <2022-05-02; 18:12:00.313> Updated points: 10
+   [INFO] <2022-05-02; 18:12:00.314> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T12:06:31
+   [INFO] <2022-05-02; 18:12:00.405> isPlaying
+   [INFO] <2022-05-02; 18:12:00.405> Playing
+   [INFO] <2022-05-02; 18:12:00.406> Updating points
+   [INFO] <2022-05-02; 18:12:00.408> Updated points: 10
+   [INFO] <2022-05-02; 18:12:00.409> Updating points
+   [INFO] <2022-05-02; 18:12:00.416> Updated points: 11
+   [INFO] <2022-05-02; 18:12:00.417> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T12:06:36
+   [INFO] <2022-05-02; 18:12:00.509> isPlaying
+   [INFO] <2022-05-02; 18:12:00.509> Playing
+   [INFO] <2022-05-02; 18:12:00.510> Updating points
+   [INFO] <2022-05-02; 18:12:00.512> Updated points: 11
+   [INFO] <2022-05-02; 18:12:00.513> Updating points
+   [INFO] <2022-05-02; 18:12:00.515> Updated points: 12
+   [INFO] <2022-05-02; 18:12:00.517> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T12:06:41
+   [INFO] <2022-05-02; 18:12:00.612> isPlaying
+   [INFO] <2022-05-02; 18:12:00.614> Playing
+   [INFO] <2022-05-02; 18:12:00.615> Updating points
+   [INFO] <2022-05-02; 18:12:00.618> Updated points: 12
+   [INFO] <2022-05-02; 18:12:00.619> Updating points
+   [INFO] <2022-05-02; 18:12:00.625> Updated points: 13
+   [INFO] <2022-05-02; 18:12:00.627> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T12:06:46
+   [INFO] <2022-05-02; 18:12:00.714> isPlaying
+   [INFO] <2022-05-02; 18:12:00.714> Playing
+   [INFO] <2022-05-02; 18:12:00.715> Updating points
+   [INFO] <2022-05-02; 18:12:00.717> Updated points: 13
+   [INFO] <2022-05-02; 18:12:00.719> Updating points
+   [INFO] <2022-05-02; 18:12:00.725> Updated points: 14
+   [INFO] <2022-05-02; 18:12:00.727> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T12:06:51
+   [INFO] <2022-05-02; 18:12:00.817> isPlaying
+   [INFO] <2022-05-02; 18:12:00.817> Playing
+   [INFO] <2022-05-02; 18:12:00.818> Updating points
+   [INFO] <2022-05-02; 18:12:00.820> Updated points: 14
+   [INFO] <2022-05-02; 18:12:00.821> Updating points
+   [INFO] <2022-05-02; 18:12:00.830> Updated points: 15
+   [INFO] <2022-05-02; 18:12:00.831> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T12:06:56
+   [INFO] <2022-05-02; 18:12:00.919> isPlaying
+   [INFO] <2022-05-02; 18:12:00.919> Playing
+   [INFO] <2022-05-02; 18:12:00.920> Updating points
+   [INFO] <2022-05-02; 18:12:00.922> Updated points: 15
+   [INFO] <2022-05-02; 18:12:00.923> Updating points
+   [INFO] <2022-05-02; 18:12:00.929> Updated points: 16
+   [INFO] <2022-05-02; 18:12:00.931> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T12:07:01
+   [INFO] <2022-05-02; 18:12:01.022> isPlaying
+   [INFO] <2022-05-02; 18:12:01.022> Playing
+   [INFO] <2022-05-02; 18:12:01.023> Updating points
+   [INFO] <2022-05-02; 18:12:01.026> Updated points: 16
+   [INFO] <2022-05-02; 18:12:01.027> Updating points
+   [INFO] <2022-05-02; 18:12:01.036> Updated points: 17
+   [INFO] <2022-05-02; 18:12:01.037> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T12:07:06
+   [INFO] <2022-05-02; 18:12:01.125> isPlaying
+   [INFO] <2022-05-02; 18:12:01.125> Playing
+   [INFO] <2022-05-02; 18:12:01.126> Updating points
+   [INFO] <2022-05-02; 18:12:01.128> Updated points: 17
+   [INFO] <2022-05-02; 18:12:01.129> Updating points
+   [INFO] <2022-05-02; 18:12:01.134> Updated points: 18
+   [INFO] <2022-05-02; 18:12:01.136> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T12:07:11
+   [INFO] <2022-05-02; 18:12:01.229> isPlaying
+   [INFO] <2022-05-02; 18:12:01.230> Playing
+   [INFO] <2022-05-02; 18:12:01.231> Updating points
+   [INFO] <2022-05-02; 18:12:01.236> Updated points: 18
+   [INFO] <2022-05-02; 18:12:01.237> Updating points
+   [INFO] <2022-05-02; 18:12:01.246> Updated points: 19
+   [INFO] <2022-05-02; 18:12:01.247> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T12:07:16
+   [INFO] <2022-05-02; 18:12:01.330> isPlaying
+   [INFO] <2022-05-02; 18:12:01.331> Playing
+   [INFO] <2022-05-02; 18:12:01.331> Updating points
+   [INFO] <2022-05-02; 18:12:01.334> Updated points: 19
+   [INFO] <2022-05-02; 18:12:01.334> Updating points
+   [INFO] <2022-05-02; 18:12:01.342> Updated points: 20
+   [INFO] <2022-05-02; 18:12:01.344> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T13:49:56
+   [INFO] <2022-05-02; 18:12:01.434> isPlaying
+   [INFO] <2022-05-02; 18:12:01.434> Playing
+   [INFO] <2022-05-02; 18:12:01.436> Updating points
+   [INFO] <2022-05-02; 18:12:01.438> Updated points: 20
+   [INFO] <2022-05-02; 18:12:01.439> Updating points
+   [INFO] <2022-05-02; 18:12:01.446> Updated points: 21
+   [INFO] <2022-05-02; 18:12:01.448> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T13:50:01
+   [INFO] <2022-05-02; 18:12:01.535> isPlaying
+   [INFO] <2022-05-02; 18:12:01.535> Playing
+   [INFO] <2022-05-02; 18:12:01.536> Updating points
+   [INFO] <2022-05-02; 18:12:01.538> Updated points: 21
+   [INFO] <2022-05-02; 18:12:01.539> Updating points
+   [INFO] <2022-05-02; 18:12:01.544> Updated points: 22
+   [INFO] <2022-05-02; 18:12:01.547> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T13:50:06
+   [INFO] <2022-05-02; 18:12:01.637> isPlaying
+   [INFO] <2022-05-02; 18:12:01.638> Playing
+   [INFO] <2022-05-02; 18:12:01.638> Updating points
+   [INFO] <2022-05-02; 18:12:01.644> Updated points: 22
+   [INFO] <2022-05-02; 18:12:01.645> Updating points
+   [INFO] <2022-05-02; 18:12:01.656> Updated points: 23
+   [INFO] <2022-05-02; 18:12:01.657> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T13:50:11
+   [INFO] <2022-05-02; 18:12:01.741> isPlaying
+   [INFO] <2022-05-02; 18:12:01.742> Playing
+   [INFO] <2022-05-02; 18:12:01.743> Updating points
+   [INFO] <2022-05-02; 18:12:01.746> Updated points: 23
+   [INFO] <2022-05-02; 18:12:01.747> Updating points
+   [INFO] <2022-05-02; 18:12:01.755> Updated points: 24
+   [INFO] <2022-05-02; 18:12:01.756> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T13:50:16
+   [INFO] <2022-05-02; 18:12:01.845> isPlaying
+   [INFO] <2022-05-02; 18:12:01.845> Playing
+   [INFO] <2022-05-02; 18:12:01.846> Updating points
+   [INFO] <2022-05-02; 18:12:01.849> Updated points: 24
+   [INFO] <2022-05-02; 18:12:01.849> Updating points
+   [INFO] <2022-05-02; 18:12:01.852> Updated points: 25
+   [INFO] <2022-05-02; 18:12:01.853> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T13:50:21
+   [INFO] <2022-05-02; 18:12:01.947> isPlaying
+   [INFO] <2022-05-02; 18:12:01.947> Playing
+   [INFO] <2022-05-02; 18:12:01.948> Updating points
+   [INFO] <2022-05-02; 18:12:01.953> Updated points: 25
+   [INFO] <2022-05-02; 18:12:01.954> Updating points
+   [INFO] <2022-05-02; 18:12:01.962> Updated points: 26
+   [INFO] <2022-05-02; 18:12:01.963> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T13:50:26
+   [INFO] <2022-05-02; 18:12:02.051> isPlaying
+   [INFO] <2022-05-02; 18:12:02.051> Playing
+   [INFO] <2022-05-02; 18:12:02.052> Updating points
+   [INFO] <2022-05-02; 18:12:02.055> Updated points: 26
+   [INFO] <2022-05-02; 18:12:02.056> Updating points
+   [INFO] <2022-05-02; 18:12:02.064> Updated points: 27
+   [INFO] <2022-05-02; 18:12:02.065> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T13:50:31
+   [INFO] <2022-05-02; 18:12:02.151> isPlaying
+   [INFO] <2022-05-02; 18:12:02.152> Playing
+   [INFO] <2022-05-02; 18:12:02.153> Updating points
+   [INFO] <2022-05-02; 18:12:02.157> Updated points: 27
+   [INFO] <2022-05-02; 18:12:02.158> Updating points
+   [INFO] <2022-05-02; 18:12:02.166> Updated points: 28
+   [INFO] <2022-05-02; 18:12:02.167> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T13:53:21
+   [INFO] <2022-05-02; 18:12:02.256> isPlaying
+   [INFO] <2022-05-02; 18:12:02.256> Playing
+   [INFO] <2022-05-02; 18:12:02.257> Updating points
+   [INFO] <2022-05-02; 18:12:02.260> Updated points: 28
+   [INFO] <2022-05-02; 18:12:02.261> Updating points
+   [INFO] <2022-05-02; 18:12:02.270> Updated points: 29
+   [INFO] <2022-05-02; 18:12:02.271> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T13:53:26
+   [INFO] <2022-05-02; 18:12:02.357> isPlaying
+   [INFO] <2022-05-02; 18:12:02.357> Playing
+   [INFO] <2022-05-02; 18:12:02.358> Updating points
+   [INFO] <2022-05-02; 18:12:02.361> Updated points: 29
+   [INFO] <2022-05-02; 18:12:02.362> Updating points
+   [INFO] <2022-05-02; 18:12:02.371> Updated points: 30
+   [INFO] <2022-05-02; 18:12:02.373> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T13:53:31
+   [INFO] <2022-05-02; 18:12:02.456> isPlaying
+   [INFO] <2022-05-02; 18:12:02.457> Playing
+   [INFO] <2022-05-02; 18:12:02.457> Updating points
+   [INFO] <2022-05-02; 18:12:02.460> Updated points: 30
+   [INFO] <2022-05-02; 18:12:02.460> Updating points
+   [INFO] <2022-05-02; 18:12:02.466> Updated points: 31
+   [INFO] <2022-05-02; 18:12:02.468> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T13:53:36
+   [INFO] <2022-05-02; 18:12:02.561> isPlaying
+   [INFO] <2022-05-02; 18:12:02.562> Playing
+   [INFO] <2022-05-02; 18:12:02.562> Updating points
+   [INFO] <2022-05-02; 18:12:02.565> Updated points: 31
+   [INFO] <2022-05-02; 18:12:02.565> Updating points
+   [INFO] <2022-05-02; 18:12:02.567> Updated points: 32
+   [INFO] <2022-05-02; 18:12:02.569> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T13:53:41
+   [INFO] <2022-05-02; 18:12:02.664> isPlaying
+   [INFO] <2022-05-02; 18:12:02.665> Playing
+   [INFO] <2022-05-02; 18:12:02.665> Updating points
+   [INFO] <2022-05-02; 18:12:02.668> Updated points: 32
+   [INFO] <2022-05-02; 18:12:02.669> Updating points
+   [INFO] <2022-05-02; 18:12:02.675> Updated points: 33
+   [INFO] <2022-05-02; 18:12:02.676> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T13:53:46
+   [INFO] <2022-05-02; 18:12:02.766> isPlaying
+   [INFO] <2022-05-02; 18:12:02.767> Playing
+   [INFO] <2022-05-02; 18:12:02.767> Updating points
+   [INFO] <2022-05-02; 18:12:02.770> Updated points: 33
+   [INFO] <2022-05-02; 18:12:02.770> Updating points
+   [INFO] <2022-05-02; 18:12:02.773> Updated points: 34
+   [INFO] <2022-05-02; 18:12:02.774> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T13:53:51
+   [INFO] <2022-05-02; 18:12:02.870> isPlaying
+   [INFO] <2022-05-02; 18:12:02.871> Playing
+   [INFO] <2022-05-02; 18:12:02.872> Updating points
+   [INFO] <2022-05-02; 18:12:02.876> Updated points: 34
+   [INFO] <2022-05-02; 18:12:02.878> Updating points
+   [INFO] <2022-05-02; 18:12:02.887> Updated points: 35
+   [INFO] <2022-05-02; 18:12:02.889> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T13:53:56
+   [INFO] <2022-05-02; 18:12:02.972> isPlaying
+   [INFO] <2022-05-02; 18:12:02.972> Playing
+   [INFO] <2022-05-02; 18:12:02.973> Updating points
+   [INFO] <2022-05-02; 18:12:02.976> Updated points: 35
+   [INFO] <2022-05-02; 18:12:02.977> Updating points
+   [INFO] <2022-05-02; 18:12:02.986> Updated points: 36
+   [INFO] <2022-05-02; 18:12:02.988> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T14:19:01
+   [INFO] <2022-05-02; 18:12:03.073> isPlaying
+   [INFO] <2022-05-02; 18:12:03.074> Playing
+   [INFO] <2022-05-02; 18:12:03.074> Updating points
+   [INFO] <2022-05-02; 18:12:03.077> Updated points: 36
+   [INFO] <2022-05-02; 18:12:03.078> Updating points
+   [INFO] <2022-05-02; 18:12:03.089> Updated points: 37
+   [INFO] <2022-05-02; 18:12:03.090> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T14:19:06
+   [INFO] <2022-05-02; 18:12:03.175> isPlaying
+   [INFO] <2022-05-02; 18:12:03.176> Playing
+   [INFO] <2022-05-02; 18:12:03.176> Updating points
+   [INFO] <2022-05-02; 18:12:03.179> Updated points: 37
+   [INFO] <2022-05-02; 18:12:03.180> Updating points
+   [INFO] <2022-05-02; 18:12:03.186> Updated points: 38
+   [INFO] <2022-05-02; 18:12:03.187> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T14:19:11
+   [INFO] <2022-05-02; 18:12:03.278> isPlaying
+   [INFO] <2022-05-02; 18:12:03.278> Playing
+   [INFO] <2022-05-02; 18:12:03.278> Updating points
+   [INFO] <2022-05-02; 18:12:03.280> Updated points: 38
+   [INFO] <2022-05-02; 18:12:03.280> Updating points
+   [INFO] <2022-05-02; 18:12:03.283> Updated points: 39
+   [INFO] <2022-05-02; 18:12:03.283> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T14:19:16
+   [INFO] <2022-05-02; 18:12:03.378> isPlaying
+   [INFO] <2022-05-02; 18:12:03.379> Playing
+   [INFO] <2022-05-02; 18:12:03.379> Updating points
+   [INFO] <2022-05-02; 18:12:03.381> Updated points: 39
+   [INFO] <2022-05-02; 18:12:03.381> Updating points
+   [INFO] <2022-05-02; 18:12:03.391> Updated points: 40
+   [INFO] <2022-05-02; 18:12:03.392> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T14:19:21
+   [INFO] <2022-05-02; 18:12:03.481> isPlaying
+   [INFO] <2022-05-02; 18:12:03.482> Playing
+   [INFO] <2022-05-02; 18:12:03.482> Updating points
+   [INFO] <2022-05-02; 18:12:03.484> Updated points: 40
+   [INFO] <2022-05-02; 18:12:03.484> Updating points
+   [INFO] <2022-05-02; 18:12:03.487> Updated points: 41
+   [INFO] <2022-05-02; 18:12:03.487> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T14:19:26
+   [INFO] <2022-05-02; 18:12:03.583> isPlaying
+   [INFO] <2022-05-02; 18:12:03.583> Playing
+   [INFO] <2022-05-02; 18:12:03.583> Updating points
+   [INFO] <2022-05-02; 18:12:03.587> Updated points: 41
+   [INFO] <2022-05-02; 18:12:03.595> Updating points
+   [INFO] <2022-05-02; 18:12:03.603> Updated points: 42
+   [INFO] <2022-05-02; 18:12:03.604> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T14:19:31
+   [INFO] <2022-05-02; 18:12:03.684> isPlaying
+   [INFO] <2022-05-02; 18:12:03.685> Playing
+   [INFO] <2022-05-02; 18:12:03.686> Updating points
+   [INFO] <2022-05-02; 18:12:03.688> Updated points: 42
+   [INFO] <2022-05-02; 18:12:03.688> Updating points
+   [INFO] <2022-05-02; 18:12:03.691> Updated points: 43
+   [INFO] <2022-05-02; 18:12:03.692> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T14:19:36
+   [INFO] <2022-05-02; 18:12:03.785> isPlaying
+   [INFO] <2022-05-02; 18:12:03.785> Playing
+   [INFO] <2022-05-02; 18:12:03.786> Updating points
+   [INFO] <2022-05-02; 18:12:03.790> Updated points: 43
+   [INFO] <2022-05-02; 18:12:03.791> Updating points
+   [INFO] <2022-05-02; 18:12:03.804> Updated points: 44
+   [INFO] <2022-05-02; 18:12:03.805> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T14:19:41
+   [INFO] <2022-05-02; 18:12:03.886> isPlaying
+   [INFO] <2022-05-02; 18:12:03.886> Playing
+   [INFO] <2022-05-02; 18:12:03.886> Updating points
+   [INFO] <2022-05-02; 18:12:03.889> Updated points: 44
+   [INFO] <2022-05-02; 18:12:03.889> Updating points
+   [INFO] <2022-05-02; 18:12:03.892> Updated points: 45
+   [INFO] <2022-05-02; 18:12:03.893> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T14:19:46
+   [INFO] <2022-05-02; 18:12:03.989> isPlaying
+   [INFO] <2022-05-02; 18:12:03.989> Playing
+   [INFO] <2022-05-02; 18:12:03.989> Updating points
+   [INFO] <2022-05-02; 18:12:03.991> Updated points: 45
+   [INFO] <2022-05-02; 18:12:03.992> Updating points
+   [INFO] <2022-05-02; 18:12:03.993> Updated points: 46
+   [INFO] <2022-05-02; 18:12:03.993> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T14:19:51
+   [INFO] <2022-05-02; 18:12:04.090> isPlaying
+   [INFO] <2022-05-02; 18:12:04.091> Playing
+   [INFO] <2022-05-02; 18:12:04.091> Updating points
+   [INFO] <2022-05-02; 18:12:04.094> Updated points: 46
+   [INFO] <2022-05-02; 18:12:04.095> Updating points
+   [INFO] <2022-05-02; 18:12:04.097> Updated points: 47
+   [INFO] <2022-05-02; 18:12:04.098> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T14:19:56
+   [INFO] <2022-05-02; 18:12:04.191> isPlaying
+   [INFO] <2022-05-02; 18:12:04.191> Playing
+   [INFO] <2022-05-02; 18:12:04.191> Updating points
+   [INFO] <2022-05-02; 18:12:04.193> Updated points: 47
+   [INFO] <2022-05-02; 18:12:04.193> Updating points
+   [INFO] <2022-05-02; 18:12:04.197> Updated points: 48
+   [INFO] <2022-05-02; 18:12:04.198> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:25:36
+   [INFO] <2022-05-02; 18:12:04.291> isPlaying
+   [INFO] <2022-05-02; 18:12:04.292> Playing
+   [INFO] <2022-05-02; 18:12:04.292> Updating points
+   [INFO] <2022-05-02; 18:12:04.295> Updated points: 48
+   [INFO] <2022-05-02; 18:12:04.295> Updating points
+   [INFO] <2022-05-02; 18:12:04.297> Updated points: 49
+   [INFO] <2022-05-02; 18:12:04.298> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:25:41
+   [INFO] <2022-05-02; 18:12:04.392> isPlaying
+   [INFO] <2022-05-02; 18:12:04.393> Playing
+   [INFO] <2022-05-02; 18:12:04.393> Updating points
+   [INFO] <2022-05-02; 18:12:04.396> Updated points: 49
+   [INFO] <2022-05-02; 18:12:04.396> Updating points
+   [INFO] <2022-05-02; 18:12:04.399> Updated points: 50
+   [INFO] <2022-05-02; 18:12:04.400> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:25:46
+   [INFO] <2022-05-02; 18:12:04.497> isPlaying
+   [INFO] <2022-05-02; 18:12:04.498> Playing
+   [INFO] <2022-05-02; 18:12:04.498> Updating points
+   [INFO] <2022-05-02; 18:12:04.500> Updated points: 50
+   [INFO] <2022-05-02; 18:12:04.501> Updating points
+   [INFO] <2022-05-02; 18:12:04.509> Updated points: 51
+   [INFO] <2022-05-02; 18:12:04.511> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:25:51
+   [INFO] <2022-05-02; 18:12:04.597> isPlaying
+   [INFO] <2022-05-02; 18:12:04.597> Playing
+   [INFO] <2022-05-02; 18:12:04.598> Updating points
+   [INFO] <2022-05-02; 18:12:04.601> Updated points: 51
+   [INFO] <2022-05-02; 18:12:04.601> Updating points
+   [INFO] <2022-05-02; 18:12:04.606> Updated points: 52
+   [INFO] <2022-05-02; 18:12:04.607> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:25:56
+   [INFO] <2022-05-02; 18:12:04.696> isPlaying
+   [INFO] <2022-05-02; 18:12:04.697> Playing
+   [INFO] <2022-05-02; 18:12:04.698> Updating points
+   [INFO] <2022-05-02; 18:12:04.701> Updated points: 52
+   [INFO] <2022-05-02; 18:12:04.702> Updating points
+   [INFO] <2022-05-02; 18:12:04.706> Updated points: 53
+   [INFO] <2022-05-02; 18:12:04.707> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:26:01
+   [INFO] <2022-05-02; 18:12:04.799> isPlaying
+   [INFO] <2022-05-02; 18:12:04.800> Playing
+   [INFO] <2022-05-02; 18:12:04.800> Updating points
+   [INFO] <2022-05-02; 18:12:04.803> Updated points: 53
+   [INFO] <2022-05-02; 18:12:04.803> Updating points
+   [INFO] <2022-05-02; 18:12:04.807> Updated points: 54
+   [INFO] <2022-05-02; 18:12:04.808> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:26:06
+   [INFO] <2022-05-02; 18:12:04.904> isPlaying
+   [INFO] <2022-05-02; 18:12:04.905> Playing
+   [INFO] <2022-05-02; 18:12:04.905> Updating points
+   [INFO] <2022-05-02; 18:12:04.908> Updated points: 54
+   [INFO] <2022-05-02; 18:12:04.909> Updating points
+   [INFO] <2022-05-02; 18:12:04.912> Updated points: 55
+   [INFO] <2022-05-02; 18:12:04.912> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:26:11
+   [INFO] <2022-05-02; 18:12:05.006> isPlaying
+   [INFO] <2022-05-02; 18:12:05.006> Playing
+   [INFO] <2022-05-02; 18:12:05.007> Updating points
+   [INFO] <2022-05-02; 18:12:05.009> Updated points: 55
+   [INFO] <2022-05-02; 18:12:05.010> Updating points
+   [INFO] <2022-05-02; 18:12:05.015> Updated points: 56
+   [INFO] <2022-05-02; 18:12:05.016> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:26:16
+   [INFO] <2022-05-02; 18:12:05.106> isPlaying
+   [INFO] <2022-05-02; 18:12:05.107> Playing
+   [INFO] <2022-05-02; 18:12:05.107> Updating points
+   [INFO] <2022-05-02; 18:12:05.110> Updated points: 56
+   [INFO] <2022-05-02; 18:12:05.110> Updating points
+   [INFO] <2022-05-02; 18:12:05.113> Updated points: 57
+   [INFO] <2022-05-02; 18:12:05.113> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:26:21
+   [INFO] <2022-05-02; 18:12:05.207> isPlaying
+   [INFO] <2022-05-02; 18:12:05.207> Playing
+   [INFO] <2022-05-02; 18:12:05.207> Updating points
+   [INFO] <2022-05-02; 18:12:05.210> Updated points: 57
+   [INFO] <2022-05-02; 18:12:05.210> Updating points
+   [INFO] <2022-05-02; 18:12:05.212> Updated points: 58
+   [INFO] <2022-05-02; 18:12:05.213> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:26:26
+   [INFO] <2022-05-02; 18:12:05.306> isPlaying
+   [INFO] <2022-05-02; 18:12:05.307> Playing
+   [INFO] <2022-05-02; 18:12:05.307> Updating points
+   [INFO] <2022-05-02; 18:12:05.310> Updated points: 58
+   [INFO] <2022-05-02; 18:12:05.311> Updating points
+   [INFO] <2022-05-02; 18:12:05.313> Updated points: 59
+   [INFO] <2022-05-02; 18:12:05.314> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:26:31
+   [INFO] <2022-05-02; 18:12:05.408> isPlaying
+   [INFO] <2022-05-02; 18:12:05.409> Playing
+   [INFO] <2022-05-02; 18:12:05.409> Updating points
+   [INFO] <2022-05-02; 18:12:05.411> Updated points: 59
+   [INFO] <2022-05-02; 18:12:05.412> Updating points
+   [INFO] <2022-05-02; 18:12:05.414> Updated points: 60
+   [INFO] <2022-05-02; 18:12:05.415> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:26:36
+   [INFO] <2022-05-02; 18:12:05.511> isPlaying
+   [INFO] <2022-05-02; 18:12:05.511> Playing
+   [INFO] <2022-05-02; 18:12:05.512> Updating points
+   [INFO] <2022-05-02; 18:12:05.515> Updated points: 60
+   [INFO] <2022-05-02; 18:12:05.515> Updating points
+   [INFO] <2022-05-02; 18:12:05.517> Updated points: 61
+   [INFO] <2022-05-02; 18:12:05.518> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:26:41
+   [INFO] <2022-05-02; 18:12:05.615> isPlaying
+   [INFO] <2022-05-02; 18:12:05.615> Playing
+   [INFO] <2022-05-02; 18:12:05.616> Updating points
+   [INFO] <2022-05-02; 18:12:05.617> Updated points: 61
+   [INFO] <2022-05-02; 18:12:05.618> Updating points
+   [INFO] <2022-05-02; 18:12:05.620> Updated points: 62
+   [INFO] <2022-05-02; 18:12:05.620> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:26:46
+   [INFO] <2022-05-02; 18:12:05.719> isPlaying
+   [INFO] <2022-05-02; 18:12:05.720> Playing
+   [INFO] <2022-05-02; 18:12:05.720> Updating points
+   [INFO] <2022-05-02; 18:12:05.723> Updated points: 62
+   [INFO] <2022-05-02; 18:12:05.723> Updating points
+   [INFO] <2022-05-02; 18:12:05.726> Updated points: 63
+   [INFO] <2022-05-02; 18:12:05.726> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:26:51
+   [INFO] <2022-05-02; 18:12:05.820> isPlaying
+   [INFO] <2022-05-02; 18:12:05.821> Playing
+   [INFO] <2022-05-02; 18:12:05.821> Updating points
+   [INFO] <2022-05-02; 18:12:05.825> Updated points: 63
+   [INFO] <2022-05-02; 18:12:05.826> Updating points
+   [INFO] <2022-05-02; 18:12:05.828> Updated points: 64
+   [INFO] <2022-05-02; 18:12:05.829> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:26:56
+   [INFO] <2022-05-02; 18:12:05.920> isPlaying
+   [INFO] <2022-05-02; 18:12:05.921> Playing
+   [INFO] <2022-05-02; 18:12:05.921> Updating points
+   [INFO] <2022-05-02; 18:12:05.923> Updated points: 64
+   [INFO] <2022-05-02; 18:12:05.924> Updating points
+   [INFO] <2022-05-02; 18:12:05.926> Updated points: 65
+   [INFO] <2022-05-02; 18:12:05.926> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:27:01
+   [INFO] <2022-05-02; 18:12:06.021> isPlaying
+   [INFO] <2022-05-02; 18:12:06.021> Playing
+   [INFO] <2022-05-02; 18:12:06.022> Updating points
+   [INFO] <2022-05-02; 18:12:06.024> Updated points: 65
+   [INFO] <2022-05-02; 18:12:06.025> Updating points
+   [INFO] <2022-05-02; 18:12:06.029> Updated points: 66
+   [INFO] <2022-05-02; 18:12:06.030> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:27:06
+   [INFO] <2022-05-02; 18:12:06.122> isPlaying
+   [INFO] <2022-05-02; 18:12:06.123> Playing
+   [INFO] <2022-05-02; 18:12:06.123> Updating points
+   [INFO] <2022-05-02; 18:12:06.125> Updated points: 66
+   [INFO] <2022-05-02; 18:12:06.126> Updating points
+   [INFO] <2022-05-02; 18:12:06.128> Updated points: 67
+   [INFO] <2022-05-02; 18:12:06.128> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:27:11
+   [INFO] <2022-05-02; 18:12:06.222> isPlaying
+   [INFO] <2022-05-02; 18:12:06.222> Playing
+   [INFO] <2022-05-02; 18:12:06.223> Updating points
+   [INFO] <2022-05-02; 18:12:06.224> Updated points: 67
+   [INFO] <2022-05-02; 18:12:06.224> Updating points
+   [INFO] <2022-05-02; 18:12:06.226> Updated points: 68
+   [INFO] <2022-05-02; 18:12:06.226> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:27:16
+   [INFO] <2022-05-02; 18:12:06.322> isPlaying
+   [INFO] <2022-05-02; 18:12:06.322> Playing
+   [INFO] <2022-05-02; 18:12:06.323> Updating points
+   [INFO] <2022-05-02; 18:12:06.325> Updated points: 68
+   [INFO] <2022-05-02; 18:12:06.326> Updating points
+   [INFO] <2022-05-02; 18:12:06.328> Updated points: 69
+   [INFO] <2022-05-02; 18:12:06.328> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:27:21
+   [INFO] <2022-05-02; 18:12:06.422> isPlaying
+   [INFO] <2022-05-02; 18:12:06.423> Playing
+   [INFO] <2022-05-02; 18:12:06.423> Updating points
+   [INFO] <2022-05-02; 18:12:06.426> Updated points: 69
+   [INFO] <2022-05-02; 18:12:06.427> Updating points
+   [INFO] <2022-05-02; 18:12:06.431> Updated points: 70
+   [INFO] <2022-05-02; 18:12:06.431> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:27:26
+   [INFO] <2022-05-02; 18:12:06.522> isPlaying
+   [INFO] <2022-05-02; 18:12:06.523> Playing
+   [INFO] <2022-05-02; 18:12:06.523> Updating points
+   [INFO] <2022-05-02; 18:12:06.526> Updated points: 70
+   [INFO] <2022-05-02; 18:12:06.527> Updating points
+   [INFO] <2022-05-02; 18:12:06.529> Updated points: 71
+   [INFO] <2022-05-02; 18:12:06.530> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:27:31
+   [INFO] <2022-05-02; 18:12:06.622> isPlaying
+   [INFO] <2022-05-02; 18:12:06.623> Playing
+   [INFO] <2022-05-02; 18:12:06.623> Updating points
+   [INFO] <2022-05-02; 18:12:06.625> Updated points: 71
+   [INFO] <2022-05-02; 18:12:06.626> Updating points
+   [INFO] <2022-05-02; 18:12:06.630> Updated points: 72
+   [INFO] <2022-05-02; 18:12:06.631> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:27:36
+   [INFO] <2022-05-02; 18:12:06.722> isPlaying
+   [INFO] <2022-05-02; 18:12:06.722> Playing
+   [INFO] <2022-05-02; 18:12:06.722> Updating points
+   [INFO] <2022-05-02; 18:12:06.725> Updated points: 72
+   [INFO] <2022-05-02; 18:12:06.725> Updating points
+   [INFO] <2022-05-02; 18:12:06.727> Updated points: 73
+   [INFO] <2022-05-02; 18:12:06.727> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:27:41
+   [INFO] <2022-05-02; 18:12:06.822> isPlaying
+   [INFO] <2022-05-02; 18:12:06.822> Playing
+   [INFO] <2022-05-02; 18:12:06.823> Updating points
+   [INFO] <2022-05-02; 18:12:06.825> Updated points: 73
+   [INFO] <2022-05-02; 18:12:06.825> Updating points
+   [INFO] <2022-05-02; 18:12:06.829> Updated points: 74
+   [INFO] <2022-05-02; 18:12:06.829> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:27:46
+   [INFO] <2022-05-02; 18:12:06.923> isPlaying
+   [INFO] <2022-05-02; 18:12:06.923> Playing
+   [INFO] <2022-05-02; 18:12:06.924> Updating points
+   [INFO] <2022-05-02; 18:12:06.926> Updated points: 74
+   [INFO] <2022-05-02; 18:12:06.927> Updating points
+   [INFO] <2022-05-02; 18:12:06.929> Updated points: 75
+   [INFO] <2022-05-02; 18:12:06.929> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:27:51
+   [INFO] <2022-05-02; 18:12:07.023> isPlaying
+   [INFO] <2022-05-02; 18:12:07.023> Playing
+   [INFO] <2022-05-02; 18:12:07.023> Updating points
+   [INFO] <2022-05-02; 18:12:07.024> Updated points: 75
+   [INFO] <2022-05-02; 18:12:07.025> Updating points
+   [INFO] <2022-05-02; 18:12:07.028> Updated points: 76
+   [INFO] <2022-05-02; 18:12:07.029> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:27:56
+   [INFO] <2022-05-02; 18:12:07.123> isPlaying
+   [INFO] <2022-05-02; 18:12:07.124> Playing
+   [INFO] <2022-05-02; 18:12:07.124> Updating points
+   [INFO] <2022-05-02; 18:12:07.127> Updated points: 76
+   [INFO] <2022-05-02; 18:12:07.128> Updating points
+   [INFO] <2022-05-02; 18:12:07.130> Updated points: 77
+   [INFO] <2022-05-02; 18:12:07.131> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:28:01
+   [INFO] <2022-05-02; 18:12:07.226> isPlaying
+   [INFO] <2022-05-02; 18:12:07.227> Playing
+   [INFO] <2022-05-02; 18:12:07.227> Updating points
+   [INFO] <2022-05-02; 18:12:07.230> Updated points: 77
+   [INFO] <2022-05-02; 18:12:07.231> Updating points
+   [INFO] <2022-05-02; 18:12:07.233> Updated points: 78
+   [INFO] <2022-05-02; 18:12:07.234> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:28:06
+   [INFO] <2022-05-02; 18:12:07.330> isPlaying
+   [INFO] <2022-05-02; 18:12:07.330> Playing
+   [INFO] <2022-05-02; 18:12:07.331> Updating points
+   [INFO] <2022-05-02; 18:12:07.333> Updated points: 78
+   [INFO] <2022-05-02; 18:12:07.334> Updating points
+   [INFO] <2022-05-02; 18:12:07.337> Updated points: 79
+   [INFO] <2022-05-02; 18:12:07.338> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:28:11
+   [INFO] <2022-05-02; 18:12:07.433> isPlaying
+   [INFO] <2022-05-02; 18:12:07.434> Playing
+   [INFO] <2022-05-02; 18:12:07.434> Updating points
+   [INFO] <2022-05-02; 18:12:07.437> Updated points: 79
+   [INFO] <2022-05-02; 18:12:07.438> Updating points
+   [INFO] <2022-05-02; 18:12:07.443> Updated points: 80
+   [INFO] <2022-05-02; 18:12:07.443> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:28:16
+   [INFO] <2022-05-02; 18:12:07.533> isPlaying
+   [INFO] <2022-05-02; 18:12:07.534> Playing
+   [INFO] <2022-05-02; 18:12:07.534> Updating points
+   [INFO] <2022-05-02; 18:12:07.537> Updated points: 80
+   [INFO] <2022-05-02; 18:12:07.537> Updating points
+   [INFO] <2022-05-02; 18:12:07.542> Updated points: 81
+   [INFO] <2022-05-02; 18:12:07.542> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:28:21
+   [INFO] <2022-05-02; 18:12:07.633> isPlaying
+   [INFO] <2022-05-02; 18:12:07.634> Playing
+   [INFO] <2022-05-02; 18:12:07.635> Updating points
+   [INFO] <2022-05-02; 18:12:07.637> Updated points: 81
+   [INFO] <2022-05-02; 18:12:07.638> Updating points
+   [INFO] <2022-05-02; 18:12:07.641> Updated points: 82
+   [INFO] <2022-05-02; 18:12:07.642> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:28:26
+   [INFO] <2022-05-02; 18:12:07.738> isPlaying
+   [INFO] <2022-05-02; 18:12:07.738> Playing
+   [INFO] <2022-05-02; 18:12:07.739> Updating points
+   [INFO] <2022-05-02; 18:12:07.742> Updated points: 82
+   [INFO] <2022-05-02; 18:12:07.742> Updating points
+   [INFO] <2022-05-02; 18:12:07.747> Updated points: 83
+   [INFO] <2022-05-02; 18:12:07.747> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:28:31
+   [INFO] <2022-05-02; 18:12:07.838> isPlaying
+   [INFO] <2022-05-02; 18:12:07.838> Playing
+   [INFO] <2022-05-02; 18:12:07.838> Updating points
+   [INFO] <2022-05-02; 18:12:07.840> Updated points: 83
+   [INFO] <2022-05-02; 18:12:07.841> Updating points
+   [INFO] <2022-05-02; 18:12:07.844> Updated points: 84
+   [INFO] <2022-05-02; 18:12:07.845> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:28:36
+   [INFO] <2022-05-02; 18:12:07.939> isPlaying
+   [INFO] <2022-05-02; 18:12:07.939> Playing
+   [INFO] <2022-05-02; 18:12:07.940> Updating points
+   [INFO] <2022-05-02; 18:12:07.943> Updated points: 84
+   [INFO] <2022-05-02; 18:12:07.943> Updating points
+   [INFO] <2022-05-02; 18:12:07.950> Updated points: 85
+   [INFO] <2022-05-02; 18:12:07.951> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:28:41
+   [INFO] <2022-05-02; 18:12:08.040> isPlaying
+   [INFO] <2022-05-02; 18:12:08.040> Playing
+   [INFO] <2022-05-02; 18:12:08.041> Updating points
+   [INFO] <2022-05-02; 18:12:08.044> Updated points: 85
+   [INFO] <2022-05-02; 18:12:08.045> Updating points
+   [INFO] <2022-05-02; 18:12:08.052> Updated points: 86
+   [INFO] <2022-05-02; 18:12:08.052> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:28:46
+   [INFO] <2022-05-02; 18:12:08.142> isPlaying
+   [INFO] <2022-05-02; 18:12:08.143> Playing
+   [INFO] <2022-05-02; 18:12:08.143> Updating points
+   [INFO] <2022-05-02; 18:12:08.146> Updated points: 86
+   [INFO] <2022-05-02; 18:12:08.147> Updating points
+   [INFO] <2022-05-02; 18:12:08.154> Updated points: 87
+   [INFO] <2022-05-02; 18:12:08.156> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:28:51
+   [INFO] <2022-05-02; 18:12:08.247> isPlaying
+   [INFO] <2022-05-02; 18:12:08.247> Playing
+   [INFO] <2022-05-02; 18:12:08.247> Updating points
+   [INFO] <2022-05-02; 18:12:08.251> Updated points: 87
+   [INFO] <2022-05-02; 18:12:08.251> Updating points
+   [INFO] <2022-05-02; 18:12:08.255> Updated points: 88
+   [INFO] <2022-05-02; 18:12:08.256> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:28:56
+   [INFO] <2022-05-02; 18:12:08.351> isPlaying
+   [INFO] <2022-05-02; 18:12:08.351> Playing
+   [INFO] <2022-05-02; 18:12:08.351> Updating points
+   [INFO] <2022-05-02; 18:12:08.355> Updated points: 88
+   [INFO] <2022-05-02; 18:12:08.356> Updating points
+   [INFO] <2022-05-02; 18:12:08.361> Updated points: 89
+   [INFO] <2022-05-02; 18:12:08.362> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:29:01
+   [INFO] <2022-05-02; 18:12:08.453> isPlaying
+   [INFO] <2022-05-02; 18:12:08.454> Playing
+   [INFO] <2022-05-02; 18:12:08.454> Updating points
+   [INFO] <2022-05-02; 18:12:08.457> Updated points: 89
+   [INFO] <2022-05-02; 18:12:08.458> Updating points
+   [INFO] <2022-05-02; 18:12:08.462> Updated points: 90
+   [INFO] <2022-05-02; 18:12:08.463> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:29:06
+   [INFO] <2022-05-02; 18:12:08.555> isPlaying
+   [INFO] <2022-05-02; 18:12:08.556> Playing
+   [INFO] <2022-05-02; 18:12:08.556> Updating points
+   [INFO] <2022-05-02; 18:12:08.559> Updated points: 90
+   [INFO] <2022-05-02; 18:12:08.559> Updating points
+   [INFO] <2022-05-02; 18:12:08.561> Updated points: 91
+   [INFO] <2022-05-02; 18:12:08.561> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:29:11
+   [INFO] <2022-05-02; 18:12:08.655> isPlaying
+   [INFO] <2022-05-02; 18:12:08.655> Playing
+   [INFO] <2022-05-02; 18:12:08.656> Updating points
+   [INFO] <2022-05-02; 18:12:08.659> Updated points: 91
+   [INFO] <2022-05-02; 18:12:08.659> Updating points
+   [INFO] <2022-05-02; 18:12:08.663> Updated points: 92
+   [INFO] <2022-05-02; 18:12:08.664> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:29:16
+   [INFO] <2022-05-02; 18:12:08.756> isPlaying
+   [INFO] <2022-05-02; 18:12:08.757> Playing
+   [INFO] <2022-05-02; 18:12:08.757> Updating points
+   [INFO] <2022-05-02; 18:12:08.760> Updated points: 92
+   [INFO] <2022-05-02; 18:12:08.760> Updating points
+   [INFO] <2022-05-02; 18:12:08.765> Updated points: 93
+   [INFO] <2022-05-02; 18:12:08.767> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:29:21
+   [INFO] <2022-05-02; 18:12:08.859> isPlaying
+   [INFO] <2022-05-02; 18:12:08.860> Playing
+   [INFO] <2022-05-02; 18:12:08.860> Updating points
+   [INFO] <2022-05-02; 18:12:08.862> Updated points: 93
+   [INFO] <2022-05-02; 18:12:08.863> Updating points
+   [INFO] <2022-05-02; 18:12:08.865> Updated points: 94
+   [INFO] <2022-05-02; 18:12:08.865> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:29:26
+   [INFO] <2022-05-02; 18:12:08.960> isPlaying
+   [INFO] <2022-05-02; 18:12:08.960> Playing
+   [INFO] <2022-05-02; 18:12:08.961> Updating points
+   [INFO] <2022-05-02; 18:12:08.964> Updated points: 94
+   [INFO] <2022-05-02; 18:12:08.965> Updating points
+   [INFO] <2022-05-02; 18:12:08.972> Updated points: 95
+   [INFO] <2022-05-02; 18:12:08.973> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:29:31
+   [INFO] <2022-05-02; 18:12:09.062> isPlaying
+   [INFO] <2022-05-02; 18:12:09.062> Playing
+   [INFO] <2022-05-02; 18:12:09.062> Updating points
+   [INFO] <2022-05-02; 18:12:09.065> Updated points: 95
+   [INFO] <2022-05-02; 18:12:09.066> Updating points
+   [INFO] <2022-05-02; 18:12:09.068> Updated points: 96
+   [INFO] <2022-05-02; 18:12:09.069> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:29:36
+   [INFO] <2022-05-02; 18:12:09.164> isPlaying
+   [INFO] <2022-05-02; 18:12:09.164> Playing
+   [INFO] <2022-05-02; 18:12:09.165> Updating points
+   [INFO] <2022-05-02; 18:12:09.168> Updated points: 96
+   [INFO] <2022-05-02; 18:12:09.169> Updating points
+   [INFO] <2022-05-02; 18:12:09.175> Updated points: 97
+   [INFO] <2022-05-02; 18:12:09.176> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:29:41
+   [INFO] <2022-05-02; 18:12:09.268> isPlaying
+   [INFO] <2022-05-02; 18:12:09.268> Playing
+   [INFO] <2022-05-02; 18:12:09.269> Updating points
+   [INFO] <2022-05-02; 18:12:09.272> Updated points: 97
+   [INFO] <2022-05-02; 18:12:09.272> Updating points
+   [INFO] <2022-05-02; 18:12:09.277> Updated points: 98
+   [INFO] <2022-05-02; 18:12:09.278> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:29:46
+   [INFO] <2022-05-02; 18:12:09.371> isPlaying
+   [INFO] <2022-05-02; 18:12:09.371> Playing
+   [INFO] <2022-05-02; 18:12:09.371> Updating points
+   [INFO] <2022-05-02; 18:12:09.374> Updated points: 98
+   [INFO] <2022-05-02; 18:12:09.374> Updating points
+   [INFO] <2022-05-02; 18:12:09.376> Updated points: 99
+   [INFO] <2022-05-02; 18:12:09.377> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:29:51
+   [INFO] <2022-05-02; 18:12:09.475> isPlaying
+   [INFO] <2022-05-02; 18:12:09.475> Playing
+   [INFO] <2022-05-02; 18:12:09.475> Updating points
+   [INFO] <2022-05-02; 18:12:09.478> Updated points: 99
+   [INFO] <2022-05-02; 18:12:09.479> Updating points
+   [INFO] <2022-05-02; 18:12:09.481> Updated points: 100
+   [INFO] <2022-05-02; 18:12:09.482> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:29:56
+   [INFO] <2022-05-02; 18:12:09.575> isPlaying
+   [INFO] <2022-05-02; 18:12:09.576> Playing
+   [INFO] <2022-05-02; 18:12:09.576> Updating points
+   [INFO] <2022-05-02; 18:12:09.579> Updated points: 100
+   [INFO] <2022-05-02; 18:12:09.579> Updating points
+   [INFO] <2022-05-02; 18:12:09.586> Updated points: 101
+   [INFO] <2022-05-02; 18:12:09.587> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:30:01
+   [INFO] <2022-05-02; 18:12:09.676> isPlaying
+   [INFO] <2022-05-02; 18:12:09.676> Playing
+   [INFO] <2022-05-02; 18:12:09.677> Updating points
+   [INFO] <2022-05-02; 18:12:09.679> Updated points: 101
+   [INFO] <2022-05-02; 18:12:09.679> Updating points
+   [INFO] <2022-05-02; 18:12:09.681> Updated points: 102
+   [INFO] <2022-05-02; 18:12:09.681> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:30:06
+   [INFO] <2022-05-02; 18:12:09.775> isPlaying
+   [INFO] <2022-05-02; 18:12:09.776> Playing
+   [INFO] <2022-05-02; 18:12:09.776> Updating points
+   [INFO] <2022-05-02; 18:12:09.778> Updated points: 102
+   [INFO] <2022-05-02; 18:12:09.778> Updating points
+   [INFO] <2022-05-02; 18:12:09.781> Updated points: 103
+   [INFO] <2022-05-02; 18:12:09.781> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:30:11
+   [INFO] <2022-05-02; 18:12:09.876> isPlaying
+   [INFO] <2022-05-02; 18:12:09.877> Playing
+   [INFO] <2022-05-02; 18:12:09.877> Updating points
+   [INFO] <2022-05-02; 18:12:09.880> Updated points: 103
+   [INFO] <2022-05-02; 18:12:09.880> Updating points
+   [INFO] <2022-05-02; 18:12:09.883> Updated points: 104
+   [INFO] <2022-05-02; 18:12:09.883> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:30:16
+   [INFO] <2022-05-02; 18:12:09.977> isPlaying
+   [INFO] <2022-05-02; 18:12:09.977> Playing
+   [INFO] <2022-05-02; 18:12:09.978> Updating points
+   [INFO] <2022-05-02; 18:12:09.979> Updated points: 104
+   [INFO] <2022-05-02; 18:12:09.979> Updating points
+   [INFO] <2022-05-02; 18:12:09.981> Updated points: 105
+   [INFO] <2022-05-02; 18:12:09.982> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:30:21
+   [INFO] <2022-05-02; 18:12:10.076> isPlaying
+   [INFO] <2022-05-02; 18:12:10.077> Playing
+   [INFO] <2022-05-02; 18:12:10.077> Updating points
+   [INFO] <2022-05-02; 18:12:10.078> Updated points: 105
+   [INFO] <2022-05-02; 18:12:10.079> Updating points
+   [INFO] <2022-05-02; 18:12:10.081> Updated points: 106
+   [INFO] <2022-05-02; 18:12:10.081> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:30:26
+   [INFO] <2022-05-02; 18:12:10.177> isPlaying
+   [INFO] <2022-05-02; 18:12:10.177> Playing
+   [INFO] <2022-05-02; 18:12:10.177> Updating points
+   [INFO] <2022-05-02; 18:12:10.179> Updated points: 106
+   [INFO] <2022-05-02; 18:12:10.179> Updating points
+   [INFO] <2022-05-02; 18:12:10.181> Updated points: 107
+   [INFO] <2022-05-02; 18:12:10.182> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:30:31
+   [INFO] <2022-05-02; 18:12:10.281> isPlaying
+   [INFO] <2022-05-02; 18:12:10.281> Playing
+   [INFO] <2022-05-02; 18:12:10.281> Updating points
+   [INFO] <2022-05-02; 18:12:10.283> Updated points: 107
+   [INFO] <2022-05-02; 18:12:10.284> Updating points
+   [INFO] <2022-05-02; 18:12:10.285> Updated points: 108
+   [INFO] <2022-05-02; 18:12:10.285> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:30:36
+   [INFO] <2022-05-02; 18:12:10.385> isPlaying
+   [INFO] <2022-05-02; 18:12:10.386> Playing
+   [INFO] <2022-05-02; 18:12:10.386> Updating points
+   [INFO] <2022-05-02; 18:12:10.388> Updated points: 108
+   [INFO] <2022-05-02; 18:12:10.388> Updating points
+   [INFO] <2022-05-02; 18:12:10.389> Updated points: 109
+   [INFO] <2022-05-02; 18:12:10.389> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:30:41
+   [INFO] <2022-05-02; 18:12:10.488> isPlaying
+   [INFO] <2022-05-02; 18:12:10.489> Playing
+   [INFO] <2022-05-02; 18:12:10.489> Updating points
+   [INFO] <2022-05-02; 18:12:10.491> Updated points: 109
+   [INFO] <2022-05-02; 18:12:10.492> Updating points
+   [INFO] <2022-05-02; 18:12:10.493> Updated points: 110
+   [INFO] <2022-05-02; 18:12:10.493> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:30:46
+   [INFO] <2022-05-02; 18:12:10.591> isPlaying
+   [INFO] <2022-05-02; 18:12:10.591> Playing
+   [INFO] <2022-05-02; 18:12:10.591> Updating points
+   [INFO] <2022-05-02; 18:12:10.593> Updated points: 110
+   [INFO] <2022-05-02; 18:12:10.593> Updating points
+   [INFO] <2022-05-02; 18:12:10.594> Updated points: 111
+   [INFO] <2022-05-02; 18:12:10.594> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:30:51
+   [INFO] <2022-05-02; 18:12:10.691> isPlaying
+   [INFO] <2022-05-02; 18:12:10.692> Playing
+   [INFO] <2022-05-02; 18:12:10.692> Updating points
+   [INFO] <2022-05-02; 18:12:10.695> Updated points: 111
+   [INFO] <2022-05-02; 18:12:10.696> Updating points
+   [INFO] <2022-05-02; 18:12:10.698> Updated points: 112
+   [INFO] <2022-05-02; 18:12:10.698> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:30:56
+   [INFO] <2022-05-02; 18:12:10.796> isPlaying
+   [INFO] <2022-05-02; 18:12:10.796> Playing
+   [INFO] <2022-05-02; 18:12:10.797> Updating points
+   [INFO] <2022-05-02; 18:12:10.799> Updated points: 112
+   [INFO] <2022-05-02; 18:12:10.800> Updating points
+   [INFO] <2022-05-02; 18:12:10.802> Updated points: 113
+   [INFO] <2022-05-02; 18:12:10.802> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:31:01
+   [INFO] <2022-05-02; 18:12:10.898> isPlaying
+   [INFO] <2022-05-02; 18:12:10.899> Playing
+   [INFO] <2022-05-02; 18:12:10.899> Updating points
+   [INFO] <2022-05-02; 18:12:10.902> Updated points: 113
+   [INFO] <2022-05-02; 18:12:10.902> Updating points
+   [INFO] <2022-05-02; 18:12:10.905> Updated points: 114
+   [INFO] <2022-05-02; 18:12:10.905> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:31:06
+   [INFO] <2022-05-02; 18:12:11.002> isPlaying
+   [INFO] <2022-05-02; 18:12:11.003> Playing
+   [INFO] <2022-05-02; 18:12:11.003> Updating points
+   [INFO] <2022-05-02; 18:12:11.006> Updated points: 114
+   [INFO] <2022-05-02; 18:12:11.006> Updating points
+   [INFO] <2022-05-02; 18:12:11.009> Updated points: 115
+   [INFO] <2022-05-02; 18:12:11.010> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:31:11
+   [INFO] <2022-05-02; 18:12:11.103> isPlaying
+   [INFO] <2022-05-02; 18:12:11.103> Playing
+   [INFO] <2022-05-02; 18:12:11.104> Updating points
+   [INFO] <2022-05-02; 18:12:11.106> Updated points: 115
+   [INFO] <2022-05-02; 18:12:11.107> Updating points
+   [INFO] <2022-05-02; 18:12:11.109> Updated points: 116
+   [INFO] <2022-05-02; 18:12:11.109> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:31:16
+   [INFO] <2022-05-02; 18:12:11.203> isPlaying
+   [INFO] <2022-05-02; 18:12:11.203> Playing
+   [INFO] <2022-05-02; 18:12:11.204> Updating points
+   [INFO] <2022-05-02; 18:12:11.206> Updated points: 116
+   [INFO] <2022-05-02; 18:12:11.207> Updating points
+   [INFO] <2022-05-02; 18:12:11.209> Updated points: 117
+   [INFO] <2022-05-02; 18:12:11.209> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:31:21
+   [INFO] <2022-05-02; 18:12:11.304> isPlaying
+   [INFO] <2022-05-02; 18:12:11.305> Playing
+   [INFO] <2022-05-02; 18:12:11.305> Updating points
+   [INFO] <2022-05-02; 18:12:11.307> Updated points: 117
+   [INFO] <2022-05-02; 18:12:11.307> Updating points
+   [INFO] <2022-05-02; 18:12:11.310> Updated points: 118
+   [INFO] <2022-05-02; 18:12:11.310> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:31:26
+   [INFO] <2022-05-02; 18:12:11.409> isPlaying
+   [INFO] <2022-05-02; 18:12:11.409> Playing
+   [INFO] <2022-05-02; 18:12:11.410> Updating points
+   [INFO] <2022-05-02; 18:12:11.413> Updated points: 118
+   [INFO] <2022-05-02; 18:12:11.413> Updating points
+   [INFO] <2022-05-02; 18:12:11.416> Updated points: 119
+   [INFO] <2022-05-02; 18:12:11.416> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:31:31
+   [INFO] <2022-05-02; 18:12:11.509> isPlaying
+   [INFO] <2022-05-02; 18:12:11.509> Playing
+   [INFO] <2022-05-02; 18:12:11.510> Updating points
+   [INFO] <2022-05-02; 18:12:11.513> Updated points: 119
+   [INFO] <2022-05-02; 18:12:11.513> Updating points
+   [INFO] <2022-05-02; 18:12:11.514> Updated points: 120
+   [INFO] <2022-05-02; 18:12:11.514> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:31:36
+   [INFO] <2022-05-02; 18:12:11.614> isPlaying
+   [INFO] <2022-05-02; 18:12:11.614> Playing
+   [INFO] <2022-05-02; 18:12:11.615> Updating points
+   [INFO] <2022-05-02; 18:12:11.618> Updated points: 120
+   [INFO] <2022-05-02; 18:12:11.618> Updating points
+   [INFO] <2022-05-02; 18:12:11.621> Updated points: 121
+   [INFO] <2022-05-02; 18:12:11.621> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:31:41
+   [INFO] <2022-05-02; 18:12:11.717> isPlaying
+   [INFO] <2022-05-02; 18:12:11.718> Playing
+   [INFO] <2022-05-02; 18:12:11.718> Updating points
+   [INFO] <2022-05-02; 18:12:11.722> Updated points: 121
+   [INFO] <2022-05-02; 18:12:11.722> Updating points
+   [INFO] <2022-05-02; 18:12:11.724> Updated points: 122
+   [INFO] <2022-05-02; 18:12:11.725> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:31:46
+   [INFO] <2022-05-02; 18:12:11.817> isPlaying
+   [INFO] <2022-05-02; 18:12:11.818> Playing
+   [INFO] <2022-05-02; 18:12:11.818> Updating points
+   [INFO] <2022-05-02; 18:12:11.821> Updated points: 122
+   [INFO] <2022-05-02; 18:12:11.822> Updating points
+   [INFO] <2022-05-02; 18:12:11.824> Updated points: 123
+   [INFO] <2022-05-02; 18:12:11.824> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:31:51
+   [INFO] <2022-05-02; 18:12:11.920> isPlaying
+   [INFO] <2022-05-02; 18:12:11.920> Playing
+   [INFO] <2022-05-02; 18:12:11.921> Updating points
+   [INFO] <2022-05-02; 18:12:11.924> Updated points: 123
+   [INFO] <2022-05-02; 18:12:11.924> Updating points
+   [INFO] <2022-05-02; 18:12:11.926> Updated points: 124
+   [INFO] <2022-05-02; 18:12:11.927> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:31:56
+   [INFO] <2022-05-02; 18:12:12.020> isPlaying
+   [INFO] <2022-05-02; 18:12:12.020> Playing
+   [INFO] <2022-05-02; 18:12:12.021> Updating points
+   [INFO] <2022-05-02; 18:12:12.023> Updated points: 124
+   [INFO] <2022-05-02; 18:12:12.024> Updating points
+   [INFO] <2022-05-02; 18:12:12.025> Updated points: 125
+   [INFO] <2022-05-02; 18:12:12.026> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:32:01
+   [INFO] <2022-05-02; 18:12:12.121> isPlaying
+   [INFO] <2022-05-02; 18:12:12.121> Playing
+   [INFO] <2022-05-02; 18:12:12.122> Updating points
+   [INFO] <2022-05-02; 18:12:12.124> Updated points: 125
+   [INFO] <2022-05-02; 18:12:12.125> Updating points
+   [INFO] <2022-05-02; 18:12:12.128> Updated points: 126
+   [INFO] <2022-05-02; 18:12:12.129> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:32:06
+   [INFO] <2022-05-02; 18:12:12.225> isPlaying
+   [INFO] <2022-05-02; 18:12:12.225> Playing
+   [INFO] <2022-05-02; 18:12:12.226> Updating points
+   [INFO] <2022-05-02; 18:12:12.229> Updated points: 126
+   [INFO] <2022-05-02; 18:12:12.231> Updating points
+   [INFO] <2022-05-02; 18:12:12.235> Updated points: 127
+   [INFO] <2022-05-02; 18:12:12.236> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:32:11
+   [INFO] <2022-05-02; 18:12:12.327> isPlaying
+   [INFO] <2022-05-02; 18:12:12.328> Playing
+   [INFO] <2022-05-02; 18:12:12.328> Updating points
+   [INFO] <2022-05-02; 18:12:12.333> Updated points: 127
+   [INFO] <2022-05-02; 18:12:12.334> Updating points
+   [INFO] <2022-05-02; 18:12:12.339> Updated points: 128
+   [INFO] <2022-05-02; 18:12:12.341> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:32:16
+   [INFO] <2022-05-02; 18:12:12.427> isPlaying
+   [INFO] <2022-05-02; 18:12:12.428> Playing
+   [INFO] <2022-05-02; 18:12:12.428> Updating points
+   [INFO] <2022-05-02; 18:12:12.430> Updated points: 128
+   [INFO] <2022-05-02; 18:12:12.431> Updating points
+   [INFO] <2022-05-02; 18:12:12.439> Updated points: 129
+   [INFO] <2022-05-02; 18:12:12.440> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:32:21
+   [INFO] <2022-05-02; 18:12:12.527> isPlaying
+   [INFO] <2022-05-02; 18:12:12.528> Playing
+   [INFO] <2022-05-02; 18:12:12.528> Updating points
+   [INFO] <2022-05-02; 18:12:12.530> Updated points: 129
+   [INFO] <2022-05-02; 18:12:12.531> Updating points
+   [INFO] <2022-05-02; 18:12:12.533> Updated points: 130
+   [INFO] <2022-05-02; 18:12:12.534> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:32:26
+   [INFO] <2022-05-02; 18:12:12.629> isPlaying
+   [INFO] <2022-05-02; 18:12:12.629> Playing
+   [INFO] <2022-05-02; 18:12:12.629> Updating points
+   [INFO] <2022-05-02; 18:12:12.631> Updated points: 130
+   [INFO] <2022-05-02; 18:12:12.632> Updating points
+   [INFO] <2022-05-02; 18:12:12.633> Updated points: 131
+   [INFO] <2022-05-02; 18:12:12.634> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:32:31
+   [INFO] <2022-05-02; 18:12:12.728> isPlaying
+   [INFO] <2022-05-02; 18:12:12.729> Playing
+   [INFO] <2022-05-02; 18:12:12.729> Updating points
+   [INFO] <2022-05-02; 18:12:12.731> Updated points: 131
+   [INFO] <2022-05-02; 18:12:12.732> Updating points
+   [INFO] <2022-05-02; 18:12:12.735> Updated points: 132
+   [INFO] <2022-05-02; 18:12:12.735> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:32:36
+   [INFO] <2022-05-02; 18:12:12.830> isPlaying
+   [INFO] <2022-05-02; 18:12:12.830> Playing
+   [INFO] <2022-05-02; 18:12:12.831> Updating points
+   [INFO] <2022-05-02; 18:12:12.833> Updated points: 132
+   [INFO] <2022-05-02; 18:12:12.833> Updating points
+   [INFO] <2022-05-02; 18:12:12.836> Updated points: 133
+   [INFO] <2022-05-02; 18:12:12.836> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:32:41
+   [INFO] <2022-05-02; 18:12:12.934> isPlaying
+   [INFO] <2022-05-02; 18:12:12.934> Playing
+   [INFO] <2022-05-02; 18:12:12.934> Updating points
+   [INFO] <2022-05-02; 18:12:12.936> Updated points: 133
+   [INFO] <2022-05-02; 18:12:12.936> Updating points
+   [INFO] <2022-05-02; 18:12:12.937> Updated points: 134
+   [INFO] <2022-05-02; 18:12:12.938> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:32:46
+   [INFO] <2022-05-02; 18:12:13.037> isPlaying
+   [INFO] <2022-05-02; 18:12:13.038> Playing
+   [INFO] <2022-05-02; 18:12:13.038> Updating points
+   [INFO] <2022-05-02; 18:12:13.042> Updated points: 134
+   [INFO] <2022-05-02; 18:12:13.042> Updating points
+   [INFO] <2022-05-02; 18:12:13.044> Updated points: 135
+   [INFO] <2022-05-02; 18:12:13.044> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:32:51
+   [INFO] <2022-05-02; 18:12:13.137> isPlaying
+   [INFO] <2022-05-02; 18:12:13.138> Playing
+   [INFO] <2022-05-02; 18:12:13.138> Updating points
+   [INFO] <2022-05-02; 18:12:13.140> Updated points: 135
+   [INFO] <2022-05-02; 18:12:13.141> Updating points
+   [INFO] <2022-05-02; 18:12:13.142> Updated points: 136
+   [INFO] <2022-05-02; 18:12:13.143> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:32:56
+   [INFO] <2022-05-02; 18:12:13.237> isPlaying
+   [INFO] <2022-05-02; 18:12:13.238> Playing
+   [INFO] <2022-05-02; 18:12:13.238> Updating points
+   [INFO] <2022-05-02; 18:12:13.241> Updated points: 136
+   [INFO] <2022-05-02; 18:12:13.241> Updating points
+   [INFO] <2022-05-02; 18:12:13.243> Updated points: 137
+   [INFO] <2022-05-02; 18:12:13.243> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:33:01
+   [INFO] <2022-05-02; 18:12:13.339> isPlaying
+   [INFO] <2022-05-02; 18:12:13.340> Playing
+   [INFO] <2022-05-02; 18:12:13.340> Updating points
+   [INFO] <2022-05-02; 18:12:13.342> Updated points: 137
+   [INFO] <2022-05-02; 18:12:13.342> Updating points
+   [INFO] <2022-05-02; 18:12:13.344> Updated points: 138
+   [INFO] <2022-05-02; 18:12:13.344> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:33:06
+   [INFO] <2022-05-02; 18:12:13.443> isPlaying
+   [INFO] <2022-05-02; 18:12:13.443> Playing
+   [INFO] <2022-05-02; 18:12:13.443> Updating points
+   [INFO] <2022-05-02; 18:12:13.446> Updated points: 138
+   [INFO] <2022-05-02; 18:12:13.446> Updating points
+   [INFO] <2022-05-02; 18:12:13.448> Updated points: 139
+   [INFO] <2022-05-02; 18:12:13.448> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:33:11
+   [INFO] <2022-05-02; 18:12:13.546> isPlaying
+   [INFO] <2022-05-02; 18:12:13.546> Playing
+   [INFO] <2022-05-02; 18:12:13.547> Updating points
+   [INFO] <2022-05-02; 18:12:13.548> Updated points: 139
+   [INFO] <2022-05-02; 18:12:13.548> Updating points
+   [INFO] <2022-05-02; 18:12:13.549> Updated points: 140
+   [INFO] <2022-05-02; 18:12:13.549> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:33:16
+   [INFO] <2022-05-02; 18:12:13.649> isPlaying
+   [INFO] <2022-05-02; 18:12:13.649> Playing
+   [INFO] <2022-05-02; 18:12:13.649> Updating points
+   [INFO] <2022-05-02; 18:12:13.651> Updated points: 140
+   [INFO] <2022-05-02; 18:12:13.651> Updating points
+   [INFO] <2022-05-02; 18:12:13.652> Updated points: 141
+   [INFO] <2022-05-02; 18:12:13.652> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:33:21
+   [INFO] <2022-05-02; 18:12:13.749> isPlaying
+   [INFO] <2022-05-02; 18:12:13.750> Playing
+   [INFO] <2022-05-02; 18:12:13.750> Updating points
+   [INFO] <2022-05-02; 18:12:13.752> Updated points: 141
+   [INFO] <2022-05-02; 18:12:13.752> Updating points
+   [INFO] <2022-05-02; 18:12:13.754> Updated points: 142
+   [INFO] <2022-05-02; 18:12:13.754> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:33:26
+   [INFO] <2022-05-02; 18:12:13.854> isPlaying
+   [INFO] <2022-05-02; 18:12:13.854> Playing
+   [INFO] <2022-05-02; 18:12:13.855> Updating points
+   [INFO] <2022-05-02; 18:12:13.856> Updated points: 142
+   [INFO] <2022-05-02; 18:12:13.856> Updating points
+   [INFO] <2022-05-02; 18:12:13.858> Updated points: 143
+   [INFO] <2022-05-02; 18:12:13.858> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:33:31
+   [INFO] <2022-05-02; 18:12:13.954> isPlaying
+   [INFO] <2022-05-02; 18:12:13.955> Playing
+   [INFO] <2022-05-02; 18:12:13.955> Updating points
+   [INFO] <2022-05-02; 18:12:13.956> Updated points: 143
+   [INFO] <2022-05-02; 18:12:13.957> Updating points
+   [INFO] <2022-05-02; 18:12:13.958> Updated points: 144
+   [INFO] <2022-05-02; 18:12:13.958> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:33:36
+   [INFO] <2022-05-02; 18:12:14.054> isPlaying
+   [INFO] <2022-05-02; 18:12:14.055> Playing
+   [INFO] <2022-05-02; 18:12:14.055> Updating points
+   [INFO] <2022-05-02; 18:12:14.057> Updated points: 144
+   [INFO] <2022-05-02; 18:12:14.057> Updating points
+   [INFO] <2022-05-02; 18:12:14.059> Updated points: 145
+   [INFO] <2022-05-02; 18:12:14.059> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:33:41
+   [INFO] <2022-05-02; 18:12:14.155> isPlaying
+   [INFO] <2022-05-02; 18:12:14.155> Playing
+   [INFO] <2022-05-02; 18:12:14.156> Updating points
+   [INFO] <2022-05-02; 18:12:14.158> Updated points: 145
+   [INFO] <2022-05-02; 18:12:14.158> Updating points
+   [INFO] <2022-05-02; 18:12:14.160> Updated points: 146
+   [INFO] <2022-05-02; 18:12:14.160> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:33:46
+   [INFO] <2022-05-02; 18:12:14.257> isPlaying
+   [INFO] <2022-05-02; 18:12:14.257> Playing
+   [INFO] <2022-05-02; 18:12:14.258> Updating points
+   [INFO] <2022-05-02; 18:12:14.259> Updated points: 146
+   [INFO] <2022-05-02; 18:12:14.260> Updating points
+   [INFO] <2022-05-02; 18:12:14.261> Updated points: 147
+   [INFO] <2022-05-02; 18:12:14.262> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:33:51
+   [INFO] <2022-05-02; 18:12:14.357> isPlaying
+   [INFO] <2022-05-02; 18:12:14.357> Playing
+   [INFO] <2022-05-02; 18:12:14.358> Updating points
+   [INFO] <2022-05-02; 18:12:14.361> Updated points: 147
+   [INFO] <2022-05-02; 18:12:14.361> Updating points
+   [INFO] <2022-05-02; 18:12:14.364> Updated points: 148
+   [INFO] <2022-05-02; 18:12:14.364> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:33:56
+   [INFO] <2022-05-02; 18:12:14.458> isPlaying
+   [INFO] <2022-05-02; 18:12:14.459> Playing
+   [INFO] <2022-05-02; 18:12:14.459> Updating points
+   [INFO] <2022-05-02; 18:12:14.462> Updated points: 148
+   [INFO] <2022-05-02; 18:12:14.462> Updating points
+   [INFO] <2022-05-02; 18:12:14.464> Updated points: 149
+   [INFO] <2022-05-02; 18:12:14.464> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:34:01
+   [INFO] <2022-05-02; 18:12:14.558> isPlaying
+   [INFO] <2022-05-02; 18:12:14.559> Playing
+   [INFO] <2022-05-02; 18:12:14.559> Updating points
+   [INFO] <2022-05-02; 18:12:14.561> Updated points: 149
+   [INFO] <2022-05-02; 18:12:14.562> Updating points
+   [INFO] <2022-05-02; 18:12:14.565> Updated points: 150
+   [INFO] <2022-05-02; 18:12:14.565> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:34:06
+   [INFO] <2022-05-02; 18:12:14.659> isPlaying
+   [INFO] <2022-05-02; 18:12:14.660> Playing
+   [INFO] <2022-05-02; 18:12:14.660> Updating points
+   [INFO] <2022-05-02; 18:12:14.662> Updated points: 150
+   [INFO] <2022-05-02; 18:12:14.663> Updating points
+   [INFO] <2022-05-02; 18:12:14.666> Updated points: 151
+   [INFO] <2022-05-02; 18:12:14.668> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:34:11
+   [INFO] <2022-05-02; 18:12:14.760> isPlaying
+   [INFO] <2022-05-02; 18:12:14.760> Playing
+   [INFO] <2022-05-02; 18:12:14.760> Updating points
+   [INFO] <2022-05-02; 18:12:14.762> Updated points: 151
+   [INFO] <2022-05-02; 18:12:14.762> Updating points
+   [INFO] <2022-05-02; 18:12:14.765> Updated points: 152
+   [INFO] <2022-05-02; 18:12:14.765> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:34:16
+   [INFO] <2022-05-02; 18:12:14.860> isPlaying
+   [INFO] <2022-05-02; 18:12:14.860> Playing
+   [INFO] <2022-05-02; 18:12:14.860> Updating points
+   [INFO] <2022-05-02; 18:12:14.862> Updated points: 152
+   [INFO] <2022-05-02; 18:12:14.863> Updating points
+   [INFO] <2022-05-02; 18:12:14.865> Updated points: 153
+   [INFO] <2022-05-02; 18:12:14.865> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:34:21
+   [INFO] <2022-05-02; 18:12:14.962> isPlaying
+   [INFO] <2022-05-02; 18:12:14.962> Playing
+   [INFO] <2022-05-02; 18:12:14.963> Updating points
+   [INFO] <2022-05-02; 18:12:14.965> Updated points: 153
+   [INFO] <2022-05-02; 18:12:14.966> Updating points
+   [INFO] <2022-05-02; 18:12:14.969> Updated points: 154
+   [INFO] <2022-05-02; 18:12:14.969> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:34:26
+   [INFO] <2022-05-02; 18:12:15.063> isPlaying
+   [INFO] <2022-05-02; 18:12:15.063> Playing
+   [INFO] <2022-05-02; 18:12:15.063> Updating points
+   [INFO] <2022-05-02; 18:12:15.066> Updated points: 154
+   [INFO] <2022-05-02; 18:12:15.066> Updating points
+   [INFO] <2022-05-02; 18:12:15.068> Updated points: 155
+   [INFO] <2022-05-02; 18:12:15.069> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:34:31
+   [INFO] <2022-05-02; 18:12:15.163> isPlaying
+   [INFO] <2022-05-02; 18:12:15.163> Playing
+   [INFO] <2022-05-02; 18:12:15.164> Updating points
+   [INFO] <2022-05-02; 18:12:15.166> Updated points: 155
+   [INFO] <2022-05-02; 18:12:15.167> Updating points
+   [INFO] <2022-05-02; 18:12:15.175> Updated points: 156
+   [INFO] <2022-05-02; 18:12:15.175> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:34:36
+   [INFO] <2022-05-02; 18:12:15.263> isPlaying
+   [INFO] <2022-05-02; 18:12:15.263> Playing
+   [INFO] <2022-05-02; 18:12:15.264> Updating points
+   [INFO] <2022-05-02; 18:12:15.266> Updated points: 156
+   [INFO] <2022-05-02; 18:12:15.267> Updating points
+   [INFO] <2022-05-02; 18:12:15.268> Updated points: 157
+   [INFO] <2022-05-02; 18:12:15.269> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:34:41
+   [INFO] <2022-05-02; 18:12:15.365> isPlaying
+   [INFO] <2022-05-02; 18:12:15.366> Playing
+   [INFO] <2022-05-02; 18:12:15.366> Updating points
+   [INFO] <2022-05-02; 18:12:15.369> Updated points: 157
+   [INFO] <2022-05-02; 18:12:15.370> Updating points
+   [INFO] <2022-05-02; 18:12:15.372> Updated points: 158
+   [INFO] <2022-05-02; 18:12:15.372> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:34:46
+   [INFO] <2022-05-02; 18:12:15.467> isPlaying
+   [INFO] <2022-05-02; 18:12:15.467> Playing
+   [INFO] <2022-05-02; 18:12:15.468> Updating points
+   [INFO] <2022-05-02; 18:12:15.470> Updated points: 158
+   [INFO] <2022-05-02; 18:12:15.471> Updating points
+   [INFO] <2022-05-02; 18:12:15.473> Updated points: 159
+   [INFO] <2022-05-02; 18:12:15.473> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:34:51
+   [INFO] <2022-05-02; 18:12:15.571> isPlaying
+   [INFO] <2022-05-02; 18:12:15.572> Playing
+   [INFO] <2022-05-02; 18:12:15.572> Updating points
+   [INFO] <2022-05-02; 18:12:15.577> Updated points: 159
+   [INFO] <2022-05-02; 18:12:15.579> Updating points
+   [INFO] <2022-05-02; 18:12:15.586> Updated points: 160
+   [INFO] <2022-05-02; 18:12:15.587> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:34:56
+   [INFO] <2022-05-02; 18:12:15.672> isPlaying
+   [INFO] <2022-05-02; 18:12:15.673> Playing
+   [INFO] <2022-05-02; 18:12:15.674> Updating points
+   [INFO] <2022-05-02; 18:12:15.678> Updated points: 160
+   [INFO] <2022-05-02; 18:12:15.680> Updating points
+   [INFO] <2022-05-02; 18:12:15.689> Updated points: 161
+   [INFO] <2022-05-02; 18:12:15.689> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:35:01
+   [INFO] <2022-05-02; 18:12:15.774> isPlaying
+   [INFO] <2022-05-02; 18:12:15.774> Playing
+   [INFO] <2022-05-02; 18:12:15.775> Updating points
+   [INFO] <2022-05-02; 18:12:15.777> Updated points: 161
+   [INFO] <2022-05-02; 18:12:15.777> Updating points
+   [INFO] <2022-05-02; 18:12:15.779> Updated points: 162
+   [INFO] <2022-05-02; 18:12:15.780> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:35:06
+   [INFO] <2022-05-02; 18:12:15.873> isPlaying
+   [INFO] <2022-05-02; 18:12:15.874> Playing
+   [INFO] <2022-05-02; 18:12:15.874> Updating points
+   [INFO] <2022-05-02; 18:12:15.877> Updated points: 162
+   [INFO] <2022-05-02; 18:12:15.877> Updating points
+   [INFO] <2022-05-02; 18:12:15.880> Updated points: 163
+   [INFO] <2022-05-02; 18:12:15.880> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:35:11
+   [INFO] <2022-05-02; 18:12:15.978> isPlaying
+   [INFO] <2022-05-02; 18:12:15.979> Playing
+   [INFO] <2022-05-02; 18:12:15.979> Updating points
+   [INFO] <2022-05-02; 18:12:15.982> Updated points: 163
+   [INFO] <2022-05-02; 18:12:15.983> Updating points
+   [INFO] <2022-05-02; 18:12:15.986> Updated points: 164
+   [INFO] <2022-05-02; 18:12:15.986> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:35:16
+   [INFO] <2022-05-02; 18:12:16.079> isPlaying
+   [INFO] <2022-05-02; 18:12:16.079> Playing
+   [INFO] <2022-05-02; 18:12:16.080> Updating points
+   [INFO] <2022-05-02; 18:12:16.082> Updated points: 164
+   [INFO] <2022-05-02; 18:12:16.083> Updating points
+   [INFO] <2022-05-02; 18:12:16.085> Updated points: 165
+   [INFO] <2022-05-02; 18:12:16.085> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:35:21
+   [INFO] <2022-05-02; 18:12:16.180> isPlaying
+   [INFO] <2022-05-02; 18:12:16.181> Playing
+   [INFO] <2022-05-02; 18:12:16.181> Updating points
+   [INFO] <2022-05-02; 18:12:16.185> Updated points: 165
+   [INFO] <2022-05-02; 18:12:16.186> Updating points
+   [INFO] <2022-05-02; 18:12:16.194> Updated points: 166
+   [INFO] <2022-05-02; 18:12:16.195> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-24T20:35:26
+   

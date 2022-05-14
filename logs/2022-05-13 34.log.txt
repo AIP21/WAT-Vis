@@ -1,0 +1,35 @@
+[INFO] <2022-05-13; 16:45:44.736>    Player Tracker src.com.anip24.trackerDecoder.Decoder App v1.6.3 - LOG FILE
+   [INFO] <2022-05-13; 16:45:44.738> Initializing logger
+   [INFO] <2022-05-13; 16:45:44.739> src.com.anip24.trackerDecoder.Logger successfully initialized
+   [INFO] <2022-05-13; 16:45:44.739> Initializing primary systems
+   [ERROR] <2022-05-13; 16:45:44.740> equal
+   [INFO] <2022-05-13; 16:45:44.742> Initializing settings subsystem
+   [INFO] <2022-05-13; 16:45:44.742> Fetching and parsing settings from config file
+   [INFO] <2022-05-13; 16:45:44.743> src.com.anip24.trackerDecoder.Settings: 16
+   [INFO] <2022-05-13; 16:45:44.744> 1
+   [INFO] <2022-05-13; 16:45:44.744> true
+   [INFO] <2022-05-13; 16:45:44.745> 0
+   [INFO] <2022-05-13; 16:45:44.745> true
+   [INFO] <2022-05-13; 16:45:44.745> 5.0
+   [INFO] <2022-05-13; 16:45:44.746> true
+   [INFO] <2022-05-13; 16:45:44.746> Heat
+   [INFO] <2022-05-13; 16:45:44.746> 200
+   [INFO] <2022-05-13; 16:45:44.747> false
+   [INFO] <2022-05-13; 16:45:44.747> true
+   [INFO] <2022-05-13; 16:45:44.747> false
+   [INFO] <2022-05-13; 16:45:44.747> false
+   [INFO] <2022-05-13; 16:45:44.748> false
+   [INFO] <2022-05-13; 16:45:44.748> ageFadeThreshold: 0
+   [INFO] <2022-05-13; 16:45:44.748> ChangeSize
+   [INFO] <2022-05-13; 16:45:44.749> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-13; 16:45:44.749> Successfully initialized settings subsystem
+   [INFO] <2022-05-13; 16:45:44.751> Initializing decoder subsystem
+   [INFO] <2022-05-13; 16:45:44.751> Successfully initialized decoder subsystem
+   [INFO] <2022-05-13; 16:45:44.751> Initializing primary frame subsystem
+   [INFO] <2022-05-13; 16:45:44.761> Initializing main display subsystem
+   [INFO] <2022-05-13; 16:45:44.761> Antialiasing enabled on main display panel
+   [INFO] <2022-05-13; 16:45:44.762> Successfully initialized main display subsystem
+   [INFO] <2022-05-13; 16:45:44.772> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-13; 16:45:44.772> Loading resources
+   [INFO] <2022-05-13; 16:45:45.843> Successfully initialized all subsystems
+   

@@ -6,89 +6,70 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d8ccd5f0-e372-4af0-8965-8b285e2cd709" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Decoder$DrawType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Decoder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Decoder.ctxt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Decoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/Decoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LogEntry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LogEntry.ctxt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LogEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/LogEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main$10.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main$11.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main$12.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main$13.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main$2$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main$7.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main$8.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main$9.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.ctxt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Panel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Panel.ctxt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Panel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings.ctxt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/Settings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TextFileFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TextFileFilter.ctxt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TextFileFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/TextFileFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utils.ctxt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vector3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vector3.ctxt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vector3.java" beforeDir="false" afterPath="$PROJECT_DIR$/Vector3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inputs/unused/old/hypixel-overworld-log-2022-01-24.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proxy.jpg" beforeDir="false" />
-    </list>
+    <list default="true" id="905aa98f-fc7e-4d94-81c1-b5629d46bbbc" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CodeStyleSettingsInfer">
-    <option name="done" value="true" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
-  <component name="ProjectCodeStyleSettingsMigration">
-    <option name="version" value="1" />
-  </component>
-  <component name="ProjectId" id="27AUb9xbFm4CFXoS7YtLGErsIPN" />
+  <component name="ProjectId" id="27QiiwzdtaWBwa6V88iafuaDBjI" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="263" />
+    <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.1321004" />
-    <property name="project.structure.side.proportion" value="0.118769884" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propGUI" />
   </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="src" />
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.PlayerTrackerDecoder (1)">
+    <configuration name="PlayerTrackerDecoder (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="src.PlayerTrackerDecoder" />
+      <module name="TrackerDecoderApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="src.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PlayerTrackerDecoder" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="src.com.anip24.trackerDecoder.PlayerTrackerDecoder" />
       <module name="TrackerDecoderApp" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -96,31 +77,19 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.PlayerTrackerDecoder (1)" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d8ccd5f0-e372-4af0-8965-8b285e2cd709" name="Default Changelist" comment="" />
-      <created>1648762452948</created>
+      <changelist id="905aa98f-fc7e-4d94-81c1-b5629d46bbbc" name="Changes" comment="" />
+      <created>1649258841417</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1648762452948</updated>
+      <updated>1649258841417</updated>
     </task>
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

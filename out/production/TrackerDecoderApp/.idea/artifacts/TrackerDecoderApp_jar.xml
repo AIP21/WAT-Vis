@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="TrackerDecoderApp:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/TrackerDecoderApp_jar</output-path>
+    <root id="archive" name="TrackerDecoderApp.jar">
+      <element id="module-output" name="TrackerDecoderApp" />
+    </root>
+  </artifact>
+</component>

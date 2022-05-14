@@ -1,0 +1,117 @@
+[INFO] <2022-05-13; 17:19:35.547>    Player Tracker Decoder App v1.7.0 - LOG FILE
+   [INFO] <2022-05-13; 17:19:35.548> Initializing logger
+   [INFO] <2022-05-13; 17:19:35.549> Logger successfully initialized
+   [INFO] <2022-05-13; 17:19:35.549> Initializing primary systems
+   [INFO] <2022-05-13; 17:19:35.551> Initializing settings subsystem
+   [INFO] <2022-05-13; 17:19:35.551> Fetching and parsing settings from config file
+   [INFO] <2022-05-13; 17:19:35.553> Settings: 16
+   [INFO] <2022-05-13; 17:19:35.553> 1
+   [INFO] <2022-05-13; 17:19:35.554> true
+   [INFO] <2022-05-13; 17:19:35.554> 0
+   [INFO] <2022-05-13; 17:19:35.554> true
+   [INFO] <2022-05-13; 17:19:35.555> 5.0
+   [INFO] <2022-05-13; 17:19:35.556> true
+   [INFO] <2022-05-13; 17:19:35.556> Heat
+   [INFO] <2022-05-13; 17:19:35.557> 200
+   [INFO] <2022-05-13; 17:19:35.557> false
+   [INFO] <2022-05-13; 17:19:35.558> true
+   [INFO] <2022-05-13; 17:19:35.558> false
+   [INFO] <2022-05-13; 17:19:35.558> false
+   [INFO] <2022-05-13; 17:19:35.559> false
+   [INFO] <2022-05-13; 17:19:35.559> ageFadeThreshold: 0
+   [INFO] <2022-05-13; 17:19:35.559> ChangeSize
+   [INFO] <2022-05-13; 17:19:35.560> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-13; 17:19:35.560> Successfully initialized settings subsystem
+   [INFO] <2022-05-13; 17:19:35.561> Initializing decoder subsystem
+   [INFO] <2022-05-13; 17:19:35.562> Successfully initialized decoder subsystem
+   [INFO] <2022-05-13; 17:19:35.562> Initializing primary frame subsystem
+   [INFO] <2022-05-13; 17:19:35.568> Initializing main display subsystem
+   [INFO] <2022-05-13; 17:19:35.568> Antialiasing enabled on main display panel
+   [INFO] <2022-05-13; 17:19:35.569> Successfully initialized main display subsystem
+   [INFO] <2022-05-13; 17:19:35.577> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-13; 17:19:35.577> Loading resources
+   [INFO] <2022-05-13; 17:19:36.598> Successfully initialized all subsystems
+   [INFO] <2022-05-13; 17:19:42.728> Selected files: 57
+   [INFO] <2022-05-13; 17:19:42.729> Decoding process started
+   [INFO] <2022-05-13; 17:19:42.730> Decoding data
+   [INFO] <2022-05-13; 17:19:42.730> Fetched and indexed input file: server-overworld-log-2022-01-21.txt
+   [INFO] <2022-05-13; 17:19:42.731> Fetched and indexed input file: server-overworld-log-2022-01-22.txt
+   [INFO] <2022-05-13; 17:19:42.732> Fetched and indexed input file: server-overworld-log-2022-01-23.txt
+   [INFO] <2022-05-13; 17:19:42.732> Fetched and indexed input file: server-overworld-log-2022-01-24.txt
+   [INFO] <2022-05-13; 17:19:42.733> Fetched and indexed input file: server-overworld-log-2022-01-25.txt
+   [INFO] <2022-05-13; 17:19:42.733> Fetched and indexed input file: server-overworld-log-2022-01-28.txt
+   [INFO] <2022-05-13; 17:19:42.734> Fetched and indexed input file: server-overworld-log-2022-01-29.txt
+   [INFO] <2022-05-13; 17:19:42.734> Fetched and indexed input file: server-overworld-log-2022-01-30.txt
+   [INFO] <2022-05-13; 17:19:42.735> Fetched and indexed input file: server-overworld-log-2022-01-31.txt
+   [INFO] <2022-05-13; 17:19:42.736> Fetched and indexed input file: server-overworld-log-2022-02-01.txt
+   [INFO] <2022-05-13; 17:19:42.736> Fetched and indexed input file: server-overworld-log-2022-02-02.txt
+   [INFO] <2022-05-13; 17:19:42.736> Fetched and indexed input file: server-overworld-log-2022-02-03.txt
+   [INFO] <2022-05-13; 17:19:42.737> Fetched and indexed input file: server-overworld-log-2022-02-04.txt
+   [INFO] <2022-05-13; 17:19:42.737> Fetched and indexed input file: server-overworld-log-2022-02-05.txt
+   [INFO] <2022-05-13; 17:19:42.737> Fetched and indexed input file: server-overworld-log-2022-02-06.txt
+   [INFO] <2022-05-13; 17:19:42.738> Fetched and indexed input file: server-overworld-log-2022-02-08.txt
+   [INFO] <2022-05-13; 17:19:42.738> Fetched and indexed input file: server-overworld-log-2022-02-09.txt
+   [INFO] <2022-05-13; 17:19:42.739> Fetched and indexed input file: server-overworld-log-2022-02-10.txt
+   [INFO] <2022-05-13; 17:19:42.739> Fetched and indexed input file: server-overworld-log-2022-02-11.txt
+   [INFO] <2022-05-13; 17:19:42.740> Fetched and indexed input file: server-overworld-log-2022-02-12.txt
+   [INFO] <2022-05-13; 17:19:42.740> Fetched and indexed input file: server-overworld-log-2022-02-13.txt
+   [INFO] <2022-05-13; 17:19:42.741> Fetched and indexed input file: server-overworld-log-2022-02-14.txt
+   [INFO] <2022-05-13; 17:19:42.742> Fetched and indexed input file: server-overworld-log-2022-02-15.txt
+   [INFO] <2022-05-13; 17:19:42.744> Fetched and indexed input file: server-overworld-log-2022-02-17.txt
+   [INFO] <2022-05-13; 17:19:42.745> Fetched and indexed input file: server-overworld-log-2022-02-18.txt
+   [INFO] <2022-05-13; 17:19:42.746> Fetched and indexed input file: server-overworld-log-2022-02-19.txt
+   [INFO] <2022-05-13; 17:19:42.747> Fetched and indexed input file: server-overworld-log-2022-02-20.txt
+   [INFO] <2022-05-13; 17:19:42.747> Fetched and indexed input file: server-overworld-log-2022-02-21.txt
+   [INFO] <2022-05-13; 17:19:42.748> Fetched and indexed input file: server-overworld-log-2022-02-22.txt
+   [INFO] <2022-05-13; 17:19:42.748> Fetched and indexed input file: server-overworld-log-2022-02-23.txt
+   [INFO] <2022-05-13; 17:19:42.748> Fetched and indexed input file: server-overworld-log-2022-02-24.txt
+   [INFO] <2022-05-13; 17:19:42.749> Fetched and indexed input file: server-overworld-log-2022-02-25.txt
+   [INFO] <2022-05-13; 17:19:42.749> Fetched and indexed input file: server-overworld-log-2022-02-26.txt
+   [INFO] <2022-05-13; 17:19:42.749> Fetched and indexed input file: server-overworld-log-2022-02-27.txt
+   [INFO] <2022-05-13; 17:19:42.750> Fetched and indexed input file: server-overworld-log-2022-03-03.txt
+   [INFO] <2022-05-13; 17:19:42.750> Fetched and indexed input file: server-overworld-log-2022-03-05.txt
+   [INFO] <2022-05-13; 17:19:42.751> Fetched and indexed input file: server-overworld-log-2022-03-06.txt
+   [INFO] <2022-05-13; 17:19:42.751> Fetched and indexed input file: server-overworld-log-2022-03-11.txt
+   [INFO] <2022-05-13; 17:19:42.751> Fetched and indexed input file: server-overworld-log-2022-03-12.txt
+   [INFO] <2022-05-13; 17:19:42.752> Fetched and indexed input file: server-overworld-log-2022-03-13.txt
+   [INFO] <2022-05-13; 17:19:42.752> Fetched and indexed input file: server-overworld-log-2022-03-14.txt
+   [INFO] <2022-05-13; 17:19:42.753> Fetched and indexed input file: server-overworld-log-2022-03-15.txt
+   [INFO] <2022-05-13; 17:19:42.753> Fetched and indexed input file: server-overworld-log-2022-03-18.txt
+   [INFO] <2022-05-13; 17:19:42.754> Fetched and indexed input file: server-overworld-log-2022-03-21.txt
+   [INFO] <2022-05-13; 17:19:42.754> Fetched and indexed input file: server-overworld-log-2022-03-22.txt
+   [INFO] <2022-05-13; 17:19:42.754> Fetched and indexed input file: server-overworld-log-2022-03-23.txt
+   [INFO] <2022-05-13; 17:19:42.754> Fetched and indexed input file: server-overworld-log-2022-03-24.txt
+   [INFO] <2022-05-13; 17:19:42.755> Fetched and indexed input file: server-overworld-log-2022-03-25.txt
+   [INFO] <2022-05-13; 17:19:42.755> Fetched and indexed input file: server-overworld-log-2022-03-26.txt
+   [INFO] <2022-05-13; 17:19:42.755> Fetched and indexed input file: server-overworld-log-2022-03-27.txt
+   [INFO] <2022-05-13; 17:19:42.756> Fetched and indexed input file: server-overworld-log-2022-03-28.txt
+   [INFO] <2022-05-13; 17:19:42.756> Fetched and indexed input file: server-overworld-log-2022-03-29.txt
+   [INFO] <2022-05-13; 17:19:42.757> Fetched and indexed input file: server-overworld-log-2022-03-30.txt
+   [INFO] <2022-05-13; 17:19:42.757> Fetched and indexed input file: server-overworld-log-2022-03-31.txt
+   [INFO] <2022-05-13; 17:19:42.759> Fetched and indexed input file: server-overworld-log-2022-04-01.txt
+   [INFO] <2022-05-13; 17:19:42.762> Fetched and indexed input file: server-overworld-log-2022-04-02.txt
+   [INFO] <2022-05-13; 17:19:42.762> Fetched and indexed input file: server-overworld-log-2022-04-03.txt
+   [INFO] <2022-05-13; 17:19:43.867> maxX: 8634 minX: -6267; maxY: 2590 minY: -5018
+   [INFO] <2022-05-13; 17:19:43.868> xRange: 14901 yRange: 7608
+   [INFO] <2022-05-13; 17:19:43.868> Successfully decoded data
+   [INFO] <2022-05-13; 17:19:43.868> Setting data to display
+   [INFO] <2022-05-13; 17:19:43.971> Successfully set data to display
+   [INFO] <2022-05-13; 17:19:43.972> Updating points
+   [INFO] <2022-05-13; 17:19:44.120> Updated points: 102567
+   [INFO] <2022-05-13; 17:19:44.121> Initializing toolbar subsystem
+   [INFO] <2022-05-13; 17:19:46.155> Successfully initialized toolbar subsystem
+   [INFO] <2022-05-13; 17:19:46.156> Selected files: 57
+   [INFO] <2022-05-13; 17:19:46.157> World background images are present, opening selection screen
+   [INFO] <2022-05-13; 17:19:46.179> Opening world background image dialog
+   [INFO] <2022-05-13; 17:19:46.179> Decoding process finished successfully
+   [WARNING] <2022-05-13; 17:19:47.661> No world background images selected
+   [INFO] <2022-05-13; 17:20:00.710> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:20:00.719> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:20:00.720> Changed draw type to: Line
+   [INFO] <2022-05-13; 17:20:02.666> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:20:02.668> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:20:02.668> Changed draw type to: Heat
+   [INFO] <2022-05-13; 17:20:06.741> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:20:06.743> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:20:06.744> Changed draw type to: Heat
+   

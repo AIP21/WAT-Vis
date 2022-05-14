@@ -1,0 +1,116 @@
+[INFO] <2022-05-13; 10:27:29.840>    Player Tracker src.com.anip24.trackerDecoder.Decoder App v1.6.3 - LOG FILE
+   [INFO] <2022-05-13; 10:27:29.842> Initializing logger
+   [INFO] <2022-05-13; 10:27:29.842> src.com.anip24.trackerDecoder.Logger successfully initialized
+   [INFO] <2022-05-13; 10:27:29.843> Initializing primary systems
+   [INFO] <2022-05-13; 10:27:29.844> Initializing settings subsystem
+   [INFO] <2022-05-13; 10:27:29.845> Fetching and parsing settings from config file
+   [INFO] <2022-05-13; 10:27:29.846> src.com.anip24.trackerDecoder.Settings: 15
+   [INFO] <2022-05-13; 10:27:29.847> 1
+   [INFO] <2022-05-13; 10:27:29.847> true
+   [INFO] <2022-05-13; 10:27:29.847> 0
+   [INFO] <2022-05-13; 10:27:29.848> true
+   [INFO] <2022-05-13; 10:27:29.848> 5.0
+   [INFO] <2022-05-13; 10:27:29.849> true
+   [INFO] <2022-05-13; 10:27:29.850> PIXEL
+   [INFO] <2022-05-13; 10:27:29.850> 200
+   [INFO] <2022-05-13; 10:27:29.850> false
+   [INFO] <2022-05-13; 10:27:29.851> true
+   [INFO] <2022-05-13; 10:27:29.851> false
+   [INFO] <2022-05-13; 10:27:29.851> true
+   [INFO] <2022-05-13; 10:27:29.852> false
+   [INFO] <2022-05-13; 10:27:29.852> ageFadeThreshold: 0
+   [INFO] <2022-05-13; 10:27:29.853> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-13; 10:27:29.853> Successfully initialized settings subsystem
+   [INFO] <2022-05-13; 10:27:29.854> Initializing decoder subsystem
+   [INFO] <2022-05-13; 10:27:29.855> Successfully initialized decoder subsystem
+   [INFO] <2022-05-13; 10:27:29.855> Initializing primary frame subsystem
+   [INFO] <2022-05-13; 10:27:29.861> Initializing main display subsystem
+   [INFO] <2022-05-13; 10:27:29.862> Antialiasing enabled on main display panel
+   [INFO] <2022-05-13; 10:27:29.862> Successfully initialized main display subsystem
+   [INFO] <2022-05-13; 10:27:29.876> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-13; 10:27:29.877> Loading resources
+   [INFO] <2022-05-13; 10:27:31.003> Successfully initialized all subsystems
+   [INFO] <2022-05-13; 10:27:46.031> Selected files: 1
+   [INFO] <2022-05-13; 10:27:46.032> Decoding process started
+   [INFO] <2022-05-13; 10:27:46.033> Decoding data
+   [INFO] <2022-05-13; 10:27:46.034> Fetched and indexed input file
+   [INFO] <2022-05-13; 10:27:48.213> maxX: 108 minX: -103; maxY: 94 minY: -93
+   [INFO] <2022-05-13; 10:27:48.214> xRange: 211 yRange: 187
+   [INFO] <2022-05-13; 10:27:48.214> Successfully decoded data
+   [INFO] <2022-05-13; 10:27:48.215> Setting data to display
+   [INFO] <2022-05-13; 10:27:48.359> Successfully set data to display
+   [INFO] <2022-05-13; 10:27:48.360> Updating points
+   [INFO] <2022-05-13; 10:27:48.550> Updated points: 917
+   [INFO] <2022-05-13; 10:27:48.551> Initializing toolbar subsystem
+   [INFO] <2022-05-13; 10:27:54.691> Successfully initialized toolbar subsystem
+   [INFO] <2022-05-13; 10:27:54.694> Selected files: 1
+   [INFO] <2022-05-13; 10:27:54.696> World background images are present, opening selection screen
+   [INFO] <2022-05-13; 10:27:54.698> Decoding process finished successfully
+   [INFO] <2022-05-13; 10:27:54.699> World background image is present, loading world background image
+   [WARNING] <2022-05-13; 10:27:56.666> No world background images selected
+   [INFO] <2022-05-13; 10:28:11.629> Updating points
+   [INFO] <2022-05-13; 10:28:11.693> Updated points: 917
+   [INFO] <2022-05-13; 10:28:11.694> Saving and writing settings to config file
+   [INFO] <2022-05-13; 10:28:11.698> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 10:28:11.699> Changed draw type to: LINE
+   [INFO] <2022-05-13; 10:28:14.300> Saving and writing settings to config file
+   [INFO] <2022-05-13; 10:28:14.302> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 10:28:14.303> Toggled terminus points to: false
+   [INFO] <2022-05-13; 10:28:20.561> Updating points
+   [INFO] <2022-05-13; 10:28:20.623> Updated points: 917
+   [INFO] <2022-05-13; 10:28:20.624> Changed date range slider: From 2022-05-09T20:08:19 to 2022-05-09T21:30:23
+   [INFO] <2022-05-13; 10:28:20.903> Updating points
+   [INFO] <2022-05-13; 10:28:21.034> Updated points: 849
+   [INFO] <2022-05-13; 10:28:21.035> Changed date range slider: From 2022-05-09T20:14 to 2022-05-09T21:30:23
+   [INFO] <2022-05-13; 10:28:21.343> Updating points
+   [INFO] <2022-05-13; 10:28:21.531> Updated points: 549
+   [INFO] <2022-05-13; 10:28:21.532> Changed date range slider: From 2022-05-09T20:44:34 to 2022-05-09T21:30:23
+   [INFO] <2022-05-13; 10:28:21.776> Updating points
+   [INFO] <2022-05-13; 10:28:21.832> Updated points: 469
+   [INFO] <2022-05-13; 10:28:21.832> Changed date range slider: From 2022-05-09T20:51:14 to 2022-05-09T21:30:23
+   [INFO] <2022-05-13; 10:28:22.022> Updating points
+   [INFO] <2022-05-13; 10:28:22.069> Updated points: 408
+   [INFO] <2022-05-13; 10:28:22.070> Changed date range slider: From 2022-05-09T20:56:19 to 2022-05-09T21:30:23
+   [INFO] <2022-05-13; 10:28:22.239> Updating points
+   [INFO] <2022-05-13; 10:28:22.286> Updated points: 393
+   [INFO] <2022-05-13; 10:28:22.287> Changed date range slider: From 2022-05-09T20:57:34 to 2022-05-09T21:30:23
+   [INFO] <2022-05-13; 10:28:22.455> Updating points
+   [INFO] <2022-05-13; 10:28:22.501> Updated points: 386
+   [INFO] <2022-05-13; 10:28:22.501> Changed date range slider: From 2022-05-09T20:58:09 to 2022-05-09T21:30:23
+   [INFO] <2022-05-13; 10:28:22.663> Updating points
+   [INFO] <2022-05-13; 10:28:22.709> Updated points: 352
+   [INFO] <2022-05-13; 10:28:22.710> Changed date range slider: From 2022-05-09T21:00:59 to 2022-05-09T21:30:23
+   [INFO] <2022-05-13; 10:28:22.864> Updating points
+   [INFO] <2022-05-13; 10:28:22.909> Updated points: 316
+   [INFO] <2022-05-13; 10:28:22.909> Changed date range slider: From 2022-05-09T21:03:59 to 2022-05-09T21:30:23
+   [INFO] <2022-05-13; 10:28:23.050> Updating points
+   [INFO] <2022-05-13; 10:28:23.095> Updated points: 294
+   [INFO] <2022-05-13; 10:28:23.095> Changed date range slider: From 2022-05-09T21:05:49 to 2022-05-09T21:30:23
+   [INFO] <2022-05-13; 10:28:23.276> Updating points
+   [INFO] <2022-05-13; 10:28:23.317> Updated points: 273
+   [INFO] <2022-05-13; 10:28:23.317> Changed date range slider: From 2022-05-09T21:07:34 to 2022-05-09T21:30:23
+   [INFO] <2022-05-13; 10:28:23.441> Updating points
+   [INFO] <2022-05-13; 10:28:23.478> Updated points: 261
+   [INFO] <2022-05-13; 10:28:23.478> Changed date range slider: From 2022-05-09T21:08:34 to 2022-05-09T21:30:23
+   [INFO] <2022-05-13; 10:28:23.610> Updating points
+   [INFO] <2022-05-13; 10:28:23.648> Updated points: 257
+   [INFO] <2022-05-13; 10:28:23.648> Changed date range slider: From 2022-05-09T21:08:54 to 2022-05-09T21:30:23
+   [INFO] <2022-05-13; 10:28:23.771> Updating points
+   [INFO] <2022-05-13; 10:28:23.808> Updated points: 239
+   [INFO] <2022-05-13; 10:28:23.808> Changed date range slider: From 2022-05-09T21:10:24 to 2022-05-09T21:30:23
+   [INFO] <2022-05-13; 10:28:23.931> Updating points
+   [INFO] <2022-05-13; 10:28:23.965> Updated points: 208
+   [INFO] <2022-05-13; 10:28:23.966> Changed date range slider: From 2022-05-09T21:13:08 to 2022-05-09T21:30:23
+   [INFO] <2022-05-13; 10:28:24.066> Updating points
+   [INFO] <2022-05-13; 10:28:24.099> Updated points: 200
+   [INFO] <2022-05-13; 10:28:24.099> Changed date range slider: From 2022-05-09T21:13:48 to 2022-05-09T21:30:23
+   [INFO] <2022-05-13; 10:28:24.204> Updating points
+   [INFO] <2022-05-13; 10:28:24.240> Updated points: 197
+   [INFO] <2022-05-13; 10:28:24.240> Changed date range slider: From 2022-05-09T21:14:03 to 2022-05-09T21:30:23
+   [INFO] <2022-05-13; 10:28:24.353> Updating points
+   [INFO] <2022-05-13; 10:28:24.385> Updated points: 184
+   [INFO] <2022-05-13; 10:28:24.386> Changed date range slider: From 2022-05-09T21:15:08 to 2022-05-09T21:30:23
+   [INFO] <2022-05-13; 10:28:24.386> Updating points
+   [INFO] <2022-05-13; 10:28:24.416> Updated points: 184
+   [INFO] <2022-05-13; 10:28:24.417> Changed date range slider: From 2022-05-09T21:15:08 to 2022-05-09T21:30:23
+   

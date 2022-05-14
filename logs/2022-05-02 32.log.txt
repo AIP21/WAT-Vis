@@ -1,0 +1,32 @@
+[INFO] <2022-05-02; 17:51:20.548>    Player Tracker Decoder App v1.6.1 - LOG FILE
+   [INFO] <2022-05-02; 17:51:20.550> Initializing logger
+   [INFO] <2022-05-02; 17:51:20.551> Logger successfully initialized
+   [INFO] <2022-05-02; 17:51:20.551> Initializing primary systems
+   [INFO] <2022-05-02; 17:51:20.554> Initializing settings subsystem
+   [INFO] <2022-05-02; 17:51:20.554> Fetching and parsing settings from config file
+   [INFO] <2022-05-02; 17:51:20.559> Settings: 15
+   [INFO] <2022-05-02; 17:51:20.561> 1
+   [INFO] <2022-05-02; 17:51:20.562> true
+   [INFO] <2022-05-02; 17:51:20.562> 0
+   [INFO] <2022-05-02; 17:51:20.563> true
+   [INFO] <2022-05-02; 17:51:20.564> 5.0
+   [INFO] <2022-05-02; 17:51:20.566> true
+   [INFO] <2022-05-02; 17:51:20.566> LINE
+   [INFO] <2022-05-02; 17:51:20.567> 200
+   [INFO] <2022-05-02; 17:51:20.567> false
+   [INFO] <2022-05-02; 17:51:20.567> true
+   [INFO] <2022-05-02; 17:51:20.568> false
+   [INFO] <2022-05-02; 17:51:20.568> true
+   [INFO] <2022-05-02; 17:51:20.569> false
+   [INFO] <2022-05-02; 17:51:20.569> ageFadeThreshold: 0
+   [INFO] <2022-05-02; 17:51:20.570> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-02; 17:51:20.570> Successfully initialized settings subsystem
+   [INFO] <2022-05-02; 17:51:20.572> Initializing decoder subsystem
+   [INFO] <2022-05-02; 17:51:20.573> Successfully initialized decoder subsystem
+   [INFO] <2022-05-02; 17:51:20.574> Initializing primary frame subsystem
+   [INFO] <2022-05-02; 17:51:20.581> Initializing main display subsystem
+   [INFO] <2022-05-02; 17:51:20.582> Antialiasing enabled on main display panel
+   [INFO] <2022-05-02; 17:51:20.583> Successfully initialized main display subsystem
+   [INFO] <2022-05-02; 17:51:20.643> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-02; 17:51:20.646> Loading resources
+   

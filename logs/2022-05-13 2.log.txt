@@ -1,0 +1,41 @@
+[INFO] <2022-05-13; 09:41:01.694>    Player Tracker src.com.anip24.trackerDecoder.Decoder App v1.6.3 - LOG FILE
+   [INFO] <2022-05-13; 09:41:01.696> Initializing logger
+   [INFO] <2022-05-13; 09:41:01.696> src.com.anip24.trackerDecoder.Logger successfully initialized
+   [INFO] <2022-05-13; 09:41:01.696> Initializing primary systems
+   [INFO] <2022-05-13; 09:41:01.698> Initializing settings subsystem
+   [INFO] <2022-05-13; 09:41:01.698> Fetching and parsing settings from config file
+   [INFO] <2022-05-13; 09:41:01.700> src.com.anip24.trackerDecoder.Settings: 15
+   [INFO] <2022-05-13; 09:41:01.700> 1
+   [INFO] <2022-05-13; 09:41:01.700> true
+   [INFO] <2022-05-13; 09:41:01.701> 0
+   [INFO] <2022-05-13; 09:41:01.701> true
+   [INFO] <2022-05-13; 09:41:01.701> 5.0
+   [INFO] <2022-05-13; 09:41:01.702> true
+   [INFO] <2022-05-13; 09:41:01.702> LINE
+   [INFO] <2022-05-13; 09:41:01.703> 200
+   [INFO] <2022-05-13; 09:41:01.703> false
+   [INFO] <2022-05-13; 09:41:01.703> true
+   [INFO] <2022-05-13; 09:41:01.704> false
+   [INFO] <2022-05-13; 09:41:01.704> true
+   [INFO] <2022-05-13; 09:41:01.704> true
+   [INFO] <2022-05-13; 09:41:01.704> ageFadeThreshold: 200
+   [INFO] <2022-05-13; 09:41:01.705> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-13; 09:41:01.705> Successfully initialized settings subsystem
+   [INFO] <2022-05-13; 09:41:01.706> Initializing decoder subsystem
+   [INFO] <2022-05-13; 09:41:01.706> Successfully initialized decoder subsystem
+   [INFO] <2022-05-13; 09:41:01.707> Initializing primary frame subsystem
+   [INFO] <2022-05-13; 09:41:01.711> Initializing main display subsystem
+   [INFO] <2022-05-13; 09:41:01.712> Antialiasing enabled on main display panel
+   [INFO] <2022-05-13; 09:41:01.712> Successfully initialized main display subsystem
+   [INFO] <2022-05-13; 09:41:01.720> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-13; 09:41:01.720> Loading resources
+   [INFO] <2022-05-13; 09:41:02.781> Successfully initialized all subsystems
+   [INFO] <2022-05-13; 09:41:42.615> Decoding process started
+   [INFO] <2022-05-13; 09:41:42.617> Decoding data
+   [INFO] <2022-05-13; 09:41:42.617> Fetched and indexed input file
+   [WARNING] <2022-05-13; 09:41:42.636> Max configured data entries reached, decoding aborted
+   [INFO] <2022-05-13; 09:41:42.645> maxX: 0 minX: -9; maxY: 0 minY: -1
+   [INFO] <2022-05-13; 09:41:42.646> xRange: 9 yRange: 1
+   [INFO] <2022-05-13; 09:41:42.647> Successfully decoded data
+   [INFO] <2022-05-13; 09:41:42.647> Initializing toolbar subsystem
+   

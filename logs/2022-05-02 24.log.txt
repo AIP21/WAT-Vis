@@ -1,0 +1,119 @@
+[INFO] <2022-05-02; 17:36:51.149>    Player Tracker Decoder App v1.5.5 - LOG FILE
+   [INFO] <2022-05-02; 17:36:51.151> Initializing logger
+   [INFO] <2022-05-02; 17:36:51.151> Logger successfully initialized
+   [INFO] <2022-05-02; 17:36:51.152> Initializing primary systems
+   [INFO] <2022-05-02; 17:36:51.153> Initializing settings subsystem
+   [INFO] <2022-05-02; 17:36:51.153> Fetching and parsing settings from config file
+   [INFO] <2022-05-02; 17:36:51.154> Settings: 12
+   [INFO] <2022-05-02; 17:36:51.155> 31
+   [INFO] <2022-05-02; 17:36:51.155> true
+   [INFO] <2022-05-02; 17:36:51.155> 0
+   [INFO] <2022-05-02; 17:36:51.155> true
+   [INFO] <2022-05-02; 17:36:51.156> 5.0
+   [INFO] <2022-05-02; 17:36:51.156> true
+   [INFO] <2022-05-02; 17:36:51.157> LINE
+   [INFO] <2022-05-02; 17:36:51.157> 16
+   [INFO] <2022-05-02; 17:36:51.157> true
+   [INFO] <2022-05-02; 17:36:51.158> true
+   [INFO] <2022-05-02; 17:36:51.158> true
+   [INFO] <2022-05-02; 17:36:51.158> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-02; 17:36:51.159> Successfully initialized settings subsystem
+   [INFO] <2022-05-02; 17:36:51.160> Initializing decoder subsystem
+   [INFO] <2022-05-02; 17:36:51.160> Successfully initialized decoder subsystem
+   [INFO] <2022-05-02; 17:36:51.160> Initializing primary frame subsystem
+   [INFO] <2022-05-02; 17:36:51.165> Initializing main display subsystem
+   [INFO] <2022-05-02; 17:36:51.166> Antialiasing enabled on main display panel
+   [INFO] <2022-05-02; 17:36:51.166> Successfully initialized main display subsystem
+   [INFO] <2022-05-02; 17:36:51.174> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-02; 17:36:51.174> Loading resources
+   [INFO] <2022-05-02; 17:36:52.099> Successfully initialized all subsystems
+   [INFO] <2022-05-02; 17:36:54.743> Decoding process started
+   [INFO] <2022-05-02; 17:36:54.743> Decoding data
+   [INFO] <2022-05-02; 17:36:54.744> Fetched and indexed input file
+   [INFO] <2022-05-02; 17:36:54.806> maxX: 0 minX: -327; maxY: 58 minY: -1500
+   [INFO] <2022-05-02; 17:36:54.807> xRange: 327 yRange: 1558
+   [INFO] <2022-05-02; 17:36:54.808> Successfully decoded data
+   [INFO] <2022-05-02; 17:36:54.808> Setting data to display
+   [INFO] <2022-05-02; 17:36:54.810> Successfully set data to display
+   [INFO] <2022-05-02; 17:36:54.811> Updating points
+   [INFO] <2022-05-02; 17:36:54.815> Updated points: 732
+   [INFO] <2022-05-02; 17:36:54.816> Decoding process finished successfully
+   [INFO] <2022-05-02; 17:36:54.816> Initializing toolbar subsystem
+   [INFO] <2022-05-02; 17:36:54.902> Successfully initialized toolbar subsystem
+   [INFO] <2022-05-02; 17:36:54.903> Selected files: 1
+   [INFO] <2022-05-02; 17:36:54.903> World background images are present, opening selection screen
+   [INFO] <2022-05-02; 17:36:54.904> World background image is present, loading world background image
+   [WARNING] <2022-05-02; 17:36:55.946> No world background images selected
+   [INFO] <2022-05-02; 17:36:59.338> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:36:59.342> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:36:59.343> Changed line threshold to: 16
+   [INFO] <2022-05-02; 17:36:59.343> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:36:59.344> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:36:59.344> Changed line threshold to: 36
+   [INFO] <2022-05-02; 17:36:59.344> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:36:59.345> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:36:59.345> Changed line threshold to: 36
+   [INFO] <2022-05-02; 17:36:59.525> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:36:59.526> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:36:59.527> Changed line threshold to: 36
+   [INFO] <2022-05-02; 17:36:59.527> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:36:59.527> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:36:59.528> Changed line threshold to: 37
+   [INFO] <2022-05-02; 17:36:59.544> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:36:59.547> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:36:59.548> Changed line threshold to: 39
+   [INFO] <2022-05-02; 17:36:59.565> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:36:59.566> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:36:59.567> Changed line threshold to: 43
+   [INFO] <2022-05-02; 17:36:59.583> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:36:59.587> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:36:59.589> Changed line threshold to: 48
+   [INFO] <2022-05-02; 17:36:59.608> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:36:59.609> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:36:59.610> Changed line threshold to: 57
+   [INFO] <2022-05-02; 17:36:59.617> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:36:59.618> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:36:59.618> Changed line threshold to: 61
+   [INFO] <2022-05-02; 17:36:59.632> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:36:59.633> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:36:59.633> Changed line threshold to: 67
+   [INFO] <2022-05-02; 17:36:59.648> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:36:59.649> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:36:59.649> Changed line threshold to: 75
+   [INFO] <2022-05-02; 17:36:59.665> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:36:59.666> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:36:59.666> Changed line threshold to: 82
+   [INFO] <2022-05-02; 17:36:59.681> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:36:59.682> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:36:59.682> Changed line threshold to: 93
+   [INFO] <2022-05-02; 17:36:59.698> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:36:59.699> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:36:59.699> Changed line threshold to: 104
+   [INFO] <2022-05-02; 17:36:59.715> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:36:59.715> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:36:59.716> Changed line threshold to: 118
+   [INFO] <2022-05-02; 17:36:59.731> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:36:59.732> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:36:59.732> Changed line threshold to: 133
+   [INFO] <2022-05-02; 17:36:59.748> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:36:59.749> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:36:59.749> Changed line threshold to: 149
+   [INFO] <2022-05-02; 17:36:59.765> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:36:59.766> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:36:59.766> Changed line threshold to: 166
+   [INFO] <2022-05-02; 17:36:59.781> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:36:59.782> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:36:59.782> Changed line threshold to: 179
+   [INFO] <2022-05-02; 17:36:59.798> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:36:59.799> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:36:59.799> Changed line threshold to: 191
+   [INFO] <2022-05-02; 17:36:59.816> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:36:59.816> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:36:59.817> Changed line threshold to: 200
+   [INFO] <2022-05-02; 17:37:00.565> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:37:00.566> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:37:00.566> Changed line threshold to: 200
+   [INFO] <2022-05-02; 17:37:02.745> Saving and writing settings to config file
+   [INFO] <2022-05-02; 17:37:02.745> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 17:37:02.746> Toggled age fade to: true
+   

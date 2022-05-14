@@ -1,0 +1,654 @@
+[INFO] <2022-05-02; 18:09:13.410>    Player Tracker Decoder App v1.6.1 - LOG FILE
+   [INFO] <2022-05-02; 18:09:13.412> Initializing logger
+   [INFO] <2022-05-02; 18:09:13.412> Logger successfully initialized
+   [INFO] <2022-05-02; 18:09:13.413> Initializing primary systems
+   [INFO] <2022-05-02; 18:09:13.414> Initializing settings subsystem
+   [INFO] <2022-05-02; 18:09:13.415> Fetching and parsing settings from config file
+   [INFO] <2022-05-02; 18:09:13.416> Settings: 15
+   [INFO] <2022-05-02; 18:09:13.416> 1
+   [INFO] <2022-05-02; 18:09:13.417> true
+   [INFO] <2022-05-02; 18:09:13.417> 0
+   [INFO] <2022-05-02; 18:09:13.417> true
+   [INFO] <2022-05-02; 18:09:13.418> 5.0
+   [INFO] <2022-05-02; 18:09:13.418> true
+   [INFO] <2022-05-02; 18:09:13.419> LINE
+   [INFO] <2022-05-02; 18:09:13.419> 200
+   [INFO] <2022-05-02; 18:09:13.420> false
+   [INFO] <2022-05-02; 18:09:13.420> true
+   [INFO] <2022-05-02; 18:09:13.420> false
+   [INFO] <2022-05-02; 18:09:13.421> true
+   [INFO] <2022-05-02; 18:09:13.421> false
+   [INFO] <2022-05-02; 18:09:13.422> ageFadeThreshold: 0
+   [INFO] <2022-05-02; 18:09:13.422> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-02; 18:09:13.423> Successfully initialized settings subsystem
+   [INFO] <2022-05-02; 18:09:13.424> Initializing decoder subsystem
+   [INFO] <2022-05-02; 18:09:13.424> Successfully initialized decoder subsystem
+   [INFO] <2022-05-02; 18:09:13.425> Initializing primary frame subsystem
+   [INFO] <2022-05-02; 18:09:13.430> Initializing main display subsystem
+   [INFO] <2022-05-02; 18:09:13.430> Antialiasing enabled on main display panel
+   [INFO] <2022-05-02; 18:09:13.431> Successfully initialized main display subsystem
+   [INFO] <2022-05-02; 18:09:13.439> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-02; 18:09:13.440> Loading resources
+   [INFO] <2022-05-02; 18:09:14.480> Successfully initialized all subsystems
+   [INFO] <2022-05-02; 18:09:16.970> Decoding process started
+   [INFO] <2022-05-02; 18:09:16.971> Decoding data
+   [INFO] <2022-05-02; 18:09:16.971> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:09:16.971> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:09:16.972> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:09:16.972> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:09:16.972> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:09:16.973> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:09:16.973> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:09:16.973> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:09:16.974> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:09:17.343> maxX: 2210 minX: -547; maxY: 64 minY: -2201
+   [INFO] <2022-05-02; 18:09:17.344> xRange: 2757 yRange: 2265
+   [INFO] <2022-05-02; 18:09:17.344> Successfully decoded data
+   [INFO] <2022-05-02; 18:09:17.345> Setting data to display
+   [INFO] <2022-05-02; 18:09:17.360> Successfully set data to display
+   [INFO] <2022-05-02; 18:09:17.360> Updating points
+   [INFO] <2022-05-02; 18:09:17.378> Updated points: 16190
+   [INFO] <2022-05-02; 18:09:17.379> Decoding process finished successfully
+   [INFO] <2022-05-02; 18:09:17.379> Initializing toolbar subsystem
+   [INFO] <2022-05-02; 18:09:17.969> Successfully initialized toolbar subsystem
+   [INFO] <2022-05-02; 18:09:17.970> Selected files: 9
+   [INFO] <2022-05-02; 18:09:17.971> World background images are present, opening selection screen
+   [INFO] <2022-05-02; 18:09:17.973> World background image is present, loading world background image
+   [WARNING] <2022-05-02; 18:09:18.986> No world background images selected
+   [INFO] <2022-05-02; 18:09:23.515> Updating points
+   [INFO] <2022-05-02; 18:09:23.533> Updated points: 16190
+   [INFO] <2022-05-02; 18:09:23.533> Changed date range slider: From 2022-01-24T12:05:46 to 2022-02-03T21:40:18
+   [INFO] <2022-05-02; 18:09:23.534> Updating points
+   [INFO] <2022-05-02; 18:09:23.546> Updated points: 16085
+   [INFO] <2022-05-02; 18:09:23.546> Changed date range slider: From 2022-01-24T12:05:46 to 2022-02-03T21:28:43
+   [INFO] <2022-05-02; 18:09:23.571> Updating points
+   [INFO] <2022-05-02; 18:09:23.585> Updated points: 15052
+   [INFO] <2022-05-02; 18:09:23.586> Changed date range slider: From 2022-01-24T12:05:46 to 2022-02-02T15:01:50
+   [INFO] <2022-05-02; 18:09:23.609> Updating points
+   [INFO] <2022-05-02; 18:09:23.620> Updated points: 11955
+   [INFO] <2022-05-02; 18:09:23.621> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-31T21:25:42
+   [INFO] <2022-05-02; 18:09:23.640> Updating points
+   [INFO] <2022-05-02; 18:09:23.649> Updated points: 8595
+   [INFO] <2022-05-02; 18:09:23.650> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-29T19:45:41
+   [INFO] <2022-05-02; 18:09:23.668> Updating points
+   [INFO] <2022-05-02; 18:09:23.676> Updated points: 7104
+   [INFO] <2022-05-02; 18:09:23.676> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-29T16:59:41
+   [INFO] <2022-05-02; 18:09:23.687> Updating points
+   [INFO] <2022-05-02; 18:09:23.691> Updated points: 4605
+   [INFO] <2022-05-02; 18:09:23.691> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-29T10:09:51
+   [INFO] <2022-05-02; 18:09:23.702> Updating points
+   [INFO] <2022-05-02; 18:09:23.706> Updated points: 3670
+   [INFO] <2022-05-02; 18:09:23.706> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-28T21:17:27
+   [INFO] <2022-05-02; 18:09:23.719> Updating points
+   [INFO] <2022-05-02; 18:09:23.724> Updated points: 2949
+   [INFO] <2022-05-02; 18:09:23.724> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-28T19:14:17
+   [INFO] <2022-05-02; 18:09:23.736> Updating points
+   [INFO] <2022-05-02; 18:09:23.741> Updated points: 2388
+   [INFO] <2022-05-02; 18:09:23.741> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-28T18:20:37
+   [INFO] <2022-05-02; 18:09:23.752> Updating points
+   [INFO] <2022-05-02; 18:09:23.756> Updated points: 2037
+   [INFO] <2022-05-02; 18:09:23.756> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-28T17:51:22
+   [INFO] <2022-05-02; 18:09:23.769> Updating points
+   [INFO] <2022-05-02; 18:09:23.772> Updated points: 1756
+   [INFO] <2022-05-02; 18:09:23.772> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-28T17:27:57
+   [INFO] <2022-05-02; 18:09:23.785> Updating points
+   [INFO] <2022-05-02; 18:09:23.789> Updated points: 1546
+   [INFO] <2022-05-02; 18:09:23.789> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-28T12:14:02
+   [INFO] <2022-05-02; 18:09:23.802> Updating points
+   [INFO] <2022-05-02; 18:09:23.804> Updated points: 1405
+   [INFO] <2022-05-02; 18:09:23.805> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-28T12:02:17
+   [INFO] <2022-05-02; 18:09:23.819> Updating points
+   [INFO] <2022-05-02; 18:09:23.823> Updated points: 1335
+   [INFO] <2022-05-02; 18:09:23.823> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-28T11:56:27
+   [INFO] <2022-05-02; 18:09:23.835> Updating points
+   [INFO] <2022-05-02; 18:09:23.838> Updated points: 1300
+   [INFO] <2022-05-02; 18:09:23.838> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-28T11:53:32
+   [INFO] <2022-05-02; 18:09:23.851> Updating points
+   [INFO] <2022-05-02; 18:09:23.854> Updated points: 1265
+   [INFO] <2022-05-02; 18:09:23.854> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-28T11:50:37
+   [INFO] <2022-05-02; 18:09:23.868> Updating points
+   [INFO] <2022-05-02; 18:09:23.872> Updated points: 1230
+   [INFO] <2022-05-02; 18:09:23.872> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-28T11:47:42
+   [INFO] <2022-05-02; 18:09:23.885> Updating points
+   [INFO] <2022-05-02; 18:09:23.887> Updated points: 1195
+   [INFO] <2022-05-02; 18:09:23.887> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-28T11:44:47
+   [INFO] <2022-05-02; 18:09:23.901> Updating points
+   [INFO] <2022-05-02; 18:09:23.903> Updated points: 1160
+   [INFO] <2022-05-02; 18:09:23.904> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-25T21:48:48
+   [INFO] <2022-05-02; 18:09:23.918> Updating points
+   [INFO] <2022-05-02; 18:09:23.920> Updated points: 1125
+   [INFO] <2022-05-02; 18:09:23.920> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-25T21:45:53
+   [INFO] <2022-05-02; 18:09:23.935> Updating points
+   [INFO] <2022-05-02; 18:09:23.937> Updated points: 1090
+   [INFO] <2022-05-02; 18:09:23.937> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-25T21:42:58
+   [INFO] <2022-05-02; 18:09:23.952> Updating points
+   [INFO] <2022-05-02; 18:09:23.955> Updated points: 1055
+   [INFO] <2022-05-02; 18:09:23.955> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-25T21:40:03
+   [INFO] <2022-05-02; 18:09:23.969> Updating points
+   [INFO] <2022-05-02; 18:09:23.971> Updated points: 1020
+   [INFO] <2022-05-02; 18:09:23.972> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-25T21:37:08
+   [INFO] <2022-05-02; 18:09:24.019> Updating points
+   [INFO] <2022-05-02; 18:09:24.021> Updated points: 984
+   [INFO] <2022-05-02; 18:09:24.022> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-25T21:34:08
+   [INFO] <2022-05-02; 18:09:24.068> Updating points
+   [INFO] <2022-05-02; 18:09:24.070> Updated points: 957
+   [INFO] <2022-05-02; 18:09:24.070> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-25T18:16:23
+   [INFO] <2022-05-02; 18:09:24.101> Updating points
+   [INFO] <2022-05-02; 18:09:24.103> Updated points: 939
+   [INFO] <2022-05-02; 18:09:24.104> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-25T18:14:53
+   [INFO] <2022-05-02; 18:09:24.118> Updating points
+   [INFO] <2022-05-02; 18:09:24.120> Updated points: 922
+   [INFO] <2022-05-02; 18:09:24.120> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-25T18:13:28
+   [INFO] <2022-05-02; 18:09:24.169> Updating points
+   [INFO] <2022-05-02; 18:09:24.171> Updated points: 904
+   [INFO] <2022-05-02; 18:09:24.171> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-25T18:11:58
+   [INFO] <2022-05-02; 18:09:24.202> Updating points
+   [INFO] <2022-05-02; 18:09:24.204> Updated points: 887
+   [INFO] <2022-05-02; 18:09:24.204> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-25T18:10:33
+   [INFO] <2022-05-02; 18:09:24.251> Updating points
+   [INFO] <2022-05-02; 18:09:24.253> Updated points: 869
+   [INFO] <2022-05-02; 18:09:24.254> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-25T18:09:03
+   [INFO] <2022-05-02; 18:09:24.268> Updating points
+   [INFO] <2022-05-02; 18:09:24.270> Updated points: 843
+   [INFO] <2022-05-02; 18:09:24.270> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-25T18:06:53
+   [INFO] <2022-05-02; 18:09:24.302> Updating points
+   [INFO] <2022-05-02; 18:09:24.303> Updated points: 843
+   [INFO] <2022-05-02; 18:09:24.304> Changed date range slider: From 2022-01-24T12:05:46 to 2022-01-25T18:06:53
+   [INFO] <2022-05-02; 18:09:25.295> Started playing animation
+   [INFO] <2022-05-02; 18:09:25.322> isPlaying
+   [INFO] <2022-05-02; 18:09:25.323> Playing
+   [INFO] <2022-05-02; 18:09:25.323> Updating points
+   [INFO] <2022-05-02; 18:09:25.325> Updated points: 1
+   [INFO] <2022-05-02; 18:09:25.422> isPlaying
+   [INFO] <2022-05-02; 18:09:25.423> Playing
+   [INFO] <2022-05-02; 18:09:25.423> Updating points
+   [INFO] <2022-05-02; 18:09:25.425> Updated points: 2
+   [INFO] <2022-05-02; 18:09:25.525> isPlaying
+   [INFO] <2022-05-02; 18:09:25.525> Playing
+   [INFO] <2022-05-02; 18:09:25.526> Updating points
+   [INFO] <2022-05-02; 18:09:25.528> Updated points: 3
+   [INFO] <2022-05-02; 18:09:25.627> isPlaying
+   [INFO] <2022-05-02; 18:09:25.628> Playing
+   [INFO] <2022-05-02; 18:09:25.628> Updating points
+   [INFO] <2022-05-02; 18:09:25.630> Updated points: 4
+   [INFO] <2022-05-02; 18:09:25.730> isPlaying
+   [INFO] <2022-05-02; 18:09:25.731> Playing
+   [INFO] <2022-05-02; 18:09:25.732> Updating points
+   [INFO] <2022-05-02; 18:09:25.733> Updated points: 5
+   [INFO] <2022-05-02; 18:09:25.831> isPlaying
+   [INFO] <2022-05-02; 18:09:25.831> Playing
+   [INFO] <2022-05-02; 18:09:25.832> Updating points
+   [INFO] <2022-05-02; 18:09:25.833> Updated points: 6
+   [INFO] <2022-05-02; 18:09:25.931> isPlaying
+   [INFO] <2022-05-02; 18:09:25.932> Playing
+   [INFO] <2022-05-02; 18:09:25.933> Updating points
+   [INFO] <2022-05-02; 18:09:25.934> Updated points: 7
+   [INFO] <2022-05-02; 18:09:26.031> isPlaying
+   [INFO] <2022-05-02; 18:09:26.032> Playing
+   [INFO] <2022-05-02; 18:09:26.033> Updating points
+   [INFO] <2022-05-02; 18:09:26.034> Updated points: 8
+   [INFO] <2022-05-02; 18:09:26.134> isPlaying
+   [INFO] <2022-05-02; 18:09:26.135> Playing
+   [INFO] <2022-05-02; 18:09:26.135> Updating points
+   [INFO] <2022-05-02; 18:09:26.137> Updated points: 9
+   [INFO] <2022-05-02; 18:09:26.237> isPlaying
+   [INFO] <2022-05-02; 18:09:26.237> Playing
+   [INFO] <2022-05-02; 18:09:26.238> Updating points
+   [INFO] <2022-05-02; 18:09:26.239> Updated points: 10
+   [INFO] <2022-05-02; 18:09:26.339> isPlaying
+   [INFO] <2022-05-02; 18:09:26.340> Playing
+   [INFO] <2022-05-02; 18:09:26.340> Updating points
+   [INFO] <2022-05-02; 18:09:26.343> Updated points: 11
+   [INFO] <2022-05-02; 18:09:26.439> isPlaying
+   [INFO] <2022-05-02; 18:09:26.440> Playing
+   [INFO] <2022-05-02; 18:09:26.440> Updating points
+   [INFO] <2022-05-02; 18:09:26.441> Updated points: 12
+   [INFO] <2022-05-02; 18:09:26.542> isPlaying
+   [INFO] <2022-05-02; 18:09:26.542> Playing
+   [INFO] <2022-05-02; 18:09:26.543> Updating points
+   [INFO] <2022-05-02; 18:09:26.544> Updated points: 13
+   [INFO] <2022-05-02; 18:09:26.643> isPlaying
+   [INFO] <2022-05-02; 18:09:26.644> Playing
+   [INFO] <2022-05-02; 18:09:26.644> Updating points
+   [INFO] <2022-05-02; 18:09:26.646> Updated points: 14
+   [INFO] <2022-05-02; 18:09:26.748> isPlaying
+   [INFO] <2022-05-02; 18:09:26.748> Playing
+   [INFO] <2022-05-02; 18:09:26.749> Updating points
+   [INFO] <2022-05-02; 18:09:26.753> Updated points: 15
+   [INFO] <2022-05-02; 18:09:26.850> isPlaying
+   [INFO] <2022-05-02; 18:09:26.850> Playing
+   [INFO] <2022-05-02; 18:09:26.851> Updating points
+   [INFO] <2022-05-02; 18:09:26.853> Updated points: 16
+   [INFO] <2022-05-02; 18:09:26.949> isPlaying
+   [INFO] <2022-05-02; 18:09:26.950> Playing
+   [INFO] <2022-05-02; 18:09:26.950> Updating points
+   [INFO] <2022-05-02; 18:09:26.953> Updated points: 17
+   [INFO] <2022-05-02; 18:09:27.049> isPlaying
+   [INFO] <2022-05-02; 18:09:27.049> Playing
+   [INFO] <2022-05-02; 18:09:27.050> Updating points
+   [INFO] <2022-05-02; 18:09:27.051> Updated points: 18
+   [INFO] <2022-05-02; 18:09:27.149> isPlaying
+   [INFO] <2022-05-02; 18:09:27.149> Playing
+   [INFO] <2022-05-02; 18:09:27.150> Updating points
+   [INFO] <2022-05-02; 18:09:27.151> Updated points: 19
+   [INFO] <2022-05-02; 18:09:27.253> isPlaying
+   [INFO] <2022-05-02; 18:09:27.253> Playing
+   [INFO] <2022-05-02; 18:09:27.254> Updating points
+   [INFO] <2022-05-02; 18:09:27.256> Updated points: 20
+   [INFO] <2022-05-02; 18:09:27.354> isPlaying
+   [INFO] <2022-05-02; 18:09:27.355> Playing
+   [INFO] <2022-05-02; 18:09:27.356> Updating points
+   [INFO] <2022-05-02; 18:09:27.358> Updated points: 21
+   [INFO] <2022-05-02; 18:09:27.457> isPlaying
+   [INFO] <2022-05-02; 18:09:27.458> Playing
+   [INFO] <2022-05-02; 18:09:27.459> Updating points
+   [INFO] <2022-05-02; 18:09:27.460> Updated points: 22
+   [INFO] <2022-05-02; 18:09:27.560> isPlaying
+   [INFO] <2022-05-02; 18:09:27.561> Playing
+   [INFO] <2022-05-02; 18:09:27.562> Updating points
+   [INFO] <2022-05-02; 18:09:27.563> Updated points: 23
+   [INFO] <2022-05-02; 18:09:27.665> isPlaying
+   [INFO] <2022-05-02; 18:09:27.665> Playing
+   [INFO] <2022-05-02; 18:09:27.666> Updating points
+   [INFO] <2022-05-02; 18:09:27.668> Updated points: 24
+   [INFO] <2022-05-02; 18:09:27.766> isPlaying
+   [INFO] <2022-05-02; 18:09:27.767> Playing
+   [INFO] <2022-05-02; 18:09:27.767> Updating points
+   [INFO] <2022-05-02; 18:09:27.769> Updated points: 25
+   [INFO] <2022-05-02; 18:09:27.870> isPlaying
+   [INFO] <2022-05-02; 18:09:27.871> Playing
+   [INFO] <2022-05-02; 18:09:27.871> Updating points
+   [INFO] <2022-05-02; 18:09:27.873> Updated points: 26
+   [INFO] <2022-05-02; 18:09:27.971> isPlaying
+   [INFO] <2022-05-02; 18:09:27.972> Playing
+   [INFO] <2022-05-02; 18:09:27.972> Updating points
+   [INFO] <2022-05-02; 18:09:27.976> Updated points: 27
+   [INFO] <2022-05-02; 18:09:28.076> isPlaying
+   [INFO] <2022-05-02; 18:09:28.076> Playing
+   [INFO] <2022-05-02; 18:09:28.077> Updating points
+   [INFO] <2022-05-02; 18:09:28.079> Updated points: 28
+   [INFO] <2022-05-02; 18:09:28.176> isPlaying
+   [INFO] <2022-05-02; 18:09:28.177> Playing
+   [INFO] <2022-05-02; 18:09:28.177> Updating points
+   [INFO] <2022-05-02; 18:09:28.181> Updated points: 29
+   [INFO] <2022-05-02; 18:09:28.279> isPlaying
+   [INFO] <2022-05-02; 18:09:28.280> Playing
+   [INFO] <2022-05-02; 18:09:28.280> Updating points
+   [INFO] <2022-05-02; 18:09:28.282> Updated points: 30
+   [INFO] <2022-05-02; 18:09:28.382> isPlaying
+   [INFO] <2022-05-02; 18:09:28.382> Playing
+   [INFO] <2022-05-02; 18:09:28.383> Updating points
+   [INFO] <2022-05-02; 18:09:28.384> Updated points: 31
+   [INFO] <2022-05-02; 18:09:28.481> isPlaying
+   [INFO] <2022-05-02; 18:09:28.483> Playing
+   [INFO] <2022-05-02; 18:09:28.483> Updating points
+   [INFO] <2022-05-02; 18:09:28.484> Updated points: 32
+   [INFO] <2022-05-02; 18:09:28.581> isPlaying
+   [INFO] <2022-05-02; 18:09:28.582> Playing
+   [INFO] <2022-05-02; 18:09:28.582> Updating points
+   [INFO] <2022-05-02; 18:09:28.584> Updated points: 33
+   [INFO] <2022-05-02; 18:09:28.681> isPlaying
+   [INFO] <2022-05-02; 18:09:28.681> Playing
+   [INFO] <2022-05-02; 18:09:28.681> Updating points
+   [INFO] <2022-05-02; 18:09:28.683> Updated points: 34
+   [INFO] <2022-05-02; 18:09:28.781> isPlaying
+   [INFO] <2022-05-02; 18:09:28.782> Playing
+   [INFO] <2022-05-02; 18:09:28.782> Updating points
+   [INFO] <2022-05-02; 18:09:28.784> Updated points: 35
+   [INFO] <2022-05-02; 18:09:28.885> isPlaying
+   [INFO] <2022-05-02; 18:09:28.886> Playing
+   [INFO] <2022-05-02; 18:09:28.888> Updating points
+   [INFO] <2022-05-02; 18:09:28.890> Updated points: 36
+   [INFO] <2022-05-02; 18:09:28.985> isPlaying
+   [INFO] <2022-05-02; 18:09:28.986> Playing
+   [INFO] <2022-05-02; 18:09:28.987> Updating points
+   [INFO] <2022-05-02; 18:09:28.988> Updated points: 37
+   [INFO] <2022-05-02; 18:09:29.087> isPlaying
+   [INFO] <2022-05-02; 18:09:29.087> Playing
+   [INFO] <2022-05-02; 18:09:29.087> Updating points
+   [INFO] <2022-05-02; 18:09:29.089> Updated points: 38
+   [INFO] <2022-05-02; 18:09:29.187> isPlaying
+   [INFO] <2022-05-02; 18:09:29.187> Playing
+   [INFO] <2022-05-02; 18:09:29.188> Updating points
+   [INFO] <2022-05-02; 18:09:29.189> Updated points: 39
+   [INFO] <2022-05-02; 18:09:29.290> isPlaying
+   [INFO] <2022-05-02; 18:09:29.291> Playing
+   [INFO] <2022-05-02; 18:09:29.291> Updating points
+   [INFO] <2022-05-02; 18:09:29.294> Updated points: 40
+   [INFO] <2022-05-02; 18:09:29.395> isPlaying
+   [INFO] <2022-05-02; 18:09:29.396> Playing
+   [INFO] <2022-05-02; 18:09:29.396> Updating points
+   [INFO] <2022-05-02; 18:09:29.398> Updated points: 41
+   [INFO] <2022-05-02; 18:09:29.498> isPlaying
+   [INFO] <2022-05-02; 18:09:29.498> Playing
+   [INFO] <2022-05-02; 18:09:29.499> Updating points
+   [INFO] <2022-05-02; 18:09:29.501> Updated points: 42
+   [INFO] <2022-05-02; 18:09:29.598> isPlaying
+   [INFO] <2022-05-02; 18:09:29.598> Playing
+   [INFO] <2022-05-02; 18:09:29.599> Updating points
+   [INFO] <2022-05-02; 18:09:29.601> Updated points: 43
+   [INFO] <2022-05-02; 18:09:29.698> isPlaying
+   [INFO] <2022-05-02; 18:09:29.699> Playing
+   [INFO] <2022-05-02; 18:09:29.699> Updating points
+   [INFO] <2022-05-02; 18:09:29.703> Updated points: 44
+   [INFO] <2022-05-02; 18:09:29.798> isPlaying
+   [INFO] <2022-05-02; 18:09:29.798> Playing
+   [INFO] <2022-05-02; 18:09:29.798> Updating points
+   [INFO] <2022-05-02; 18:09:29.800> Updated points: 45
+   [INFO] <2022-05-02; 18:09:29.898> isPlaying
+   [INFO] <2022-05-02; 18:09:29.899> Playing
+   [INFO] <2022-05-02; 18:09:29.899> Updating points
+   [INFO] <2022-05-02; 18:09:29.903> Updated points: 46
+   [INFO] <2022-05-02; 18:09:29.997> isPlaying
+   [INFO] <2022-05-02; 18:09:29.998> Playing
+   [INFO] <2022-05-02; 18:09:29.998> Updating points
+   [INFO] <2022-05-02; 18:09:30.000> Updated points: 47
+   [INFO] <2022-05-02; 18:09:30.098> isPlaying
+   [INFO] <2022-05-02; 18:09:30.098> Playing
+   [INFO] <2022-05-02; 18:09:30.099> Updating points
+   [INFO] <2022-05-02; 18:09:30.102> Updated points: 48
+   [INFO] <2022-05-02; 18:09:30.201> isPlaying
+   [INFO] <2022-05-02; 18:09:30.202> Playing
+   [INFO] <2022-05-02; 18:09:30.202> Updating points
+   [INFO] <2022-05-02; 18:09:30.204> Updated points: 49
+   [INFO] <2022-05-02; 18:09:30.301> isPlaying
+   [INFO] <2022-05-02; 18:09:30.303> Playing
+   [INFO] <2022-05-02; 18:09:30.304> Updating points
+   [INFO] <2022-05-02; 18:09:30.306> Updated points: 50
+   [INFO] <2022-05-02; 18:09:30.401> isPlaying
+   [INFO] <2022-05-02; 18:09:30.402> Playing
+   [INFO] <2022-05-02; 18:09:30.402> Updating points
+   [INFO] <2022-05-02; 18:09:30.404> Updated points: 51
+   [INFO] <2022-05-02; 18:09:30.504> isPlaying
+   [INFO] <2022-05-02; 18:09:30.504> Playing
+   [INFO] <2022-05-02; 18:09:30.504> Updating points
+   [INFO] <2022-05-02; 18:09:30.506> Updated points: 52
+   [INFO] <2022-05-02; 18:09:30.607> isPlaying
+   [INFO] <2022-05-02; 18:09:30.608> Playing
+   [INFO] <2022-05-02; 18:09:30.608> Updating points
+   [INFO] <2022-05-02; 18:09:30.610> Updated points: 53
+   [INFO] <2022-05-02; 18:09:30.707> isPlaying
+   [INFO] <2022-05-02; 18:09:30.708> Playing
+   [INFO] <2022-05-02; 18:09:30.708> Updating points
+   [INFO] <2022-05-02; 18:09:30.710> Updated points: 54
+   [INFO] <2022-05-02; 18:09:30.807> isPlaying
+   [INFO] <2022-05-02; 18:09:30.808> Playing
+   [INFO] <2022-05-02; 18:09:30.809> Updating points
+   [INFO] <2022-05-02; 18:09:30.810> Updated points: 55
+   [INFO] <2022-05-02; 18:09:30.910> isPlaying
+   [INFO] <2022-05-02; 18:09:30.910> Playing
+   [INFO] <2022-05-02; 18:09:30.911> Updating points
+   [INFO] <2022-05-02; 18:09:30.913> Updated points: 56
+   [INFO] <2022-05-02; 18:09:31.014> isPlaying
+   [INFO] <2022-05-02; 18:09:31.015> Playing
+   [INFO] <2022-05-02; 18:09:31.015> Updating points
+   [INFO] <2022-05-02; 18:09:31.017> Updated points: 57
+   [INFO] <2022-05-02; 18:09:31.114> isPlaying
+   [INFO] <2022-05-02; 18:09:31.115> Playing
+   [INFO] <2022-05-02; 18:09:31.115> Updating points
+   [INFO] <2022-05-02; 18:09:31.118> Updated points: 58
+   [INFO] <2022-05-02; 18:09:31.215> isPlaying
+   [INFO] <2022-05-02; 18:09:31.216> Playing
+   [INFO] <2022-05-02; 18:09:31.217> Updating points
+   [INFO] <2022-05-02; 18:09:31.219> Updated points: 59
+   [INFO] <2022-05-02; 18:09:31.318> isPlaying
+   [INFO] <2022-05-02; 18:09:31.319> Playing
+   [INFO] <2022-05-02; 18:09:31.319> Updating points
+   [INFO] <2022-05-02; 18:09:31.323> Updated points: 60
+   [INFO] <2022-05-02; 18:09:31.419> isPlaying
+   [INFO] <2022-05-02; 18:09:31.419> Playing
+   [INFO] <2022-05-02; 18:09:31.420> Updating points
+   [INFO] <2022-05-02; 18:09:31.421> Updated points: 61
+   [INFO] <2022-05-02; 18:09:31.521> isPlaying
+   [INFO] <2022-05-02; 18:09:31.522> Playing
+   [INFO] <2022-05-02; 18:09:31.522> Updating points
+   [INFO] <2022-05-02; 18:09:31.523> Updated points: 62
+   [INFO] <2022-05-02; 18:09:31.623> isPlaying
+   [INFO] <2022-05-02; 18:09:31.624> Playing
+   [INFO] <2022-05-02; 18:09:31.626> Updating points
+   [INFO] <2022-05-02; 18:09:31.626> Updated points: 63
+   [INFO] <2022-05-02; 18:09:31.727> isPlaying
+   [INFO] <2022-05-02; 18:09:31.728> Playing
+   [INFO] <2022-05-02; 18:09:31.728> Updating points
+   [INFO] <2022-05-02; 18:09:31.730> Updated points: 64
+   [INFO] <2022-05-02; 18:09:31.831> isPlaying
+   [INFO] <2022-05-02; 18:09:31.832> Playing
+   [INFO] <2022-05-02; 18:09:31.833> Updating points
+   [INFO] <2022-05-02; 18:09:31.836> Updated points: 65
+   [INFO] <2022-05-02; 18:09:31.933> isPlaying
+   [INFO] <2022-05-02; 18:09:31.934> Playing
+   [INFO] <2022-05-02; 18:09:31.934> Updating points
+   [INFO] <2022-05-02; 18:09:31.937> Updated points: 66
+   [INFO] <2022-05-02; 18:09:32.038> isPlaying
+   [INFO] <2022-05-02; 18:09:32.038> Playing
+   [INFO] <2022-05-02; 18:09:32.039> Updating points
+   [INFO] <2022-05-02; 18:09:32.040> Updated points: 67
+   [INFO] <2022-05-02; 18:09:32.143> isPlaying
+   [INFO] <2022-05-02; 18:09:32.143> Playing
+   [INFO] <2022-05-02; 18:09:32.144> Updating points
+   [INFO] <2022-05-02; 18:09:32.145> Updated points: 68
+   [INFO] <2022-05-02; 18:09:32.245> isPlaying
+   [INFO] <2022-05-02; 18:09:32.245> Playing
+   [INFO] <2022-05-02; 18:09:32.246> Updating points
+   [INFO] <2022-05-02; 18:09:32.247> Updated points: 69
+   [INFO] <2022-05-02; 18:09:32.348> isPlaying
+   [INFO] <2022-05-02; 18:09:32.348> Playing
+   [INFO] <2022-05-02; 18:09:32.348> Updating points
+   [INFO] <2022-05-02; 18:09:32.350> Updated points: 70
+   [INFO] <2022-05-02; 18:09:32.451> isPlaying
+   [INFO] <2022-05-02; 18:09:32.451> Playing
+   [INFO] <2022-05-02; 18:09:32.452> Updating points
+   [INFO] <2022-05-02; 18:09:32.453> Updated points: 71
+   [INFO] <2022-05-02; 18:09:32.554> isPlaying
+   [INFO] <2022-05-02; 18:09:32.555> Playing
+   [INFO] <2022-05-02; 18:09:32.555> Updating points
+   [INFO] <2022-05-02; 18:09:32.558> Updated points: 72
+   [INFO] <2022-05-02; 18:09:32.656> isPlaying
+   [INFO] <2022-05-02; 18:09:32.657> Playing
+   [INFO] <2022-05-02; 18:09:32.657> Updating points
+   [INFO] <2022-05-02; 18:09:32.660> Updated points: 73
+   [INFO] <2022-05-02; 18:09:32.757> isPlaying
+   [INFO] <2022-05-02; 18:09:32.757> Playing
+   [INFO] <2022-05-02; 18:09:32.758> Updating points
+   [INFO] <2022-05-02; 18:09:32.761> Updated points: 74
+   [INFO] <2022-05-02; 18:09:32.859> isPlaying
+   [INFO] <2022-05-02; 18:09:32.859> Playing
+   [INFO] <2022-05-02; 18:09:32.860> Updating points
+   [INFO] <2022-05-02; 18:09:32.861> Updated points: 75
+   [INFO] <2022-05-02; 18:09:32.958> isPlaying
+   [INFO] <2022-05-02; 18:09:32.959> Playing
+   [INFO] <2022-05-02; 18:09:32.959> Updating points
+   [INFO] <2022-05-02; 18:09:32.961> Updated points: 76
+   [INFO] <2022-05-02; 18:09:33.059> isPlaying
+   [INFO] <2022-05-02; 18:09:33.060> Playing
+   [INFO] <2022-05-02; 18:09:33.061> Updating points
+   [INFO] <2022-05-02; 18:09:33.063> Updated points: 77
+   [INFO] <2022-05-02; 18:09:33.158> isPlaying
+   [INFO] <2022-05-02; 18:09:33.159> Playing
+   [INFO] <2022-05-02; 18:09:33.159> Updating points
+   [INFO] <2022-05-02; 18:09:33.161> Updated points: 78
+   [INFO] <2022-05-02; 18:09:33.258> isPlaying
+   [INFO] <2022-05-02; 18:09:33.259> Playing
+   [INFO] <2022-05-02; 18:09:33.259> Updating points
+   [INFO] <2022-05-02; 18:09:33.261> Updated points: 79
+   [INFO] <2022-05-02; 18:09:33.362> isPlaying
+   [INFO] <2022-05-02; 18:09:33.363> Playing
+   [INFO] <2022-05-02; 18:09:33.363> Updating points
+   [INFO] <2022-05-02; 18:09:33.365> Updated points: 80
+   [INFO] <2022-05-02; 18:09:33.464> isPlaying
+   [INFO] <2022-05-02; 18:09:33.465> Playing
+   [INFO] <2022-05-02; 18:09:33.465> Updating points
+   [INFO] <2022-05-02; 18:09:33.467> Updated points: 81
+   [INFO] <2022-05-02; 18:09:33.565> isPlaying
+   [INFO] <2022-05-02; 18:09:33.565> Playing
+   [INFO] <2022-05-02; 18:09:33.566> Updating points
+   [INFO] <2022-05-02; 18:09:33.567> Updated points: 82
+   [INFO] <2022-05-02; 18:09:33.664> isPlaying
+   [INFO] <2022-05-02; 18:09:33.665> Playing
+   [INFO] <2022-05-02; 18:09:33.665> Updating points
+   [INFO] <2022-05-02; 18:09:33.669> Updated points: 83
+   [INFO] <2022-05-02; 18:09:33.764> isPlaying
+   [INFO] <2022-05-02; 18:09:33.765> Playing
+   [INFO] <2022-05-02; 18:09:33.765> Updating points
+   [INFO] <2022-05-02; 18:09:33.767> Updated points: 84
+   [INFO] <2022-05-02; 18:09:33.869> isPlaying
+   [INFO] <2022-05-02; 18:09:33.869> Playing
+   [INFO] <2022-05-02; 18:09:33.870> Updating points
+   [INFO] <2022-05-02; 18:09:33.873> Updated points: 85
+   [INFO] <2022-05-02; 18:09:33.969> isPlaying
+   [INFO] <2022-05-02; 18:09:33.970> Playing
+   [INFO] <2022-05-02; 18:09:33.970> Updating points
+   [INFO] <2022-05-02; 18:09:33.974> Updated points: 86
+   [INFO] <2022-05-02; 18:09:34.070> isPlaying
+   [INFO] <2022-05-02; 18:09:34.071> Playing
+   [INFO] <2022-05-02; 18:09:34.071> Updating points
+   [INFO] <2022-05-02; 18:09:34.073> Updated points: 87
+   [INFO] <2022-05-02; 18:09:34.173> isPlaying
+   [INFO] <2022-05-02; 18:09:34.173> Playing
+   [INFO] <2022-05-02; 18:09:34.174> Updating points
+   [INFO] <2022-05-02; 18:09:34.175> Updated points: 88
+   [INFO] <2022-05-02; 18:09:34.273> isPlaying
+   [INFO] <2022-05-02; 18:09:34.274> Playing
+   [INFO] <2022-05-02; 18:09:34.274> Updating points
+   [INFO] <2022-05-02; 18:09:34.275> Updated points: 89
+   [INFO] <2022-05-02; 18:09:34.376> isPlaying
+   [INFO] <2022-05-02; 18:09:34.377> Playing
+   [INFO] <2022-05-02; 18:09:34.378> Updating points
+   [INFO] <2022-05-02; 18:09:34.381> Updated points: 90
+   [INFO] <2022-05-02; 18:09:34.477> isPlaying
+   [INFO] <2022-05-02; 18:09:34.478> Playing
+   [INFO] <2022-05-02; 18:09:34.478> Updating points
+   [INFO] <2022-05-02; 18:09:34.480> Updated points: 91
+   [INFO] <2022-05-02; 18:09:34.581> isPlaying
+   [INFO] <2022-05-02; 18:09:34.582> Playing
+   [INFO] <2022-05-02; 18:09:34.582> Updating points
+   [INFO] <2022-05-02; 18:09:34.584> Updated points: 92
+   [INFO] <2022-05-02; 18:09:34.681> isPlaying
+   [INFO] <2022-05-02; 18:09:34.682> Playing
+   [INFO] <2022-05-02; 18:09:34.682> Updating points
+   [INFO] <2022-05-02; 18:09:34.684> Updated points: 93
+   [INFO] <2022-05-02; 18:09:34.785> isPlaying
+   [INFO] <2022-05-02; 18:09:34.786> Playing
+   [INFO] <2022-05-02; 18:09:34.786> Updating points
+   [INFO] <2022-05-02; 18:09:34.789> Updated points: 94
+   [INFO] <2022-05-02; 18:09:34.886> isPlaying
+   [INFO] <2022-05-02; 18:09:34.887> Playing
+   [INFO] <2022-05-02; 18:09:34.887> Updating points
+   [INFO] <2022-05-02; 18:09:34.890> Updated points: 95
+   [INFO] <2022-05-02; 18:09:34.987> isPlaying
+   [INFO] <2022-05-02; 18:09:34.987> Playing
+   [INFO] <2022-05-02; 18:09:34.988> Updating points
+   [INFO] <2022-05-02; 18:09:34.989> Updated points: 96
+   [INFO] <2022-05-02; 18:09:35.086> isPlaying
+   [INFO] <2022-05-02; 18:09:35.087> Playing
+   [INFO] <2022-05-02; 18:09:35.087> Updating points
+   [INFO] <2022-05-02; 18:09:35.089> Updated points: 97
+   [INFO] <2022-05-02; 18:09:35.189> isPlaying
+   [INFO] <2022-05-02; 18:09:35.190> Playing
+   [INFO] <2022-05-02; 18:09:35.190> Updating points
+   [INFO] <2022-05-02; 18:09:35.192> Updated points: 98
+   [INFO] <2022-05-02; 18:09:35.292> isPlaying
+   [INFO] <2022-05-02; 18:09:35.293> Playing
+   [INFO] <2022-05-02; 18:09:35.294> Updating points
+   [INFO] <2022-05-02; 18:09:35.296> Updated points: 99
+   [INFO] <2022-05-02; 18:09:35.395> isPlaying
+   [INFO] <2022-05-02; 18:09:35.395> Playing
+   [INFO] <2022-05-02; 18:09:35.396> Updating points
+   [INFO] <2022-05-02; 18:09:35.398> Updated points: 100
+   [INFO] <2022-05-02; 18:09:35.495> isPlaying
+   [INFO] <2022-05-02; 18:09:35.496> Playing
+   [INFO] <2022-05-02; 18:09:35.497> Updating points
+   [INFO] <2022-05-02; 18:09:35.500> Updated points: 101
+   [INFO] <2022-05-02; 18:09:35.598> isPlaying
+   [INFO] <2022-05-02; 18:09:35.598> Playing
+   [INFO] <2022-05-02; 18:09:35.599> Updating points
+   [INFO] <2022-05-02; 18:09:35.601> Updated points: 102
+   [INFO] <2022-05-02; 18:09:35.697> isPlaying
+   [INFO] <2022-05-02; 18:09:35.698> Playing
+   [INFO] <2022-05-02; 18:09:35.699> Updating points
+   [INFO] <2022-05-02; 18:09:35.702> Updated points: 103
+   [INFO] <2022-05-02; 18:09:35.798> isPlaying
+   [INFO] <2022-05-02; 18:09:35.798> Playing
+   [INFO] <2022-05-02; 18:09:35.799> Updating points
+   [INFO] <2022-05-02; 18:09:35.800> Updated points: 104
+   [INFO] <2022-05-02; 18:09:35.898> isPlaying
+   [INFO] <2022-05-02; 18:09:35.898> Playing
+   [INFO] <2022-05-02; 18:09:35.899> Updating points
+   [INFO] <2022-05-02; 18:09:35.901> Updated points: 105
+   [INFO] <2022-05-02; 18:09:35.998> isPlaying
+   [INFO] <2022-05-02; 18:09:35.998> Playing
+   [INFO] <2022-05-02; 18:09:35.999> Updating points
+   [INFO] <2022-05-02; 18:09:36.001> Updated points: 106
+   [INFO] <2022-05-02; 18:09:36.098> isPlaying
+   [INFO] <2022-05-02; 18:09:36.098> Playing
+   [INFO] <2022-05-02; 18:09:36.099> Updating points
+   [INFO] <2022-05-02; 18:09:36.100> Updated points: 107
+   [INFO] <2022-05-02; 18:09:36.198> isPlaying
+   [INFO] <2022-05-02; 18:09:36.199> Playing
+   [INFO] <2022-05-02; 18:09:36.199> Updating points
+   [INFO] <2022-05-02; 18:09:36.201> Updated points: 108
+   [INFO] <2022-05-02; 18:09:36.298> isPlaying
+   [INFO] <2022-05-02; 18:09:36.298> Playing
+   [INFO] <2022-05-02; 18:09:36.299> Updating points
+   [INFO] <2022-05-02; 18:09:36.301> Updated points: 109
+   [INFO] <2022-05-02; 18:09:36.398> isPlaying
+   [INFO] <2022-05-02; 18:09:36.398> Playing
+   [INFO] <2022-05-02; 18:09:36.399> Updating points
+   [INFO] <2022-05-02; 18:09:36.401> Updated points: 110
+   [INFO] <2022-05-02; 18:09:36.500> isPlaying
+   [INFO] <2022-05-02; 18:09:36.500> Playing
+   [INFO] <2022-05-02; 18:09:36.500> Updating points
+   [INFO] <2022-05-02; 18:09:36.502> Updated points: 111
+   [INFO] <2022-05-02; 18:09:36.601> isPlaying
+   [INFO] <2022-05-02; 18:09:36.601> Playing
+   [INFO] <2022-05-02; 18:09:36.601> Updating points
+   [INFO] <2022-05-02; 18:09:36.602> Updated points: 112
+   [INFO] <2022-05-02; 18:09:36.705> isPlaying
+   [INFO] <2022-05-02; 18:09:36.706> Playing
+   [INFO] <2022-05-02; 18:09:36.706> Updating points
+   [INFO] <2022-05-02; 18:09:36.708> Updated points: 113
+   [INFO] <2022-05-02; 18:09:36.806> isPlaying
+   [INFO] <2022-05-02; 18:09:36.807> Playing
+   [INFO] <2022-05-02; 18:09:36.807> Updating points
+   [INFO] <2022-05-02; 18:09:36.809> Updated points: 114
+   [INFO] <2022-05-02; 18:09:36.909> isPlaying
+   [INFO] <2022-05-02; 18:09:36.909> Playing
+   [INFO] <2022-05-02; 18:09:36.910> Updating points
+   [INFO] <2022-05-02; 18:09:36.911> Updated points: 115
+   [INFO] <2022-05-02; 18:09:37.013> isPlaying
+   [INFO] <2022-05-02; 18:09:37.013> Playing
+   [INFO] <2022-05-02; 18:09:37.014> Updating points
+   [INFO] <2022-05-02; 18:09:37.016> Updated points: 116
+   [INFO] <2022-05-02; 18:09:37.114> isPlaying
+   [INFO] <2022-05-02; 18:09:37.115> Playing
+   [INFO] <2022-05-02; 18:09:37.115> Updating points
+   [INFO] <2022-05-02; 18:09:37.117> Updated points: 117
+   [INFO] <2022-05-02; 18:09:37.214> isPlaying
+   [INFO] <2022-05-02; 18:09:37.216> Playing
+   [INFO] <2022-05-02; 18:09:37.216> Updating points
+   [INFO] <2022-05-02; 18:09:37.218> Updated points: 118
+   [INFO] <2022-05-02; 18:09:37.314> isPlaying
+   [INFO] <2022-05-02; 18:09:37.315> Playing
+   [INFO] <2022-05-02; 18:09:37.315> Updating points
+   [INFO] <2022-05-02; 18:09:37.317> Updated points: 119
+   [INFO] <2022-05-02; 18:09:37.416> isPlaying
+   [INFO] <2022-05-02; 18:09:37.417> Playing
+   [INFO] <2022-05-02; 18:09:37.417> Updating points
+   [INFO] <2022-05-02; 18:09:37.419> Updated points: 120
+   [INFO] <2022-05-02; 18:09:37.516> isPlaying
+   [INFO] <2022-05-02; 18:09:37.517> Playing
+   [INFO] <2022-05-02; 18:09:37.517> Updating points
+   [INFO] <2022-05-02; 18:09:37.519> Updated points: 121
+   [INFO] <2022-05-02; 18:09:37.618> isPlaying
+   [INFO] <2022-05-02; 18:09:37.619> Playing
+   [INFO] <2022-05-02; 18:09:37.619> Updating points
+   [INFO] <2022-05-02; 18:09:37.621> Updated points: 122
+   [INFO] <2022-05-02; 18:09:37.722> isPlaying
+   [INFO] <2022-05-02; 18:09:37.723> Playing
+   [INFO] <2022-05-02; 18:09:37.723> Updating points
+   [INFO] <2022-05-02; 18:09:37.727> Updated points: 123
+   [INFO] <2022-05-02; 18:09:37.822> isPlaying
+   [INFO] <2022-05-02; 18:09:37.823> Playing
+   [INFO] <2022-05-02; 18:09:37.823> Updating points
+   [INFO] <2022-05-02; 18:09:37.826> Updated points: 124
+   

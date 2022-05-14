@@ -1,0 +1,205 @@
+[INFO] <2022-05-02; 18:16:09.044>    Player Tracker Decoder App v1.6.1 - LOG FILE
+   [INFO] <2022-05-02; 18:16:09.046> Initializing logger
+   [INFO] <2022-05-02; 18:16:09.047> Logger successfully initialized
+   [INFO] <2022-05-02; 18:16:09.047> Initializing primary systems
+   [INFO] <2022-05-02; 18:16:09.048> Initializing settings subsystem
+   [INFO] <2022-05-02; 18:16:09.049> Fetching and parsing settings from config file
+   [INFO] <2022-05-02; 18:16:09.050> Settings: 15
+   [INFO] <2022-05-02; 18:16:09.050> 1
+   [INFO] <2022-05-02; 18:16:09.051> true
+   [INFO] <2022-05-02; 18:16:09.051> 0
+   [INFO] <2022-05-02; 18:16:09.051> true
+   [INFO] <2022-05-02; 18:16:09.052> 5.0
+   [INFO] <2022-05-02; 18:16:09.052> true
+   [INFO] <2022-05-02; 18:16:09.053> LINE
+   [INFO] <2022-05-02; 18:16:09.053> 200
+   [INFO] <2022-05-02; 18:16:09.053> false
+   [INFO] <2022-05-02; 18:16:09.054> true
+   [INFO] <2022-05-02; 18:16:09.054> false
+   [INFO] <2022-05-02; 18:16:09.054> true
+   [INFO] <2022-05-02; 18:16:09.054> false
+   [INFO] <2022-05-02; 18:16:09.055> ageFadeThreshold: 0
+   [INFO] <2022-05-02; 18:16:09.055> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-02; 18:16:09.055> Successfully initialized settings subsystem
+   [INFO] <2022-05-02; 18:16:09.056> Initializing decoder subsystem
+   [INFO] <2022-05-02; 18:16:09.056> Successfully initialized decoder subsystem
+   [INFO] <2022-05-02; 18:16:09.057> Initializing primary frame subsystem
+   [INFO] <2022-05-02; 18:16:09.063> Initializing main display subsystem
+   [INFO] <2022-05-02; 18:16:09.063> Antialiasing enabled on main display panel
+   [INFO] <2022-05-02; 18:16:09.063> Successfully initialized main display subsystem
+   [INFO] <2022-05-02; 18:16:09.072> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-02; 18:16:09.072> Loading resources
+   [INFO] <2022-05-02; 18:16:09.996> Successfully initialized all subsystems
+   [INFO] <2022-05-02; 18:16:14.054> Decoding process started
+   [INFO] <2022-05-02; 18:16:14.055> Decoding data
+   [INFO] <2022-05-02; 18:16:14.055> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.056> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.056> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.057> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.057> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.058> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.058> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.058> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.059> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.059> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.059> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.060> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.060> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.060> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.061> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.061> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.061> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.062> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.062> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.063> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.063> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.063> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.064> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.065> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.065> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.065> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.066> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.066> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.067> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.067> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.067> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.068> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.069> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.069> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.070> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.071> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.071> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.072> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.072> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.073> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.073> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.073> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.074> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.074> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.075> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.075> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.075> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.076> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.076> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.076> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.077> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.077> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.077> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.078> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.078> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.079> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:14.079> Fetched and indexed input file
+   [INFO] <2022-05-02; 18:16:15.096> maxX: 8634 minX: -6267; maxY: 2590 minY: -5018
+   [INFO] <2022-05-02; 18:16:15.097> xRange: 14901 yRange: 7608
+   [INFO] <2022-05-02; 18:16:15.097> Successfully decoded data
+   [INFO] <2022-05-02; 18:16:15.097> Setting data to display
+   [INFO] <2022-05-02; 18:16:15.190> Successfully set data to display
+   [INFO] <2022-05-02; 18:16:15.191> Updating points
+   [INFO] <2022-05-02; 18:16:15.400> Updated points: 102567
+   [INFO] <2022-05-02; 18:16:15.400> Decoding process finished successfully
+   [INFO] <2022-05-02; 18:16:15.401> Initializing toolbar subsystem
+   [INFO] <2022-05-02; 18:16:17.712> Successfully initialized toolbar subsystem
+   [INFO] <2022-05-02; 18:16:17.713> Selected files: 57
+   [INFO] <2022-05-02; 18:16:17.714> World background images are present, opening selection screen
+   [INFO] <2022-05-02; 18:16:17.715> World background image is present, loading world background image
+   [WARNING] <2022-05-02; 18:16:18.972> No world background images selected
+   [INFO] <2022-05-02; 18:16:25.519> Saving and writing settings to config file
+   [INFO] <2022-05-02; 18:16:25.528> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 18:16:25.529> Toggled age fade to: true
+   [INFO] <2022-05-02; 18:16:28.053> Saving and writing settings to config file
+   [INFO] <2022-05-02; 18:16:28.055> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 18:16:28.056> Toggled age fade to: false
+   [INFO] <2022-05-02; 18:16:29.450> Saving and writing settings to config file
+   [INFO] <2022-05-02; 18:16:29.452> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 18:16:29.453> Changed draw size to: 1
+   [INFO] <2022-05-02; 18:16:29.565> Saving and writing settings to config file
+   [INFO] <2022-05-02; 18:16:29.566> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 18:16:29.566> Changed draw size to: 8
+   [INFO] <2022-05-02; 18:16:29.686> Saving and writing settings to config file
+   [INFO] <2022-05-02; 18:16:29.687> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 18:16:29.688> Changed draw size to: 10
+   [INFO] <2022-05-02; 18:16:29.814> Saving and writing settings to config file
+   [INFO] <2022-05-02; 18:16:29.815> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 18:16:29.816> Changed draw size to: 16
+   [INFO] <2022-05-02; 18:16:29.929> Saving and writing settings to config file
+   [INFO] <2022-05-02; 18:16:29.930> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 18:16:29.931> Changed draw size to: 23
+   [INFO] <2022-05-02; 18:16:30.047> Saving and writing settings to config file
+   [INFO] <2022-05-02; 18:16:30.049> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 18:16:30.049> Changed draw size to: 27
+   [INFO] <2022-05-02; 18:16:30.158> Saving and writing settings to config file
+   [INFO] <2022-05-02; 18:16:30.159> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 18:16:30.159> Changed draw size to: 27
+   [INFO] <2022-05-02; 18:16:32.159> Saving and writing settings to config file
+   [INFO] <2022-05-02; 18:16:32.160> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 18:16:32.160> Changed draw size to: 27
+   [INFO] <2022-05-02; 18:16:32.312> Saving and writing settings to config file
+   [INFO] <2022-05-02; 18:16:32.314> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 18:16:32.315> Changed draw size to: 25
+   [INFO] <2022-05-02; 18:16:32.430> Saving and writing settings to config file
+   [INFO] <2022-05-02; 18:16:32.431> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 18:16:32.431> Changed draw size to: 0
+   [INFO] <2022-05-02; 18:16:32.872> Saving and writing settings to config file
+   [INFO] <2022-05-02; 18:16:32.873> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 18:16:32.873> Changed draw size to: 0
+   [INFO] <2022-05-02; 18:16:34.850> Saving and writing settings to config file
+   [INFO] <2022-05-02; 18:16:34.851> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 18:16:34.852> Toggled fancy lines to: true
+   [INFO] <2022-05-02; 18:16:37.758> Saving and writing settings to config file
+   [INFO] <2022-05-02; 18:16:37.760> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 18:16:37.760> Toggled fancy lines to: false
+   [INFO] <2022-05-02; 18:16:38.573> Saving and writing settings to config file
+   [INFO] <2022-05-02; 18:16:38.574> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 18:16:38.575> Toggled terminus points to: false
+   [INFO] <2022-05-02; 18:16:41.171> Saving and writing settings to config file
+   [INFO] <2022-05-02; 18:16:41.172> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 18:16:41.172> Toggled terminus points to: true
+   [INFO] <2022-05-02; 18:16:43.580> Saving and writing settings to config file
+   [INFO] <2022-05-02; 18:16:43.582> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 18:16:43.583> Toggled hidden lines to: true
+   [INFO] <2022-05-02; 18:16:44.754> Saving and writing settings to config file
+   [INFO] <2022-05-02; 18:16:44.756> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 18:16:44.756> Toggled hidden lines to: false
+   [INFO] <2022-05-02; 18:16:45.940> Saving and writing settings to config file
+   [INFO] <2022-05-02; 18:16:45.941> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 18:16:45.942> Toggled age fade to: true
+   [INFO] <2022-05-02; 18:16:47.730> Saving and writing settings to config file
+   [INFO] <2022-05-02; 18:16:47.731> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-02; 18:16:47.732> Toggled age fade to: false
+   [INFO] <2022-05-02; 18:16:50.872> Started playing animation
+   [INFO] <2022-05-02; 18:16:50.928> isPlaying
+   [INFO] <2022-05-02; 18:16:50.928> Finished playing
+   [INFO] <2022-05-02; 18:16:50.929> Updating points
+   [INFO] <2022-05-02; 18:16:50.948> Updated points: 0
+   [INFO] <2022-05-02; 18:16:50.949> Changed date range slider: From 2022-01-21T20:29:53 to 2022-01-21T20:29:53
+   [INFO] <2022-05-02; 18:16:53.966> Stopped playing animation
+   [INFO] <2022-05-02; 18:16:57.406> Started playing animation
+   [INFO] <2022-05-02; 18:16:58.156> Stopped playing animation
+   [INFO] <2022-05-02; 18:17:00.440> Started playing animation
+   [INFO] <2022-05-02; 18:17:01.390> Stopped playing animation
+   [INFO] <2022-05-02; 18:17:02.469> Updating points
+   [INFO] <2022-05-02; 18:17:02.477> Updated points: 0
+   [INFO] <2022-05-02; 18:17:02.478> Changed date range slider: From 2022-01-21T20:29:53 to 2022-01-21T20:29:53
+   [INFO] <2022-05-02; 18:17:02.483> Updating points
+   [INFO] <2022-05-02; 18:17:02.492> Updated points: 0
+   [INFO] <2022-05-02; 18:17:02.493> Changed date range slider: From 2022-01-21T20:29:53 to 2022-01-21T20:53:48
+   [INFO] <2022-05-02; 18:17:02.504> Updating points
+   [INFO] <2022-05-02; 18:17:02.517> Updated points: 0
+   [INFO] <2022-05-02; 18:17:02.517> Changed date range slider: From 2022-01-21T20:29:53 to 2022-01-21T21:36:51
+   [INFO] <2022-05-02; 18:17:02.522> Updating points
+   [INFO] <2022-05-02; 18:17:02.538> Updated points: 0
+   [INFO] <2022-05-02; 18:17:02.538> Changed date range slider: From 2022-01-21T20:29:53 to 2022-01-22T22:07:16
+   [INFO] <2022-05-02; 18:17:02.543> Updating points
+   [INFO] <2022-05-02; 18:17:02.558> Updated points: 0
+   [INFO] <2022-05-02; 18:17:02.559> Changed date range slider: From 2022-01-21T20:29:53 to 2022-01-23T19:33:22
+   [INFO] <2022-05-02; 18:17:02.564> Updating points
+   [INFO] <2022-05-02; 18:17:02.584> Updated points: 375
+   [INFO] <2022-05-02; 18:17:02.584> Changed date range slider: From 2022-01-21T20:29:53 to 2022-01-24T21:31:36
+   [INFO] <2022-05-02; 18:17:02.591> Updating points
+   [INFO] <2022-05-02; 18:17:02.609> Updated points: 1001
+   [INFO] <2022-05-02; 18:17:02.610> Changed date range slider: From 2022-01-21T20:29:53 to 2022-01-25T21:35:33
+   [INFO] <2022-05-02; 18:17:02.626> Updating points
+   [INFO] <2022-05-02; 18:17:02.641> Updated points: 1001
+   [INFO] <2022-05-02; 18:17:02.641> Changed date range slider: From 2022-01-21T20:29:53 to 2022-01-25T21:35:33
+   [INFO] <2022-05-02; 18:17:03.662> Started playing animation
+   

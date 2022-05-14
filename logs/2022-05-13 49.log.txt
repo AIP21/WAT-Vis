@@ -1,0 +1,3129 @@
+[INFO] <2022-05-13; 17:25:36.743>    Player Tracker Decoder App v1.7.0 - LOG FILE
+   [INFO] <2022-05-13; 17:25:36.745> Initializing logger
+   [INFO] <2022-05-13; 17:25:36.745> Logger successfully initialized
+   [INFO] <2022-05-13; 17:25:36.746> Initializing primary systems
+   [INFO] <2022-05-13; 17:25:36.747> Initializing settings subsystem
+   [INFO] <2022-05-13; 17:25:36.748> Fetching and parsing settings from config file
+   [INFO] <2022-05-13; 17:25:36.748> Settings: 17
+   [INFO] <2022-05-13; 17:25:36.749> 1
+   [INFO] <2022-05-13; 17:25:36.749> true
+   [INFO] <2022-05-13; 17:25:36.749> 0
+   [INFO] <2022-05-13; 17:25:36.750> true
+   [INFO] <2022-05-13; 17:25:36.750> 5.0
+   [INFO] <2022-05-13; 17:25:36.751> true
+   [INFO] <2022-05-13; 17:25:36.751> Heat
+   [INFO] <2022-05-13; 17:25:36.751> 200
+   [INFO] <2022-05-13; 17:25:36.752> false
+   [INFO] <2022-05-13; 17:25:36.752> true
+   [INFO] <2022-05-13; 17:25:36.752> false
+   [INFO] <2022-05-13; 17:25:36.753> false
+   [INFO] <2022-05-13; 17:25:36.753> false
+   [INFO] <2022-05-13; 17:25:36.753> ageFadeThreshold: 0
+   [INFO] <2022-05-13; 17:25:36.754> ChangeSize
+   [INFO] <2022-05-13; 17:25:36.754> 0
+   [INFO] <2022-05-13; 17:25:36.755> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-13; 17:25:36.755> Successfully initialized settings subsystem
+   [INFO] <2022-05-13; 17:25:36.756> Initializing decoder subsystem
+   [INFO] <2022-05-13; 17:25:36.757> Successfully initialized decoder subsystem
+   [INFO] <2022-05-13; 17:25:36.757> Initializing primary frame subsystem
+   [INFO] <2022-05-13; 17:25:36.762> Initializing main display subsystem
+   [INFO] <2022-05-13; 17:25:36.762> Antialiasing enabled on main display panel
+   [INFO] <2022-05-13; 17:25:36.763> Successfully initialized main display subsystem
+   [INFO] <2022-05-13; 17:25:36.772> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-13; 17:25:36.772> Loading resources
+   [INFO] <2022-05-13; 17:25:37.723> Successfully initialized all subsystems
+   [INFO] <2022-05-13; 17:25:40.826> Selected files: 12
+   [INFO] <2022-05-13; 17:25:40.827> Decoding process started
+   [INFO] <2022-05-13; 17:25:40.827> Decoding data
+   [INFO] <2022-05-13; 17:25:40.830> Fetched and indexed input file: server-overworld-log-2022-01-24.txt
+   [INFO] <2022-05-13; 17:25:40.831> Fetched and indexed input file: server-overworld-log-2022-01-25.txt
+   [INFO] <2022-05-13; 17:25:40.833> Fetched and indexed input file: server-overworld-log-2022-01-28.txt
+   [INFO] <2022-05-13; 17:25:40.834> Fetched and indexed input file: server-overworld-log-2022-01-29.txt
+   [INFO] <2022-05-13; 17:25:40.835> Fetched and indexed input file: server-overworld-log-2022-01-30.txt
+   [INFO] <2022-05-13; 17:25:40.835> Fetched and indexed input file: server-overworld-log-2022-01-31.txt
+   [INFO] <2022-05-13; 17:25:40.836> Fetched and indexed input file: server-overworld-log-2022-02-01.txt
+   [INFO] <2022-05-13; 17:25:40.836> Fetched and indexed input file: server-overworld-log-2022-02-02.txt
+   [INFO] <2022-05-13; 17:25:40.836> Fetched and indexed input file: server-overworld-log-2022-02-03.txt
+   [INFO] <2022-05-13; 17:25:40.836> Fetched and indexed input file: server-overworld-log-2022-02-04.txt
+   [INFO] <2022-05-13; 17:25:40.837> Fetched and indexed input file: server-overworld-log-2022-02-05.txt
+   [INFO] <2022-05-13; 17:25:40.837> Fetched and indexed input file: server-overworld-log-2022-02-06.txt
+   [INFO] <2022-05-13; 17:25:41.306> maxX: 2305 minX: -2172; maxY: 1681 minY: -2583
+   [INFO] <2022-05-13; 17:25:41.307> xRange: 4477 yRange: 4264
+   [INFO] <2022-05-13; 17:25:41.307> Successfully decoded data
+   [INFO] <2022-05-13; 17:25:41.307> Setting data to display
+   [INFO] <2022-05-13; 17:25:41.338> Successfully set data to display
+   [INFO] <2022-05-13; 17:25:41.338> Updating points
+   [INFO] <2022-05-13; 17:25:41.383> Updated points: 22730
+   [INFO] <2022-05-13; 17:25:41.384> Initializing toolbar subsystem
+   [INFO] <2022-05-13; 17:25:42.049> Successfully initialized toolbar subsystem
+   [INFO] <2022-05-13; 17:25:42.050> Selected files: 12
+   [INFO] <2022-05-13; 17:25:42.051> World background images are present, opening selection screen
+   [INFO] <2022-05-13; 17:25:42.052> Decoding process finished successfully
+   [INFO] <2022-05-13; 17:25:42.052> Opening world background image dialog
+   [WARNING] <2022-05-13; 17:25:43.453> No world background images selected
+   [INFO] <2022-05-13; 17:25:51.255> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:25:51.264> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:25:51.265> Changed draw type to: Pixel
+   [INFO] <2022-05-13; 17:25:53.021> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:25:53.023> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:25:53.024> Changed draw type to: Dot
+   [INFO] <2022-05-13; 17:25:58.674> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:25:58.676> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:25:58.677> Changed draw type to: Heat
+   [INFO] <2022-05-13; 17:26:02.897> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:02.899> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:02.899> Changed heat draw type to: ChangeColor
+   [INFO] <2022-05-13; 17:26:04.602> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:04.604> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:04.604> Changed heat draw type to: ChangeSize
+   [INFO] <2022-05-13; 17:26:06.959> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:06.961> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:06.961> Changed draw size to: 1
+   [INFO] <2022-05-13; 17:26:06.962> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:06.962> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:06.963> Changed draw size to: 7
+   [INFO] <2022-05-13; 17:26:06.963> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:06.964> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:06.964> Changed draw size to: 7
+   [INFO] <2022-05-13; 17:26:07.247> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:07.248> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:07.248> Changed draw size to: 7
+   [INFO] <2022-05-13; 17:26:07.248> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:07.249> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:07.249> Changed draw size to: 8
+   [INFO] <2022-05-13; 17:26:07.280> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:07.281> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:07.281> Changed draw size to: 9
+   [INFO] <2022-05-13; 17:26:07.349> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:07.352> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:07.353> Changed draw size to: 10
+   [INFO] <2022-05-13; 17:26:07.446> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:07.447> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:07.448> Changed draw size to: 9
+   [INFO] <2022-05-13; 17:26:07.480> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:07.481> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:07.481> Changed draw size to: 8
+   [INFO] <2022-05-13; 17:26:07.503> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:07.504> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:07.505> Changed draw size to: 7
+   [INFO] <2022-05-13; 17:26:07.543> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:07.547> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:07.548> Changed draw size to: 5
+   [INFO] <2022-05-13; 17:26:07.574> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:07.579> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:07.581> Changed draw size to: 4
+   [INFO] <2022-05-13; 17:26:07.604> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:07.606> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:07.609> Changed draw size to: 3
+   [INFO] <2022-05-13; 17:26:07.628> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:07.633> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:07.634> Changed draw size to: 2
+   [INFO] <2022-05-13; 17:26:07.653> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:07.657> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:07.658> Changed draw size to: 1
+   [INFO] <2022-05-13; 17:26:07.676> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:07.679> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:07.681> Changed draw size to: 0
+   [INFO] <2022-05-13; 17:26:08.940> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:08.943> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:08.944> Changed draw size to: 1
+   [INFO] <2022-05-13; 17:26:09.160> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:09.161> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:09.161> Changed draw size to: 2
+   [INFO] <2022-05-13; 17:26:09.270> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:09.271> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:09.271> Changed draw size to: 2
+   [INFO] <2022-05-13; 17:26:10.029> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:10.030> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:10.031> Changed draw size to: 2
+   [INFO] <2022-05-13; 17:26:10.086> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:10.087> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:10.087> Changed draw size to: 1
+   [INFO] <2022-05-13; 17:26:10.403> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:10.404> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:10.404> Changed draw size to: 1
+   [INFO] <2022-05-13; 17:26:11.271> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:11.273> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:11.273> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:11.274> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:11.275> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:11.275> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:11.275> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:11.276> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:11.277> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:11.456> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:11.457> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:11.458> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:11.490> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:11.495> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:11.496> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:11.520> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:11.526> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:11.528> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:11.557> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:11.561> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:11.566> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:11.599> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:11.605> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:11.607> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:11.637> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:11.642> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:11.645> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:11.678> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:11.680> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:11.681> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:11.703> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:11.704> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:11.705> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:11.714> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:11.715> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:11.716> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:11.726> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:11.726> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:11.727> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:11.743> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:11.744> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:11.744> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:11.759> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:11.759> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:11.759> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:11.776> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:11.776> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:11.776> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:11.793> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:11.794> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:11.794> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:11.810> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:11.810> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:11.811> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:11.825> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:11.826> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:11.826> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:11.843> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:11.844> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:11.844> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:11.859> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:11.860> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:11.860> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:11.876> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:11.877> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:11.877> Changed age fade threshold to: 1
+   [INFO] <2022-05-13; 17:26:12.410> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:12.411> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:12.411> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:12.427> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:12.429> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:12.430> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:12.443> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:12.444> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:12.444> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:12.460> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:12.463> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:12.463> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:12.476> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:12.479> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:12.480> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:12.493> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:12.495> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:12.495> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:12.510> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:12.512> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:12.513> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:12.527> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:12.529> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:12.530> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:12.544> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:12.545> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:12.546> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:12.561> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:12.562> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:12.563> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:12.577> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:12.578> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:12.579> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:13.013> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:13.013> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:13.014> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:13.029> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:13.031> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:13.032> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:13.045> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:13.045> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:13.046> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:13.061> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:13.062> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:13.062> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:13.078> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:13.079> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:13.080> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:13.095> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:13.096> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:13.097> Changed age fade threshold to: 0
+   [INFO] <2022-05-13; 17:26:13.111> Saving and writing settings to config file
+   [INFO] <2022-05-13; 17:26:13.113> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-13; 17:26:13.113> Changed age fade threshold to: 1
+   [INFO] <2022-05-13; 17:26:13.779> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 21:43:25, (-291, 32, -208)
+   [INFO] <2022-05-13; 17:26:13.779> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 21:43:30, (-291, 32, -208)
+   [INFO] <2022-05-13; 17:26:15.709> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 09:50:01, (-258, 70, -205)
+   [INFO] <2022-05-13; 17:26:15.718> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 12:13:37, (-258, 69, -203)
+   [INFO] <2022-05-13; 17:26:17.758> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:35:53, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:17.759> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:35:58, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:17.759> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:36:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.759> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:36:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.760> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:36:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.760> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:36:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.760> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:36:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.761> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:36:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.761> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:36:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.761> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:36:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.761> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:36:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.762> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:36:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.762> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:36:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.762> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:36:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.762> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:37:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.763> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:37:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.763> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:39:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.763> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:39:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.763> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:39:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.764> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:39:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.764> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:40:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.764> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:40:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.764> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:40:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.765> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:40:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.765> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:40:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.765> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:40:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.766> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:40:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.766> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:41:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.766> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:41:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.766> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:41:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.766> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:41:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.767> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:41:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.767> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:41:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.767> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:41:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.767> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:41:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.768> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:41:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.768> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:42:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.768> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:42:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.768> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:42:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.768> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:42:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.769> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:42:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.769> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:42:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.769> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:42:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.769> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:42:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.769> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:42:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.770> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:43:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.770> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:43:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.770> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:43:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.770> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:43:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.771> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:43:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.771> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:43:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.771> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:43:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.771> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:43:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.771> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:43:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.771> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:43:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.772> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:43:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.772> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:43:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.772> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:44:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.772> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:44:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.772> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:44:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.773> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:44:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.773> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:44:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.773> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:44:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.773> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:44:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.773> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:44:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.773> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:44:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.774> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:44:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.774> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:44:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.774> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:44:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.774> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:45:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.774> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:45:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.774> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:45:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.775> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:45:33, (-280, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.775> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:47:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.775> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:47:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.775> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:47:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.775> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:47:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.775> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:47:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.775> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:47:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.776> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:48:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.776> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:48:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.776> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:48:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.776> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:48:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.776> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:48:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.776> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:48:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.776> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:48:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.777> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:48:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.777> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:48:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.777> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:48:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.777> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:48:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.777> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:48:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.777> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:49:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.777> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:49:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.777> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:49:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.778> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:49:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.778> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:49:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.778> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:49:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.778> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:49:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.778> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:49:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.778> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:49:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.778> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:49:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.779> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:49:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.779> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:50:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.779> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:50:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.779> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:50:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.779> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:50:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.779> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:50:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.780> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:50:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.780> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:50:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.780> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:50:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.780> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:50:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.780> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:50:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.780> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:50:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.780> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:50:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.781> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:51:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.781> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:51:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.781> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:51:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.781> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:51:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.781> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:51:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.781> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:51:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.781> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:51:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.782> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:51:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.782> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:51:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.782> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:51:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.782> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:51:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.782> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:52:18, (-281, 33, -213)
+   [INFO] <2022-05-13; 17:26:17.782> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:52:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.782> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:52:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.783> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:52:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.783> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:52:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.783> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:52:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.783> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:52:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.783> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:52:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.783> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:52:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.784> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:53:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.784> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:53:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.784> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:53:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.784> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:53:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.784> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:53:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.784> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:53:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.785> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:53:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.785> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:53:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.785> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:53:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.785> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:53:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.785> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:53:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.785> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:53:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.785> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:54:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.785> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:54:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.786> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:54:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.786> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:54:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.786> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:54:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.786> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:54:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.786> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:54:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.786> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:54:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.786> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:54:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.786> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:54:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.787> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:54:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.787> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:54:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.787> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:55:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.787> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:55:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.787> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:55:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.787> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:55:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.787> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:55:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.787> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:55:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.788> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:55:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.788> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:55:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.788> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:55:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.788> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:55:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.788> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:55:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.789> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:55:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.789> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:56:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.789> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:56:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.789> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:56:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.789> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:56:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.790> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:56:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.790> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:56:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.790> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:56:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.790> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:56:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.790> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:56:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.790> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:56:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.791> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:56:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.791> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:56:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.791> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:57:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.791> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:57:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.791> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:57:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.791> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:57:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.792> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:57:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.792> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:57:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.792> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:57:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.792> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:57:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.792> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:57:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.792> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:57:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.792> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:57:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.793> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:57:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.793> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:58:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.793> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:58:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.793> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:58:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.793> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:58:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.793> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:58:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.793> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:58:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.794> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:58:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.794> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:58:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.794> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:58:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.794> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:58:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.794> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:58:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.794> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:58:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.794> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:59:03, (-280, 33, -213)
+   [INFO] <2022-05-13; 17:26:17.794> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:59:08, (-280, 33, -213)
+   [INFO] <2022-05-13; 17:26:17.795> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:59:13, (-280, 33, -213)
+   [INFO] <2022-05-13; 17:26:17.795> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:59:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.795> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:59:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.795> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:59:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.795> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:59:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.795> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:59:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.795> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:59:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.795> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:59:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.795> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:59:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.796> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:59:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.796> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:00:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.796> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:00:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.796> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:00:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.796> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:00:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.797> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:01:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.797> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:01:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.797> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:01:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.797> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:01:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.797> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:01:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.797> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:02:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.798> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:02:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.798> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:02:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.798> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:02:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.798> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:02:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.798> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:02:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.798> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:02:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.798> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:02:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.798> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:02:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.799> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:02:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.799> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:02:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.799> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:02:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.799> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:03:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.799> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:03:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.799> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:03:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.799> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:03:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.799> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:03:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.800> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:03:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.800> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:03:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.800> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:03:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.800> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:03:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.800> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:03:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.800> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:03:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.800> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:03:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.801> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:04:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.801> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:04:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.801> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:04:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.801> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:04:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.801> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:04:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.801> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:04:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.801> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:04:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.801> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:04:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.802> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:04:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.802> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:04:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.802> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:04:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.802> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:04:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.802> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:05:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.802> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:05:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.802> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:05:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.802> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:05:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.802> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:05:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.803> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:05:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.803> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:05:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.803> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:05:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.803> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:05:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.803> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:05:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.803> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:05:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.803> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:05:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.803> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:06:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.803> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:06:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.804> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:06:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.804> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:06:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.804> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:06:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.804> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:06:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.804> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:06:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.805> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:06:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.805> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:06:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.805> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:06:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.805> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:06:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.805> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:06:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.805> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:07:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.805> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:07:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.805> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:07:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.806> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:07:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.806> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:07:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.806> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:07:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.806> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:07:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.806> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:07:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.806> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:07:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.806> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:07:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.806> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:07:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.807> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:07:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.807> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:08:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.807> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:08:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.807> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:08:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.807> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:08:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.807> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:08:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.807> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:08:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.807> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:08:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.808> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:08:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.808> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:08:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.808> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:08:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.808> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:09:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.808> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:09:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.808> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:09:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.808> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:09:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.808> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:09:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.809> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:09:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.809> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:09:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.809> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:09:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.809> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:09:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.809> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:09:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.809> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:09:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.809> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:10:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.809> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:10:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.809> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:10:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.810> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:10:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.810> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:10:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.810> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:10:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.810> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:10:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.810> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:10:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.810> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:10:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.810> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:10:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.810> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:10:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.811> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:10:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.811> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:11:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.811> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:11:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.811> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:11:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.811> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:11:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.811> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:11:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.811> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:11:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.811> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:11:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.812> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:11:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.812> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:11:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.812> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:11:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.812> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:11:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.812> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:11:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.812> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:12:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.812> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:12:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.813> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:12:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.813> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:12:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.813> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:12:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.813> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:12:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.813> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:12:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.813> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:13:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.813> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:13:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.814> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:13:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.814> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:13:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.814> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:13:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.814> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:13:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.814> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:13:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.814> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:14:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.814> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:14:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.814> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:14:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.814> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:14:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.815> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:14:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.815> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:14:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.815> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:14:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.815> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:14:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.815> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:14:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.815> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:14:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.815> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:14:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.815> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:14:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.815> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:15:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.816> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:15:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.816> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:15:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.816> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:15:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.816> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:15:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.816> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:15:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.816> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:15:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.816> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:15:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.816> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:15:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.816> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:15:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.817> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:15:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.817> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:15:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.817> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:16:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.817> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:16:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.817> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:16:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.817> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:16:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.817> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:16:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.818> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 12:13:52, (-280, 64, -213)
+   [INFO] <2022-05-13; 17:26:17.818> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:26:52, (-280, 33, -213)
+   [INFO] <2022-05-13; 17:26:17.818> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:27:17, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.818> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:27:22, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.818> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:27:27, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.818> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:27:32, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.818> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:27:37, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.818> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:27:42, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.819> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:27:47, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.819> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:27:52, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.819> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:27:57, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.819> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:28:02, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.819> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:28:07, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.819> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:28:12, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.819> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:28:17, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.819> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:28:27, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.819> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:28:32, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.820> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:29:12, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.820> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:29:17, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.820> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:29:22, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.820> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:29:27, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.820> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:32:02, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.820> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:33:02, (-281, 33, -213)
+   [INFO] <2022-05-13; 17:26:17.820> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:33:12, (-280, 33, -213)
+   [INFO] <2022-05-13; 17:26:17.820> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:33:17, (-280, 33, -213)
+   [INFO] <2022-05-13; 17:26:17.821> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:33:22, (-280, 33, -213)
+   [INFO] <2022-05-13; 17:26:17.821> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:33:27, (-280, 33, -213)
+   [INFO] <2022-05-13; 17:26:17.821> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:34:07, (-281, 34, -215)
+   [INFO] <2022-05-13; 17:26:17.821> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:34:12, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.821> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:34:17, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.821> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:34:22, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.822> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:34:27, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.822> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:34:32, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.822> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:34:37, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.822> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:34:42, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.822> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:34:47, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.822> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:34:52, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.822> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:34:57, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.822> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:35:02, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.822> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:35:07, (-280, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.823> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:35:12, (-280, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.823> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:35:17, (-280, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.823> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:35:22, (-280, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.823> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:35:27, (-280, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.823> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:35:32, (-280, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.823> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:35:37, (-280, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.823> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:35:42, (-280, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.823> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:51:47, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:17.823> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:53:52, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.823> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:59:17, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.824> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 09:46:56, (-281, 66, -213)
+   [INFO] <2022-05-13; 17:26:17.824> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:29:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.824> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:29:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.824> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:29:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.824> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:29:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.824> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:29:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.824> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:29:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.825> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:29:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.825> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:29:46, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.825> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:29:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.825> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:29:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.825> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:30:01, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.825> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:30:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.825> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:30:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.825> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:30:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.825> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:30:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.825> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:30:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.825> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:30:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.826> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:30:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.826> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:30:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.826> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:30:46, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.826> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:30:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.826> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:30:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.826> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:31:01, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.826> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:31:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.826> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:31:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.826> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:31:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.827> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:31:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.827> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:31:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.827> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:31:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.827> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:31:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.827> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:31:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.827> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:31:46, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.827> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:31:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.827> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:31:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.827> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:32:01, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.828> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:32:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.828> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:32:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.828> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:32:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.828> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:32:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.828> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:32:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.828> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:32:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.828> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:32:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.828> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:32:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.829> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:32:46, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.829> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:32:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.829> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:32:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.829> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:33:01, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.829> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:33:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.829> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:33:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.829> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:33:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.829> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:33:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.829> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:33:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.829> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:33:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.830> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:33:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.830> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:33:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.830> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:33:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.830> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:33:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.830> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:34:01, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.830> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:34:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.830> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:34:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.830> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:34:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.830> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:34:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.831> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:34:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.831> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:34:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.831> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:34:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.831> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:34:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.831> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:34:46, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.831> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:34:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.831> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:15:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.831> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:15:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.832> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:15:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.832> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:15:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.832> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:15:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.832> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:15:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.832> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:15:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.832> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:15:46, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.832> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:15:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.832> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:15:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.832> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:16:01, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.832> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:16:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.833> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:16:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.833> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:16:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.833> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:16:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.833> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:16:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.833> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:16:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.833> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:16:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.833> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:16:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.833> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:16:46, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.833> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:16:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.833> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:16:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.834> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:17:01, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.834> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:17:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.834> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:17:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.834> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:17:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.834> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:17:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.834> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:17:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.834> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:17:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.834> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:17:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.834> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:17:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.834> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:17:46, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.835> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:17:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.835> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:17:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.835> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:18:01, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.835> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:18:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.835> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:18:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.835> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:18:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.835> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:18:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.835> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:18:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.835> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:18:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.835> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:18:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.836> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:18:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.836> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:18:46, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.836> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:18:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.836> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:18:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.836> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:19:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.836> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:19:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.836> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:19:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.836> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:19:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.836> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:19:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.837> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:19:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.837> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:19:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.837> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:19:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.837> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:19:46, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.837> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:19:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.837> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:19:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.837> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:20:01, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.837> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:20:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.837> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:20:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.838> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:20:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.838> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:20:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.838> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:20:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.838> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:20:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.838> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:20:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.838> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:20:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.838> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:20:46, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.838> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:20:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.838> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:20:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.839> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:21:01, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.839> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:21:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.839> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:21:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.839> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:21:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.839> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:21:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.839> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:21:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.839> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:21:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.839> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:21:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.839> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:21:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.840> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:21:46, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.840> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:21:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.840> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:21:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.840> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:22:01, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.840> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:22:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.840> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:22:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.840> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:22:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.840> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:22:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.840> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:22:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.840> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:22:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.841> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:22:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.841> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:22:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.841> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:22:46, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.841> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:22:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.841> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:22:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.841> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:23:01, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.841> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:23:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.841> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:23:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.841> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:23:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.841> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:23:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.842> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:23:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.842> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:23:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.842> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:23:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.842> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:23:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.842> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:46:21, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:17.842> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:50:36, (-279, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.842> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:56:56, (-281, 33, -213)
+   [INFO] <2022-05-13; 17:26:17.842> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:57:01, (-281, 33, -213)
+   [INFO] <2022-05-13; 17:26:17.843> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:57:06, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:17.843> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:58:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.843> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:58:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.843> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:58:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.843> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:58:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.843> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:58:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.843> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:58:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.843> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:58:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.843> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:58:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.844> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:58:46, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.844> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:58:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.844> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:58:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.844> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:59:01, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.844> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:59:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.844> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:59:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.844> Selected a log entry:
+Entry:  Pearlwave789, 2022-01-31 21:34:17, (-279, 33, -213)
+   [INFO] <2022-05-13; 17:26:17.845> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 21:12:40, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:17.845> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 21:12:45, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:17.845> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 21:12:50, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:17.845> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 21:12:55, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:17.845> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 21:13:00, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:17.845> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 21:13:05, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:17.845> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 21:13:10, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.845> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 21:34:40, (-279, 33, -214)
+   [INFO] <2022-05-13; 17:26:17.846> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 21:35:05, (-279, 33, -214)
+   [INFO] <2022-05-13; 17:26:17.846> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 21:36:05, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.846> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 21:41:25, (-279, 33, -213)
+   [INFO] <2022-05-13; 17:26:17.846> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 21:56:30, (-279, 34, -215)
+   [INFO] <2022-05-13; 17:26:17.846> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 22:02:55, (-280, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.846> Selected a log entry:
+Entry:  Anip24, 2022-02-04 15:39:08, (-279, 64, -213)
+   [INFO] <2022-05-13; 17:26:17.847> Selected a log entry:
+Entry:  Anip24, 2022-02-04 15:40:38, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:17.847> Selected a log entry:
+Entry:  Anip24, 2022-02-04 15:40:43, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:17.847> Selected a log entry:
+Entry:  Anip24, 2022-02-04 15:40:48, (-280, 33, -213)
+   [INFO] <2022-05-13; 17:26:17.847> Selected a log entry:
+Entry:  Anip24, 2022-02-04 15:40:58, (-280, 33, -213)
+   [INFO] <2022-05-13; 17:26:17.847> Selected a log entry:
+Entry:  Anip24, 2022-02-04 15:48:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.847> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 16:52:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.847> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 16:53:03, (-281, 30, -213)
+   [INFO] <2022-05-13; 17:26:17.847> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 16:53:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.847> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 16:53:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.848> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 16:54:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.848> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 16:55:08, (-280, 33, -214)
+   [INFO] <2022-05-13; 17:26:17.848> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 19:16:04, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.848> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 19:16:09, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.848> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 19:16:14, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.848> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 19:16:19, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.848> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 19:16:24, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.848> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 19:17:54, (-279, 33, -214)
+   [INFO] <2022-05-13; 17:26:17.849> Selected a log entry:
+Entry:  Anip24, 2022-02-04 19:50:56, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:17.849> Selected a log entry:
+Entry:  Anip24, 2022-02-04 19:51:01, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:17.849> Selected a log entry:
+Entry:  Anip24, 2022-02-04 19:51:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.849> Selected a log entry:
+Entry:  Anip24, 2022-02-04 19:51:41, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:17.849> Selected a log entry:
+Entry:  Anip24, 2022-02-04 19:51:46, (-281, 34, -215)
+   [INFO] <2022-05-13; 17:26:17.849> Selected a log entry:
+Entry:  Anip24, 2022-02-04 19:55:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.849> Selected a log entry:
+Entry:  Anip24, 2022-02-04 19:56:01, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.850> Selected a log entry:
+Entry:  Anip24, 2022-02-04 19:56:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.850> Selected a log entry:
+Entry:  Anip24, 2022-02-04 19:56:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.850> Selected a log entry:
+Entry:  Anip24, 2022-02-04 19:56:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.850> Selected a log entry:
+Entry:  Anip24, 2022-02-04 19:57:12, (-280, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.850> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:07:02, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.850> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:07:07, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.850> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:07:12, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.851> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:07:17, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.851> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:07:22, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.851> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:07:27, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.851> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:07:32, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.851> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:07:37, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.851> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:07:42, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.851> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:07:47, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.851> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:07:52, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.851> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:07:57, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.852> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:08:02, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.852> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:08:07, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.852> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:08:12, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.852> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:08:17, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.852> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:08:22, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.852> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:08:27, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.852> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:08:37, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.852> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:08:42, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.852> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:08:47, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.853> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:08:52, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.853> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:08:57, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.853> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:09:02, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.853> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:09:07, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.853> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:09:12, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.854> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:09:17, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.854> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:09:22, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.854> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:09:27, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.854> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:09:32, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.854> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:09:37, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.854> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:09:42, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.854> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:09:47, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.854> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:09:52, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.855> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:09:57, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.855> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:10:02, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.855> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:10:07, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.855> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:10:12, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.855> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:10:17, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.855> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:10:22, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.855> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:10:27, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.930> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:35:53, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:17.930> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:35:58, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:17.931> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:36:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.931> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:36:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.931> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:36:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.932> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:36:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.932> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:36:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.932> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:36:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.932> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:36:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.933> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:36:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.933> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:36:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.934> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:36:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.934> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:36:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.934> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:36:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.934> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:37:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.934> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:37:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.935> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:39:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.935> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:39:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.935> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:39:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.935> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:39:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.935> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:40:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.935> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:40:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.936> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:40:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.936> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:40:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.936> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:40:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.936> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:40:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.936> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:40:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.936> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:41:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.936> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:41:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.937> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:41:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.937> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:41:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.937> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:41:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.937> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:41:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.937> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:41:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.937> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:41:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.938> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:41:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.938> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:42:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.938> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:42:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.938> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:42:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.938> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:42:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.938> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:42:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.938> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:42:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.939> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:42:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.939> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:42:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.939> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:42:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.939> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:43:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.939> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:43:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.939> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:43:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.939> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:43:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.940> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:43:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.940> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:43:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.940> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:43:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.940> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:43:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.940> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:43:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.940> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:43:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.940> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:43:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.940> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:43:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.941> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:44:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.941> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:44:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.941> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:44:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.941> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:44:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.941> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:44:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.941> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:44:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.942> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:44:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.942> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:44:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.942> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:44:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.942> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:44:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.942> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:44:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.942> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:44:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.942> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:45:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.942> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:45:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.943> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:45:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.943> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:45:33, (-280, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.943> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:47:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.943> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:47:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.943> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:47:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.943> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:47:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.943> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:47:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.943> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:47:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.944> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:48:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.944> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:48:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.944> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:48:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.944> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:48:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.944> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:48:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.944> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:48:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.944> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:48:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.944> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:48:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.944> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:48:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.945> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:48:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.945> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:48:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.945> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:48:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.945> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:49:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.945> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:49:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.945> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:49:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.945> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:49:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.945> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:49:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.945> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:49:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.946> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:49:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.946> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:49:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.946> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:49:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.946> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:49:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.946> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:49:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.946> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:50:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.946> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:50:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.946> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:50:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.946> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:50:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.947> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:50:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.947> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:50:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.947> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:50:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.947> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:50:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.947> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:50:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.947> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:50:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.947> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:50:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.947> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:50:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.948> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:51:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.948> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:51:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.948> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:51:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.948> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:51:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.948> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:51:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.948> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:51:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.948> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:51:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.948> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:51:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.949> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:51:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.949> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:51:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.949> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:51:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.949> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:52:18, (-281, 33, -213)
+   [INFO] <2022-05-13; 17:26:17.949> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:52:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.949> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:52:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.949> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:52:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.950> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:52:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.950> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:52:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.950> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:52:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.950> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:52:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.950> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:52:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.950> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:53:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.950> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:53:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.950> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:53:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.950> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:53:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.951> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:53:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.951> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:53:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.951> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:53:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.951> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:53:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.951> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:53:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.951> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:53:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.951> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:53:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.951> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:53:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.951> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:54:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.951> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:54:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.952> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:54:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.952> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:54:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.952> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:54:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.952> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:54:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.952> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:54:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.952> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:54:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.952> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:54:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.952> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:54:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.952> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:54:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.953> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:54:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.953> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:55:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.953> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:55:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.953> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:55:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.953> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:55:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.953> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:55:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.953> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:55:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.953> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:55:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.953> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:55:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.953> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:55:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.954> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:55:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.954> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:55:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.954> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:55:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.954> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:56:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.954> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:56:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.954> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:56:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.954> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:56:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.954> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:56:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.954> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:56:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.954> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:56:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.955> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:56:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.955> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:56:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.955> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:56:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.955> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:56:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.955> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:56:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.955> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:57:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.955> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:57:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.955> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:57:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.955> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:57:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.955> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:57:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.956> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:57:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.956> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:57:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.956> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:57:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.956> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:57:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.956> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:57:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.956> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:57:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.956> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:57:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.956> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:58:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.956> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:58:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.956> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:58:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.957> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:58:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.957> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:58:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.957> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:58:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.957> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:58:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.957> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:58:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.957> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:58:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.957> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:58:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.957> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:58:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.958> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:58:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.958> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:59:03, (-280, 33, -213)
+   [INFO] <2022-05-13; 17:26:17.958> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:59:08, (-280, 33, -213)
+   [INFO] <2022-05-13; 17:26:17.958> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:59:13, (-280, 33, -213)
+   [INFO] <2022-05-13; 17:26:17.958> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:59:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.958> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:59:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.958> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:59:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.958> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:59:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.958> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:59:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.959> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:59:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.959> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:59:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.959> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:59:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.959> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 17:59:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.959> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:00:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.959> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:00:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.959> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:00:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.959> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:00:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.959> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:01:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.960> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:01:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.960> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:01:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.960> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:01:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.960> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:01:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.960> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:02:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.960> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:02:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.960> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:02:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.960> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:02:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.960> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:02:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.961> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:02:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.961> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:02:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.961> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:02:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.961> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:02:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.961> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:02:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.961> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:02:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.961> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:02:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.961> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:03:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.961> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:03:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.962> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:03:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.962> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:03:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.962> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:03:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.962> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:03:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.962> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:03:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.962> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:03:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.962> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:03:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.962> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:03:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.962> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:03:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.963> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:03:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.963> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:04:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.963> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:04:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.963> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:04:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.963> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:04:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.963> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:04:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.963> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:04:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.963> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:04:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.963> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:04:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.963> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:04:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.964> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:04:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.964> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:04:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.964> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:04:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.964> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:05:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.964> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:05:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.964> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:05:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.964> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:05:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.964> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:05:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.965> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:05:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.965> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:05:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.965> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:05:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.965> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:05:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.965> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:05:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.966> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:05:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.966> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:05:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.966> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:06:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.966> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:06:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.966> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:06:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.966> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:06:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.966> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:06:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.966> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:06:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.966> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:06:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.967> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:06:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.967> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:06:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.967> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:06:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.967> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:06:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.967> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:06:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.967> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:07:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.967> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:07:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.967> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:07:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.967> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:07:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.968> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:07:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.968> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:07:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.968> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:07:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.968> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:07:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.968> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:07:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.968> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:07:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.968> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:07:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.968> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:07:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.968> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:08:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.969> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:08:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.969> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:08:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.969> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:08:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.969> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:08:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.969> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:08:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.969> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:08:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.969> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:08:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.969> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:08:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.969> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:08:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.969> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:09:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.970> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:09:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.970> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:09:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.970> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:09:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.970> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:09:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.970> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:09:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.970> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:09:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.970> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:09:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.970> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:09:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.970> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:09:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.971> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:09:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.971> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:10:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.971> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:10:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.971> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:10:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.971> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:10:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.971> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:10:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.971> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:10:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.971> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:10:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.971> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:10:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.971> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:10:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.971> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:10:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.972> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:10:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.972> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:10:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.972> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:11:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.972> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:11:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.972> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:11:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.972> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:11:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.972> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:11:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.972> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:11:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.972> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:11:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.973> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:11:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.976> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:11:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.976> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:11:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.976> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:11:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.976> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:11:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.976> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:12:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.976> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:12:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.977> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:12:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.977> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:12:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.977> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:12:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.978> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:12:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.978> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:12:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.979> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:13:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.979> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:13:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.979> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:13:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.979> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:13:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.980> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:13:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.980> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:13:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.980> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:13:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.980> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:14:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.980> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:14:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.980> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:14:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.980> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:14:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.980> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:14:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.980> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:14:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.980> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:14:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.981> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:14:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.981> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:14:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.981> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:14:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.981> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:14:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.981> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:14:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.981> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:15:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.981> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:15:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.981> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:15:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.982> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:15:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.982> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:15:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.982> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:15:28, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.982> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:15:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.982> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:15:38, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.982> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:15:43, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.982> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:15:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.983> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:15:53, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.983> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:15:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.983> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:16:03, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.983> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:16:08, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.983> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:16:13, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.983> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:16:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.983> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-25 18:16:48, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.983> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 12:13:52, (-280, 64, -213)
+   [INFO] <2022-05-13; 17:26:17.983> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:26:52, (-280, 33, -213)
+   [INFO] <2022-05-13; 17:26:17.983> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:27:17, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.984> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:27:22, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.984> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:27:27, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.984> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:27:32, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.984> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:27:37, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.984> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:27:42, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.985> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:27:47, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.985> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:27:52, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.985> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:27:57, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.985> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:28:02, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.985> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:28:07, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.985> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:28:12, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.985> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:28:17, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.985> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:28:27, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.986> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:28:32, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.986> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:29:12, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.986> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:29:17, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.987> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:29:22, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.988> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:29:27, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.988> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:32:02, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.988> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:33:02, (-281, 33, -213)
+   [INFO] <2022-05-13; 17:26:17.988> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:33:12, (-280, 33, -213)
+   [INFO] <2022-05-13; 17:26:17.989> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:33:17, (-280, 33, -213)
+   [INFO] <2022-05-13; 17:26:17.989> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:33:22, (-280, 33, -213)
+   [INFO] <2022-05-13; 17:26:17.989> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 17:33:27, (-280, 33, -213)
+   [INFO] <2022-05-13; 17:26:17.989> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:34:07, (-281, 34, -215)
+   [INFO] <2022-05-13; 17:26:17.989> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:34:12, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.990> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:34:17, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.990> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:34:22, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.990> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:34:27, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.990> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:34:32, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.990> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:34:37, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.990> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:34:42, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.991> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:34:47, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.991> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:34:52, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.991> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:34:57, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.991> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:35:02, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.991> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:35:07, (-280, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.991> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:35:12, (-280, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.991> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:35:17, (-280, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.991> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:35:22, (-280, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.992> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:35:27, (-280, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.992> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:35:32, (-280, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.992> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:35:37, (-280, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.992> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:35:42, (-280, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.992> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:51:47, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:17.992> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:53:52, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.992> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 19:59:17, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.992> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 09:46:56, (-281, 66, -213)
+   [INFO] <2022-05-13; 17:26:17.993> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:29:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.993> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:29:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.993> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:29:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.993> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:29:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.993> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:29:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.993> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:29:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.994> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:29:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.994> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:29:46, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.994> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:29:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.994> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:29:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.994> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:30:01, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.994> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:30:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.994> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:30:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.994> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:30:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.994> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:30:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.995> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:30:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.995> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:30:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.995> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:30:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.995> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:30:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.995> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:30:46, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.995> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:30:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.995> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:30:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.995> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:31:01, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.995> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:31:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.996> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:31:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.996> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:31:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.996> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:31:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.996> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:31:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.997> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:31:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.997> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:31:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.997> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:31:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.997> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:31:46, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.998> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:31:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:17.999> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:31:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.000> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:32:01, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.000> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:32:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.000> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:32:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.000> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:32:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.000> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:32:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.000> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:32:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.001> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:32:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.001> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:32:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.001> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:32:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.001> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:32:46, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.001> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:32:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.001> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:32:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.001> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:33:01, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.001> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:33:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.002> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:33:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.002> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:33:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.002> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:33:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.002> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:33:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.002> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:33:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.002> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:33:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.002> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:33:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.002> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:33:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.002> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:33:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.002> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:34:01, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.003> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:34:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.003> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:34:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.003> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:34:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.003> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:34:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.003> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:34:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.003> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:34:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.003> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:34:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.003> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:34:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.003> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:34:46, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.004> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 17:34:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.004> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:15:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.004> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:15:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.004> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:15:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.004> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:15:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.004> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:15:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.004> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:15:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.005> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:15:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.005> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:15:46, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.005> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:15:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.005> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:15:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.005> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:16:01, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.006> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:16:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.006> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:16:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.006> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:16:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.006> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:16:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.006> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:16:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.006> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:16:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.006> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:16:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.007> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:16:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.007> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:16:46, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.007> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:16:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.007> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:16:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.007> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:17:01, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.007> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:17:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.007> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:17:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.008> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:17:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.008> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:17:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.008> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:17:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.008> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:17:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.008> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:17:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.008> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:17:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.009> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:17:46, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.009> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:17:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.009> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:17:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.009> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:18:01, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.009> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:18:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.009> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:18:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.010> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:18:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.011> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:18:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.012> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:18:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.012> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:18:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.012> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:18:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.012> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:18:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.012> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:18:46, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.012> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:18:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.013> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:18:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.013> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:19:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.013> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:19:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.013> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:19:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.013> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:19:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.013> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:19:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.014> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:19:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.014> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:19:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.014> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:19:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.014> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:19:46, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.014> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:19:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.014> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:19:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.014> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:20:01, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.014> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:20:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.014> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:20:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.015> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:20:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.015> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:20:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.015> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:20:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.015> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:20:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.015> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:20:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.015> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:20:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.015> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:20:46, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.015> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:20:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.016> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:20:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.016> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:21:01, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.016> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:21:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.016> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:21:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.016> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:21:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.016> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:21:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.016> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:21:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.016> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:21:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.016> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:21:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.016> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:21:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.016> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:21:46, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.017> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:21:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.017> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:21:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.017> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:22:01, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.017> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:22:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.017> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:22:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.017> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:22:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.017> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:22:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.017> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:22:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.017> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:22:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.018> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:22:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.018> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:22:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.018> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:22:46, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.018> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:22:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.018> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:22:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.018> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:23:01, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.018> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:23:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.018> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:23:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.018> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:23:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.018> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:23:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.019> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:23:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.019> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:23:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.019> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:23:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.019> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-29 20:23:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.020> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:46:21, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:18.020> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:50:36, (-279, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.020> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:56:56, (-281, 33, -213)
+   [INFO] <2022-05-13; 17:26:18.020> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:57:01, (-281, 33, -213)
+   [INFO] <2022-05-13; 17:26:18.020> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:57:06, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:18.020> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:58:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.021> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:58:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.022> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:58:16, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.022> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:58:21, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.023> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:58:26, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.023> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:58:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.023> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:58:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.023> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:58:41, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.024> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:58:46, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.024> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:58:51, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.024> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:58:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.024> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:59:01, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.024> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:59:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.024> Selected a log entry:
+Entry:  Anip24, 2022-01-29 20:59:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.025> Selected a log entry:
+Entry:  Pearlwave789, 2022-01-31 21:34:17, (-279, 33, -213)
+   [INFO] <2022-05-13; 17:26:18.025> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 21:12:40, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:18.025> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 21:12:45, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:18.025> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 21:12:50, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:18.025> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 21:12:55, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:18.025> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 21:13:00, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:18.026> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 21:13:05, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:18.026> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 21:13:10, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.026> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 21:34:40, (-279, 33, -214)
+   [INFO] <2022-05-13; 17:26:18.026> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 21:35:05, (-279, 33, -214)
+   [INFO] <2022-05-13; 17:26:18.026> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 21:36:05, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.026> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 21:41:25, (-279, 33, -213)
+   [INFO] <2022-05-13; 17:26:18.027> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 21:56:30, (-279, 34, -215)
+   [INFO] <2022-05-13; 17:26:18.027> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 22:02:55, (-280, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.027> Selected a log entry:
+Entry:  Anip24, 2022-02-04 15:39:08, (-279, 64, -213)
+   [INFO] <2022-05-13; 17:26:18.028> Selected a log entry:
+Entry:  Anip24, 2022-02-04 15:40:38, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:18.028> Selected a log entry:
+Entry:  Anip24, 2022-02-04 15:40:43, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:18.028> Selected a log entry:
+Entry:  Anip24, 2022-02-04 15:40:48, (-280, 33, -213)
+   [INFO] <2022-05-13; 17:26:18.028> Selected a log entry:
+Entry:  Anip24, 2022-02-04 15:40:58, (-280, 33, -213)
+   [INFO] <2022-05-13; 17:26:18.028> Selected a log entry:
+Entry:  Anip24, 2022-02-04 15:48:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.028> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 16:52:58, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.028> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 16:53:03, (-281, 30, -213)
+   [INFO] <2022-05-13; 17:26:18.028> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 16:53:18, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.029> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 16:53:23, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.029> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 16:54:33, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.029> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 16:55:08, (-280, 33, -214)
+   [INFO] <2022-05-13; 17:26:18.029> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 19:16:04, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.029> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 19:16:09, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.029> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 19:16:14, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.030> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 19:16:19, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.030> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 19:16:24, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.030> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 19:17:54, (-279, 33, -214)
+   [INFO] <2022-05-13; 17:26:18.030> Selected a log entry:
+Entry:  Anip24, 2022-02-04 19:50:56, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:18.030> Selected a log entry:
+Entry:  Anip24, 2022-02-04 19:51:01, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:18.030> Selected a log entry:
+Entry:  Anip24, 2022-02-04 19:51:36, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.030> Selected a log entry:
+Entry:  Anip24, 2022-02-04 19:51:41, (-281, 33, -214)
+   [INFO] <2022-05-13; 17:26:18.030> Selected a log entry:
+Entry:  Anip24, 2022-02-04 19:51:46, (-281, 34, -215)
+   [INFO] <2022-05-13; 17:26:18.031> Selected a log entry:
+Entry:  Anip24, 2022-02-04 19:55:56, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.031> Selected a log entry:
+Entry:  Anip24, 2022-02-04 19:56:01, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.031> Selected a log entry:
+Entry:  Anip24, 2022-02-04 19:56:06, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.031> Selected a log entry:
+Entry:  Anip24, 2022-02-04 19:56:11, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.032> Selected a log entry:
+Entry:  Anip24, 2022-02-04 19:56:31, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.032> Selected a log entry:
+Entry:  Anip24, 2022-02-04 19:57:12, (-280, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.032> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:07:02, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.033> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:07:07, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.034> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:07:12, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.034> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:07:17, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.035> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:07:22, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.035> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:07:27, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.035> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:07:32, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.035> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:07:37, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.035> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:07:42, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.035> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:07:47, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.035> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:07:52, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.035> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:07:57, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.036> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:08:02, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.036> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:08:07, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.036> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:08:12, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.036> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:08:17, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.036> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:08:22, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.036> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:08:27, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.036> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:08:37, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.036> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:08:42, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.036> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:08:47, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.037> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:08:52, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.037> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:08:57, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.037> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:09:02, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.037> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:09:07, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.037> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:09:12, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.037> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:09:17, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.037> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:09:22, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.037> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:09:27, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.037> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:09:32, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.037> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:09:37, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.038> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:09:42, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.038> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:09:47, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.038> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:09:52, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.038> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:09:57, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.038> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:10:02, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.038> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:10:07, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.038> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:10:12, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.038> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:10:17, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.038> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:10:22, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:18.038> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 16:10:27, (-281, 33, -215)
+   [INFO] <2022-05-13; 17:26:20.062> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-05 12:17:22, (-281, 78, -191)
+   [INFO] <2022-05-13; 17:26:23.145> Selected a log entry:
+Entry:  legoDBuddy, 2022-01-28 20:54:22, (-271, 73, -191)
+   [INFO] <2022-05-13; 17:26:24.383> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 20:57:00, (-261, 65, -193)
+   [INFO] <2022-05-13; 17:26:24.384> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 18:52:15, (-262, 63, -192)
+   [INFO] <2022-05-13; 17:26:26.471> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 20:56:25, (-251, 72, -202)
+   [INFO] <2022-05-13; 17:26:30.925> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-01 20:56:25, (-251, 72, -202)
+   

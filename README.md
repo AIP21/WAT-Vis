@@ -12,3 +12,9 @@ The program *should* do the following steps by itself, but its always better doi
 Now you are good to go, just run the .jar file!
 
 # Features
+1. Display all the data that you imported
+2. Display a desired date range or single point in time
+3. Animate the time to see players moving around as time passes
+4. See a list of all the players in the data and either change their marker color or disable them entirely
+5. Select individual points (by clicking on them, it's a bit finicky though) and see their information. This included the date, player name, and position.
+6. 

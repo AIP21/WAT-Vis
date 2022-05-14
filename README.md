@@ -29,11 +29,14 @@ Now you are good to go, just run the .jar file!
 # Images
 Here are some screenshots from the program, using made-up data and data from my Minecraft server.
 
-*Large-scale overview:*
+##Large-scale overview:##
 ![image](https://user-images.githubusercontent.com/44927160/168449122-76f73826-857d-44f6-9839-eea1f9e24066.png)
 
 *Close-up lines:*
 ![image](https://user-images.githubusercontent.com/44927160/168449136-b182f879-7db2-4e74-983b-37de249d4fad.png)
+
+*Close-up dots:*
+![image](https://user-images.githubusercontent.com/44927160/168450319-e88ecefb-bb34-4392-8ca2-c36ce918d4df.png)
 
 *Heatmap:*
 ![image](https://user-images.githubusercontent.com/44927160/168449151-4151b751-c39a-48e8-b82d-cc6e78c7d8eb.png)

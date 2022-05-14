@@ -29,12 +29,32 @@ public class Logger {
         name += (count != 0 ? " " + count : "") + ".log.txt";
 
         logFile = new File("logs/" + name);
-        Log("   Player Tracker Decoder App v" + version + " - LOG FILE", MessageType.INFO);
+        LogFirst("Player Tracker Decoder App v" + version + " - LOG FILE", MessageType.INFO);
         Log("Initializing logger", MessageType.INFO);
 
         if (created) Log("Log file directory didn't exist, so it was created", MessageType.WARNING);
 
         Log("Logger successfully initialized", MessageType.INFO);
+    }
+
+    public void LogFirst(Object message, MessageType type) {
+        String toLog = ("   [" + type.toString() + "] <" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd; HH:mm:ss.SSS")) + "> " + message + "\n   ");
+
+        if (type == MessageType.ERROR) {
+            System.err.print("\u001B[0m" + toLog.replace(", ", "\n   "));
+        } else if (type == MessageType.WARNING) {
+            System.out.print("\u001B[33m" + toLog);
+        } else {
+            System.out.print("\u001B[0m" + toLog);
+        }
+
+        try {
+            FileWriter writer = new FileWriter(logFile, true);
+            writer.append(toLog);
+            writer.close();
+        } catch (Exception e) {
+            Log("Error logging message:\n   " + Arrays.toString(e.getStackTrace()), MessageType.ERROR);
+        }
     }
 
     public void Log(Object message, MessageType type) {

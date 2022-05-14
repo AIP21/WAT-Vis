@@ -1,0 +1,37 @@
+   [INFO] <2022-05-14; 16:40:09.314> Player Tracker Decoder App v1.7.3 - LOG FILE
+   [INFO] <2022-05-14; 16:40:09.316> Initializing logger
+   [INFO] <2022-05-14; 16:40:09.317> Logger successfully initialized
+   [INFO] <2022-05-14; 16:40:09.317> Initializing primary systems
+   [INFO] <2022-05-14; 16:40:09.319> Initializing settings subsystem
+   [WARNING] <2022-05-14; 16:40:09.320> Config file does not exist, creating it
+   [INFO] <2022-05-14; 16:40:09.321> Successfully created config file
+   [INFO] <2022-05-14; 16:40:09.322> Saving and writing settings to config file
+   [INFO] <2022-05-14; 16:40:09.326> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 16:40:09.327> Successfully saved and wrote default settings to config file
+   [INFO] <2022-05-14; 16:40:09.327> Fetching and parsing settings from config file
+   [INFO] <2022-05-14; 16:40:09.331> 1.0
+   [INFO] <2022-05-14; 16:40:09.332> true
+   [INFO] <2022-05-14; 16:40:09.333> 0
+   [INFO] <2022-05-14; 16:40:09.333> Pixel
+   [INFO] <2022-05-14; 16:40:09.333> 200
+   [INFO] <2022-05-14; 16:40:09.334> false
+   [INFO] <2022-05-14; 16:40:09.334> true
+   [INFO] <2022-05-14; 16:40:09.334> false
+   [INFO] <2022-05-14; 16:40:09.335> true
+   [INFO] <2022-05-14; 16:40:09.335> false
+   [INFO] <2022-05-14; 16:40:09.336> ageFadeThreshold: 0
+   [INFO] <2022-05-14; 16:40:09.336> ChangeSize
+   [INFO] <2022-05-14; 16:40:09.336> 0
+   [INFO] <2022-05-14; 16:40:09.337> Settings: 12
+   [INFO] <2022-05-14; 16:40:09.337> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-14; 16:40:09.337> Successfully initialized settings subsystem
+   [INFO] <2022-05-14; 16:40:09.339> Initializing decoder subsystem
+   [INFO] <2022-05-14; 16:40:09.339> Successfully initialized decoder subsystem
+   [INFO] <2022-05-14; 16:40:09.339> Initializing primary frame subsystem
+   [INFO] <2022-05-14; 16:40:09.394> Initializing main display subsystem
+   [INFO] <2022-05-14; 16:40:09.395> Antialiasing enabled on main display panel
+   [INFO] <2022-05-14; 16:40:09.395> Successfully initialized main display subsystem
+   [INFO] <2022-05-14; 16:40:09.433> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-14; 16:40:09.433> Loading resources
+   [INFO] <2022-05-14; 16:40:10.301> Successfully initialized all subsystems
+   

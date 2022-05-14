@@ -63,6 +63,8 @@ public class Settings {
                     _heatDrawType = PlayerTrackerDecoder.HeatDrawType.ChangeSize;
                     heatMapThreshold = 0;
 
+                    new File("config.txt").createNewFile();
+
                     logger.Log("Successfully created config file", Logger.MessageType.INFO);
 
                     SaveSettings();
@@ -106,6 +108,8 @@ public class Settings {
             writer.println("ageFadeThreshold: " + ageFadeThreshold + " // How much to fade out older log markers. If 0, then it uses the max amount of log markers");
             writer.println("heatDrawType: " + heatDrawTypeToInt(_heatDrawType) + " // The way to represent the heatmap. 0 = Change size, 1 = Change color");
             writer.println("heatMapThreshold: " + heatMapThreshold + " // How much to change colors on the heatmap");
+
+            writer.close();
 
             logger.Log("Successfully saved and wrote settings to config file", Logger.MessageType.INFO);
         } catch (Exception e) {

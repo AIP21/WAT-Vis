@@ -27,14 +27,19 @@ Now you are good to go, just run the .jar file!
 14. And some other stuff I forgot to write here.
 
 # Images
-Large-scale overview:
+Here are some screenshots from the program, using made-up data and data from my Minecraft server.
+
+*Large-scale overview:*
 ![image](https://user-images.githubusercontent.com/44927160/168449122-76f73826-857d-44f6-9839-eea1f9e24066.png)
 
-Close-up lines: 
+*Close-up lines:*
 ![image](https://user-images.githubusercontent.com/44927160/168449136-b182f879-7db2-4e74-983b-37de249d4fad.png)
 
-Heatmap:
+*Heatmap:*
 ![image](https://user-images.githubusercontent.com/44927160/168449151-4151b751-c39a-48e8-b82d-cc6e78c7d8eb.png)
 
-Exported image:
+*Using a background world image:*
+![image](https://user-images.githubusercontent.com/44927160/168450297-2415fe3d-f164-484f-827b-37ea82d28cd3.png)
+
+*Exported image:*
 ![image](https://user-images.githubusercontent.com/44927160/168449213-2c6daaca-a47b-45af-bd96-4a779d8fa759.png)

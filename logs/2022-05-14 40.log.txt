@@ -1,0 +1,35 @@
+   [INFO] <2022-05-14; 17:18:45.599> Player Tracker Decoder App v1.7.8 - LOG FILE
+   [INFO] <2022-05-14; 17:18:45.600> Initializing logger
+   [INFO] <2022-05-14; 17:18:45.601> Logger successfully initialized
+   [INFO] <2022-05-14; 17:18:45.601> Initializing primary systems
+   [INFO] <2022-05-14; 17:18:45.603> Initializing settings subsystem
+   [INFO] <2022-05-14; 17:18:45.603> Fetching and parsing settings from config file
+   [INFO] <2022-05-14; 17:18:45.604> 0.2
+   [INFO] <2022-05-14; 17:18:45.604> true
+   [INFO] <2022-05-14; 17:18:45.605> 0
+   [INFO] <2022-05-14; 17:18:45.605> Line
+   [INFO] <2022-05-14; 17:18:45.605> 200
+   [INFO] <2022-05-14; 17:18:45.606> false
+   [INFO] <2022-05-14; 17:18:45.606> true
+   [INFO] <2022-05-14; 17:18:45.609> false
+   [INFO] <2022-05-14; 17:18:45.609> true
+   [INFO] <2022-05-14; 17:18:45.610> false
+   [INFO] <2022-05-14; 17:18:45.610> ageFadeThreshold: 0
+   [INFO] <2022-05-14; 17:18:45.610> ChangeSize
+   [INFO] <2022-05-14; 17:18:45.610> 0
+   [INFO] <2022-05-14; 17:18:45.611> Settings: 12
+   [WARNING] <2022-05-14; 17:18:45.611> Incomplete or old config file, updating the config file
+   [INFO] <2022-05-14; 17:18:45.611> Saving and writing settings to config file
+   [INFO] <2022-05-14; 17:18:45.615> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 17:18:45.615> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-14; 17:18:45.615> Successfully initialized settings subsystem
+   [INFO] <2022-05-14; 17:18:45.616> Initializing decoder subsystem
+   [INFO] <2022-05-14; 17:18:45.617> Successfully initialized decoder subsystem
+   [INFO] <2022-05-14; 17:18:45.617> Initializing primary frame subsystem
+   [INFO] <2022-05-14; 17:18:45.660> Initializing main display subsystem
+   [INFO] <2022-05-14; 17:18:45.660> Antialiasing enabled on main display panel
+   [INFO] <2022-05-14; 17:18:45.661> Successfully initialized main display subsystem
+   [INFO] <2022-05-14; 17:18:45.679> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-14; 17:18:50.772> Loading resources
+   [INFO] <2022-05-14; 17:18:51.661> Successfully initialized all subsystems
+   

@@ -105,6 +105,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     public int timesCount;
 
     public int dateTimeIndex = 0;
+
     private final int TARGET_FPS = 30;
     private final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;
 
@@ -193,6 +194,9 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+
+        if (!ShouldDraw)
+            return;
 
         Graphics2D g2 = (Graphics2D) g;
 
@@ -283,10 +287,6 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     }
 
     private void drawPoints(Graphics2D g2d, boolean useCulling, int offset, int upscale) {
-        if (!ShouldDraw) {
-            return;
-        }
-
         Point pt = new Point();
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         renderedPoints = 0;
@@ -306,7 +306,11 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
                 if (!useCulling || (pt.x >= -50 && pt.x <= screenSize.width + 50 && pt.y >= -50 && pt.y <= screenSize.height + 50)) {
 //                    logger.Log(posActivityMap.get(vec) + " / " + maxActivity, Logger.MessageType.INFO);
+                    if(settings._heatDrawType == PlayerTrackerDecoder.HeatDrawType.ChangeColor){
                     g2d.setColor(Utils.lerp(Color.darkGray, Color.getHSBColor(0.93f, 0.68f, 0.55f), ((float) Math.min(posActivityMap.get(vec) + settings.heatMapThreshold, newMax) / newMax)));
+                    } else {
+
+                    }
                     drawRectangle(g2d, x, y, settings.size, true);
                     renderedPoints++;
                 }

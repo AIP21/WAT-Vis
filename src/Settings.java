@@ -7,34 +7,22 @@ import java.util.Arrays;
 
 public class Settings {
     public int padding = 50;
-
     public float size = 1.0f;
-
     public boolean convertChunkPosToBlockPos = true;
-
     public int maxDataEntries = 0;
-
     public Decoder.DrawType _drawType = Decoder.DrawType.Pixel;
-
     public PlayerTrackerDecoder.HeatDrawType _heatDrawType = PlayerTrackerDecoder.HeatDrawType.ChangeSize;
     public int heatMapThreshold = 0;
-
     public int lineThreshold = 200;
-
     public int upscaleMultiplier = 1;
-
     public boolean fancyLines = false;
-
     public boolean hiddenLines = false;
-
     public boolean antialiasing = true;
-
     public boolean terminusPoints = true;
-
     public boolean ageFade = false;
-
     public int ageFadeThreshold = 0;
 
+    private final int settingCount = 15;
     private final Logger logger;
 
     public Settings(Logger log) {
@@ -92,8 +80,8 @@ public class Settings {
 
         try {
             PrintWriter writer = new PrintWriter("config.txt", StandardCharsets.UTF_8);
-            writer.println("Player Tracker Decoder - CONFIG");
-            writer.println("Delete this config file to reset values to their default settings");
+            writer.println("/// Player Tracker Decoder v" + PlayerTrackerDecoder.version + " - CONFIG \\\\\\");
+            writer.println("/// Delete this config file to reset values to their default settings \\\\\\\n");
             writer.println("size: " + size + " // Change th position marker or line size");
             writer.println("convertChunkPositions: " + convertChunkPosToBlockPos + " // Convert logged chunk positions into block positions, this is done by multiplying the chunk position by 16");
             writer.println("maxEntries: " + maxDataEntries + " // The limit to the amount of data entries to compile into the final image or gif, useful when wanting a less-detailed, but quick output or when with low memory. Set to 0 to disable");
@@ -254,5 +242,10 @@ public class Settings {
             }
 
         logger.Log("Settings: " + count, Logger.MessageType.INFO);
+
+        if (count != settingCount) {
+            logger.Log("Incomplete or old config file, updating the config file", Logger.MessageType.WARNING);
+            SaveSettings();
+        }
     }
 }

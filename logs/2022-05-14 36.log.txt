@@ -1,0 +1,39 @@
+   [INFO] <2022-05-14; 16:56:04.791> Player Tracker Decoder App v1.7.7 - LOG FILE
+   [INFO] <2022-05-14; 16:56:04.793> Initializing logger
+   [INFO] <2022-05-14; 16:56:04.793> Logger successfully initialized
+   [INFO] <2022-05-14; 16:56:04.793> Initializing primary systems
+   [INFO] <2022-05-14; 16:56:04.795> Initializing settings subsystem
+   [INFO] <2022-05-14; 16:56:04.795> Fetching and parsing settings from config file
+   [INFO] <2022-05-14; 16:56:04.796> 1.0
+   [INFO] <2022-05-14; 16:56:04.796> true
+   [INFO] <2022-05-14; 16:56:04.797> 0
+   [INFO] <2022-05-14; 16:56:04.797> Pixel
+   [INFO] <2022-05-14; 16:56:04.797> 200
+   [INFO] <2022-05-14; 16:56:04.797> false
+   [INFO] <2022-05-14; 16:56:04.798> true
+   [INFO] <2022-05-14; 16:56:04.801> false
+   [INFO] <2022-05-14; 16:56:04.801> true
+   [INFO] <2022-05-14; 16:56:04.802> false
+   [INFO] <2022-05-14; 16:56:04.802> ageFadeThreshold: 0
+   [INFO] <2022-05-14; 16:56:04.802> ChangeSize
+   [INFO] <2022-05-14; 16:56:04.802> 0
+   [INFO] <2022-05-14; 16:56:04.803> Settings: 12
+   [WARNING] <2022-05-14; 16:56:04.803> Incomplete or old config file, updating the config file
+   [INFO] <2022-05-14; 16:56:04.804> Saving and writing settings to config file
+   [INFO] <2022-05-14; 16:56:04.807> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 16:56:04.807> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-14; 16:56:04.808> Successfully initialized settings subsystem
+   [INFO] <2022-05-14; 16:56:04.809> Initializing decoder subsystem
+   [INFO] <2022-05-14; 16:56:04.809> Successfully initialized decoder subsystem
+   [INFO] <2022-05-14; 16:56:04.809> Initializing primary frame subsystem
+   [INFO] <2022-05-14; 16:56:04.858> Initializing main display subsystem
+   [INFO] <2022-05-14; 16:56:04.859> Antialiasing enabled on main display panel
+   [INFO] <2022-05-14; 16:56:04.859> Successfully initialized main display subsystem
+   [INFO] <2022-05-14; 16:56:04.878> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-14; 16:56:04.879> Loading resources
+   [INFO] <2022-05-14; 16:56:05.730> Successfully initialized all subsystems
+   [INFO] <2022-05-14; 16:56:08.331> Opening world background image dialog
+   [INFO] <2022-05-14; 16:56:09.988> Selected world background image: E:\TrackerDecoderApp\worldImages\SMOL-NewHidden-WorldMapImage.jpg
+   [INFO] <2022-05-14; 16:56:20.296> Loading world background image took 10297ms.
+   [INFO] <2022-05-14; 16:56:21.074> Successfully loaded world background image
+   

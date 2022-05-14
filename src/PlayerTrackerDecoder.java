@@ -76,6 +76,7 @@ public class PlayerTrackerDecoder extends JFrame {
 
     private JTabbedPane tabbedPane;
 
+    //region Resources
     private ImageIcon playIcon;
     private ImageIcon pauseIcon;
     private ImageIcon replayIcon;
@@ -88,8 +89,13 @@ public class PlayerTrackerDecoder extends JFrame {
     private ImageIcon radioIconOFF;
     private ImageIcon checkBoxIconON;
     private ImageIcon checkBoxIconOFF;
+    //endregion
 
-    private final String version = "1.7.4";
+    private boolean isLoaded = false;
+    private final int TARGET_FPS = 30;
+    private final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;
+
+    public static final String version = "1.7.8";
 
     public PlayerTrackerDecoder() {
         logger = new Logger(version);
@@ -98,11 +104,12 @@ public class PlayerTrackerDecoder extends JFrame {
 
         settings = new Settings(logger);
         decoder = new Decoder(settings, logger);
+
         initMainFrame();
 
         try {
             logger.Log("Loading resources", Logger.MessageType.INFO);
-            playIcon = new ImageIcon(ImageIO.read(Objects.requireNonNull(getClass().getResource("resources/play.png"))).getScaledInstance(24, 24, java.awt.Image.SCALE_SMOOTH), "Play");
+            playIcon = new ImageIcon(ImageIO.read(Objects.requireNonNull(getClass().getResource("resources/play.png"))).getScaledInstance(24, 24, Image.SCALE_SMOOTH), "Play");
             pauseIcon = new ImageIcon(ImageIO.read(Objects.requireNonNull(getClass().getResource("resources/pause.png"))).getScaledInstance(24, 24, java.awt.Image.SCALE_SMOOTH), "Pause");
             replayIcon = new ImageIcon(ImageIO.read(Objects.requireNonNull(getClass().getResource("resources/replay.png"))).getScaledInstance(24, 24, java.awt.Image.SCALE_SMOOTH), "Replay");
             speedIcon = new ImageIcon(ImageIO.read(Objects.requireNonNull(getClass().getResource("resources/fastForward.png"))).getScaledInstance(24, 24, java.awt.Image.SCALE_SMOOTH), "Fast Forward");
@@ -154,7 +161,6 @@ public class PlayerTrackerDecoder extends JFrame {
             ImportForm form = new ImportForm(this, settings, logger);
             form.setVisible(true);
             form.setLocationRelativeTo(this);
-
         });
 
         logger.Log("Successfully initialized all subsystems", Logger.MessageType.INFO);
@@ -162,8 +168,6 @@ public class PlayerTrackerDecoder extends JFrame {
 
     public void ConfirmImport(ArrayList<File> files) {
         this.files = files.toArray(new File[0]);
-        mainPanel.isPlaying = false;
-        mainPanel.ShouldDraw = false;
 
         try {
             if (alreadyImported) {

@@ -1,0 +1,440 @@
+   [INFO] <2022-05-14; 16:58:42.744> Player Tracker Decoder App v1.7.7 - LOG FILE
+   [INFO] <2022-05-14; 16:58:42.745> Initializing logger
+   [INFO] <2022-05-14; 16:58:42.746> Logger successfully initialized
+   [INFO] <2022-05-14; 16:58:42.746> Initializing primary systems
+   [INFO] <2022-05-14; 16:58:42.748> Initializing settings subsystem
+   [INFO] <2022-05-14; 16:58:42.749> Fetching and parsing settings from config file
+   [INFO] <2022-05-14; 16:58:42.749> 1.0
+   [INFO] <2022-05-14; 16:58:42.749> true
+   [INFO] <2022-05-14; 16:58:42.751> 0
+   [INFO] <2022-05-14; 16:58:42.751> Pixel
+   [INFO] <2022-05-14; 16:58:42.752> 200
+   [INFO] <2022-05-14; 16:58:42.752> false
+   [INFO] <2022-05-14; 16:58:42.752> true
+   [INFO] <2022-05-14; 16:58:42.755> false
+   [INFO] <2022-05-14; 16:58:42.756> true
+   [INFO] <2022-05-14; 16:58:42.756> false
+   [INFO] <2022-05-14; 16:58:42.756> ageFadeThreshold: 0
+   [INFO] <2022-05-14; 16:58:42.757> ChangeSize
+   [INFO] <2022-05-14; 16:58:42.757> 0
+   [INFO] <2022-05-14; 16:58:42.757> Settings: 12
+   [WARNING] <2022-05-14; 16:58:42.758> Incomplete or old config file, updating the config file
+   [INFO] <2022-05-14; 16:58:42.758> Saving and writing settings to config file
+   [INFO] <2022-05-14; 16:58:42.762> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 16:58:42.763> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-14; 16:58:42.763> Successfully initialized settings subsystem
+   [INFO] <2022-05-14; 16:58:42.764> Initializing decoder subsystem
+   [INFO] <2022-05-14; 16:58:42.764> Successfully initialized decoder subsystem
+   [INFO] <2022-05-14; 16:58:42.765> Initializing primary frame subsystem
+   [INFO] <2022-05-14; 16:58:42.805> Initializing main display subsystem
+   [INFO] <2022-05-14; 16:58:42.806> Antialiasing enabled on main display panel
+   [INFO] <2022-05-14; 16:58:42.806> Successfully initialized main display subsystem
+   [INFO] <2022-05-14; 16:58:42.827> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-14; 16:58:42.827> Loading resources
+   [INFO] <2022-05-14; 16:58:43.733> Successfully initialized all subsystems
+   [INFO] <2022-05-14; 16:59:11.543> Opening world background image dialog
+   [INFO] <2022-05-14; 16:59:14.530> Selected world background image: E:\TrackerDecoderApp\worldImages\SMOL-NewHidden-WorldMapImage.jpg
+   [INFO] <2022-05-14; 16:59:25.191> Loading world background image took 10657ms.
+   [INFO] <2022-05-14; 16:59:26.212> Successfully loaded world background image
+   [INFO] <2022-05-14; 16:59:36.855> Selected files: 57
+   [INFO] <2022-05-14; 16:59:36.856> Decoding process started
+   [INFO] <2022-05-14; 16:59:36.857> Decoding data
+   [INFO] <2022-05-14; 16:59:36.857> Fetched and indexed input file: server-overworld-log-2022-01-21.txt
+   [INFO] <2022-05-14; 16:59:36.857> Fetched and indexed input file: server-overworld-log-2022-01-22.txt
+   [INFO] <2022-05-14; 16:59:36.858> Fetched and indexed input file: server-overworld-log-2022-01-23.txt
+   [INFO] <2022-05-14; 16:59:36.858> Fetched and indexed input file: server-overworld-log-2022-01-24.txt
+   [INFO] <2022-05-14; 16:59:36.859> Fetched and indexed input file: server-overworld-log-2022-01-25.txt
+   [INFO] <2022-05-14; 16:59:36.859> Fetched and indexed input file: server-overworld-log-2022-01-28.txt
+   [INFO] <2022-05-14; 16:59:36.859> Fetched and indexed input file: server-overworld-log-2022-01-29.txt
+   [INFO] <2022-05-14; 16:59:36.860> Fetched and indexed input file: server-overworld-log-2022-01-30.txt
+   [INFO] <2022-05-14; 16:59:36.860> Fetched and indexed input file: server-overworld-log-2022-01-31.txt
+   [INFO] <2022-05-14; 16:59:36.860> Fetched and indexed input file: server-overworld-log-2022-02-01.txt
+   [INFO] <2022-05-14; 16:59:36.860> Fetched and indexed input file: server-overworld-log-2022-02-02.txt
+   [INFO] <2022-05-14; 16:59:36.860> Fetched and indexed input file: server-overworld-log-2022-02-03.txt
+   [INFO] <2022-05-14; 16:59:36.861> Fetched and indexed input file: server-overworld-log-2022-02-04.txt
+   [INFO] <2022-05-14; 16:59:36.861> Fetched and indexed input file: server-overworld-log-2022-02-05.txt
+   [INFO] <2022-05-14; 16:59:36.861> Fetched and indexed input file: server-overworld-log-2022-02-06.txt
+   [INFO] <2022-05-14; 16:59:36.862> Fetched and indexed input file: server-overworld-log-2022-02-08.txt
+   [INFO] <2022-05-14; 16:59:36.862> Fetched and indexed input file: server-overworld-log-2022-02-09.txt
+   [INFO] <2022-05-14; 16:59:36.863> Fetched and indexed input file: server-overworld-log-2022-02-10.txt
+   [INFO] <2022-05-14; 16:59:36.863> Fetched and indexed input file: server-overworld-log-2022-02-11.txt
+   [INFO] <2022-05-14; 16:59:36.863> Fetched and indexed input file: server-overworld-log-2022-02-12.txt
+   [INFO] <2022-05-14; 16:59:36.864> Fetched and indexed input file: server-overworld-log-2022-02-13.txt
+   [INFO] <2022-05-14; 16:59:36.864> Fetched and indexed input file: server-overworld-log-2022-02-14.txt
+   [INFO] <2022-05-14; 16:59:36.864> Fetched and indexed input file: server-overworld-log-2022-02-15.txt
+   [INFO] <2022-05-14; 16:59:36.865> Fetched and indexed input file: server-overworld-log-2022-02-17.txt
+   [INFO] <2022-05-14; 16:59:36.865> Fetched and indexed input file: server-overworld-log-2022-02-18.txt
+   [INFO] <2022-05-14; 16:59:36.865> Fetched and indexed input file: server-overworld-log-2022-02-19.txt
+   [INFO] <2022-05-14; 16:59:36.865> Fetched and indexed input file: server-overworld-log-2022-02-20.txt
+   [INFO] <2022-05-14; 16:59:36.866> Fetched and indexed input file: server-overworld-log-2022-02-21.txt
+   [INFO] <2022-05-14; 16:59:36.866> Fetched and indexed input file: server-overworld-log-2022-02-22.txt
+   [INFO] <2022-05-14; 16:59:36.866> Fetched and indexed input file: server-overworld-log-2022-02-23.txt
+   [INFO] <2022-05-14; 16:59:36.867> Fetched and indexed input file: server-overworld-log-2022-02-24.txt
+   [INFO] <2022-05-14; 16:59:36.867> Fetched and indexed input file: server-overworld-log-2022-02-25.txt
+   [INFO] <2022-05-14; 16:59:36.867> Fetched and indexed input file: server-overworld-log-2022-02-26.txt
+   [INFO] <2022-05-14; 16:59:36.868> Fetched and indexed input file: server-overworld-log-2022-02-27.txt
+   [INFO] <2022-05-14; 16:59:36.868> Fetched and indexed input file: server-overworld-log-2022-03-03.txt
+   [INFO] <2022-05-14; 16:59:36.868> Fetched and indexed input file: server-overworld-log-2022-03-05.txt
+   [INFO] <2022-05-14; 16:59:36.868> Fetched and indexed input file: server-overworld-log-2022-03-06.txt
+   [INFO] <2022-05-14; 16:59:36.869> Fetched and indexed input file: server-overworld-log-2022-03-11.txt
+   [INFO] <2022-05-14; 16:59:36.869> Fetched and indexed input file: server-overworld-log-2022-03-12.txt
+   [INFO] <2022-05-14; 16:59:36.870> Fetched and indexed input file: server-overworld-log-2022-03-13.txt
+   [INFO] <2022-05-14; 16:59:36.870> Fetched and indexed input file: server-overworld-log-2022-03-14.txt
+   [INFO] <2022-05-14; 16:59:36.870> Fetched and indexed input file: server-overworld-log-2022-03-15.txt
+   [INFO] <2022-05-14; 16:59:36.871> Fetched and indexed input file: server-overworld-log-2022-03-18.txt
+   [INFO] <2022-05-14; 16:59:36.871> Fetched and indexed input file: server-overworld-log-2022-03-21.txt
+   [INFO] <2022-05-14; 16:59:36.872> Fetched and indexed input file: server-overworld-log-2022-03-22.txt
+   [INFO] <2022-05-14; 16:59:36.872> Fetched and indexed input file: server-overworld-log-2022-03-23.txt
+   [INFO] <2022-05-14; 16:59:36.872> Fetched and indexed input file: server-overworld-log-2022-03-24.txt
+   [INFO] <2022-05-14; 16:59:36.873> Fetched and indexed input file: server-overworld-log-2022-03-25.txt
+   [INFO] <2022-05-14; 16:59:36.874> Fetched and indexed input file: server-overworld-log-2022-03-26.txt
+   [INFO] <2022-05-14; 16:59:36.874> Fetched and indexed input file: server-overworld-log-2022-03-27.txt
+   [INFO] <2022-05-14; 16:59:36.874> Fetched and indexed input file: server-overworld-log-2022-03-28.txt
+   [INFO] <2022-05-14; 16:59:36.875> Fetched and indexed input file: server-overworld-log-2022-03-29.txt
+   [INFO] <2022-05-14; 16:59:36.875> Fetched and indexed input file: server-overworld-log-2022-03-30.txt
+   [INFO] <2022-05-14; 16:59:36.876> Fetched and indexed input file: server-overworld-log-2022-03-31.txt
+   [INFO] <2022-05-14; 16:59:36.876> Fetched and indexed input file: server-overworld-log-2022-04-01.txt
+   [INFO] <2022-05-14; 16:59:36.876> Fetched and indexed input file: server-overworld-log-2022-04-02.txt
+   [INFO] <2022-05-14; 16:59:36.877> Fetched and indexed input file: server-overworld-log-2022-04-03.txt
+   [INFO] <2022-05-14; 16:59:37.507> maxX: 8634 minX: -6267; maxY: 2590 minY: -5018
+   [INFO] <2022-05-14; 16:59:37.507> xRange: 14901 yRange: 7608
+   [INFO] <2022-05-14; 16:59:37.507> Successfully decoded data
+   [INFO] <2022-05-14; 16:59:37.509> Setting data to display
+   [INFO] <2022-05-14; 16:59:37.586> Successfully set data to display
+   [INFO] <2022-05-14; 16:59:37.586> Updating points
+   [INFO] <2022-05-14; 16:59:37.686> Updated points: 102567
+   [INFO] <2022-05-14; 16:59:37.686> Initializing toolbar subsystem
+   [INFO] <2022-05-14; 16:59:38.572> Successfully initialized toolbar subsystem
+   [INFO] <2022-05-14; 16:59:38.574> Selected files: 57
+   [INFO] <2022-05-14; 16:59:38.574> Decoding process finished successfully
+   [INFO] <2022-05-14; 17:00:42.750> Selected a log entry:
+Entry:  Anip24, 2022-02-04 13:54:58, (-133, 62, -1506)
+   [INFO] <2022-05-14; 17:00:42.755> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-25 12:03:02, (-135, 65, -1507)
+   [INFO] <2022-05-14; 17:00:42.759> Selected a log entry:
+Entry:  Anip24, 2022-03-13 21:31:10, (-134, 62, -1505)
+   [INFO] <2022-05-14; 17:00:42.762> Selected a log entry:
+Entry:  legoDBuddy, 2022-04-01 11:46:40, (-133, 62, -1506)
+   [INFO] <2022-05-14; 17:00:42.764> Selected a log entry:
+Entry:  legoDBuddy, 2022-04-03 16:39:29, (-133, 66, -1505)
+   [INFO] <2022-05-14; 17:00:44.065> Selected a log entry:
+Entry:  Anip24, 2022-02-04 13:54:58, (-133, 62, -1506)
+   [INFO] <2022-05-14; 17:00:44.067> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-25 12:03:02, (-135, 65, -1507)
+   [INFO] <2022-05-14; 17:00:44.071> Selected a log entry:
+Entry:  legoDBuddy, 2022-04-01 11:46:40, (-133, 62, -1506)
+   [INFO] <2022-05-14; 17:01:10.203> Saving and writing settings to config file
+   [INFO] <2022-05-14; 17:01:10.204> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 17:01:10.204> Changed draw type to: Heat
+   [INFO] <2022-05-14; 17:01:13.658> Selected a log entry:
+Entry:  Anip24, 2022-02-01 17:34:34, (-126, 53, -1494)
+   [INFO] <2022-05-14; 17:01:13.659> Selected a log entry:
+Entry:  Anip24, 2022-02-04 13:54:43, (-127, 64, -1494)
+   [INFO] <2022-05-14; 17:01:13.659> Selected a log entry:
+Entry:  Anip24, 2022-02-04 13:54:48, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:13.659> Selected a log entry:
+Entry:  Anip24, 2022-02-04 13:58:53, (-128, 64, -1493)
+   [INFO] <2022-05-14; 17:01:13.659> Selected a log entry:
+Entry:  Anip24, 2022-02-04 14:45:06, (-126, 55, -1494)
+   [INFO] <2022-05-14; 17:01:13.659> Selected a log entry:
+Entry:  Anip24, 2022-02-04 14:45:21, (-126, 64, -1495)
+   [INFO] <2022-05-14; 17:01:13.660> Selected a log entry:
+Entry:  Anip24, 2022-02-04 14:45:26, (-126, 64, -1494)
+   [INFO] <2022-05-14; 17:01:13.660> Selected a log entry:
+Entry:  Anip24, 2022-02-04 14:45:31, (-126, 64, -1494)
+   [INFO] <2022-05-14; 17:01:13.660> Selected a log entry:
+Entry:  Anip24, 2022-02-04 14:46:38, (-126, 65, -1495)
+   [INFO] <2022-05-14; 17:01:13.661> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 16:31:13, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:13.662> Selected a log entry:
+Entry:  Anip24, 2022-02-13 10:53:42, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:13.662> Selected a log entry:
+Entry:  Anip24, 2022-02-13 10:53:47, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:13.662> Selected a log entry:
+Entry:  Anip24, 2022-02-13 10:53:52, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:13.663> Selected a log entry:
+Entry:  Anip24, 2022-02-19 14:24:39, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:13.664> Selected a log entry:
+Entry:  Anip24, 2022-02-25 17:39:00, (-128, 65, -1493)
+   [INFO] <2022-05-14; 17:01:13.664> Selected a log entry:
+Entry:  Anip24, 2022-02-25 17:45:15, (-126, 63, -1495)
+   [INFO] <2022-05-14; 17:01:13.665> Selected a log entry:
+Entry:  Anip24, 2022-02-26 20:24:26, (-127, 64, -1493)
+   [INFO] <2022-05-14; 17:01:13.666> Selected a log entry:
+Entry:  Anip24, 2022-03-13 21:29:10, (-126, 64, -1495)
+   [INFO] <2022-05-14; 17:01:13.667> Selected a log entry:
+Entry:  Anip24, 2022-03-23 14:38:05, (-128, 64, -1493)
+   [INFO] <2022-05-14; 17:01:13.670> Selected a log entry:
+Entry:  legoDBuddy, 2022-04-03 16:01:54, (-126, 63, -1495)
+   [INFO] <2022-05-14; 17:01:13.670> Selected a log entry:
+Entry:  Anip24, 2022-04-03 16:23:59, (-127, 64, -1493)
+   [INFO] <2022-05-14; 17:01:13.670> Selected a log entry:
+Entry:  legoDBuddy, 2022-04-03 16:44:29, (-126, 63, -1494)
+   [INFO] <2022-05-14; 17:01:13.671> Selected a log entry:
+Entry:  legoDBuddy, 2022-04-03 17:51:04, (-127, 64, -1493)
+   [INFO] <2022-05-14; 17:01:13.671> Selected a log entry:
+Entry:  Pearlwave789, 2022-04-03 20:34:29, (-127, 65, -1493)
+   [INFO] <2022-05-14; 17:01:13.671> Selected a log entry:
+Entry:  Pearlwave789, 2022-04-03 20:38:54, (-126, 63, -1495)
+   [INFO] <2022-05-14; 17:01:13.805> Selected a log entry:
+Entry:  Anip24, 2022-02-01 17:34:34, (-126, 53, -1494)
+   [INFO] <2022-05-14; 17:01:13.806> Selected a log entry:
+Entry:  Anip24, 2022-02-04 13:54:43, (-127, 64, -1494)
+   [INFO] <2022-05-14; 17:01:13.806> Selected a log entry:
+Entry:  Anip24, 2022-02-04 13:54:48, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:13.806> Selected a log entry:
+Entry:  Anip24, 2022-02-04 13:58:53, (-128, 64, -1493)
+   [INFO] <2022-05-14; 17:01:13.806> Selected a log entry:
+Entry:  Anip24, 2022-02-04 14:45:06, (-126, 55, -1494)
+   [INFO] <2022-05-14; 17:01:13.806> Selected a log entry:
+Entry:  Anip24, 2022-02-04 14:45:21, (-126, 64, -1495)
+   [INFO] <2022-05-14; 17:01:13.806> Selected a log entry:
+Entry:  Anip24, 2022-02-04 14:45:26, (-126, 64, -1494)
+   [INFO] <2022-05-14; 17:01:13.808> Selected a log entry:
+Entry:  Anip24, 2022-02-04 14:45:31, (-126, 64, -1494)
+   [INFO] <2022-05-14; 17:01:13.808> Selected a log entry:
+Entry:  Anip24, 2022-02-04 14:46:38, (-126, 65, -1495)
+   [INFO] <2022-05-14; 17:01:13.808> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 16:31:13, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:13.809> Selected a log entry:
+Entry:  Anip24, 2022-02-13 10:53:42, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:13.809> Selected a log entry:
+Entry:  Anip24, 2022-02-13 10:53:47, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:13.809> Selected a log entry:
+Entry:  Anip24, 2022-02-13 10:53:52, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:13.810> Selected a log entry:
+Entry:  Anip24, 2022-02-19 14:24:39, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:13.811> Selected a log entry:
+Entry:  Anip24, 2022-02-25 17:39:00, (-128, 65, -1493)
+   [INFO] <2022-05-14; 17:01:13.812> Selected a log entry:
+Entry:  Anip24, 2022-02-25 17:45:15, (-126, 63, -1495)
+   [INFO] <2022-05-14; 17:01:13.812> Selected a log entry:
+Entry:  Anip24, 2022-02-26 20:24:26, (-127, 64, -1493)
+   [INFO] <2022-05-14; 17:01:13.814> Selected a log entry:
+Entry:  Anip24, 2022-03-13 21:29:10, (-126, 64, -1495)
+   [INFO] <2022-05-14; 17:01:13.816> Selected a log entry:
+Entry:  Anip24, 2022-03-23 14:38:05, (-128, 64, -1493)
+   [INFO] <2022-05-14; 17:01:13.818> Selected a log entry:
+Entry:  legoDBuddy, 2022-04-03 16:01:54, (-126, 63, -1495)
+   [INFO] <2022-05-14; 17:01:13.818> Selected a log entry:
+Entry:  Anip24, 2022-04-03 16:23:59, (-127, 64, -1493)
+   [INFO] <2022-05-14; 17:01:13.818> Selected a log entry:
+Entry:  legoDBuddy, 2022-04-03 16:44:29, (-126, 63, -1494)
+   [INFO] <2022-05-14; 17:01:13.818> Selected a log entry:
+Entry:  legoDBuddy, 2022-04-03 17:51:04, (-127, 64, -1493)
+   [INFO] <2022-05-14; 17:01:13.819> Selected a log entry:
+Entry:  Pearlwave789, 2022-04-03 20:34:29, (-127, 65, -1493)
+   [INFO] <2022-05-14; 17:01:13.819> Selected a log entry:
+Entry:  Pearlwave789, 2022-04-03 20:38:54, (-126, 63, -1495)
+   [INFO] <2022-05-14; 17:01:14.182> Selected a log entry:
+Entry:  Anip24, 2022-02-01 17:34:34, (-126, 53, -1494)
+   [INFO] <2022-05-14; 17:01:14.183> Selected a log entry:
+Entry:  Anip24, 2022-02-04 13:54:43, (-127, 64, -1494)
+   [INFO] <2022-05-14; 17:01:14.183> Selected a log entry:
+Entry:  Anip24, 2022-02-04 13:54:48, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.184> Selected a log entry:
+Entry:  Anip24, 2022-02-04 13:58:53, (-128, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.184> Selected a log entry:
+Entry:  Anip24, 2022-02-04 14:45:06, (-126, 55, -1494)
+   [INFO] <2022-05-14; 17:01:14.184> Selected a log entry:
+Entry:  Anip24, 2022-02-04 14:45:21, (-126, 64, -1495)
+   [INFO] <2022-05-14; 17:01:14.184> Selected a log entry:
+Entry:  Anip24, 2022-02-04 14:45:26, (-126, 64, -1494)
+   [INFO] <2022-05-14; 17:01:14.185> Selected a log entry:
+Entry:  Anip24, 2022-02-04 14:45:31, (-126, 64, -1494)
+   [INFO] <2022-05-14; 17:01:14.185> Selected a log entry:
+Entry:  Anip24, 2022-02-04 14:46:38, (-126, 65, -1495)
+   [INFO] <2022-05-14; 17:01:14.185> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 16:31:13, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.186> Selected a log entry:
+Entry:  Anip24, 2022-02-13 10:53:42, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.186> Selected a log entry:
+Entry:  Anip24, 2022-02-13 10:53:47, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.186> Selected a log entry:
+Entry:  Anip24, 2022-02-13 10:53:52, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.187> Selected a log entry:
+Entry:  Anip24, 2022-02-19 14:24:39, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.188> Selected a log entry:
+Entry:  Anip24, 2022-02-25 17:39:00, (-128, 65, -1493)
+   [INFO] <2022-05-14; 17:01:14.188> Selected a log entry:
+Entry:  Anip24, 2022-02-25 17:45:15, (-126, 63, -1495)
+   [INFO] <2022-05-14; 17:01:14.189> Selected a log entry:
+Entry:  Anip24, 2022-02-26 20:24:26, (-127, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.191> Selected a log entry:
+Entry:  Anip24, 2022-03-13 21:29:10, (-126, 64, -1495)
+   [INFO] <2022-05-14; 17:01:14.192> Selected a log entry:
+Entry:  Anip24, 2022-03-23 14:38:05, (-128, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.193> Selected a log entry:
+Entry:  legoDBuddy, 2022-04-03 16:01:54, (-126, 63, -1495)
+   [INFO] <2022-05-14; 17:01:14.194> Selected a log entry:
+Entry:  Anip24, 2022-04-03 16:23:59, (-127, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.194> Selected a log entry:
+Entry:  legoDBuddy, 2022-04-03 16:44:29, (-126, 63, -1494)
+   [INFO] <2022-05-14; 17:01:14.194> Selected a log entry:
+Entry:  legoDBuddy, 2022-04-03 17:51:04, (-127, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.195> Selected a log entry:
+Entry:  Pearlwave789, 2022-04-03 20:34:29, (-127, 65, -1493)
+   [INFO] <2022-05-14; 17:01:14.195> Selected a log entry:
+Entry:  Pearlwave789, 2022-04-03 20:38:54, (-126, 63, -1495)
+   [INFO] <2022-05-14; 17:01:14.870> Selected a log entry:
+Entry:  Anip24, 2022-02-01 17:34:34, (-126, 53, -1494)
+   [INFO] <2022-05-14; 17:01:14.871> Selected a log entry:
+Entry:  Anip24, 2022-02-04 13:54:43, (-127, 64, -1494)
+   [INFO] <2022-05-14; 17:01:14.871> Selected a log entry:
+Entry:  Anip24, 2022-02-04 13:54:48, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.872> Selected a log entry:
+Entry:  Anip24, 2022-02-04 13:58:53, (-128, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.872> Selected a log entry:
+Entry:  Anip24, 2022-02-04 14:45:06, (-126, 55, -1494)
+   [INFO] <2022-05-14; 17:01:14.872> Selected a log entry:
+Entry:  Anip24, 2022-02-04 14:45:21, (-126, 64, -1495)
+   [INFO] <2022-05-14; 17:01:14.872> Selected a log entry:
+Entry:  Anip24, 2022-02-04 14:45:26, (-126, 64, -1494)
+   [INFO] <2022-05-14; 17:01:14.872> Selected a log entry:
+Entry:  Anip24, 2022-02-04 14:45:31, (-126, 64, -1494)
+   [INFO] <2022-05-14; 17:01:14.873> Selected a log entry:
+Entry:  Anip24, 2022-02-04 14:46:38, (-126, 65, -1495)
+   [INFO] <2022-05-14; 17:01:14.873> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 16:31:13, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.874> Selected a log entry:
+Entry:  Anip24, 2022-02-13 10:53:42, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.874> Selected a log entry:
+Entry:  Anip24, 2022-02-13 10:53:47, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.874> Selected a log entry:
+Entry:  Anip24, 2022-02-13 10:53:52, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.875> Selected a log entry:
+Entry:  Anip24, 2022-02-19 14:24:39, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.876> Selected a log entry:
+Entry:  Anip24, 2022-02-25 17:39:00, (-128, 65, -1493)
+   [INFO] <2022-05-14; 17:01:14.876> Selected a log entry:
+Entry:  Anip24, 2022-02-25 17:45:15, (-126, 63, -1495)
+   [INFO] <2022-05-14; 17:01:14.877> Selected a log entry:
+Entry:  Anip24, 2022-02-26 20:24:26, (-127, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.878> Selected a log entry:
+Entry:  Anip24, 2022-03-13 21:29:10, (-126, 64, -1495)
+   [INFO] <2022-05-14; 17:01:14.880> Selected a log entry:
+Entry:  Anip24, 2022-03-23 14:38:05, (-128, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.881> Selected a log entry:
+Entry:  legoDBuddy, 2022-04-03 16:01:54, (-126, 63, -1495)
+   [INFO] <2022-05-14; 17:01:14.881> Selected a log entry:
+Entry:  Anip24, 2022-04-03 16:23:59, (-127, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.882> Selected a log entry:
+Entry:  legoDBuddy, 2022-04-03 16:44:29, (-126, 63, -1494)
+   [INFO] <2022-05-14; 17:01:14.882> Selected a log entry:
+Entry:  legoDBuddy, 2022-04-03 17:51:04, (-127, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.882> Selected a log entry:
+Entry:  Pearlwave789, 2022-04-03 20:34:29, (-127, 65, -1493)
+   [INFO] <2022-05-14; 17:01:14.883> Selected a log entry:
+Entry:  Pearlwave789, 2022-04-03 20:38:54, (-126, 63, -1495)
+   [INFO] <2022-05-14; 17:01:14.971> Selected a log entry:
+Entry:  Anip24, 2022-02-01 17:34:34, (-126, 53, -1494)
+   [INFO] <2022-05-14; 17:01:14.971> Selected a log entry:
+Entry:  Anip24, 2022-02-04 13:54:43, (-127, 64, -1494)
+   [INFO] <2022-05-14; 17:01:14.972> Selected a log entry:
+Entry:  Anip24, 2022-02-04 13:54:48, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.972> Selected a log entry:
+Entry:  Anip24, 2022-02-04 13:58:53, (-128, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.972> Selected a log entry:
+Entry:  Anip24, 2022-02-04 14:45:06, (-126, 55, -1494)
+   [INFO] <2022-05-14; 17:01:14.972> Selected a log entry:
+Entry:  Anip24, 2022-02-04 14:45:21, (-126, 64, -1495)
+   [INFO] <2022-05-14; 17:01:14.972> Selected a log entry:
+Entry:  Anip24, 2022-02-04 14:45:26, (-126, 64, -1494)
+   [INFO] <2022-05-14; 17:01:14.973> Selected a log entry:
+Entry:  Anip24, 2022-02-04 14:45:31, (-126, 64, -1494)
+   [INFO] <2022-05-14; 17:01:14.973> Selected a log entry:
+Entry:  Anip24, 2022-02-04 14:46:38, (-126, 65, -1495)
+   [INFO] <2022-05-14; 17:01:14.973> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 16:31:13, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.974> Selected a log entry:
+Entry:  Anip24, 2022-02-13 10:53:42, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.974> Selected a log entry:
+Entry:  Anip24, 2022-02-13 10:53:47, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.975> Selected a log entry:
+Entry:  Anip24, 2022-02-13 10:53:52, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.975> Selected a log entry:
+Entry:  Anip24, 2022-02-19 14:24:39, (-126, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.976> Selected a log entry:
+Entry:  Anip24, 2022-02-25 17:39:00, (-128, 65, -1493)
+   [INFO] <2022-05-14; 17:01:14.976> Selected a log entry:
+Entry:  Anip24, 2022-02-25 17:45:15, (-126, 63, -1495)
+   [INFO] <2022-05-14; 17:01:14.978> Selected a log entry:
+Entry:  Anip24, 2022-02-26 20:24:26, (-127, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.979> Selected a log entry:
+Entry:  Anip24, 2022-03-13 21:29:10, (-126, 64, -1495)
+   [INFO] <2022-05-14; 17:01:14.981> Selected a log entry:
+Entry:  Anip24, 2022-03-23 14:38:05, (-128, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.982> Selected a log entry:
+Entry:  legoDBuddy, 2022-04-03 16:01:54, (-126, 63, -1495)
+   [INFO] <2022-05-14; 17:01:14.982> Selected a log entry:
+Entry:  Anip24, 2022-04-03 16:23:59, (-127, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.983> Selected a log entry:
+Entry:  legoDBuddy, 2022-04-03 16:44:29, (-126, 63, -1494)
+   [INFO] <2022-05-14; 17:01:14.983> Selected a log entry:
+Entry:  legoDBuddy, 2022-04-03 17:51:04, (-127, 64, -1493)
+   [INFO] <2022-05-14; 17:01:14.983> Selected a log entry:
+Entry:  Pearlwave789, 2022-04-03 20:34:29, (-127, 65, -1493)
+   [INFO] <2022-05-14; 17:01:14.984> Selected a log entry:
+Entry:  Pearlwave789, 2022-04-03 20:38:54, (-126, 63, -1495)
+   [INFO] <2022-05-14; 17:01:17.290> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 18:22:28, (-138, 62, -1504)
+   [INFO] <2022-05-14; 17:01:17.290> Selected a log entry:
+Entry:  legoDBuddy, 2022-02-04 19:51:31, (-137, 62, -1506)
+   [INFO] <2022-05-14; 17:01:24.239> Saving and writing settings to config file
+   [INFO] <2022-05-14; 17:01:24.240> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 17:01:24.241> Changed draw type to: Line
+   [INFO] <2022-05-14; 17:01:25.898> Saving and writing settings to config file
+   [INFO] <2022-05-14; 17:01:25.899> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 17:01:25.899> Changed draw size to: 1.0
+   [INFO] <2022-05-14; 17:01:25.900> Saving and writing settings to config file
+   [INFO] <2022-05-14; 17:01:25.900> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 17:01:25.900> Changed draw size to: 0.0
+   [INFO] <2022-05-14; 17:01:26.716> Saving and writing settings to config file
+   [INFO] <2022-05-14; 17:01:26.719> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 17:01:26.720> Changed draw size to: 0.0
+   [INFO] <2022-05-14; 17:01:27.393> Saving and writing settings to config file
+   [INFO] <2022-05-14; 17:01:27.394> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 17:01:27.394> Changed draw size to: 0.0
+   [INFO] <2022-05-14; 17:01:27.436> Saving and writing settings to config file
+   [INFO] <2022-05-14; 17:01:27.437> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 17:01:27.437> Changed draw size to: 0.2
+   [INFO] <2022-05-14; 17:01:27.490> Saving and writing settings to config file
+   [INFO] <2022-05-14; 17:01:27.490> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 17:01:27.491> Changed draw size to: 0.4
+   [INFO] <2022-05-14; 17:01:27.548> Saving and writing settings to config file
+   [INFO] <2022-05-14; 17:01:27.548> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 17:01:27.549> Changed draw size to: 0.5
+   [INFO] <2022-05-14; 17:01:27.598> Saving and writing settings to config file
+   [INFO] <2022-05-14; 17:01:27.599> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 17:01:27.599> Changed draw size to: 0.6
+   [INFO] <2022-05-14; 17:01:27.658> Saving and writing settings to config file
+   [INFO] <2022-05-14; 17:01:27.658> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 17:01:27.658> Changed draw size to: 0.7
+   [INFO] <2022-05-14; 17:01:27.709> Saving and writing settings to config file
+   [INFO] <2022-05-14; 17:01:27.709> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 17:01:27.709> Changed draw size to: 0.9
+   [INFO] <2022-05-14; 17:01:27.909> Saving and writing settings to config file
+   [INFO] <2022-05-14; 17:01:27.910> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 17:01:27.910> Changed draw size to: 0.8
+   [INFO] <2022-05-14; 17:01:27.956> Saving and writing settings to config file
+   [INFO] <2022-05-14; 17:01:27.956> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 17:01:27.956> Changed draw size to: 0.7
+   [INFO] <2022-05-14; 17:01:28.013> Saving and writing settings to config file
+   [INFO] <2022-05-14; 17:01:28.016> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 17:01:28.016> Changed draw size to: 0.6
+   [INFO] <2022-05-14; 17:01:28.086> Saving and writing settings to config file
+   [INFO] <2022-05-14; 17:01:28.086> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 17:01:28.086> Changed draw size to: 0.5
+   [INFO] <2022-05-14; 17:01:28.316> Saving and writing settings to config file
+   [INFO] <2022-05-14; 17:01:28.318> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 17:01:28.318> Changed draw size to: 0.4
+   [INFO] <2022-05-14; 17:01:28.408> Saving and writing settings to config file
+   [INFO] <2022-05-14; 17:01:28.408> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 17:01:28.409> Changed draw size to: 0.3
+   [INFO] <2022-05-14; 17:01:28.455> Saving and writing settings to config file
+   [INFO] <2022-05-14; 17:01:28.456> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 17:01:28.456> Changed draw size to: 0.2
+   [INFO] <2022-05-14; 17:01:28.810> Saving and writing settings to config file
+   [INFO] <2022-05-14; 17:01:28.811> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 17:01:28.811> Changed draw size to: 0.2
+   

@@ -1,9 +1,10 @@
-Player Tracker Decoder - CONFIG
-Delete this config file to reset values to their default settings
-size: 1.0 // Change th position marker or line size
+/// Player Tracker Decoder v1.7.8 - CONFIG \\\
+/// Delete this config file to reset values to their default settings \\\
+
+size: 0.2 // Change th position marker or line size
 convertChunkPositions: true // Convert logged chunk positions into block positions, this is done by multiplying the chunk position by 16
 maxEntries: 0 // The limit to the amount of data entries to compile into the final image or gif, useful when wanting a less-detailed, but quick output or when with low memory. Set to 0 to disable
-drawType: 0 // The way to represent the positions. 0 = Pixel, 1 = Dot, 2 = Lines, 3 = Heatmap
+drawType: 2 // The way to represent the positions. 0 = Pixel, 1 = Dot, 2 = Lines, 3 = Heatmap
 lineThreshold: 200 // The maximum distance a player can move until its position change doesn't draw a line. This is to fix issues where massive lines are drawn across the map when players nether travel or die.
 upscale: 1 // The scale multiplier. The higher the up-scaling, the higher the final resolution. HIGHER VALUES DRASTICALLY INCREASE FILE SIZE AND PROCESSING TIME!
 fancyLines: false // Show arrows at data points when drawing using lines

@@ -1,0 +1,35 @@
+   [INFO] <2022-05-14; 16:57:33.614> Player Tracker Decoder App v1.7.7 - LOG FILE
+   [INFO] <2022-05-14; 16:57:33.616> Initializing logger
+   [INFO] <2022-05-14; 16:57:33.617> Logger successfully initialized
+   [INFO] <2022-05-14; 16:57:33.618> Initializing primary systems
+   [INFO] <2022-05-14; 16:57:33.620> Initializing settings subsystem
+   [INFO] <2022-05-14; 16:57:33.621> Fetching and parsing settings from config file
+   [INFO] <2022-05-14; 16:57:33.622> 1.0
+   [INFO] <2022-05-14; 16:57:33.622> true
+   [INFO] <2022-05-14; 16:57:33.623> 0
+   [INFO] <2022-05-14; 16:57:33.623> Pixel
+   [INFO] <2022-05-14; 16:57:33.624> 200
+   [INFO] <2022-05-14; 16:57:33.624> false
+   [INFO] <2022-05-14; 16:57:33.624> true
+   [INFO] <2022-05-14; 16:57:33.628> false
+   [INFO] <2022-05-14; 16:57:33.628> true
+   [INFO] <2022-05-14; 16:57:33.629> false
+   [INFO] <2022-05-14; 16:57:33.629> ageFadeThreshold: 0
+   [INFO] <2022-05-14; 16:57:33.629> ChangeSize
+   [INFO] <2022-05-14; 16:57:33.630> 0
+   [INFO] <2022-05-14; 16:57:33.630> Settings: 12
+   [WARNING] <2022-05-14; 16:57:33.630> Incomplete or old config file, updating the config file
+   [INFO] <2022-05-14; 16:57:33.631> Saving and writing settings to config file
+   [INFO] <2022-05-14; 16:57:33.635> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 16:57:33.636> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-14; 16:57:33.636> Successfully initialized settings subsystem
+   [INFO] <2022-05-14; 16:57:33.638> Initializing decoder subsystem
+   [INFO] <2022-05-14; 16:57:33.638> Successfully initialized decoder subsystem
+   [INFO] <2022-05-14; 16:57:33.638> Initializing primary frame subsystem
+   [INFO] <2022-05-14; 16:57:33.688> Initializing main display subsystem
+   [INFO] <2022-05-14; 16:57:33.689> Antialiasing enabled on main display panel
+   [INFO] <2022-05-14; 16:57:33.689> Successfully initialized main display subsystem
+   [INFO] <2022-05-14; 16:57:33.715> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-14; 16:57:33.716> Loading resources
+   [INFO] <2022-05-14; 16:57:34.581> Successfully initialized all subsystems
+   

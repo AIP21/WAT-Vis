@@ -1,0 +1,40 @@
+   [INFO] <2022-05-14; 16:51:10.260> Player Tracker Decoder App v1.7.6 - LOG FILE
+   [INFO] <2022-05-14; 16:51:10.261> Initializing logger
+   [INFO] <2022-05-14; 16:51:10.262> Logger successfully initialized
+   [INFO] <2022-05-14; 16:51:10.262> Initializing primary systems
+   [INFO] <2022-05-14; 16:51:10.264> Initializing settings subsystem
+   [WARNING] <2022-05-14; 16:51:10.264> Config file does not exist, creating it
+   [INFO] <2022-05-14; 16:51:10.265> Successfully created config file
+   [INFO] <2022-05-14; 16:51:10.265> Saving and writing settings to config file
+   [INFO] <2022-05-14; 16:51:10.269> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 16:51:10.269> Successfully saved and wrote default settings to config file
+   [INFO] <2022-05-14; 16:51:10.272> Fetching and parsing settings from config file
+   [INFO] <2022-05-14; 16:51:10.278> 1.0
+   [INFO] <2022-05-14; 16:51:10.279> true
+   [INFO] <2022-05-14; 16:51:10.279> 0
+   [INFO] <2022-05-14; 16:51:10.279> Pixel
+   [INFO] <2022-05-14; 16:51:10.280> 200
+   [INFO] <2022-05-14; 16:51:10.280> false
+   [INFO] <2022-05-14; 16:51:10.280> true
+   [INFO] <2022-05-14; 16:51:10.280> false
+   [INFO] <2022-05-14; 16:51:10.281> true
+   [INFO] <2022-05-14; 16:51:10.281> false
+   [INFO] <2022-05-14; 16:51:10.281> ageFadeThreshold: 0
+   [INFO] <2022-05-14; 16:51:10.281> ChangeSize
+   [INFO] <2022-05-14; 16:51:10.282> 0
+   [INFO] <2022-05-14; 16:51:10.282> Settings: 12
+   [WARNING] <2022-05-14; 16:51:10.282> Incomplete or old config file, updating the config file
+   [INFO] <2022-05-14; 16:51:10.283> Saving and writing settings to config file
+   [INFO] <2022-05-14; 16:51:10.283> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-14; 16:51:10.284> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-14; 16:51:10.284> Successfully initialized settings subsystem
+   [INFO] <2022-05-14; 16:51:10.285> Initializing decoder subsystem
+   [INFO] <2022-05-14; 16:51:10.285> Successfully initialized decoder subsystem
+   [INFO] <2022-05-14; 16:51:10.285> Initializing primary frame subsystem
+   [INFO] <2022-05-14; 16:51:10.323> Initializing main display subsystem
+   [INFO] <2022-05-14; 16:51:10.324> Antialiasing enabled on main display panel
+   [INFO] <2022-05-14; 16:51:10.324> Successfully initialized main display subsystem
+   [INFO] <2022-05-14; 16:51:10.342> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-14; 16:51:10.342> Loading resources
+   [INFO] <2022-05-14; 16:51:11.086> Successfully initialized all subsystems
+   

@@ -1,5 +1,7 @@
 # TrackerDecoderApp
-An app version of my player tracker decoder. It is an interactive and super configurable tool to visualize, analyze, and export the data created by my Player Tracker Mod. [The Minecraft mod on Modrinth](https://modrinth.com/mod/wat) [The Minecraft mod on Github](https://github.com/AIP21/PlayerTracker)
+An app version of my player tracker decoder. It is an interactive and super configurable tool to visualize, analyze, and export the data created by my Player Tracker Mod.
+Links to the Minecraft mod:
+[The Minecraft mod on Modrinth](https://modrinth.com/mod/wat) or [The Minecraft mod on Github](https://github.com/AIP21/PlayerTracker)
 
 This can ONLY BE USED with my Player Tracker mod for minecraft. The purpose of this app is to be able to view and analyze the data collected from the mod.
 The mod is also in the releases page.

@@ -306,10 +306,15 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
                 if (!useCulling || (pt.x >= -50 && pt.x <= screenSize.width + 50 && pt.y >= -50 && pt.y <= screenSize.height + 50)) {
 //                    logger.Log(posActivityMap.get(vec) + " / " + maxActivity, Logger.MessageType.INFO);
-                    float value = Math.min((float) posActivityMap.get(vec) * ((float) settings.heatMapThreshold / 100.0f), newMax);
+                    float value = Math.min((float) posActivityMap.get(vec) * ((float) settings.heatMapThreshold / 100.0f) + 0.5f, newMax + 0.5f);
 
                     if (settings._heatDrawType == PlayerTrackerDecoder.HeatDrawType.Change_Color) {
-                        g2d.setColor(Utils.lerp(Color.darkGray, Color.getHSBColor(0.93f, 0.68f, 0.55f), value / newMax));
+                        try {
+                            g2d.setColor(Utils.lerp(Color.darkGray, Color.getHSBColor(0.93f, 0.68f, 0.55f), value / newMax));
+                        } catch (IllegalArgumentException e) {
+                            logger.Log("Something wrong happened when lerping colors for the heatmap color (Probably the stupid negative input error): " + Arrays.toString(e.getStackTrace()), Logger.MessageType.ERROR);
+                        }
+
                         drawRectangle(g2d, x, y, settings.size, true);
                     } else {
                         drawRectangle(g2d, x, y, settings.size + value, true);
@@ -461,7 +466,6 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         }
 
         update = true;
-
         repaint();
 
         if (log) logger.Log("Updated points: " + logEntriesGroupedByTime.size(), Logger.MessageType.INFO);
@@ -531,16 +535,21 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         update = true;
         SelectedEntryLabel.setText("Nothing Selected");
         selectedEntry = null;
+        boolean done = false;
         for (LocalDateTime time : logEntriesGroupedByTime.keySet()) {
             ArrayList<LogEntry> entries = logEntriesGroupedByTime.get(time);
             for (LogEntry entry : entries) {
-                if (Math.abs(entry.position.x - mousePosition.x) < 2 && Math.abs(entry.position.z - mousePosition.y) < 2) {
+                if (selectedEntry != entry && Math.abs(entry.position.x - mousePosition.x) < 2 && Math.abs(entry.position.z - mousePosition.y) < 2) {
                     selectedEntry = entry;
                     SelectedEntryLabel.setText(entry.toString());
 
                     logger.Log("Selected a log entry:\n" + entry, Logger.MessageType.INFO);
+                    done = true;
+                    break;
                 }
             }
+
+            if (done) break;
         }
     }
 

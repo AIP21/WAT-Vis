@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Settings {
-    public int padding = 50;
     public float size = 1.0f;
     public boolean convertChunkPosToBlockPos = true;
     public int maxDataEntries = 0;
@@ -14,7 +13,6 @@ public class Settings {
     public PlayerTrackerDecoder.HeatDrawType _heatDrawType = PlayerTrackerDecoder.HeatDrawType.Change_Size;
     public int heatMapThreshold = 0;
     public int lineThreshold = 200;
-    public int upscaleMultiplier = 1;
     public boolean fancyLines = false;
     public boolean hiddenLines = false;
     public boolean antialiasing = true;
@@ -22,7 +20,8 @@ public class Settings {
     public boolean ageFade = false;
     public int ageFadeThreshold = 0;
 
-    private final int settingCount = 15;
+    private final int settingCount = 13;
+
     private final Logger logger;
 
     public Settings(Logger log) {
@@ -35,13 +34,11 @@ public class Settings {
                 logger.Log("Config file does not exist, creating it", Logger.MessageType.WARNING);
 
                 try {
-                    padding = 50;
                     size = 1.0f;
                     convertChunkPosToBlockPos = true;
                     maxDataEntries = 0;
                     _drawType = Decoder.DrawType.Pixel;
                     lineThreshold = 200;
-                    upscaleMultiplier = 1;
                     fancyLines = false;
                     hiddenLines = false;
                     antialiasing = true;
@@ -82,12 +79,11 @@ public class Settings {
             PrintWriter writer = new PrintWriter("config.txt", StandardCharsets.UTF_8);
             writer.println("/// Player Tracker Decoder v" + PlayerTrackerDecoder.version + " - CONFIG \\\\\\");
             writer.println("/// Delete this config file to reset values to their default settings \\\\\\\n");
-            writer.println("size: " + size + " // Change th position marker or line size");
+            writer.println("size: " + size + " // Change the position marker or line size");
             writer.println("convertChunkPositions: " + convertChunkPosToBlockPos + " // Convert logged chunk positions into block positions, this is done by multiplying the chunk position by 16");
             writer.println("maxEntries: " + maxDataEntries + " // The limit to the amount of data entries to compile into the final image or gif, useful when wanting a less-detailed, but quick output or when with low memory. Set to 0 to disable");
             writer.println("drawType: " + drawTypeToInt(_drawType) + " // The way to represent the positions. 0 = Pixel, 1 = Dot, 2 = Lines, 3 = Heatmap");
             writer.println("lineThreshold: " + lineThreshold + " // The maximum distance a player can move until its position change doesn't draw a line. This is to fix issues where massive lines are drawn across the map when players nether travel or die.");
-            writer.println("upscale: " + upscaleMultiplier + " // The scale multiplier. The higher the up-scaling, the higher the final resolution. HIGHER VALUES DRASTICALLY INCREASE FILE SIZE AND PROCESSING TIME!");
             writer.println("fancyLines: " + fancyLines + " // Show arrows at data points when drawing using lines");
             writer.println("antialiasing: " + antialiasing + " // Use antialiasing when rendering. Used to smooth out the hard, pixelated edges");
             writer.println("hiddenLines: " + hiddenLines + " // Show lines that were hidden for being above the threshold");
@@ -150,22 +146,22 @@ public class Settings {
                 if (arg.contains("size: ")) {
                     String str = arg.replace("size: ", "");
                     str = str.substring(0, str.indexOf(" //"));
-                    logger.Log(str, Logger.MessageType.INFO);
                     size = Float.parseFloat(str);
                     count++;
-                } else if (arg.contains("convertChunkPositions")) {
+                    logger.Log(str + ", " + count, Logger.MessageType.INFO);
+                } else if (arg.contains("convertChunkPositions: ")) {
                     String str = arg.replace("convertChunkPositions: ", "");
                     str = str.substring(0, str.indexOf(" //"));
-                    logger.Log(str, Logger.MessageType.INFO);
                     convertChunkPosToBlockPos = Boolean.parseBoolean(str);
                     count++;
-                } else if (arg.contains("maxEntries")) {
+                    logger.Log(str + ", " + count, Logger.MessageType.INFO);
+                } else if (arg.contains("maxEntries: ")) {
                     String str = arg.replace("maxEntries: ", "");
                     str = str.substring(0, str.indexOf(" //"));
-                    logger.Log(str, Logger.MessageType.INFO);
                     maxDataEntries = Integer.parseInt(str);
                     count++;
-                } else if (arg.contains("drawType")) {
+                    logger.Log(str + ", " + count, Logger.MessageType.INFO);
+                } else if (arg.contains("drawType: ")) {
                     String str = arg.replace("drawType: ", "");
                     str = str.substring(0, str.indexOf(" //"));
                     int val = Integer.parseInt(str);
@@ -178,50 +174,51 @@ public class Settings {
                     } else if (val == 3) {
                         _drawType = Decoder.DrawType.Heat;
                     }
-                    logger.Log(_drawType, Logger.MessageType.INFO);
                     count++;
-                } else if (arg.contains("lineThreshold")) {
+                    logger.Log(_drawType + ", " + count, Logger.MessageType.INFO);
+                } else if (arg.contains("lineThreshold: ")) {
                     String str = arg.replace("lineThreshold: ", "");
                     str = str.substring(0, str.indexOf(" //"));
-                    logger.Log(str, Logger.MessageType.INFO);
                     lineThreshold = Integer.parseInt(str);
                     count++;
-                } else if (arg.contains("fancyLines")) {
+                    logger.Log(str + ", " + count, Logger.MessageType.INFO);
+                } else if (arg.contains("fancyLines: ")) {
                     String str = arg.replace("fancyLines: ", "");
                     str = str.substring(0, str.indexOf(" //"));
-                    logger.Log(str, Logger.MessageType.INFO);
                     fancyLines = Boolean.parseBoolean(str);
                     count++;
-                } else if (arg.contains("hiddenLines")) {
+                    logger.Log(str + ", " + count, Logger.MessageType.INFO);
+                } else if (arg.contains("hiddenLines: ")) {
                     String str = arg.replace("hiddenLines: ", "");
                     str = str.substring(0, str.indexOf(" //"));
-                    logger.Log(str, Logger.MessageType.INFO);
                     hiddenLines = Boolean.parseBoolean(str);
-                } else if (arg.contains("antialiasing")) {
+                    count++;
+                    logger.Log(str + ", " + count, Logger.MessageType.INFO);
+                } else if (arg.contains("antialiasing: ")) {
                     String str = arg.replace("antialiasing: ", "");
                     str = str.substring(0, str.indexOf(" //"));
-                    logger.Log(str, Logger.MessageType.INFO);
                     antialiasing = Boolean.parseBoolean(str);
                     count++;
-                } else if (arg.contains("terminusPoints")) {
+                    logger.Log(str + ", " + count, Logger.MessageType.INFO);
+                } else if (arg.contains("terminusPoints: ")) {
                     String str = arg.replace("terminusPoints: ", "");
                     str = str.substring(0, str.indexOf(" //"));
-                    logger.Log(str, Logger.MessageType.INFO);
                     terminusPoints = Boolean.parseBoolean(str);
                     count++;
-                } else if (arg.contains("ageFade")) {
+                    logger.Log(str + ", " + count, Logger.MessageType.INFO);
+                } else if (arg.contains("ageFade: ")) {
                     String str = arg.replace("ageFade: ", "");
                     str = str.substring(0, str.indexOf(" //"));
-                    logger.Log(str, Logger.MessageType.INFO);
                     ageFade = Boolean.parseBoolean(str);
                     count++;
-                } else if (arg.contains("ageFadeThreshold")) {
+                    logger.Log(str + ", " + count, Logger.MessageType.INFO);
+                } else if (arg.contains("ageFadeThreshold: ")) {
                     String str = arg.replace("ageFadeThreshold: ", "");
                     str = str.substring(0, str.indexOf(" //"));
-                    logger.Log(str, Logger.MessageType.INFO);
                     ageFadeThreshold = Integer.parseInt(str);
                     count++;
-                } else if (arg.contains("heatDrawType")) {
+                    logger.Log(str + ", " + count, Logger.MessageType.INFO);
+                } else if (arg.contains("heatDrawType: ")) {
                     String str = arg.replace("heatDrawType: ", "");
                     str = str.substring(0, str.indexOf(" //"));
                     int val = Integer.parseInt(str);
@@ -230,21 +227,21 @@ public class Settings {
                     } else if (val == 1) {
                         _heatDrawType = PlayerTrackerDecoder.HeatDrawType.Change_Color;
                     }
-                    logger.Log(_heatDrawType, Logger.MessageType.INFO);
                     count++;
-                } else if (arg.contains("heatMapThreshold")) {
+                    logger.Log(_heatDrawType + ", " + count, Logger.MessageType.INFO);
+                } else if (arg.contains("heatMapThreshold: ")) {
                     String str = arg.replace("heatMapThreshold: ", "");
                     str = str.substring(0, str.indexOf(" //"));
                     heatMapThreshold = Integer.parseInt(str);
-                    logger.Log(heatMapThreshold, Logger.MessageType.INFO);
                     count++;
+                    logger.Log(str + ", " + count, Logger.MessageType.INFO);
                 }
             }
 
-        logger.Log("Settings: " + count, Logger.MessageType.INFO);
+        logger.Log("Settings count: " + count, Logger.MessageType.INFO);
 
         if (count != settingCount) {
-            logger.Log("Incomplete or old config file, updating the config file", Logger.MessageType.WARNING);
+            logger.Log("Incomplete or old config file, updating the config file. Counted: " + count + " settings, expected: " + settingCount, Logger.MessageType.WARNING);
             SaveSettings();
         }
     }

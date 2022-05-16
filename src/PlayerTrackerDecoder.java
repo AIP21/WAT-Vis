@@ -96,11 +96,11 @@ public class PlayerTrackerDecoder extends JFrame {
     private ImageIcon checkBoxIconOFF;
     //endregion
 
-    private boolean isLoaded = false;
+    private boolean hasBackgroundImage = false;
     private final int TARGET_FPS = 30;
     private final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;
 
-    public static final String version = "1.7.9";
+    public static final String version = "1.8.3";
 
     public PlayerTrackerDecoder() {
         logger = new Logger(version);
@@ -160,6 +160,7 @@ public class PlayerTrackerDecoder extends JFrame {
         bottomMenuBar.add(mainPanel.SelectedEntryLabel);
 
         dataFileImportButton.addActionListener(event -> {
+            hasBackgroundImage = false;
             mainPanel.isPlaying = false;
             mainPanel.ShouldDraw = false;
 
@@ -216,7 +217,7 @@ public class PlayerTrackerDecoder extends JFrame {
         mainPanel.setDoubleBuffered(true);
         scrollPane = new JScrollPane(mainPanel);
         mainPanel.CoordinateLabel = new JLabel();
-        mainPanel.CoordinateLabel.setText(" (0, 0) | ");
+        mainPanel.CoordinateLabel.setText("   (0, 0) | ");
         mainPanel.SelectedEntryLabel = new JLabel("Nothing Selected");
         mainPanel.SelectedEntryLabel.setVisible(false);
         scrollPane.setDoubleBuffered(true);
@@ -229,7 +230,7 @@ public class PlayerTrackerDecoder extends JFrame {
     }
 
     public void LoadWorldImage(File imgFile) {
-        tabbedPane.insertTab("Background", null, backgroundImagePanel, "World background image settings", 3);
+        hasBackgroundImage = true;
 
         try {
             mainPanel.backgroundImage = mainPanel.LoadBackgroundImage(imgFile);
@@ -237,7 +238,7 @@ public class PlayerTrackerDecoder extends JFrame {
             backgroundImagePanel = new JPanel();
             backgroundImagePanel.setLayout(new GridLayout(3, 5));
 
-            backgroundImagePanel.add(new JLabel("World backgroundPanel Image Offset:   "));
+            backgroundImagePanel.add(new JLabel("World Background Image Offset:   "));
 
             int width = mainPanel.backgroundImage.getWidth();
             int height = mainPanel.backgroundImage.getHeight();
@@ -499,7 +500,7 @@ public class PlayerTrackerDecoder extends JFrame {
         sizeTypeLabel = new JLabel((settings._drawType == Decoder.DrawType.Dot) ? "Dot Radius" : ((settings._drawType == Decoder.DrawType.Pixel || settings._drawType == Decoder.DrawType.Heat) ? "Pixel Size" : ((settings._drawType == Decoder.DrawType.Line) ? "Line Thickness" : "-")));
         drawSizeComponent.add(sizeTypeLabel);
 
-        sizeSlider = new JSlider(0, 0, settings.size > 50 ? (int) (settings.size + (settings.size * 0.1f)) : 50, (int) settings.size * 10);
+        sizeSlider = new JSlider(0, 0, Math.max(0, settings.size > 50 ? (int) (settings.size + (settings.size * 0.1f)) : 50), (int) settings.size * 10);
 //        sizeSlider.setPreferredSize(new Dimension(200, 24));
         sizeSlider.setPaintTicks(true);
         sizeSlider.setMajorTickSpacing((int) settings.size / 4);
@@ -525,7 +526,7 @@ public class PlayerTrackerDecoder extends JFrame {
         lineThresholdTitle = new JLabel("Line Threshold");
         lineThresholdComponent.add(lineThresholdTitle);
 
-        lineThresholdSlider = new JSlider(0, 0, settings.lineThreshold > 200 ? (int) (settings.lineThreshold + (settings.lineThreshold * 0.1f)) : 200, settings.lineThreshold);
+        lineThresholdSlider = new JSlider(0, 0, Math.max(0, settings.lineThreshold > 200 ? (int) (settings.lineThreshold + (settings.lineThreshold * 0.1f)) : 200), settings.lineThreshold);
 //        lineThresholdSlider.setPreferredSize(new Dimension(200, 24));
         lineThresholdSlider.setPaintTicks(true);
         lineThresholdSlider.setMajorTickSpacing(settings.lineThreshold / 4);
@@ -551,7 +552,7 @@ public class PlayerTrackerDecoder extends JFrame {
         renderPanel.add(heatMapComponent, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
 
         heatMapThresholdTitle = new JLabel("Activity Threshold");
-        heatMapThresholdSlider = new JSlider(0, settings.heatMapThreshold <-100 ? (int) (settings.heatMapThreshold + (settings.heatMapThreshold * 0.1f)) : -100, settings.heatMapThreshold > 100 ? (int) (settings.heatMapThreshold + (settings.heatMapThreshold * 0.1f)) : 100, settings.heatMapThreshold);
+        heatMapThresholdSlider = new JSlider(0, Math.min(-1, settings.heatMapThreshold < -100 ? (int) (settings.heatMapThreshold + (settings.heatMapThreshold * 0.1f)) : -100), Math.max(0, settings.heatMapThreshold > 100 ? (int) (settings.heatMapThreshold + (settings.heatMapThreshold * 0.1f)) : 100), settings.heatMapThreshold);
 //        heatMapThresholdSlider.setPreferredSize(new Dimension(150, 24));
         heatMapThresholdSlider.setPaintTicks(true);
         heatMapThresholdSlider.setMajorTickSpacing(settings.heatMapThreshold / 4);
@@ -579,7 +580,7 @@ public class PlayerTrackerDecoder extends JFrame {
         renderPanel.add(ageFadeComponent, new com.intellij.uiDesigner.core.GridConstraints(2, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
 
         JLabel ageFadeThresholdTitle = new JLabel("Age Fade Threshold");
-        JSlider ageFadeThresholdSlider = new JSlider(0, 0, settings.ageFadeThreshold > 200 ? (int) (settings.ageFadeThreshold + (settings.ageFadeThreshold * 0.1f)) : 200, settings.ageFadeThreshold);
+        JSlider ageFadeThresholdSlider = new JSlider(0, 0, Math.max(0, settings.ageFadeThreshold > 200 ? (int) (settings.ageFadeThreshold + (settings.ageFadeThreshold * 0.1f)) : 200), settings.ageFadeThreshold);
 //        ageFadeThresholdSlider.setPreferredSize(new Dimension(150, 24));
         ageFadeThresholdSlider.setPaintTicks(true);
         ageFadeThresholdSlider.setMajorTickSpacing(settings.ageFadeThreshold / 4);
@@ -692,6 +693,10 @@ public class PlayerTrackerDecoder extends JFrame {
 
         tabbedPane.addTab("Render", null, renderPanel, "Rendering settings");
         //endregion
+
+        if (hasBackgroundImage) {
+            tabbedPane.insertTab("Background", null, backgroundImagePanel, "World background image settings", 3);
+        }
 
         //region Export
         JComponent exportPanel = new JPanel();

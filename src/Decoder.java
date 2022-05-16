@@ -52,7 +52,7 @@ public class Decoder implements Runnable {
 
     public PlayerTrackerDecoder main;
 
-    private boolean maxCheck;
+    private final boolean maxCheck;
 
     public Decoder(Settings set, Logger log) {
         logger = log;
@@ -111,7 +111,7 @@ public class Decoder implements Runnable {
                         date = LocalDateTime.parse(inputFile.getName().substring(inputFile.getName().lastIndexOf('-') - 7, inputFile.getName().lastIndexOf('-') + 3) + ":" + items[0], DateTimeFormatter.ofPattern("yyyy-MM-dd:HH:mm:ss"));
                     }
 
-                    Vector3 position = items[2].contains("(") ? Vector3.parseVector3(items[2], settings.upscaleMultiplier) : Vector3.parseVector3FromChunk(items[2], settings.convertChunkPosToBlockPos, settings.upscaleMultiplier);
+                    Vector3 position = items[2].contains("(") ? Vector3.parseVector3(items[2]) : Vector3.parseVector3FromChunk(items[2], settings.convertChunkPosToBlockPos);
 
                     logEntries.add(new LogEntry(date, items[1], position, items[2].contains("[")));
                     logDates.add(date);

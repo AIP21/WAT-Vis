@@ -215,7 +215,12 @@ public class ImportForm extends JFrame {
             int returnVal = chooser.showOpenDialog(this);
 
             if (returnVal == JFileChooser.APPROVE_OPTION) {
-                currentFiles.addAll(Arrays.asList(chooser.getSelectedFiles()));
+                File[] files = chooser.getSelectedFiles();
+                for(File file : files){
+                    if(!currentFiles.contains(file)){
+                        currentFiles.add(file);
+                    }
+                }
                 selectedFileList.setListData(currentFiles.toArray(new File[0]));
                 confirmButton.setEnabled(currentFiles.size() > 0);
             } else if (returnVal == JFileChooser.ERROR_OPTION) {
@@ -264,10 +269,12 @@ public class ImportForm extends JFrame {
         }
         maxEntriesSpinner.addChangeListener(e -> {
             settings.maxDataEntries = (int) ((JSpinner) e.getSource()).getValue();
+            settings.SaveSettings();
         });
 
         antialiasingToggle.addItemListener(event -> {
             settings.antialiasing = (event.getStateChange() == ItemEvent.SELECTED);
+            settings.SaveSettings();
         });
 
         addWorldImageButton.addActionListener(event -> {
@@ -283,14 +290,18 @@ public class ImportForm extends JFrame {
             if (returnVal == JFileChooser.APPROVE_OPTION) {
                 File imgFile = imgChooser.getSelectedFile();
                 logger.Log("Selected world background image: " + imgFile, Logger.MessageType.INFO);
-
                 setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                addWorldImageButton.setText("Loading...");
+                revalidate();
+                repaint();
 
                 main.LoadWorldImage(imgFile);
 
                 Toolkit.getDefaultToolkit().beep();
                 worldImageLabel.setText(" World Image [Imported]");
                 addWorldImageButton.setText("New World Image");
+                revalidate();
+                repaint();
                 setCursor(null);
             } else if (returnVal == JFileChooser.ERROR_OPTION) {
                 logger.Log("Error selecting world background images", Logger.MessageType.ERROR);

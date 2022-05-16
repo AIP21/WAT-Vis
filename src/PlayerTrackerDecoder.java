@@ -1,7 +1,7 @@
 package src;
 
-import src.RangedSlider.RangeSlider;
 import src.ui.ImportForm;
+import src.ui.RangedSlider.RangeSlider;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -39,18 +39,20 @@ public class PlayerTrackerDecoder extends JFrame {
 
     private JComboBox<Decoder.DrawType> drawTypeChooser;
     private JComboBox<HeatDrawType> heatDrawTypeChooser;
+
+    private JPanel heatMapComponent;
     private JLabel heatMapThresholdTitle;
     private JSlider heatMapThresholdSlider;
     private JLabel heatMapThresholdLabel;
 
+    private JPanel drawSizeComponent;
+    private JSlider sizeSlider;
     private JLabel sizeLabel;
-
     private JLabel sizeTypeLabel;
 
+    private JPanel lineThresholdComponent;
     private JSlider lineThresholdSlider;
-
     private JLabel lineThresholdLabel;
-
     private JLabel lineThresholdTitle;
 
     private JToggleButton fancyLinesToggle;
@@ -58,6 +60,7 @@ public class PlayerTrackerDecoder extends JFrame {
 
     private JToggleButton showHiddenLinesToggle;
 
+    private JPanel ageFadeComponent;
     private JToggleButton ageFadeToggle;
 
     private JLabel exportUpscaleLabel;
@@ -75,6 +78,8 @@ public class PlayerTrackerDecoder extends JFrame {
     private final Logger logger;
 
     private JTabbedPane tabbedPane;
+
+    private ImportForm importForm;
 
     //region Resources
     private ImageIcon playIcon;
@@ -95,7 +100,7 @@ public class PlayerTrackerDecoder extends JFrame {
     private final int TARGET_FPS = 30;
     private final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;
 
-    public static final String version = "1.7.8";
+    public static final String version = "1.7.9";
 
     public PlayerTrackerDecoder() {
         logger = new Logger(version);
@@ -114,7 +119,7 @@ public class PlayerTrackerDecoder extends JFrame {
             replayIcon = new ImageIcon(ImageIO.read(Objects.requireNonNull(getClass().getResource("resources/replay.png"))).getScaledInstance(24, 24, java.awt.Image.SCALE_SMOOTH), "Replay");
             speedIcon = new ImageIcon(ImageIO.read(Objects.requireNonNull(getClass().getResource("resources/fastForward.png"))).getScaledInstance(24, 24, java.awt.Image.SCALE_SMOOTH), "Fast Forward");
             importIcon = new ImageIcon(ImageIO.read(Objects.requireNonNull(getClass().getResource("resources/import.png"))).getScaledInstance(24, 24, java.awt.Image.SCALE_SMOOTH), "Import");
-            exportIcon = new ImageIcon(ImageIO.read(Objects.requireNonNull(getClass().getResource("resources/export.png"))).getScaledInstance(24, 24, java.awt.Image.SCALE_SMOOTH), "Export");
+            exportIcon = new ImageIcon(ImageIO.read(Objects.requireNonNull(getClass().getResource("resources/export.png"))).getScaledInstance(24, 24, java.awt.Image.SCALE_SMOOTH), "exportPanel");
             toggleIconON = new ImageIcon(ImageIO.read(Objects.requireNonNull(getClass().getResource("resources/toggle-true.png"))).getScaledInstance(24, 24, java.awt.Image.SCALE_SMOOTH), "Disable");
             toggleIconOFF = new ImageIcon(ImageIO.read(Objects.requireNonNull(getClass().getResource("resources/toggle-false.png"))).getScaledInstance(24, 24, java.awt.Image.SCALE_SMOOTH), "Enable");
             radioIconON = new ImageIcon(ImageIO.read(Objects.requireNonNull(getClass().getResource("resources/radio-true.png"))).getScaledInstance(24, 24, java.awt.Image.SCALE_SMOOTH), "Hide");
@@ -158,9 +163,13 @@ public class PlayerTrackerDecoder extends JFrame {
             mainPanel.isPlaying = false;
             mainPanel.ShouldDraw = false;
 
-            ImportForm form = new ImportForm(this, settings, logger);
-            form.setVisible(true);
-            form.setLocationRelativeTo(this);
+            if (importForm != null) {
+                importForm.setVisible(false);
+                importForm = null;
+            }
+            importForm = new ImportForm(this, settings, logger);
+            importForm.setVisible(true);
+            importForm.setLocationRelativeTo(this);
         });
 
         logger.Log("Successfully initialized all subsystems", Logger.MessageType.INFO);
@@ -207,7 +216,7 @@ public class PlayerTrackerDecoder extends JFrame {
         mainPanel.setDoubleBuffered(true);
         scrollPane = new JScrollPane(mainPanel);
         mainPanel.CoordinateLabel = new JLabel();
-        mainPanel.CoordinateLabel.setText("(0, 0) | ");
+        mainPanel.CoordinateLabel.setText(" (0, 0) | ");
         mainPanel.SelectedEntryLabel = new JLabel("Nothing Selected");
         mainPanel.SelectedEntryLabel.setVisible(false);
         scrollPane.setDoubleBuffered(true);
@@ -220,13 +229,15 @@ public class PlayerTrackerDecoder extends JFrame {
     }
 
     public void LoadWorldImage(File imgFile) {
+        tabbedPane.insertTab("Background", null, backgroundImagePanel, "World background image settings", 3);
+
         try {
             mainPanel.backgroundImage = mainPanel.LoadBackgroundImage(imgFile);
 
             backgroundImagePanel = new JPanel();
             backgroundImagePanel.setLayout(new GridLayout(3, 5));
 
-            backgroundImagePanel.add(new JLabel("World Background Image Offset:   "));
+            backgroundImagePanel.add(new JLabel("World backgroundPanel Image Offset:   "));
 
             int width = mainPanel.backgroundImage.getWidth();
             int height = mainPanel.backgroundImage.getHeight();
@@ -306,7 +317,7 @@ public class PlayerTrackerDecoder extends JFrame {
     private void initDataSettingsToolBar(boolean remove) {
         logger.Log("Initializing toolbar subsystem", Logger.MessageType.INFO);
 
-//        toolbar.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        toolbar.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
         if (remove) toolbar.removeAll();
         toolbar.setDoubleBuffered(true);
@@ -320,7 +331,7 @@ public class PlayerTrackerDecoder extends JFrame {
 
         dataPanel.add(new JLabel("Dates To Represent:   "));
         dateRangeSlider = new RangeSlider(0, logDates.size() - 1);
-        dateRangeSlider.setPreferredSize(new Dimension(600, 25));
+        dateRangeSlider.setPreferredSize(new Dimension(600, 48));
         dateRangeSlider.setValue(0);
         dateRangeSlider.setUpperValue(logDates.size() - 1);
         dateRangeSlider.setPaintTicks(false);
@@ -370,7 +381,7 @@ public class PlayerTrackerDecoder extends JFrame {
         });
         dataPanel.add(animatePlayPause);
 
-        tabbedPane.addTab("Data", null, dataPanel, "Data settings");
+        tabbedPane.addTab("Data", null, dataPanel, "Data range settings");
         //endregion
 
         //region Players
@@ -412,37 +423,25 @@ public class PlayerTrackerDecoder extends JFrame {
                 logger.Log((value ? "Showed " : "Hid ") + player + "'s data", Logger.MessageType.INFO);
             });
         }
-        tabbedPane.addTab("Player", null, playerPanel, "Player settings");
+        tabbedPane.addTab("Player", null, playerPanel, "Player display settings");
         //endregion
 
         //region Render
         JComponent renderPanel = new JPanel();
-        renderPanel.setLayout(new GridBagLayout());
+        renderPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(5, 2, new Insets(0, 0, 0, 0), -1, -1));
 
         drawTypeChooser = new JComboBox<>(new Decoder.DrawType[]{Decoder.DrawType.Pixel, Decoder.DrawType.Dot, Decoder.DrawType.Line, Decoder.DrawType.Heat});
-        drawTypeChooser.setPreferredSize(new Dimension(85, 24));
+//        drawTypeChooser.setPreferredSize(new Dimension(85, 24));
         drawTypeChooser.setSelectedItem(settings._drawType);
         drawTypeChooser.addActionListener(event -> {
             settings._drawType = (Decoder.DrawType) drawTypeChooser.getSelectedItem();
-            if (fancyLinesToggle != null) {
-//                fancyLinesToggle.setVisible(settings._drawType == Decoder.DrawType.Line);
-                fancyLinesToggle.setEnabled(settings._drawType == Decoder.DrawType.Line);
+            if (drawSizeComponent != null) {
+//                drawSizeComponent.setVisible(settings._drawType == Decoder.DrawType.Line);
+                drawSizeComponent.setEnabled(settings._drawType == Decoder.DrawType.Line);
             }
-            if (showHiddenLinesToggle != null) {
-//                showHiddenLinesToggle.setVisible(settings._drawType == Decoder.DrawType.Line);
-                showHiddenLinesToggle.setEnabled(settings._drawType == Decoder.DrawType.Line);
-            }
-            if (lineThresholdSlider != null) {
-//                lineThresholdSlider.setVisible(settings._drawType == Decoder.DrawType.Line);
-                lineThresholdSlider.setEnabled(settings._drawType == Decoder.DrawType.Line);
-            }
-            if (lineThresholdLabel != null) {
-//                lineThresholdLabel.setVisible(settings._drawType == Decoder.DrawType.Line);
-                lineThresholdLabel.setEnabled(settings._drawType == Decoder.DrawType.Line);
-            }
-            if (lineThresholdTitle != null) {
-//                lineThresholdTitle.setVisible(settings._drawType == Decoder.DrawType.Line);
-                lineThresholdTitle.setEnabled(settings._drawType == Decoder.DrawType.Line);
+            if (lineThresholdComponent != null) {
+//                lineThresholdComponent.setVisible(settings._drawType == Decoder.DrawType.Line);
+                lineThresholdComponent.setEnabled(settings._drawType == Decoder.DrawType.Line);
             }
             if (terminusPointsToggle != null) {
 //                terminusPointsToggle.setVisible(settings._drawType == Decoder.DrawType.Line);
@@ -453,22 +452,18 @@ public class PlayerTrackerDecoder extends JFrame {
 //                ageFadeToggle.setVisible(settings._drawType != Decoder.DrawType.Heat);
                 ageFadeToggle.setEnabled(settings._drawType != Decoder.DrawType.Heat);
             }
+            if (ageFadeComponent != null) {
+//                ageFadeComponent.setVisible(settings._drawType != Decoder.DrawType.Heat);
+                ageFadeComponent.setEnabled(settings._drawType != Decoder.DrawType.Heat);
+            }
 
             if (heatDrawTypeChooser != null) {
 //                heatDrawTypeChooser.setVisible(settings._drawType == Decoder.DrawType.Heat);
                 heatDrawTypeChooser.setEnabled(settings._drawType == Decoder.DrawType.Heat);
             }
-            if (heatMapThresholdTitle != null) {
-//                heatMapThresholdTitle.setVisible(settings._drawType == Decoder.DrawType.Heat);
-                heatMapThresholdTitle.setEnabled(settings._drawType == Decoder.DrawType.Heat);
-            }
-            if (heatMapThresholdSlider != null) {
-//                heatMapThresholdSlider.setVisible(settings._drawType == Decoder.DrawType.Heat);
-                heatMapThresholdSlider.setEnabled(settings._drawType == Decoder.DrawType.Heat);
-            }
-            if (heatMapThresholdLabel != null) {
-//                heatMapThresholdLabel.setVisible(settings._drawType == Decoder.DrawType.Heat);
-                heatMapThresholdLabel.setEnabled(settings._drawType == Decoder.DrawType.Heat);
+            if (heatMapComponent != null) {
+//                heatMapComponent.setVisible(settings._drawType == Decoder.DrawType.Heat);
+                heatMapComponent.setEnabled(settings._drawType == Decoder.DrawType.Heat);
             }
 
 //            mainPanel.updatePoints(true);
@@ -482,10 +477,10 @@ public class PlayerTrackerDecoder extends JFrame {
 
             logger.Log("Changed draw type to: " + settings._drawType, Logger.MessageType.INFO);
         });
-        renderPanel.add(drawTypeChooser);
+        renderPanel.add(drawTypeChooser, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
 
-        heatDrawTypeChooser = new JComboBox<>(new HeatDrawType[]{HeatDrawType.ChangeSize, HeatDrawType.ChangeColor});
-        heatDrawTypeChooser.setPreferredSize(new Dimension(85, 24));
+        heatDrawTypeChooser = new JComboBox<>(new HeatDrawType[]{HeatDrawType.Change_Size, HeatDrawType.Change_Color});
+//        heatDrawTypeChooser.setPreferredSize(new Dimension(85, 24));
         heatDrawTypeChooser.setSelectedItem(settings._heatDrawType);
         heatDrawTypeChooser.addActionListener(event -> {
             settings._heatDrawType = (HeatDrawType) heatDrawTypeChooser.getSelectedItem();
@@ -496,17 +491,19 @@ public class PlayerTrackerDecoder extends JFrame {
 
             logger.Log("Changed heat draw type to: " + settings._heatDrawType, Logger.MessageType.INFO);
         });
-        renderPanel.add(heatDrawTypeChooser);
+        renderPanel.add(heatDrawTypeChooser, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         heatDrawTypeChooser.setEnabled(settings._drawType == Decoder.DrawType.Heat);
 
-        sizeTypeLabel = new JLabel((settings._drawType == Decoder.DrawType.Dot) ? "Dot Radius" : ((settings._drawType == Decoder.DrawType.Pixel || settings._drawType == Decoder.DrawType.Heat) ? "Pixel Size" : ((settings._drawType == Decoder.DrawType.Line) ? "Line Thickness" : "   -")));
-        renderPanel.add(sizeTypeLabel);
+        drawSizeComponent = new JPanel();
+        renderPanel.add(drawSizeComponent, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        sizeTypeLabel = new JLabel((settings._drawType == Decoder.DrawType.Dot) ? "Dot Radius" : ((settings._drawType == Decoder.DrawType.Pixel || settings._drawType == Decoder.DrawType.Heat) ? "Pixel Size" : ((settings._drawType == Decoder.DrawType.Line) ? "Line Thickness" : "-")));
+        drawSizeComponent.add(sizeTypeLabel);
 
-        JSlider sizeSlider = new JSlider(0, 0, 50, (int) settings.size * 10);
-        sizeSlider.setPreferredSize(new Dimension(200, 48));
+        sizeSlider = new JSlider(0, 0, settings.size > 50 ? (int) (settings.size + (settings.size * 0.1f)) : 50, (int) settings.size * 10);
+//        sizeSlider.setPreferredSize(new Dimension(200, 24));
         sizeSlider.setPaintTicks(true);
-        sizeSlider.setMajorTickSpacing(10);
-        sizeSlider.setMinorTickSpacing(0);
+        sizeSlider.setMajorTickSpacing((int) settings.size / 4);
+        sizeSlider.setMinorTickSpacing(10);
         sizeSlider.setPaintLabels(true);
         sizeLabel = new JLabel(Float.toString(settings.size));
         sizeSlider.addChangeListener(e -> {
@@ -519,18 +516,21 @@ public class PlayerTrackerDecoder extends JFrame {
 
             logger.Log("Changed draw size to: " + settings.size, Logger.MessageType.INFO);
         });
-        renderPanel.add(sizeSlider);
-        renderPanel.add(sizeLabel);
+        drawSizeComponent.add(sizeSlider);
+        drawSizeComponent.add(sizeLabel);
 
-        lineThresholdTitle = new JLabel("   Line Threshold");
-        renderPanel.add(lineThresholdTitle);
+        lineThresholdComponent = new JPanel();
+        renderPanel.add(lineThresholdComponent, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+
+        lineThresholdTitle = new JLabel("Line Threshold");
+        lineThresholdComponent.add(lineThresholdTitle);
 
         lineThresholdSlider = new JSlider(0, 0, settings.lineThreshold > 200 ? (int) (settings.lineThreshold + (settings.lineThreshold * 0.1f)) : 200, settings.lineThreshold);
-        lineThresholdSlider.setPreferredSize(new Dimension(200, 48));
+//        lineThresholdSlider.setPreferredSize(new Dimension(200, 24));
         lineThresholdSlider.setPaintTicks(true);
         lineThresholdSlider.setMajorTickSpacing(settings.lineThreshold / 4);
-        lineThresholdSlider.setMinorTickSpacing(0);
-        lineThresholdSlider.setPaintLabels(true);
+        lineThresholdSlider.setMinorTickSpacing(10);
+        lineThresholdSlider.setPaintLabels(false);
         lineThresholdLabel = new JLabel(Integer.toString(settings.lineThreshold));
         lineThresholdSlider.addChangeListener(e -> {
             JSlider source = (JSlider) e.getSource();
@@ -543,109 +543,47 @@ public class PlayerTrackerDecoder extends JFrame {
 
             logger.Log("Changed line threshold to: " + settings.lineThreshold, Logger.MessageType.INFO);
         });
-        renderPanel.add(lineThresholdSlider);
-        renderPanel.add(lineThresholdLabel);
-        lineThresholdSlider.setEnabled((settings._drawType == Decoder.DrawType.Line));
-        lineThresholdLabel.setEnabled((settings._drawType == Decoder.DrawType.Line));
-        lineThresholdTitle.setEnabled((settings._drawType == Decoder.DrawType.Line));
+        lineThresholdComponent.setEnabled(settings._drawType == Decoder.DrawType.Line);
+        lineThresholdComponent.add(lineThresholdSlider);
+        lineThresholdComponent.add(lineThresholdLabel);
 
-        heatMapThresholdTitle = new JLabel("   Coloring Threshold");
-        heatMapThresholdSlider = new JSlider(0, 0, 100, settings.heatMapThreshold * 100);
-        heatMapThresholdSlider.setPreferredSize(new Dimension(150, 48));
+        heatMapComponent = new JPanel();
+        renderPanel.add(heatMapComponent, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+
+        heatMapThresholdTitle = new JLabel("Activity Threshold");
+        heatMapThresholdSlider = new JSlider(0, settings.heatMapThreshold <-100 ? (int) (settings.heatMapThreshold + (settings.heatMapThreshold * 0.1f)) : -100, settings.heatMapThreshold > 100 ? (int) (settings.heatMapThreshold + (settings.heatMapThreshold * 0.1f)) : 100, settings.heatMapThreshold);
+//        heatMapThresholdSlider.setPreferredSize(new Dimension(150, 24));
         heatMapThresholdSlider.setPaintTicks(true);
-        heatMapThresholdSlider.setMajorTickSpacing(10);
+        heatMapThresholdSlider.setMajorTickSpacing(settings.heatMapThreshold / 4);
+        heatMapThresholdSlider.setMinorTickSpacing(0);
         heatMapThresholdSlider.setPaintLabels(true);
-        heatMapThresholdLabel = new JLabel(Integer.toString(settings.ageFadeThreshold));
-
+        heatMapThresholdLabel = new JLabel(Integer.toString(settings.heatMapThreshold));
         heatMapThresholdSlider.addChangeListener(e -> {
             JSlider source = (JSlider) e.getSource();
             int threshold = source.getValue();
-            settings.ageFadeThreshold = threshold / 100;
+            settings.heatMapThreshold = threshold;
             heatMapThresholdLabel.setText(Integer.toString(threshold));
 
             mainPanel.update = true;
             mainPanel.repaint();
             settings.SaveSettings();
 
-            logger.Log("Changed age fade threshold to: " + settings.ageFadeThreshold, Logger.MessageType.INFO);
+            logger.Log("Changed activity threshold to: " + settings.heatMapThreshold, Logger.MessageType.INFO);
         });
-        heatMapThresholdTitle.setEnabled(settings._drawType == Decoder.DrawType.Heat);
-        heatMapThresholdSlider.setEnabled(settings._drawType == Decoder.DrawType.Heat);
-        heatMapThresholdLabel.setEnabled(settings._drawType == Decoder.DrawType.Heat);
-        renderPanel.add(heatMapThresholdTitle);
-        renderPanel.add(heatMapThresholdSlider);
-        renderPanel.add(heatMapThresholdLabel);
+        heatMapComponent.setEnabled(settings._drawType == Decoder.DrawType.Heat);
+        heatMapComponent.add(heatMapThresholdTitle);
+        heatMapComponent.add(heatMapThresholdSlider);
+        heatMapComponent.add(heatMapThresholdLabel);
 
-        fancyLinesToggle = new JToggleButton("Fancy Lines", settings.fancyLines);
-        fancyLinesToggle.setIcon(settings.fancyLines ? toggleIconON : toggleIconOFF);
-//        fancyLinesToggle.setPreferredSize(new Dimension(24, 24));
-        fancyLinesToggle.setMargin(new Insets(2, 2, 2, 2));
-        fancyLinesToggle.setBorder(BorderFactory.createEmptyBorder());
+        ageFadeComponent = new JPanel();
+        renderPanel.add(ageFadeComponent, new com.intellij.uiDesigner.core.GridConstraints(2, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
 
-        fancyLinesToggle.addItemListener(ev -> {
-            settings.fancyLines = (ev.getStateChange() == ItemEvent.SELECTED);
-            mainPanel.update = true;
-            mainPanel.repaint();
-            settings.SaveSettings();
-
-            fancyLinesToggle.setIcon(settings.fancyLines ? toggleIconON : toggleIconOFF);
-
-            logger.Log("Toggled fancy lines to: " + settings.fancyLines, Logger.MessageType.INFO);
-        });
-        renderPanel.add(fancyLinesToggle);
-        fancyLinesToggle.setEnabled(settings._drawType == Decoder.DrawType.Line);
-
-        terminusPointsToggle = new JToggleButton("Terminus Points", settings.terminusPoints);
-        terminusPointsToggle.setIcon(settings.terminusPoints ? toggleIconON : toggleIconOFF);
-//        terminusPointsToggle.setPreferredSize(new Dimension(24, 24));
-        terminusPointsToggle.setMargin(new Insets(2, 2, 2, 2));
-        terminusPointsToggle.setBorder(BorderFactory.createEmptyBorder());
-
-        terminusPointsToggle.addItemListener(ev -> {
-            settings.terminusPoints = (ev.getStateChange() == ItemEvent.SELECTED);
-            mainPanel.update = true;
-            mainPanel.repaint();
-            settings.SaveSettings();
-
-            terminusPointsToggle.setIcon(settings.terminusPoints ? toggleIconON : toggleIconOFF);
-
-            logger.Log("Toggled terminus points to: " + settings.terminusPoints, Logger.MessageType.INFO);
-        });
-        renderPanel.add(terminusPointsToggle);
-        terminusPointsToggle.setEnabled(settings._drawType == Decoder.DrawType.Line);
-
-        showHiddenLinesToggle = new JToggleButton("Show Hidden Lines", settings.hiddenLines);
-        showHiddenLinesToggle.setIcon(settings.hiddenLines ? toggleIconON : toggleIconOFF);
-//        showHiddenLinesToggle.setPreferredSize(new Dimension(24, 24));
-        showHiddenLinesToggle.setMargin(new Insets(2, 2, 2, 2));
-        showHiddenLinesToggle.setBorder(BorderFactory.createEmptyBorder());
-
-        showHiddenLinesToggle.addItemListener(ev -> {
-            settings.hiddenLines = (ev.getStateChange() == ItemEvent.SELECTED);
-            mainPanel.update = true;
-            mainPanel.repaint();
-            settings.SaveSettings();
-
-            showHiddenLinesToggle.setIcon(settings.hiddenLines ? toggleIconON : toggleIconOFF);
-
-            logger.Log("Toggled hidden lines to: " + settings.hiddenLines, Logger.MessageType.INFO);
-        });
-        renderPanel.add(showHiddenLinesToggle);
-        showHiddenLinesToggle.setEnabled((settings._drawType == Decoder.DrawType.Line));
-
-        ageFadeToggle = new JToggleButton("Age Fade", settings.ageFade);
-        ageFadeToggle.setIcon(settings.ageFade ? toggleIconON : toggleIconOFF);
-//        ageFadeToggle.setPreferredSize(new Dimension(24, 24));
-        ageFadeToggle.setMargin(new Insets(2, 2, 2, 2));
-        ageFadeToggle.setBorder(BorderFactory.createEmptyBorder());
-        renderPanel.add(ageFadeToggle);
-
-        JLabel ageFadeThresholdTitle = new JLabel("   Age Fade Threshold");
+        JLabel ageFadeThresholdTitle = new JLabel("Age Fade Threshold");
         JSlider ageFadeThresholdSlider = new JSlider(0, 0, settings.ageFadeThreshold > 200 ? (int) (settings.ageFadeThreshold + (settings.ageFadeThreshold * 0.1f)) : 200, settings.ageFadeThreshold);
-        ageFadeThresholdSlider.setPreferredSize(new Dimension(150, 48));
+//        ageFadeThresholdSlider.setPreferredSize(new Dimension(150, 24));
         ageFadeThresholdSlider.setPaintTicks(true);
         ageFadeThresholdSlider.setMajorTickSpacing(settings.ageFadeThreshold / 4);
-        ageFadeThresholdSlider.setMinorTickSpacing(0);
+        ageFadeThresholdSlider.setMinorTickSpacing(10);
         ageFadeThresholdSlider.setPaintLabels(true);
         JLabel ageFadeThresholdLabel = new JLabel(Integer.toString(settings.ageFadeThreshold));
 
@@ -663,6 +601,16 @@ public class PlayerTrackerDecoder extends JFrame {
         ageFadeThresholdSlider.setEnabled(settings.ageFade);
         ageFadeThresholdTitle.setEnabled(settings.ageFade);
         ageFadeThresholdLabel.setEnabled(settings.ageFade);
+        ageFadeComponent.add(ageFadeThresholdTitle);
+        ageFadeComponent.add(ageFadeThresholdSlider);
+        ageFadeComponent.add(ageFadeThresholdLabel);
+
+        ageFadeToggle = new JToggleButton("Age Fade", settings.ageFade);
+        ageFadeToggle.setIcon(settings.ageFade ? toggleIconON : toggleIconOFF);
+//        ageFadeToggle.setPreferredSize(new Dimension(24, 24));
+        ageFadeToggle.setMargin(new Insets(2, 2, 2, 2));
+        ageFadeToggle.setBorder(BorderFactory.createEmptyBorder());
+        renderPanel.add(ageFadeToggle, new com.intellij.uiDesigner.core.GridConstraints(3, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
 
         ageFadeToggle.addItemListener(ev -> {
             settings.ageFade = (ev.getStateChange() == ItemEvent.SELECTED);
@@ -677,16 +625,73 @@ public class PlayerTrackerDecoder extends JFrame {
 
             logger.Log("Toggled age fade to: " + settings.ageFade, Logger.MessageType.INFO);
         });
-        renderPanel.add(ageFadeThresholdTitle);
-        renderPanel.add(ageFadeThresholdSlider);
-        renderPanel.add(ageFadeThresholdLabel);
 
-        tabbedPane.addTab("Render", null, renderPanel, "Render settings");
+        fancyLinesToggle = new JToggleButton("Fancy Lines", settings.fancyLines);
+        fancyLinesToggle.setIcon(settings.fancyLines ? toggleIconON : toggleIconOFF);
+//        fancyLinesToggle.setPreferredSize(new Dimension(24, 24));
+        fancyLinesToggle.setMargin(new Insets(2, 2, 2, 2));
+        fancyLinesToggle.setBorder(BorderFactory.createEmptyBorder());
+
+        fancyLinesToggle.addItemListener(ev -> {
+            settings.fancyLines = (ev.getStateChange() == ItemEvent.SELECTED);
+            mainPanel.update = true;
+            mainPanel.repaint();
+            settings.SaveSettings();
+
+            fancyLinesToggle.setIcon(settings.fancyLines ? toggleIconON : toggleIconOFF);
+
+            logger.Log("Toggled fancy lines to: " + settings.fancyLines, Logger.MessageType.INFO);
+        });
+        fancyLinesToggle.setEnabled(settings._drawType == Decoder.DrawType.Line);
+        renderPanel.add(fancyLinesToggle, new com.intellij.uiDesigner.core.GridConstraints(3, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+
+        terminusPointsToggle = new JToggleButton("Terminus Points", settings.terminusPoints);
+        terminusPointsToggle.setIcon(settings.terminusPoints ? toggleIconON : toggleIconOFF);
+//        terminusPointsToggle.setPreferredSize(new Dimension(24, 24));
+        terminusPointsToggle.setMargin(new Insets(2, 2, 2, 2));
+        terminusPointsToggle.setBorder(BorderFactory.createEmptyBorder());
+
+        terminusPointsToggle.addItemListener(ev -> {
+            settings.terminusPoints = (ev.getStateChange() == ItemEvent.SELECTED);
+            mainPanel.update = true;
+            mainPanel.repaint();
+            settings.SaveSettings();
+
+            terminusPointsToggle.setIcon(settings.terminusPoints ? toggleIconON : toggleIconOFF);
+
+            logger.Log("Toggled terminus points to: " + settings.terminusPoints, Logger.MessageType.INFO);
+        });
+        terminusPointsToggle.setEnabled(settings._drawType == Decoder.DrawType.Line);
+        renderPanel.add(terminusPointsToggle, new com.intellij.uiDesigner.core.GridConstraints(4, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+
+        showHiddenLinesToggle = new JToggleButton("Show Hidden Lines", settings.hiddenLines);
+        showHiddenLinesToggle.setIcon(settings.hiddenLines ? toggleIconON : toggleIconOFF);
+//        showHiddenLinesToggle.setPreferredSize(new Dimension(24, 24));
+        showHiddenLinesToggle.setMargin(new Insets(2, 2, 2, 2));
+        showHiddenLinesToggle.setBorder(BorderFactory.createEmptyBorder());
+
+        showHiddenLinesToggle.addItemListener(ev -> {
+            settings.hiddenLines = (ev.getStateChange() == ItemEvent.SELECTED);
+            mainPanel.update = true;
+            mainPanel.repaint();
+            settings.SaveSettings();
+
+            showHiddenLinesToggle.setIcon(settings.hiddenLines ? toggleIconON : toggleIconOFF);
+
+            logger.Log("Toggled hidden lines to: " + settings.hiddenLines, Logger.MessageType.INFO);
+        });
+        showHiddenLinesToggle.setEnabled((settings._drawType == Decoder.DrawType.Line));
+        renderPanel.add(showHiddenLinesToggle, new com.intellij.uiDesigner.core.GridConstraints(4, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+
+//        EventQueue.invokeLater(() -> {
+//            drawSizeComponent.updateUI();
+//            lineThresholdComponent.updateUI();
+//            ageFadeComponent.updateUI();
+//            heatMapComponent.updateUI();
+//        });
+
+        tabbedPane.addTab("Render", null, renderPanel, "Rendering settings");
         //endregion
-
-        if (backgroundOpacityLabel != null) {
-            tabbedPane.insertTab("Background", null, backgroundImagePanel, "World background image", 3);
-        }
 
         //region Export
         JComponent exportPanel = new JPanel();
@@ -725,7 +730,7 @@ public class PlayerTrackerDecoder extends JFrame {
         exportPanel.add(new JLabel("   WARNING (Don't increase too high!)"));
         exportPanel.add(imageExportStatus);
 
-        tabbedPane.addTab("Export", null, exportPanel, "Export as an image");
+        tabbedPane.addTab("Export", null, exportPanel, "Export data as an image");
         //endregion
 
         toolbar.add(tabbedPane);
@@ -772,7 +777,7 @@ public class PlayerTrackerDecoder extends JFrame {
     }
 
     public enum HeatDrawType {
-        ChangeSize,
-        ChangeColor
+        Change_Size,
+        Change_Color
     }
 }

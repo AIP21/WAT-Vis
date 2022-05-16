@@ -1,0 +1,484 @@
+   [INFO] <2022-05-16; 14:53:25.231> Player Tracker Decoder App v1.7.9 - LOG FILE
+   [INFO] <2022-05-16; 14:53:25.233> Initializing logger
+   [INFO] <2022-05-16; 14:53:25.234> Logger successfully initialized
+   [INFO] <2022-05-16; 14:53:25.234> Initializing primary systems
+   [INFO] <2022-05-16; 14:53:25.236> Initializing settings subsystem
+   [INFO] <2022-05-16; 14:53:25.237> Fetching and parsing settings from config file
+   [INFO] <2022-05-16; 14:53:25.238> 1.0
+   [INFO] <2022-05-16; 14:53:25.238> true
+   [INFO] <2022-05-16; 14:53:25.239> 0
+   [INFO] <2022-05-16; 14:53:25.239> Heat
+   [INFO] <2022-05-16; 14:53:25.239> 200
+   [INFO] <2022-05-16; 14:53:25.240> false
+   [INFO] <2022-05-16; 14:53:25.240> false
+   [INFO] <2022-05-16; 14:53:25.241> false
+   [INFO] <2022-05-16; 14:53:25.241> true
+   [INFO] <2022-05-16; 14:53:25.241> false
+   [INFO] <2022-05-16; 14:53:25.242> ageFadeThreshold: 0
+   [INFO] <2022-05-16; 14:53:25.242> Change_Size
+   [INFO] <2022-05-16; 14:53:25.242> 100
+   [INFO] <2022-05-16; 14:53:25.243> Settings: 12
+   [WARNING] <2022-05-16; 14:53:25.243> Incomplete or old config file, updating the config file
+   [INFO] <2022-05-16; 14:53:25.244> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:25.249> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:25.249> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-16; 14:53:25.250> Successfully initialized settings subsystem
+   [INFO] <2022-05-16; 14:53:25.251> Initializing decoder subsystem
+   [INFO] <2022-05-16; 14:53:25.252> Successfully initialized decoder subsystem
+   [INFO] <2022-05-16; 14:53:25.252> Initializing primary frame subsystem
+   [INFO] <2022-05-16; 14:53:25.257> Initializing main display subsystem
+   [INFO] <2022-05-16; 14:53:25.258> Successfully initialized main display subsystem
+   [INFO] <2022-05-16; 14:53:25.267> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-16; 14:53:25.268> Loading resources
+   [INFO] <2022-05-16; 14:53:26.323> Successfully initialized all subsystems
+   [INFO] <2022-05-16; 14:53:31.768> Selected files: 1
+   [INFO] <2022-05-16; 14:53:31.768> Decoding process started
+   [INFO] <2022-05-16; 14:53:31.769> Decoding data
+   [INFO] <2022-05-16; 14:53:31.770> Fetched and indexed input file: server-overworld-log-2022-02-01.txt
+   [INFO] <2022-05-16; 14:53:31.876> maxX: 2167 minX: -547; maxY: 59 minY: -2201
+   [INFO] <2022-05-16; 14:53:31.876> xRange: 2714 yRange: 2260
+   [INFO] <2022-05-16; 14:53:31.876> Successfully decoded data
+   [INFO] <2022-05-16; 14:53:31.877> Setting data to display
+   [INFO] <2022-05-16; 14:53:31.882> Successfully set data to display
+   [INFO] <2022-05-16; 14:53:31.882> Updating points
+   [INFO] <2022-05-16; 14:53:31.892> Updated points: 2048
+   [INFO] <2022-05-16; 14:53:31.893> Initializing toolbar subsystem
+   [INFO] <2022-05-16; 14:53:32.085> Successfully initialized toolbar subsystem
+   [INFO] <2022-05-16; 14:53:32.086> Selected files: 1
+   [INFO] <2022-05-16; 14:53:32.086> Decoding process finished successfully
+   [INFO] <2022-05-16; 14:53:37.233> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.237> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.238> Changed activity threshold to: 100
+   [INFO] <2022-05-16; 14:53:37.375> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.376> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.376> Changed activity threshold to: 98
+   [INFO] <2022-05-16; 14:53:37.391> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.395> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.399> Changed activity threshold to: 89
+   [INFO] <2022-05-16; 14:53:37.417> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.421> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.424> Changed activity threshold to: 79
+   [INFO] <2022-05-16; 14:53:37.444> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.451> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.454> Changed activity threshold to: 68
+   [INFO] <2022-05-16; 14:53:37.486> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.495> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.497> Changed activity threshold to: 50
+   [INFO] <2022-05-16; 14:53:37.522> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.527> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.532> Changed activity threshold to: 44
+   [INFO] <2022-05-16; 14:53:37.563> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.570> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.571> Changed activity threshold to: 31
+   [INFO] <2022-05-16; 14:53:37.602> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.605> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.606> Changed activity threshold to: 15
+   [INFO] <2022-05-16; 14:53:37.609> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.613> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.614> Changed activity threshold to: 6
+   [INFO] <2022-05-16; 14:53:37.623> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.624> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.624> Changed activity threshold to: 0
+   [INFO] <2022-05-16; 14:53:37.631> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.632> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.632> Changed activity threshold to: -5
+   [INFO] <2022-05-16; 14:53:37.647> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.648> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.648> Changed activity threshold to: -7
+   [INFO] <2022-05-16; 14:53:37.665> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.666> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.666> Changed activity threshold to: -11
+   [INFO] <2022-05-16; 14:53:37.680> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.681> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.681> Changed activity threshold to: -12
+   [INFO] <2022-05-16; 14:53:37.697> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.699> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.699> Changed activity threshold to: -15
+   [INFO] <2022-05-16; 14:53:37.715> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.717> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.717> Changed activity threshold to: -17
+   [INFO] <2022-05-16; 14:53:37.731> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.732> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.732> Changed activity threshold to: -20
+   [INFO] <2022-05-16; 14:53:37.748> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.749> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.749> Changed activity threshold to: -21
+   [INFO] <2022-05-16; 14:53:37.764> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.765> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.765> Changed activity threshold to: -24
+   [INFO] <2022-05-16; 14:53:37.780> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.781> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.781> Changed activity threshold to: -26
+   [INFO] <2022-05-16; 14:53:37.797> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.797> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.798> Changed activity threshold to: -30
+   [INFO] <2022-05-16; 14:53:37.814> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.814> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.815> Changed activity threshold to: -34
+   [INFO] <2022-05-16; 14:53:37.830> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.831> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.831> Changed activity threshold to: -39
+   [INFO] <2022-05-16; 14:53:37.847> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.847> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.848> Changed activity threshold to: -44
+   [INFO] <2022-05-16; 14:53:37.864> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.864> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.865> Changed activity threshold to: -49
+   [INFO] <2022-05-16; 14:53:37.881> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.882> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.883> Changed activity threshold to: -54
+   [INFO] <2022-05-16; 14:53:37.898> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.899> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.899> Changed activity threshold to: -57
+   [INFO] <2022-05-16; 14:53:37.914> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:37.915> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:37.915> Changed activity threshold to: -60
+   [INFO] <2022-05-16; 14:53:38.080> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.081> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.082> Changed activity threshold to: -59
+   [INFO] <2022-05-16; 14:53:38.098> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.099> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.099> Changed activity threshold to: -57
+   [INFO] <2022-05-16; 14:53:38.106> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.106> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.107> Changed activity threshold to: -56
+   [INFO] <2022-05-16; 14:53:38.122> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.123> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.123> Changed activity threshold to: -54
+   [INFO] <2022-05-16; 14:53:38.138> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.139> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.139> Changed activity threshold to: -49
+   [INFO] <2022-05-16; 14:53:38.156> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.156> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.156> Changed activity threshold to: -40
+   [INFO] <2022-05-16; 14:53:38.171> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.172> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.172> Changed activity threshold to: -31
+   [INFO] <2022-05-16; 14:53:38.187> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.188> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.188> Changed activity threshold to: -20
+   [INFO] <2022-05-16; 14:53:38.204> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.205> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.206> Changed activity threshold to: -7
+   [INFO] <2022-05-16; 14:53:38.221> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.221> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.222> Changed activity threshold to: 1
+   [INFO] <2022-05-16; 14:53:38.238> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.238> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.239> Changed activity threshold to: 8
+   [INFO] <2022-05-16; 14:53:38.254> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.255> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.255> Changed activity threshold to: 15
+   [INFO] <2022-05-16; 14:53:38.271> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.272> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.272> Changed activity threshold to: 24
+   [INFO] <2022-05-16; 14:53:38.289> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.289> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.290> Changed activity threshold to: 29
+   [INFO] <2022-05-16; 14:53:38.304> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.305> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.305> Changed activity threshold to: 34
+   [INFO] <2022-05-16; 14:53:38.321> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.322> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.323> Changed activity threshold to: 38
+   [INFO] <2022-05-16; 14:53:38.338> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.340> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.340> Changed activity threshold to: 43
+   [INFO] <2022-05-16; 14:53:38.355> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.355> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.355> Changed activity threshold to: 48
+   [INFO] <2022-05-16; 14:53:38.371> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.372> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.373> Changed activity threshold to: 54
+   [INFO] <2022-05-16; 14:53:38.389> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.390> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.390> Changed activity threshold to: 60
+   [INFO] <2022-05-16; 14:53:38.404> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.405> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.405> Changed activity threshold to: 65
+   [INFO] <2022-05-16; 14:53:38.421> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.422> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.422> Changed activity threshold to: 69
+   [INFO] <2022-05-16; 14:53:38.438> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.438> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.439> Changed activity threshold to: 71
+   [INFO] <2022-05-16; 14:53:38.454> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.455> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.455> Changed activity threshold to: 73
+   [INFO] <2022-05-16; 14:53:38.471> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.472> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.472> Changed activity threshold to: 74
+   [INFO] <2022-05-16; 14:53:38.522> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.523> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.523> Changed activity threshold to: 73
+   [INFO] <2022-05-16; 14:53:38.538> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.539> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.539> Changed activity threshold to: 69
+   [INFO] <2022-05-16; 14:53:38.555> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.556> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.556> Changed activity threshold to: 64
+   [INFO] <2022-05-16; 14:53:38.571> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.572> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.572> Changed activity threshold to: 56
+   [INFO] <2022-05-16; 14:53:38.588> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.589> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.589> Changed activity threshold to: 46
+   [INFO] <2022-05-16; 14:53:38.605> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.605> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.605> Changed activity threshold to: 30
+   [INFO] <2022-05-16; 14:53:38.621> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.622> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.622> Changed activity threshold to: 6
+   [INFO] <2022-05-16; 14:53:38.638> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.638> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.638> Changed activity threshold to: -22
+   [INFO] <2022-05-16; 14:53:38.654> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.655> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.655> Changed activity threshold to: -45
+   [INFO] <2022-05-16; 14:53:38.671> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.671> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.672> Changed activity threshold to: -67
+   [INFO] <2022-05-16; 14:53:38.687> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.688> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.688> Changed activity threshold to: -85
+   [INFO] <2022-05-16; 14:53:38.704> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.705> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.705> Changed activity threshold to: -97
+   [INFO] <2022-05-16; 14:53:38.721> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:38.722> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:38.722> Changed activity threshold to: -100
+   [INFO] <2022-05-16; 14:53:39.104> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:39.105> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:39.105> Changed activity threshold to: -90
+   [INFO] <2022-05-16; 14:53:39.121> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:39.122> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:39.122> Changed activity threshold to: -80
+   [INFO] <2022-05-16; 14:53:39.138> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:39.138> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:39.139> Changed activity threshold to: -66
+   [INFO] <2022-05-16; 14:53:39.154> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:39.155> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:39.155> Changed activity threshold to: -52
+   [INFO] <2022-05-16; 14:53:39.171> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:39.172> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:39.172> Changed activity threshold to: -39
+   [INFO] <2022-05-16; 14:53:39.188> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:39.188> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:39.189> Changed activity threshold to: -24
+   [INFO] <2022-05-16; 14:53:39.204> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:39.205> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:39.205> Changed activity threshold to: -10
+   [INFO] <2022-05-16; 14:53:39.221> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:39.221> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:39.222> Changed activity threshold to: 1
+   [INFO] <2022-05-16; 14:53:39.238> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:39.238> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:39.238> Changed activity threshold to: 6
+   [INFO] <2022-05-16; 14:53:39.254> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:39.255> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:39.255> Changed activity threshold to: 15
+   [INFO] <2022-05-16; 14:53:39.271> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:39.272> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:39.272> Changed activity threshold to: 29
+   [INFO] <2022-05-16; 14:53:39.288> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:39.288> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:39.289> Changed activity threshold to: 40
+   [INFO] <2022-05-16; 14:53:39.304> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:39.305> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:39.305> Changed activity threshold to: 49
+   [INFO] <2022-05-16; 14:53:39.321> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:39.322> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:39.322> Changed activity threshold to: 60
+   [INFO] <2022-05-16; 14:53:39.339> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:39.340> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:39.340> Changed activity threshold to: 71
+   [INFO] <2022-05-16; 14:53:39.355> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:39.356> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:39.357> Changed activity threshold to: 81
+   [INFO] <2022-05-16; 14:53:39.371> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:39.372> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:39.373> Changed activity threshold to: 91
+   [INFO] <2022-05-16; 14:53:39.389> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:39.390> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:39.390> Changed activity threshold to: 100
+   [INFO] <2022-05-16; 14:53:39.871> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:39.872> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:39.872> Changed activity threshold to: 100
+   [INFO] <2022-05-16; 14:53:40.761> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:40.763> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:40.764> Changed draw size to: 1.0
+   [INFO] <2022-05-16; 14:53:41.118> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:41.119> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:41.119> Changed draw size to: 1.1
+   [INFO] <2022-05-16; 14:53:41.311> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:41.312> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:41.312> Changed draw size to: 1.2
+   [INFO] <2022-05-16; 14:53:41.491> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:41.492> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:41.492> Changed draw size to: 1.3
+   [INFO] <2022-05-16; 14:53:41.592> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:41.592> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:41.592> Changed draw size to: 1.4
+   [INFO] <2022-05-16; 14:53:41.642> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:41.642> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:41.642> Changed draw size to: 1.5
+   [INFO] <2022-05-16; 14:53:41.691> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:41.692> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:41.692> Changed draw size to: 1.6
+   [INFO] <2022-05-16; 14:53:41.742> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:41.742> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:41.743> Changed draw size to: 1.7
+   [INFO] <2022-05-16; 14:53:41.776> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:41.776> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:41.776> Changed draw size to: 1.8
+   [INFO] <2022-05-16; 14:53:41.825> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:41.826> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:41.826> Changed draw size to: 1.9
+   [INFO] <2022-05-16; 14:53:41.875> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:41.876> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:41.876> Changed draw size to: 2.0
+   [INFO] <2022-05-16; 14:53:41.942> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:41.942> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:41.942> Changed draw size to: 2.1
+   [INFO] <2022-05-16; 14:53:41.992> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:41.992> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:41.992> Changed draw size to: 2.2
+   [INFO] <2022-05-16; 14:53:42.025> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:42.026> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:42.026> Changed draw size to: 2.3
+   [INFO] <2022-05-16; 14:53:42.058> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:42.059> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:42.059> Changed draw size to: 2.4
+   [INFO] <2022-05-16; 14:53:42.075> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:42.076> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:42.076> Changed draw size to: 2.5
+   [INFO] <2022-05-16; 14:53:42.092> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:42.092> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:42.092> Changed draw size to: 2.6
+   [INFO] <2022-05-16; 14:53:42.108> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:42.109> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:42.109> Changed draw size to: 2.8
+   [INFO] <2022-05-16; 14:53:42.125> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:42.125> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:42.126> Changed draw size to: 3.1
+   [INFO] <2022-05-16; 14:53:42.141> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:42.142> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:42.142> Changed draw size to: 3.4
+   [INFO] <2022-05-16; 14:53:42.158> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:42.159> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:42.159> Changed draw size to: 3.7
+   [INFO] <2022-05-16; 14:53:42.176> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:42.176> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:42.177> Changed draw size to: 4.0
+   [INFO] <2022-05-16; 14:53:42.192> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:42.193> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:42.193> Changed draw size to: 4.3
+   [INFO] <2022-05-16; 14:53:42.208> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:42.209> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:42.209> Changed draw size to: 4.6
+   [INFO] <2022-05-16; 14:53:42.226> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:42.227> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:42.227> Changed draw size to: 4.9
+   [INFO] <2022-05-16; 14:53:42.242> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:42.242> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:42.242> Changed draw size to: 5.0
+   [INFO] <2022-05-16; 14:53:42.758> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:42.759> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:42.759> Changed draw size to: 4.8
+   [INFO] <2022-05-16; 14:53:42.775> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:42.776> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:42.776> Changed draw size to: 4.5
+   [INFO] <2022-05-16; 14:53:42.791> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:42.792> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:42.792> Changed draw size to: 4.3
+   [INFO] <2022-05-16; 14:53:42.808> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:42.809> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:42.809> Changed draw size to: 4.1
+   [INFO] <2022-05-16; 14:53:42.825> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:42.825> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:42.825> Changed draw size to: 3.8
+   [INFO] <2022-05-16; 14:53:42.841> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:42.842> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:42.842> Changed draw size to: 3.4
+   [INFO] <2022-05-16; 14:53:42.858> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:42.859> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:42.859> Changed draw size to: 2.9
+   [INFO] <2022-05-16; 14:53:42.875> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:42.875> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:42.876> Changed draw size to: 2.3
+   [INFO] <2022-05-16; 14:53:42.891> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:42.892> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:42.892> Changed draw size to: 1.7
+   [INFO] <2022-05-16; 14:53:42.908> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:42.909> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:42.909> Changed draw size to: 1.2
+   [INFO] <2022-05-16; 14:53:42.925> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:42.926> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:42.926> Changed draw size to: 0.8
+   [INFO] <2022-05-16; 14:53:42.941> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:42.942> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:42.942> Changed draw size to: 0.5
+   [INFO] <2022-05-16; 14:53:42.958> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:42.959> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:42.959> Changed draw size to: 0.4
+   [INFO] <2022-05-16; 14:53:42.975> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:42.976> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:42.976> Changed draw size to: 0.3
+   [INFO] <2022-05-16; 14:53:43.008> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:43.009> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:43.009> Changed draw size to: 0.2
+   [INFO] <2022-05-16; 14:53:43.176> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:43.177> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:43.177> Changed draw size to: 0.3
+   [INFO] <2022-05-16; 14:53:43.210> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:43.211> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:43.211> Changed draw size to: 0.4
+   [INFO] <2022-05-16; 14:53:43.243> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:43.243> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:43.244> Changed draw size to: 0.5
+   [INFO] <2022-05-16; 14:53:43.260> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:43.261> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:43.261> Changed draw size to: 0.6
+   [INFO] <2022-05-16; 14:53:43.276> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:43.277> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:43.277> Changed draw size to: 0.7
+   [INFO] <2022-05-16; 14:53:43.293> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:43.293> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:43.294> Changed draw size to: 0.9
+   [INFO] <2022-05-16; 14:53:43.309> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:43.310> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:43.310> Changed draw size to: 1.1
+   [INFO] <2022-05-16; 14:53:43.326> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:43.327> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:43.327> Changed draw size to: 1.3
+   [INFO] <2022-05-16; 14:53:43.343> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:43.343> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:43.343> Changed draw size to: 1.4
+   [INFO] <2022-05-16; 14:53:43.359> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:43.360> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:43.360> Changed draw size to: 1.5
+   [INFO] <2022-05-16; 14:53:43.393> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:43.393> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:43.394> Changed draw size to: 1.6
+   [INFO] <2022-05-16; 14:53:43.559> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:43.560> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:43.560> Changed draw size to: 1.5
+   [INFO] <2022-05-16; 14:53:43.609> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:43.610> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:43.610> Changed draw size to: 1.4
+   [INFO] <2022-05-16; 14:53:43.643> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:43.643> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:43.643> Changed draw size to: 1.3
+   [INFO] <2022-05-16; 14:53:43.693> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:43.693> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:43.693> Changed draw size to: 1.2
+   [INFO] <2022-05-16; 14:53:43.726> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:43.727> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:43.727> Changed draw size to: 1.1
+   [INFO] <2022-05-16; 14:53:43.843> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:43.844> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:43.844> Changed draw size to: 1.0
+   [INFO] <2022-05-16; 14:53:44.143> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:53:44.143> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:53:44.144> Changed draw size to: 1.0
+   

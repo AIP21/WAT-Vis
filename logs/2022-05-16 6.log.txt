@@ -1,0 +1,56 @@
+   [INFO] <2022-05-16; 09:51:50.764> Player Tracker Decoder App v1.7.8 - LOG FILE
+   [INFO] <2022-05-16; 09:51:50.766> Initializing logger
+   [INFO] <2022-05-16; 09:51:50.767> Logger successfully initialized
+   [INFO] <2022-05-16; 09:51:50.768> Initializing primary systems
+   [INFO] <2022-05-16; 09:51:50.770> Initializing settings subsystem
+   [INFO] <2022-05-16; 09:51:50.770> Fetching and parsing settings from config file
+   [INFO] <2022-05-16; 09:51:50.771> 0.0
+   [INFO] <2022-05-16; 09:51:50.772> true
+   [INFO] <2022-05-16; 09:51:50.772> 0
+   [INFO] <2022-05-16; 09:51:50.772> Heat
+   [INFO] <2022-05-16; 09:51:50.773> 200
+   [INFO] <2022-05-16; 09:51:50.773> false
+   [INFO] <2022-05-16; 09:51:50.773> false
+   [INFO] <2022-05-16; 09:51:50.774> false
+   [INFO] <2022-05-16; 09:51:50.774> true
+   [INFO] <2022-05-16; 09:51:50.775> false
+   [INFO] <2022-05-16; 09:51:50.775> ageFadeThreshold: 0
+   [INFO] <2022-05-16; 09:51:50.775> Change_Size
+   [INFO] <2022-05-16; 09:51:50.775> 1
+   [INFO] <2022-05-16; 09:51:50.776> Settings: 12
+   [WARNING] <2022-05-16; 09:51:50.777> Incomplete or old config file, updating the config file
+   [INFO] <2022-05-16; 09:51:50.777> Saving and writing settings to config file
+   [INFO] <2022-05-16; 09:51:50.784> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 09:51:50.784> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-16; 09:51:50.785> Successfully initialized settings subsystem
+   [INFO] <2022-05-16; 09:51:50.786> Initializing decoder subsystem
+   [INFO] <2022-05-16; 09:51:50.787> Successfully initialized decoder subsystem
+   [INFO] <2022-05-16; 09:51:50.787> Initializing primary frame subsystem
+   [INFO] <2022-05-16; 09:51:50.793> Initializing main display subsystem
+   [INFO] <2022-05-16; 09:51:50.793> Successfully initialized main display subsystem
+   [INFO] <2022-05-16; 09:51:50.803> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-16; 09:51:50.803> Loading resources
+   [INFO] <2022-05-16; 09:51:51.823> Successfully initialized all subsystems
+   [INFO] <2022-05-16; 09:51:58.532> Selected files: 2
+   [INFO] <2022-05-16; 09:51:58.533> Decoding process started
+   [INFO] <2022-05-16; 09:51:58.533> Decoding data
+   [INFO] <2022-05-16; 09:51:58.534> Fetched and indexed input file: server-overworld-log-2022-01-28.txt
+   [INFO] <2022-05-16; 09:51:58.535> Fetched and indexed input file: server-overworld-log-2022-02-03.txt
+   [INFO] <2022-05-16; 09:51:58.647> maxX: 2069 minX: -376; maxY: 59 minY: -1564
+   [INFO] <2022-05-16; 09:51:58.647> xRange: 2445 yRange: 1623
+   [INFO] <2022-05-16; 09:51:58.648> Successfully decoded data
+   [INFO] <2022-05-16; 09:51:58.648> Setting data to display
+   [INFO] <2022-05-16; 09:51:58.657> Successfully set data to display
+   [INFO] <2022-05-16; 09:51:58.657> Updating points
+   [INFO] <2022-05-16; 09:51:58.667> Updated points: 3243
+   [INFO] <2022-05-16; 09:51:58.667> Initializing toolbar subsystem
+   [INFO] <2022-05-16; 09:51:58.849> Successfully initialized toolbar subsystem
+   [INFO] <2022-05-16; 09:51:58.850> Selected files: 2
+   [INFO] <2022-05-16; 09:51:58.851> Decoding process finished successfully
+   [INFO] <2022-05-16; 09:52:02.587> Saving and writing settings to config file
+   [INFO] <2022-05-16; 09:52:02.588> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 09:52:02.589> Changed draw type to: Heat
+   [INFO] <2022-05-16; 09:52:03.417> Saving and writing settings to config file
+   [INFO] <2022-05-16; 09:52:03.419> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 09:52:03.420> Changed heat draw type to: Change_Size
+   

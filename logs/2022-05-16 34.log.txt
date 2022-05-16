@@ -1,0 +1,628 @@
+   [INFO] <2022-05-16; 14:51:14.556> Player Tracker Decoder App v1.7.9 - LOG FILE
+   [INFO] <2022-05-16; 14:51:14.558> Initializing logger
+   [INFO] <2022-05-16; 14:51:14.559> Logger successfully initialized
+   [INFO] <2022-05-16; 14:51:14.559> Initializing primary systems
+   [INFO] <2022-05-16; 14:51:14.561> Initializing settings subsystem
+   [INFO] <2022-05-16; 14:51:14.561> Fetching and parsing settings from config file
+   [INFO] <2022-05-16; 14:51:14.562> 1.0
+   [INFO] <2022-05-16; 14:51:14.562> true
+   [INFO] <2022-05-16; 14:51:14.563> 0
+   [INFO] <2022-05-16; 14:51:14.563> Heat
+   [INFO] <2022-05-16; 14:51:14.563> 200
+   [INFO] <2022-05-16; 14:51:14.564> false
+   [INFO] <2022-05-16; 14:51:14.564> false
+   [INFO] <2022-05-16; 14:51:14.564> false
+   [INFO] <2022-05-16; 14:51:14.565> true
+   [INFO] <2022-05-16; 14:51:14.565> false
+   [INFO] <2022-05-16; 14:51:14.565> ageFadeThreshold: 0
+   [INFO] <2022-05-16; 14:51:14.565> Change_Size
+   [INFO] <2022-05-16; 14:51:14.566> 91
+   [INFO] <2022-05-16; 14:51:14.566> Settings: 12
+   [WARNING] <2022-05-16; 14:51:14.566> Incomplete or old config file, updating the config file
+   [INFO] <2022-05-16; 14:51:14.567> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:14.573> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:14.573> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-16; 14:51:14.573> Successfully initialized settings subsystem
+   [INFO] <2022-05-16; 14:51:14.575> Initializing decoder subsystem
+   [INFO] <2022-05-16; 14:51:14.575> Successfully initialized decoder subsystem
+   [INFO] <2022-05-16; 14:51:14.575> Initializing primary frame subsystem
+   [INFO] <2022-05-16; 14:51:14.580> Initializing main display subsystem
+   [INFO] <2022-05-16; 14:51:14.580> Successfully initialized main display subsystem
+   [INFO] <2022-05-16; 14:51:14.589> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-16; 14:51:14.589> Loading resources
+   [INFO] <2022-05-16; 14:51:15.650> Successfully initialized all subsystems
+   [INFO] <2022-05-16; 14:51:20.400> Selected files: 7
+   [INFO] <2022-05-16; 14:51:20.400> Decoding process started
+   [INFO] <2022-05-16; 14:51:20.401> Decoding data
+   [INFO] <2022-05-16; 14:51:20.402> Fetched and indexed input file: server-overworld-log-2022-01-24.txt
+   [INFO] <2022-05-16; 14:51:20.402> Fetched and indexed input file: server-overworld-log-2022-01-25.txt
+   [INFO] <2022-05-16; 14:51:20.403> Fetched and indexed input file: server-overworld-log-2022-01-28.txt
+   [INFO] <2022-05-16; 14:51:20.404> Fetched and indexed input file: server-overworld-log-2022-01-29.txt
+   [INFO] <2022-05-16; 14:51:20.404> Fetched and indexed input file: server-overworld-log-2022-01-30.txt
+   [INFO] <2022-05-16; 14:51:20.404> Fetched and indexed input file: server-overworld-log-2022-01-31.txt
+   [INFO] <2022-05-16; 14:51:20.405> Fetched and indexed input file: server-overworld-log-2022-02-01.txt
+   [INFO] <2022-05-16; 14:51:20.773> maxX: 2210 minX: -547; maxY: 64 minY: -2201
+   [INFO] <2022-05-16; 14:51:20.774> xRange: 2757 yRange: 2265
+   [INFO] <2022-05-16; 14:51:20.774> Successfully decoded data
+   [INFO] <2022-05-16; 14:51:20.774> Setting data to display
+   [INFO] <2022-05-16; 14:51:20.801> Successfully set data to display
+   [INFO] <2022-05-16; 14:51:20.802> Updating points
+   [INFO] <2022-05-16; 14:51:20.825> Updated points: 14623
+   [INFO] <2022-05-16; 14:51:20.825> Initializing toolbar subsystem
+   [INFO] <2022-05-16; 14:51:21.377> Successfully initialized toolbar subsystem
+   [INFO] <2022-05-16; 14:51:21.378> Selected files: 7
+   [INFO] <2022-05-16; 14:51:21.378> Decoding process finished successfully
+   [INFO] <2022-05-16; 14:51:25.839> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:25.845> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:25.845> Changed activity threshold to: 91
+   [INFO] <2022-05-16; 14:51:25.845> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:25.846> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:25.846> Changed activity threshold to: 90
+   [INFO] <2022-05-16; 14:51:25.861> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:25.863> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:25.863> Changed activity threshold to: 88
+   [INFO] <2022-05-16; 14:51:25.885> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:25.887> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:25.890> Changed activity threshold to: 85
+   [INFO] <2022-05-16; 14:51:25.904> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:25.906> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:25.907> Changed activity threshold to: 81
+   [INFO] <2022-05-16; 14:51:25.922> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:25.925> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:25.926> Changed activity threshold to: 76
+   [INFO] <2022-05-16; 14:51:25.940> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:25.942> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:25.943> Changed activity threshold to: 75
+   [INFO] <2022-05-16; 14:51:25.957> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:25.977> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:25.977> Changed activity threshold to: 74
+   [INFO] <2022-05-16; 14:51:25.998> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:25.999> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:25.999> Changed activity threshold to: 73
+   [INFO] <2022-05-16; 14:51:26.097> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.100> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.100> Changed activity threshold to: 71
+   [INFO] <2022-05-16; 14:51:26.149> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.151> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.152> Changed activity threshold to: 70
+   [INFO] <2022-05-16; 14:51:26.179> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.179> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.180> Changed activity threshold to: 69
+   [INFO] <2022-05-16; 14:51:26.195> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.196> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.196> Changed activity threshold to: 66
+   [INFO] <2022-05-16; 14:51:26.212> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.213> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.213> Changed activity threshold to: 65
+   [INFO] <2022-05-16; 14:51:26.229> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.229> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.230> Changed activity threshold to: 64
+   [INFO] <2022-05-16; 14:51:26.262> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.263> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.263> Changed activity threshold to: 63
+   [INFO] <2022-05-16; 14:51:26.295> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.296> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.296> Changed activity threshold to: 61
+   [INFO] <2022-05-16; 14:51:26.312> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.313> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.313> Changed activity threshold to: 59
+   [INFO] <2022-05-16; 14:51:26.330> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.330> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.331> Changed activity threshold to: 56
+   [INFO] <2022-05-16; 14:51:26.346> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.346> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.346> Changed activity threshold to: 54
+   [INFO] <2022-05-16; 14:51:26.363> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.364> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.364> Changed activity threshold to: 51
+   [INFO] <2022-05-16; 14:51:26.380> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.380> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.381> Changed activity threshold to: 49
+   [INFO] <2022-05-16; 14:51:26.395> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.396> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.396> Changed activity threshold to: 48
+   [INFO] <2022-05-16; 14:51:26.412> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.413> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.413> Changed activity threshold to: 46
+   [INFO] <2022-05-16; 14:51:26.462> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.463> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.463> Changed activity threshold to: 45
+   [INFO] <2022-05-16; 14:51:26.529> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.530> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.531> Changed activity threshold to: 44
+   [INFO] <2022-05-16; 14:51:26.579> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.580> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.580> Changed activity threshold to: 43
+   [INFO] <2022-05-16; 14:51:26.629> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.629> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.629> Changed activity threshold to: 41
+   [INFO] <2022-05-16; 14:51:26.645> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.646> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.646> Changed activity threshold to: 40
+   [INFO] <2022-05-16; 14:51:26.679> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.679> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.680> Changed activity threshold to: 39
+   [INFO] <2022-05-16; 14:51:26.695> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.696> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.696> Changed activity threshold to: 38
+   [INFO] <2022-05-16; 14:51:26.712> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.713> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.713> Changed activity threshold to: 36
+   [INFO] <2022-05-16; 14:51:26.729> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.729> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.729> Changed activity threshold to: 35
+   [INFO] <2022-05-16; 14:51:26.746> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.747> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.747> Changed activity threshold to: 34
+   [INFO] <2022-05-16; 14:51:26.763> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.764> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.764> Changed activity threshold to: 33
+   [INFO] <2022-05-16; 14:51:26.779> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.780> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.780> Changed activity threshold to: 31
+   [INFO] <2022-05-16; 14:51:26.796> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.797> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.798> Changed activity threshold to: 30
+   [INFO] <2022-05-16; 14:51:26.813> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.814> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.814> Changed activity threshold to: 29
+   [INFO] <2022-05-16; 14:51:26.845> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.846> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.846> Changed activity threshold to: 28
+   [INFO] <2022-05-16; 14:51:26.862> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.863> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.863> Changed activity threshold to: 26
+   [INFO] <2022-05-16; 14:51:26.878> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.879> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.879> Changed activity threshold to: 25
+   [INFO] <2022-05-16; 14:51:26.895> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.896> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.896> Changed activity threshold to: 24
+   [INFO] <2022-05-16; 14:51:26.928> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.929> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.929> Changed activity threshold to: 23
+   [INFO] <2022-05-16; 14:51:26.945> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.946> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.946> Changed activity threshold to: 21
+   [INFO] <2022-05-16; 14:51:26.962> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.963> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.963> Changed activity threshold to: 20
+   [INFO] <2022-05-16; 14:51:26.995> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:26.996> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:26.996> Changed activity threshold to: 19
+   [INFO] <2022-05-16; 14:51:27.045> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:27.046> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:27.046> Changed activity threshold to: 18
+   [INFO] <2022-05-16; 14:51:27.112> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:27.112> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:27.113> Changed activity threshold to: 16
+   [INFO] <2022-05-16; 14:51:27.195> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:27.196> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:27.196> Changed activity threshold to: 15
+   [INFO] <2022-05-16; 14:51:27.279> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:27.279> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:27.280> Changed activity threshold to: 14
+   [INFO] <2022-05-16; 14:51:27.395> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:27.396> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:27.396> Changed activity threshold to: 13
+   [INFO] <2022-05-16; 14:51:27.528> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:27.529> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:27.529> Changed activity threshold to: 11
+   [INFO] <2022-05-16; 14:51:27.645> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:27.646> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:27.646> Changed activity threshold to: 10
+   [INFO] <2022-05-16; 14:51:27.745> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:27.746> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:27.746> Changed activity threshold to: 9
+   [INFO] <2022-05-16; 14:51:27.762> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:27.763> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:27.763> Changed activity threshold to: 6
+   [INFO] <2022-05-16; 14:51:27.845> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:27.846> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:27.846> Changed activity threshold to: 5
+   [INFO] <2022-05-16; 14:51:27.962> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:27.962> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:27.963> Changed activity threshold to: 4
+   [INFO] <2022-05-16; 14:51:28.079> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:28.079> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:28.079> Changed activity threshold to: 3
+   [INFO] <2022-05-16; 14:51:28.333> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:28.334> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:28.334> Changed activity threshold to: 4
+   [INFO] <2022-05-16; 14:51:28.434> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:28.435> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:28.435> Changed activity threshold to: 5
+   [INFO] <2022-05-16; 14:51:28.568> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:28.569> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:28.569> Changed activity threshold to: 5
+   [INFO] <2022-05-16; 14:51:32.131> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:32.131> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:32.131> Changed activity threshold to: 5
+   [INFO] <2022-05-16; 14:51:32.464> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:32.465> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:32.465> Changed activity threshold to: 4
+   [INFO] <2022-05-16; 14:51:32.556> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:32.557> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:32.557> Changed activity threshold to: 3
+   [INFO] <2022-05-16; 14:51:32.721> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:32.722> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:32.722> Changed activity threshold to: 1
+   [INFO] <2022-05-16; 14:51:32.887> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:32.887> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:32.888> Changed activity threshold to: 0
+   [INFO] <2022-05-16; 14:51:32.987> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:32.988> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:32.988> Changed activity threshold to: -1
+   [INFO] <2022-05-16; 14:51:33.004> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.005> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.005> Changed activity threshold to: 1
+   [INFO] <2022-05-16; 14:51:33.021> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.021> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.021> Changed activity threshold to: -1
+   [INFO] <2022-05-16; 14:51:33.037> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.038> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.038> Changed activity threshold to: 1
+   [INFO] <2022-05-16; 14:51:33.054> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.054> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.054> Changed activity threshold to: -1
+   [INFO] <2022-05-16; 14:51:33.070> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.071> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.071> Changed activity threshold to: 1
+   [INFO] <2022-05-16; 14:51:33.087> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.088> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.088> Changed activity threshold to: -1
+   [INFO] <2022-05-16; 14:51:33.104> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.104> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.104> Changed activity threshold to: 0
+   [INFO] <2022-05-16; 14:51:33.120> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.121> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.121> Changed activity threshold to: -2
+   [INFO] <2022-05-16; 14:51:33.137> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.138> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.138> Changed activity threshold to: 0
+   [INFO] <2022-05-16; 14:51:33.154> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.154> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.155> Changed activity threshold to: -2
+   [INFO] <2022-05-16; 14:51:33.170> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.171> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.171> Changed activity threshold to: 0
+   [INFO] <2022-05-16; 14:51:33.187> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.188> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.188> Changed activity threshold to: -2
+   [INFO] <2022-05-16; 14:51:33.204> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.205> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.205> Changed activity threshold to: -1
+   [INFO] <2022-05-16; 14:51:33.287> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.288> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.288> Changed activity threshold to: -2
+   [INFO] <2022-05-16; 14:51:33.321> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.321> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.322> Changed activity threshold to: -4
+   [INFO] <2022-05-16; 14:51:33.354> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.355> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.355> Changed activity threshold to: -5
+   [INFO] <2022-05-16; 14:51:33.371> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.371> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.371> Changed activity threshold to: -6
+   [INFO] <2022-05-16; 14:51:33.404> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.404> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.405> Changed activity threshold to: -7
+   [INFO] <2022-05-16; 14:51:33.421> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.422> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.423> Changed activity threshold to: -9
+   [INFO] <2022-05-16; 14:51:33.471> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.472> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.472> Changed activity threshold to: -10
+   [INFO] <2022-05-16; 14:51:33.489> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.490> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.490> Changed activity threshold to: -7
+   [INFO] <2022-05-16; 14:51:33.505> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.505> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.506> Changed activity threshold to: -10
+   [INFO] <2022-05-16; 14:51:33.523> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.523> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.523> Changed activity threshold to: -9
+   [INFO] <2022-05-16; 14:51:33.537> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.538> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.538> Changed activity threshold to: -11
+   [INFO] <2022-05-16; 14:51:33.554> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.554> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.554> Changed activity threshold to: -9
+   [INFO] <2022-05-16; 14:51:33.571> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.571> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.571> Changed activity threshold to: -12
+   [INFO] <2022-05-16; 14:51:33.587> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.588> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.588> Changed activity threshold to: -10
+   [INFO] <2022-05-16; 14:51:33.638> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.639> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.639> Changed activity threshold to: -11
+   [INFO] <2022-05-16; 14:51:33.704> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.705> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.705> Changed activity threshold to: -12
+   [INFO] <2022-05-16; 14:51:33.787> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.788> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.788> Changed activity threshold to: -14
+   [INFO] <2022-05-16; 14:51:33.837> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.838> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.838> Changed activity threshold to: -15
+   [INFO] <2022-05-16; 14:51:33.888> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.888> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.888> Changed activity threshold to: -16
+   [INFO] <2022-05-16; 14:51:33.921> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.922> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.922> Changed activity threshold to: -17
+   [INFO] <2022-05-16; 14:51:33.954> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.955> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.955> Changed activity threshold to: -19
+   [INFO] <2022-05-16; 14:51:33.987> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:33.988> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:33.988> Changed activity threshold to: -20
+   [INFO] <2022-05-16; 14:51:34.020> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:34.021> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:34.021> Changed activity threshold to: -21
+   [INFO] <2022-05-16; 14:51:34.070> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:34.071> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:34.071> Changed activity threshold to: -22
+   [INFO] <2022-05-16; 14:51:34.121> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:34.122> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:34.122> Changed activity threshold to: -24
+   [INFO] <2022-05-16; 14:51:34.187> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:34.188> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:34.188> Changed activity threshold to: -25
+   [INFO] <2022-05-16; 14:51:34.221> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:34.221> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:34.221> Changed activity threshold to: -26
+   [INFO] <2022-05-16; 14:51:34.237> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:34.238> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:34.238> Changed activity threshold to: -27
+   [INFO] <2022-05-16; 14:51:34.271> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:34.271> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:34.271> Changed activity threshold to: -29
+   [INFO] <2022-05-16; 14:51:34.321> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:34.321> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:34.321> Changed activity threshold to: -30
+   [INFO] <2022-05-16; 14:51:34.371> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:34.371> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:34.371> Changed activity threshold to: -31
+   [INFO] <2022-05-16; 14:51:34.421> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:34.422> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:34.422> Changed activity threshold to: -32
+   [INFO] <2022-05-16; 14:51:34.487> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:34.488> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:34.488> Changed activity threshold to: -34
+   [INFO] <2022-05-16; 14:51:34.704> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:34.705> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:34.705> Changed activity threshold to: -32
+   [INFO] <2022-05-16; 14:51:34.737> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:34.738> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:34.738> Changed activity threshold to: -31
+   [INFO] <2022-05-16; 14:51:34.771> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:34.771> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:34.771> Changed activity threshold to: -30
+   [INFO] <2022-05-16; 14:51:34.804> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:34.804> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:34.805> Changed activity threshold to: -29
+   [INFO] <2022-05-16; 14:51:34.821> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:34.821> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:34.821> Changed activity threshold to: -27
+   [INFO] <2022-05-16; 14:51:34.854> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:34.854> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:34.855> Changed activity threshold to: -26
+   [INFO] <2022-05-16; 14:51:34.887> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:34.888> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:34.888> Changed activity threshold to: -25
+   [INFO] <2022-05-16; 14:51:34.921> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:34.921> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:34.921> Changed activity threshold to: -24
+   [INFO] <2022-05-16; 14:51:34.971> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:34.972> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:34.972> Changed activity threshold to: -22
+   [INFO] <2022-05-16; 14:51:35.021> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:35.021> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:35.022> Changed activity threshold to: -21
+   [INFO] <2022-05-16; 14:51:35.087> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:35.088> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:35.088> Changed activity threshold to: -20
+   [INFO] <2022-05-16; 14:51:35.221> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:35.221> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:35.221> Changed activity threshold to: -19
+   [INFO] <2022-05-16; 14:51:35.749> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:35.749> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:35.750> Changed activity threshold to: -20
+   [INFO] <2022-05-16; 14:51:35.781> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:35.782> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:35.782> Changed activity threshold to: -21
+   [INFO] <2022-05-16; 14:51:35.815> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:35.815> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:35.816> Changed activity threshold to: -22
+   [INFO] <2022-05-16; 14:51:35.848> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:35.849> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:35.849> Changed activity threshold to: -24
+   [INFO] <2022-05-16; 14:51:35.865> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:35.866> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:35.866> Changed activity threshold to: -25
+   [INFO] <2022-05-16; 14:51:35.931> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:35.932> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:35.932> Changed activity threshold to: -26
+   [INFO] <2022-05-16; 14:51:36.081> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:36.082> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:36.082> Changed activity threshold to: -25
+   [INFO] <2022-05-16; 14:51:36.115> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:36.115> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:36.115> Changed activity threshold to: -24
+   [INFO] <2022-05-16; 14:51:36.148> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:36.148> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:36.149> Changed activity threshold to: -22
+   [INFO] <2022-05-16; 14:51:36.166> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:36.167> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:36.167> Changed activity threshold to: -21
+   [INFO] <2022-05-16; 14:51:36.198> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:36.199> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:36.199> Changed activity threshold to: -20
+   [INFO] <2022-05-16; 14:51:36.231> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:36.232> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:36.232> Changed activity threshold to: -19
+   [INFO] <2022-05-16; 14:51:36.281> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:36.282> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:36.282> Changed activity threshold to: -17
+   [INFO] <2022-05-16; 14:51:36.350> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:36.351> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:36.352> Changed activity threshold to: -16
+   [INFO] <2022-05-16; 14:51:36.415> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:36.415> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:36.416> Changed activity threshold to: -15
+   [INFO] <2022-05-16; 14:51:36.465> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:36.465> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:36.466> Changed activity threshold to: -14
+   [INFO] <2022-05-16; 14:51:36.531> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:36.532> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:36.532> Changed activity threshold to: -12
+   [INFO] <2022-05-16; 14:51:36.598> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:36.599> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:36.599> Changed activity threshold to: -11
+   [INFO] <2022-05-16; 14:51:36.681> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:36.682> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:36.682> Changed activity threshold to: -10
+   [INFO] <2022-05-16; 14:51:36.765> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:36.765> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:36.765> Changed activity threshold to: -9
+   [INFO] <2022-05-16; 14:51:36.781> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:36.782> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:36.782> Changed activity threshold to: -11
+   [INFO] <2022-05-16; 14:51:36.798> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:36.799> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:36.799> Changed activity threshold to: -9
+   [INFO] <2022-05-16; 14:51:36.815> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:36.816> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:36.816> Changed activity threshold to: -11
+   [INFO] <2022-05-16; 14:51:36.831> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:36.832> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:36.832> Changed activity threshold to: -7
+   [INFO] <2022-05-16; 14:51:36.848> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:36.849> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:36.849> Changed activity threshold to: -10
+   [INFO] <2022-05-16; 14:51:36.866> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:36.866> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:36.866> Changed activity threshold to: -7
+   [INFO] <2022-05-16; 14:51:36.882> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:36.882> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:36.882> Changed activity threshold to: -10
+   [INFO] <2022-05-16; 14:51:36.898> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:36.899> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:36.899> Changed activity threshold to: -6
+   [INFO] <2022-05-16; 14:51:36.915> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:36.915> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:36.915> Changed activity threshold to: -9
+   [INFO] <2022-05-16; 14:51:36.931> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:36.932> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:36.932> Changed activity threshold to: -7
+   [INFO] <2022-05-16; 14:51:36.965> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:36.965> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:36.965> Changed activity threshold to: -6
+   [INFO] <2022-05-16; 14:51:36.998> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:36.998> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:36.998> Changed activity threshold to: -5
+   [INFO] <2022-05-16; 14:51:37.014> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:37.015> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:37.015> Changed activity threshold to: -4
+   [INFO] <2022-05-16; 14:51:37.048> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:37.049> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:37.049> Changed activity threshold to: -2
+   [INFO] <2022-05-16; 14:51:37.065> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:37.065> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:37.066> Changed activity threshold to: -1
+   [INFO] <2022-05-16; 14:51:37.098> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:37.099> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:37.099> Changed activity threshold to: 0
+   [INFO] <2022-05-16; 14:51:37.115> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:37.115> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:37.115> Changed activity threshold to: -2
+   [INFO] <2022-05-16; 14:51:37.131> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:37.132> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:37.132> Changed activity threshold to: 1
+   [INFO] <2022-05-16; 14:51:37.148> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:37.148> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:37.148> Changed activity threshold to: 0
+   [INFO] <2022-05-16; 14:51:37.165> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:37.165> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:37.165> Changed activity threshold to: 1
+   [INFO] <2022-05-16; 14:51:37.181> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:37.182> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:37.182> Changed activity threshold to: 3
+   [INFO] <2022-05-16; 14:51:37.215> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:37.215> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:37.215> Changed activity threshold to: 4
+   [INFO] <2022-05-16; 14:51:37.232> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:37.233> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:37.233> Changed activity threshold to: 5
+   [INFO] <2022-05-16; 14:51:37.249> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:37.250> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:37.250> Changed activity threshold to: 6
+   [INFO] <2022-05-16; 14:51:37.281> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:37.282> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:37.282> Changed activity threshold to: 8
+   [INFO] <2022-05-16; 14:51:37.315> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:37.315> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:37.315> Changed activity threshold to: 9
+   [INFO] <2022-05-16; 14:51:37.331> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:37.332> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:37.332> Changed activity threshold to: 10
+   [INFO] <2022-05-16; 14:51:37.348> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:37.348> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:37.348> Changed activity threshold to: 13
+   [INFO] <2022-05-16; 14:51:37.381> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:37.382> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:37.382> Changed activity threshold to: 14
+   [INFO] <2022-05-16; 14:51:37.531> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:37.532> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:37.532> Changed activity threshold to: 13
+   [INFO] <2022-05-16; 14:51:37.564> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:37.565> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:37.565> Changed activity threshold to: 11
+   [INFO] <2022-05-16; 14:51:37.614> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:37.615> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:37.615> Changed activity threshold to: 10
+   [INFO] <2022-05-16; 14:51:37.667> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:37.668> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:37.668> Changed activity threshold to: 9
+   [INFO] <2022-05-16; 14:51:37.681> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:37.682> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:37.682> Changed activity threshold to: 6
+   [INFO] <2022-05-16; 14:51:37.798> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:37.799> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:37.799> Changed activity threshold to: 5
+   [INFO] <2022-05-16; 14:51:37.898> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:37.898> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:37.898> Changed activity threshold to: 4
+   [INFO] <2022-05-16; 14:51:37.981> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:37.982> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:37.982> Changed activity threshold to: 3
+   [INFO] <2022-05-16; 14:51:38.148> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:38.148> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:38.149> Changed activity threshold to: 1
+   [INFO] <2022-05-16; 14:51:38.298> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:38.298> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:38.299> Changed activity threshold to: 0
+   [INFO] <2022-05-16; 14:51:38.757> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:38.758> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:38.758> Changed activity threshold to: 1
+   [INFO] <2022-05-16; 14:51:39.688> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:39.689> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:39.689> Changed activity threshold to: 3
+   [INFO] <2022-05-16; 14:51:39.754> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:39.754> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:39.754> Changed activity threshold to: 4
+   [INFO] <2022-05-16; 14:51:40.197> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:40.197> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:40.197> Changed activity threshold to: 3
+   [INFO] <2022-05-16; 14:51:40.345> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:40.345> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:40.346> Changed activity threshold to: 1
+   [INFO] <2022-05-16; 14:51:40.830> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:40.830> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:40.830> Changed activity threshold to: 3
+   [INFO] <2022-05-16; 14:51:41.224> Saving and writing settings to config file
+   [INFO] <2022-05-16; 14:51:41.225> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 14:51:41.225> Changed activity threshold to: 3
+   

@@ -1,0 +1,51 @@
+   [INFO] <2022-05-16; 11:45:00.921> Player Tracker Decoder App v1.7.8 - LOG FILE
+   [INFO] <2022-05-16; 11:45:00.923> Initializing logger
+   [INFO] <2022-05-16; 11:45:00.924> Logger successfully initialized
+   [INFO] <2022-05-16; 11:45:00.924> Initializing primary systems
+   [INFO] <2022-05-16; 11:45:00.926> Initializing settings subsystem
+   [INFO] <2022-05-16; 11:45:00.927> Fetching and parsing settings from config file
+   [INFO] <2022-05-16; 11:45:00.928> 0.0
+   [INFO] <2022-05-16; 11:45:00.928> true
+   [INFO] <2022-05-16; 11:45:00.929> 0
+   [INFO] <2022-05-16; 11:45:00.929> Heat
+   [INFO] <2022-05-16; 11:45:00.929> 200
+   [INFO] <2022-05-16; 11:45:00.930> false
+   [INFO] <2022-05-16; 11:45:00.930> false
+   [INFO] <2022-05-16; 11:45:00.930> false
+   [INFO] <2022-05-16; 11:45:00.931> true
+   [INFO] <2022-05-16; 11:45:00.931> false
+   [INFO] <2022-05-16; 11:45:00.932> ageFadeThreshold: 0
+   [INFO] <2022-05-16; 11:45:00.932> Change_Size
+   [INFO] <2022-05-16; 11:45:00.932> 1
+   [INFO] <2022-05-16; 11:45:00.933> Settings: 12
+   [WARNING] <2022-05-16; 11:45:00.934> Incomplete or old config file, updating the config file
+   [INFO] <2022-05-16; 11:45:00.934> Saving and writing settings to config file
+   [INFO] <2022-05-16; 11:45:00.941> Successfully saved and wrote settings to config file
+   [INFO] <2022-05-16; 11:45:00.941> Successfully fetched and parsed settings from config file
+   [INFO] <2022-05-16; 11:45:00.942> Successfully initialized settings subsystem
+   [INFO] <2022-05-16; 11:45:00.943> Initializing decoder subsystem
+   [INFO] <2022-05-16; 11:45:00.944> Successfully initialized decoder subsystem
+   [INFO] <2022-05-16; 11:45:00.944> Initializing primary frame subsystem
+   [INFO] <2022-05-16; 11:45:00.951> Initializing main display subsystem
+   [INFO] <2022-05-16; 11:45:00.952> Successfully initialized main display subsystem
+   [INFO] <2022-05-16; 11:45:00.963> Successfully initialized primary frame subsystem
+   [INFO] <2022-05-16; 11:45:00.964> Loading resources
+   [INFO] <2022-05-16; 11:45:02.291> Successfully initialized all subsystems
+   [INFO] <2022-05-16; 11:45:07.628> Selected files: 3
+   [INFO] <2022-05-16; 11:45:07.629> Decoding process started
+   [INFO] <2022-05-16; 11:45:07.629> Decoding data
+   [INFO] <2022-05-16; 11:45:07.630> Fetched and indexed input file: server-overworld-log-2022-01-25.txt
+   [INFO] <2022-05-16; 11:45:07.631> Fetched and indexed input file: server-overworld-log-2022-01-28.txt
+   [INFO] <2022-05-16; 11:45:07.631> Fetched and indexed input file: server-overworld-log-2022-01-29.txt
+   [INFO] <2022-05-16; 11:45:07.872> maxX: 2210 minX: -427; maxY: 64 minY: -1563
+   [INFO] <2022-05-16; 11:45:07.873> xRange: 2637 yRange: 1627
+   [INFO] <2022-05-16; 11:45:07.873> Successfully decoded data
+   [INFO] <2022-05-16; 11:45:07.873> Setting data to display
+   [INFO] <2022-05-16; 11:45:07.894> Successfully set data to display
+   [INFO] <2022-05-16; 11:45:07.895> Updating points
+   [INFO] <2022-05-16; 11:45:07.910> Updated points: 9080
+   [INFO] <2022-05-16; 11:45:07.911> Initializing toolbar subsystem
+   [INFO] <2022-05-16; 11:45:08.276> Successfully initialized toolbar subsystem
+   [INFO] <2022-05-16; 11:45:08.277> Selected files: 3
+   [INFO] <2022-05-16; 11:45:08.278> Decoding process finished successfully
+   

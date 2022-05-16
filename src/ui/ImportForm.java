@@ -80,10 +80,8 @@ public class ImportForm extends JFrame {
         cancelButton.setText("Cancel");
         confirmationButtonPanel.add(cancelButton, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         confirmButton = new JButton();
-        confirmButton.setHideActionText(false);
-        confirmButton.setOpaque(false);
         confirmButton.setRolloverEnabled(true);
-        confirmButton.setSelected(true);
+        confirmButton.setEnabled(false);
         confirmButton.setText("Confirm");
         confirmationButtonPanel.add(confirmButton, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         loadingProgressBar = new JProgressBar();
@@ -144,12 +142,13 @@ public class ImportForm extends JFrame {
         importSettingsTitle.setText("Import Settings");
         importSettingsPanel.add(importSettingsTitle, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         convertChunksToggle = new JRadioButton();
+        convertChunksToggle.setSelected(settings.convertChunkPosToBlockPos);
         convertChunksToggle.setHideActionText(false);
         convertChunksToggle.setText("");
         importSettingsPanel.add(convertChunksToggle, new com.intellij.uiDesigner.core.GridConstraints(3, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         antialiasingToggle = new JRadioButton();
         antialiasingToggle.setHideActionText(true);
-        antialiasingToggle.setSelected(true);
+        antialiasingToggle.setSelected(settings.antialiasing);
         antialiasingToggle.setText("");
         importSettingsPanel.add(antialiasingToggle, new com.intellij.uiDesigner.core.GridConstraints(4, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         convertChunksLabel = new JLabel();
@@ -159,6 +158,7 @@ public class ImportForm extends JFrame {
         antialiasingLabel.setText("Antialiasing");
         importSettingsPanel.add(antialiasingLabel, new com.intellij.uiDesigner.core.GridConstraints(4, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         maxEntriesSpinner = new JSpinner();
+        maxEntriesSpinner.setValue(settings.maxDataEntries);
         maxEntriesSpinner.setToolTipText("The maximum amount of data entries to decode. Set to 0 to disable");
         importSettingsPanel.add(maxEntriesSpinner, new com.intellij.uiDesigner.core.GridConstraints(2, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         maxEntriesSpinnerLabel = new JLabel();
@@ -217,13 +217,12 @@ public class ImportForm extends JFrame {
             if (returnVal == JFileChooser.APPROVE_OPTION) {
                 currentFiles.addAll(Arrays.asList(chooser.getSelectedFiles()));
                 selectedFileList.setListData(currentFiles.toArray(new File[0]));
+                confirmButton.setEnabled(currentFiles.size() > 0);
             } else if (returnVal == JFileChooser.ERROR_OPTION) {
                 logger.Log("Error selecting input files", Logger.MessageType.ERROR);
             } else {
                 logger.Log("No input files selected", Logger.MessageType.WARNING);
             }
-
-            confirmButton.setEnabled(selectedFileList.getLastVisibleIndex() > 0);
         });
 
         removeFileButton.addActionListener(event -> {
@@ -264,19 +263,15 @@ public class ImportForm extends JFrame {
             }
         }
         maxEntriesSpinner.addChangeListener(e -> {
-
             settings.maxDataEntries = (int) ((JSpinner) e.getSource()).getValue();
-            settings.SaveSettings();
         });
 
         antialiasingToggle.addItemListener(event -> {
             settings.antialiasing = (event.getStateChange() == ItemEvent.SELECTED);
-            settings.SaveSettings();
         });
 
         addWorldImageButton.addActionListener(event -> {
             logger.Log("Opening world background image dialog", Logger.MessageType.INFO);
-            addWorldImageButton.setEnabled(false);
 
             JFileChooser imgChooser = new JFileChooser("worldImages");
             imgChooser.setMultiSelectionEnabled(false);
@@ -302,8 +297,6 @@ public class ImportForm extends JFrame {
             } else {
                 logger.Log("No world background images selected", Logger.MessageType.WARNING);
             }
-
-            addWorldImageButton.setEnabled(true);
         });
 
         imageXOffsetSpinner.addChangeListener(e -> main.mainPanel.xBackgroundOffset = (int) ((JSpinner) e.getSource()).getValue());

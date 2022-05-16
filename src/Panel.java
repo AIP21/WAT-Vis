@@ -283,7 +283,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
             drawRectangle(g2, selectedEntry.position.x, selectedEntry.position.z, 3, false);
         }
 
-        RenderedPointsLabel.setText("   Loaded: " + totalData + " | Rendered: " + renderedPoints + " | ");
+        RenderedPointsLabel.setText("   Loaded: " + totalData + " | Rendered: " + renderedPoints + " |");
     }
 
     private void drawPoints(Graphics2D g2d, boolean useCulling, int offset, int upscale) {
@@ -295,7 +295,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         Map<String, Integer> playerOccurences = new LinkedHashMap<>();
 
         if (settings._drawType == Decoder.DrawType.Heat) {
-            int newMax = maxActivity + (settings.heatMapThreshold / 2);
+            int newMax = maxActivity;
 
             Vector3[] positions = posActivityMap.keySet().toArray(new Vector3[0]);
             for (Vector3 vec : positions) {
@@ -306,12 +306,14 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
                 if (!useCulling || (pt.x >= -50 && pt.x <= screenSize.width + 50 && pt.y >= -50 && pt.y <= screenSize.height + 50)) {
 //                    logger.Log(posActivityMap.get(vec) + " / " + maxActivity, Logger.MessageType.INFO);
-                    if(settings._heatDrawType == PlayerTrackerDecoder.HeatDrawType.ChangeColor){
-                    g2d.setColor(Utils.lerp(Color.darkGray, Color.getHSBColor(0.93f, 0.68f, 0.55f), ((float) Math.min(posActivityMap.get(vec) + settings.heatMapThreshold, newMax) / newMax)));
-                    } else {
+                    float value = Math.min((float) posActivityMap.get(vec) * ((float) settings.heatMapThreshold / 100.0f), newMax);
 
+                    if (settings._heatDrawType == PlayerTrackerDecoder.HeatDrawType.Change_Color) {
+                        g2d.setColor(Utils.lerp(Color.darkGray, Color.getHSBColor(0.93f, 0.68f, 0.55f), value / newMax));
+                        drawRectangle(g2d, x, y, settings.size, true);
+                    } else {
+                        drawRectangle(g2d, x, y, settings.size + value, true);
                     }
-                    drawRectangle(g2d, x, y, settings.size, true);
                     renderedPoints++;
                 }
             }

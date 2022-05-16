@@ -11,7 +11,7 @@ public class Settings {
     public boolean convertChunkPosToBlockPos = true;
     public int maxDataEntries = 0;
     public Decoder.DrawType _drawType = Decoder.DrawType.Pixel;
-    public PlayerTrackerDecoder.HeatDrawType _heatDrawType = PlayerTrackerDecoder.HeatDrawType.ChangeSize;
+    public PlayerTrackerDecoder.HeatDrawType _heatDrawType = PlayerTrackerDecoder.HeatDrawType.Change_Size;
     public int heatMapThreshold = 0;
     public int lineThreshold = 200;
     public int upscaleMultiplier = 1;
@@ -48,7 +48,7 @@ public class Settings {
                     terminusPoints = true;
                     ageFade = false;
                     ageFadeThreshold = 0;
-                    _heatDrawType = PlayerTrackerDecoder.HeatDrawType.ChangeSize;
+                    _heatDrawType = PlayerTrackerDecoder.HeatDrawType.Change_Size;
                     heatMapThreshold = 0;
 
                     new File("config.txt").createNewFile();
@@ -119,9 +119,9 @@ public class Settings {
     }
 
     private int heatDrawTypeToInt(PlayerTrackerDecoder.HeatDrawType hdt) {
-        if (hdt == PlayerTrackerDecoder.HeatDrawType.ChangeSize)
+        if (hdt == PlayerTrackerDecoder.HeatDrawType.Change_Size)
             return 0;
-        else if (hdt == PlayerTrackerDecoder.HeatDrawType.ChangeColor)
+        else if (hdt == PlayerTrackerDecoder.HeatDrawType.Change_Color)
             return 1;
 
         return -1;
@@ -226,9 +226,9 @@ public class Settings {
                     str = str.substring(0, str.indexOf(" //"));
                     int val = Integer.parseInt(str);
                     if (val == 0) {
-                        _heatDrawType = PlayerTrackerDecoder.HeatDrawType.ChangeSize;
+                        _heatDrawType = PlayerTrackerDecoder.HeatDrawType.Change_Size;
                     } else if (val == 1) {
-                        _heatDrawType = PlayerTrackerDecoder.HeatDrawType.ChangeColor;
+                        _heatDrawType = PlayerTrackerDecoder.HeatDrawType.Change_Color;
                     }
                     logger.Log(_heatDrawType, Logger.MessageType.INFO);
                     count++;

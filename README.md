@@ -51,7 +51,7 @@ The naming of a log file is also important, it is also formatted in a specific w
 Each part is separated by a hyphen ("-").
 The first part is the source name, such as the world/server name.
 The second part is the data dimension, it can be either "overworld", "nether", or "the-end".
-The third part is just indicating that the file is a log file, it is always "log" (you can change it if you want to though).
+The third part is just indicating that the file is a log file, it is always "log" (You can change it if you want to though).
 The fourth part is the date, separated by hyphens. It is formatted in "YYYY-MM-dd" (year, month, day of month).
 The file type should be a .txt file.
 

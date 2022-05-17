@@ -9,6 +9,8 @@ If you'd like to, you can create your own tool to generate the data, see the Dat
 
 I made this (and the minecraft mod) as a fun project to learn more about Java.
 
+TLDR: It's like nocom but serverside.
+
 # Setup and running the program
 The program *should* do the following steps by itself, but its always better doing it yourself just in case. (My code tends to be unpredictable)
 1. Put the .jar file in an empty folder
@@ -30,6 +32,28 @@ Now you are good to go, just run the .jar file and import your data using the bu
 12. **Extensive** configuration for almost everything
 13. Ability to export a view of all the data in one image. (Still kinda buggy, gotta fix it)
 14. And some other stuff I forgot to write here.
+
+# Data Format
+The log data is formatted in a specific way, and can only be read in that way (I might change that in the future). Here is an example line of data:
+> 21:25:29; Anip24; (-98, 65, -1460);
+
+Each "chunk" of data is separated by a semicolon and a space ("; ").
+The first chunk of data, 21:25:29, is the time of the log, formatted in "HH:mm:ss" (hours, minutes, seconds).
+The second chunk of data, Anip24, is the name of the player whom this log is of, it is the player name.
+The third chunk of data, (-98, 65, -1460), is the block position of the player, it is an integer 3-dimensional vector, formatted in (x, y, z). It must have parenthesis and must be in the order (x, y, z).
+The entry ends in a semicolon and a line break (new line).
+
+
+A log file is created every day, for every dimension in the world (if on a client, a new set of files is created for every server or world you join). Each log file contains every entry for every player from that day and dimension (and if on a client, the server/world), in chronological order from oldest to newest.
+The naming of a log file is also important, it is also formatted in a specific way. They are formatted as a .txt file. Here is an example file name:
+> MyServer-overworld-log-2022-04-23.txt
+
+Each part is separated by a hyphen ("-").
+The first part is the source name, such as the world/server name.
+The second part is the data dimension, it can be either "overworld", "nether", or "the-end".
+The third part is just indicating that the file is a log file, it is always "log" (you can change it if you want to though).
+The fourth part is the date, separated by hyphens. It is formatted in "YYYY-MM-dd" (year, month, day of month).
+The file type should be a .txt file.
 
 # Images
 Here are some screenshots from the program, using made-up data and data from my Minecraft server.

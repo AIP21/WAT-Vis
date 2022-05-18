@@ -20,7 +20,7 @@ Now you are good to go, just run the .jar file and import your data using the bu
 
 # Features
 1. Display all the data that you imported.
-2. Display a desired date range or single point in time.
+2. Display a desired date range or a single point in time.
 3. Animate the time to see players moving around as time passes.
 4. See a list of all the players in the data and either change their marker color or disable them entirely.
 5. Select individual points (By clicking on points, although it's a bit finicky) and see their information. This includes the date, player name, and position.

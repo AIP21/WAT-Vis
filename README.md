@@ -23,7 +23,7 @@ Now you are good to go, just run the .jar file and import your data using the bu
 2. Display a desired date range or single point in time.
 3. Animate the time to see players moving around as time passes.
 4. See a list of all the players in the data and either change their marker color or disable them entirely.
-5. Select individual points (By clicking on points, although it's a bit finicky) and see their information. This included the date, player name, and position.
+5. Select individual points (By clicking on points, although it's a bit finicky) and see their information. This includes the date, player name, and position.
 6. Represent the data in four ways: Pixels, Dots, Lines, or a Heatmap.
 7. Option to fade out data based on its age.
 8. Set a threshold for line lengths in order to prevent long lines that result from interdimensional travel or deaths.

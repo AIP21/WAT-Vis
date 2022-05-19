@@ -143,7 +143,15 @@ public class Settings {
         int count = 0;
         if (args.size() != 0)
             for (String arg : args) {
-                if (arg.contains("size: ")) {
+                if (arg.contains("/// Player Tracker Decoder v")) {
+                    String str = arg.replace("/// Player Tracker Decoder v", "");
+                    str = str.substring(0, str.indexOf(" - "));
+                    if (!str.equals(PlayerTrackerDecoder.version)) {
+                        SaveSettings();
+                        logger.Log("Updating log file version", Logger.MessageType.WARNING);
+                    }
+                    logger.Log(str + ", " + count, Logger.MessageType.INFO);
+                } else if (arg.contains("size: ")) {
                     String str = arg.replace("size: ", "");
                     str = str.substring(0, str.indexOf(" //"));
                     size = Float.parseFloat(str);

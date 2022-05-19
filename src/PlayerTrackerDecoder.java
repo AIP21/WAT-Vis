@@ -81,6 +81,10 @@ public class PlayerTrackerDecoder extends JFrame {
 
     private ImportForm importForm;
 
+    private JLabel playerPageLabel;
+    private int currentPlayerPageIndex = 0;
+    private int PLAYER_PAGE_CAPACITY = 12;
+
     //region Resources
     private ImageIcon playIcon;
     private ImageIcon pauseIcon;
@@ -100,7 +104,7 @@ public class PlayerTrackerDecoder extends JFrame {
     private final int TARGET_FPS = 30;
     private final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;
 
-    public static final String version = "1.8.3";
+    public static final String version = "1.8.4";
 
     public PlayerTrackerDecoder() {
         logger = new Logger(version);
@@ -153,9 +157,9 @@ public class PlayerTrackerDecoder extends JFrame {
         JMenuBar bottomMenuBar = new JMenuBar();
         add(bottomMenuBar, "South");
 
-        JLabel label = new JLabel();
-        mainPanel.RenderedPointsLabel = label;
-        bottomMenuBar.add(label);
+        JLabel renderInfoLabel = new JLabel();
+        mainPanel.RenderedPointsLabel = renderInfoLabel;
+        bottomMenuBar.add(renderInfoLabel);
         bottomMenuBar.add(mainPanel.CoordinateLabel);
         bottomMenuBar.add(mainPanel.SelectedEntryLabel);
 
@@ -191,7 +195,7 @@ public class PlayerTrackerDecoder extends JFrame {
     }
 
     public static void main(String[] args) {
-        EventQueue.invokeLater(() -> {
+        SwingUtilities.invokeLater(() -> {
             PlayerTrackerDecoder myFrame = new PlayerTrackerDecoder();
             myFrame.setVisible(true);
         });
@@ -217,7 +221,7 @@ public class PlayerTrackerDecoder extends JFrame {
         mainPanel.setDoubleBuffered(true);
         scrollPane = new JScrollPane(mainPanel);
         mainPanel.CoordinateLabel = new JLabel();
-        mainPanel.CoordinateLabel.setText("   (0, 0) | ");
+        mainPanel.CoordinateLabel.setText("");
         mainPanel.SelectedEntryLabel = new JLabel("Nothing Selected");
         mainPanel.SelectedEntryLabel.setVisible(false);
         scrollPane.setDoubleBuffered(true);
@@ -387,11 +391,17 @@ public class PlayerTrackerDecoder extends JFrame {
 
         //region Players
         JComponent playerPanel = new JPanel();
-        playerPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        playerPanel.setLayout(new BorderLayout());
 
-        playerPanel.add(new JLabel("Players"));
         String[] nameSet = mainPanel.playerNameColorMap.keySet().toArray(new String[0]);
-        for (int i = 0; i < nameSet.length && i < 25; i++) {
+
+        JPanel[] playerPages = new JPanel[(int) Math.ceil((double) nameSet.length / (double) PLAYER_PAGE_CAPACITY)];
+        for (int i = 0; i < playerPages.length; i++) {
+            playerPages[i] = new JPanel();
+            playerPages[i].setLayout(new GridLayout(3, 4));
+        }
+
+        for (int i = 0; i < nameSet.length; i++) {
             String player = nameSet[i];
             JMenuItem colButton = new JMenuItem(player);
             JToggleButton toggle = new JToggleButton("", mainPanel.playerNameEnabledMap.get(player));
@@ -401,8 +411,14 @@ public class PlayerTrackerDecoder extends JFrame {
             toggle.setMargin(new Insets(2, 2, 2, 2));
             toggle.setBorder(BorderFactory.createEmptyBorder());
 
-            playerPanel.add(colButton);
-            playerPanel.add(toggle);
+            JPanel panel = new JPanel();
+            panel.add(colButton);
+            panel.add(toggle);
+            JLabel countLabel = new JLabel(mainPanel.playerMarkerCount.get(player) + "x", SwingConstants.LEFT);
+            panel.add(countLabel, CENTER_ALIGNMENT);
+
+            int index = (i / PLAYER_PAGE_CAPACITY);
+            playerPages[index].add(panel);
 
             colButton.addActionListener(event -> {
                 Color selectedColor = JColorChooser.showDialog(PlayerTrackerDecoder.this, "Select player color", mainPanel.playerNameColorMap.get(player));
@@ -424,6 +440,52 @@ public class PlayerTrackerDecoder extends JFrame {
                 logger.Log((value ? "Showed " : "Hid ") + player + "'s data", Logger.MessageType.INFO);
             });
         }
+
+        playerPageLabel = new JLabel("Page " + (currentPlayerPageIndex + 1) + "/" + playerPages.length, SwingConstants.CENTER);
+        playerPanel.add(playerPageLabel, BorderLayout.NORTH);
+
+        JButton leftButton = new JButton("<");
+        playerPanel.add(leftButton, BorderLayout.WEST);
+        leftButton.addActionListener(event -> {
+            if (currentPlayerPageIndex > 0) {
+                currentPlayerPageIndex--;
+            } else {
+                currentPlayerPageIndex = playerPages.length - 1;
+            }
+
+            playerPageLabel.setText("Page " + (currentPlayerPageIndex + 1) + "/" + playerPages.length);
+            for (JPanel panel : playerPages) {
+                if (panel != playerPages[currentPlayerPageIndex]) {
+                    playerPanel.remove(panel);
+                }
+            }
+            playerPanel.add(playerPages[currentPlayerPageIndex]);
+            playerPanel.repaint();
+            playerPanel.revalidate();
+        });
+
+        JButton rightButton = new JButton(">");
+        playerPanel.add(rightButton, BorderLayout.EAST);
+        rightButton.addActionListener(event -> {
+            if (currentPlayerPageIndex < playerPages.length - 1) {
+                currentPlayerPageIndex++;
+            } else {
+                currentPlayerPageIndex = 0;
+            }
+
+            playerPageLabel.setText("Page " + (currentPlayerPageIndex + 1) + "/" + playerPages.length);
+            for (JPanel panel : playerPages) {
+                if (panel != playerPages[currentPlayerPageIndex]) {
+                    playerPanel.remove(panel);
+                }
+            }
+            playerPanel.add(playerPages[currentPlayerPageIndex]);
+            playerPanel.repaint();
+            playerPanel.revalidate();
+        });
+
+        playerPanel.add(playerPages[0]);
+
         tabbedPane.addTab("Player", null, playerPanel, "Player display settings");
         //endregion
 

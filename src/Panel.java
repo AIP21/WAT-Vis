@@ -528,7 +528,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
     public void mouseMoved(MouseEvent e) {
         if (inverse != null) inverse.transform(e.getPoint(), mousePosition);
-        CoordinateLabel.setText("(" + mousePosition.x + ", " + mousePosition.y + ") | ");
+        CoordinateLabel.setText(" (" + mousePosition.x + ", " + mousePosition.y + ") | ");
     }
 
     public void mouseClicked(MouseEvent e) {

@@ -9,7 +9,6 @@ import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Locale;
 
 public class ImportForm extends JFrame {
@@ -216,8 +215,8 @@ public class ImportForm extends JFrame {
 
             if (returnVal == JFileChooser.APPROVE_OPTION) {
                 File[] files = chooser.getSelectedFiles();
-                for(File file : files){
-                    if(!currentFiles.contains(file)){
+                for (File file : files) {
+                    if (!currentFiles.contains(file)) {
                         currentFiles.add(file);
                     }
                 }
@@ -233,7 +232,7 @@ public class ImportForm extends JFrame {
         removeFileButton.addActionListener(event -> {
             currentFiles.removeAll(selectedFileList.getSelectedValuesList());
             selectedFileList.setListData(currentFiles.toArray(new File[0]));
-            confirmButton.setEnabled(selectedFileList.getLastVisibleIndex() > 0);
+            confirmButton.setEnabled(currentFiles.size() > 0);
         });
 
         if (USE_MY_DEFAULTS) {

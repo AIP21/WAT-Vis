@@ -174,8 +174,14 @@ public class Decoder implements Runnable {
     }
 
     private Color randomColor(int iter) {
-        Color col = (new Color(rand.nextFloat(), rand.nextFloat(), rand.nextFloat())).darker();
-        col = col.darker();
+        Color col = new Color(rand.nextFloat(), rand.nextFloat(), rand.nextFloat());
+        if (settings.uiTheme == PlayerTrackerDecoder.UITheme.Light){
+            col = col.darker();
+            col = col.darker();
+        } else {
+            col = col.brighter();
+            col = col.brighter();
+        }
         if (containsSimilarColor(generatedColors, col) && iter < 100)
             return randomColor(iter + 1);
         generatedColors.add(col);

@@ -12,115 +12,83 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 public class Panel extends JPanel implements MouseWheelListener, MouseListener, MouseMotionListener, Runnable {
-
     private final Settings settings;
+    private final Logger logger;
+    public Decoder _Decoder;
 
     private boolean isRunning = true;
-
     public boolean update = false;
+    public boolean ShouldDraw;
+    public boolean isPlaying = false;
 
     public ArrayList<LogEntry> logEntries = new ArrayList<>();
     public ArrayList<LocalDateTime> logDates = new ArrayList<>();
+    private int totalData;
+
+    private Map<LocalDateTime, ArrayList<LogEntry>> logEntriesGroupedByTime = new LinkedHashMap<>();
+    public int timesCount;
 
     public Map<String, Color> playerNameColorMap = new LinkedHashMap<>();
     public Map<String, Vector3> playerLastPosMap = new LinkedHashMap<>();
     public Map<String, Integer> playerMarkerCount = new LinkedHashMap<>();
     public Map<Vector3, Integer> posActivityMap = new LinkedHashMap<>();
     public int maxActivity;
-
     public Map<String, Boolean> playerNameEnabledMap = new LinkedHashMap<>();
 
     public JLabel CoordinateLabel;
-
     public JLabel SelectedEntryLabel;
-
     public JLabel RenderedPointsLabel;
-
-    public Decoder _Decoder;
+    private LogEntry selectedEntry;
 
     public int renderedPoints = 0;
-
+    public float sensitivity = 1.0F;
     private float zoomFactor = 1.0F;
-
     private float prevZoomFactor = 1.0F;
 
     private boolean zoomer;
-
     private boolean dragger;
-
     private boolean released;
 
     private float xOffset = 0.0F;
-
     private float yOffset = 0.0F;
-
     private int xDiff;
-
     private int yDiff;
-
     private Point startPoint;
+    private Point mousePosition;
 
     public int minX;
-
     public int minY;
-
     public int maxX;
-
     public int maxY;
-
     private int xRange;
-
     private int yRange;
 
     public BufferedImage backgroundImage;
-
     public int xBackgroundOffset, zBackgroundOffset;
+    public float backgroundOpacity = 0.5f;
 
+    public int dateTimeIndex = 0;
     public LocalDateTime startDate;
-
     public LocalDateTime endDate;
 
     public int upscale = 1;
     public JLabel imageExportStatus;
 
-    private Map<LocalDateTime, ArrayList<LogEntry>> logEntriesGroupedByTime = new LinkedHashMap<>();
-
-    private Point mousePosition;
-
-    private LogEntry selectedEntry;
-
     private AffineTransform inverse;
-
     private AffineTransform at;
-
-    private int totalData;
-
-    private final Logger logger;
-
-    public boolean ShouldDraw;
-
-    public float backgroundOpacity = 0.5f;
-
-    public boolean isPlaying = false;
-    public int timesCount;
-
-    public int dateTimeIndex = 0;
-
-    private final int TARGET_FPS = 30;
-    private final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;
 
     private final PlayerTrackerDecoder main;
 
-    public Panel(Settings set, Logger log, PlayerTrackerDecoder main) {
+    public Panel(Settings settings, Logger logger, PlayerTrackerDecoder main) {
         super(true);
 
+        this.settings = settings;
+        this.logger = logger;
         this.main = main;
-        logger = log;
 
         logger.Log("Initializing main display subsystem", Logger.MessageType.INFO);
 
         initComponent();
-        settings = set;
 
         if (settings.antialiasing) {
             logger.Log("Antialiasing enabled on main display panel", Logger.MessageType.INFO);
@@ -133,7 +101,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         addMouseWheelListener(this);
         addMouseMotionListener(this);
         addMouseListener(this);
-        setBackground(Color.LIGHT_GRAY);
+        setBackground(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? Color.lightGray : Color.darkGray);
         mousePosition = new Point();
     }
 
@@ -149,45 +117,40 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         return image;
     }
 
-    /**
-     * Loop of the app. It uses a fixed time step.
-     * Optimal time represents time needed to update one frame.
-     * Update time represents time actually taken to update one frame.
-     * <p>
-     * By calculating the difference between optimal and actual time,
-     * we can let Thread to sleep for the exact time we are aiming for, which is 60 FPS.
-     */
     public void run() {
-        long now;
-        long updateTime;
-        long wait;
+        long lastime = System.nanoTime();
+        double ns = 1.0E9D / (double) settings.fpsLimit;
+        double delta = 0.0D;
+        int frames = 0;
+        double time = (double) System.currentTimeMillis();
 
         while (isRunning) {
-            now = System.nanoTime();
+            long now = System.nanoTime();
+            delta += (double) (now - lastime) / ns;
+            lastime = now;
+            if (delta >= 1.0D) {
+                if (isPlaying) {
+                    if (dateTimeIndex < timesCount) {
+                        endDate = logDates.get(dateTimeIndex);
+                        updatePoints(false);
+                        dateTimeIndex++;
+                        logger.Log("Playing animated", Logger.MessageType.INFO);
+                    } else {
+                        logger.Log("Finished playing", Logger.MessageType.INFO);
+                        isPlaying = false;
+                    }
 
-            if (isPlaying) {
-                if (dateTimeIndex < timesCount) {
-                    endDate = logDates.get(dateTimeIndex);
-                    updatePoints(false);
-                    dateTimeIndex++;
-                    logger.Log("Playing animated", Logger.MessageType.INFO);
-                } else {
-                    logger.Log("Finished playing", Logger.MessageType.INFO);
-                    isPlaying = false;
+                    main.dateRangeSlider.setUpperValue(dateTimeIndex);
+                    main.startDateLabel.setText(startDate.toString().replace("T", "; "));
+                    main.endDateLabel.setText(endDate.toString().replace("T", "; "));
                 }
 
-                main.dateRangeSlider.setUpperValue(dateTimeIndex);
-                main.startDateLabel.setText(startDate.toString().replace("T", "; "));
-                main.endDateLabel.setText(endDate.toString().replace("T", "; "));
-            }
-
-            updateTime = System.nanoTime() - now;
-            wait = (OPTIMAL_TIME - updateTime) / 1000000;
-
-            try {
-                Thread.sleep(wait);
-            } catch (Exception e) {
-                e.printStackTrace();
+                frames++;
+                delta--;
+                if ((double) System.currentTimeMillis() - time >= 1000.0D) {
+                    time += 1000.0D;
+                    frames = 0;
+                }
             }
         }
     }
@@ -261,7 +224,6 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
                 logger.Log("Error inverting rendering transformation:\n   " + Arrays.toString(nte.getStackTrace()), Logger.MessageType.ERROR);
             }
         }
-
 
         if (backgroundImage != null) {
             // (-6384, -5376), (8959, 2767)
@@ -574,6 +536,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     public void SaveAsImage(PlayerTrackerDecoder playerTrackerDecoder) {
         logger.Log("Started saving current screen as an image. Currently preparing the image", Logger.MessageType.INFO);
         imageExportStatus.setText("  Processing...");
+        playerTrackerDecoder.revalidate();
         playerTrackerDecoder.repaint();
 
         System.gc();
@@ -587,16 +550,32 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
             g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
             g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
-            g2d.setColor(Color.LIGHT_GRAY);
+            g2d.setColor(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? Color.lightGray : Color.darkGray);
+
             g2d.fillRect(0, 0, (xRange + imagePadding) * upscale, (yRange + imagePadding) * upscale);
 
             //g2d.transform(at); // use to capture current view only (aka. screenshot)
 
-            drawPoints(g2d, false, imagePadding / 2, upscale);
+            if (backgroundImage != null) {
+                // (-6384, -5376), (8959, 2767)
+                g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, backgroundOpacity));
 
-            g2d.setColor(Color.white);
+                g2d.drawImage(backgroundImage, xBackgroundOffset, zBackgroundOffset, null);
+                g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1));
+            }
+
+            drawPoints(g2d, true, 0, 1);
+
+            g2d.setColor(Color.black);
+            g2d.setStroke(new BasicStroke(1));
             float padding = 1.25F;
             g2d.drawRect((int) (minX * padding), (int) (minY * padding), (int) (xRange * padding), (int) (yRange * padding));
+
+            g2d.setColor(Color.white);
+            if (selectedEntry != null) {
+                g2d.setStroke(new BasicStroke(0.25f));
+                drawRectangle(g2d, selectedEntry.position.x, selectedEntry.position.z, 3, false);
+            }
 
             g2d.dispose();
         } catch (OutOfMemoryError ex) {

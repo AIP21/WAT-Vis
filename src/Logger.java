@@ -1,5 +1,6 @@
 package src;
 
+import java.awt.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.time.LocalDateTime;
@@ -58,23 +59,25 @@ public class Logger {
     }
 
     public void Log(Object message, MessageType type) {
-        String toLog = ("[" + type.toString() + "] <" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd; HH:mm:ss.SSS")) + "> " + message + "\n   ");
+//        EventQueue.invokeLater(()->{
+            String toLog = ("[" + type.toString() + "] <" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd; HH:mm:ss.SSS")) + "> " + message + "\n   ");
 
-        if (type == MessageType.ERROR) {
-            System.err.print("\u001B[0m" + toLog.replace(", ", "\n   "));
-        } else if (type == MessageType.WARNING) {
-            System.out.print("\u001B[33m" + toLog);
-        } else {
-            System.out.print("\u001B[0m" + toLog);
-        }
+            if (type == MessageType.ERROR) {
+                System.err.print("\u001B[0m" + toLog.replace(", ", "\n   "));
+            } else if (type == MessageType.WARNING) {
+                System.out.print("\u001B[33m" + toLog);
+            } else {
+                System.out.print("\u001B[0m" + toLog);
+            }
 
-        try {
-            FileWriter writer = new FileWriter(logFile, true);
-            writer.append(toLog);
-            writer.close();
-        } catch (Exception e) {
-            Log("Error logging message:\n   " + Arrays.toString(e.getStackTrace()), MessageType.ERROR);
-        }
+            try {
+                FileWriter writer = new FileWriter(logFile, true);
+                writer.append(toLog);
+                writer.close();
+            } catch (Exception e) {
+                Log("Error logging message:\n   " + Arrays.toString(e.getStackTrace()), MessageType.ERROR);
+            }
+//        });
     }
 
     public enum MessageType {

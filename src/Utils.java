@@ -84,19 +84,86 @@ public class Utils {
         return false;
     }
 
-    public static float lerp(float a, float b, float f) {
-        return a + f * (b - a);
+    public static float lerp(float a, float b, float t) {
+        float val = a + (b - a) * t;
+        return !approximately(val, b, 0.001f) ? val : b;
     }
 
-    public static int lerp(int a, int b, float f) {
-        return (int)(a + f * (b - a));
+    public static int lerp(int a, int b, float t) {
+        float val = (int) (a + (b - a) * t);
+        return !approximately(val, b, 0.001f) ? (int) val : b;
     }
 
-    public static Color lerp(Color a, Color b, float percent) {
+    public static float lerp(float a, float b, double t) {
+        float val = (float) (a + (b - a) * t);
+        return !approximately(val, b, 0.001f) ? val : b;
+    }
+
+    public static int lerp(int a, int b, double t) {
+        float val = (float) (a + (b - a) * t);
+        return !approximately(val, b, 0.001f) ? (int) val : b;
+    }
+
+    public static Color lerpColor(Color a, Color b, float percent) {
         int red = lerp(a.getRed(), b.getRed(), percent);
         int blue = lerp(a.getBlue(), b.getBlue(), percent);
         int green = lerp(a.getGreen(), b.getGreen(), percent);
         int alpha = lerp(a.getAlpha(), b.getAlpha(), percent);
         return new Color(red, green, blue, alpha);
+    }
+
+    public static float inverseLerp(float a, float b, float val) {
+        return (val - a) / (b - a);
+    }
+
+    public static float remap(float min1, float max1, float min2, float max2, float val) {
+        return lerp(min2, max2, inverseLerp(min1, max1, val));
+    }
+
+    public static boolean approximately(int a, int b, float threshold) {
+        return ((a - b) < threshold);
+    }
+
+    public static boolean approximately(float a, float b, float threshold) {
+        return ((a - b) < threshold);
+    }
+
+    public static float smoothStep(float from, float to, float t) {
+        t = -2.0F * t * t * t + 3.0F * t * t;
+        return to * t + from * (1F - t);
+    }
+
+    public static float moveTo(float cur, float goal, float maxDelta) {
+        if (Math.abs(goal - cur) <= maxDelta)
+            return goal;
+        return cur + sign(goal - cur) * maxDelta;
+    }
+
+    public static float sign(float f) {
+        return f >= 0f ? 1f : -1f;
+    }
+
+    public static int clamp(int v, int min, int max) {
+        if (v < min)
+            v = min;
+        else if (v > max)
+            v = max;
+        return v;
+    }
+
+    public static float clamp(float v, float min, float max) {
+        if (v < min)
+            v = min;
+        else if (v > max)
+            v = max;
+        return v;
+    }
+
+    public static float clamp01(float v) {
+        if (v < 0)
+            v = 0;
+        else if (v > 1)
+            v = 1;
+        return v;
     }
 }

@@ -202,7 +202,10 @@ public class ImportForm extends JFrame {
             this.setVisible(false);
         });
 
-        cancelButton.addActionListener(event -> this.setVisible(false));
+        cancelButton.addActionListener(event -> {
+            main.mainPanel.ShouldDraw = true;
+            this.setVisible(false);
+        });
 
         addFileButton.addActionListener(event -> {
             JFileChooser chooser = new JFileChooser();

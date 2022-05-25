@@ -17,8 +17,9 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     public Decoder _Decoder;
 
     private boolean isRunning = true;
+    private int curFPS = 0;
     public boolean update = false;
-    public boolean ShouldDraw;
+    public boolean ShouldDraw = false;
     public boolean isPlaying = false;
 
     public ArrayList<LogEntry> logEntries = new ArrayList<>();
@@ -41,18 +42,21 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     private LogEntry selectedEntry;
 
     public int renderedPoints = 0;
-    public float sensitivity = 1.0F;
-    private float zoomFactor = 1.0F;
-    private float prevZoomFactor = 1.0F;
 
     private boolean zoomer;
     private boolean dragger;
     private boolean released;
 
+    public float sensitivity = 1.0F;
+    private float curZoomFactor = 1.0F;
+    private float zoomFactor = 1.0F;
+    private float prevZoomFactor = 1.0F;
     private float xOffset = 0.0F;
     private float yOffset = 0.0F;
     private int xDiff;
     private int yDiff;
+    private float curX;
+    private float curY;
     private Point startPoint;
     private Point mousePosition;
 
@@ -74,8 +78,8 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     public int upscale = 1;
     public JLabel imageExportStatus;
 
-    private AffineTransform inverse;
     private AffineTransform at;
+    private AffineTransform inverse;
 
     private final PlayerTrackerDecoder main;
 
@@ -118,17 +122,26 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     }
 
     public void run() {
-        long lastime = System.nanoTime();
-        double ns = 1.0E9D / (double) settings.fpsLimit;
-        double delta = 0.0D;
+        long lastTime = System.nanoTime();
+        double ns = 1000000000 / (double) settings.fpsLimit;
+        double delta = 0;
         int frames = 0;
         double time = (double) System.currentTimeMillis();
 
+        int fpsLimit = settings.fpsLimit;
         while (isRunning) {
+            if (settings.fpsLimit != fpsLimit) {
+                ns = 1000000000 / (double) settings.fpsLimit;
+            }
+
             long now = System.nanoTime();
-            delta += (double) (now - lastime) / ns;
-            lastime = now;
-            if (delta >= 1.0D) {
+            delta += (now - lastTime) / ns;
+            lastTime = now;
+
+            if (delta >= 1) {
+//                if (ShouldDraw) {
+//                    System.out.println("thread run");
+
                 if (isPlaying) {
                     if (dateTimeIndex < timesCount) {
                         endDate = logDates.get(dateTimeIndex);
@@ -145,10 +158,31 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
                     main.endDateLabel.setText(endDate.toString().replace("T", "; "));
                 }
 
+//                float speed = 2f;
+                curX = Utils.smoothStep(curX, xOffset + xDiff, Utils.clamp01(0.3f)); // (6f / (float) curFPS) * speed)
+                curY = Utils.smoothStep(curY, yOffset + yDiff, Utils.clamp01(0.3f));
+
+                curZoomFactor = Utils.smoothStep(curZoomFactor, zoomFactor, Utils.clamp01(0.3f));
+
+                at = new AffineTransform();
+                at.translate(curX, curY);
+                at.scale(curZoomFactor, curZoomFactor);
+
+                try {
+                    inverse = at.createInverse();
+                } catch (NoninvertibleTransformException nte) {
+                    logger.Log("Error inverting rendering transformation:\n   " + Arrays.toString(nte.getStackTrace()), Logger.MessageType.ERROR);
+                }
+
+                update = true;
+                repaint();
+//                }
+
                 frames++;
                 delta--;
-                if ((double) System.currentTimeMillis() - time >= 1000.0D) {
-                    time += 1000.0D;
+                if (System.currentTimeMillis() - time >= 1000) {
+                    curFPS = frames;
+                    time += 1000;
                     frames = 0;
                 }
             }
@@ -169,61 +203,64 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         }
 
         if (zoomer) {
-            at = new AffineTransform();
             float xRel = (float) MouseInfo.getPointerInfo().getLocation().getX() - (float) getLocationOnScreen().getX();
             float yRel = (float) MouseInfo.getPointerInfo().getLocation().getY() - (float) getLocationOnScreen().getY();
             float zoomDiv = zoomFactor / prevZoomFactor;
             xOffset = zoomDiv * xOffset + (1.0F - zoomDiv) * xRel;
             yOffset = zoomDiv * yOffset + (1.0F - zoomDiv) * yRel;
-            at.translate(xOffset, yOffset);
-            at.scale(zoomFactor, zoomFactor);
-            g2.transform(at);
 
-            try {
-                inverse = at.createInverse();
-            } catch (NoninvertibleTransformException nte) {
-                logger.Log("Error inverting rendering transformation:\n   " + Arrays.toString(nte.getStackTrace()), Logger.MessageType.ERROR);
-            }
+//            at = new AffineTransform();
+//            at.translate(xOffset, yOffset);
+//            at.scale(zoomFactor, zoomFactor);
+//            g2.transform(at);
+//
+//            try {
+//                inverse = at.createInverse();
+//            } catch (NoninvertibleTransformException nte) {
+//                logger.Log("Error inverting rendering transformation:\n   " + Arrays.toString(nte.getStackTrace()), Logger.MessageType.ERROR);
+//            }
 
             prevZoomFactor = zoomFactor;
             zoomer = false;
         }
 
         if (dragger) {
-            at = new AffineTransform();
-            at.translate(xOffset + xDiff, yOffset + yDiff);
-            at.scale(zoomFactor, zoomFactor);
-            g2.transform(at);
+//            at = new AffineTransform();
+//            at.translate(curXOffset + curXDiff, curYOffset + curYDiff);
+//            at.scale(zoomFactor, zoomFactor);
+//            g2.transform(at);
 
-            try {
-                inverse = at.createInverse();
-            } catch (NoninvertibleTransformException nte) {
-                logger.Log("Error inverting rendering transformation:\n   " + Arrays.toString(nte.getStackTrace()), Logger.MessageType.ERROR);
-            }
+//            try {
+//                inverse = at.createInverse();
+//            } catch (NoninvertibleTransformException nte) {
+//                logger.Log("Error inverting rendering transformation:\n   " + Arrays.toString(nte.getStackTrace()), Logger.MessageType.ERROR);
+//            }
 
             if (released) {
                 xOffset += xDiff;
                 yOffset += yDiff;
+                xDiff = 0;
+                yDiff = 0;
+
                 dragger = false;
             }
         }
 
-        if (update) {
-            update = false;
-            float zoomDiv = zoomFactor / prevZoomFactor;
-            xOffset = zoomDiv * xOffset + 1.0F - zoomDiv;
-            yOffset = zoomDiv * yOffset + 1.0F - zoomDiv;
-            at = new AffineTransform();
-            at.translate(xOffset + xDiff, yOffset + yDiff);
-            at.scale(zoomFactor, zoomFactor);
-            g2.transform(at);
+//        if (update) {
+//            update = false;
+//            if (at != null) {
+//            }
+//
+////            try {
+////                inverse = at.createInverse();
+////            } catch (NoninvertibleTransformException nte) {
+////                logger.Log("Error inverting rendering transformation:\n   " + Arrays.toString(nte.getStackTrace()), Logger.MessageType.ERROR);
+////            }
+//        }
 
-            try {
-                inverse = at.createInverse();
-            } catch (NoninvertibleTransformException nte) {
-                logger.Log("Error inverting rendering transformation:\n   " + Arrays.toString(nte.getStackTrace()), Logger.MessageType.ERROR);
-            }
-        }
+        g2.transform(at);
+
+//        drawCrossHair(g2, 1.0f);
 
         if (backgroundImage != null) {
             // (-6384, -5376), (8959, 2767)
@@ -233,7 +270,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
             g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1));
         }
 
-        drawPoints(g2, true, 0, 1);
+        drawPoints(g2, true, 0, 0, 1);
 
         g2.setColor(Color.black);
         g2.setStroke(new BasicStroke(1));
@@ -245,10 +282,27 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
             drawRectangle(g2, selectedEntry.position.x, selectedEntry.position.z, 3, false);
         }
 
-        RenderedPointsLabel.setText("   Loaded: " + totalData + " | Rendered: " + renderedPoints + " |");
+        g2.dispose();
+
+//        RenderedPointsLabel.setText(String.format("   Loaded: %d | Rendered: %d | Zoom: %.3f | diffX: %d, diffY: %d | startX: %d, startY: %d | %d FPS | ", totalData, renderedPoints, zoomFactor, xDiff, yDiff, startPoint == null ? 0 : startPoint.x, startPoint == null ? 0 : startPoint.y, curFPS));
+//        RenderedPointsLabel.setText(String.format("   Loaded: %d | Rendered: %d | Zoom: %.3f | curX: %.3f, curY: %.3f | %d FPS | ", totalData, renderedPoints, zoomFactor, curX, curY, curFPS));
+        RenderedPointsLabel.setText(String.format("   Loaded: %d | Rendered: %d | Zoom: %.3f | %d FPS | ", totalData, renderedPoints, zoomFactor, curFPS));
     }
 
-    private void drawPoints(Graphics2D g2d, boolean useCulling, int offset, int upscale) {
+    private void drawCrossHair(Graphics2D g2d, float size) {
+        g2d.setStroke(new BasicStroke(5));
+        g2d.setColor(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? Color.black : Color.white);
+        float halfSize = size / 2;
+        float fifthSize = size / 5;
+        float otherSize = size / 1.66f;
+        drawDot(g2d, -size / 2, -size / 2, size, false);
+        drawLine(g2d, 0, fifthSize, 0, otherSize, 1);
+        drawLine(g2d, 0, -fifthSize, 0, -otherSize, 1);
+        drawLine(g2d, -fifthSize, 0, 0, -otherSize, 1);
+        drawLine(g2d, 0, fifthSize, 0, otherSize, 1);
+    }
+
+    private void drawPoints(Graphics2D g2d, boolean useCulling, int offsetX, int offsetY, int upscale) {
         Point pt = new Point();
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         renderedPoints = 0;
@@ -257,29 +311,30 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         Map<String, Integer> playerOccurences = new LinkedHashMap<>();
 
         if (settings._drawType == Decoder.DrawType.Heat) {
-            int newMax = maxActivity;
-
             Vector3[] positions = posActivityMap.keySet().toArray(new Vector3[0]);
             for (Vector3 vec : positions) {
                 if (at != null) at.transform(vec.toPoint(), pt);
 
-                int x = (vec.x + (offset != 0 ? -minX : 0) + offset) * upscale;
-                int y = (vec.z + (offset != 0 ? -minY : 0) + offset) * upscale;
+                int x = offsetUpscale(vec.x, offsetX, upscale, Math.abs(minX));
+                int y = offsetUpscale(vec.z, offsetY, upscale, Math.abs(minY));
 
                 if (!useCulling || (pt.x >= -50 && pt.x <= screenSize.width + 50 && pt.y >= -50 && pt.y <= screenSize.height + 50)) {
-//                    logger.Log(posActivityMap.get(vec) + " / " + maxActivity, Logger.MessageType.INFO);
-                    float value = Math.min((float) posActivityMap.get(vec) * ((float) settings.heatMapThreshold / 100.0f) + 0.5f, newMax + 0.5f);
+                    float value = Math.min(1, (float) (posActivityMap.get(vec) * Math.abs(settings.heatMapThreshold)) / (float) (maxActivity));
 
-                    if (settings._heatDrawType == PlayerTrackerDecoder.HeatDrawType.Change_Color) {
+                    if (settings._heatDrawType == PlayerTrackerDecoder.HeatDrawType.Color) {
                         try {
-                            g2d.setColor(Utils.lerp(Color.darkGray, Color.getHSBColor(0.93f, 0.68f, 0.55f), value / newMax));
+                            if (settings.uiTheme == PlayerTrackerDecoder.UITheme.Light) {
+                                g2d.setColor(Utils.lerpColor(Color.darkGray, Color.getHSBColor(0.93f, 0.68f, 0.55f), value));
+                            } else {
+                                g2d.setColor(Utils.lerpColor(Color.lightGray.brighter(), Color.getHSBColor(0.93f, 0.68f, 0.55f), value));
+                            }
                         } catch (IllegalArgumentException e) {
                             logger.Log("Something wrong happened when lerping colors for the heatmap color (Probably the stupid negative input error): " + Arrays.toString(e.getStackTrace()), Logger.MessageType.ERROR);
                         }
 
                         drawRectangle(g2d, x, y, settings.size, true);
                     } else {
-                        drawRectangle(g2d, x, y, settings.size + value, true);
+                        drawRectangle(g2d, x, y, settings.size * value, true);
                     }
                     renderedPoints++;
                 }
@@ -301,8 +356,8 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
                         if (at != null) at.transform(entry.position.toPoint(), pt);
 
-                        int x = (entry.position.x + (offset != 0 ? -minX : 0) + offset) * upscale;
-                        int y = (entry.position.z + (offset != 0 ? -minY : 0) + offset) * upscale;
+                        int x = offsetUpscale(entry.position.x, offsetX, upscale, Math.abs(minX));
+                        int y = offsetUpscale(entry.position.z, offsetY, upscale, Math.abs(minY));
 
                         if (settings.terminusPoints && settings._drawType == Decoder.DrawType.Line && !playerFirst.contains(entry.playerName)) {
                             playerFirst.add(entry.playerName);
@@ -332,9 +387,9 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
                                     }
 
                                     if (settings.fancyLines) {
-                                        drawArrowLine(g2d, x, y, (lastPos.x + (offset != 0 ? -minX : 0) + offset) * upscale, (lastPos.z + (offset != 0 ? -minY : 0) + offset) * upscale, settings.size * 2, settings.size * 2);
+                                        drawArrowLine(g2d, x, y, offsetUpscale(lastPos.x, offsetX, upscale, Math.abs(minX)), offsetUpscale(lastPos.z, offsetY, upscale, Math.abs(minY)), settings.size * 2, settings.size * 2);
                                     } else {
-                                        drawLine(g2d, x, y, (lastPos.x + (offset != 0 ? -minX : 0) + offset) * upscale, (lastPos.z + (offset != 0 ? -minY : 0) + offset) * upscale, settings.size);
+                                        drawLine(g2d, x, y, offsetUpscale(lastPos.x, offsetX, upscale, Math.abs(minX)), offsetUpscale(lastPos.z, offsetY, upscale, Math.abs(minY)), settings.size);
                                     }
                                     renderedPoints++;
                                 }
@@ -352,8 +407,8 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
                         Vector3 pos = playerLastPosMap.get(name);
                         if (at != null) at.transform(pos.toPoint(), pt);
 
-                        int x = (pos.x + (offset != 0 ? -minX : 0) + offset) * upscale;
-                        int y = (pos.z + (offset != 0 ? -minY : 0) + offset) * upscale;
+                        int x = offsetUpscale(pos.x, offsetX, upscale, Math.abs(minX));
+                        int y = offsetUpscale(pos.z, offsetY, upscale, Math.abs(minY));
 
                         if (!useCulling || (pt.x >= -50 && pt.x <= screenSize.width + 50 && pt.y >= -50 && pt.y <= screenSize.height + 50)) {
                             g2d.setColor(playerNameColorMap.get(name));
@@ -469,23 +524,20 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
     public void mouseWheelMoved(MouseWheelEvent e) {
         zoomer = true;
-        if (e.getWheelRotation() < 0 && zoomFactor < 50.0F) {
-            zoomFactor *= 1.05F;
-            repaint();
-        }
-
-        if (e.getWheelRotation() > 0 && zoomFactor > 0.02F) {
-            zoomFactor /= 1.05F;
-            repaint();
+        if (e.getPreciseWheelRotation() < 0 && zoomFactor < 50.0F) {
+            zoomFactor *= 1.05F * sensitivity;
+//            repaint();
+        } else if (e.getPreciseWheelRotation() > 0 && zoomFactor > 0.02F) {
+            zoomFactor /= 1.05F * sensitivity;
+//            repaint();
         }
     }
 
     public void mouseDragged(MouseEvent e) {
         Point curPoint = e.getLocationOnScreen();
-        xDiff = curPoint.x - startPoint.x;
-        yDiff = curPoint.y - startPoint.y;
+        xDiff = (int) ((curPoint.x - startPoint.x) * sensitivity);
+        yDiff = (int) ((curPoint.y - startPoint.y) * sensitivity);
         dragger = true;
-        repaint();
     }
 
     public void mouseMoved(MouseEvent e) {
@@ -494,7 +546,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     }
 
     public void mouseClicked(MouseEvent e) {
-        update = true;
+//        update = true;
         SelectedEntryLabel.setText("Nothing Selected");
         selectedEntry = null;
         boolean done = false;
@@ -505,7 +557,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
                     selectedEntry = entry;
                     SelectedEntryLabel.setText(entry.toString());
 
-                    logger.Log("Selected a log entry:\n" + entry, Logger.MessageType.INFO);
+                    logger.Log("Selected a log entry: " + entry, Logger.MessageType.INFO);
                     done = true;
                     break;
                 }
@@ -518,13 +570,10 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     public void mousePressed(MouseEvent e) {
         released = false;
         startPoint = MouseInfo.getPointerInfo().getLocation();
-        xDiff = 0;
-        yDiff = 0;
     }
 
     public void mouseReleased(MouseEvent e) {
         released = true;
-        repaint();
     }
 
     public void mouseEntered(MouseEvent e) {
@@ -545,37 +594,50 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         BufferedImage image = null;
 
         try {
-            image = new BufferedImage((xRange + imagePadding) * upscale, (yRange + imagePadding) * upscale, BufferedImage.TYPE_INT_RGB);
+            image = new BufferedImage((xRange + (imagePadding * 2)) * upscale, (yRange + (imagePadding * 2)) * upscale, BufferedImage.TYPE_INT_RGB);
+
+            System.gc();
+
             Graphics2D g2d = image.createGraphics();
             g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
             g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
+            //g2d.transform(at); // Use to capture only the current view (aka. screenshot)
+
+//            if (backgroundImage != null) {
+//                // (-6384, -5376), (8959, 2767)
+//                g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, backgroundOpacity));
+//
+//                g2d.drawImage(backgroundImage, xBackgroundOffset, zBackgroundOffset, null);
+//                g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1));
+//            } else {
             g2d.setColor(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? Color.lightGray : Color.darkGray);
+//
+            g2d.fillRect(0, 0, image.getWidth(), image.getHeight());
+//            }
 
-            g2d.fillRect(0, 0, (xRange + imagePadding) * upscale, (yRange + imagePadding) * upscale);
-
-            //g2d.transform(at); // use to capture current view only (aka. screenshot)
-
-            if (backgroundImage != null) {
-                // (-6384, -5376), (8959, 2767)
-                g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, backgroundOpacity));
-
-                g2d.drawImage(backgroundImage, xBackgroundOffset, zBackgroundOffset, null);
-                g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1));
-            }
-
-            drawPoints(g2d, true, 0, 1);
+            drawPoints(g2d, false, imagePadding, imagePadding, upscale);
 
             g2d.setColor(Color.black);
-            g2d.setStroke(new BasicStroke(1));
-            float padding = 1.25F;
-            g2d.drawRect((int) (minX * padding), (int) (minY * padding), (int) (xRange * padding), (int) (yRange * padding));
+            for (LocalDateTime time : logEntriesGroupedByTime.keySet()) {
+                ArrayList<LogEntry> entries = logEntriesGroupedByTime.get(time);
 
-            g2d.setColor(Color.white);
-            if (selectedEntry != null) {
-                g2d.setStroke(new BasicStroke(0.25f));
-                drawRectangle(g2d, selectedEntry.position.x, selectedEntry.position.z, 3, false);
+                for (LogEntry entry : entries) {
+                    if (playerNameEnabledMap.get(entry.playerName)) {
+                        int x = offsetUpscale(entry.position.x, imagePadding, upscale, Math.abs(minX));
+                        int y = offsetUpscale(entry.position.z, imagePadding, upscale, Math.abs(minY));
+
+                        Color col = playerNameColorMap.get(entry.playerName);
+                        g2d.setColor(new Color(col.getRed(), col.getGreen(), col.getBlue()));
+
+                        drawRectangle(g2d, x, y, settings.size, true);
+                    }
+                }
             }
+
+            g2d.setColor(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? Color.black : Color.white);
+            g2d.setFont(new Font("Arial", Font.PLAIN, 24 * upscale));
+            g2d.drawString(String.format("Scale: 1 pixel = %.1f block(s)", (1.0f / (float) upscale)), 24, 24 + (24 * upscale));
 
             g2d.dispose();
         } catch (OutOfMemoryError ex) {
@@ -589,12 +651,12 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
             logger.Log("Outputs folder to save exported image didn't exist so it was just created with result: " + val, Logger.MessageType.WARNING);
         }
 
-        String name = settings._drawType + "-pointMap-" + _Decoder.dataWorld + "-" + _Decoder.dataDate;
-        File[] logFiles = new File("outputs/").listFiles();
+        String name = settings._drawType + "-export-" + _Decoder.dataWorld + "-" + _Decoder.dataDate;
+        File[] outFiles = new File("outputs/").listFiles();
         int count = 0;
 
-        if (logFiles != null) {
-            for (File file : logFiles) {
+        if (outFiles != null) {
+            for (File file : outFiles) {
                 if (file.getName().contains(name)) {
                     count++;
                 }
@@ -615,6 +677,10 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
             imageExportStatus.setText("   Done!");
         }
+    }
+
+    private int offsetUpscale(int input, int offset, float upscale, float fallback) {
+        return (int) ((input + (offset == 0 ? offset : fallback + offset)) * upscale);
     }
 
     public void Reset() {

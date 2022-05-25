@@ -75,7 +75,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="263" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/resources" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -94,7 +94,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.PlayerTrackerDecoder (1)">
-    <configuration name="PlayerTrackerDecoder (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="PlayerTrackerDecoder (1)" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="src.PlayerTrackerDecoder" />
       <module name="TrackerDecoderApp" />
       <extension name="coverage">
@@ -114,9 +114,45 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="zoomPanTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="src.zoomPanTest" />
+      <module name="TrackerDecoderApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="src.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TrackerDecoderApp.jar (1)" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/TrackerDecoderApp/TrackerDecoderApp.jar" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TrackerDecoderApp.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/TrackerDecoderApp_jar/TrackerDecoderApp.jar" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TrackerDecoderApp_jar.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/TrackerDecoderApp_jar/TrackerDecoderApp_jar.jar" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.PlayerTrackerDecoder" />
+      <item itemvalue="Application.PlayerTrackerDecoder (1)" />
+      <item itemvalue="JAR Application.TrackerDecoderApp.jar" />
+      <item itemvalue="JAR Application.TrackerDecoderApp.jar (1)" />
+      <item itemvalue="JAR Application.TrackerDecoderApp_jar.jar" />
+      <item itemvalue="Application.zoomPanTest" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.PlayerTrackerDecoder (1)" />
+        <item itemvalue="Application.zoomPanTest" />
+        <item itemvalue="JAR Application.TrackerDecoderApp.jar (1)" />
+        <item itemvalue="JAR Application.TrackerDecoderApp_jar.jar" />
+        <item itemvalue="JAR Application.TrackerDecoderApp.jar" />
       </list>
     </recent_temporary>
   </component>
@@ -144,130 +180,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/PlayerTrackerDecoder.java</url>
-          <line>360</line>
-          <option name="timeStamp" value="48" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/PlayerTrackerDecoder.java</url>
-          <line>361</line>
-          <option name="timeStamp" value="49" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/PlayerTrackerDecoder.java</url>
-          <line>363</line>
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/PlayerTrackerDecoder.java</url>
-          <line>367</line>
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/PlayerTrackerDecoder.java</url>
-          <line>364</line>
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/PlayerTrackerDecoder.java</url>
-          <line>371</line>
-          <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/PlayerTrackerDecoder.java</url>
-          <line>373</line>
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/PlayerTrackerDecoder.java</url>
-          <line>379</line>
-          <option name="timeStamp" value="60" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/PlayerTrackerDecoder.java</url>
-          <line>377</line>
-          <option name="timeStamp" value="61" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/PlayerTrackerDecoder.java</url>
-          <line>385</line>
-          <option name="timeStamp" value="62" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/PlayerTrackerDecoder.java</url>
-          <line>383</line>
-          <option name="timeStamp" value="63" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/PlayerTrackerDecoder.java</url>
-          <line>389</line>
-          <option name="timeStamp" value="64" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/PlayerTrackerDecoder.java</url>
-          <line>391</line>
-          <option name="timeStamp" value="66" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/PlayerTrackerDecoder.java</url>
-          <line>887</line>
-          <option name="timeStamp" value="68" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/PlayerTrackerDecoder.java</url>
-          <line>889</line>
-          <option name="timeStamp" value="70" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/PlayerTrackerDecoder.java</url>
-          <line>885</line>
-          <option name="timeStamp" value="71" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/PlayerTrackerDecoder.java</url>
-          <line>396</line>
-          <option name="timeStamp" value="72" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/PlayerTrackerDecoder.java</url>
-          <line>397</line>
-          <option name="timeStamp" value="73" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/PlayerTrackerDecoder.java</url>
-          <line>399</line>
-          <option name="timeStamp" value="75" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/PlayerTrackerDecoder.java</url>
-          <line>400</line>
-          <option name="timeStamp" value="77" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/PlayerTrackerDecoder.java</url>
-          <line>403</line>
-          <option name="timeStamp" value="78" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" log-stack="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/PlayerTrackerDecoder.java</url>
-          <line>406</line>
-          <option name="timeStamp" value="79" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/PlayerTrackerDecoder.java</url>
-          <line>359</line>
-          <properties class="src.PlayerTrackerDecoder" method="ChangeTheme">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

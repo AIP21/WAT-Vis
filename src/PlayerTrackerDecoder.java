@@ -74,7 +74,7 @@ public class PlayerTrackerDecoder extends JFrame {
     private JLabel xLabel;
     private JLabel zLabel;
     private JLabel backgroundOpacityLabel;
-    private JComponent backgroundImagePanel;
+    private JPanel backgroundImagePanel;
 
     private File[] files;
     private ArrayList<LocalDateTime> logDates;
@@ -358,7 +358,7 @@ public class PlayerTrackerDecoder extends JFrame {
     }
 
     public void ChangeTheme(PlayerTrackerDecoder.UITheme newTheme) {
-        settings .uiTheme = newTheme;
+        settings.uiTheme = newTheme;
         settings.SaveSettings();
 
         dataFileImportButton.setIcon(newTheme == PlayerTrackerDecoder.UITheme.Light ? importIcon_L : importIcon_D);
@@ -419,7 +419,7 @@ public class PlayerTrackerDecoder extends JFrame {
         toolbar.add(tabbedPane);
 
         //region Data
-        JComponent dataPanel = new JPanel();
+        JPanel dataPanel = new JPanel();
 //        dataPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
         dataPanel.add(new JLabel("Dates To Represent:   "));
@@ -429,7 +429,7 @@ public class PlayerTrackerDecoder extends JFrame {
         dateRangeSlider.setValue(0);
         dateRangeSlider.setUpperValue(logDates.size() - 1);
         dateRangeSlider.setPaintTicks(false);
-        dateRangeSlider.setMajorTickSpacing(1);
+        dateRangeSlider.setMajorTickSpacing(0);
         dateRangeSlider.setMinorTickSpacing(0);
         dateRangeSlider.setPaintLabels(false);
         dateRangeSlider.setSnapToTicks(false);
@@ -479,7 +479,7 @@ public class PlayerTrackerDecoder extends JFrame {
         //endregion
 
         //region Players
-        JComponent playerPanel = new JPanel();
+        JPanel playerPanel = new JPanel();
         playerPanel.setLayout(new BorderLayout());
 
         String[] nameSet = mainPanel.playerNameColorMap.keySet().toArray(new String[0]);
@@ -576,7 +576,7 @@ public class PlayerTrackerDecoder extends JFrame {
         //endregion
 
         //region Render
-        JComponent renderPanel = new JPanel();
+        JPanel renderPanel = new JPanel();
         renderPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(5, 2, new Insets(0, 0, 0, 0), -1, -1));
 
         drawTypeChooser = new JComboBox<>(new Decoder.DrawType[]{Decoder.DrawType.Pixel, Decoder.DrawType.Dot, Decoder.DrawType.Line, Decoder.DrawType.Heat});
@@ -584,28 +584,42 @@ public class PlayerTrackerDecoder extends JFrame {
         drawTypeChooser.setSelectedItem(settings._drawType);
         drawTypeChooser.addActionListener(event -> {
             settings._drawType = (Decoder.DrawType) drawTypeChooser.getSelectedItem();
-            if (drawSizeComponent != null) {
-                drawSizeComponent.setEnabled(settings._drawType == Decoder.DrawType.Line);
-            }
+//            if (drawSizeComponent != null) {
+//                drawSizeTitle.setEnabled(settings._drawType == Decoder.DrawType.Line || settings._drawType == Decoder.DrawType.Heat);
+//                drawSizeSlider.setEnabled(settings._drawType == Decoder.DrawType.Line || settings._drawType == Decoder.DrawType.Heat);
+//                drawSizeLabel.setEnabled(settings._drawType == Decoder.DrawType.Line || settings._drawType == Decoder.DrawType.Heat);
+//            }
             if (lineThresholdComponent != null) {
-                lineThresholdComponent.setEnabled(settings._drawType == Decoder.DrawType.Line);
+                lineThresholdTitle.setEnabled(settings._drawType == Decoder.DrawType.Line);
+                lineThresholdSlider.setEnabled(settings._drawType == Decoder.DrawType.Line);
+                lineThresholdLabel.setEnabled(settings._drawType == Decoder.DrawType.Line);
             }
             if (terminusPointsToggle != null) {
                 terminusPointsToggle.setEnabled(settings._drawType == Decoder.DrawType.Line);
+            }
+            if (fancyLinesToggle != null) {
+                fancyLinesToggle.setEnabled(settings._drawType == Decoder.DrawType.Line);
+            }
+            if (showHiddenLinesToggle != null) {
+                showHiddenLinesToggle.setEnabled(settings._drawType == Decoder.DrawType.Line);
             }
 
             if (ageFadeToggle != null) {
                 ageFadeToggle.setEnabled(settings._drawType != Decoder.DrawType.Heat);
             }
             if (ageFadeComponent != null) {
-                ageFadeComponent.setEnabled(settings._drawType != Decoder.DrawType.Heat);
+                ageFadeThresholdTitle.setEnabled(settings._drawType != Decoder.DrawType.Heat);
+                ageFadeThresholdSlider.setEnabled(settings._drawType != Decoder.DrawType.Heat);
+                ageFadeThresholdLabel.setEnabled(settings._drawType != Decoder.DrawType.Heat);
             }
 
             if (heatDrawTypeChooser != null) {
                 heatDrawTypeChooser.setEnabled(settings._drawType == Decoder.DrawType.Heat);
             }
             if (heatMapComponent != null) {
-                heatMapComponent.setEnabled(settings._drawType == Decoder.DrawType.Heat);
+                heatMapThresholdTitle.setEnabled(settings._drawType == Decoder.DrawType.Heat);
+                heatMapThresholdSlider.setEnabled(settings._drawType == Decoder.DrawType.Heat);
+                heatMapThresholdLabel.setEnabled(settings._drawType == Decoder.DrawType.Heat);
             }
 
 //            mainPanel.updatePoints(true);
@@ -621,7 +635,7 @@ public class PlayerTrackerDecoder extends JFrame {
         });
         renderPanel.add(drawTypeChooser, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
 
-        heatDrawTypeChooser = new JComboBox<>(new HeatDrawType[]{HeatDrawType.Change_Size, HeatDrawType.Change_Color});
+        heatDrawTypeChooser = new JComboBox<>(new HeatDrawType[]{HeatDrawType.Size, HeatDrawType.Color});
 //        heatDrawTypeChooser.setPreferredSize(new Dimension(85, 24));
         heatDrawTypeChooser.setSelectedItem(settings._heatDrawType);
         heatDrawTypeChooser.addActionListener(event -> {
@@ -644,8 +658,8 @@ public class PlayerTrackerDecoder extends JFrame {
         drawSizeSlider = new JSlider(0, 0, Math.max(0, settings.size > 50 ? (int) (settings.size + (settings.size * 0.1f)) : 50), (int) settings.size * 10);
 //        sizeSlider.setPreferredSize(new Dimension(200, 24));
         drawSizeSlider.setPaintTicks(true);
-        drawSizeSlider.setMajorTickSpacing((int) settings.size / 4);
-        drawSizeSlider.setMinorTickSpacing(10);
+        drawSizeSlider.setMajorTickSpacing(0);
+        drawSizeSlider.setMinorTickSpacing(0);
         drawSizeSlider.setPaintLabels(true);
         drawSizeLabel = new JLabel(Float.toString(settings.size));
         drawSizeSlider.addChangeListener(e -> {
@@ -671,8 +685,8 @@ public class PlayerTrackerDecoder extends JFrame {
         lineThresholdSlider = new JSlider(0, 0, Math.max(0, settings.lineThreshold > 200 ? (int) (settings.lineThreshold + (settings.lineThreshold * 0.1f)) : 200), settings.lineThreshold);
 //        lineThresholdSlider.setPreferredSize(new Dimension(200, 24));
         lineThresholdSlider.setPaintTicks(true);
-        lineThresholdSlider.setMajorTickSpacing(settings.lineThreshold / 4);
-        lineThresholdSlider.setMinorTickSpacing(10);
+        lineThresholdSlider.setMajorTickSpacing(50);
+        lineThresholdSlider.setMinorTickSpacing(25);
         lineThresholdSlider.setPaintLabels(false);
         lineThresholdLabel = new JLabel(Integer.toString(settings.lineThreshold));
         lineThresholdSlider.addChangeListener(e -> {
@@ -697,8 +711,8 @@ public class PlayerTrackerDecoder extends JFrame {
         heatMapThresholdSlider = new JSlider(0, Math.min(-1, settings.heatMapThreshold < -100 ? (int) (settings.heatMapThreshold + (settings.heatMapThreshold * 0.1f)) : -100), Math.max(0, settings.heatMapThreshold > 100 ? (int) (settings.heatMapThreshold + (settings.heatMapThreshold * 0.1f)) : 100), settings.heatMapThreshold);
 //        heatMapThresholdSlider.setPreferredSize(new Dimension(150, 24));
         heatMapThresholdSlider.setPaintTicks(true);
-        heatMapThresholdSlider.setMajorTickSpacing(settings.heatMapThreshold / 4);
-        heatMapThresholdSlider.setMinorTickSpacing(0);
+        heatMapThresholdSlider.setMajorTickSpacing(50);
+        heatMapThresholdSlider.setMinorTickSpacing(25);
         heatMapThresholdSlider.setPaintLabels(true);
         heatMapThresholdLabel = new JLabel(Integer.toString(settings.heatMapThreshold));
         heatMapThresholdSlider.addChangeListener(e -> {
@@ -713,7 +727,9 @@ public class PlayerTrackerDecoder extends JFrame {
 
             logger.Log("Changed activity threshold to: " + settings.heatMapThreshold, Logger.MessageType.INFO);
         });
-        heatMapComponent.setEnabled(settings._drawType == Decoder.DrawType.Heat);
+        heatMapThresholdTitle.setEnabled(settings._drawType == Decoder.DrawType.Heat);
+        heatMapThresholdSlider.setEnabled(settings._drawType == Decoder.DrawType.Heat);
+        heatMapThresholdLabel.setEnabled(settings._drawType == Decoder.DrawType.Heat);
         heatMapComponent.add(heatMapThresholdTitle);
         heatMapComponent.add(heatMapThresholdSlider);
         heatMapComponent.add(heatMapThresholdLabel);
@@ -725,8 +741,8 @@ public class PlayerTrackerDecoder extends JFrame {
         ageFadeThresholdSlider = new JSlider(0, 0, Math.max(0, settings.ageFadeThreshold > 200 ? (int) (settings.ageFadeThreshold + (settings.ageFadeThreshold * 0.1f)) : 200), settings.ageFadeThreshold);
 //        ageFadeThresholdSlider.setPreferredSize(new Dimension(150, 24));
         ageFadeThresholdSlider.setPaintTicks(true);
-        ageFadeThresholdSlider.setMajorTickSpacing(settings.ageFadeThreshold / 4);
-        ageFadeThresholdSlider.setMinorTickSpacing(10);
+        ageFadeThresholdSlider.setMajorTickSpacing(50);
+        ageFadeThresholdSlider.setMinorTickSpacing(25);
         ageFadeThresholdSlider.setPaintLabels(true);
         ageFadeThresholdLabel = new JLabel(Integer.toString(settings.ageFadeThreshold));
 
@@ -741,9 +757,9 @@ public class PlayerTrackerDecoder extends JFrame {
 
             logger.Log("Changed age fade threshold to: " + settings.ageFadeThreshold, Logger.MessageType.INFO);
         });
-        ageFadeThresholdSlider.setEnabled(settings.ageFade);
-        ageFadeThresholdTitle.setEnabled(settings.ageFade);
-        ageFadeThresholdLabel.setEnabled(settings.ageFade);
+        ageFadeThresholdSlider.setEnabled(settings.ageFade && !(settings._drawType == Decoder.DrawType.Heat));
+        ageFadeThresholdTitle.setEnabled(settings.ageFade && !(settings._drawType == Decoder.DrawType.Heat));
+        ageFadeThresholdLabel.setEnabled(settings.ageFade && !(settings._drawType == Decoder.DrawType.Heat));
         ageFadeComponent.add(ageFadeThresholdTitle);
         ageFadeComponent.add(ageFadeThresholdSlider);
         ageFadeComponent.add(ageFadeThresholdLabel);
@@ -753,6 +769,7 @@ public class PlayerTrackerDecoder extends JFrame {
 //        ageFadeToggle.setPreferredSize(new Dimension(24, 24));
         ageFadeToggle.setMargin(new Insets(2, 2, 2, 2));
         ageFadeToggle.setBorder(BorderFactory.createEmptyBorder());
+        ageFadeToggle.setEnabled(settings.ageFade && !(settings._drawType == Decoder.DrawType.Heat));
         renderPanel.add(ageFadeToggle, new com.intellij.uiDesigner.core.GridConstraints(3, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
 
         ageFadeToggle.addItemListener(ev -> {
@@ -762,9 +779,9 @@ public class PlayerTrackerDecoder extends JFrame {
             settings.SaveSettings();
 
             ageFadeToggle.setIcon(settings.ageFade ? toggleIconON_L : toggleIconOFF_L);
-            ageFadeThresholdSlider.setEnabled(settings.ageFade);
-            ageFadeThresholdTitle.setEnabled(settings.ageFade);
-            ageFadeThresholdLabel.setEnabled(settings.ageFade);
+            ageFadeThresholdSlider.setEnabled(settings.ageFade && !(settings._drawType == Decoder.DrawType.Heat));
+            ageFadeThresholdTitle.setEnabled(settings.ageFade && !(settings._drawType == Decoder.DrawType.Heat));
+            ageFadeThresholdLabel.setEnabled(settings.ageFade && !(settings._drawType == Decoder.DrawType.Heat));
 
             logger.Log("Toggled age fade to: " + settings.ageFade, Logger.MessageType.INFO);
         });
@@ -841,7 +858,7 @@ public class PlayerTrackerDecoder extends JFrame {
         }
 
         //region Export
-        JComponent exportPanel = new JPanel();
+        JPanel exportPanel = new JPanel();
         exportPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
         exportAsImageButton = new JButton();
@@ -932,7 +949,7 @@ public class PlayerTrackerDecoder extends JFrame {
     }
 
     public enum HeatDrawType {
-        Change_Size,
-        Change_Color
+        Size,
+        Color
     }
 }

@@ -9,7 +9,6 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 
 public class Settings {
     public UITheme uiTheme = UITheme.Light;
@@ -17,8 +16,8 @@ public class Settings {
     public boolean convertChunkPosToBlockPos = true;
     public int maxDataEntries = 0;
     public DrawType _drawType = DrawType.Pixel;
-    public HeatDrawType _heatDrawType = HeatDrawType.Change_Size;
-    public int heatMapThreshold = 0;
+    public HeatDrawType _heatDrawType = HeatDrawType.Size;
+    public int heatMapThreshold = 15;
     public int lineThreshold = 200;
     public boolean fancyLines = false;
     public boolean hiddenLines = false;
@@ -28,7 +27,7 @@ public class Settings {
     public int ageFadeThreshold = 0;
     public int mouseSensitivity = 100;
     public int fpsLimit = 60;
-    private final int settingCount = 15;
+    private final int settingCount = 16;
     private final Logger logger;
 
     public Settings(Logger logger) {
@@ -52,8 +51,8 @@ public class Settings {
                     terminusPoints = true;
                     ageFade = false;
                     ageFadeThreshold = 0;
-                    _heatDrawType = HeatDrawType.Change_Size;
-                    heatMapThreshold = 0;
+                    _heatDrawType = HeatDrawType.Size;
+                    heatMapThreshold = 15;
                     mouseSensitivity = 100;
                     fpsLimit = 100;
 
@@ -62,16 +61,16 @@ public class Settings {
                     logger.Log("Successfully created config file", MessageType.INFO);
                     SaveSettings();
                     logger.Log("Successfully saved and wrote default settings to config file", MessageType.INFO);
-                } catch (Exception var3) {
-                    logger.Log("Error creating/saving/writing to config file:\n   " + Arrays.toString(var3.getStackTrace()), MessageType.ERROR);
+                } catch (Exception e) {
+                    logger.Log("Error creating/saving/writing to config file:\n   " + Arrays.toString(e.getStackTrace()), MessageType.ERROR);
                 }
             }
 
             logger.Log("Fetching and parsing settings from config file", MessageType.INFO);
             getFromFile(new File("config.txt"));
             logger.Log("Successfully fetched and parsed settings from config file", MessageType.INFO);
-        } catch (IOException var4) {
-            logger.Log("Error fetching and parsing settings from config file:\n   " + Arrays.toString(var4.getStackTrace()), MessageType.ERROR);
+        } catch (IOException e) {
+            logger.Log("Error fetching and parsing settings from config file:\n   " + Arrays.toString(e.getStackTrace()), MessageType.ERROR);
         }
 
         logger.Log("Successfully initialized settings subsystem", MessageType.INFO);
@@ -103,8 +102,8 @@ public class Settings {
             writer.println("mouseSensitivity: " + mouseSensitivity + " // How sensitive mouse inputs should be");
             writer.close();
             logger.Log("Successfully saved and wrote settings to config file", MessageType.INFO);
-        } catch (Exception var2) {
-            logger.Log("Error saving and writing settings to config file:\n   " + Arrays.toString(var2.getStackTrace()), MessageType.ERROR);
+        } catch (Exception e) {
+            logger.Log("Error saving and writing settings to config file:\n   " + Arrays.toString(e.getStackTrace()), MessageType.ERROR);
         }
 
     }
@@ -122,10 +121,10 @@ public class Settings {
     }
 
     private int heatDrawTypeToInt(HeatDrawType hdt) {
-        if (hdt == HeatDrawType.Change_Size) {
+        if (hdt == HeatDrawType.Size) {
             return 0;
         } else {
-            return hdt == HeatDrawType.Change_Color ? 1 : -1;
+            return hdt == HeatDrawType.Color ? 1 : -1;
         }
     }
 
@@ -138,7 +137,7 @@ public class Settings {
     }
 
     private void getFromFile(File inputFile) throws IOException {
-        ArrayList<String> args = new ArrayList();
+        ArrayList<String> args = new ArrayList<>();
         BufferedReader br = new BufferedReader(new FileReader(inputFile));
 
         try {
@@ -148,22 +147,15 @@ public class Settings {
             }
 
             br.close();
-        } catch (Throwable var10) {
-            try {
-                br.close();
-            } catch (Throwable var9) {
-                var10.addSuppressed(var9);
-            }
+        } catch (Exception e) {
+            br.close();
 
-            throw var10;
+            throw e;
         }
 
         int count = 0;
         if (args.size() != 0) {
-            Iterator var5 = args.iterator();
-
-            while (var5.hasNext()) {
-                String arg = (String) var5.next();
+            for (String arg : args) {
                 String str;
                 if (arg.contains("/// Player Tracker Decoder v")) {
                     str = arg.replace("/// Player Tracker Decoder v", "");
@@ -275,9 +267,9 @@ public class Settings {
                         str = str.substring(0, str.indexOf(" //"));
                         val = Integer.parseInt(str);
                         if (val == 0) {
-                            _heatDrawType = HeatDrawType.Change_Size;
+                            _heatDrawType = HeatDrawType.Size;
                         } else if (val == 1) {
-                            _heatDrawType = HeatDrawType.Change_Color;
+                            _heatDrawType = HeatDrawType.Color;
                         }
 
                         ++count;
@@ -300,7 +292,7 @@ public class Settings {
         }
 
         logger.Log("Settings count: " + count, MessageType.INFO);
-        if (count != 15) {
+        if (count != settingCount) {
             logger.Log("Incomplete or old config file, updating the config file. Counted: " + count + " settings, expected: 15", MessageType.WARNING);
             SaveSettings();
         }

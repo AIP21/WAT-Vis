@@ -72,6 +72,8 @@ public class Decoder implements Runnable {
     }
 
     private void decode() {
+        final long nowMs = System.currentTimeMillis();
+
         if (files == null || files.length == 0) {
             logger.Log("Error parsing log files and decoding data. They must be in the folder called \"inputs\" in the run directory", Logger.MessageType.ERROR);
             return;
@@ -168,7 +170,9 @@ public class Decoder implements Runnable {
         logger.Log("maxX: " + maxX + " minX: " + minX + "; maxY: " + maxY + " minY: " + minY, Logger.MessageType.INFO);
         logger.Log("xRange: " + xRange + " yRange: " + yRange, Logger.MessageType.INFO);
 
-        logger.Log("Successfully decoded data", Logger.MessageType.INFO);
+        final long durMs = System.currentTimeMillis() - nowMs;
+
+        logger.Log("Successfully decoded data. Took " + durMs +"ms.", Logger.MessageType.INFO);
 
         main.DisplayDecodedData();
     }
@@ -177,10 +181,9 @@ public class Decoder implements Runnable {
         Color col = new Color(rand.nextFloat(), rand.nextFloat(), rand.nextFloat());
         if (settings.uiTheme == PlayerTrackerDecoder.UITheme.Light){
             col = col.darker();
-            col = col.darker();
         } else {
             col = col.brighter();
-            col = col.brighter();
+            col = col.brighter(); // Intentionally doubled
         }
         if (containsSimilarColor(generatedColors, col) && iter < 100)
             return randomColor(iter + 1);
@@ -197,13 +200,9 @@ public class Decoder implements Runnable {
     }
 
     private boolean isSimilarColor(Color a, Color b) {
-        return (approximately(a.getRed(), b.getRed(), 20.0F) &&
-                approximately(a.getGreen(), b.getGreen(), 20.0F) &&
-                approximately(a.getBlue(), b.getBlue(), 20.0F));
-    }
-
-    private boolean approximately(int a, int b, float threshold) {
-        return ((a - b) < threshold);
+        return (Utils.approximately(a.getRed(), b.getRed(), 20.0F) &&
+                Utils.approximately(a.getGreen(), b.getGreen(), 20.0F) &&
+                Utils.approximately(a.getBlue(), b.getBlue(), 20.0F));
     }
 
     public enum DrawType {

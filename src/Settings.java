@@ -1,7 +1,6 @@
 package src;
 
 import src.Decoder.DrawType;
-import src.Logger.MessageType;
 import src.PlayerTrackerDecoder.HeatDrawType;
 import src.PlayerTrackerDecoder.UITheme;
 
@@ -17,71 +16,56 @@ public class Settings {
     public int maxDataEntries = 0;
     public DrawType _drawType = DrawType.Pixel;
     public HeatDrawType _heatDrawType = HeatDrawType.Size;
-    public int heatMapThreshold = 15;
+    public float heatMapStrength = 1.0f;
     public int lineThreshold = 200;
     public boolean fancyLines = false;
     public boolean hiddenLines = false;
     public boolean antialiasing = true;
     public boolean terminusPoints = true;
     public boolean ageFade = false;
-    public int ageFadeThreshold = 0;
+    public float ageFadeStrength = 1.0f;
     public int mouseSensitivity = 100;
     public int fpsLimit = 60;
+
     private final int settingCount = 16;
     private final Logger logger;
 
     public Settings(Logger logger) {
         this.logger = logger;
-        logger.Log("Initializing settings subsystem", MessageType.INFO);
+
+        logger.info("Initializing settings subsystem", 0);
 
         try {
             if (!(new File("config.txt")).exists()) {
-                logger.Log("Config file does not exist, creating it", MessageType.WARNING);
+                logger.warn("Config file does not exist, creating it");
 
                 try {
-                    uiTheme = UITheme.Light;
-                    size = 1.0f;
-                    convertChunkPosToBlockPos = true;
-                    maxDataEntries = 0;
-                    _drawType = DrawType.Pixel;
-                    lineThreshold = 200;
-                    fancyLines = false;
-                    hiddenLines = false;
-                    antialiasing = true;
-                    terminusPoints = true;
-                    ageFade = false;
-                    ageFadeThreshold = 0;
-                    _heatDrawType = HeatDrawType.Size;
-                    heatMapThreshold = 15;
-                    mouseSensitivity = 100;
-                    fpsLimit = 100;
-
                     (new File("config.txt")).createNewFile();
 
-                    logger.Log("Successfully created config file", MessageType.INFO);
+                    logger.info("Successfully created config file", 1);
                     SaveSettings();
-                    logger.Log("Successfully saved and wrote default settings to config file", MessageType.INFO);
+                    logger.info("Successfully saved and wrote default settings to config file", 1);
                 } catch (Exception e) {
-                    logger.Log("Error creating/saving/writing to config file:\n   " + Arrays.toString(e.getStackTrace()), MessageType.ERROR);
+                    logger.error("Error creating/saving/writing to config file:\n   " + Arrays.toString(e.getStackTrace()));
                 }
             }
 
-            logger.Log("Fetching and parsing settings from config file", MessageType.INFO);
+            logger.info("Fetching and parsing settings from config file", 0);
             getFromFile(new File("config.txt"));
-            logger.Log("Successfully fetched and parsed settings from config file", MessageType.INFO);
+            logger.info("Successfully fetched and parsed settings from config file", 1);
         } catch (IOException e) {
-            logger.Log("Error fetching and parsing settings from config file:\n   " + Arrays.toString(e.getStackTrace()), MessageType.ERROR);
+            logger.error("Error fetching and parsing settings from config file:\n   " + Arrays.toString(e.getStackTrace()));
         }
 
-        logger.Log("Successfully initialized settings subsystem", MessageType.INFO);
+        logger.info("Successfully initialized settings subsystem", 1);
     }
 
     public void SaveSettings() {
-        logger.Log("Saving and writing settings to config file", MessageType.INFO);
+        logger.info("Saving and writing settings to config file", 0);
 
         try {
             PrintWriter writer = new PrintWriter("config.txt", StandardCharsets.UTF_8);
-            writer.println("/// Player Tracker Decoder v1.9.1 - CONFIG \\\\\\");
+            writer.println("/// Player Tracker Decoder v" + PlayerTrackerDecoder.version + " - CONFIG \\\\\\");
             writer.println("/// Delete this config file to reset values to their default settings \\\\\\\n");
 
             writer.println("theme: " + themeToInt(uiTheme) + " // Change the UI theme (Light = 0, Dark = 1)");
@@ -96,14 +80,14 @@ public class Settings {
             writer.println("hiddenLines: " + hiddenLines + " // Show lines that were hidden for being above the threshold");
             writer.println("terminusPoints: " + terminusPoints + " // Show dots at the start and end of lines");
             writer.println("ageFade: " + ageFade + " // Fade out older log markers, showing the age of the marker");
-            writer.println("ageFadeThreshold: " + ageFadeThreshold + " // How much to fade out older log markers. If 0, then it uses the max amount of log markers");
+            writer.println("ageFadeStrength: " + ageFadeStrength + " // How much to fade out older log markers. If 0, then it uses the max amount of log markers");
             writer.println("heatDrawType: " + heatDrawTypeToInt(_heatDrawType) + " // The way to represent the heatmap. 0 = Change size, 1 = Change color");
-            writer.println("heatMapThreshold: " + heatMapThreshold + " // How much to change colors on the heatmap");
+            writer.println("heatMapStrength: " + heatMapStrength + " // How much to change colors on the heatmap");
             writer.println("mouseSensitivity: " + mouseSensitivity + " // How sensitive mouse inputs should be");
             writer.close();
-            logger.Log("Successfully saved and wrote settings to config file", MessageType.INFO);
+            logger.info("Successfully saved and wrote settings to config file", 0);
         } catch (Exception e) {
-            logger.Log("Error saving and writing settings to config file:\n   " + Arrays.toString(e.getStackTrace()), MessageType.ERROR);
+            logger.error("Error saving and writing settings to config file:\n   " + Arrays.toString(e.getStackTrace()));
         }
 
     }
@@ -160,12 +144,12 @@ public class Settings {
                 if (arg.contains("/// Player Tracker Decoder v")) {
                     str = arg.replace("/// Player Tracker Decoder v", "");
                     str = str.substring(0, str.indexOf(" - "));
-                    if (!str.equals("1.9.1")) {
-                        SaveSettings();
-                        logger.Log("Updating log file version", MessageType.WARNING);
-                    }
+                    logger.info(str + ", " + count, 1);
 
-                    logger.Log(str + ", " + count, MessageType.INFO);
+                    if (!str.equals(PlayerTrackerDecoder.version)) {
+                        SaveSettings();
+                        logger.warn("Updating log file version");
+                    }
                 } else {
                     int val;
                     if (arg.contains("theme: ")) {
@@ -179,31 +163,31 @@ public class Settings {
                         }
 
                         ++count;
-                        logger.Log(uiTheme + ", " + count, MessageType.INFO);
+                        logger.info(uiTheme + ", " + count, 1);
                     } else if (arg.contains("fpsLimit: ")) {
                         str = arg.replace("fpsLimit: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         fpsLimit = Integer.parseInt(str);
                         ++count;
-                        logger.Log(str + ", " + count, MessageType.INFO);
+                        logger.info(str + ", " + count, 1);
                     } else if (arg.contains("size: ")) {
                         str = arg.replace("size: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         size = Float.parseFloat(str);
                         ++count;
-                        logger.Log(str + ", " + count, MessageType.INFO);
+                        logger.info(str + ", " + count, 1);
                     } else if (arg.contains("convertChunkPositions: ")) {
                         str = arg.replace("convertChunkPositions: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         convertChunkPosToBlockPos = Boolean.parseBoolean(str);
                         ++count;
-                        logger.Log(str + ", " + count, MessageType.INFO);
+                        logger.info(str + ", " + count, 1);
                     } else if (arg.contains("maxEntries: ")) {
                         str = arg.replace("maxEntries: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         maxDataEntries = Integer.parseInt(str);
                         ++count;
-                        logger.Log(str + ", " + count, MessageType.INFO);
+                        logger.info(str + ", " + count, 1);
                     } else if (arg.contains("drawType: ")) {
                         str = arg.replace("drawType: ", "");
                         str = str.substring(0, str.indexOf(" //"));
@@ -219,49 +203,49 @@ public class Settings {
                         }
 
                         ++count;
-                        logger.Log(_drawType + ", " + count, MessageType.INFO);
+                        logger.info(_drawType + ", " + count, 1);
                     } else if (arg.contains("lineThreshold: ")) {
                         str = arg.replace("lineThreshold: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         lineThreshold = Integer.parseInt(str);
                         ++count;
-                        logger.Log(str + ", " + count, MessageType.INFO);
+                        logger.info(str + ", " + count, 1);
                     } else if (arg.contains("fancyLines: ")) {
                         str = arg.replace("fancyLines: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         fancyLines = Boolean.parseBoolean(str);
                         ++count;
-                        logger.Log(str + ", " + count, MessageType.INFO);
+                        logger.info(str + ", " + count, 1);
                     } else if (arg.contains("hiddenLines: ")) {
                         str = arg.replace("hiddenLines: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         hiddenLines = Boolean.parseBoolean(str);
                         ++count;
-                        logger.Log(str + ", " + count, MessageType.INFO);
+                        logger.info(str + ", " + count, 1);
                     } else if (arg.contains("antialiasing: ")) {
                         str = arg.replace("antialiasing: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         antialiasing = Boolean.parseBoolean(str);
                         ++count;
-                        logger.Log(str + ", " + count, MessageType.INFO);
+                        logger.info(str + ", " + count, 1);
                     } else if (arg.contains("terminusPoints: ")) {
                         str = arg.replace("terminusPoints: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         terminusPoints = Boolean.parseBoolean(str);
                         ++count;
-                        logger.Log(str + ", " + count, MessageType.INFO);
+                        logger.info(str + ", " + count, 1);
                     } else if (arg.contains("ageFade: ")) {
                         str = arg.replace("ageFade: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         ageFade = Boolean.parseBoolean(str);
                         ++count;
-                        logger.Log(str + ", " + count, MessageType.INFO);
-                    } else if (arg.contains("ageFadeThreshold: ")) {
-                        str = arg.replace("ageFadeThreshold: ", "");
+                        logger.info(str + ", " + count, 1);
+                    } else if (arg.contains("ageFadeStrength: ")) {
+                        str = arg.replace("ageFadeStrength: ", "");
                         str = str.substring(0, str.indexOf(" //"));
-                        ageFadeThreshold = Integer.parseInt(str);
+                        ageFadeStrength = Float.parseFloat(str);
                         ++count;
-                        logger.Log(str + ", " + count, MessageType.INFO);
+                        logger.info(str + ", " + count, 1);
                     } else if (arg.contains("heatDrawType: ")) {
                         str = arg.replace("heatDrawType: ", "");
                         str = str.substring(0, str.indexOf(" //"));
@@ -273,27 +257,27 @@ public class Settings {
                         }
 
                         ++count;
-                        logger.Log(_heatDrawType + ", " + count, MessageType.INFO);
-                    } else if (arg.contains("heatMapThreshold: ")) {
-                        str = arg.replace("heatMapThreshold: ", "");
+                        logger.info(_heatDrawType + ", " + count, 1);
+                    } else if (arg.contains("heatMapStrength: ")) {
+                        str = arg.replace("heatMapStrength: ", "");
                         str = str.substring(0, str.indexOf(" //"));
-                        heatMapThreshold = Integer.parseInt(str);
+                        heatMapStrength = Float.parseFloat(str);
                         ++count;
-                        logger.Log(str + ", " + count, MessageType.INFO);
+                        logger.info(str + ", " + count, 1);
                     } else if (arg.contains("mouseSensitivity: ")) {
                         str = arg.replace("mouseSensitivity: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         mouseSensitivity = Integer.parseInt(str);
                         ++count;
-                        logger.Log(str + ", " + count, MessageType.INFO);
+                        logger.info(str + ", " + count, 1);
                     }
                 }
             }
         }
 
-        logger.Log("Settings count: " + count, MessageType.INFO);
+        logger.info("Settings count: " + count, 0);
         if (count != settingCount) {
-            logger.Log("Incomplete or old config file, updating the config file. Counted: " + count + " settings, expected: 15", MessageType.WARNING);
+            logger.warn("Incomplete or old config file, updating the config file. Counted: " + count + " settings, expected: " + settingCount + ". Updating config file");
             SaveSettings();
         }
     }

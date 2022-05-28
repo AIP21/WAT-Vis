@@ -6,10 +6,14 @@ import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.text.StyleContext;
 import java.awt.*;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.dnd.DnDConstants;
+import java.awt.dnd.DropTarget;
+import java.awt.dnd.DropTargetDropEvent;
 import java.awt.event.ItemEvent;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Locale;
+import java.util.List;
+import java.util.*;
 
 public class ImportForm extends JFrame {
     private JPanel bottomPanel;
@@ -53,11 +57,39 @@ public class ImportForm extends JFrame {
 
     public ImportForm(PlayerTrackerDecoder main, Settings settings, Logger logger) {
         this.main = main;
+        setVisible(true);
+        setLocationRelativeTo(main);
         this.setTitle("Import Files");
         this.settings = settings;
         this.logger = logger;
         setSize(new Dimension(720, 480));
+
         initComponents();
+    }
+
+    public ImportForm(PlayerTrackerDecoder main, Settings settings, Logger logger, DropTargetDropEvent evt) {
+        this.main = main;
+        setVisible(true);
+        setLocationRelativeTo(main);
+        this.setTitle("Import Files");
+        this.settings = settings;
+        this.logger = logger;
+        setSize(new Dimension(720, 480));
+
+        initComponents();
+
+        try {
+            evt.acceptDrop(DnDConstants.ACTION_REFERENCE);
+            List<File> files = (List<File>) evt.getTransferable().getTransferData(DataFlavor.javaFileListFlavor);
+
+            for (File file : files) {
+                handleFile(file);
+            }
+            selectedFileList.setListData(currentFiles.toArray(new File[0]));
+            confirmButton.setEnabled(currentFiles.size() > 0);
+        } catch (Exception e) {
+            logger.error("Error dragging and dropping files onto import panel: " + Arrays.toString(e.getStackTrace()));
+        }
     }
 
     private void initComponents() {
@@ -131,7 +163,25 @@ public class ImportForm extends JFrame {
         selectedFileListScrollPane = new JScrollPane();
         fileSelectorPanel.add(selectedFileListScrollPane, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         selectedFileList = new JList<File>();
+        selectedFileList.setListData(currentFiles.toArray(new File[0]));
         selectedFileListScrollPane.setViewportView(selectedFileList);
+        selectedFileList.setDropTarget(new DropTarget() {
+            public synchronized void drop(DropTargetDropEvent evt) {
+                try {
+                    evt.acceptDrop(DnDConstants.ACTION_REFERENCE);
+                    List<File> files = (List<File>) evt.getTransferable().getTransferData(DataFlavor.javaFileListFlavor);
+
+                    for (File file : files) {
+                        handleFile(file);
+                    }
+                    selectedFileList.setListData(currentFiles.toArray(new File[0]));
+                    confirmButton.setEnabled(currentFiles.size() > 0);
+                } catch (Exception ex) {
+                    logger.error("Error dragging and dropping files onto import panel: " + Arrays.toString(ex.getStackTrace()));
+                }
+            }
+        });
+
         importSettingsPanel = new JPanel();
         importSettingsPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(8, 2, new Insets(0, 0, 0, 0), -1, -1));
         mainSplitPane.setLeftComponent(importSettingsPanel);
@@ -194,6 +244,18 @@ public class ImportForm extends JFrame {
         setCallbacks();
     }
 
+    private void handleFile(File file) {
+        if (!file.isDirectory()) {
+            if (!currentFiles.contains(file) && file.getName().contains(".txt")) {
+                currentFiles.add(file);
+            }
+        } else {
+            for (File f : Objects.requireNonNull(file.listFiles())) {
+                handleFile(f);
+            }
+        }
+    }
+
     private void setCallbacks() {
         confirmButton.setEnabled(selectedFileList.getLastVisibleIndex() > 0);
 
@@ -219,16 +281,14 @@ public class ImportForm extends JFrame {
             if (returnVal == JFileChooser.APPROVE_OPTION) {
                 File[] files = chooser.getSelectedFiles();
                 for (File file : files) {
-                    if (!currentFiles.contains(file)) {
-                        currentFiles.add(file);
-                    }
+                    handleFile(file);
                 }
                 selectedFileList.setListData(currentFiles.toArray(new File[0]));
                 confirmButton.setEnabled(currentFiles.size() > 0);
             } else if (returnVal == JFileChooser.ERROR_OPTION) {
-                logger.Log("Error selecting input files", Logger.MessageType.ERROR);
+                logger.error("Error selecting input files");
             } else {
-                logger.Log("No input files selected", Logger.MessageType.WARNING);
+                logger.warn("No input files selected");
             }
         });
 
@@ -269,6 +329,7 @@ public class ImportForm extends JFrame {
                 imageZOffsetSpinner.setValue(main.mainPanel.zBackgroundOffset);
             }
         }
+
         maxEntriesSpinner.addChangeListener(e -> {
             settings.maxDataEntries = (int) ((JSpinner) e.getSource()).getValue();
             settings.SaveSettings();
@@ -280,7 +341,7 @@ public class ImportForm extends JFrame {
         });
 
         addWorldImageButton.addActionListener(event -> {
-            logger.Log("Opening world background image dialog", Logger.MessageType.INFO);
+            logger.info("Opening world background image dialog", 0);
 
             JFileChooser imgChooser = new JFileChooser("worldImages");
             imgChooser.setMultiSelectionEnabled(false);
@@ -290,25 +351,21 @@ public class ImportForm extends JFrame {
             int returnVal = imgChooser.showOpenDialog(ImportForm.this);
 
             if (returnVal == JFileChooser.APPROVE_OPTION) {
-                File imgFile = imgChooser.getSelectedFile();
-                logger.Log("Selected world background image: " + imgFile, Logger.MessageType.INFO);
-                setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
                 addWorldImageButton.setText("Loading...");
-                revalidate();
-                repaint();
 
-                main.LoadWorldImage(imgFile);
+                setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                main.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 
-                Toolkit.getDefaultToolkit().beep();
-                worldImageLabel.setText(" World Image [Imported]");
-                addWorldImageButton.setText("New World Image");
-                revalidate();
-                repaint();
-                setCursor(null);
+                toggleComponents(false);
+
+                File imgFile = imgChooser.getSelectedFile();
+                logger.info("Selected world background image: " + imgFile, 0);
+
+                main.LoadWorldImage(imgFile, worldImageLabel, addWorldImageButton, this);
             } else if (returnVal == JFileChooser.ERROR_OPTION) {
-                logger.Log("Error selecting world background images", Logger.MessageType.ERROR);
+                logger.error("Error selecting world background images");
             } else {
-                logger.Log("No world background images selected", Logger.MessageType.WARNING);
+                logger.warn("No world background images selected");
             }
         });
 
@@ -334,5 +391,21 @@ public class ImportForm extends JFrame {
         boolean isMac = System.getProperty("os.name", "").toLowerCase(Locale.ENGLISH).startsWith("mac");
         Font fontWithFallback = isMac ? new Font(font.getFamily(), font.getStyle(), font.getSize()) : new StyleContext().getFont(font.getFamily(), font.getStyle(), font.getSize());
         return fontWithFallback instanceof FontUIResource ? fontWithFallback : new FontUIResource(fontWithFallback);
+    }
+
+    public void toggleComponents(boolean value) {
+        confirmButton.setEnabled(value);
+        cancelButton.setEnabled(value);
+        addWorldImageButton.setEnabled(value);
+        selectedFileList.setEnabled(value);
+        maxEntriesSpinner.setEnabled(value);
+        imageXOffsetSpinner.setEnabled(value);
+        imageZOffsetSpinner.setEnabled(value);
+        antialiasingToggle.setEnabled(value);
+        convertChunksToggle.setEnabled(value);
+        mainSplitPane.setEnabled(value);
+        addFileButton.setEnabled(value);
+        removeFileButton.setEnabled(value);
+        dimensionChooser.setEnabled(value);
     }
 }

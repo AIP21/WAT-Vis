@@ -8,9 +8,12 @@ import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
 public class Logger {
+    public Settings settings;
+
     private File logFile;
 
     public Logger(String version) {
+
         boolean created = false;
         if (!new File("logs").exists()) {
             new File("logs").mkdir();
@@ -21,52 +24,47 @@ public class Logger {
         File[] logFiles = new File("logs/").listFiles();
         int count = 0;
 
-        for (File file : logFiles) {
-            if (file.getName().contains(name)) {
-                count++;
+        if (logFiles != null) {
+            for (File file : logFiles) {
+                if (file.getName().contains(name)) {
+                    count++;
+                }
             }
         }
 
         name += (count != 0 ? " " + count : "") + ".log.txt";
 
         logFile = new File("logs/" + name);
-        LogFirst("Player Tracker Decoder App v" + version + " - LOG FILE", MessageType.INFO);
-        Log("Initializing logger", MessageType.INFO);
+        logFirst("Player Tracker Decoder App v" + version + " - LOG FILE");
+        info("Initializing logger", 0);
+        if (PlayerTrackerDecoder.debugMode) {
+            warn("DEBUG MODE IS ON, PERFORMANCE MAY BE LOWER");
+        }
 
-        if (created) Log("Log file directory didn't exist, so it was created", MessageType.WARNING);
+        if (created) warn("Log file directory didn't exist, so it was created");
 
-        Log("Logger successfully initialized", MessageType.INFO);
+        info("Logger successfully initialized", 1);
     }
 
-    public void LogFirst(Object message, MessageType type) {
-        String toLog = ("   [" + type.toString() + "] <" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd; HH:mm:ss.SSS")) + "> " + message + "\n   ");
+    private void logFirst(Object message) {
+        String toLog = ("   [INFO.1] <" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd; HH:mm:ss.SSS")) + "> " + message + "\n   ");
 
-        if (type == MessageType.ERROR) {
-            System.err.print("\u001B[0m" + toLog.replace(", ", "\n   "));
-        } else if (type == MessageType.WARNING) {
-            System.out.print("\u001B[33m" + toLog);
-        } else {
-            System.out.print("\u001B[0m" + toLog);
-        }
+        System.out.print("\u001B[0m" + toLog);
 
         try {
             FileWriter writer = new FileWriter(logFile, true);
             writer.append(toLog);
             writer.close();
         } catch (Exception e) {
-            Log("Error logging message:\n   " + Arrays.toString(e.getStackTrace()), MessageType.ERROR);
+            error("Error logging message:\n   " + Arrays.toString(e.getStackTrace()));
         }
     }
 
-    public void Log(Object message, MessageType type) {
-//        EventQueue.invokeLater(()->{
-            String toLog = ("[" + type.toString() + "] <" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd; HH:mm:ss.SSS")) + "> " + message + "\n   ");
+    public void info(Object message, int level) {
+        EventQueue.invokeLater(() -> {
+            String toLog = ("[INFO." + level + "] <" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd; HH:mm:ss.SSS")) + "> " + message + "\n   ");
 
-            if (type == MessageType.ERROR) {
-                System.err.print("\u001B[0m" + toLog.replace(", ", "\n   "));
-            } else if (type == MessageType.WARNING) {
-                System.out.print("\u001B[33m" + toLog);
-            } else {
+            if (PlayerTrackerDecoder.debugMode || level > 0) {
                 System.out.print("\u001B[0m" + toLog);
             }
 
@@ -75,14 +73,40 @@ public class Logger {
                 writer.append(toLog);
                 writer.close();
             } catch (Exception e) {
-                Log("Error logging message:\n   " + Arrays.toString(e.getStackTrace()), MessageType.ERROR);
+                error("Error logging message:\n   " + Arrays.toString(e.getStackTrace()));
             }
-//        });
+        });
     }
 
-    public enum MessageType {
-        INFO,
-        WARNING,
-        ERROR,
+    public void warn(Object message) {
+        EventQueue.invokeLater(() -> {
+            String toLog = ("[WARNING] <" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd; HH:mm:ss.SSS")) + "> " + message + "\n   ");
+
+            System.out.print("\u001B[33m" + toLog);
+
+            try {
+                FileWriter writer = new FileWriter(logFile, true);
+                writer.append(toLog);
+                writer.close();
+            } catch (Exception e) {
+                error("Error logging message:\n   " + Arrays.toString(e.getStackTrace()));
+            }
+        });
+    }
+
+    public void error(Object message) {
+        EventQueue.invokeLater(() -> {
+            String toLog = ("[ERROR] <" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd; HH:mm:ss.SSS")) + "> " + message + "\n   ");
+
+            System.err.print("\u001B[0m" + toLog.replace(", ", "\n   "));
+
+            try {
+                FileWriter writer = new FileWriter(logFile, true);
+                writer.append(toLog);
+                writer.close();
+            } catch (Exception e) {
+                error("Error logging message:\n   " + Arrays.toString(e.getStackTrace()));
+            }
+        });
     }
 }

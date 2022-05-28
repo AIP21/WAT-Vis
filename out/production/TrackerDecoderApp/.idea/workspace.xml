@@ -93,9 +93,17 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.PlayerTrackerDecoder (1)">
-    <configuration name="PlayerTrackerDecoder (1)" type="Application" factoryName="Application" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Snowflakes">
+    <configuration name="PlayerTrackerDecoder" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="src.PlayerTrackerDecoder" />
+      <module name="TrackerDecoderApp" />
+      <option name="PROGRAM_PARAMETERS" value="-debug" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScrollTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="src.ScrollTest" />
       <module name="TrackerDecoderApp" />
       <extension name="coverage">
         <pattern>
@@ -107,15 +115,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlayerTrackerDecoder" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="src.com.anip24.trackerDecoder.PlayerTrackerDecoder" />
-      <module name="TrackerDecoderApp" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="zoomPanTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="src.zoomPanTest" />
+    <configuration name="Snowflakes" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="src.Snowflakes" />
       <module name="TrackerDecoderApp" />
       <extension name="coverage">
         <pattern>
@@ -141,15 +142,16 @@
     </configuration>
     <list>
       <item itemvalue="Application.PlayerTrackerDecoder" />
-      <item itemvalue="Application.PlayerTrackerDecoder (1)" />
+      <item itemvalue="Application.ScrollTest" />
       <item itemvalue="JAR Application.TrackerDecoderApp.jar" />
       <item itemvalue="JAR Application.TrackerDecoderApp.jar (1)" />
       <item itemvalue="JAR Application.TrackerDecoderApp_jar.jar" />
-      <item itemvalue="Application.zoomPanTest" />
+      <item itemvalue="Application.Snowflakes" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.zoomPanTest" />
+        <item itemvalue="Application.Snowflakes" />
+        <item itemvalue="Application.ScrollTest" />
         <item itemvalue="JAR Application.TrackerDecoderApp.jar (1)" />
         <item itemvalue="JAR Application.TrackerDecoderApp_jar.jar" />
         <item itemvalue="JAR Application.TrackerDecoderApp.jar" />

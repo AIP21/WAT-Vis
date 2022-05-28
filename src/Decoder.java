@@ -5,98 +5,91 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
-public class Decoder implements Runnable {
+public class Decoder {
+    public PlayerTrackerDecoder main;
+    private final Settings settings;
+    private final Logger logger;
+
     private final Random rand = new Random();
 
     private final ArrayList<File> inputFiles = new ArrayList<>();
-
     private final ArrayList<Color> generatedColors = new ArrayList<>();
 
-    private final Settings settings;
-
     public ArrayList<LogEntry> logEntries = new ArrayList<>();
-
     public Map<String, Color> playerNameColorMap = new LinkedHashMap<>();
-
     public Map<String, Boolean> playerNameEnabledMap = new LinkedHashMap<>();
-
     public Map<String, Vector3> playerLastPosMap = new LinkedHashMap<>();
-
     public Map<String, Integer> playerCountMap = new LinkedHashMap<>();
-
     public ArrayList<LocalDateTime> logDates = new ArrayList<>();
 
     public int minX;
-
     public int maxX;
-
     public int minY;
-
     public int maxY;
-
     public int xRange;
-
     public int yRange;
 
-    private final Logger logger;
-
     public String dataWorld;
-
     public String dataDate;
 
     public File[] files;
-
-    public PlayerTrackerDecoder main;
 
     private final boolean maxCheck;
 
     public Decoder(Settings set, Logger log) {
         logger = log;
 
-        logger.Log("Initializing decoder subsystem", Logger.MessageType.INFO);
+        logger.info("Initializing decoder subsystem", 1);
 
         settings = set;
 
         maxCheck = settings.maxDataEntries != 0;
 
-        logger.Log("Successfully initialized decoder subsystem", Logger.MessageType.INFO);
+        logger.info("Successfully initialized decoder subsystem", 1);
     }
 
-    @Override
-    public void run() {
-        decode();
-    }
-
-    private void decode() {
+    public void decode() {
         final long nowMs = System.currentTimeMillis();
 
         if (files == null || files.length == 0) {
-            logger.Log("Error parsing log files and decoding data. They must be in the folder called \"inputs\" in the run directory", Logger.MessageType.ERROR);
+            logger.error("Error parsing log files and decoding data. They must be in the folder called \"inputs\" in the run directory");
             return;
         }
 
-        logger.Log("Decoding data", Logger.MessageType.INFO);
+        logger.info("Decoding data", 1);
 
         try {
             for (File file : files) {
                 if (file.isFile() && file.getName().endsWith(".txt")) {
                     inputFiles.add(file);
 //                        String str = file.getName().substring(file.getName().lastIndexOf('-') - 7, file.getName().lastIndexOf('-') + 3);
-
-                    logger.Log("Fetched and indexed input file: " + file.getName(), Logger.MessageType.INFO);
                 }
             }
         } catch (Exception e) {
-            logger.Log("Error fetching text log files:\n   " + Arrays.toString(e.getStackTrace()), Logger.MessageType.ERROR);
+            logger.error("Error fetching text log files:\n   " + Arrays.toString(e.getStackTrace()));
         }
 
-        inputFiles.sort(Comparator.comparing(File::getName));
+        inputFiles.sort(new Comparator<>() {
+            @Override
+            public int compare(File o1, File o2) {
+                LocalDate d1 = extractDate(o1.getName());
+                LocalDate d2 = extractDate(o2.getName());
+                return d1.compareTo(d2);
+            }
+
+            private LocalDate extractDate(String name) {
+                return LocalDate.parse(name.substring(name.lastIndexOf('-') - 7, name.lastIndexOf('-') + 3), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            }
+        });
 
         for (File inputFile : inputFiles) {
+            logger.info("Decoding input file: " + inputFile.getName(), 0);
+
             try {
                 BufferedReader br = new BufferedReader(new FileReader(inputFile));
                 String line;
@@ -120,14 +113,11 @@ public class Decoder implements Runnable {
 
                     String player = items[1];
 
-                    if (!playerNameColorMap.containsKey(player))
-                        playerNameColorMap.put(player, randomColor(0));
+                    playerNameColorMap.putIfAbsent(player, randomColor(0));
 
-                    if (!playerNameEnabledMap.containsKey(player))
-                        playerNameEnabledMap.put(player, true);
+                    playerNameEnabledMap.putIfAbsent(player, true);
 
-                    if (!playerLastPosMap.containsKey(player))
-                        playerLastPosMap.put(player, logEntries.get(logEntries.size() - 1).position);
+                    playerLastPosMap.putIfAbsent(player, logEntries.get(logEntries.size() - 1).position);
 
                     if (!playerCountMap.containsKey(player))
                         playerCountMap.put(player, 1);
@@ -149,14 +139,16 @@ public class Decoder implements Runnable {
                 }
                 br.close();
             } catch (IOException e) {
-                logger.Log("Error reading input file:\n   " + Arrays.toString(e.getStackTrace()), Logger.MessageType.ERROR);
+                logger.error("Error reading input file:\n   " + Arrays.toString(e.getStackTrace()));
             }
 
             if (maxCheck && logEntries.size() > settings.maxDataEntries) {
-                logger.Log("Max configured data entries reached, decoding aborted", Logger.MessageType.WARNING);
+                logger.warn("Max configured data entries reached, decoding aborted");
                 break;
             }
         }
+
+        logger.info("dates: " + logDates.size(), 1);
 
         dataWorld = "";
         String[] split = inputFiles.get(0).getName().split("-");
@@ -167,23 +159,21 @@ public class Decoder implements Runnable {
 
         xRange = maxX - minX;
         yRange = maxY - minY;
-        logger.Log("maxX: " + maxX + " minX: " + minX + "; maxY: " + maxY + " minY: " + minY, Logger.MessageType.INFO);
-        logger.Log("xRange: " + xRange + " yRange: " + yRange, Logger.MessageType.INFO);
+        logger.info("maxX: " + maxX + " minX: " + minX + "; maxY: " + maxY + " minY: " + minY, 0);
+        logger.info("xRange: " + xRange + " yRange: " + yRange, 0);
 
         final long durMs = System.currentTimeMillis() - nowMs;
 
-        logger.Log("Successfully decoded data. Took " + durMs +"ms.", Logger.MessageType.INFO);
-
-        main.DisplayDecodedData();
+        logger.info("Successfully decoded data. Loaded: " + logEntries.size() + " entries. Took " + durMs + "ms.", 1);
     }
 
     private Color randomColor(int iter) {
         Color col = new Color(rand.nextFloat(), rand.nextFloat(), rand.nextFloat());
-        if (settings.uiTheme == PlayerTrackerDecoder.UITheme.Light){
+        if (settings.uiTheme == PlayerTrackerDecoder.UITheme.Light) {
             col = col.darker();
         } else {
             col = col.brighter();
-            col = col.brighter(); // Intentionally doubled
+            col = col.brighter(); // Intentionally done twice
         }
         if (containsSimilarColor(generatedColors, col) && iter < 100)
             return randomColor(iter + 1);

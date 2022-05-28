@@ -36,6 +36,7 @@ import java.io.IOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 
 /* src.com.anip24.trackerDecoder.Utils.java is used by FileChooserDemo2.java. */
 public class Utils {
@@ -89,9 +90,19 @@ public class Utils {
         return !approximately(val, b, 0.001f) ? val : b;
     }
 
+    public static float lerpClamped(float a, float b, float t) {
+        float val = a + (b - a) * t;
+        return !approximately(val, b, 0.001f) ? clamp(val, a, b) : b;
+    }
+
     public static int lerp(int a, int b, float t) {
         float val = (int) (a + (b - a) * t);
-        return !approximately(val, b, 0.001f) ? (int) val : b;
+        return (int) val;
+    }
+
+    public static int lerpClamped(int a, int b, float t) {
+        float val = a + (b - a) * t;
+        return (int) clamp(val, a, b);
     }
 
     public static float lerp(float a, float b, double t) {
@@ -101,7 +112,7 @@ public class Utils {
 
     public static int lerp(int a, int b, double t) {
         float val = (float) (a + (b - a) * t);
-        return !approximately(val, b, 0.001f) ? (int) val : b;
+        return (int) val;
     }
 
     public static Color lerpColor(Color a, Color b, float percent) {
@@ -128,7 +139,16 @@ public class Utils {
         return ((a - b) < threshold);
     }
 
+    public static boolean approximately(double a, double b, float threshold) {
+        return ((a - b) < threshold);
+    }
+
     public static float smoothStep(float from, float to, float t) {
+        t = -2.0F * t * t * t + 3.0F * t * t;
+        return to * t + from * (1F - t);
+    }
+
+    public static double smoothStep(double from, double to, float t) {
         t = -2.0F * t * t * t + 3.0F * t * t;
         return to * t + from * (1F - t);
     }
@@ -165,5 +185,9 @@ public class Utils {
         else if (v > 1)
             v = 1;
         return v;
+    }
+
+    public static double calculateAverage(ArrayList<Double> input) {
+        return input.stream().mapToDouble(d -> d).average().orElse(0.0);
     }
 }

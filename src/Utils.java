@@ -90,9 +90,14 @@ public class Utils {
         return !approximately(val, b, 0.001f) ? val : b;
     }
 
-    public static float lerpClamped(float a, float b, float t) {
-        float val = a + (b - a) * t;
-        return !approximately(val, b, 0.001f) ? clamp(val, a, b) : b;
+    public static float lerp(float a, float b, double t) {
+        float val = (float) (a + (b - a) * t);
+        return !approximately(val, b, 0.001f) ? val : b;
+    }
+
+    public static double lerp(double a, double b, double t) {
+        double val = (a + (b - a) * t);
+        return !approximately(val, b, 0.001f) ? val : b;
     }
 
     public static int lerp(int a, int b, float t) {
@@ -100,19 +105,19 @@ public class Utils {
         return (int) val;
     }
 
-    public static int lerpClamped(int a, int b, float t) {
-        float val = a + (b - a) * t;
-        return (int) clamp(val, a, b);
-    }
-
-    public static float lerp(float a, float b, double t) {
-        float val = (float) (a + (b - a) * t);
-        return !approximately(val, b, 0.001f) ? val : b;
-    }
-
     public static int lerp(int a, int b, double t) {
         float val = (float) (a + (b - a) * t);
         return (int) val;
+    }
+
+    public static float lerpClamped(float a, float b, float t) {
+        float val = a + (b - a) * t;
+        return !approximately(val, b, 0.001f) ? clamp(val, a, b) : b;
+    }
+
+    public static int lerpClamped(int a, int b, float t) {
+        float val = a + (b - a) * t;
+        return (int) clamp(val, a, b);
     }
 
     public static Color lerpColor(Color a, Color b, float percent) {

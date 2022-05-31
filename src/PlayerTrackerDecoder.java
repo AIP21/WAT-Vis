@@ -112,7 +112,7 @@ public class PlayerTrackerDecoder extends JFrame {
     public ImageIcon darkThemeIcon;
     //endregion
 
-    public static final String version = "1.0.0-FR";
+    public static final String version = "1.0.1-FR";
     public static boolean debugMode = false;
 
     public PlayerTrackerDecoder(boolean debug) {
@@ -285,13 +285,13 @@ public class PlayerTrackerDecoder extends JFrame {
         mainPanel.setDoubleBuffered(true);
         (new Thread(mainPanel)).start();
 
-        scrollPane = new JScrollPane(mainPanel);
+//        scrollPane = new JScrollPane(mainPanel);
         mainPanel.CoordinateLabel = new JLabel();
         mainPanel.CoordinateLabel.setText("");
         mainPanel.SelectedEntryLabel = new JLabel("Nothing Selected");
         mainPanel.SelectedEntryLabel.setVisible(false);
-        scrollPane.setDoubleBuffered(true);
-        add(scrollPane);
+//        scrollPane.setDoubleBuffered(true);
+//        add(scrollPane);
         add(mainPanel);
         mainPanel.setVisible(true);
         revalidate();

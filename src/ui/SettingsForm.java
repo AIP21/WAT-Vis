@@ -146,6 +146,11 @@ public class SettingsForm extends JFrame {
             SwingUtilities.updateComponentTreeUI(this);
             lightThemeButton.setSelected(true);
             darkThemeButton.setSelected(false);
+            Font settingsTitleFont = getFont(null, -1, 26, settingsTitle.getFont());
+            if (settingsTitleFont != null) {
+                settingsTitle.setFont(settingsTitleFont);
+            }
+            revalidate();
 
             logger.info("Set the theme to light", 0);
         });
@@ -155,6 +160,11 @@ public class SettingsForm extends JFrame {
             SwingUtilities.updateComponentTreeUI(this);
             lightThemeButton.setSelected(false);
             darkThemeButton.setSelected(true);
+            Font settingsTitleFont = getFont(null, -1, 26, settingsTitle.getFont());
+            if (settingsTitleFont != null) {
+                settingsTitle.setFont(settingsTitleFont);
+            }
+            revalidate();
 
             logger.info("Set the theme to dark", 0);
         });
@@ -178,7 +188,7 @@ public class SettingsForm extends JFrame {
             fpsLimitValue.setText(settings.fpsLimit + " FPS");
             settings.SaveSettings();
 
-            logger.info("Changed mouse sensitivity to: " + settings.fpsLimit, 0);
+            logger.info("Changed framerate limit to: " + settings.fpsLimit, 0);
         });
 
         sensitivitySlider.addChangeListener((e) -> {

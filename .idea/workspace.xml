@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="TrackerDecoderApp:jar" />
+      <artifact name="TrackerDecoderApp" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
@@ -45,6 +45,11 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/Decoder.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/PlayerTrackerDecoder.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Panel.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -143,10 +148,10 @@
     <list>
       <item itemvalue="Application.PlayerTrackerDecoder" />
       <item itemvalue="Application.ScrollTest" />
+      <item itemvalue="Application.Snowflakes" />
       <item itemvalue="JAR Application.TrackerDecoderApp.jar" />
       <item itemvalue="JAR Application.TrackerDecoderApp.jar (1)" />
       <item itemvalue="JAR Application.TrackerDecoderApp_jar.jar" />
-      <item itemvalue="Application.Snowflakes" />
     </list>
     <recent_temporary>
       <list>

@@ -93,7 +93,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Snowflakes">
+  <component name="RunManager" selected="Application.PlayerTrackerDecoder">
     <configuration name="PlayerTrackerDecoder" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="src.PlayerTrackerDecoder" />
       <module name="TrackerDecoderApp" />
@@ -143,10 +143,10 @@
     <list>
       <item itemvalue="Application.PlayerTrackerDecoder" />
       <item itemvalue="Application.ScrollTest" />
+      <item itemvalue="Application.Snowflakes" />
       <item itemvalue="JAR Application.TrackerDecoderApp.jar" />
       <item itemvalue="JAR Application.TrackerDecoderApp.jar (1)" />
       <item itemvalue="JAR Application.TrackerDecoderApp_jar.jar" />
-      <item itemvalue="Application.Snowflakes" />
     </list>
     <recent_temporary>
       <list>

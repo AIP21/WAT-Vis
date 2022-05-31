@@ -18,7 +18,6 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
     private boolean isRunning = true;
     public boolean ShouldDraw = false;
-    public boolean ShouldTick = true;
     public boolean isPlaying = false;
     private long last = 0;
     private double curFPS = 0;
@@ -100,7 +99,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
         logger.info("Initializing main display subsystem", 1);
 
-        initComponent();
+        initComponents();
 
         if (settings.antialiasing) {
             logger.info("Antialiasing enabled on main display panel", 0);
@@ -109,7 +108,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         logger.info("Successfully initialized main display subsystem", 1);
     }
 
-    private void initComponent() {
+    private void initComponents() {
         addMouseWheelListener(this);
         addMouseMotionListener(this);
         addMouseListener(this);
@@ -146,53 +145,53 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
             lastTime = start;
 
             if (delta >= 1) {
-                if (ShouldTick) {
+//                if (ShouldTick) {
 //                System.out.println("thread run");
 
-                    if (isPlaying) {
-                        if (dateTimeIndex < timesCount) {
-                            endDate = logDates.get(dateTimeIndex);
-                            updatePoints(false);
-                            dateTimeIndex++;
+                if (isPlaying) {
+                    if (dateTimeIndex < timesCount) {
+                        endDate = logDates.get(dateTimeIndex);
+                        updatePoints(false);
+                        dateTimeIndex++;
 //                            ShouldTick = true;
 
-                            logger.info("Playing animated", 0);
-                        } else {
-                            isPlaying = false;
+                        logger.info("Playing animated", 0);
+                    } else {
+                        isPlaying = false;
 //                            ShouldTick = false;
 
-                            logger.info("Finished playing", 0);
-                        }
-
-                        main.dateRangeSlider.setUpperValue(dateTimeIndex);
-                        main.startDateLabel.setText(startDate.toString().replace("T", "; "));
-                        main.endDateLabel.setText(endDate.toString().replace("T", "; "));
+                        logger.info("Finished playing", 0);
                     }
 
-                    if (ShouldDraw) {
-                        float speed = 0.3f; // Utils.clamp01((6f / (float) curFPS) * 2.0f));
-                        curX = Utils.smoothStep(curX, xTarget, speed);
-                        curY = Utils.smoothStep(curY, yTarget, speed);
+                    main.dateRangeSlider.setUpperValue(dateTimeIndex);
+                    main.startDateLabel.setText(startDate.toString().replace("T", "; "));
+                    main.endDateLabel.setText(endDate.toString().replace("T", "; "));
+                }
 
-                        curZoomFactor = Utils.smoothStep(curZoomFactor, zoomFactor, speed);
+                float speed = 0.3f; // Utils.clamp01((6f / (float) curFPS) * 2.0f));
+                curX = Utils.smoothStep(curX, xTarget, speed);
+                curY = Utils.smoothStep(curY, yTarget, speed);
 
-                        at = new AffineTransform();
-                        at.translate(curX, curY);
-                        at.scale(curZoomFactor, curZoomFactor);
+                curZoomFactor = Utils.smoothStep(curZoomFactor, zoomFactor, speed);
 
-                        try {
-                            inverse = at.createInverse();
-                        } catch (NoninvertibleTransformException nte) {
-                            logger.error("Error inverting rendering transformation:\n   " + Arrays.toString(nte.getStackTrace()));
-                        }
+                at = new AffineTransform();
+                at.translate(curX, curY);
+                at.scale(curZoomFactor, curZoomFactor);
+
+                try {
+                    inverse = at.createInverse();
+                } catch (NoninvertibleTransformException nte) {
+                    logger.error("Error inverting rendering transformation:\n   " + Arrays.toString(nte.getStackTrace()));
+                }
 
 //                        if (!isPlaying && Utils.approximately(curX, xTarget, 0.001f) && Utils.approximately(curY, yTarget, 0.001f) && Utils.approximately(curZoomFactor, zoomFactor, 0.001f)) {
 //                            ShouldTick = false;
 //                        }
 
-                        repaint();
-                    }
+                if (ShouldDraw) {
+                    repaint();
                 }
+//                }
 
                 delta--;
             }
@@ -219,8 +218,8 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
             double yRel = MouseInfo.getPointerInfo().getLocation().getY() - getLocationOnScreen().getY();
 
             double zoomDiv = zoomFactor / prevZoomFactor;
-            xOffset = (zoomDiv) * (xOffset) + (1 - zoomDiv) * xRel;
-            yOffset = (zoomDiv) * (yOffset) + (1 - zoomDiv) * yRel;
+            xOffset = (zoomDiv) * (xOffset) + (1 - zoomDiv) * (xRel);
+            yOffset = (zoomDiv) * (yOffset) + (1 - zoomDiv) * (yRel);
             xTarget = xOffset;
             yTarget = yOffset;
 
@@ -239,15 +238,13 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
                 xTarget = xOffset;
                 yTarget = yOffset;
 
-                xDiff = 0;
-                yDiff = 0;
-
                 dragger = false;
             }
         }
 
         if (PlayerTrackerDecoder.debugMode) {
             g2.setColor(Color.blue.brighter());
+
             Dimension size = getSize();
             float halfX = (float) (size.getWidth() / 2.0);
             float halfY = (float) (size.getHeight() / 2.0);
@@ -300,10 +297,10 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
             g2.setColor(Color.green.darker());
             drawCrossHair(g2, (float) xOffset, (float) yOffset, 0.5f, String.format("Render offset: (%.3f, %.3f)", xOffset, yOffset));
 
-            RenderedPointsLabel.setText(String.format("   Loaded: %d | Rendered: %d | Zoom: %.3f | xOffset: %.3f, yOffset: %.3f | targetX: %.3f, targetY: %.3f | curX: %.3f, curY: %.3f | %.3f FPS | frameTime: %.3f ms | ", totalData, renderedPoints, zoomFactor, xOffset, yOffset, xTarget, yTarget, curX, curY, curFPS, frameTime));
+            RenderedPointsLabel.setText(String.format("   Loaded: %d | Rendered: %d | Zoom: %.3f | targetX: %.3f, targetY: %.3f | curX: %.3f, curY: %.3f | %.3f FPS | shouldDraw: %b | frameTime: %.3f ms | ", totalData, renderedPoints, curZoomFactor, xTarget, yTarget, curX, curY, curFPS, ShouldDraw, frameTime));
 //            RenderedPointsLabel.setText(String.format("   Loaded: %d | Rendered: %d | Zoom: %.3f | curX: %.3f, curY: %.3f | %d FPS | ", totalData, renderedPoints, zoomFactor, curX, curY, curFPS));
         } else {
-            RenderedPointsLabel.setText(String.format("   Loaded: %d | Rendered: %d | Zoom: %.3f | %.3f FPS | ", totalData, renderedPoints, zoomFactor, curFPS));
+            RenderedPointsLabel.setText(String.format("   Loaded: %d | Rendered: %d | Zoom: %.3f | %.3f FPS | ", totalData, renderedPoints, curZoomFactor, curFPS));
         }
 
         g2.dispose();
@@ -558,6 +555,11 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         xRange = _Decoder.xRange;
         yRange = _Decoder.yRange;
         setPreferredSize(new Dimension(xRange, yRange));
+
+        zoomFactor = 0.5;
+        prevZoomFactor = 0.5;
+        curZoomFactor = 0.5;
+
         totalData = logEntries.size();
         Collections.sort(logEntries);
         logger.info("Passed sorting", 1);
@@ -575,12 +577,12 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         zoomer = true;
         if (e.getWheelRotation() < 0) {
             zoomFactor = Math.min(50.0f, zoomFactor * (1.05f * sensitivity));
-//            repaint();
+            repaint();
 
 //            ShouldTick = true;
         } else if (e.getWheelRotation() > 0) {
             zoomFactor = Math.max(0.02f, zoomFactor / (1.05f * sensitivity));
-//            repaint();
+            repaint();
 
 //            ShouldTick = true;
         }
@@ -594,7 +596,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         dragger = true;
 //        ShouldTick = true;
 
-//        repaint();
+        repaint();
     }
 
     @Override
@@ -605,17 +607,22 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
     @Override
     public void mouseClicked(MouseEvent e) {
-//        update = true;
         SelectedEntryLabel.setText("Nothing Selected");
-        selectedEntry = null;
+        boolean found = false;
         for (LogEntry entry : logEntries) {
             if (selectedEntry != entry && Math.abs(entry.position.x - mousePosition.x) < 2 && Math.abs(entry.position.z - mousePosition.y) < 2) {
                 selectedEntry = entry;
                 SelectedEntryLabel.setText(entry.toString());
 
                 logger.info("Selected a log entry: " + entry, 1);
+                found = true;
                 break;
             }
+        }
+
+        if (!found) {
+            selectedEntry = null;
+            SelectedEntryLabel.setText("Nothing Selected");
         }
 
 //        ShouldTick = true;
@@ -623,6 +630,8 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
     @Override
     public void mousePressed(MouseEvent e) {
+        xDiff = 0;
+        yDiff = 0;
         released = false;
         startPoint = MouseInfo.getPointerInfo().getLocation();
 
@@ -634,7 +643,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         released = true;
 //        ShouldTick = true;
 
-//        repaint();
+        repaint();
     }
 
     @Override

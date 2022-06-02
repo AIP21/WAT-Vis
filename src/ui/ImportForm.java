@@ -32,7 +32,7 @@ public class ImportForm extends JFrame {
     private JButton cancelButton;
     private JPanel confirmationButtonPanel;
     private JRadioButton convertChunksToggle;
-    private JRadioButton antialiasingToggle;
+    private JRadioButton fancyRenderingToggle;
     private JSplitPane mainSplitPane;
     private JSpinner maxEntriesSpinner;
     private JLabel maxEntriesSpinnerLabel;
@@ -40,7 +40,7 @@ public class ImportForm extends JFrame {
     private JSpinner imageXOffsetSpinner;
     private JSpinner imageZOffsetSpinner;
     private JButton addWorldImageButton;
-    private JLabel antialiasingLabel;
+    private JLabel fancyRenderingLabel;
     private JLabel worldImageXOffset;
     private JLabel worldImageZOffset;
     private JLabel worldImageLabel;
@@ -63,6 +63,7 @@ public class ImportForm extends JFrame {
         this.settings = settings;
         this.logger = logger;
         setSize(new Dimension(720, 480));
+        setMinimumSize(new Dimension(720, 480));
 
         initComponents();
     }
@@ -195,17 +196,17 @@ public class ImportForm extends JFrame {
         convertChunksToggle.setHideActionText(false);
         convertChunksToggle.setText("");
         importSettingsPanel.add(convertChunksToggle, new com.intellij.uiDesigner.core.GridConstraints(3, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        antialiasingToggle = new JRadioButton();
-        antialiasingToggle.setHideActionText(true);
-        antialiasingToggle.setSelected(settings.antialiasing);
-        antialiasingToggle.setText("");
-        importSettingsPanel.add(antialiasingToggle, new com.intellij.uiDesigner.core.GridConstraints(4, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        fancyRenderingToggle = new JRadioButton();
+        fancyRenderingToggle.setHideActionText(true);
+        fancyRenderingToggle.setSelected(settings.fancyRendering);
+        fancyRenderingToggle.setText("");
+        importSettingsPanel.add(fancyRenderingToggle, new com.intellij.uiDesigner.core.GridConstraints(4, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         convertChunksLabel = new JLabel();
         convertChunksLabel.setText(" Convert Chunks");
         importSettingsPanel.add(convertChunksLabel, new com.intellij.uiDesigner.core.GridConstraints(3, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        antialiasingLabel = new JLabel();
-        antialiasingLabel.setText("Antialiasing");
-        importSettingsPanel.add(antialiasingLabel, new com.intellij.uiDesigner.core.GridConstraints(4, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        fancyRenderingLabel = new JLabel();
+        fancyRenderingLabel.setText("Fancy Rendering");
+        importSettingsPanel.add(fancyRenderingLabel, new com.intellij.uiDesigner.core.GridConstraints(4, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         maxEntriesSpinner = new JSpinner();
         maxEntriesSpinner.setValue(settings.maxDataEntries);
         maxEntriesSpinner.setToolTipText("The maximum amount of data entries to decode. Set to 0 to disable");
@@ -220,7 +221,7 @@ public class ImportForm extends JFrame {
         imageXOffsetSpinner.setToolTipText("How much to offset the x of image to center it on the world's (0,0). Can be changed later in the data settings.");
         importSettingsPanel.add(imageXOffsetSpinner, new com.intellij.uiDesigner.core.GridConstraints(6, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         imageZOffsetSpinner = new JSpinner();
-        imageXOffsetSpinner.setToolTipText("How much to offset the y of image to center it on the world's (0,0). Can be changed later in the data settings.");
+        imageZOffsetSpinner.setToolTipText("How much to offset the y of image to center it on the world's (0,0). Can be changed later in the data settings.");
         importSettingsPanel.add(imageZOffsetSpinner, new com.intellij.uiDesigner.core.GridConstraints(7, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         addWorldImageButton = new JButton();
         addWorldImageButton.setText("Add World Image");
@@ -335,8 +336,9 @@ public class ImportForm extends JFrame {
             settings.SaveSettings();
         });
 
-        antialiasingToggle.addItemListener(event -> {
-            settings.antialiasing = (event.getStateChange() == ItemEvent.SELECTED);
+        fancyRenderingToggle.addItemListener(event -> {
+            settings.fancyRendering = (event.getStateChange() == ItemEvent.SELECTED);
+            settings.toggleRenderMode();
             settings.SaveSettings();
         });
 
@@ -401,7 +403,7 @@ public class ImportForm extends JFrame {
         maxEntriesSpinner.setEnabled(value);
         imageXOffsetSpinner.setEnabled(value);
         imageZOffsetSpinner.setEnabled(value);
-        antialiasingToggle.setEnabled(value);
+        fancyRenderingToggle.setEnabled(value);
         convertChunksToggle.setEnabled(value);
         mainSplitPane.setEnabled(value);
         addFileButton.setEnabled(value);

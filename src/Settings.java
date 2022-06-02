@@ -4,10 +4,12 @@ import src.Decoder.DrawType;
 import src.PlayerTrackerDecoder.HeatDrawType;
 import src.PlayerTrackerDecoder.UITheme;
 
+import java.awt.*;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class Settings {
     public UITheme uiTheme = UITheme.Light;
@@ -20,14 +22,17 @@ public class Settings {
     public int lineThreshold = 200;
     public boolean fancyLines = false;
     public boolean hiddenLines = false;
-    public boolean antialiasing = true;
+    public boolean fancyRendering = true;
     public boolean terminusPoints = true;
     public boolean ageFade = false;
     public float ageFadeStrength = 1.0f;
     public int mouseSensitivity = 100;
     public int fpsLimit = 60;
 
+    public HashMap<RenderingHints.Key, Object> renderingHints = new HashMap<>();
+
     private final int settingCount = 16;
+
     private final Logger logger;
 
     public Settings(Logger logger) {
@@ -76,7 +81,7 @@ public class Settings {
             writer.println("drawType: " + drawTypeToInt(_drawType) + " // The way to represent the positions. 0 = Pixel, 1 = Dot, 2 = Lines, 3 = Heatmap");
             writer.println("lineThreshold: " + lineThreshold + " // The maximum distance a player can move until its position change doesn't draw a line. This is to fix issues where massive lines are drawn across the map when players nether travel or die.");
             writer.println("fancyLines: " + fancyLines + " // Show arrows at data points when drawing using lines");
-            writer.println("antialiasing: " + antialiasing + " // Use antialiasing when rendering. Used to smooth out the hard, pixelated edges");
+            writer.println("fancyRendering: " + fancyRendering + " // Improve visual fidelity at the cost of performance");
             writer.println("hiddenLines: " + hiddenLines + " // Show lines that were hidden for being above the threshold");
             writer.println("terminusPoints: " + terminusPoints + " // Show dots at the start and end of lines");
             writer.println("ageFade: " + ageFade + " // Fade out older log markers, showing the age of the marker");
@@ -162,31 +167,31 @@ public class Settings {
                             uiTheme = UITheme.Dark;
                         }
 
-                        ++count;
+                        count++;
                         logger.info(uiTheme + ", " + count, 1);
                     } else if (arg.contains("fpsLimit: ")) {
                         str = arg.replace("fpsLimit: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         fpsLimit = Integer.parseInt(str);
-                        ++count;
+                        count++;
                         logger.info(str + ", " + count, 1);
                     } else if (arg.contains("size: ")) {
                         str = arg.replace("size: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         size = Float.parseFloat(str);
-                        ++count;
+                        count++;
                         logger.info(str + ", " + count, 1);
                     } else if (arg.contains("convertChunkPositions: ")) {
                         str = arg.replace("convertChunkPositions: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         convertChunkPosToBlockPos = Boolean.parseBoolean(str);
-                        ++count;
+                        count++;
                         logger.info(str + ", " + count, 1);
                     } else if (arg.contains("maxEntries: ")) {
                         str = arg.replace("maxEntries: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         maxDataEntries = Integer.parseInt(str);
-                        ++count;
+                        count++;
                         logger.info(str + ", " + count, 1);
                     } else if (arg.contains("drawType: ")) {
                         str = arg.replace("drawType: ", "");
@@ -202,49 +207,52 @@ public class Settings {
                             _drawType = DrawType.Heat;
                         }
 
-                        ++count;
+                        count++;
                         logger.info(_drawType + ", " + count, 1);
                     } else if (arg.contains("lineThreshold: ")) {
                         str = arg.replace("lineThreshold: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         lineThreshold = Integer.parseInt(str);
-                        ++count;
+                        count++;
                         logger.info(str + ", " + count, 1);
                     } else if (arg.contains("fancyLines: ")) {
                         str = arg.replace("fancyLines: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         fancyLines = Boolean.parseBoolean(str);
-                        ++count;
+                        count++;
                         logger.info(str + ", " + count, 1);
                     } else if (arg.contains("hiddenLines: ")) {
                         str = arg.replace("hiddenLines: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         hiddenLines = Boolean.parseBoolean(str);
-                        ++count;
+                        count++;
                         logger.info(str + ", " + count, 1);
-                    } else if (arg.contains("antialiasing: ")) {
-                        str = arg.replace("antialiasing: ", "");
+                    } else if (arg.contains("fancyRendering: ")) {
+                        str = arg.replace("fancyRendering: ", "");
                         str = str.substring(0, str.indexOf(" //"));
-                        antialiasing = Boolean.parseBoolean(str);
-                        ++count;
+                        fancyRendering = Boolean.parseBoolean(str);
+
+                        toggleRenderMode();
+
+                        count++;
                         logger.info(str + ", " + count, 1);
                     } else if (arg.contains("terminusPoints: ")) {
                         str = arg.replace("terminusPoints: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         terminusPoints = Boolean.parseBoolean(str);
-                        ++count;
+                        count++;
                         logger.info(str + ", " + count, 1);
                     } else if (arg.contains("ageFade: ")) {
                         str = arg.replace("ageFade: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         ageFade = Boolean.parseBoolean(str);
-                        ++count;
+                        count++;
                         logger.info(str + ", " + count, 1);
                     } else if (arg.contains("ageFadeStrength: ")) {
                         str = arg.replace("ageFadeStrength: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         ageFadeStrength = Float.parseFloat(str);
-                        ++count;
+                        count++;
                         logger.info(str + ", " + count, 1);
                     } else if (arg.contains("heatDrawType: ")) {
                         str = arg.replace("heatDrawType: ", "");
@@ -256,19 +264,19 @@ public class Settings {
                             _heatDrawType = HeatDrawType.Color;
                         }
 
-                        ++count;
+                        count++;
                         logger.info(_heatDrawType + ", " + count, 1);
                     } else if (arg.contains("heatMapStrength: ")) {
                         str = arg.replace("heatMapStrength: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         heatMapStrength = Float.parseFloat(str);
-                        ++count;
+                        count++;
                         logger.info(str + ", " + count, 1);
                     } else if (arg.contains("mouseSensitivity: ")) {
                         str = arg.replace("mouseSensitivity: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         mouseSensitivity = Integer.parseInt(str);
-                        ++count;
+                        count++;
                         logger.info(str + ", " + count, 1);
                     }
                 }
@@ -279,6 +287,28 @@ public class Settings {
         if (count != settingCount) {
             logger.warn("Incomplete or old config file, updating the config file. Counted: " + count + " settings, expected: " + settingCount + ". Updating config file");
             SaveSettings();
+        }
+    }
+
+    public void toggleRenderMode() {
+        if (fancyRendering) {
+            renderingHints.put(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
+            renderingHints.put(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            renderingHints.put(RenderingHints.KEY_COLOR_RENDERING, RenderingHints.VALUE_COLOR_RENDER_QUALITY);
+            renderingHints.put(RenderingHints.KEY_DITHERING, RenderingHints.VALUE_DITHER_ENABLE);
+            renderingHints.put(RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_ON);
+            renderingHints.put(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+            renderingHints.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+            renderingHints.put(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+        } else {
+            renderingHints.put(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_SPEED);
+            renderingHints.put(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
+            renderingHints.put(RenderingHints.KEY_COLOR_RENDERING, RenderingHints.VALUE_COLOR_RENDER_SPEED);
+            renderingHints.put(RenderingHints.KEY_DITHERING, RenderingHints.VALUE_DITHER_DISABLE);
+            renderingHints.put(RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_OFF);
+            renderingHints.put(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_NEAREST_NEIGHBOR);
+            renderingHints.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_SPEED);
+            renderingHints.put(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_OFF);
         }
     }
 }

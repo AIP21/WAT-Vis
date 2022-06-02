@@ -18,6 +18,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
     private boolean isRunning = true;
     public boolean ShouldDraw = false;
+    public boolean exporting = false;
     public boolean isPlaying = false;
     private long last = 0;
     private double curFPS = 0;
@@ -92,6 +93,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
     public Panel(Settings settings, Logger logger, PlayerTrackerDecoder main) {
         super(true);
+        setOpaque(true);
 
         this.settings = settings;
         this.logger = logger;
@@ -101,7 +103,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
         initComponents();
 
-        if (settings.antialiasing) {
+        if (settings.fancyRendering) {
             logger.info("Antialiasing enabled on main display panel", 0);
         }
 
@@ -128,11 +130,12 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         return image;
     }
 
+
     public void run() {
         long lastTime = System.nanoTime();
         double ns = 1000000000 / (double) settings.fpsLimit;
-        double delta = 0;
         long start;
+        double delta = 0;
 
         int fpsLimit = settings.fpsLimit;
         while (isRunning) {
@@ -147,7 +150,6 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
             if (delta >= 1) {
 //                if (ShouldTick) {
 //                System.out.println("thread run");
-
                 if (isPlaying) {
                     if (dateTimeIndex < timesCount) {
                         endDate = logDates.get(dateTimeIndex);
@@ -168,15 +170,17 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
                     main.endDateLabel.setText(endDate.toString().replace("T", "; "));
                 }
 
-                float speed = 0.3f; // Utils.clamp01((6f / (float) curFPS) * 2.0f));
-                curX = Utils.smoothStep(curX, xTarget, speed);
-                curY = Utils.smoothStep(curY, yTarget, speed);
+                if (!exporting) {
+                    float speed = 0.3f; // Utils.clamp01((6f / (float) curFPS) * 2.0f));
+                    curX = Utils.smoothStep(curX, xTarget, speed);
+                    curY = Utils.smoothStep(curY, yTarget, speed);
 
-                curZoomFactor = Utils.smoothStep(curZoomFactor, zoomFactor, speed);
+                    curZoomFactor = Utils.smoothStep(curZoomFactor, zoomFactor, speed);
 
-                at = new AffineTransform();
-                at.translate(curX, curY);
-                at.scale(curZoomFactor, curZoomFactor);
+                    at = new AffineTransform();
+                    at.translate(curX, curY);
+                    at.scale(curZoomFactor, curZoomFactor);
+                }
 
                 try {
                     inverse = at.createInverse();
@@ -201,55 +205,53 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     public void paintComponent(Graphics g) {
         last = System.nanoTime();
 
-        super.paintComponent(g);
-
         if (!ShouldDraw)
             return;
 
         Graphics2D g2 = (Graphics2D) g;
+//        g2.setClip(0, 0, getWidth(), getHeight());
 
-        if (settings.antialiasing) {
-            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-            g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-        }
+        g2.setRenderingHints(settings.renderingHints);
 
-        if (zoomer) {
-            double xRel = MouseInfo.getPointerInfo().getLocation().getX() - getLocationOnScreen().getX();
-            double yRel = MouseInfo.getPointerInfo().getLocation().getY() - getLocationOnScreen().getY();
+        if (!exporting) {
+            if (zoomer) {
+                double xRel = MouseInfo.getPointerInfo().getLocation().getX() - getLocationOnScreen().getX();
+                double yRel = MouseInfo.getPointerInfo().getLocation().getY() - getLocationOnScreen().getY();
 
-            double zoomDiv = zoomFactor / prevZoomFactor;
-            xOffset = (zoomDiv) * (xOffset) + (1 - zoomDiv) * (xRel);
-            yOffset = (zoomDiv) * (yOffset) + (1 - zoomDiv) * (yRel);
-            xTarget = xOffset;
-            yTarget = yOffset;
-
-            prevZoomFactor = zoomFactor;
-
-            zoomer = false;
-        }
-
-        if (dragger) {
-            xTarget = xOffset + xDiff;
-            yTarget = yOffset + yDiff;
-
-            if (released) {
-                xOffset += xDiff;
-                yOffset += yDiff;
+                double zoomDiv = zoomFactor / prevZoomFactor;
+                xOffset = (zoomDiv) * (xOffset) + (1 - zoomDiv) * (xRel);
+                yOffset = (zoomDiv) * (yOffset) + (1 - zoomDiv) * (yRel);
                 xTarget = xOffset;
                 yTarget = yOffset;
 
-                dragger = false;
+                prevZoomFactor = zoomFactor;
+
+                zoomer = false;
             }
-        }
 
-        if (PlayerTrackerDecoder.debugMode) {
-            g2.setColor(Color.blue.brighter());
+            if (dragger) {
+                xTarget = xOffset + xDiff;
+                yTarget = yOffset + yDiff;
 
-            Dimension size = getSize();
-            float halfX = (float) (size.getWidth() / 2.0);
-            float halfY = (float) (size.getHeight() / 2.0);
-            drawLine(g2, halfX, halfY, (float) (halfX + xDiff), (float) (halfY + yDiff), 1.0f);
-            drawCrossHair(g2, (float) (halfX + xDiff), (float) (halfY + yDiff), 0.5f, String.format("Drag difference: (%.3f, %.3f)", xDiff, yDiff));
+                if (released) {
+                    xOffset += xDiff;
+                    yOffset += yDiff;
+                    xTarget = xOffset;
+                    yTarget = yOffset;
+
+                    dragger = false;
+                }
+            }
+
+            if (PlayerTrackerDecoder.debugMode) {
+                g2.setColor(Color.blue.brighter());
+
+                Dimension size = getSize();
+                float halfX = (float) (size.getWidth() / 2.0);
+                float halfY = (float) (size.getHeight() / 2.0);
+                drawLine(g2, halfX, halfY, (float) (halfX + xDiff), (float) (halfY + yDiff), 1.0f);
+                drawCrossHair(g2, (float) (halfX + xDiff), (float) (halfY + yDiff), 0.5f, String.format("Drag difference: (%.3f, %.3f)", xDiff, yDiff));
+            }
         }
 
         g2.transform(at);
@@ -275,16 +277,16 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         }
 
         if (PlayerTrackerDecoder.debugMode) {
-            drawCrossHair(g2, 0, 0, 2);
-            drawCrossHair(g2, 500, 0, 1);
-            drawCrossHair(g2, -500, 0, 1);
-            drawCrossHair(g2, 0, 500, 1);
-            drawCrossHair(g2, 0, -500, 1);
+            drawCrossHair(g2, 0, 0, 2, "Origin");
+            drawCrossHair(g2, 500, 0, 1, "500");
+            drawCrossHair(g2, -500, 0, 1, "500");
+            drawCrossHair(g2, 0, 500, 1, "500");
+            drawCrossHair(g2, 0, -500, 1, "500");
 
-            drawCrossHair(g2, 1000, 0, 1);
-            drawCrossHair(g2, -1000, 0, 1);
-            drawCrossHair(g2, 0, 1000, 1);
-            drawCrossHair(g2, 0, -1000, 1);
+            drawCrossHair(g2, 1000, 0, 1, "1000");
+            drawCrossHair(g2, -1000, 0, 1, "1000");
+            drawCrossHair(g2, 0, 1000, 1, "1000");
+            drawCrossHair(g2, 0, -1000, 1, "1000");
 
             g2.setColor(Color.orange);
             drawCrossHair(g2, xBackgroundOffset, zBackgroundOffset, 0.75f, String.format("Background offset: (%d, %d)", xBackgroundOffset, zBackgroundOffset));
@@ -310,14 +312,42 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     }
 
     private void calculateTimings(double delta) {
-        if (frameTimeHistory.size() < 50) {
+        if (frameTimeHistory.size() < 10) {
             frameTimeHistory.add(delta / 1000000.0);
         } else {
             frameTimeHistory.remove(0);
             frameTimeHistory.add(delta / 1000000.0);
         }
         frameTime = Utils.calculateAverage(frameTimeHistory);
-        curFPS = 1000.0 / frameTime; // 1.e9 / frameTime (in nanos)
+        curFPS = 1000.0 / frameTime; // 1.e9 / frameTime // (in nanos)
+    }
+
+    private BufferedImage toCompatibleImage(BufferedImage image) {
+        // obtain the current system graphical settings
+        GraphicsConfiguration gfxConfig = GraphicsEnvironment.
+                getLocalGraphicsEnvironment().getDefaultScreenDevice().
+                getDefaultConfiguration();
+
+        /*
+         * if image is already compatible and optimized for current system
+         * settings, simply return it
+         */
+        if (image.getColorModel().equals(gfxConfig.getColorModel()))
+            return image;
+
+        // image is not optimized, so create a new image that is
+        BufferedImage newImage = gfxConfig.createCompatibleImage(
+                image.getWidth(), image.getHeight(), image.getTransparency());
+
+        // get the graphics context of the new image to draw the old image on
+        Graphics2D g2d = newImage.createGraphics();
+
+        // actually draw the image and dispose of context no longer needed
+        g2d.drawImage(image, 0, 0, null);
+        g2d.dispose();
+
+        // return the new optimized image
+        return newImage;
     }
 
     //region Drawing
@@ -341,25 +371,31 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         g2d.draw(new Line2D.Float(x + (10 * size), y, x + (30 * size), y));
     }
 
+    private BasicStroke stroke;
+    private BasicStroke dashedStroke;
+    private ArrayList<String> playerFirst = new ArrayList<>();
+    private Map<String, Integer> playerOccurrences = new HashMap<>();
+    private Dimension screenSize;
+
     private void drawPoints(Graphics2D g2d, boolean useCulling, int offsetX, int offsetY, int upscale) {
         Point pt = new Point();
-        Dimension screenSize = getSize();
+        screenSize = getSize();
         renderedPoints = 0;
         playerLastPosMap.clear();
-        ArrayList<String> playerFirst = new ArrayList<>();
-        Map<String, Integer> playerOccurences = new LinkedHashMap<>();
+        playerFirst.clear();
+        playerOccurrences.clear();
 
-        BasicStroke stroke = new BasicStroke(settings.size);
-        BasicStroke dashedStroke = new BasicStroke((settings.size / 2.0F), BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10.0F, new float[]{9.0F}, 0.0F);
+        stroke = new BasicStroke(settings.size);
+        dashedStroke = new BasicStroke((settings.size / 2.0F), BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10.0F, new float[]{9.0F}, 0.0F);
 
         g2d.setColor(Color.black);
 
         for (LogEntry entry : enabledEntries) {
             if (settings.ageFade) {
-                if (!playerOccurences.containsKey(entry.playerName)) {
-                    playerOccurences.put(entry.playerName, 1);
+                if (!playerOccurrences.containsKey(entry.playerName)) {
+                    playerOccurrences.put(entry.playerName, 1);
                 } else {
-                    playerOccurences.put(entry.playerName, playerOccurences.get(entry.playerName) + 1);
+                    playerOccurrences.put(entry.playerName, playerOccurrences.get(entry.playerName) + 1);
                 }
             }
 
@@ -379,7 +415,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
                 int val = 255;
                 if (settings.ageFade) {
                     int markerCount = playerMarkerCount.get(entry.playerName);
-                    val = Utils.clamp(Utils.lerp(255, 0, Math.min(markerCount, playerOccurences.get(entry.playerName) * settings.ageFadeStrength) / (float) markerCount), 0, 255);
+                    val = Utils.clamp(Utils.lerp(255, 0, Math.min(markerCount, playerOccurrences.get(entry.playerName) * settings.ageFadeStrength) / (float) markerCount), 0, 255);
                 }
                 g2d.setColor(new Color(col.getRed(), col.getGreen(), col.getBlue(), val));
 
@@ -418,7 +454,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
                     int val = 255;
                     if (settings.ageFade) {
                         int markerCount = playerMarkerCount.get(entry.playerName);
-                        val = Utils.clamp(Utils.lerp(255, 0, Math.min(markerCount, playerOccurences.get(entry.playerName) * settings.ageFadeStrength) / (float) markerCount), 0, 255);
+                        val = Utils.clamp(Utils.lerp(255, 0, Math.min(markerCount, playerOccurrences.get(entry.playerName) * settings.ageFadeStrength) / (float) markerCount), 0, 255);
                     }
 
                     g2d.setColor(new Color(col.getRed(), col.getGreen(), col.getBlue(), val));
@@ -655,7 +691,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     }
     //endregion
 
-    public void SaveAsImage() {
+    public void SaveAsImage(boolean screenshot) {
         logger.info("Started saving current screen as an image. Currently preparing the image", 1);
         imageExportStatus.setText("  Processing...");
         main.revalidate();
@@ -663,50 +699,60 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
         setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         main.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        exporting = true;
 
         System.gc();
 
-        int imagePadding = 100;
         BufferedImage image = null;
+        int _minX = Math.abs(minX);
+        int _minY = Math.abs(minY);
 
         try {
-            image = new BufferedImage((xRange + (imagePadding * 2)) * upscale, (yRange + (imagePadding * 2)) * upscale, BufferedImage.TYPE_INT_ARGB);
+            image = new BufferedImage((screenshot ? getWidth() : xRange) * upscale, (screenshot ? getHeight() : yRange) * upscale, BufferedImage.TYPE_INT_RGB);
+            image = toCompatibleImage(image);
 
             System.gc();
 
             Graphics2D g2d = image.createGraphics();
-//            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-//            g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
-//            g2d.transform(at); // Use to capture only the current view (aka. screenshot)
+            if (screenshot) {
+                g2d.transform(at);
+            }
+
+            g2d.setColor(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? Color.lightGray : Color.darkGray);
+
+            g2d.fillRect(0, 0, image.getWidth(), image.getHeight());
 
             if (backgroundImage != null) {
                 // (-6384, -5376), (8959, 2767)
-                g2d.drawImage(backgroundImage, xBackgroundOffset, zBackgroundOffset, null);
-            } else {
-                g2d.setColor(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? Color.lightGray : Color.darkGray);
+                g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, backgroundOpacity));
 
-                g2d.fillRect(0, 0, image.getWidth(), image.getHeight());
+                g2d.drawImage(backgroundImage, (xBackgroundOffset * upscale + (!screenshot ? Math.abs(_minX) : 0)), (zBackgroundOffset * upscale + (!screenshot ? Math.abs(_minY) : 0)), null);
+                g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1));
             }
 
-            drawPoints(g2d, false, imagePadding, imagePadding, upscale);
+            if (screenshot) {
+                drawPoints(g2d, false, 0, 0, upscale);
+            } else {
+                drawPoints(g2d, false, _minX, _minY, upscale);
+
+                g2d.setColor(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? Color.black : Color.white);
+                g2d.setFont(new Font("Arial", Font.PLAIN, 24 * upscale));
+                g2d.drawString(String.format("Scale: 1 pixel = %.1f block(s)", (1.0f / (float) upscale)), 24, 24 + (24 * upscale));
+            }
 
             if (PlayerTrackerDecoder.debugMode) {
-                drawCrossHair(g2d, 0, 0, 2);
-                drawCrossHair(g2d, 500, 0, 1);
-                drawCrossHair(g2d, -500, 0, 1);
-                drawCrossHair(g2d, 0, 500, 1);
-                drawCrossHair(g2d, 0, -500, 1);
+                drawCrossHair(g2d, _minX, _minY, 2, "Origin");
+                drawCrossHair(g2d, _minX + 500, _minY, 1, "500");
+                drawCrossHair(g2d, _minX + -500, _minY, 1, "500");
+                drawCrossHair(g2d, _minX, _minY + 500, 1, "500");
+                drawCrossHair(g2d, _minX, _minY + -500, 1, "500");
 
-                drawCrossHair(g2d, 1000, 0, 1);
-                drawCrossHair(g2d, -1000, 0, 1);
-                drawCrossHair(g2d, 0, 1000, 1);
-                drawCrossHair(g2d, 0, -1000, 1);
+                drawCrossHair(g2d, _minX + 1000, _minY, 1, "1000");
+                drawCrossHair(g2d, _minX + -1000, _minY, 1, "1000");
+                drawCrossHair(g2d, _minX, _minY + 1000, 1, "1000");
+                drawCrossHair(g2d, _minX, _minY + -1000, 1, "1000");
             }
-
-            g2d.setColor(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? Color.black : Color.white);
-            g2d.setFont(new Font("Arial", Font.PLAIN, 24 * upscale));
-            g2d.drawString(String.format("Scale: 1 pixel = %.1f block(s)", (1.0f / (float) upscale)), 24, 24 + (24 * upscale));
 
             g2d.dispose();
         } catch (OutOfMemoryError ex) {
@@ -720,7 +766,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
             logger.warn("Outputs folder to save exported image didn't exist so it was just created with result: " + val);
         }
 
-        String name = settings._drawType + "-export-" + _Decoder.dataWorld + "-" + _Decoder.dataDate;
+        String name = settings._drawType + "-" + (screenshot ? "screenshot" : "export") + "-" + _Decoder.dataWorld + "-" + _Decoder.dataDate;
         File[] outFiles = new File("outputs/").listFiles();
         int count = 0;
 
@@ -747,11 +793,13 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
             imageExportStatus.setText("   Done!");
         }
 
+        setCursor(Cursor.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR));
         main.setCursor(Cursor.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR));
+        exporting = false;
     }
 
-    private int offsetUpscale(int input, int offset, float upscale, float fallback) {
-        return (int) ((input + (offset == 0 ? offset : fallback + offset)) * upscale);
+    private int offsetUpscale(int input, int offset, float upscale, int fallback) {
+        return (int) ((input + (offset == 0 ? offset : fallback)) * upscale);
     }
 
     public void Reset() {

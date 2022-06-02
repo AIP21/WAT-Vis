@@ -73,6 +73,7 @@ public class PlayerTrackerDecoder extends JFrame {
     private JToggleButton showHiddenLinesToggle;
 
     private JButton exportAsImageButton;
+    private JButton screenshotButton;
     private JLabel exportUpscaleLabel;
     private JLabel xLabel;
     private JLabel zLabel;
@@ -102,6 +103,8 @@ public class PlayerTrackerDecoder extends JFrame {
     public static ImageIcon importIcon_D;
     public static ImageIcon exportIcon_L;
     public static ImageIcon exportIcon_D;
+    public static ImageIcon screenshotIcon_L;
+    public static ImageIcon screenshotIcon_D;
     public static ImageIcon toggleIconON_L;
     public static ImageIcon toggleIconON_D;
     public static ImageIcon toggleIconOFF_L;
@@ -112,7 +115,7 @@ public class PlayerTrackerDecoder extends JFrame {
     public ImageIcon darkThemeIcon;
     //endregion
 
-    public static final String version = "1.0.1-FR";
+    public static final String version = "1.0.2-FR";
     public static boolean debugMode = false;
 
     public PlayerTrackerDecoder(boolean debug) {
@@ -136,8 +139,10 @@ public class PlayerTrackerDecoder extends JFrame {
             speedIcon_D = new ImageIcon(ImageIO.read(Objects.requireNonNull(getClass().getResource("resources/fastForwardD.png"))).getScaledInstance(24, 24, 4), "Fast Forward");
             importIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(getClass().getResource("resources/import.png"))).getScaledInstance(24, 24, 4), "Import");
             importIcon_D = new ImageIcon(ImageIO.read(Objects.requireNonNull(getClass().getResource("resources/importD.png"))).getScaledInstance(24, 24, 4), "Import");
-            exportIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(getClass().getResource("resources/export.png"))).getScaledInstance(24, 24, 4), "exportPanel");
-            exportIcon_D = new ImageIcon(ImageIO.read(Objects.requireNonNull(getClass().getResource("resources/exportD.png"))).getScaledInstance(24, 24, 4), "exportPanel");
+            exportIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(getClass().getResource("resources/export.png"))).getScaledInstance(24, 24, 4), "Export Image");
+            exportIcon_D = new ImageIcon(ImageIO.read(Objects.requireNonNull(getClass().getResource("resources/exportD.png"))).getScaledInstance(24, 24, 4), "Export Image");
+            screenshotIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(getClass().getResource("resources/screenshot.png"))).getScaledInstance(24, 24, 4), "Take Screenshot");
+            screenshotIcon_D = new ImageIcon(ImageIO.read(Objects.requireNonNull(getClass().getResource("resources/screenshotD.png"))).getScaledInstance(24, 24, 4), "Take Screenshot");
             toggleIconON_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(getClass().getResource("resources/toggle-true.png"))).getScaledInstance(24, 24, 4), "Disable");
             toggleIconON_D = new ImageIcon(ImageIO.read(Objects.requireNonNull(getClass().getResource("resources/toggle-trueD.png"))).getScaledInstance(24, 24, 4), "Disable");
             toggleIconOFF_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(getClass().getResource("resources/toggle-false.png"))).getScaledInstance(24, 24, 4), "Enable");
@@ -390,6 +395,8 @@ public class PlayerTrackerDecoder extends JFrame {
             setCursor(null);
 
             form.toggleComponents(true);
+            form.revalidate();
+            form.repaint();
         });
 
         exec.start();
@@ -404,6 +411,10 @@ public class PlayerTrackerDecoder extends JFrame {
 
         if (exportAsImageButton != null) {
             exportAsImageButton.setIcon(newTheme == PlayerTrackerDecoder.UITheme.Light ? exportIcon_L : exportIcon_D);
+        }
+
+        if (screenshotButton != null) {
+            screenshotButton.setIcon(newTheme == PlayerTrackerDecoder.UITheme.Light ? screenshotIcon_L : screenshotIcon_D);
         }
 
         if (mainPanel.isPlaying && animatePlayPause != null) {
@@ -915,6 +926,16 @@ public class PlayerTrackerDecoder extends JFrame {
         JPanel exportPanel = new JPanel();
         exportPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
+        screenshotButton = new JButton();
+        screenshotButton.setIcon(screenshotIcon_L);
+        screenshotButton.setBackground(new Color(0, 0, 0, 0));
+        screenshotButton.setPreferredSize(new Dimension(48, 48));
+        screenshotButton.setMargin(new Insets(2, 2, 2, 2));
+        screenshotButton.setBorder(BorderFactory.createEmptyBorder());
+
+        screenshotButton.addActionListener(event -> mainPanel.SaveAsImage(true));
+        exportPanel.add(screenshotButton);
+
         exportAsImageButton = new JButton();
         exportAsImageButton.setIcon(exportIcon_L);
         exportAsImageButton.setBackground(new Color(0, 0, 0, 0));
@@ -922,7 +943,7 @@ public class PlayerTrackerDecoder extends JFrame {
         exportAsImageButton.setMargin(new Insets(2, 2, 2, 2));
         exportAsImageButton.setBorder(BorderFactory.createEmptyBorder());
 
-        exportAsImageButton.addActionListener(event -> mainPanel.SaveAsImage());
+        exportAsImageButton.addActionListener(event -> mainPanel.SaveAsImage(false));
         exportPanel.add(exportAsImageButton);
 
         exportPanel.add(new JLabel("   Up-scaling"));

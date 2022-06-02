@@ -21,7 +21,7 @@ public class SettingsForm extends JFrame {
     public JToggleButton lightThemeButton;
     public JToggleButton darkThemeButton;
     public JPanel themeButtonContainer;
-    public JRadioButton antialiasingToggle;
+    public JRadioButton fancyRenderingToggle;
     public JRadioButton debugModeToggle;
     public JSlider fpsLimitSlider;
     public JPanel fpsLimitContainer;
@@ -44,6 +44,7 @@ public class SettingsForm extends JFrame {
 
         setTitle("Settings");
         setSize(new Dimension(720, 480));
+        setMinimumSize(new Dimension(720, 480));
         initComponents();
 
         logger.info("Settings pane opened", 0);
@@ -80,11 +81,11 @@ public class SettingsForm extends JFrame {
         darkThemeButton.setToolTipText("Use a dark ui theme");
         themeButtonContainer.add(darkThemeButton, new GridConstraints(0, 1, 1, 1, 0, 1, 3, 0, null, null, null, 0, false));
 
-        antialiasingToggle = new JRadioButton();
-        antialiasingToggle.setText("Antialiasing");
-        antialiasingToggle.setSelected(settings.antialiasing);
-        antialiasingToggle.setToolTipText("Use antialiasing to smooth out jagged edges on the screen");
-        settingsPanel.add(antialiasingToggle, new GridConstraints(2, 0, 1, 1, 0, 0, 3, 0, null, null, null, 0, false));
+        fancyRenderingToggle = new JRadioButton();
+        fancyRenderingToggle.setText("Fancy Rendering");
+        fancyRenderingToggle.setSelected(settings.fancyRendering);
+        fancyRenderingToggle.setToolTipText("Use fancy rendering to improve visual fidelity at the cost of performance");
+        settingsPanel.add(fancyRenderingToggle, new GridConstraints(2, 0, 1, 1, 0, 0, 3, 0, null, null, null, 0, false));
 
         debugModeToggle = new JRadioButton();
         debugModeToggle.setText("Debug Mode");
@@ -169,11 +170,12 @@ public class SettingsForm extends JFrame {
             logger.info("Set the theme to dark", 0);
         });
 
-        antialiasingToggle.addItemListener((event) -> {
-            settings.antialiasing = event.getStateChange() == ItemEvent.SELECTED;
+        fancyRenderingToggle.addItemListener((event) -> {
+            settings.fancyRendering = event.getStateChange() == ItemEvent.SELECTED;
+            settings.toggleRenderMode();
             settings.SaveSettings();
 
-            logger.info("Toggled antialiasing to: " + settings.antialiasing, 0);
+            logger.info("Toggled fancyRendering to: " + settings.fancyRendering, 0);
         });
 
         debugModeToggle.addItemListener((event) -> {

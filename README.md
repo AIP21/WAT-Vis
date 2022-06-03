@@ -74,4 +74,4 @@ Here are some screenshots from the program, using made-up data and data from my 
 ![image](https://user-images.githubusercontent.com/44927160/168450297-2415fe3d-f164-484f-827b-37ea82d28cd3.png)
 
 **Exported image:**
-![image](https://user-images.githubusercontent.com/44927160/168449213-2c6daaca-a47b-45af-bd96-4a779d8fa759.png)
+![image](https://user-images.githubusercontent.com/44927160/171914953-4ca2684b-328a-4a4e-928e-016d6bf0b025.png)

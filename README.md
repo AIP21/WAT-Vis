@@ -30,8 +30,8 @@ Now you are good to go, just run the .jar file and import your data using the bu
 9. Option to show lines hidden by the threshold (To view nether travel or deaths).
 11. Import a background image of the data's world so that you can see where players are.
 12. **Extensive** configuration for almost everything
-13. Ability to export a view of all the data in one image. (Still kinda buggy, gotta fix it)
-14. And some other stuff I forgot to write here.
+13. Ability to export a view of all the data in one image or take a screenshot of the current view.
+15. And some other stuff I forgot to write here.
 
 # Data Format
 The log data is formatted in a specific way, and can only be read in that way (I might change that in the future). Here is an example line of data:
@@ -74,4 +74,4 @@ Here are some screenshots from the program, using made-up data and data from my 
 ![image](https://user-images.githubusercontent.com/44927160/168450297-2415fe3d-f164-484f-827b-37ea82d28cd3.png)
 
 **Exported image:**
-![image](https://user-images.githubusercontent.com/44927160/168449213-2c6daaca-a47b-45af-bd96-4a779d8fa759.png)
+![image](https://user-images.githubusercontent.com/44927160/171914953-4ca2684b-328a-4a4e-928e-016d6bf0b025.png)

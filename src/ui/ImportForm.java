@@ -205,7 +205,7 @@ public class ImportForm extends JFrame {
         convertChunksLabel.setText(" Convert Chunks");
         importSettingsPanel.add(convertChunksLabel, new com.intellij.uiDesigner.core.GridConstraints(3, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         fancyRenderingLabel = new JLabel();
-        fancyRenderingLabel.setText("Fancy Rendering");
+        fancyRenderingLabel.setText(" Fancy Rendering");
         importSettingsPanel.add(fancyRenderingLabel, new com.intellij.uiDesigner.core.GridConstraints(4, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         maxEntriesSpinner = new JSpinner();
         maxEntriesSpinner.setValue(settings.maxDataEntries);
@@ -266,7 +266,8 @@ public class ImportForm extends JFrame {
         });
 
         cancelButton.addActionListener(event -> {
-            main.mainPanel.ShouldDraw = true;
+            main.mainPanel.shouldDraw = true;
+            main.mainPanel.isPlaying = false;
             this.setVisible(false);
         });
 

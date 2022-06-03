@@ -17,9 +17,12 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     public Decoder _Decoder;
 
     private boolean isRunning = true;
-    public boolean ShouldDraw = false;
+    public boolean shouldDraw = false;
     public boolean exporting = false;
     public boolean isPlaying = false;
+    public int animationSpeed = 1;
+    private boolean shouldUpdate = false;
+    private boolean shouldUpdateLog = false;
     private long last = 0;
     private double curFPS = 0;
     private double frameTime = 0;
@@ -91,20 +94,33 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
     private final PlayerTrackerDecoder main;
 
+//    private JFrame otherFrame;
+//    private JPanel otherPanel;
+
     public Panel(Settings settings, Logger logger, PlayerTrackerDecoder main) {
         super(true);
-        setOpaque(true);
+//        setOpaque(true);
+        setBackground(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? Color.lightGray : Color.darkGray);
 
         this.settings = settings;
         this.logger = logger;
         this.main = main;
+//
+//        otherFrame = new JFrame();
+//        otherFrame.setTitle("Export Preview");
+//        otherFrame.setVisible(true);
+//        otherPanel = new JPanel();
+//        otherPanel.setBackground(Color.black);
+//        otherFrame.add(otherPanel, BorderLayout.CENTER);
+//        otherFrame.revalidate();
+//        otherFrame.setIgnoreRepaint(true);
 
         logger.info("Initializing main display subsystem", 1);
 
         initComponents();
 
         if (settings.fancyRendering) {
-            logger.info("Antialiasing enabled on main display panel", 0);
+            logger.info("Fancy rendering initialized on main display panel", 0);
         }
 
         logger.info("Successfully initialized main display subsystem", 1);
@@ -114,7 +130,6 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         addMouseWheelListener(this);
         addMouseMotionListener(this);
         addMouseListener(this);
-        setBackground(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? Color.lightGray : Color.darkGray);
         mousePosition = new Point();
     }
 
@@ -150,17 +165,22 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
             if (delta >= 1) {
 //                if (ShouldTick) {
 //                System.out.println("thread run");
-                if (isPlaying) {
+                if (!exporting && isPlaying) {
                     if (dateTimeIndex < timesCount) {
                         endDate = logDates.get(dateTimeIndex);
-                        updatePoints(false);
-                        dateTimeIndex++;
+                        queuePointUpdate(false);
+                        if (dateTimeIndex + animationSpeed < timesCount) {
+                            dateTimeIndex += animationSpeed;
+                        } else {
+                            dateTimeIndex = timesCount;
+                        }
 //                            ShouldTick = true;
 
                         logger.info("Playing animated", 0);
                     } else {
                         isPlaying = false;
 //                            ShouldTick = false;
+                        main.animatePlayPause.setSelected(isPlaying);
 
                         logger.info("Finished playing", 0);
                     }
@@ -192,7 +212,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 //                            ShouldTick = false;
 //                        }
 
-                if (ShouldDraw) {
+                if (shouldDraw) {
                     repaint();
                 }
 //                }
@@ -205,7 +225,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     public void paintComponent(Graphics g) {
         last = System.nanoTime();
 
-        if (!ShouldDraw)
+        if (!shouldDraw)
             return;
 
         Graphics2D g2 = (Graphics2D) g;
@@ -242,16 +262,16 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
                     dragger = false;
                 }
             }
+        }
 
-            if (PlayerTrackerDecoder.debugMode) {
-                g2.setColor(Color.blue.brighter());
+        if (PlayerTrackerDecoder.debugMode) {
+            g2.setColor(Color.blue.brighter());
 
-                Dimension size = getSize();
-                float halfX = (float) (size.getWidth() / 2.0);
-                float halfY = (float) (size.getHeight() / 2.0);
-                drawLine(g2, halfX, halfY, (float) (halfX + xDiff), (float) (halfY + yDiff), 1.0f);
-                drawCrossHair(g2, (float) (halfX + xDiff), (float) (halfY + yDiff), 0.5f, String.format("Drag difference: (%.3f, %.3f)", xDiff, yDiff));
-            }
+            Dimension size = getSize();
+            float halfX = (float) (size.getWidth() / 2.0);
+            float halfY = (float) (size.getHeight() / 2.0);
+            drawLine(g2, halfX, halfY, (float) (halfX + xDiff), (float) (halfY + yDiff), 1.0f);
+            drawCrossHair(g2, (float) (halfX + xDiff), (float) (halfY + yDiff), 0.5f, String.format("Drag difference: (%.3f, %.3f)", xDiff, yDiff));
         }
 
         g2.transform(at);
@@ -264,7 +284,11 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
             g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1));
         }
 
-        drawPoints(g2, true, 0, 0, 1);
+        if (shouldUpdate) {
+            updatePoints();
+            shouldUpdate = false;
+        }
+        drawPoints(g2, true, getSize(), 0, 0, 1);
 
         g2.setColor(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? Color.black : Color.white);
         g2.setStroke(new BasicStroke(1));
@@ -299,11 +323,17 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
             g2.setColor(Color.green.darker());
             drawCrossHair(g2, (float) xOffset, (float) yOffset, 0.5f, String.format("Render offset: (%.3f, %.3f)", xOffset, yOffset));
 
-            RenderedPointsLabel.setText(String.format("   Loaded: %d | Rendered: %d | Zoom: %.3f | targetX: %.3f, targetY: %.3f | curX: %.3f, curY: %.3f | %.3f FPS | shouldDraw: %b | frameTime: %.3f ms | ", totalData, renderedPoints, curZoomFactor, xTarget, yTarget, curX, curY, curFPS, ShouldDraw, frameTime));
+            RenderedPointsLabel.setText(String.format("   Loaded: %d | Rendered: %d | Zoom: %.3f | targetX: %.3f, targetY: %.3f | curX: %.3f, curY: %.3f | %.3f FPS | shouldDraw: %b | frameTime: %.3f ms | ", totalData, renderedPoints, curZoomFactor, xTarget, yTarget, curX, curY, curFPS, shouldDraw, frameTime));
 //            RenderedPointsLabel.setText(String.format("   Loaded: %d | Rendered: %d | Zoom: %.3f | curX: %.3f, curY: %.3f | %d FPS | ", totalData, renderedPoints, zoomFactor, curX, curY, curFPS));
         } else {
             RenderedPointsLabel.setText(String.format("   Loaded: %d | Rendered: %d | Zoom: %.3f | %.3f FPS | ", totalData, renderedPoints, curZoomFactor, curFPS));
         }
+
+//        Graphics2D panelG2d = (Graphics2D) otherPanel.getGraphics();
+//        drawImg(panelG2d, otherPanel.getWidth(), otherPanel.getHeight());
+//
+//        panelG2d.dispose();
+//        otherPanel.revalidate();
 
         g2.dispose();
 
@@ -320,34 +350,6 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         }
         frameTime = Utils.calculateAverage(frameTimeHistory);
         curFPS = 1000.0 / frameTime; // 1.e9 / frameTime // (in nanos)
-    }
-
-    private BufferedImage toCompatibleImage(BufferedImage image) {
-        // obtain the current system graphical settings
-        GraphicsConfiguration gfxConfig = GraphicsEnvironment.
-                getLocalGraphicsEnvironment().getDefaultScreenDevice().
-                getDefaultConfiguration();
-
-        /*
-         * if image is already compatible and optimized for current system
-         * settings, simply return it
-         */
-        if (image.getColorModel().equals(gfxConfig.getColorModel()))
-            return image;
-
-        // image is not optimized, so create a new image that is
-        BufferedImage newImage = gfxConfig.createCompatibleImage(
-                image.getWidth(), image.getHeight(), image.getTransparency());
-
-        // get the graphics context of the new image to draw the old image on
-        Graphics2D g2d = newImage.createGraphics();
-
-        // actually draw the image and dispose of context no longer needed
-        g2d.drawImage(image, 0, 0, null);
-        g2d.dispose();
-
-        // return the new optimized image
-        return newImage;
     }
 
     //region Drawing
@@ -377,9 +379,9 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     private Map<String, Integer> playerOccurrences = new HashMap<>();
     private Dimension screenSize;
 
-    private void drawPoints(Graphics2D g2d, boolean useCulling, int offsetX, int offsetY, int upscale) {
+    private void drawPoints(Graphics2D g2d, boolean useCulling, Dimension cullBounds, int offsetX, int offsetY, float upscale) {
         Point pt = new Point();
-        screenSize = getSize();
+        screenSize = cullBounds;
         renderedPoints = 0;
         playerLastPosMap.clear();
         playerFirst.clear();
@@ -390,6 +392,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
         g2d.setColor(Color.black);
 
+//        ArrayList<LogEntry> entries = (ArrayList<LogEntry>) enabledEntries.clone();
         for (LogEntry entry : enabledEntries) {
             if (settings.ageFade) {
                 if (!playerOccurrences.containsKey(entry.playerName)) {
@@ -401,8 +404,8 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
             if (at != null) at.transform(entry.position.toPoint(), pt);
 
-            int x = offsetUpscale(entry.position.x, offsetX, upscale, Math.abs(minX));
-            int y = offsetUpscale(entry.position.z, offsetY, upscale, Math.abs(minY));
+            float x = (entry.position.x + offsetX) * upscale;
+            float y = (entry.position.z + offsetY) * upscale;
 
             if (settings.terminusPoints && settings._drawType == Decoder.DrawType.Line && !playerFirst.contains(entry.playerName)) {
                 playerFirst.add(entry.playerName);
@@ -467,9 +470,9 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
                         }
 
                         if (settings.fancyLines) {
-                            drawArrowLine(g2d, x, y, offsetUpscale(lastPos.x, offsetX, upscale, Math.abs(minX)), offsetUpscale(lastPos.z, offsetY, upscale, Math.abs(minY)), settings.size * 2, settings.size * 2);
+                            drawArrowLine(g2d, x, y, (lastPos.x + offsetX) * upscale, (lastPos.z + offsetY) * upscale, settings.size * 2, settings.size * 2);
                         } else {
-                            drawLine(g2d, x, y, offsetUpscale(lastPos.x, offsetX, upscale, Math.abs(minX)), offsetUpscale(lastPos.z, offsetY, upscale, Math.abs(minY)), settings.size);
+                            drawLine(g2d, x, y, (lastPos.x + offsetX) * upscale, (lastPos.z + offsetY) * upscale, settings.size);
                         }
                         renderedPoints++;
                     }
@@ -481,12 +484,12 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
         if (settings.terminusPoints && settings._drawType == Decoder.DrawType.Line) {
             for (String name : playerLastPosMap.keySet()) {
-                if (playerNameEnabledMap.containsKey(name)) {
+                if (playerNameEnabledMap.get(name)) {
                     Vector3 pos = playerLastPosMap.get(name);
                     if (at != null) at.transform(pos.toPoint(), pt);
 
-                    int x = offsetUpscale(pos.x, offsetX, upscale, Math.abs(minX));
-                    int y = offsetUpscale(pos.z, offsetY, upscale, Math.abs(minY));
+                    float x = (pos.x + offsetX) * upscale;
+                    float y = (pos.z + offsetY) * upscale;
 
                     if (!useCulling || (pt.x >= -50 && pt.x <= screenSize.width + 50 && pt.y >= -50 && pt.y <= screenSize.height + 50)) {
                         g2d.setColor(playerNameColorMap.get(name));
@@ -528,8 +531,15 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     //endregion
 
     //region Data
-    public void updatePoints(boolean log) {
-        if (log) logger.info("Updating points", 0);
+    public void queuePointUpdate(boolean log) {
+        shouldUpdate = true;
+        shouldUpdateLog = log;
+    }
+
+    private void updatePoints() {
+        if (shouldUpdateLog) logger.info("Updating points", 0);
+        boolean start = shouldDraw;
+        shouldDraw = false;
 
 //        logEntriesGroupedByTime.clear();
         playerMarkerCount.clear();
@@ -539,24 +549,24 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
         for (LogEntry entry : logEntries) {
             if (!entry.isChunk && ((entry.time.isAfter(startDate) && entry.time.isBefore(endDate)) || entry.time.equals(startDate) || entry.time.equals(endDate))) {
-                if (playerNameEnabledMap.containsKey(entry.playerName)) {
+                if (playerNameEnabledMap.get(entry.playerName)) {
                     enabledEntries.add(entry);
-                }
 
-                if (!playerMarkerCount.containsKey(entry.playerName)) {
-                    playerMarkerCount.put(entry.playerName, 1);
-                } else {
-                    playerMarkerCount.put(entry.playerName, playerMarkerCount.get(entry.playerName) + 1);
-                }
+                    if (!playerMarkerCount.containsKey(entry.playerName)) {
+                        playerMarkerCount.put(entry.playerName, 1);
+                    } else {
+                        playerMarkerCount.put(entry.playerName, playerMarkerCount.get(entry.playerName) + 1);
+                    }
 
-                if (!posActivityMap.containsKey(entry.position)) {
-                    posActivityMap.put(entry.position, 1);
-                } else {
-                    int val = posActivityMap.get(entry.position) + 1;
-                    posActivityMap.put(entry.position, val);
+                    if (!posActivityMap.containsKey(entry.position)) {
+                        posActivityMap.put(entry.position, 1);
+                    } else {
+                        int val = posActivityMap.get(entry.position) + 1;
+                        posActivityMap.put(entry.position, val);
 
-                    if (maxActivity < val) {
-                        maxActivity = val;
+                        if (maxActivity < val) {
+                            maxActivity = val;
+                        }
                     }
                 }
             }
@@ -564,7 +574,9 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
 //        repaint();
 
-        if (log) logger.info("Updated points: " + logEntries.size(), 0);
+        shouldDraw = start;
+
+        if (shouldUpdateLog) logger.info("Updated points: " + logEntries.size(), 1);
     }
 
     public void setData(Decoder dec) {
@@ -692,6 +704,8 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     //endregion
 
     public void SaveAsImage(boolean screenshot) {
+        boolean playing = isPlaying;
+        isPlaying = false;
         logger.info("Started saving current screen as an image. Currently preparing the image", 1);
         imageExportStatus.setText("  Processing...");
         main.revalidate();
@@ -704,55 +718,16 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         System.gc();
 
         BufferedImage image = null;
-        int _minX = Math.abs(minX);
-        int _minY = Math.abs(minY);
 
         try {
             image = new BufferedImage((screenshot ? getWidth() : xRange) * upscale, (screenshot ? getHeight() : yRange) * upscale, BufferedImage.TYPE_INT_RGB);
-            image = toCompatibleImage(image);
+            image.setAccelerationPriority(1);
 
             System.gc();
 
             Graphics2D g2d = image.createGraphics();
 
-            if (screenshot) {
-                g2d.transform(at);
-            }
-
-            g2d.setColor(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? Color.lightGray : Color.darkGray);
-
-            g2d.fillRect(0, 0, image.getWidth(), image.getHeight());
-
-            if (backgroundImage != null) {
-                // (-6384, -5376), (8959, 2767)
-                g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, backgroundOpacity));
-
-                g2d.drawImage(backgroundImage, (xBackgroundOffset * upscale + (!screenshot ? Math.abs(_minX) : 0)), (zBackgroundOffset * upscale + (!screenshot ? Math.abs(_minY) : 0)), null);
-                g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1));
-            }
-
-            if (screenshot) {
-                drawPoints(g2d, false, 0, 0, upscale);
-            } else {
-                drawPoints(g2d, false, _minX, _minY, upscale);
-
-                g2d.setColor(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? Color.black : Color.white);
-                g2d.setFont(new Font("Arial", Font.PLAIN, 24 * upscale));
-                g2d.drawString(String.format("Scale: 1 pixel = %.1f block(s)", (1.0f / (float) upscale)), 24, 24 + (24 * upscale));
-            }
-
-            if (PlayerTrackerDecoder.debugMode) {
-                drawCrossHair(g2d, _minX, _minY, 2, "Origin");
-                drawCrossHair(g2d, _minX + 500, _minY, 1, "500");
-                drawCrossHair(g2d, _minX + -500, _minY, 1, "500");
-                drawCrossHair(g2d, _minX, _minY + 500, 1, "500");
-                drawCrossHair(g2d, _minX, _minY + -500, 1, "500");
-
-                drawCrossHair(g2d, _minX + 1000, _minY, 1, "1000");
-                drawCrossHair(g2d, _minX + -1000, _minY, 1, "1000");
-                drawCrossHair(g2d, _minX, _minY + 1000, 1, "1000");
-                drawCrossHair(g2d, _minX, _minY + -1000, 1, "1000");
-            }
+            drawImg(g2d, image.getWidth(), image.getHeight(), screenshot);
 
             g2d.dispose();
         } catch (OutOfMemoryError ex) {
@@ -793,13 +768,59 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
             imageExportStatus.setText("   Done!");
         }
 
+        Toolkit.getDefaultToolkit().beep();
         setCursor(Cursor.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR));
         main.setCursor(Cursor.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR));
         exporting = false;
+        isPlaying = playing;
     }
 
-    private int offsetUpscale(int input, int offset, float upscale, int fallback) {
-        return (int) ((input + (offset == 0 ? offset : fallback)) * upscale);
+    private void drawImg(Graphics2D g2d, int width, int height, boolean screenshot) {
+        int _minX = Math.abs(minX);
+        int _minY = Math.abs(minY);
+
+        g2d.setColor(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? Color.white : Color.darkGray);
+        g2d.fillRect(0, 0, width, height);
+
+        if (screenshot) {
+            AffineTransform _at = new AffineTransform();
+            _at.translate(xTarget * upscale, yTarget * upscale);
+            _at.scale(zoomFactor, zoomFactor);
+            _at.scale(upscale, upscale);
+            g2d.transform(_at);
+        }
+
+        if (backgroundImage != null) {
+            // (-6384, -5376), (8959, 2767)
+            g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, backgroundOpacity));
+
+            // error of ~500 down and ~100 right FOR SOME STUPID REASON
+            g2d.drawImage(backgroundImage, xBackgroundOffset, zBackgroundOffset, null);
+            g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1));
+        }
+
+        if (screenshot) {
+            drawPoints(g2d, true, getSize(), 0, 0, 1);
+        } else {
+            drawPoints(g2d, false, getSize(), _minX, _minY, 1);
+
+            g2d.setColor(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? Color.black : Color.white);
+            g2d.setFont(new Font("Arial", Font.PLAIN, 24 * upscale));
+            g2d.drawString(String.format("Scale: 1 pixel = %.1f block(s)", (1.0f / (float) upscale)), 24, 24 + (24 * upscale));
+        }
+
+        if (PlayerTrackerDecoder.debugMode) {
+            drawCrossHair(g2d, _minX, _minY, 2, "Origin");
+            drawCrossHair(g2d, _minX + 500, _minY, 1, "500");
+            drawCrossHair(g2d, _minX + -500, _minY, 1, "500");
+            drawCrossHair(g2d, _minX, _minY + 500, 1, "500");
+            drawCrossHair(g2d, _minX, _minY + -500, 1, "500");
+
+            drawCrossHair(g2d, _minX + 1000, _minY, 1, "1000");
+            drawCrossHair(g2d, _minX + -1000, _minY, 1, "1000");
+            drawCrossHair(g2d, _minX, _minY + 1000, 1, "1000");
+            drawCrossHair(g2d, _minX, _minY + -1000, 1, "1000");
+        }
     }
 
     public void Reset() {

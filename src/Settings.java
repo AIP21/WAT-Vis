@@ -90,6 +90,7 @@ public class Settings {
             writer.println("heatMapStrength: " + heatMapStrength + " // How much to change colors on the heatmap");
             writer.println("mouseSensitivity: " + mouseSensitivity + " // How sensitive mouse inputs should be");
             writer.close();
+
             logger.info("Successfully saved and wrote settings to config file", 0);
         } catch (Exception e) {
             logger.error("Error saving and writing settings to config file:\n   " + Arrays.toString(e.getStackTrace()));

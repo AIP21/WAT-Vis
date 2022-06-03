@@ -83,7 +83,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.gutterIcons" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -104,6 +104,7 @@
       <option name="MAIN_CLASS_NAME" value="src.PlayerTrackerDecoder" />
       <module name="TrackerDecoderApp" />
       <option name="PROGRAM_PARAMETERS" value="-debug" />
+      <option name="VM_PARAMETERS" value="-Xmx7G" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

@@ -42,7 +42,7 @@ public class PlayerTrackerDecoder extends JFrame {
     private LocalDateTime endDate;
     public JLabel startDateLabel;
     public JLabel endDateLabel;
-    private JToggleButton animatePlayPause;
+    public JToggleButton animatePlayPause;
 
     private JComboBox<Decoder.DrawType> drawTypeChooser;
     private JComboBox<PlayerTrackerDecoder.HeatDrawType> heatDrawTypeChooser;
@@ -115,7 +115,7 @@ public class PlayerTrackerDecoder extends JFrame {
     public ImageIcon darkThemeIcon;
     //endregion
 
-    public static final String version = "1.0.2-FR";
+    public static final String version = "1.0.4-FR";
     public static boolean debugMode = false;
 
     public PlayerTrackerDecoder(boolean debug) {
@@ -178,7 +178,8 @@ public class PlayerTrackerDecoder extends JFrame {
         dataFileImportButton.addActionListener((event) -> {
             hasBackgroundImage = false;
             mainPanel.isPlaying = false;
-            mainPanel.ShouldDraw = false;
+            mainPanel.shouldDraw = false;
+            mainPanel.backgroundImage = null;
             if (importForm != null) {
                 importForm.setVisible(false);
                 importForm = null;
@@ -274,7 +275,7 @@ public class PlayerTrackerDecoder extends JFrame {
                     evt.acceptDrop(DnDConstants.ACTION_REFERENCE);
                     hasBackgroundImage = false;
                     mainPanel.isPlaying = false;
-                    mainPanel.ShouldDraw = false;
+                    mainPanel.shouldDraw = false;
                     if (importForm != null) {
                         importForm.setVisible(false);
                         importForm = null;
@@ -290,15 +291,13 @@ public class PlayerTrackerDecoder extends JFrame {
         mainPanel.setDoubleBuffered(true);
         (new Thread(mainPanel)).start();
 
-//        scrollPane = new JScrollPane(mainPanel);
         mainPanel.CoordinateLabel = new JLabel();
         mainPanel.CoordinateLabel.setText("");
         mainPanel.SelectedEntryLabel = new JLabel("Nothing Selected");
         mainPanel.SelectedEntryLabel.setVisible(false);
-//        scrollPane.setDoubleBuffered(true);
-//        add(scrollPane);
         add(mainPanel);
         mainPanel.setVisible(true);
+        mainPanel.repaint();
         revalidate();
         logger.info("Successfully initialized primary frame subsystem", 1);
     }
@@ -309,6 +308,7 @@ public class PlayerTrackerDecoder extends JFrame {
 
             try {
                 mainPanel.backgroundImage = mainPanel.LoadBackgroundImage(imgFile);
+                mainPanel.backgroundImage.setAccelerationPriority(1);
 
                 backgroundImagePanel = new JPanel();
                 backgroundImagePanel.setLayout(new GridLayout(3, 5));
@@ -475,9 +475,9 @@ public class PlayerTrackerDecoder extends JFrame {
 
         //region Data
         JPanel dataPanel = new JPanel();
-//        dataPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        dataPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 4, new Insets(0, 0, 0, 0), -1, -1));
 
-        dataPanel.add(new JLabel("Dates To Represent:   "));
+        dataPanel.add(new JLabel("Dates To Represent:   "), new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
 
         dateRangeSlider = new RangeSlider(0, logDates.size() - 1);
         dateRangeSlider.setPreferredSize(new Dimension(600, 48));
@@ -504,22 +504,22 @@ public class PlayerTrackerDecoder extends JFrame {
             endDateLabel.setText(endDate.toString().replace("T", "; "));
 
             if (!mainPanel.isPlaying) {
-                mainPanel.updatePoints(true);
+                mainPanel.queuePointUpdate(true);
                 logger.info("Changed date range slider: From " + startDate.toString() + " to " + endDate.toString(), 0);
             }
         });
-        dataPanel.add(startDateLabel);
-        dataPanel.add(dateRangeSlider);
-        dataPanel.add(endDateLabel);
+        dataPanel.add(startDateLabel, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        dataPanel.add(dateRangeSlider, new com.intellij.uiDesigner.core.GridConstraints(0, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        dataPanel.add(endDateLabel, new com.intellij.uiDesigner.core.GridConstraints(0, 3, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+
+        dataPanel.add(new JLabel("Animate:", JLabel.RIGHT), new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
 
         animatePlayPause = new JToggleButton("", false);
         animatePlayPause.setIcon(mainPanel.isPlaying ? pauseIcon_L : playIcon_L);
         animatePlayPause.setPreferredSize(new Dimension(24, 24));
         animatePlayPause.setMargin(new Insets(2, 2, 2, 2));
         animatePlayPause.setBorder(BorderFactory.createEmptyBorder());
-
-//        button.setRolloverIcon(ICON_CLOSE);
-//        button.setRolloverEnabled(true);
+        animatePlayPause.setBackground(new Color(0, 0, 0, 0));
 
         animatePlayPause.addItemListener(ev -> {
             mainPanel.isPlaying = (ev.getStateChange() == ItemEvent.SELECTED);
@@ -532,7 +532,25 @@ public class PlayerTrackerDecoder extends JFrame {
             }
             logger.info(mainPanel.isPlaying ? "Started playing animation" : "Stopped playing animation", 0);
         });
-        dataPanel.add(animatePlayPause);
+        dataPanel.add(animatePlayPause, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+
+        dataPanel.add(new JLabel("Animation Speed:", JLabel.RIGHT), new com.intellij.uiDesigner.core.GridConstraints(1, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        JSpinner animSpeedSpinner = new JSpinner();
+        animSpeedSpinner.setValue(mainPanel != null ? mainPanel.animationSpeed : 1);
+        animSpeedSpinner.addChangeListener(e -> {
+            int value = (int) ((JSpinner) e.getSource()).getValue();
+            if (value < 1) {
+                animSpeedSpinner.setValue(1);
+                value = 1;
+            } else if (value > 100) {
+                animSpeedSpinner.setValue(100);
+                value = 100;
+            }
+            mainPanel.animationSpeed = value;
+
+            logger.info("Changed animation speed to: " + mainPanel.animationSpeed, 0);
+        });
+        dataPanel.add(animSpeedSpinner, new com.intellij.uiDesigner.core.GridConstraints(1, 3, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
 
         tabbedPane.addTab("Data", null, dataPanel, "Data range settings");
         //endregion
@@ -578,7 +596,7 @@ public class PlayerTrackerDecoder extends JFrame {
             toggle.addItemListener(ev -> {
                 boolean value = (ev.getStateChange() == ItemEvent.SELECTED);
                 mainPanel.playerNameEnabledMap.put(player, value);
-                mainPanel.updatePoints(true);
+                mainPanel.queuePointUpdate(true);
 
                 logger.info((value ? "Showed " : "Hid ") + player + "'s data", 0);
             });
@@ -822,6 +840,7 @@ public class PlayerTrackerDecoder extends JFrame {
 //        ageFadeToggle.setPreferredSize(new Dimension(24, 24));
         ageFadeToggle.setMargin(new Insets(2, 2, 2, 2));
         ageFadeToggle.setBorder(BorderFactory.createEmptyBorder());
+        ageFadeToggle.setBackground(new Color(0, 0, 0, 0));
         ageFadeToggle.setEnabled(settings._drawType != Decoder.DrawType.Heat);
         renderPanel.add(ageFadeToggle, new com.intellij.uiDesigner.core.GridConstraints(3, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
 
@@ -847,6 +866,7 @@ public class PlayerTrackerDecoder extends JFrame {
 //        fancyLinesToggle.setPreferredSize(new Dimension(24, 24));
         fancyLinesToggle.setMargin(new Insets(2, 2, 2, 2));
         fancyLinesToggle.setBorder(BorderFactory.createEmptyBorder());
+        fancyLinesToggle.setBackground(new Color(0, 0, 0, 0));
 
         fancyLinesToggle.addItemListener(ev -> {
             settings.fancyLines = (ev.getStateChange() == ItemEvent.SELECTED);
@@ -869,6 +889,7 @@ public class PlayerTrackerDecoder extends JFrame {
 //        terminusPointsToggle.setPreferredSize(new Dimension(24, 24));
         terminusPointsToggle.setMargin(new Insets(2, 2, 2, 2));
         terminusPointsToggle.setBorder(BorderFactory.createEmptyBorder());
+        terminusPointsToggle.setBackground(new Color(0, 0, 0, 0));
 
         terminusPointsToggle.addItemListener(ev -> {
             settings.terminusPoints = (ev.getStateChange() == ItemEvent.SELECTED);
@@ -891,6 +912,7 @@ public class PlayerTrackerDecoder extends JFrame {
 //        showHiddenLinesToggle.setPreferredSize(new Dimension(24, 24));
         showHiddenLinesToggle.setMargin(new Insets(2, 2, 2, 2));
         showHiddenLinesToggle.setBorder(BorderFactory.createEmptyBorder());
+        showHiddenLinesToggle.setBackground(new Color(0, 0, 0, 0));
 
         showHiddenLinesToggle.addItemListener(ev -> {
             settings.hiddenLines = (ev.getStateChange() == ItemEvent.SELECTED);
@@ -1005,13 +1027,13 @@ public class PlayerTrackerDecoder extends JFrame {
             mainPanel.endDate = endDate;
             //mainPanel.selectedDate = selectedDate;
             mainPanel.setData(decoder);
-            mainPanel.updatePoints(true);
+            mainPanel.queuePointUpdate(true);
 
             initDataSettingsToolBar(alreadyImported);
             toolbar.setVisible(true);
             mainPanel.SelectedEntryLabel.setVisible(true);
 
-            mainPanel.ShouldDraw = true;
+            mainPanel.shouldDraw = true;
 
             logger.info("Selected files: " + files.length, 0);
 

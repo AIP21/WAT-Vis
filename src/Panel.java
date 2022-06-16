@@ -225,6 +225,8 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     public void paintComponent(Graphics g) {
         last = System.nanoTime();
 
+        super.paintComponent(g);
+
         if (!shouldDraw)
             return;
 

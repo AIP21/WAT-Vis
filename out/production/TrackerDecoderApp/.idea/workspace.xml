@@ -6,20 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="905aa98f-fc7e-4d94-81c1-b5629d46bbbc" name="Changes" comment="Changes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TrackerDecoderApp_jar/TrackerDecoderApp.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TrackerDecoderApp_jar/TrackerDecoderApp.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TrackerDecoderApp_jar/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TrackerDecoderApp_jar/config.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrackerDecoderApp/config.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/Panel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/Panel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/PlayerTrackerDecoder$HeatDrawType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/PlayerTrackerDecoder$HeatDrawType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/PlayerTrackerDecoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/PlayerTrackerDecoder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/Settings.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/Settings.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Panel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PlayerTrackerDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerTrackerDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Settings.java" afterDir="false" />
-    </list>
+    <list default="true" id="905aa98f-fc7e-4d94-81c1-b5629d46bbbc" name="Changes" comment="Changes" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,8 +35,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/Decoder.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/PlayerTrackerDecoder.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Panel.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/PlayerTrackerDecoder.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -58,7 +45,7 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="ProjectId" id="27QiiwzdtaWBwa6V88iafuaDBjI" />
   <component name="ProjectLevelVcsManager">

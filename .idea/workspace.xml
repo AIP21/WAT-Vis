@@ -9,16 +9,19 @@
     <list default="true" id="905aa98f-fc7e-4d94-81c1-b5629d46bbbc" name="Changes" comment="Changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TrackerDecoderApp_jar/TrackerDecoderApp.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TrackerDecoderApp_jar/TrackerDecoderApp.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TrackerDecoderApp_jar/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TrackerDecoderApp_jar/config.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TrackerDecoderApp/TrackerDecoderApp-1.0.1-Full Release.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TrackerDecoderApp/TrackerDecoderApp-1.0.2-Full Release.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TrackerDecoderApp/TrackerDecoderApp-1.0.3-Full Release.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TrackerDecoderApp/TrackerDecoderApp-1.0.4-Full Release.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TrackerDecoderApp/config.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrackerDecoderApp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrackerDecoderApp/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrackerDecoderApp/config.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/Panel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/Panel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/PlayerTrackerDecoder$HeatDrawType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/PlayerTrackerDecoder$HeatDrawType.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/PlayerTrackerDecoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/PlayerTrackerDecoder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/Settings.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/Settings.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Panel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PlayerTrackerDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerTrackerDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Settings.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,8 +51,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/Decoder.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/PlayerTrackerDecoder.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Panel.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/PlayerTrackerDecoder.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -58,7 +61,7 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="ProjectId" id="27QiiwzdtaWBwa6V88iafuaDBjI" />
   <component name="ProjectLevelVcsManager">
@@ -68,23 +71,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="Downloaded.Files.Path.Enabled" value="false" />
-    <property name="Repository.Attach.Annotations" value="false" />
-    <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="Repository.Attach.Sources" value="false" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="263" />
-    <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/resources" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.gutterIcons" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/resources" />

@@ -115,9 +115,9 @@ public class PlayerTrackerDecoder extends JFrame {
     public ImageIcon darkThemeIcon;
     //endregion
 
-    public static final String version = "1.0.4-FR";
-    public static boolean debugMode = false;
+    public static final String version = "1.1.0-FR";
 
+    public static boolean debugMode = false;
     public PlayerTrackerDecoder(boolean debug) {
         debugMode = debug;
 

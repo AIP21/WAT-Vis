@@ -55,6 +55,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     private boolean zoomer;
     private boolean dragger;
     private boolean released;
+//    private boolean selecting;
 
     public float sensitivity = 1;
     private double curZoomFactor = 1;
@@ -624,6 +625,9 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     //region Inputs
     @Override
     public void mouseWheelMoved(MouseWheelEvent e) {
+//        if (selecting)
+//            return;
+
         zoomer = true;
         if (e.getWheelRotation() < 0) {
             zoomFactor = Math.min(50.0f, zoomFactor * (1.05f * sensitivity));
@@ -640,13 +644,17 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
     @Override
     public void mouseDragged(MouseEvent e) {
-        Point curPoint = e.getLocationOnScreen();
-        xDiff = (curPoint.x - startPoint.x) * sensitivity;
-        yDiff = (curPoint.y - startPoint.y) * sensitivity;
-        dragger = true;
+//        if (e.getButton() == MouseEvent.BUTTON2) {
+//            selecting = true;
+//        } else if (e.getButton() == MouseEvent.BUTTON1) {
+            Point curPoint = e.getLocationOnScreen();
+            xDiff = (curPoint.x - startPoint.x) * sensitivity;
+            yDiff = (curPoint.y - startPoint.y) * sensitivity;
+            dragger = true;
 //        ShouldTick = true;
 
-        repaint();
+            repaint();
+//        }
     }
 
     @Override
@@ -657,41 +665,50 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        SelectedEntryLabel.setText("Nothing Selected");
-        boolean found = false;
-        for (LogEntry entry : logEntries) {
-            if (selectedEntry != entry && Math.abs(entry.position.x - mousePosition.x) < 2 && Math.abs(entry.position.z - mousePosition.y) < 2) {
-                selectedEntry = entry;
-                SelectedEntryLabel.setText(entry.toString());
-
-                logger.info("Selected a log entry: " + entry, 1);
-                found = true;
-                break;
-            }
-        }
-
-        if (!found) {
-            selectedEntry = null;
+//        if (e.getButton() == MouseEvent.BUTTON2) {
+//            doRightClick();
+//        } else if (e.getButton() == MouseEvent.BUTTON1) {
             SelectedEntryLabel.setText("Nothing Selected");
-        }
+            boolean found = false;
+            for (LogEntry entry : enabledEntries) {
+                if (selectedEntry != entry && Math.abs(entry.position.x - mousePosition.x) < 2 && Math.abs(entry.position.z - mousePosition.y) < 2) {
+                    selectedEntry = entry;
+                    SelectedEntryLabel.setText(entry.toString());
 
-//        ShouldTick = true;
+                    logger.info("Selected a log entry: " + entry, 1);
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found) {
+                selectedEntry = null;
+                SelectedEntryLabel.setText("Nothing Selected");
+            }
+//        }
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        xDiff = 0;
-        yDiff = 0;
-        released = false;
-        startPoint = MouseInfo.getPointerInfo().getLocation();
-
-//        ShouldTick = true;
+//        if (e.getButton() == MouseEvent.BUTTON1) {
+            xDiff = 0;
+            yDiff = 0;
+            released = false;
+            startPoint = MouseInfo.getPointerInfo().getLocation();
+//        }
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        released = true;
-//        ShouldTick = true;
+//        if (e.getButton() == MouseEvent.BUTTON2) {
+//            if (selecting) {
+//                selecting = false;
+//
+//                finishSelect();
+//            }
+//        } else if (e.getButton() == MouseEvent.BUTTON1) {
+            released = true;
+//        }
 
         repaint();
     }
@@ -703,6 +720,18 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     @Override
     public void mouseExited(MouseEvent e) {
     }
+
+//    private void doRightClick() {
+//        logger.info("right click", 1);
+//        JPopupMenu rightClickMenu = new JPopupMenu("Right Click");
+//        rightClickMenu.setLocation(mousePosition.x, mousePosition.y);
+//
+//        add(rightClickMenu);
+//    }
+//
+//    private void finishSelect() {
+//
+//    }
     //endregion
 
     public void SaveAsImage(boolean screenshot) {

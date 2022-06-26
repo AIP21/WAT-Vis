@@ -51,8 +51,6 @@ public class ImportForm extends JFrame {
     private Settings settings;
     private Logger logger;
 
-    private final boolean USE_MY_DEFAULTS = true;
-
     private ArrayList<File> currentFiles = new ArrayList<>();
 
     public ImportForm(PlayerTrackerDecoder main, Settings settings, Logger logger) {
@@ -300,7 +298,7 @@ public class ImportForm extends JFrame {
             confirmButton.setEnabled(currentFiles.size() > 0);
         });
 
-        if (USE_MY_DEFAULTS) {
+        if (PlayerTrackerDecoder.debugMode) {
             dimensionChooser.addItemListener(event -> {
                 String value = (String) dimensionChooser.getSelectedItem();
                 assert value != null;

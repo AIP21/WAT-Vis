@@ -115,9 +115,10 @@ public class PlayerTrackerDecoder extends JFrame {
     public ImageIcon darkThemeIcon;
     //endregion
 
-    public static final String version = "1.1.0-FR";
+    public static final String version = "1.1.1-FR";
 
     public static boolean debugMode = false;
+
     public PlayerTrackerDecoder(boolean debug) {
         debugMode = debug;
 
@@ -317,10 +318,15 @@ public class PlayerTrackerDecoder extends JFrame {
 
                 int width = mainPanel.backgroundImage.getWidth();
                 int height = mainPanel.backgroundImage.getHeight();
-                int defaultX = mainPanel.xBackgroundOffset;
-                int defaultZ = mainPanel.zBackgroundOffset;
+                int defaultX = Utils.clamp(mainPanel.xBackgroundOffset, -width, width);
+                int defaultZ = Utils.clamp(mainPanel.zBackgroundOffset, -height, height);
 
-                backgroundImagePanel.add(new JLabel("Overworld offset: (-6384, -5376)  Nether offset: (-1008, -1969)"));
+                if (debugMode) {
+                    backgroundImagePanel.add(new JLabel("Overworld offset: (-6384, -5376)  Nether offset: (-1008, -1969)"));
+                }
+
+                logger.info(String.format("width: %d, height: %d", width, height), 0);
+                logger.info(String.format("defaultX: %d, defaultZ: %d", defaultX, defaultZ), 0);
 
                 JSlider xOffsetSlider = new JSlider(0, -width, width, defaultX);
                 xOffsetSlider.setPreferredSize(new Dimension(100, 48));

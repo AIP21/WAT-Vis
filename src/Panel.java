@@ -45,17 +45,17 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     public ArrayList<LogEntry> enabledEntries = new ArrayList<>();
     public Map<String, Boolean> playerNameEnabledMap = new LinkedHashMap<>();
 
-    public JLabel CoordinateLabel;
-    public JLabel SelectedEntryLabel;
-    public JLabel RenderedPointsLabel;
-    private LogEntry selectedEntry;
+    public JLabel coordinateLabel;
+    public JLabel selectedEntryLabel;
+    public JLabel renderedPointsLabel;
+    private ArrayList<LogEntry> selectedEntries = new ArrayList<>();
 
     public int renderedPoints = 0;
 
-    private boolean zoomer;
-    private boolean dragger;
+    private boolean zooming;
+    private boolean dragging;
     private boolean released;
-//    private boolean selecting;
+    private boolean selecting;
 
     public float sensitivity = 1;
     private double curZoomFactor = 1;
@@ -70,6 +70,8 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     private double curX;
     private double curY;
     private Point startPoint;
+    private Point selectionStart = new Point();
+    private Point selectionEnd = new Point();
     private Point mousePosition;
 
     public int minX;
@@ -237,7 +239,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         g2.setRenderingHints(settings.renderingHints);
 
         if (!exporting) {
-            if (zoomer) {
+            if (zooming) {
                 double xRel = MouseInfo.getPointerInfo().getLocation().getX() - getLocationOnScreen().getX();
                 double yRel = MouseInfo.getPointerInfo().getLocation().getY() - getLocationOnScreen().getY();
 
@@ -249,10 +251,10 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
                 prevZoomFactor = zoomFactor;
 
-                zoomer = false;
+                zooming = false;
             }
 
-            if (dragger) {
+            if (dragging) {
                 xTarget = xOffset + xDiff;
                 yTarget = yOffset + yDiff;
 
@@ -262,7 +264,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
                     xTarget = xOffset;
                     yTarget = yOffset;
 
-                    dragger = false;
+                    dragging = false;
                 }
             }
         }
@@ -279,6 +281,11 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
         g2.transform(at);
 
+        if (selecting) {
+            g2.setColor(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? new Color(167, 210, 255) : new Color(33, 65, 130));
+            drawRectangle(g2, selectionStart.x, selectionStart.y, selectionEnd.x, selectionEnd.y, true, false);
+        }
+
         if (backgroundImage != null) {
             // (-6384, -5376), (8959, 2767)
             g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, backgroundOpacity));
@@ -291,19 +298,25 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
             updatePoints();
             shouldUpdate = false;
         }
+
         drawPoints(g2, true, getSize(), 0, 0, 1);
 
         g2.setColor(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? Color.black : Color.white);
         g2.setStroke(new BasicStroke(1));
         float padding = 1.25F;
         g2.drawRect((int) (minX * padding), (int) (minY * padding), (int) (xRange * padding), (int) (yRange * padding));
+
         g2.setColor(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? Color.black : Color.white);
-        if (selectedEntry != null) {
-            g2.setStroke(new BasicStroke(0.25f));
+        g2.setStroke(new BasicStroke(0.25f));
+        for (LogEntry selectedEntry : selectedEntries) {
             drawRectangle(g2, selectedEntry.position.x, selectedEntry.position.z, 3, false);
         }
 
         if (PlayerTrackerDecoder.debugMode) {
+            g2.setColor(Color.magenta);
+            drawCrossHair(g2, mousePosition.x, mousePosition.y, 0.25f);
+
+            g2.setColor(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? Color.black : Color.white);
             drawCrossHair(g2, 0, 0, 2, "Origin");
             drawCrossHair(g2, 500, 0, 1, "500");
             drawCrossHair(g2, -500, 0, 1, "500");
@@ -326,10 +339,10 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
             g2.setColor(Color.green.darker());
             drawCrossHair(g2, (float) xOffset, (float) yOffset, 0.5f, String.format("Render offset: (%.3f, %.3f)", xOffset, yOffset));
 
-            RenderedPointsLabel.setText(String.format("   Loaded: %d | Rendered: %d | Zoom: %.3f | targetX: %.3f, targetY: %.3f | curX: %.3f, curY: %.3f | %.3f FPS | shouldDraw: %b | frameTime: %.3f ms | ", totalData, renderedPoints, curZoomFactor, xTarget, yTarget, curX, curY, curFPS, shouldDraw, frameTime));
+            renderedPointsLabel.setText(String.format("   Loaded: %d | Rendered: %d | Zoom: %.3f | targetX: %.3f, targetY: %.3f | curX: %.3f, curY: %.3f | %.3f FPS | shouldDraw: %b | frameTime: %.3f ms | ", totalData, renderedPoints, curZoomFactor, xTarget, yTarget, curX, curY, curFPS, shouldDraw, frameTime));
 //            RenderedPointsLabel.setText(String.format("   Loaded: %d | Rendered: %d | Zoom: %.3f | curX: %.3f, curY: %.3f | %d FPS | ", totalData, renderedPoints, zoomFactor, curX, curY, curFPS));
         } else {
-            RenderedPointsLabel.setText(String.format("   Loaded: %d | Rendered: %d | Zoom: %.3f | %.3f FPS | ", totalData, renderedPoints, curZoomFactor, curFPS));
+            renderedPointsLabel.setText(String.format("   Loaded: %d | Rendered: %d | Zoom: %.3f | %.3f FPS | ", totalData, renderedPoints, curZoomFactor, curFPS));
         }
 
 //        Graphics2D panelG2d = (Graphics2D) otherPanel.getGraphics();
@@ -508,6 +521,24 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         else g2d.draw(new Rectangle2D.Float(x - size / 2, y - size / 2, size, size));
     }
 
+    private void drawRectangle(Graphics2D g2d, float x1, float y1, float x2, float y2, boolean filled, boolean showBorder) {
+        float startX = Math.min(x1, x2);
+        float startY = Math.min(y1, y2);
+        float endX = Math.max(x1, x2);
+        float endY = Math.max(y1, y2);
+        if (filled) {
+            Rectangle2D.Float rect = new Rectangle2D.Float(startX, startY, endX - startX, endY - startY);
+            g2d.fill(rect);
+
+            if (showBorder) {
+                g2d.setColor(g2d.getColor().brighter());
+                g2d.draw(rect);
+            }
+        } else {
+            g2d.draw(new Rectangle2D.Float(startX, startY, endX - startX, endY - startY));
+        }
+    }
+
     private void drawDot(Graphics2D g2d, float x, float y, float size, boolean filled) {
         if (filled) g2d.fill(new Ellipse2D.Float(x - size / 2, y - size / 2, size, size));
         else g2d.draw(new Ellipse2D.Float(x - size / 2, y - size / 2, size, size));
@@ -551,7 +582,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         maxActivity = 0;
 
         for (LogEntry entry : logEntries) {
-            if (!entry.isChunk && ((entry.time.isAfter(startDate) && entry.time.isBefore(endDate)) || entry.time.equals(startDate) || entry.time.equals(endDate))) {
+            if ((entry.time.isAfter(startDate) && entry.time.isBefore(endDate)) || entry.time.equals(startDate) || entry.time.equals(endDate)) {
                 if (playerNameEnabledMap.get(entry.playerName)) {
                     enabledEntries.add(entry);
 
@@ -615,8 +646,8 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
         Collections.sort(logEntries);
         logger.info("Passed sorting", 1);
 
-        SelectedEntryLabel.setText("Nothing Selected");
-        selectedEntry = null;
+        selectedEntryLabel.setText("Nothing Selected");
+        selectedEntries.clear();
 
         logger.info("Successfully set data to display", 0);
     }
@@ -625,90 +656,94 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     //region Inputs
     @Override
     public void mouseWheelMoved(MouseWheelEvent e) {
-//        if (selecting)
-//            return;
+        if (selecting || dragging)
+            return;
 
-        zoomer = true;
+        zooming = true;
         if (e.getWheelRotation() < 0) {
             zoomFactor = Math.min(50.0f, zoomFactor * (1.05f * sensitivity));
             repaint();
-
-//            ShouldTick = true;
         } else if (e.getWheelRotation() > 0) {
             zoomFactor = Math.max(0.02f, zoomFactor / (1.05f * sensitivity));
             repaint();
-
-//            ShouldTick = true;
         }
     }
 
     @Override
     public void mouseDragged(MouseEvent e) {
-//        if (e.getButton() == MouseEvent.BUTTON2) {
-//            selecting = true;
-//        } else if (e.getButton() == MouseEvent.BUTTON1) {
+        if (SwingUtilities.isLeftMouseButton(e)) {
             Point curPoint = e.getLocationOnScreen();
             xDiff = (curPoint.x - startPoint.x) * sensitivity;
             yDiff = (curPoint.y - startPoint.y) * sensitivity;
-            dragger = true;
-//        ShouldTick = true;
+            dragging = true;
 
             repaint();
-//        }
+        } else if (SwingUtilities.isRightMouseButton(e)) {
+            selecting = true;
+            if (inverse != null) inverse.transform(e.getPoint(), selectionEnd);
+        }
     }
 
     @Override
     public void mouseMoved(MouseEvent e) {
         if (inverse != null) inverse.transform(e.getPoint(), mousePosition);
-        CoordinateLabel.setText(" (" + mousePosition.x + ", " + mousePosition.y + ") | ");
+        coordinateLabel.setText(" (" + mousePosition.x + ", " + mousePosition.y + ") | ");
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-//        if (e.getButton() == MouseEvent.BUTTON2) {
-//            doRightClick();
-//        } else if (e.getButton() == MouseEvent.BUTTON1) {
-            SelectedEntryLabel.setText("Nothing Selected");
-            boolean found = false;
+        if (SwingUtilities.isLeftMouseButton(e)) {
+            boolean shiftDown = e.isShiftDown();
+            if (!shiftDown) {
+                selectedEntryLabel.setText("Nothing Selected");
+                selectedEntries.clear();
+            }
+
             for (LogEntry entry : enabledEntries) {
-                if (selectedEntry != entry && Math.abs(entry.position.x - mousePosition.x) < 2 && Math.abs(entry.position.z - mousePosition.y) < 2) {
-                    selectedEntry = entry;
-                    SelectedEntryLabel.setText(entry.toString());
+                if ((shiftDown || !selectedEntries.contains(entry)) && entry.position.sqrDistTo(mousePosition) < Math.max(4.0f, settings.size * settings.size)) {
+                    selectedEntries.add(entry);
 
                     logger.info("Selected a log entry: " + entry, 1);
-                    found = true;
                     break;
                 }
             }
 
-            if (!found) {
-                selectedEntry = null;
-                SelectedEntryLabel.setText("Nothing Selected");
+            logger.info("clicked", 0);
+
+            if (selectedEntries.size() > 1) {
+                selectedEntryLabel.setText("Selected " + selectedEntries.size() + " points");
+            } else if (selectedEntries.size() != 0) {
+                selectedEntryLabel.setText(selectedEntries.get(0).toString());
             }
-//        }
+        } else if (SwingUtilities.isRightMouseButton(e)) {
+            showRightClickMenu(e.getPoint());
+        }
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-//        if (e.getButton() == MouseEvent.BUTTON1) {
+        if (SwingUtilities.isLeftMouseButton(e)) {
             xDiff = 0;
             yDiff = 0;
             released = false;
             startPoint = MouseInfo.getPointerInfo().getLocation();
-//        }
+        } else if (SwingUtilities.isRightMouseButton(e)) {
+            if (inverse != null) inverse.transform(e.getPoint(), selectionStart);
+            if (inverse != null) inverse.transform(e.getPoint(), selectionEnd);
+        }
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-//        if (e.getButton() == MouseEvent.BUTTON2) {
-//            if (selecting) {
-//                selecting = false;
-//
-//                finishSelect();
-//            }
-//        } else if (e.getButton() == MouseEvent.BUTTON1) {
+        if (SwingUtilities.isLeftMouseButton(e)) {
             released = true;
-//        }
+        } else if (SwingUtilities.isRightMouseButton(e)) {
+            if (selecting) {
+                selecting = false;
+
+                finishSelect(e.isShiftDown(), e.isControlDown());
+            }
+        }
 
         repaint();
     }
@@ -721,17 +756,41 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     public void mouseExited(MouseEvent e) {
     }
 
-//    private void doRightClick() {
-//        logger.info("right click", 1);
-//        JPopupMenu rightClickMenu = new JPopupMenu("Right Click");
-//        rightClickMenu.setLocation(mousePosition.x, mousePosition.y);
-//
-//        add(rightClickMenu);
-//    }
-//
-//    private void finishSelect() {
-//
-//    }
+    private void finishSelect(boolean shiftDown, boolean ctrlDown) {
+        if (!shiftDown) {
+            selectedEntries.clear();
+            selectedEntryLabel.setText("Nothing Selected");
+        }
+
+        int selectedCount = 0;
+        if (ctrlDown) {
+            for (LogEntry entry : logEntries) {
+                if ((shiftDown && !selectedEntries.contains(entry)) && entry.position.insideBounds(selectionStart, selectionEnd)) {
+                    selectedEntries.add(entry);
+
+                    selectedCount++;
+                }
+            }
+        } else {
+            for (LogEntry entry : enabledEntries) {
+                if ((shiftDown && !selectedEntries.contains(entry)) && entry.position.insideBounds(selectionStart, selectionEnd)) {
+                    selectedEntries.add(entry);
+
+                    selectedCount++;
+                }
+            }
+        }
+
+        logger.info("Selected " + selectedCount + " entries", 1);
+
+        selectedEntryLabel.setText("Selected " + selectedEntries.size() + " points");
+    }
+
+    private void showRightClickMenu(Point pos) {
+        JPopupMenu rightClickMenu = new JPopupMenu("Right Click");
+        rightClickMenu.add(new JMenuItem("TEST 1"));
+        rightClickMenu.show(this, pos.x, pos.y);
+    }
     //endregion
 
     public void SaveAsImage(boolean screenshot) {
@@ -868,7 +927,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
         totalData = 0;
         maxActivity = 0;
-        SelectedEntryLabel.setVisible(false);
-        selectedEntry = null;
+        selectedEntryLabel.setVisible(false);
+        selectedEntries.clear();
     }
 }

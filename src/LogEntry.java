@@ -7,13 +7,11 @@ public class LogEntry implements Comparable {
     public LocalDateTime time;
     public String playerName;
     public Vector3 position;
-    public boolean isChunk;
 
-    public LogEntry(LocalDateTime time, String playerName, Vector3 position, boolean chunk) {
+    public LogEntry(LocalDateTime time, String playerName, Vector3 position) {
         this.time = time;
         this.playerName = playerName;
         this.position = position;
-        this.isChunk = chunk;
     }
 
     public String toString() {

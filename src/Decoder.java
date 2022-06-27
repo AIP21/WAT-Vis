@@ -108,7 +108,7 @@ public class Decoder {
 
                     Vector3 position = items[2].contains("(") ? Vector3.parseVector3(items[2]) : Vector3.parseVector3FromChunk(items[2], settings.convertChunkPosToBlockPos);
 
-                    logEntries.add(new LogEntry(date, items[1], position, items[2].contains("[")));
+                    logEntries.add(new LogEntry(date, items[1], position));
                     logDates.add(date);
 
                     String player = items[1];

@@ -15,7 +15,7 @@ import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.util.Locale;
 
-public class SettingsForm extends JFrame {
+public class SettingsForm extends JDialog {
     public JLabel settingsTitle;
     public JPanel settingsPanel;
     public JToggleButton lightThemeButton;
@@ -38,13 +38,19 @@ public class SettingsForm extends JFrame {
     private Logger logger;
 
     public SettingsForm(PlayerTrackerDecoder main, Settings settings, Logger logger) {
+        super(main, "Settings");
+
+        setModal(true);
+        setModalityType(ModalityType.DOCUMENT_MODAL);
+        pack();
+
         this.main = main;
         this.settings = settings;
         this.logger = logger;
 
-        setTitle("Settings");
         setSize(new Dimension(720, 480));
-        setMinimumSize(new Dimension(720, 480));
+        setResizable(false);
+
         initComponents();
 
         logger.info("Settings pane opened", 0);

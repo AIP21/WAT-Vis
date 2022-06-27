@@ -15,7 +15,7 @@ import java.io.File;
 import java.util.List;
 import java.util.*;
 
-public class ImportForm extends JFrame {
+public class ImportForm extends JDialog {
     private JPanel bottomPanel;
     private JLabel titleText;
     private JScrollPane selectedFileListScrollPane;
@@ -54,26 +54,37 @@ public class ImportForm extends JFrame {
     private ArrayList<File> currentFiles = new ArrayList<>();
 
     public ImportForm(PlayerTrackerDecoder main, Settings settings, Logger logger) {
+        super(main, "Import Files");
+
+        setModal(true);
+        setModalityType(ModalityType.DOCUMENT_MODAL);
+        pack();
+
         this.main = main;
-        setVisible(true);
-        setLocationRelativeTo(main);
-        this.setTitle("Import Files");
         this.settings = settings;
         this.logger = logger;
+
         setSize(new Dimension(720, 480));
-        setMinimumSize(new Dimension(720, 480));
+        setResizable(false);
 
         initComponents();
+
+        logger.info("File import pane opened", 0);
     }
 
     public ImportForm(PlayerTrackerDecoder main, Settings settings, Logger logger, DropTargetDropEvent evt) {
+        super(main, "Import Files");
+
+        setModal(true);
+        setModalityType(ModalityType.DOCUMENT_MODAL);
+        pack();
+
         this.main = main;
-        setVisible(true);
-        setLocationRelativeTo(main);
-        this.setTitle("Import Files");
         this.settings = settings;
         this.logger = logger;
+
         setSize(new Dimension(720, 480));
+        setResizable(false);
 
         initComponents();
 
@@ -89,10 +100,12 @@ public class ImportForm extends JFrame {
         } catch (Exception e) {
             logger.error("Error dragging and dropping files onto import panel: " + Arrays.toString(e.getStackTrace()));
         }
+
+        logger.info("File import pane opened from drag and drop", 0);
     }
 
     private void initComponents() {
-        setLayout(new BorderLayout(0, 0));
+//        setLayout(new BorderLayout(0, 0));
         bottomPanel = new JPanel();
         bottomPanel.setLayout(new GridBagLayout());
         add(bottomPanel, BorderLayout.SOUTH);

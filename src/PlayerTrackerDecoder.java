@@ -115,7 +115,7 @@ public class PlayerTrackerDecoder extends JFrame {
     public ImageIcon darkThemeIcon;
     //endregion
 
-    public static final String version = "1.1.1-FR";
+    public static final String version = "1.1.2-FR";
 
     public static boolean debugMode = false;
 
@@ -188,6 +188,7 @@ public class PlayerTrackerDecoder extends JFrame {
 
             importForm = new ImportForm(this, settings, logger);
             importForm.setLocationRelativeTo(this);
+            importForm.setVisible(true);
         });
 
         settingsButton = new JMenuItem("");
@@ -204,8 +205,8 @@ public class PlayerTrackerDecoder extends JFrame {
             }
 
             settingsForm = new SettingsForm(this, settings, logger);
-            settingsForm.setVisible(true);
             settingsForm.setLocationRelativeTo(this);
+            settingsForm.setVisible(true);
         });
 
         toolbar = new JToolBar("Toolbar");
@@ -216,10 +217,10 @@ public class PlayerTrackerDecoder extends JFrame {
         add(bottomMenuBar, "South");
 
         JLabel renderInfoLabel = new JLabel();
-        mainPanel.RenderedPointsLabel = renderInfoLabel;
+        mainPanel.renderedPointsLabel = renderInfoLabel;
         bottomMenuBar.add(renderInfoLabel);
-        bottomMenuBar.add(mainPanel.CoordinateLabel);
-        bottomMenuBar.add(mainPanel.SelectedEntryLabel);
+        bottomMenuBar.add(mainPanel.coordinateLabel);
+        bottomMenuBar.add(mainPanel.selectedEntryLabel);
 
         ChangeTheme(settings.uiTheme);
         logger.info("Successfully initialized all subsystems", 1);
@@ -284,6 +285,7 @@ public class PlayerTrackerDecoder extends JFrame {
 
                     importForm = new ImportForm(PlayerTrackerDecoder.this, settings, logger, evt);
                     importForm.setLocationRelativeTo(PlayerTrackerDecoder.this);
+                    importForm.setVisible(true);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -292,10 +294,10 @@ public class PlayerTrackerDecoder extends JFrame {
         mainPanel.setDoubleBuffered(true);
         (new Thread(mainPanel)).start();
 
-        mainPanel.CoordinateLabel = new JLabel();
-        mainPanel.CoordinateLabel.setText("");
-        mainPanel.SelectedEntryLabel = new JLabel("Nothing Selected");
-        mainPanel.SelectedEntryLabel.setVisible(false);
+        mainPanel.coordinateLabel = new JLabel();
+        mainPanel.coordinateLabel.setText("");
+        mainPanel.selectedEntryLabel = new JLabel("Nothing Selected");
+        mainPanel.selectedEntryLabel.setVisible(false);
         add(mainPanel);
         mainPanel.setVisible(true);
         mainPanel.repaint();
@@ -1037,7 +1039,7 @@ public class PlayerTrackerDecoder extends JFrame {
 
             initDataSettingsToolBar(alreadyImported);
             toolbar.setVisible(true);
-            mainPanel.SelectedEntryLabel.setVisible(true);
+            mainPanel.selectedEntryLabel.setVisible(true);
 
             mainPanel.shouldDraw = true;
 

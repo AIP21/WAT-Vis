@@ -63,6 +63,31 @@ public class Vector3 {
         z += toAdd;
     }
 
+    public boolean insideBounds(Point start, Point end) {
+        float startX = Math.min(start.x, end.x);
+        float startY = Math.min(start.y, end.y);
+        float endX = Math.max(start.x, end.x);
+        float endY = Math.max(start.y, end.y);
+
+        return x > startX && x < endX && y > startY && y < endY;
+    }
+
+    public float sqrDistTo(Vector3 to) {
+        return (to.x - x) * (to.x - x) + (to.y - y) * (to.y - y);
+    }
+
+    public float sqrDistTo(Point to) {
+        return (to.x - x) * (to.x - x) + (to.y - y) * (to.y - y);
+    }
+
+    public static float sqrDist(Vector3 from, Vector3 to) {
+        return (to.x - from.x) * (to.x - from.x) + (to.y - from.y) * (to.y - from.y);
+    }
+
+    public static float sqrDist(Point from, Point to) {
+        return (to.x - from.x) * (to.x - from.x) + (to.y - from.y) * (to.y - from.y);
+    }
+
     @Override
     public int hashCode() {
         return x * z;

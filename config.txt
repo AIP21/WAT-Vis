@@ -1,4 +1,4 @@
-/// Player Tracker TrackerDecoderApp.Decoder v1.1.2-FR - CONFIG \\\
+/// Player Tracker Decoder v1.1.2-FR - CONFIG \\\
 /// Delete this config file to reset values to their default settings \\\
 
 theme: 0 // Change the UI theme (Light = 0, Dark = 1)

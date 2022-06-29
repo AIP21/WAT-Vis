@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-Main-Class: src.PlayerTrackerDecoder
+Main-Class: src.main.PlayerTrackerDecoder
 Class-Path: src
 

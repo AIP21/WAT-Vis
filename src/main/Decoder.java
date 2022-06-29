@@ -1,5 +1,6 @@
 package src.main;
 
+import src.main.config.Settings;
 import src.main.util.LogEntry;
 import src.main.util.Logger;
 import src.main.util.Utils;
@@ -15,10 +16,11 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
+import static src.main.util.Logger.LOGGER;
+
 public class Decoder {
     public PlayerTrackerDecoder main;
     private final Settings settings;
-    private final Logger logger;
 
     private final Random rand = new Random();
 
@@ -46,27 +48,26 @@ public class Decoder {
 
     private final boolean maxCheck;
 
-    public Decoder(Settings set, Logger log) {
-        logger = log;
+    public Decoder(Settings set) {
 
-        logger.info("Initializing decoder subsystem", 1);
+        LOGGER.info("Initializing decoder subsystem");
 
         settings = set;
 
         maxCheck = settings.maxDataEntries != 0;
 
-        logger.info("Successfully initialized decoder subsystem", 1);
+        LOGGER.info("Successfully initialized decoder subsystem");
     }
 
     public void decode() {
         final long nowMs = System.currentTimeMillis();
 
         if (files == null || files.length == 0) {
-            logger.error("Error parsing log files and decoding data. They must be in the folder called \"inputs\" in the run directory");
+            LOGGER.severe("Error parsing log files and decoding data. They must be in the folder called \"inputs\" in the run directory");
             return;
         }
 
-        logger.info("Decoding data", 1);
+        LOGGER.info("Decoding data");
 
         try {
             for (File file : files) {
@@ -76,7 +77,7 @@ public class Decoder {
                 }
             }
         } catch (Exception e) {
-            logger.error("Error fetching text log files:\n   " + Arrays.toString(e.getStackTrace()));
+            LOGGER.severe("Error fetching text log files:\n   " + Arrays.toString(e.getStackTrace()));
         }
 
         inputFiles.sort(new Comparator<>() {
@@ -93,7 +94,7 @@ public class Decoder {
         });
 
         for (File inputFile : inputFiles) {
-            logger.info("Decoding input file: " + inputFile.getName(), 0);
+            LOGGER.info("Decoding input file: " + inputFile.getName());
 
             try {
                 BufferedReader br = new BufferedReader(new FileReader(inputFile));
@@ -144,16 +145,16 @@ public class Decoder {
                 }
                 br.close();
             } catch (IOException e) {
-                logger.error("Error reading input file:\n   " + Arrays.toString(e.getStackTrace()));
+                LOGGER.severe("Error reading input file:\n   " + Arrays.toString(e.getStackTrace()));
             }
 
             if (maxCheck && logEntries.size() > settings.maxDataEntries) {
-                logger.warn("Max configured data entries reached, decoding aborted");
+                LOGGER.warning("Max configured data entries reached, decoding aborted");
                 break;
             }
         }
 
-        logger.info("dates: " + logDates.size(), 1);
+        LOGGER.info("dates: " + logDates.size());
 
         dataWorld = "";
         String[] split = inputFiles.get(0).getName().split("-");
@@ -164,12 +165,12 @@ public class Decoder {
 
         xRange = maxX - minX;
         yRange = maxY - minY;
-        logger.info("maxX: " + maxX + " minX: " + minX + "; maxY: " + maxY + " minY: " + minY, 0);
-        logger.info("xRange: " + xRange + " yRange: " + yRange, 0);
+        LOGGER.info("maxX: " + maxX + " minX: " + minX + "; maxY: " + maxY + " minY: " + minY);
+        LOGGER.info("xRange: " + xRange + " yRange: " + yRange);
 
         final long durMs = System.currentTimeMillis() - nowMs;
 
-        logger.info("Successfully decoded data. Loaded: " + logEntries.size() + " entries. Took " + durMs + "ms.", 1);
+        LOGGER.info("Successfully decoded data. Loaded: " + logEntries.size() + " entries. Took " + durMs + "ms.");
     }
 
     private Color randomColor(int iter) {

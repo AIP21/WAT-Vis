@@ -4,7 +4,7 @@ import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import src.main.PlayerTrackerDecoder;
 import src.main.PlayerTrackerDecoder.UITheme;
-import src.main.Settings;
+import src.main.config.Settings;
 import src.main.util.Logger;
 
 import javax.swing.*;
@@ -14,6 +14,8 @@ import javax.swing.text.StyleContext;
 import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.util.Locale;
+
+import static src.main.util.Logger.LOGGER;
 
 public class SettingsForm extends JDialog {
     public JLabel settingsTitle;
@@ -35,9 +37,8 @@ public class SettingsForm extends JDialog {
     public JTextPane aboutText;
     private PlayerTrackerDecoder main;
     private Settings settings;
-    private Logger logger;
 
-    public SettingsForm(PlayerTrackerDecoder main, Settings settings, Logger logger) {
+    public SettingsForm(PlayerTrackerDecoder main, Settings settings) {
         super(main, "Settings");
 
         setModal(true);
@@ -46,14 +47,13 @@ public class SettingsForm extends JDialog {
 
         this.main = main;
         this.settings = settings;
-        this.logger = logger;
 
         setSize(new Dimension(720, 480));
         setResizable(false);
 
         initComponents();
 
-        logger.info("Settings pane opened", 0);
+        LOGGER.info("Settings pane opened");
     }
 
     private void initComponents() {
@@ -159,7 +159,7 @@ public class SettingsForm extends JDialog {
             }
             revalidate();
 
-            logger.info("Set the theme to light", 0);
+            LOGGER.info("Set the theme to light");
         });
 
         darkThemeButton.addActionListener((event) -> {
@@ -173,7 +173,7 @@ public class SettingsForm extends JDialog {
             }
             revalidate();
 
-            logger.info("Set the theme to dark", 0);
+            LOGGER.info("Set the theme to dark");
         });
 
         fancyRenderingToggle.addItemListener((event) -> {
@@ -181,14 +181,14 @@ public class SettingsForm extends JDialog {
             settings.toggleRenderMode();
             settings.SaveSettings();
 
-            logger.info("Toggled fancy rendering to: " + settings.fancyRendering, 0);
+            LOGGER.info("Toggled fancy rendering to: " + settings.fancyRendering);
         });
 
         debugModeToggle.addItemListener((event) -> {
             PlayerTrackerDecoder.debugMode = event.getStateChange() == ItemEvent.SELECTED;
             settings.SaveSettings();
 
-            logger.info("Toggled the not-so-secret DEBUG MODE (oooooh) to: " + PlayerTrackerDecoder.debugMode, 0);
+            LOGGER.info("Toggled the not-so-secret DEBUG MODE (oooooh) to: " + PlayerTrackerDecoder.debugMode);
         });
 
         fpsLimitSlider.addChangeListener((e) -> {
@@ -196,7 +196,7 @@ public class SettingsForm extends JDialog {
             fpsLimitValue.setText(settings.fpsLimit + " FPS");
             settings.SaveSettings();
 
-            logger.info("Changed framerate limit to: " + settings.fpsLimit, 0);
+            LOGGER.info("Changed framerate limit to: " + settings.fpsLimit);
         });
 
         sensitivitySlider.addChangeListener((e) -> {
@@ -205,7 +205,7 @@ public class SettingsForm extends JDialog {
             settings.SaveSettings();
             main.mainPanel.sensitivity = (float) settings.mouseSensitivity / 100.0F;
 
-            logger.info("Changed mouse sensitivity to: " + settings.mouseSensitivity, 0);
+            LOGGER.info("Changed mouse sensitivity to: " + settings.mouseSensitivity);
         });
     }
 

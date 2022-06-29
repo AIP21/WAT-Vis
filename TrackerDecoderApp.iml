@@ -15,5 +15,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="formdev.flatlaf" level="project" />
+    <orderEntry type="library" name="google.code.gson" level="project" />
   </component>
 </module>

@@ -3,7 +3,7 @@ package src.main.ui;
 import src.main.importing.filters.ImageFileFilter;
 import src.main.importing.filters.TextFileFilter;
 import src.main.PlayerTrackerDecoder;
-import src.main.Settings;
+import src.main.config.Settings;
 import src.main.util.Logger;
 
 import javax.swing.*;
@@ -18,6 +18,8 @@ import java.awt.event.ItemEvent;
 import java.io.File;
 import java.util.List;
 import java.util.*;
+
+import static src.main.util.Logger.LOGGER;
 
 public class ImportForm extends JDialog {
     private JPanel bottomPanel;
@@ -54,11 +56,10 @@ public class ImportForm extends JDialog {
 
     private PlayerTrackerDecoder main;
     private Settings settings;
-    private Logger logger;
 
     private ArrayList<File> currentFiles = new ArrayList<>();
 
-    public ImportForm(PlayerTrackerDecoder main, Settings settings, Logger logger, boolean alreadyImported) {
+    public ImportForm(PlayerTrackerDecoder main, Settings settings, boolean alreadyImported) {
         super(main, "Import Files");
 
         setModal(true);
@@ -67,17 +68,16 @@ public class ImportForm extends JDialog {
 
         this.main = main;
         this.settings = settings;
-        this.logger = logger;
 
         setSize(new Dimension(720, 480));
         setResizable(false);
 
         initComponents(alreadyImported);
 
-        logger.info("File import pane opened", 0);
+        LOGGER.info("File import pane opened");
     }
 
-    public ImportForm(PlayerTrackerDecoder main, Settings settings, Logger logger, DropTargetDropEvent evt, boolean alreadyImported) {
+    public ImportForm(PlayerTrackerDecoder main, Settings settings, DropTargetDropEvent evt, boolean alreadyImported) {
         super(main, "Import Files");
 
         setModal(true);
@@ -86,7 +86,6 @@ public class ImportForm extends JDialog {
 
         this.main = main;
         this.settings = settings;
-        this.logger = logger;
 
         setSize(new Dimension(720, 480));
         setResizable(false);
@@ -103,10 +102,10 @@ public class ImportForm extends JDialog {
             selectedFileList.setListData(currentFiles.toArray(new File[0]));
             importButton.setEnabled(currentFiles.size() > 0);
         } catch (Exception e) {
-            logger.error("Error dragging and dropping files onto import panel: " + Arrays.toString(e.getStackTrace()));
+            LOGGER.severe("Error dragging and dropping files onto import panel: " + Arrays.toString(e.getStackTrace()));
         }
 
-        logger.info("File import pane opened from drag and drop", 0);
+        LOGGER.info("File import pane opened from drag and drop");
     }
 
     private void initComponents(boolean alreadyImported) {
@@ -216,7 +215,7 @@ public class ImportForm extends JDialog {
                     selectedFileList.setListData(currentFiles.toArray(new File[0]));
                     importButton.setEnabled(currentFiles.size() > 0);
                 } catch (Exception ex) {
-                    logger.error("Error dragging and dropping files onto import panel: " + Arrays.toString(ex.getStackTrace()));
+                    LOGGER.severe("Error dragging and dropping files onto import panel: " + Arrays.toString(ex.getStackTrace()));
                 }
             }
         });
@@ -324,7 +323,7 @@ public class ImportForm extends JDialog {
             this.setVisible(false);
         });
 
-        if(alreadyImported){
+        if (alreadyImported) {
             appendButton.setEnabled(selectedFileList.getLastVisibleIndex() > 0);
 
             appendButton.addActionListener(event -> {
@@ -350,9 +349,9 @@ public class ImportForm extends JDialog {
                 selectedFileList.setListData(currentFiles.toArray(new File[0]));
                 importButton.setEnabled(currentFiles.size() > 0);
             } else if (returnVal == JFileChooser.ERROR_OPTION) {
-                logger.error("Error selecting input files");
+                LOGGER.severe("Error selecting input files");
             } else {
-                logger.warn("No input files selected");
+                LOGGER.warning("No input files selected");
             }
         });
 
@@ -406,7 +405,7 @@ public class ImportForm extends JDialog {
         });
 
         addWorldImageButton.addActionListener(event -> {
-            logger.info("Opening world background image dialog", 0);
+            LOGGER.info("Opening world background image dialog");
 
             JFileChooser imgChooser = new JFileChooser("worldImages");
             imgChooser.setMultiSelectionEnabled(false);
@@ -424,13 +423,13 @@ public class ImportForm extends JDialog {
                 toggleComponents(false);
 
                 File imgFile = imgChooser.getSelectedFile();
-                logger.info("Selected world background image: " + imgFile, 0);
+                LOGGER.info("Selected world background image: " + imgFile);
 
                 main.LoadWorldImage(imgFile, worldImageLabel, addWorldImageButton, this);
             } else if (returnVal == JFileChooser.ERROR_OPTION) {
-                logger.error("Error selecting world background images");
+                LOGGER.severe("Error selecting world background images");
             } else {
-                logger.warn("No world background images selected");
+                LOGGER.warning("No world background images selected");
             }
         });
 

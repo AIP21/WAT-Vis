@@ -1,5 +1,6 @@
 package src.main;
 
+import src.main.config.Settings;
 import src.main.util.*;
 
 import javax.imageio.ImageIO;
@@ -13,9 +14,10 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.*;
 
+import static src.main.util.Logger.LOGGER;
+
 public class Panel extends JPanel implements MouseWheelListener, MouseListener, MouseMotionListener, Runnable {
     private final Settings settings;
-    private final Logger logger;
     public Decoder _Decoder;
 
     private boolean isRunning = true;
@@ -104,13 +106,12 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 //    private JFrame otherFrame;
 //    private JPanel otherPanel;
 
-    public Panel(Settings settings, Logger logger, PlayerTrackerDecoder main) {
+    public Panel(Settings settings, PlayerTrackerDecoder main) {
         super(true);
 //        setOpaque(true);
         setBackground(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? Color.lightGray : Color.darkGray);
 
         this.settings = settings;
-        this.logger = logger;
         this.main = main;
 //
 //        otherFrame = new JFrame();
@@ -122,15 +123,15 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 //        otherFrame.revalidate();
 //        otherFrame.setIgnoreRepaint(true);
 
-        logger.info("Initializing main display subsystem", 1);
+        LOGGER.info("Initializing main display subsystem");
 
         initComponents();
 
         if (settings.fancyRendering) {
-            logger.info("Fancy rendering initialized on main display panel", 0);
+            LOGGER.info("Fancy rendering initialized on main display panel");
         }
 
-        logger.info("Successfully initialized main display subsystem", 1);
+        LOGGER.info("Successfully initialized main display subsystem");
     }
 
     private void initComponents() {
@@ -147,11 +148,10 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
         final long durMs = System.currentTimeMillis() - nowMs;
 
-        logger.info("Loading world background image took " + durMs + "ms.", 0);
+        LOGGER.info("Loading world background image took " + durMs + "ms.");
 
         return image;
     }
-
 
     public void run() {
         long lastTime = System.nanoTime();
@@ -183,13 +183,13 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
                         }
 //                            ShouldTick = true;
 
-                        logger.info("Playing animated", 0);
+                        LOGGER.info("Playing animated");
                     } else {
                         isPlaying = false;
 //                            ShouldTick = false;
                         main.animatePlayPause.setSelected(isPlaying);
 
-                        logger.info("Finished playing", 0);
+                        LOGGER.info("Finished playing");
                     }
 
                     main.dateRangeSlider.setUpperValue(dateTimeIndex);
@@ -212,7 +212,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
                 try {
                     inverse = at.createInverse();
                 } catch (NoninvertibleTransformException nte) {
-                    logger.error("Error inverting rendering transformation:\n   " + Arrays.toString(nte.getStackTrace()));
+                    LOGGER.severe("Error inverting rendering transformation:\n   " + Arrays.toString(nte.getStackTrace()));
                 }
 
 //                        if (!isPlaying && Utils.approximately(curX, xTarget, 0.001f) && Utils.approximately(curY, yTarget, 0.001f) && Utils.approximately(curZoomFactor, zoomFactor, 0.001f)) {
@@ -457,7 +457,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
                                 g2d.setColor(Utils.lerpColor(Color.lightGray, Color.getHSBColor(0.93f, 0.68f, 0.55f), Math.min(1, (posActivityMap.get(entry.position) * Math.abs(settings.heatMapStrength)) / (float) (maxActivity))));
                             }
                         } catch (IllegalArgumentException e) {
-                            logger.error("Something wrong happened when lerping colors for the heatmap color (Probably the stupid negative input error): " + Arrays.toString(e.getStackTrace()));
+                            LOGGER.severe("Something wrong happened when lerping colors for the heatmap color (Probably the stupid negative input error): " + Arrays.toString(e.getStackTrace()));
                         }
 
                         drawRectangle(g2d, x, y, settings.size, true);
@@ -567,7 +567,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
                                     g2d.setColor(Utils.lerpColor(Color.lightGray, Color.getHSBColor(0.93f, 0.68f, 0.55f), Math.min(1, (posActivityMap.get(entry.position) * Math.abs(settings.heatMapStrength)) / (float) (maxActivity))));
                                 }
                             } catch (IllegalArgumentException e) {
-                                logger.error("Something wrong happened when lerping colors for the heatmap color (Probably the stupid negative input error): " + Arrays.toString(e.getStackTrace()));
+                                LOGGER.severe("Something wrong happened when lerping colors for the heatmap color (Probably the stupid negative input error): " + Arrays.toString(e.getStackTrace()));
                             }
 
                             drawRectangle(g2d, x, y, settings.size, true);
@@ -679,7 +679,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     }
 
     private void updatePoints() {
-        if (shouldUpdateLog) logger.info("Updating points", 0);
+        if (shouldUpdateLog) LOGGER.info("Updating points");
         boolean start = shouldDraw;
         shouldDraw = false;
 
@@ -718,18 +718,18 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
         shouldDraw = start;
 
-        if (shouldUpdateLog) logger.info("Updated points: " + logEntries.size(), 1);
+        if (shouldUpdateLog) LOGGER.info("Updated points: " + logEntries.size());
     }
 
     public void setData(Decoder dec) {
-        logger.info("Setting data to display", 0);
+        LOGGER.info("Setting data to display");
 
         _Decoder = dec;
         logEntries = _Decoder.logEntries;
         logDates = _Decoder.logDates;
         timesCount = logDates.size();
 
-        logger.info("Passed time getting", 1);
+        LOGGER.info("Passed time getting");
 
 //        logEntriesGroupedByTime.clear();
 
@@ -752,12 +752,12 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
         totalData = logEntries.size();
         Collections.sort(logEntries);
-        logger.info("Passed sorting", 1);
+        LOGGER.info("Passed sorting");
 
         selectedEntryLabel.setText("Nothing Selected");
         selectedEntries.clear();
 
-        logger.info("Successfully set data to display", 0);
+        LOGGER.info("Successfully set data to display");
     }
     //endregion
 
@@ -816,13 +816,13 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 //                    if (dist < Math.max(4.0f, settings.size * settings.size)) {
                     selectedEntries.add(entry);
 
-                    logger.info("Selected a log entry: " + entry, 1);
+                    LOGGER.info("Selected a log entry: " + entry);
                     break;
 //                    }
                 }
             }
 
-            logger.info("clicked", 0);
+            LOGGER.info("clicked");
 
             if (selectedEntries.size() > 1) {
                 selectedEntryLabel.setText("Selected " + selectedEntries.size() + " points");
@@ -895,7 +895,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
             }
         }
 
-        logger.info("Selected " + selectedCount + " entries", 1);
+        LOGGER.info("Selected " + selectedCount + " entries");
 
         selectedEntryLabel.setText("Selected " + selectedEntries.size() + " points");
     }
@@ -942,7 +942,7 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
     public void SaveAsImage(boolean screenshot) {
         boolean playing = isPlaying;
         isPlaying = false;
-        logger.info("Started saving current screen as an image. Currently preparing the image", 1);
+        LOGGER.info("Started saving current screen as an image. Currently preparing the image");
         imageExportStatus.setText("  Processing...");
         main.revalidate();
         main.repaint();
@@ -967,14 +967,14 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
 
             g2d.dispose();
         } catch (OutOfMemoryError ex) {
-            logger.error("Error preparing the image to export (Out of memory):\n   " + Arrays.toString(ex.getStackTrace()));
+            LOGGER.severe("Error preparing the image to export (Out of memory):\n   " + Arrays.toString(ex.getStackTrace()));
         }
 
-        logger.info("Starting to save the exported image file", 0);
+        LOGGER.info("Starting to save the exported image file");
 
         if (!new File("outputs").exists()) {
             boolean val = new File("outputs").mkdir();
-            logger.warn("Outputs folder to save exported image didn't exist so it was just created with result: " + val);
+            LOGGER.warning("Outputs folder to save exported image didn't exist so it was just created with result: " + val);
         }
 
         String name = settings._drawType + "-" + (screenshot ? "screenshot" : "export") + "-" + _Decoder.dataWorld + "-" + _Decoder.dataDate;
@@ -993,12 +993,12 @@ public class Panel extends JPanel implements MouseWheelListener, MouseListener, 
             try {
                 if (image != null) {
                     ImageIO.write(image, "png", new File("outputs/" + name));
-                    logger.info("Successfully saved current screen as an image", 1);
+                    LOGGER.info("Successfully saved current screen as an image");
                 } else {
-                    logger.error("Image to save is null");
+                    LOGGER.severe("Image to save is null");
                 }
             } catch (Exception e) {
-                logger.error("Error saving current screen as an image:\n   " + Arrays.toString(e.getStackTrace()));
+                LOGGER.severe("Error saving current screen as an image:\n   " + Arrays.toString(e.getStackTrace()));
             }
 
             imageExportStatus.setText("   Done!");

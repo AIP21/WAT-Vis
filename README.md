@@ -2,7 +2,7 @@
 An app version of my player tracker decoder. It is an interactive and super configurable tool to visualize, analyze, and export the data created by my Player Tracker Mod.
 
 Links to the Minecraft mod:
-[Modrinth](https://modrinth.com/mod/wat) or [Github](https://github.com/AIP21/WAT-mod)
+[Modrinth](https://modrinth.com/mod/wat) or [Curseforge](https://www.curseforge.com/minecraft/mc-mods/wat-mod) or [Github](https://github.com/AIP21/WAT-mod)
 
 This can ONLY BE USED with the format of data produced by my Player Tracker mod for minecraft. The purpose of this app is to be able to view and analyze the data collected from the mod.
 If you'd like to, you can create your own tool to generate the data, see the Data Format section below for more details on the structure of the the logs.

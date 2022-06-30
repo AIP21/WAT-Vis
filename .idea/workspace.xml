@@ -5,68 +5,35 @@
       <artifact name="TrackerDecoderApp" />
     </artifacts-to-build>
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="905aa98f-fc7e-4d94-81c1-b5629d46bbbc" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/configs/biome_colors.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/configs/user_profile.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/latticg-1.05-sources.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/latticg-1.05.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/mc_biome-b2271807a047bb43ac60c8c20ad47e315f19b9a6-sources.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/mc_biome-b2271807a047bb43ac60c8c20ad47e315f19b9a6.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/mc_core-706e4f1b7aa6b42b3627f682a311d06280d80b5c-sources.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/mc_core-706e4f1b7aa6b42b3627f682a311d06280d80b5c.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/mc_feature-c29fd1fcd746e14c1bcdb127da3113ba273db1fd-sources.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/mc_feature-c29fd1fcd746e14c1bcdb127da3113ba273db1fd.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/mc_math-d73ac7cc644c67628ade0effd7136e11eb00bb76-sources.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/mc_math-d73ac7cc644c67628ade0effd7136e11eb00bb76.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/mc_noise-a6ab8e6c688491829f8d2adf845392da22ef8e9c-sources.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/mc_noise-a6ab8e6c688491829f8d2adf845392da22ef8e9c.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/mc_reversal-2.0.0-sources.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/mc_reversal-2.0.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/mc_seed-5518e3ba3ee567fb0b51c15958967f70a6a19e02-sources.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/mc_seed-5518e3ba3ee567fb0b51c15958967f70a6a19e02.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/mc_terrain-9e937ddb838e28e79423c287fa18b1ce66f061d7-sources.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/mc_terrain-9e937ddb838e28e79423c287fa18b1ce66f061d7.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrackerDecoderApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TrackerDecoderApp.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrackerDecoderApp/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/TrackerDecoderApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrackerDecoderApp/TrackerDecoderApp.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrackerDecoderApp/config.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/main/Decoder$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/main/Decoder$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/main/Decoder$DrawType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/main/Decoder$DrawType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/main/Decoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/main/Decoder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/main/Panel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/main/Panel$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/main/Panel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/main/PlayerTrackerDecoder$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/main/PlayerTrackerDecoder$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/main/PlayerTrackerDecoder$HeatDrawType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/main/PlayerTrackerDecoder$HeatDrawType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/main/PlayerTrackerDecoder$UITheme.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/main/PlayerTrackerDecoder$UITheme.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/main/PlayerTrackerDecoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/main/PlayerTrackerDecoder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/main/Settings.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/main/ui/ImportForm$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/main/ui/ImportForm$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/main/ui/ImportForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/main/ui/ImportForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/main/ui/SettingsForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/main/ui/SettingsForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/main/util/Logger.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/main/util/Logger.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/main/util/Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrackerDecoderApp/src/main/util/Utils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Decoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Decoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MainPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TrackerDecoderApp/TrackerDecoderApp.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TrackerDecoderApp/TrackerDecoderApp.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/TrackerDecoderApp/com/intellij/uiDesigner/core/AbstractLayout.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/TrackerDecoderApp/com/intellij/uiDesigner/core/DimensionInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/TrackerDecoderApp/com/intellij/uiDesigner/core/GridConstraints.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/TrackerDecoderApp/com/intellij/uiDesigner/core/GridLayoutManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/TrackerDecoderApp/com/intellij/uiDesigner/core/HorizontalInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/TrackerDecoderApp/com/intellij/uiDesigner/core/LayoutState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/TrackerDecoderApp/com/intellij/uiDesigner/core/Spacer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/TrackerDecoderApp/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/TrackerDecoderApp/com/intellij/uiDesigner/core/SupportCode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/TrackerDecoderApp/com/intellij/uiDesigner/core/Util.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/TrackerDecoderApp/com/intellij/uiDesigner/core/VerticalInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MainPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/PlayerTrackerDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/PlayerTrackerDecoder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/config/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/config/Settings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/config/mapping/UserProfileConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/config/mapping/UserProfileConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/mapping/minemap/WorldMapManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/mapping/minemap/map/MapContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mapping/minemap/map/MapContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/config/mapping/BiomeColorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/config/mapping/BiomeColorsConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/mapping/minemap/map/MapManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mapping/minemap/map/MapManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/mapping/minemap/map/MapPanel.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/mapping/minemap/map/MapSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mapping/minemap/map/MapSettings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/mapping/minemap/map/fragment/Fragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mapping/minemap/map/fragment/Fragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/mapping/minemap/map/fragment/FragmentScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mapping/minemap/map/fragment/FragmentScheduler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/mapping/minemap/util/data/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mapping/minemap/util/data/Assets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/mapping/minemap/util/math/DisplayMaths.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ui/ImportForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/ImportForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ui/SettingsForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/SettingsForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/util/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/util/Logger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/util/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/util/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/util/Keyboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/util/Keyboard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +64,6 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/Decoder.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/MainPanel.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/PlayerTrackerDecoder.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -116,22 +82,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/20ani/.gradle/caches/modules-2/files-2.1/com.seedfinding/mc_terrain/9e937ddb838e28e79423c287fa18b1ce66f061d7/e97af700203975b452266817ce25df51f3729f20/mc_terrain-9e937ddb838e28e79423c287fa18b1ce66f061d7.jar",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.14550781",
-    "project.structure.side.proportion": "0.33371693",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/20ani/.gradle/caches/modules-2/files-2.1/com.seedfinding/mc_terrain/9e937ddb838e28e79423c287fa18b1ce66f061d7/e97af700203975b452266817ce25df51f3729f20/mc_terrain-9e937ddb838e28e79423c287fa18b1ce66f061d7.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.14550781&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.33371693&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\TrackerDecoderApp" />

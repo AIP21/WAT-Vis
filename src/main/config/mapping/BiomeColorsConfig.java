@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.*;
 
 public class BiomeColorsConfig extends Config {
-
     public static final String DEFAULT_STYLE_NAME = "Default";
     public final static HashMap<Biome, String> BIOME_COLORS = new LinkedHashMap<>();
     public final static HashMap<Biome, String> BIOME_COLORS_VIBRANT = new LinkedHashMap<>();

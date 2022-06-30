@@ -435,7 +435,7 @@ public class PlayerTrackerDecoder extends JFrame {
             }
 
             Toolkit.getDefaultToolkit().beep();
-            label.setText(" World Image [IMPORTED]");
+            label.setText("World Image [IMPORTED]");
             button.setText("New World Image");
             revalidate();
             repaint();

@@ -1,11 +1,11 @@
 package src.main;
 
+import com.seedfinding.mccore.util.math.Vec3i;
 import com.seedfinding.mccore.util.pos.BPos;
 import com.seedfinding.mccore.util.pos.RPos;
 import com.seedfinding.mccore.version.MCVersion;
 import src.main.config.Settings;
 import src.main.mapping.minemap.map.MapContext;
-import src.main.mapping.minemap.map.MapManager;
 import src.main.mapping.minemap.map.fragment.Fragment;
 import src.main.mapping.minemap.map.fragment.FragmentScheduler;
 import src.main.mapping.minemap.util.data.DrawInfo;
@@ -22,13 +22,13 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.*;
 
-import static src.main.mapping.minemap.map.MapManager.DEFAULT_REGION_SIZE;
 import static src.main.util.Logger.LOGGER;
 
 public class MainPanel extends JPanel implements MouseWheelListener, MouseListener, MouseMotionListener, Runnable {
     private final Settings settings;
     public Decoder _Decoder;
 
+    // region Status variables
     private boolean isRunning = true;
     public boolean shouldDraw = false;
     public boolean exporting = false;
@@ -40,14 +40,15 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
     private double curFPS = 0;
     private double frameTime = 0;
     private ArrayList<Double> frameTimeHistory = new ArrayList<>();
+    // endregion
 
-    private final Font smallFont = new Font("Arial", Font.PLAIN, 12);
-
+    // region Data variables
     public ArrayList<LogEntry> logEntries = new ArrayList<>();
     public ArrayList<LocalDateTime> logDates = new ArrayList<>();
     private int totalData;
 
-    //    private Map<LocalDateTime, ArrayList<LogEntry>> logEntriesGroupedByTime = new LinkedHashMap<>();
+    // private Map<LocalDateTime, ArrayList<LogEntry>> logEntriesGroupedByTime = new
+    // LinkedHashMap<>();
     public int timesCount;
 
     public Map<String, Color> playerNameColorMap = new LinkedHashMap<>();
@@ -60,13 +61,19 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
     private ArrayList<LogEntry> hiddenEntries = new ArrayList<>();
 
-    public JLabel coordinateLabel;
-    public JLabel selectedEntryLabel;
-    public JLabel renderedPointsLabel;
     private ArrayList<LogEntry> selectedEntries = new ArrayList<>();
 
     public int renderedPoints = 0;
 
+    public int minX;
+    public int minY;
+    public int maxX;
+    public int maxY;
+    private int xRange;
+    private int yRange;
+    // endregion
+
+    // region Input variables
     private boolean zooming;
     private boolean dragging;
     private boolean released;
@@ -88,14 +95,17 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
     private Point selectionStart = new Point();
     private Point selectionEnd = new Point();
     private Point mousePosition;
+    // endregion
 
-    public int minX;
-    public int minY;
-    public int maxX;
-    public int maxY;
-    private int xRange;
-    private int yRange;
+    // region UI variables
+    private final Font smallFont = new Font("Arial", Font.PLAIN, 12);
 
+    public JLabel coordinateLabel;
+    public JLabel selectedEntryLabel;
+    public JLabel renderedPointsLabel;
+    // endregion
+
+    // region Rendering variables
     public BufferedImage backgroundImage;
     public int xBackgroundOffset, zBackgroundOffset;
     public float backgroundOpacity = 0.5f;
@@ -109,28 +119,33 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
     private AffineTransform at = new AffineTransform();
     private AffineTransform inverse = new AffineTransform();
+    // endregion
 
+    // region Mapping variables
     public MapContext context;
-    public MapManager manager;
     public int threadCount;
     public FragmentScheduler scheduler;
     private boolean hasWorldMap = false;
 
+    public static final int DEFAULT_REGION_SIZE = 512;// 8192;
+    public static final double DEFAULT_PIXELS_PER_FRAGMENT = 256.0;
+    public int blocksPerFragment;
+    public double pixelsPerFragment;
+    // endregion
+
     public MainPanel(Settings settings) {
+        this(settings, DEFAULT_REGION_SIZE);
+    }
+
+    public MainPanel(Settings settings, int blocksPerFragment) {
         super(true);
+
+        this.blocksPerFragment = blocksPerFragment;
+        pixelsPerFragment = (int) (DEFAULT_PIXELS_PER_FRAGMENT * (this.blocksPerFragment / DEFAULT_REGION_SIZE));
 
         setBackground(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? Color.lightGray : Color.darkGray);
 
         this.settings = settings;
-//
-//        otherFrame = new JFrame();
-//        otherFrame.setTitle("Export Preview");
-//        otherFrame.setVisible(true);
-//        otherPanel = new JPanel();
-//        otherPanel.setBackground(Color.black);
-//        otherFrame.add(otherPanel, BorderLayout.CENTER);
-//        otherFrame.revalidate();
-//        otherFrame.setIgnoreRepaint(true);
 
         Logger.info("Initializing main display subsystem");
 
@@ -149,7 +164,6 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
         this.setLayout(new BorderLayout());
 
         this.context = new MapContext(version, dimension, worldSeed);
-        this.manager = new MapManager(this);
 
         this.hasWorldMap = true;
 
@@ -193,8 +207,8 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
             lastTime = start;
 
             if (delta >= 1) {
-//                if (ShouldTick) {
-//                System.out.println("thread run");
+                // if (ShouldTick) {
+                // System.out.println("thread run");
                 if (!exporting && isPlaying) {
                     if (dateTimeIndex < timesCount) {
                         endDate = logDates.get(dateTimeIndex);
@@ -204,12 +218,12 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
                         } else {
                             dateTimeIndex = timesCount;
                         }
-//                            ShouldTick = true;
+                        // ShouldTick = true;
 
                         Logger.info("Playing animated");
                     } else {
                         isPlaying = false;
-//                            ShouldTick = false;
+                        // ShouldTick = false;
                         PlayerTrackerDecoder.INSTANCE.animatePlayPause.setSelected(isPlaying);
 
                         Logger.info("Finished playing");
@@ -226,10 +240,21 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
                     curY = Utils.smoothStep(curY, yTarget, speed);
 
                     curZoomFactor = Utils.smoothStep(curZoomFactor, zoomFactor, speed);
+                    pixelsPerFragment = zoomFactor * blocksPerFragment;
 
                     at = new AffineTransform();
                     at.translate(curX, curY);
                     at.scale(curZoomFactor, curZoomFactor);
+
+//                    if (Keyboard.isKeyDown(KeyEvent.VK_UP)) {
+//                        sc += 1;
+//
+//                        Logger.info("FACTOR UP: " + factor);
+//                    } else if (Keyboard.isKeyDown(KeyEvent.VK_DOWN)) {
+//                        factor = Math.max(1, factor - 1);
+//
+//                        Logger.info("FACTOR DOWN: " + scaleFactor);
+//                    }
                 }
 
                 try {
@@ -238,14 +263,16 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
                     LOGGER.severe("Error inverting rendering transformation:\n   " + Arrays.toString(nte.getStackTrace()));
                 }
 
-//                        if (!isPlaying && Utils.approximately(curX, xTarget, 0.001f) && Utils.approximately(curY, yTarget, 0.001f) && Utils.approximately(curZoomFactor, zoomFactor, 0.001f)) {
-//                            ShouldTick = false;
-//                        }
+                // if (!isPlaying && Utils.approximately(curX, xTarget, 0.001f) &&
+                // Utils.approximately(curY, yTarget, 0.001f) &&
+                // Utils.approximately(curZoomFactor, zoomFactor, 0.001f)) {
+                // ShouldTick = false;
+                // }
 
                 if (shouldDraw) {
                     repaint();
                 }
-//                }
+                // }
 
                 delta--;
             }
@@ -257,18 +284,15 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
         super.paintComponent(g);
 
-        if (!shouldDraw)
-            return;
+        if (!shouldDraw) return;
 
         Graphics2D g2 = (Graphics2D) g;
-//        g2.setClip(0, 0, getWidth(), getHeight());
 
         g2.setRenderingHints(settings.renderingHints);
 
         if (hasWorldMap) {
             scheduler.purge();
             drawMap(g2);
-            drawCrossHair(g2);
         }
 
         if (!exporting) {
@@ -372,8 +396,10 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
             g2.setColor(Color.green.darker());
             drawCrossHair(g2, (float) xOffset, (float) yOffset, 0.5f, String.format("Render offset: (%.3f, %.3f)", xOffset, yOffset));
 
-            renderedPointsLabel.setText(String.format("   Loaded: %d | Rendered: %d | Zoom: %.3f | curX: %.3f, curY: %.3f | xCenter: %d, yCenter: %d | %.3f FPS | shouldDraw: %b | frameTime: %.3f ms | ", totalData, renderedPoints, curZoomFactor, curX, curY, manager.getCenterPos().getX(), manager.getCenterPos().getY(), curFPS, shouldDraw, frameTime));
-//            RenderedPointsLabel.setText(String.format("   Loaded: %d | Rendered: %d | Zoom: %.3f | curX: %.3f, curY: %.3f | %d FPS | ", totalData, renderedPoints, zoomFactor, curX, curY, curFPS));
+            renderedPointsLabel.setText(String.format("   Loaded: %d | Rendered: %d | Zoom: %.3f | curX: %.3f, curY: %.3f | px/frag: %f | %.3f FPS | shouldDraw: %b | frameTime: %.3f ms | ", totalData, renderedPoints, curZoomFactor, curX, curY, pixelsPerFragment, curFPS, shouldDraw, frameTime));
+            // RenderedPointsLabel.setText(String.format(" Loaded: %d | Rendered: %d | Zoom:
+            // %.3f | curX: %.3f, curY: %.3f | %d FPS | ", totalData, renderedPoints,
+            // zoomFactor, curX, curY, curFPS));
         } else {
             renderedPointsLabel.setText(String.format("   Loaded: %d | Rendered: %d | Zoom: %.3f | %.3f FPS | ", totalData, renderedPoints, curZoomFactor, curFPS));
         }
@@ -395,7 +421,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
         curFPS = 1000.0 / frameTime; // 1.e9 / frameTime // (in nanos)
     }
 
-    //region Drawing
+    // region Drawing
     private void drawCrossHair(Graphics2D g2d, float x, float y, float size) {
         g2d.setStroke(new BasicStroke(5 * size));
         g2d.draw(new Ellipse2D.Float(x + (-25 * size), y + (-25 * size), 50 * size, 50 * size));
@@ -435,7 +461,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
         g2d.setColor(Color.black);
 
-//        ArrayList<LogEntry> entries = (ArrayList<LogEntry>) enabledEntries.clone();
+        // ArrayList<LogEntry> entries = (ArrayList<LogEntry>) enabledEntries.clone();
         for (LogEntry entry : enabledEntries) {
             if (settings.ageFade) {
                 if (!playerOccurrences.containsKey(entry.playerName)) {
@@ -693,9 +719,9 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
         drawLine(g2d, x1, y1, x2, y2, settings.size);
         g2d.fillPolygon(new int[]{(int) x2, (int) xm, (int) xn}, new int[]{(int) y2, (int) ym, (int) yn}, 3);
     }
-    //endregion
+    // endregion
 
-    //region Data
+    // region Data
     public void queuePointUpdate(boolean log) {
         shouldUpdate = true;
         shouldUpdateLog = log;
@@ -706,7 +732,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
         boolean start = shouldDraw;
         shouldDraw = false;
 
-//        logEntriesGroupedByTime.clear();
+        // logEntriesGroupedByTime.clear();
         playerMarkerCount.clear();
         posActivityMap.clear();
         enabledEntries.clear();
@@ -737,7 +763,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
             }
         }
 
-//        repaint();
+        // repaint();
 
         shouldDraw = start;
 
@@ -754,7 +780,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
         Logger.info("Passed time getting");
 
-//        logEntriesGroupedByTime.clear();
+        // logEntriesGroupedByTime.clear();
 
         playerNameColorMap = _Decoder.playerNameColorMap;
 
@@ -782,36 +808,31 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
         Logger.info("Successfully set data to display");
     }
-    //endregion
+    // endregion
 
-    //region Input
+    // region Input
     @Override
     public void mouseWheelMoved(MouseWheelEvent e) {
-        if (selecting || dragging)
-            return;
-
-        double newPixelsPerFragment = manager.pixelsPerFragment;
+        if (selecting || dragging) return;
 
         zooming = true;
         if (e.getUnitsToScroll() < 0) {
             zoomFactor = Math.min(50.0f, zoomFactor * (1.05f * sensitivity));
-
-            newPixelsPerFragment *= 1.05D;
         } else if (e.getUnitsToScroll() > 0) {
             zoomFactor = Math.max(0.02f, zoomFactor / (1.05f * sensitivity));
-
-            newPixelsPerFragment /= 1.05D;
         }
 
-        if (newPixelsPerFragment > 4096.0D * (double) manager.blocksPerFragment / DEFAULT_REGION_SIZE) {
-            // restrict min zoom to 4096 chunks per fragment
-            newPixelsPerFragment = 4096.0D * (manager.blocksPerFragment / 512.0D);
-        } else if (newPixelsPerFragment < 32.0D * (double) manager.blocksPerFragment / DEFAULT_REGION_SIZE) {
-            // restrict max zoom to 32 chunks per fragment
-            newPixelsPerFragment = 32.0D * (manager.blocksPerFragment / 512.0D);
-        }
-
-        manager.pixelsPerFragment = newPixelsPerFragment;
+//        double newPixelsPerFragment = zoomFactor * blocksPerFragment;
+//
+//        if (newPixelsPerFragment > 4096D * (double) blocksPerFragment / DEFAULT_REGION_SIZE) {
+//            // restrict min zoom to 4096 chunks per fragment
+//            newPixelsPerFragment = 4096D * (double) (blocksPerFragment / DEFAULT_REGION_SIZE);
+//        } else if (newPixelsPerFragment < 32D * (double) blocksPerFragment / DEFAULT_REGION_SIZE) {
+//            // restrict max zoom to 32 chunks per fragment
+//            newPixelsPerFragment = 32D * (double) (blocksPerFragment / DEFAULT_REGION_SIZE);
+//        }
+//
+//        pixelsPerFragment = newPixelsPerFragment;
 
         repaint();
     }
@@ -850,14 +871,14 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
             for (LogEntry entry : enabledEntries) {
                 if ((Math.abs(entry.position.x - mousePosition.x) < 2 && Math.abs(entry.position.z - mousePosition.y) < 2) && (!shiftDown || !selectedEntries.contains(entry))) {
-//                    float dist = entry.position.sqrDistTo(mousePosition);
-//
-//                    if (dist < Math.max(4.0f, settings.size * settings.size)) {
+                    // float dist = entry.position.sqrDistTo(mousePosition);
+                    //
+                    // if (dist < Math.max(4.0f, settings.size * settings.size)) {
                     selectedEntries.add(entry);
 
                     Logger.info("Selected a log entry: " + entry);
                     break;
-//                    }
+                    // }
                 }
             }
 
@@ -944,7 +965,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
         JMenuItem hideButton = new JMenuItem("Hide Points");
 
         rightClickMenu.add(hideButton);
-        //add selected entries to the hidden entries list
+        // add selected entries to the hidden entries list
         hideButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -961,7 +982,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
         JMenuItem showButton = new JMenuItem("Show Points");
 
         rightClickMenu.add(showButton);
-        //remove selected entries from the hidden entries list
+        // remove selected entries from the hidden entries list
         showButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -976,24 +997,18 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
         rightClickMenu.show(this, pos.x, pos.y);
     }
-    //endregion
+    // endregion
 
-    //region World Map
+    // region World Map
     public MapContext getContext() {
         return this.context;
     }
 
-    public MapManager getManager() {
-        return this.manager;
-    }
-
     public void restart() {
-        if (scheduler != null)
-            scheduler.terminate();
+        if (scheduler != null) scheduler.terminate();
         scheduler = new FragmentScheduler(this, this.threadCount);
         repaint();
     }
-
 
     public void drawMap(Graphics2D graphics) {
         Map<Fragment, DrawInfo> drawQueue = getDrawQueue();
@@ -1001,38 +1016,27 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
         drawQueue.forEach((fragment, info) -> fragment.drawNonLoading(f -> f.drawGrid(graphics, info)));
     }
 
-    public void drawCrossHair(Graphics2D graphics) {
-        graphics.setXORMode(Color.BLACK);
-        int cx = this.getWidth() / 2, cz = getHeight() / 2;
-        graphics.fillRect(cx - 4, cz - 1, 8, 2);
-        graphics.fillRect(cx - 1, cz - 4, 2, 8);
-        graphics.setPaintMode();
-    }
-
     public Map<Fragment, DrawInfo> getDrawQueue() {
         Map<Fragment, DrawInfo> drawQueue = new HashMap<>();
-        int w = this.getWidth(), h = this.getHeight();
+        int w = getWidth(), h = getHeight();
 
-        BPos min = this.manager.getPos(0, 0);
-        BPos max = this.manager.getPos(w, h);
+        BPos min = getPos(0, 0);
+        BPos max = getPos(w, h);
 
-        double scaleFactor = this.manager.pixelsPerFragment / this.manager.blocksPerFragment;
         int factor = 1;
-        // if (scaleFactor<0.04){
-        // factor=8;
-        // }
-        RPos regionMin = min.toRegionPos(this.manager.blocksPerFragment);
-        RPos regionMax = max.toRegionPos(this.manager.blocksPerFragment);
+
+        RPos regionMin = min.toRegionPos(blocksPerFragment);
+        RPos regionMax = max.toRegionPos(blocksPerFragment);
         int blockOffsetX = regionMin.toBlockPos().getX() - min.getX();
         int blockOffsetZ = regionMin.toBlockPos().getZ() - min.getZ();
-        double pixelOffsetX = blockOffsetX * scaleFactor;
-        double pixelOffsetZ = blockOffsetZ * scaleFactor;
+        double pixelOffsetX = blockOffsetX * curZoomFactor;
+        double pixelOffsetZ = blockOffsetZ * curZoomFactor;
         for (int regionX = regionMin.getX() / factor; regionX <= regionMax.getX() / factor; regionX++) {
             for (int regionZ = regionMin.getZ() / factor; regionZ <= regionMax.getZ() / factor; regionZ++) {
-                Fragment fragment = this.scheduler.getFragmentAt(regionX * factor, regionZ * factor, factor);
-                double x = (regionX * factor - regionMin.getX()) * this.manager.pixelsPerFragment + pixelOffsetX;
-                double z = (regionZ * factor - regionMin.getZ()) * this.manager.pixelsPerFragment + pixelOffsetZ;
-                int size = (int) (this.manager.pixelsPerFragment) * factor;
+                Fragment fragment = scheduler.getFragmentAt(regionX * factor, regionZ * factor, factor);
+                double x = (regionX * factor - regionMin.getX()) * pixelsPerFragment + pixelOffsetX;
+                double z = (regionZ * factor - regionMin.getZ()) * pixelsPerFragment + pixelOffsetZ;
+                int size = (int) (pixelsPerFragment) * factor;
                 drawQueue.put(fragment, new DrawInfo((int) x, (int) z, size, size));
             }
         }
@@ -1046,12 +1050,32 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
         return image;
     }
 
+    public Vec3i getScreenSize() {
+        return new Vec3i(getWidth(), 0, getHeight());
+    }
+
+    public BPos getCenterPos() {
+        Vec3i screenSize = getScreenSize();
+        return getPos(screenSize.getX() / 2.0D, screenSize.getZ() / 2.0D);
+    }
+
+    public BPos getPos(double mouseX, double mouseY) {
+        Vec3i screenSize = getScreenSize();
+        double x = (mouseX - screenSize.getX() / 2.0D - curX) / screenSize.getX();
+        double y = (mouseY - screenSize.getZ() / 2.0D - curY) / screenSize.getZ();
+        double blocksPerWidth = (screenSize.getX() / pixelsPerFragment) * (double) blocksPerFragment;
+        double blocksPerHeight = (screenSize.getZ() / pixelsPerFragment) * (double) blocksPerFragment;
+        x *= blocksPerWidth;
+        y *= blocksPerHeight;
+        int xi = (int) Math.round(x);
+        int yi = (int) Math.round(y);
+        return new BPos(xi, 0, yi);
+    }
+
     @Override
     public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (!(o instanceof MainPanel))
-            return false;
+        if (this == o) return true;
+        if (!(o instanceof MainPanel)) return false;
         MainPanel MainPanel = (MainPanel) o;
         return threadCount == MainPanel.threadCount && context.equals(MainPanel.context);
     }
@@ -1060,8 +1084,9 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
     public int hashCode() {
         return Objects.hash(context, threadCount);
     }
-    //endregion
+    // endregion
 
+    // region Exporting as image
     public void SaveAsImage(boolean screenshot) {
         boolean playing = isPlaying;
         isPlaying = false;
@@ -1181,12 +1206,13 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
             drawCrossHair(g2d, _minX, _minY + -1000, 1, "1000");
         }
     }
+    // endregion
 
     public void Reset() {
         logEntries.clear();
         logDates.clear();
 
-//        logEntriesGroupedByTime.clear();
+        // logEntriesGroupedByTime.clear();
 
         playerNameColorMap.clear();
         playerLastPosMap.clear();

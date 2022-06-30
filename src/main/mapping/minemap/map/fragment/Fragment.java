@@ -24,7 +24,6 @@ import java.util.Set;
 import java.util.function.Consumer;
 
 public class Fragment {
-
     private final int blockX;
     private final int blockZ;
     private final int regionSize;
@@ -33,7 +32,6 @@ public class Fragment {
     private int layerIdCache;
     private int[][] biomeCache;
     private int[][] heightCache;
-    private Set<Biome> activeBiomesCache;
     private BufferedImage imageCache;
     private int lastCheatingBiome = 1;
     private int lastCheatingHeight = 1;
@@ -132,8 +130,8 @@ public class Fragment {
     private void refreshHeightCache() {
         MainPanel panel = PlayerTrackerDecoder.INSTANCE.mainPanel;
         int cheating;
-        if (panel != null && panel.manager != null) {
-            cheating = Math.max(2, (int) (panel.manager.blocksPerFragment / 2 / panel.manager.pixelsPerFragment));
+        if (panel != null && panel != null) {
+            cheating = Math.max(2, (int) (panel.blocksPerFragment / 2 / panel.pixelsPerFragment));
             cheating = Math.max(cheating, 1);
             if (this.heightCache != null && lastCheatingHeight <= cheating) return;
         } else {
@@ -178,8 +176,8 @@ public class Fragment {
     private void refreshBiomeCache() {
         MainPanel panel = PlayerTrackerDecoder.INSTANCE.mainPanel;
         int cheating;
-        if (panel != null && panel.manager != null) {
-            cheating = Math.max(1, (int) (panel.manager.blocksPerFragment / 16 / panel.manager.pixelsPerFragment));
+        if (panel != null && panel != null) {
+            cheating = Math.max(1, (int) (panel.blocksPerFragment / 16 / panel.pixelsPerFragment));
             if (this.biomeCache != null && this.layerIdCache == this.context.getLayerId() && lastCheatingBiome <= cheating)
                 return;
         } else {
@@ -219,21 +217,16 @@ public class Fragment {
     }
 
     private void refreshBiomeImageCache() {
-        if (this.imageCache != null && this.context.getSettings().getActiveBiomes().equals(this.activeBiomesCache) && !hasBiomeModified)
+        if (this.imageCache != null && !hasBiomeModified)
             return;
         hasBiomeModified = false;
         int scaledSize = this.biomeCache.length;
-        this.activeBiomesCache = this.context.getSettings().getActiveBiomes();
         this.imageCache = new BufferedImage(scaledSize, scaledSize, BufferedImage.TYPE_INT_RGB);
         for (int x = 0; x < scaledSize; x++) {
             for (int z = 0; z < scaledSize; z++) {
                 Biome biome = Biomes.REGISTRY.get(this.biomeCache[x][z]);
                 if (biome == null) continue;
-                Color color = Configs.BIOME_COLORS.get(BiomeColorsConfig.DEFAULT_STYLE_NAME, biome);
-
-                if (!this.activeBiomesCache.contains(biome)) {
-                    color = makeInactive(color);
-                }
+                Color color = Configs.BIOME_COLORS.get(BiomeColorsConfig.DEFAULT_STYLE_NAME, biome).brighter();
 
                 this.imageCache.setRGB(x, z, color.getRGB());
             }
@@ -270,11 +263,6 @@ public class Fragment {
         return new Color(red, green, blue, alpha);
     }
 
-    private Color makeInactive(Color c) {
-        int r = c.getRed(), g = c.getGreen(), b = c.getBlue(), sum = r + g + b;
-        return new Color((r + sum) / 30, (g + sum) / 30, (b + sum) / 30, c.getAlpha());
-    }
-
     public boolean isPosInFragment(BPos pos) {
         return this.isPosInFragment(pos.getX(), pos.getZ());
     }
@@ -290,6 +278,6 @@ public class Fragment {
 
     @Override
     public String toString() {
-        return "Fragment{" + "blockX=" + blockX + ", blockZ=" + blockZ + ", regionSize=" + regionSize + ", context=" + context + ", layerIdCache=" + layerIdCache + ", biomeCache=" + Arrays.toString(biomeCache) + ", activeBiomesCache=" + activeBiomesCache + ", imageCache=" + imageCache + ", features=" + features + ", hoveredPos=" + hoveredPos + '}';
+        return "Fragment{" + "blockX=" + blockX + ", blockZ=" + blockZ + ", regionSize=" + regionSize + ", context=" + context + ", layerIdCache=" + layerIdCache + ", biomeCache=" + Arrays.toString(biomeCache) + ", imageCache=" + imageCache + ", features=" + features + ", hoveredPos=" + hoveredPos + '}';
     }
 }

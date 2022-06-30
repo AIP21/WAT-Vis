@@ -96,14 +96,14 @@ public class FragmentScheduler {
     }
 
     public double distanceToCenter(RPos regionPos) {
-        return regionPos.distanceTo(this.listener.getManager().getCenterPos().toRegionPos(this.listener.getManager().blocksPerFragment), DistanceMetric.EUCLIDEAN_SQ);
+        return regionPos.distanceTo(this.listener.getCenterPos().toRegionPos(this.listener.blocksPerFragment), DistanceMetric.EUCLIDEAN_SQ);
     }
 
     public boolean isInBounds(RPos region) {
-        BPos min = this.listener.getManager().getPos(0, 0);
-        BPos max = this.listener.getManager().getPos(this.listener.getWidth(), this.listener.getHeight());
-        RPos regionMin = min.toRegionPos(this.listener.getManager().blocksPerFragment);
-        RPos regionMax = max.toRegionPos(this.listener.getManager().blocksPerFragment);
+        BPos min = this.listener.getPos(0, 0);
+        BPos max = this.listener.getPos(this.listener.getWidth(), this.listener.getHeight());
+        RPos regionMin = min.toRegionPos(this.listener.blocksPerFragment);
+        RPos regionMax = max.toRegionPos(this.listener.blocksPerFragment);
         if (region.getX() < regionMin.getX() - 40 || region.getX() > regionMax.getX() + 40) return false;
         return region.getZ() >= regionMin.getZ() - 40 && region.getZ() <= regionMax.getZ() + 40;
     }
@@ -113,7 +113,7 @@ public class FragmentScheduler {
     }
 
     public Fragment getFragmentAt(int regionX, int regionZ, int factor) {
-        RPos regionPos = new RPos(regionX, regionZ, this.listener.getManager().blocksPerFragment * factor);
+        RPos regionPos = new RPos(regionX, regionZ, this.listener.blocksPerFragment * factor);
 
         if (!this.fragments.containsKey(regionPos) && !this.scheduledRegions.contains(regionPos)) {
             this.fragments.put(regionPos, LOADING_FRAGMENT);

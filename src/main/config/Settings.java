@@ -42,11 +42,11 @@ public class Settings {
         Logger.info("Initializing settings subsystem");
 
         try {
-            if (!(new File("config.txt")).exists()) {
+            if (!(new File(PlayerTrackerDecoder.DIR_CONFIG + File.separatorChar + "config.txt")).exists()) {
                 LOGGER.warning("Config file does not exist, creating it");
 
                 try {
-                    (new File("config.txt")).createNewFile();
+                    (new File(PlayerTrackerDecoder.DIR_CONFIG + File.separatorChar +"config.txt")).createNewFile();
 
                     Logger.info("Successfully created config file");
                     SaveSettings();
@@ -57,7 +57,7 @@ public class Settings {
             }
 
             Logger.info("Fetching and parsing settings from config file");
-            getFromFile(new File("config.txt"));
+            getFromFile(new File(PlayerTrackerDecoder.DIR_CONFIG + File.separatorChar +"config.txt"));
             Logger.info("Successfully fetched and parsed settings from config file");
         } catch (IOException e) {
             LOGGER.severe("Error fetching and parsing settings from config file:\n   " + Arrays.toString(e.getStackTrace()));
@@ -70,7 +70,7 @@ public class Settings {
         Logger.info("Saving and writing settings to config file");
 
         try {
-            PrintWriter writer = new PrintWriter("config.txt", StandardCharsets.UTF_8);
+            PrintWriter writer = new PrintWriter(PlayerTrackerDecoder.DIR_CONFIG + File.separatorChar +"config.txt", StandardCharsets.UTF_8);
             writer.println("/// Player Tracker Decoder v" + PlayerTrackerDecoder.VERSION + " - CONFIG \\\\\\");
             writer.println("/// Delete this config file to reset values to their default settings \\\\\\\n");
 

@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 public class MapSettings {
     public static final boolean DEFAULT_SHOW_BIOMES = true;
-    public static final boolean DEFAULT_SHOW_GRID = false;
+    public static final boolean DEFAULT_SHOW_GRID = true;
     public static final int DEFAULT_BIOME_SIZE = OverworldBiomeSource.DEFAULT_BIOME_SIZE;
     public static final int DEFAULT_RIVER_SIZE = OverworldBiomeSource.DEFAULT_RIVER_SIZE;
 
@@ -21,7 +21,7 @@ public class MapSettings {
     @Expose
     public Boolean showBiomes = true;
     @Expose
-    public Boolean showGrid = false;
+    public Boolean showGrid = true;
     @Expose
     public Integer biomeSize = 4;
     @Expose
@@ -60,8 +60,6 @@ public class MapSettings {
                 .collect(Collectors.toMap(
                         e -> e,
                         e -> this.biomes.getOrDefault(e.getName(), true)));
-
-        System.out.println("BIOMESTATES: " + this.biomeStates);
 
         return this;
     }
@@ -106,13 +104,6 @@ public class MapSettings {
         return b;
     }
 
-    public Set<Biome> getActiveBiomes() {
-        return this.biomeStates.entrySet().stream()
-                .filter(Map.Entry::getValue)
-                .map(Map.Entry::getKey)
-                .collect(Collectors.toSet());
-    }
-
     public Integer getBiomeSize() {
         return biomeSize;
     }
@@ -144,17 +135,12 @@ public class MapSettings {
         this.riverSize = this.riverSize != null ? this.riverSize : DEFAULT_RIVER_SIZE;
     }
 
-    public boolean isActive(Biome biome) {
-        return this.biomeStates.getOrDefault(biome, false);
-    }
-
     public MapSettings set(MapSettings other) {
         this.showBiomes = other.showBiomes;
         this.showGrid = other.showGrid;
         this.biomeSize = other.biomeSize;
         this.riverSize = other.riverSize;
         this.getAllBiomes().forEach(this::hide);
-        other.getActiveBiomes().forEach(this::show);
         return this;
     }
 

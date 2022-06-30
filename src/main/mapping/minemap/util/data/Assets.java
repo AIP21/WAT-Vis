@@ -5,8 +5,8 @@ import com.google.gson.stream.JsonReader;
 import com.seedfinding.mccore.util.data.Pair;
 import com.seedfinding.mccore.util.data.StringUnhasher.Config;
 import com.seedfinding.mccore.version.MCVersion;
-import com.seedfinding.minemap.MineMap;
-import com.seedfinding.minemap.init.Logger;
+import src.main.PlayerTrackerDecoder;
+import src.main.util.Logger;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -30,14 +30,14 @@ import java.util.jar.JarFile;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static com.seedfinding.minemap.init.Logger.LOGGER;
+import static src.main.util.Logger.LOGGER;
 
 public class Assets {
-    public final static String DOWNLOAD_DIR_ICONS = MineMap.DOWNLOAD_DIR + File.separatorChar + "icons";
-    public final static String DOWNLOAD_DIR_VERSIONS = MineMap.DOWNLOAD_DIR + File.separatorChar + "versions";
-    public final static String DOWNLOAD_DIR_ASSETS = MineMap.DOWNLOAD_DIR + File.separatorChar + "assets";
+    public final static String DOWNLOAD_DIR_ICONS = PlayerTrackerDecoder.DIR_DL + File.separatorChar + "icons";
+    public final static String DOWNLOAD_DIR_VERSIONS = PlayerTrackerDecoder.DIR_DL + File.separatorChar + "versions";
+    public final static String DOWNLOAD_DIR_ASSETS = PlayerTrackerDecoder.DIR_DL + File.separatorChar + "assets";
     private static final String MANIFEST_URL = "https://launchermeta.mojang.com/mc/game/version_manifest.json";
-    private static final File MANIFEST_FILE = new File(MineMap.DOWNLOAD_DIR + File.separator + "version_manifest.json");
+    private static final File MANIFEST_FILE = new File(PlayerTrackerDecoder.DIR_DL + File.separator + "version_manifest.json");
 
     public static void createDirs() throws IOException {
         String[] dirs = {DOWNLOAD_DIR_ICONS, DOWNLOAD_DIR_VERSIONS, DOWNLOAD_DIR_ASSETS};
@@ -55,7 +55,7 @@ public class Assets {
         Map<String, Object> map = new Gson().fromJson(data, Map.class);
         if (map.containsKey("tag_name")) {
             String tagName = (String) map.get("tag_name");
-            if (!tagName.equals(MineMap.version)) {
+            if (!tagName.equals(PlayerTrackerDecoder.VERSION)) {
                 if (map.containsKey("assets")) {
                     ArrayList<Map<String, Object>> assets = (ArrayList<Map<String, Object>>) map.get("assets");
                     HashMap<String, Pair<Pair<String, String>, String>> versionToDownload = new LinkedHashMap<>();
@@ -78,7 +78,7 @@ public class Assets {
                     LOGGER.warning("Github release does not contain a assets key.");
                 }
             } else {
-                Logger.LOGGER.info(String.format("Version match so we are not updating current :%s, github :%s", MineMap.version, tagName));
+                Logger.info(String.format("Version match so we are not updating current :%s, github :%s", PlayerTrackerDecoder.VERSION, tagName));
             }
         } else {
             LOGGER.warning("Github release does not contain a tag_name key.");
@@ -257,7 +257,7 @@ public class Assets {
 
 
     private static boolean download(String url, File out, String sha1) {
-        Logger.LOGGER.info(String.format("Downloading %s for file %s", url, out.getName()));
+        Logger.info(String.format("Downloading %s for file %s", url, out.getName()));
         ReadableByteChannel rbc;
         try {
             rbc = Channels.newChannel(new URL(url).openStream());
@@ -433,8 +433,8 @@ public class Assets {
 
     public static java.util.List<Path> getFileHierarchical(Path dir, String fileName, String extension) throws IOException {
         return Files.walk(dir).
-            filter(file -> Files.isRegularFile(file) && file.toAbsolutePath().getFileName().toString().equals(fileName + extension)).
-            collect(Collectors.toList());
+                filter(file -> Files.isRegularFile(file) && file.toAbsolutePath().getFileName().toString().equals(fileName + extension)).
+                collect(Collectors.toList());
     }
 
     public static java.util.List<Pair<Path, InputStream>> getInputStream(Path dir, boolean isJar, String name, String extension) {
@@ -443,23 +443,23 @@ public class Assets {
         try {
             paths = Assets.getFileHierarchical(dir, name, extension);
         } catch (IOException e) {
-            error(String.format("Exception while screening the files for '%s%s' from root %s with error %s", name, extension, dir.toString(), e));
+            LOGGER.severe(String.format("Exception while screening the files for '%s%s' from root %s with error %s", name, extension, dir.toString(), e));
             return list;
         }
         for (Path path : paths) {
             try {
                 InputStream inputStream = isJar ? Config.class.getResourceAsStream(path.toString()) : new FileInputStream(path.toString());
                 if (inputStream == null) {
-                    error(String.format("Input stream is null, %s", path));
+                    LOGGER.severe(String.format("Input stream is null, %s", path));
                     return list;
                 }
                 list.add(new Pair<>(path, inputStream));
             } catch (IOException e) {
-                error(String.format("Exception while  getting the file input for %s at %s with error %s", name, dir.toString(), e));
+                LOGGER.severe(String.format("Exception while  getting the file input for %s at %s with error %s", name, dir.toString(), e));
             }
         }
         if (list.isEmpty()) {
-            error(String.format("File not found for %s", name));
+            LOGGER.severe(String.format("File not found for %s", name));
         }
 
         return list;
@@ -471,7 +471,7 @@ public class Assets {
             try {
                 return new Pair<>(fnObjectStorage.apply(e.getFirst()), ImageIO.read(e.getSecond()));
             } catch (IOException ioException) {
-                error(String.format("Exception while reading the file input stream for %s at %s with error %s", name, dir.toString(), e));
+                LOGGER.severe(String.format("Exception while reading the file input stream for %s at %s with error %s", name, dir.toString(), e));
             }
             return null;
         }).filter(Objects::nonNull).collect(Collectors.toList());
@@ -495,7 +495,7 @@ public class Assets {
             conn.connect();
             int responseCode = conn.getResponseCode();
             if (responseCode != 200) {
-                error(String.format("Failed to fetch URL %s, errorcode : %s", apiUrl, responseCode));
+                LOGGER.severe(String.format("Failed to fetch URL %s, errorcode : %s", apiUrl, responseCode));
             } else {
 
                 StringBuilder inline = new StringBuilder();
@@ -507,7 +507,7 @@ public class Assets {
                 return inline.toString();
             }
         } catch (Exception e) {
-            error(String.format("Failed to fetch URL %s, error : %s", apiUrl, e));
+            LOGGER.severe(String.format("Failed to fetch URL %s, error : %s", apiUrl, e));
         }
         return null;
     }

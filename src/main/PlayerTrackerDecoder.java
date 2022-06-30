@@ -2,7 +2,9 @@ package src.main;
 
 import com.formdev.flatlaf.FlatDarculaLaf;
 import com.formdev.flatlaf.FlatIntelliJLaf;
+import com.seedfinding.mccore.version.MCVersion;
 import src.main.config.Settings;
+import src.main.config.mapping.Configs;
 import src.main.importing.filters.TextFileFilter;
 import src.main.mapping.minemap.util.data.Assets;
 import src.main.ui.RangedSlider.RangeSlider;
@@ -30,17 +32,20 @@ import java.util.Objects;
 import static src.main.util.Logger.LOGGER;
 
 public class PlayerTrackerDecoder extends JFrame {
-    public final static String DIR_LOGS = File.separatorChar + "logs";
-    public final static String DIR_IMAGES = File.separatorChar + "worldImages";
-    public final static String DIR_CONFIG = File.separatorChar + "configs";
-    public final static String DIR_DL = File.separatorChar + "downloads";
+    public static final String DIR_ROOT = System.getProperty("user.dir");
+    public final static String DIR_LOGS = DIR_ROOT + File.separatorChar + "logs";
+    public final static String DIR_WORLDIMAGES = DIR_ROOT + File.separatorChar + "worldImages";
+    public final static String DIR_CONFIG = DIR_ROOT + File.separatorChar + "configs";
+    public final static String DIR_DL = DIR_ROOT + File.separatorChar + ".downloads";
+
+    public static boolean DEBUG = true;
 
     public static PlayerTrackerDecoder INSTANCE;
 
     private final Decoder decoder;
-    private final Settings settings;
+    public final Settings settings;
 
-    public Panel mainPanel;
+    public MainPanel mainPanel;
 
     private JMenuBar menuBar;
     private JMenuItem dataFileImportButton;
@@ -129,21 +134,19 @@ public class PlayerTrackerDecoder extends JFrame {
     public ImageIcon darkThemeIcon;
     //endregion
 
-    public static final String VERSION = "1.2.0-FR";
-
-    public static boolean debugMode = false;
+    public static final String VERSION = "1.3.0-FR";
 
     public PlayerTrackerDecoder(boolean debug) {
-        debugMode = debug;
+        DEBUG = debug;
 
-        LOGGER.info("Initializing primary subsystems");
+        Logger.info("Initializing primary subsystems");
         settings = new Settings();
         decoder = new Decoder(settings);
 
         ClassLoader classLoader = getClass().getClassLoader();
 
         try {
-            LOGGER.info("Loading resources");
+            Logger.info("Loading resources");
             playIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/play.png"))).getScaledInstance(24, 24, 4), "Play");
             playIcon_D = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/playD.png"))).getScaledInstance(24, 24, 4), "Play");
             pauseIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/pause.png"))).getScaledInstance(24, 24, 4), "Pause");
@@ -238,13 +241,14 @@ public class PlayerTrackerDecoder extends JFrame {
         bottomMenuBar.add(mainPanel.selectedEntryLabel);
 
         ChangeTheme(settings.uiTheme);
-        LOGGER.info("Successfully initialized all subsystems");
+        Logger.info("Successfully initialized all subsystems");
     }
 
     public static void main(String[] args) {
         createDirectories();
         boolean debug = args.length > 0 && args[0].contains("-debug");
         Logger.registerLogger();
+        Configs.registerConfigs();
 
         if (debug) {
             LOGGER.warning("DEBUG MODE IS ON, PERFORMANCE MAY BE IMPACTED");
@@ -269,7 +273,7 @@ public class PlayerTrackerDecoder extends JFrame {
     }
 
     private void initMainFrame() {
-        LOGGER.info("Initializing primary frame subsystem");
+        Logger.info("Initializing primary frame subsystem");
 
         try {
             if (settings.uiTheme == PlayerTrackerDecoder.UITheme.Light) {
@@ -289,7 +293,7 @@ public class PlayerTrackerDecoder extends JFrame {
         setLocationRelativeTo(null);
         getContentPane().setBackground(Color.DARK_GRAY);
 
-        mainPanel = new Panel(settings, this);
+        mainPanel = new MainPanel(settings);
         mainPanel.setDropTarget(new DropTarget() {
             public synchronized void drop(DropTargetDropEvent evt) {
                 try {
@@ -306,6 +310,7 @@ public class PlayerTrackerDecoder extends JFrame {
                     importForm.setLocationRelativeTo(PlayerTrackerDecoder.this);
                     importForm.setVisible(true);
                 } catch (Exception ex) {
+                    LOGGER.severe(ex.toString());
                     ex.printStackTrace();
                 }
             }
@@ -317,11 +322,11 @@ public class PlayerTrackerDecoder extends JFrame {
         mainPanel.coordinateLabel.setText("");
         mainPanel.selectedEntryLabel = new JLabel("Nothing Selected");
         mainPanel.selectedEntryLabel.setVisible(false);
-        add(mainPanel);
+        add(mainPanel, BorderLayout.CENTER);
         mainPanel.setVisible(true);
         mainPanel.repaint();
         revalidate();
-        LOGGER.info("Successfully initialized primary frame subsystem");
+        Logger.info("Successfully initialized primary frame subsystem");
     }
 
     public void ConfirmImport(ArrayList<File> files, boolean overwrite) {
@@ -336,6 +341,8 @@ public class PlayerTrackerDecoder extends JFrame {
         } catch (IOException e) {
             LOGGER.severe("Error decoding the selected input log files:\n   " + Arrays.toString(e.getStackTrace()));
         }
+
+        mainPanel.setWorldMapInfo(MCVersion.v1_18_2, com.seedfinding.mccore.state.Dimension.OVERWORLD, 46456, 2);
     }
 
     public void LoadWorldImage(File imgFile, JLabel label, JButton button, ImportForm form) {
@@ -356,12 +363,12 @@ public class PlayerTrackerDecoder extends JFrame {
                 int defaultX = Utils.clamp(mainPanel.xBackgroundOffset, -width, width);
                 int defaultZ = Utils.clamp(mainPanel.zBackgroundOffset, -height, height);
 
-                if (debugMode) {
+                if (DEBUG) {
                     backgroundImagePanel.add(new JLabel("Overworld offset: (-6384, -5376)  Nether offset: (-1008, -1969)"));
                 }
 
-                LOGGER.info(String.format("width: %d, height: %d", width, height));
-                LOGGER.info(String.format("defaultX: %d, defaultZ: %d", defaultX, defaultZ));
+                Logger.info(String.format("width: %d, height: %d", width, height));
+                Logger.info(String.format("defaultX: %d, defaultZ: %d", defaultX, defaultZ));
 
                 JSlider xOffsetSlider = new JSlider(0, -width, width, defaultX);
                 xOffsetSlider.setPreferredSize(new Dimension(100, 48));
@@ -378,7 +385,7 @@ public class PlayerTrackerDecoder extends JFrame {
                     mainPanel.xBackgroundOffset = x;
                     mainPanel.repaint();
 
-                    LOGGER.info("Changed the world background image X offset to: " + x);
+                    Logger.info("Changed the world background image X offset to: " + x);
                 });
                 backgroundImagePanel.add(xOffsetSlider);
                 backgroundImagePanel.add(xLabel);
@@ -398,7 +405,7 @@ public class PlayerTrackerDecoder extends JFrame {
                     mainPanel.zBackgroundOffset = z;
                     mainPanel.repaint();
 
-                    LOGGER.info("Changed the world background image Y offset to: " + z);
+                    Logger.info("Changed the world background image Y offset to: " + z);
                 });
                 backgroundImagePanel.add(zOffsetSlider);
                 backgroundImagePanel.add(zLabel);
@@ -417,12 +424,12 @@ public class PlayerTrackerDecoder extends JFrame {
                     mainPanel.backgroundOpacity = opacity / 100.0F;
                     mainPanel.repaint();
 
-                    LOGGER.info("Changed the world background image opacity to: " + opacity);
+                    Logger.info("Changed the world background image opacity to: " + opacity);
                 });
                 backgroundImagePanel.add(backgroundOpacitySlider);
                 backgroundImagePanel.add(backgroundOpacityLabel);
 
-                LOGGER.info("Successfully loaded world background image");
+                Logger.info("Successfully loaded world background image");
             } catch (IOException e) {
                 LOGGER.severe("Error reading selected world background image:\n   " + Arrays.toString(e.getStackTrace()));
             }
@@ -504,7 +511,7 @@ public class PlayerTrackerDecoder extends JFrame {
     }
 
     private void initDataSettingsToolBar(boolean remove) {
-        LOGGER.info("Initializing toolbar subsystem");
+        Logger.info("Initializing toolbar subsystem");
 
         toolbar.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
@@ -546,7 +553,7 @@ public class PlayerTrackerDecoder extends JFrame {
 
             if (!mainPanel.isPlaying) {
                 mainPanel.queuePointUpdate(true);
-                LOGGER.info("Changed date range slider: From " + startDate.toString() + " to " + endDate.toString());
+                Logger.info("Changed date range slider: From " + startDate.toString() + " to " + endDate.toString());
             }
         });
         dataPanel.add(startDateLabel, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -571,7 +578,7 @@ public class PlayerTrackerDecoder extends JFrame {
             } else {
                 animatePlayPause.setIcon(mainPanel.isPlaying ? pauseIcon_D : playIcon_D);
             }
-            LOGGER.info(mainPanel.isPlaying ? "Started playing animation" : "Stopped playing animation");
+            Logger.info(mainPanel.isPlaying ? "Started playing animation" : "Stopped playing animation");
         });
         dataPanel.add(animatePlayPause, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
 
@@ -589,7 +596,7 @@ public class PlayerTrackerDecoder extends JFrame {
             }
             mainPanel.animationSpeed = value;
 
-            LOGGER.info("Changed animation speed to: " + mainPanel.animationSpeed);
+            Logger.info("Changed animation speed to: " + mainPanel.animationSpeed);
         });
         dataPanel.add(animSpeedSpinner, new com.intellij.uiDesigner.core.GridConstraints(1, 3, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
 
@@ -631,7 +638,7 @@ public class PlayerTrackerDecoder extends JFrame {
                 mainPanel.playerNameColorMap.put(player, selectedColor);
                 mainPanel.repaint();
 
-                LOGGER.info("Changed " + player + "'s color");
+                Logger.info("Changed " + player + "'s color");
             });
 
             toggle.addItemListener(ev -> {
@@ -639,7 +646,7 @@ public class PlayerTrackerDecoder extends JFrame {
                 mainPanel.playerNameEnabledMap.put(player, value);
                 mainPanel.queuePointUpdate(true);
 
-                LOGGER.info((value ? "Showed " : "Hid ") + player + "'s data");
+                Logger.info((value ? "Showed " : "Hid ") + player + "'s data");
             });
         }
 
@@ -746,7 +753,7 @@ public class PlayerTrackerDecoder extends JFrame {
             toolbar.validate();
             toolbar.repaint();
 
-            LOGGER.info("Changed draw type to: " + settings._drawType);
+            Logger.info("Changed draw type to: " + settings._drawType);
         });
         renderPanel.add(drawTypeChooser, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
 
@@ -759,7 +766,7 @@ public class PlayerTrackerDecoder extends JFrame {
             settings.SaveSettings();
             mainPanel.repaint();
 
-            LOGGER.info("Changed heat draw type to: " + settings._heatDrawType);
+            Logger.info("Changed heat draw type to: " + settings._heatDrawType);
         });
         renderPanel.add(heatDrawTypeChooser, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         heatDrawTypeChooser.setEnabled(settings._drawType == Decoder.DrawType.Heat);
@@ -783,7 +790,7 @@ public class PlayerTrackerDecoder extends JFrame {
             mainPanel.repaint();
             settings.SaveSettings();
 
-            LOGGER.info("Changed draw size to: " + settings.size);
+            Logger.info("Changed draw size to: " + settings.size);
         });
         drawSizeComponent.add(drawSizeTitle);
         drawSizeComponent.add(drawSizeSlider);
@@ -810,7 +817,7 @@ public class PlayerTrackerDecoder extends JFrame {
             mainPanel.repaint();
             settings.SaveSettings();
 
-            LOGGER.info("Changed line threshold to: " + settings.lineThreshold);
+            Logger.info("Changed line threshold to: " + settings.lineThreshold);
         });
         lineThresholdTitle.setEnabled(settings._drawType == Decoder.DrawType.Line);
         lineThresholdSlider.setEnabled(settings._drawType == Decoder.DrawType.Line);
@@ -838,7 +845,7 @@ public class PlayerTrackerDecoder extends JFrame {
             mainPanel.repaint();
             settings.SaveSettings();
 
-            LOGGER.info("Changed activity strength to: " + settings.heatMapStrength);
+            Logger.info("Changed activity strength to: " + settings.heatMapStrength);
         });
         heatMapStrengthTitle.setEnabled(settings._drawType == Decoder.DrawType.Heat);
         heatMapStrengthSlider.setEnabled(settings._drawType == Decoder.DrawType.Heat);
@@ -867,7 +874,7 @@ public class PlayerTrackerDecoder extends JFrame {
             mainPanel.repaint();
             settings.SaveSettings();
 
-            LOGGER.info("Changed age fade strength to: " + settings.ageFadeStrength);
+            Logger.info("Changed age fade strength to: " + settings.ageFadeStrength);
         });
         ageFadeStrengthSlider.setEnabled(settings.ageFade && settings._drawType != Decoder.DrawType.Heat);
         ageFadeStrengthTitle.setEnabled(settings.ageFade && settings._drawType != Decoder.DrawType.Heat);
@@ -899,7 +906,7 @@ public class PlayerTrackerDecoder extends JFrame {
             ageFadeStrengthTitle.setEnabled(settings.ageFade && settings._drawType != Decoder.DrawType.Heat);
             ageFadeStrengthLabel.setEnabled(settings.ageFade && settings._drawType != Decoder.DrawType.Heat);
 
-            LOGGER.info("Toggled age fade to: " + settings.ageFade);
+            Logger.info("Toggled age fade to: " + settings.ageFade);
         });
 
         fancyLinesToggle = new JToggleButton("Fancy Lines", settings.fancyLines);
@@ -920,7 +927,7 @@ public class PlayerTrackerDecoder extends JFrame {
                 fancyLinesToggle.setIcon(settings.fancyLines ? toggleIconON_D : toggleIconOFF_D);
             }
 
-            LOGGER.info("Toggled fancy lines to: " + settings.fancyLines);
+            Logger.info("Toggled fancy lines to: " + settings.fancyLines);
         });
         fancyLinesToggle.setEnabled(settings._drawType == Decoder.DrawType.Line);
         renderPanel.add(fancyLinesToggle, new com.intellij.uiDesigner.core.GridConstraints(3, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -943,7 +950,7 @@ public class PlayerTrackerDecoder extends JFrame {
                 terminusPointsToggle.setIcon(settings.terminusPoints ? toggleIconON_D : toggleIconOFF_D);
             }
 
-            LOGGER.info("Toggled terminus points to: " + settings.terminusPoints);
+            Logger.info("Toggled terminus points to: " + settings.terminusPoints);
         });
         terminusPointsToggle.setEnabled(settings._drawType == Decoder.DrawType.Line);
         renderPanel.add(terminusPointsToggle, new com.intellij.uiDesigner.core.GridConstraints(4, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -966,7 +973,7 @@ public class PlayerTrackerDecoder extends JFrame {
                 showHiddenLinesToggle.setIcon(settings.hiddenLines ? toggleIconON_D : toggleIconOFF_D);
             }
 
-            LOGGER.info("Toggled hidden lines to: " + settings.hiddenLines);
+            Logger.info("Toggled hidden lines to: " + settings.hiddenLines);
         });
         showHiddenLinesToggle.setEnabled((settings._drawType == Decoder.DrawType.Line));
         renderPanel.add(showHiddenLinesToggle, new com.intellij.uiDesigner.core.GridConstraints(4, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -1026,7 +1033,7 @@ public class PlayerTrackerDecoder extends JFrame {
 
             exportUpscaleLabel.setText(Integer.toString(mainPanel.upscale));
 
-            LOGGER.info("Changed export upscale to: " + upscale);
+            Logger.info("Changed export upscale to: " + upscale);
         });
         exportPanel.add(exportUpscaleSlider);
         exportPanel.add(exportUpscaleLabel);
@@ -1042,12 +1049,12 @@ public class PlayerTrackerDecoder extends JFrame {
 
         ChangeTheme(settings.uiTheme);
 
-        LOGGER.info("Successfully initialized toolbar subsystem");
+        Logger.info("Successfully initialized toolbar subsystem");
     }
 
     private void decodeAndDisplay() throws IOException {
-        LOGGER.info("Selected files: " + files.length);
-        LOGGER.info("Decoding process started");
+        Logger.info("Selected files: " + files.length);
+        Logger.info("Decoding process started");
 
         decoder.files = files;
         decoder.main = this;
@@ -1076,23 +1083,21 @@ public class PlayerTrackerDecoder extends JFrame {
 
             mainPanel.shouldDraw = true;
 
-            LOGGER.info("Selected files: " + files.length);
+            Logger.info("Selected files: " + files.length);
 
             alreadyImported = true;
 
-            LOGGER.info("Decoding process finished successfully");
+            Logger.info("Decoding process finished successfully");
         });
 
         exec.start();
     }
 
     public enum UITheme {
-        Light,
-        Dark
+        Light, Dark
     }
 
     public enum HeatDrawType {
-        Size,
-        Color
+        Size, Color
     }
 }

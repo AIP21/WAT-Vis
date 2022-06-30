@@ -28,7 +28,7 @@ public class MapSettings {
     public Integer riverSize = 4;
     @Expose
     private Map<String, Boolean> biomes;
-    private Map<Biome, Boolean> biomeStates;
+    private Map<Biome, Boolean> biomeStates = new HashMap<>();
     private boolean isDirty;
 
     public MapSettings(Dimension dimension) {
@@ -60,6 +60,8 @@ public class MapSettings {
                 .collect(Collectors.toMap(
                         e -> e,
                         e -> this.biomes.getOrDefault(e.getName(), true)));
+
+        System.out.println("BIOMESTATES: " + this.biomeStates);
 
         return this;
     }

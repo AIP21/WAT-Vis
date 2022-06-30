@@ -7,21 +7,24 @@ import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
 import java.text.SimpleDateFormat;
+import java.time.DateTimeException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Map;
 import java.util.Set;
-import java.util.logging.FileHandler;
-import java.util.logging.LogRecord;
-import java.util.logging.SimpleFormatter;
+import java.util.logging.*;
 
 public class Logger {
     public static java.util.logging.Logger LOGGER = java.util.logging.Logger.getLogger(PlayerTrackerDecoder.class.getName());
 
     public static void registerLogger() {
         try {
-            FileHandler handler = new FileHandler(PlayerTrackerDecoder.DIR_LOGS + File.separatorChar + "error%u%g.log", 1000000, 10);
-            LOGGER.setUseParentHandlers(false);
+            FileHandler handler = new FileHandler(PlayerTrackerDecoder.DIR_LOGS + File.separatorChar + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) + " %u%g.log", 1000000, 10);
             LOGGER.addHandler(handler);
+            LOGGER.setUseParentHandlers(false);
+
+//            LOGGER.addHandler(new StreamHandler(System.out, new SimpleFormatter()));
 
             handler.setFormatter(new SimpleFormatter() {
                 @Override
@@ -30,9 +33,9 @@ public class Logger {
                 }
             });
 
-            LOGGER.info("Initialing logger");
+            Logger.info("Initialing logger");
 
-            LOGGER.info(String.format("Player Tracker Decoder App v%s - %s", PlayerTrackerDecoder.VERSION, new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z").format(new Date(System.currentTimeMillis()))));
+            Logger.info(String.format("Player Tracker Decoder App v%s ; %s", PlayerTrackerDecoder.VERSION, new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z").format(new Date(System.currentTimeMillis()))));
 
             RuntimeMXBean runtimeBean = ManagementFactory.getRuntimeMXBean();
 
@@ -43,14 +46,23 @@ public class Logger {
                 username = systemProperties.get("user.name");
             }
 
+            Logger.info("\n********BEGIN DEVICE INFO********\n");
+
             for (String key : keys) {
-                LOGGER.info(String.format("[%s] = %s.", key, systemProperties.get(key).replace(username, "XANONX").replaceAll("Users\\\\.*?\\\\", "Users\\\\ANONYM\\\\").replace("\r\n", "CRLF").replace("\n", "LF")));
+                Logger.info(String.format("[%s] = %s.", key, systemProperties.get(key).replace(username, "XANONX").replaceAll("Users\\\\.*?\\\\", "Users\\\\ANONYM\\\\").replace("\r\n", "CRLF").replace("\n", "LF")));
             }
+
+            Logger.info("\n*********END DEVICE INFO*********\n");
         } catch (IOException e) {
             LOGGER.severe(e.toString());
             e.printStackTrace();
         }
 
-        LOGGER.info("Logger successfully initialized");
+        Logger.info("Logger successfully initialized");
+    }
+
+    public static void info(Object message) {
+        System.out.println(message);
+        LOGGER.info(message.toString());
     }
 }

@@ -74,7 +74,7 @@ public class ImportForm extends JDialog {
 
         initComponents(alreadyImported);
 
-        LOGGER.info("File import pane opened");
+        Logger.info("File import pane opened");
     }
 
     public ImportForm(PlayerTrackerDecoder main, Settings settings, DropTargetDropEvent evt, boolean alreadyImported) {
@@ -105,7 +105,7 @@ public class ImportForm extends JDialog {
             LOGGER.severe("Error dragging and dropping files onto import panel: " + Arrays.toString(e.getStackTrace()));
         }
 
-        LOGGER.info("File import pane opened from drag and drop");
+        Logger.info("File import pane opened from drag and drop");
     }
 
     private void initComponents(boolean alreadyImported) {
@@ -361,7 +361,7 @@ public class ImportForm extends JDialog {
             importButton.setEnabled(currentFiles.size() > 0);
         });
 
-        if (PlayerTrackerDecoder.debugMode) {
+        if (PlayerTrackerDecoder.DEBUG) {
             dimensionChooser.addItemListener(event -> {
                 String value = (String) dimensionChooser.getSelectedItem();
                 assert value != null;
@@ -405,7 +405,7 @@ public class ImportForm extends JDialog {
         });
 
         addWorldImageButton.addActionListener(event -> {
-            LOGGER.info("Opening world background image dialog");
+            Logger.info("Opening world background image dialog");
 
             JFileChooser imgChooser = new JFileChooser("worldImages");
             imgChooser.setMultiSelectionEnabled(false);
@@ -423,7 +423,7 @@ public class ImportForm extends JDialog {
                 toggleComponents(false);
 
                 File imgFile = imgChooser.getSelectedFile();
-                LOGGER.info("Selected world background image: " + imgFile);
+                Logger.info("Selected world background image: " + imgFile);
 
                 main.LoadWorldImage(imgFile, worldImageLabel, addWorldImageButton, this);
             } else if (returnVal == JFileChooser.ERROR_OPTION) {

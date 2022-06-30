@@ -39,7 +39,7 @@ public class Settings {
 
 
     public Settings() {
-        LOGGER.info("Initializing settings subsystem");
+        Logger.info("Initializing settings subsystem");
 
         try {
             if (!(new File("config.txt")).exists()) {
@@ -48,26 +48,26 @@ public class Settings {
                 try {
                     (new File("config.txt")).createNewFile();
 
-                    LOGGER.info("Successfully created config file");
+                    Logger.info("Successfully created config file");
                     SaveSettings();
-                    LOGGER.info("Successfully saved and wrote default settings to config file");
+                    Logger.info("Successfully saved and wrote default settings to config file");
                 } catch (Exception e) {
                     LOGGER.severe("Error creating/saving/writing to config file:\n   " + Arrays.toString(e.getStackTrace()));
                 }
             }
 
-            LOGGER.info("Fetching and parsing settings from config file");
+            Logger.info("Fetching and parsing settings from config file");
             getFromFile(new File("config.txt"));
-            LOGGER.info("Successfully fetched and parsed settings from config file");
+            Logger.info("Successfully fetched and parsed settings from config file");
         } catch (IOException e) {
             LOGGER.severe("Error fetching and parsing settings from config file:\n   " + Arrays.toString(e.getStackTrace()));
         }
 
-        LOGGER.info("Successfully initialized settings subsystem");
+        Logger.info("Successfully initialized settings subsystem");
     }
 
     public void SaveSettings() {
-        LOGGER.info("Saving and writing settings to config file");
+        Logger.info("Saving and writing settings to config file");
 
         try {
             PrintWriter writer = new PrintWriter("config.txt", StandardCharsets.UTF_8);
@@ -92,7 +92,7 @@ public class Settings {
             writer.println("mouseSensitivity: " + mouseSensitivity + " // How sensitive mouse inputs should be");
             writer.close();
 
-            LOGGER.info("Successfully saved and wrote settings to config file");
+            Logger.info("Successfully saved and wrote settings to config file");
         } catch (Exception e) {
             LOGGER.severe("Error saving and writing settings to config file:\n   " + Arrays.toString(e.getStackTrace()));
         }
@@ -151,7 +151,7 @@ public class Settings {
                 if (arg.contains("/// Player Tracker Decoder v")) {
                     str = arg.replace("/// Player Tracker Decoder v", "");
                     str = str.substring(0, str.indexOf(" - "));
-                    LOGGER.info(str + ", " + count);
+                    Logger.info(str + ", " + count);
 
                     if (!str.equals(PlayerTrackerDecoder.VERSION)) {
                         SaveSettings();
@@ -170,31 +170,31 @@ public class Settings {
                         }
 
                         count++;
-                        LOGGER.info(uiTheme + ", " + count);
+                        Logger.info(uiTheme + ", " + count);
                     } else if (arg.contains("fpsLimit: ")) {
                         str = arg.replace("fpsLimit: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         fpsLimit = Integer.parseInt(str);
                         count++;
-                        LOGGER.info(str + ", " + count);
+                        Logger.info(str + ", " + count);
                     } else if (arg.contains("size: ")) {
                         str = arg.replace("size: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         size = Float.parseFloat(str);
                         count++;
-                        LOGGER.info(str + ", " + count);
+                        Logger.info(str + ", " + count);
                     } else if (arg.contains("convertChunkPositions: ")) {
                         str = arg.replace("convertChunkPositions: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         convertChunkPosToBlockPos = Boolean.parseBoolean(str);
                         count++;
-                        LOGGER.info(str + ", " + count);
+                        Logger.info(str + ", " + count);
                     } else if (arg.contains("maxEntries: ")) {
                         str = arg.replace("maxEntries: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         maxDataEntries = Integer.parseInt(str);
                         count++;
-                        LOGGER.info(str + ", " + count);
+                        Logger.info(str + ", " + count);
                     } else if (arg.contains("drawType: ")) {
                         str = arg.replace("drawType: ", "");
                         str = str.substring(0, str.indexOf(" //"));
@@ -210,25 +210,25 @@ public class Settings {
                         }
 
                         count++;
-                        LOGGER.info(_drawType + ", " + count);
+                        Logger.info(_drawType + ", " + count);
                     } else if (arg.contains("lineThreshold: ")) {
                         str = arg.replace("lineThreshold: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         lineThreshold = Integer.parseInt(str);
                         count++;
-                        LOGGER.info(str + ", " + count);
+                        Logger.info(str + ", " + count);
                     } else if (arg.contains("fancyLines: ")) {
                         str = arg.replace("fancyLines: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         fancyLines = Boolean.parseBoolean(str);
                         count++;
-                        LOGGER.info(str + ", " + count);
+                        Logger.info(str + ", " + count);
                     } else if (arg.contains("hiddenLines: ")) {
                         str = arg.replace("hiddenLines: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         hiddenLines = Boolean.parseBoolean(str);
                         count++;
-                        LOGGER.info(str + ", " + count);
+                        Logger.info(str + ", " + count);
                     } else if (arg.contains("fancyRendering: ")) {
                         str = arg.replace("fancyRendering: ", "");
                         str = str.substring(0, str.indexOf(" //"));
@@ -237,25 +237,25 @@ public class Settings {
                         toggleRenderMode();
 
                         count++;
-                        LOGGER.info(str + ", " + count);
+                        Logger.info(str + ", " + count);
                     } else if (arg.contains("terminusPoints: ")) {
                         str = arg.replace("terminusPoints: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         terminusPoints = Boolean.parseBoolean(str);
                         count++;
-                        LOGGER.info(str + ", " + count);
+                        Logger.info(str + ", " + count);
                     } else if (arg.contains("ageFade: ")) {
                         str = arg.replace("ageFade: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         ageFade = Boolean.parseBoolean(str);
                         count++;
-                        LOGGER.info(str + ", " + count);
+                        Logger.info(str + ", " + count);
                     } else if (arg.contains("ageFadeStrength: ")) {
                         str = arg.replace("ageFadeStrength: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         ageFadeStrength = Float.parseFloat(str);
                         count++;
-                        LOGGER.info(str + ", " + count);
+                        Logger.info(str + ", " + count);
                     } else if (arg.contains("heatDrawType: ")) {
                         str = arg.replace("heatDrawType: ", "");
                         str = str.substring(0, str.indexOf(" //"));
@@ -267,25 +267,25 @@ public class Settings {
                         }
 
                         count++;
-                        LOGGER.info(_heatDrawType + ", " + count);
+                        Logger.info(_heatDrawType + ", " + count);
                     } else if (arg.contains("heatMapStrength: ")) {
                         str = arg.replace("heatMapStrength: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         heatMapStrength = Float.parseFloat(str);
                         count++;
-                        LOGGER.info(str + ", " + count);
+                        Logger.info(str + ", " + count);
                     } else if (arg.contains("mouseSensitivity: ")) {
                         str = arg.replace("mouseSensitivity: ", "");
                         str = str.substring(0, str.indexOf(" //"));
                         mouseSensitivity = Integer.parseInt(str);
                         count++;
-                        LOGGER.info(str + ", " + count);
+                        Logger.info(str + ", " + count);
                     }
                 }
             }
         }
 
-        LOGGER.info("Settings count: " + count);
+        Logger.info("Settings count: " + count);
         if (count != settingCount) {
             LOGGER.warning("Incomplete or old config file, updating the config file. Counted: " + count + " settings, expected: " + settingCount + ". Updating config file");
             SaveSettings();

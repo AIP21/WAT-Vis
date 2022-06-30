@@ -50,13 +50,13 @@ public class Decoder {
 
     public Decoder(Settings set) {
 
-        LOGGER.info("Initializing decoder subsystem");
+        Logger.info("Initializing decoder subsystem");
 
         settings = set;
 
         maxCheck = settings.maxDataEntries != 0;
 
-        LOGGER.info("Successfully initialized decoder subsystem");
+        Logger.info("Successfully initialized decoder subsystem");
     }
 
     public void decode() {
@@ -67,7 +67,7 @@ public class Decoder {
             return;
         }
 
-        LOGGER.info("Decoding data");
+        Logger.info("Decoding data");
 
         try {
             for (File file : files) {
@@ -94,7 +94,7 @@ public class Decoder {
         });
 
         for (File inputFile : inputFiles) {
-            LOGGER.info("Decoding input file: " + inputFile.getName());
+            Logger.info("Decoding input file: " + inputFile.getName());
 
             try {
                 BufferedReader br = new BufferedReader(new FileReader(inputFile));
@@ -154,7 +154,7 @@ public class Decoder {
             }
         }
 
-        LOGGER.info("dates: " + logDates.size());
+        Logger.info("dates: " + logDates.size());
 
         dataWorld = "";
         String[] split = inputFiles.get(0).getName().split("-");
@@ -165,12 +165,12 @@ public class Decoder {
 
         xRange = maxX - minX;
         yRange = maxY - minY;
-        LOGGER.info("maxX: " + maxX + " minX: " + minX + "; maxY: " + maxY + " minY: " + minY);
-        LOGGER.info("xRange: " + xRange + " yRange: " + yRange);
+        Logger.info("maxX: " + maxX + " minX: " + minX + "; maxY: " + maxY + " minY: " + minY);
+        Logger.info("xRange: " + xRange + " yRange: " + yRange);
 
         final long durMs = System.currentTimeMillis() - nowMs;
 
-        LOGGER.info("Successfully decoded data. Loaded: " + logEntries.size() + " entries. Took " + durMs + "ms.");
+        Logger.info("Successfully decoded data. Loaded: " + logEntries.size() + " entries. Took " + durMs + "ms.");
     }
 
     private Color randomColor(int iter) {

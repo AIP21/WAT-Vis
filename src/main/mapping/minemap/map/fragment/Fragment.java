@@ -7,12 +7,13 @@ import com.seedfinding.mccore.util.pos.BPos;
 import com.seedfinding.mccore.util.pos.RPos;
 import com.seedfinding.mcfeature.Feature;
 import com.seedfinding.mcterrain.TerrainGenerator;
-import com.seedfinding.minemap.MineMap;
-import com.seedfinding.minemap.init.Configs;
-import com.seedfinding.minemap.map.MapContext;
-import com.seedfinding.minemap.map.MapPanel;
-import com.seedfinding.minemap.util.data.DrawInfo;
-import com.seedfinding.minemap.util.math.DisplayMaths;
+import src.main.MainPanel;
+import src.main.PlayerTrackerDecoder;
+import src.main.config.mapping.BiomeColorsConfig;
+import src.main.config.mapping.Configs;
+import src.main.mapping.minemap.map.MapContext;
+import src.main.mapping.minemap.util.data.DrawInfo;
+import src.main.util.Utils;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -129,16 +130,14 @@ public class Fragment {
     }
 
     private void refreshHeightCache() {
-        MapPanel panel = MineMap.INSTANCE.mapPanel;
+        MainPanel panel = PlayerTrackerDecoder.INSTANCE.mainPanel;
         int cheating;
         if (panel != null && panel.manager != null) {
-            cheating = Math.max(Configs.USER_PROFILE.getUserSettings().cheatingHeight,
-                    (int) (panel.manager.blocksPerFragment / 2 / panel.manager.pixelsPerFragment));
+            cheating = Math.max(2, (int) (panel.manager.blocksPerFragment / 2 / panel.manager.pixelsPerFragment));
             cheating = Math.max(cheating, 1);
-            if (this.heightCache != null && lastCheatingHeight <= cheating)
-                return;
+            if (this.heightCache != null && lastCheatingHeight <= cheating) return;
         } else {
-            cheating = Configs.USER_PROFILE.getUserSettings().cheatingHeight;
+            cheating = 2;
         }
         lastCheatingHeight = cheating;
         BiomeLayer layer = this.context.getBiomeLayer();
@@ -150,9 +149,7 @@ public class Fragment {
         }
         for (int x = 0; x < effectiveRegion; x++) {
             for (int z = 0; z < effectiveRegion; z++) {
-                this.heightCache[x][z] = terrainGenerator == null ? -1
-                        : terrainGenerator.getHeightOnGround(this.blockX + x * layer.getScale() * cheating,
-                                this.blockZ + z * layer.getScale() * cheating);
+                this.heightCache[x][z] = terrainGenerator == null ? -1 : terrainGenerator.getHeightOnGround(this.blockX + x * layer.getScale() * cheating, this.blockZ + z * layer.getScale() * cheating);
             }
         }
         hasHeightModified = true;
@@ -160,8 +157,7 @@ public class Fragment {
     }
 
     private void refreshHeightImageCache() {
-        if (this.imageCache != null && !hasHeightModified)
-            return;
+        if (this.imageCache != null && !hasHeightModified) return;
         hasHeightModified = false;
         int scaledSize = this.heightCache.length;
         this.imageCache = new BufferedImage(scaledSize, scaledSize, BufferedImage.TYPE_INT_RGB);
@@ -173,20 +169,18 @@ public class Fragment {
         Color defaultColor = Color.orange;
         for (int x = 0; x < scaledSize; x++) {
             for (int z = 0; z < scaledSize; z++) {
-                Color color = get2DGradientColor(this.heightCache[x][z], minGen, maxGen, minColor, maxColor,
-                        defaultColor);
+                Color color = get2DGradientColor(this.heightCache[x][z], minGen, maxGen, minColor, maxColor, defaultColor);
                 this.imageCache.setRGB(x, z, color.getRGB());
             }
         }
     }
 
     private void refreshBiomeCache() {
-        MapPanel panel = MineMap.INSTANCE.mapPanel;
+        MainPanel panel = PlayerTrackerDecoder.INSTANCE.mainPanel;
         int cheating;
         if (panel != null && panel.manager != null) {
             cheating = Math.max(1, (int) (panel.manager.blocksPerFragment / 16 / panel.manager.pixelsPerFragment));
-            if (this.biomeCache != null && this.layerIdCache == this.context.getLayerId()
-                    && lastCheatingBiome <= cheating)
+            if (this.biomeCache != null && this.layerIdCache == this.context.getLayerId() && lastCheatingBiome <= cheating)
                 return;
         } else {
             cheating = 1;
@@ -225,8 +219,7 @@ public class Fragment {
     }
 
     private void refreshBiomeImageCache() {
-        if (this.imageCache != null && this.context.getSettings().getActiveBiomes().equals(this.activeBiomesCache)
-                && !hasBiomeModified)
+        if (this.imageCache != null && this.context.getSettings().getActiveBiomes().equals(this.activeBiomesCache) && !hasBiomeModified)
             return;
         hasBiomeModified = false;
         int scaledSize = this.biomeCache.length;
@@ -235,9 +228,8 @@ public class Fragment {
         for (int x = 0; x < scaledSize; x++) {
             for (int z = 0; z < scaledSize; z++) {
                 Biome biome = Biomes.REGISTRY.get(this.biomeCache[x][z]);
-                if (biome == null)
-                    continue;
-                Color color = Configs.BIOME_COLORS.get(Configs.USER_PROFILE.getUserSettings().style, biome);
+                if (biome == null) continue;
+                Color color = Configs.BIOME_COLORS.get(BiomeColorsConfig.DEFAULT_STYLE_NAME, biome);
 
                 if (!this.activeBiomesCache.contains(biome)) {
                     color = makeInactive(color);
@@ -258,8 +250,8 @@ public class Fragment {
      * @param to      The base color corresponding to @to
      * @param outside The default color if outside of the range [min;max]
      * @return a Color within the from-to range based on the value of current within
-     *         the range [min;max],
-     *         if outside then the default outside is used
+     * the range [min;max],
+     * if outside then the default outside is used
      */
     public static Color get2DGradientColor(int value, int min, int max, Color from, Color to, Color outside) {
         // we can not work with such bad decisions
@@ -271,14 +263,10 @@ public class Fragment {
         }
         // if max==min==value then ratio=0/1=0
         double ratio = (double) (value - min) / (double) Math.min(max - min, 1) / 100.0D;
-        int red = (int) DisplayMaths.smartClamp(to.getRed() * ratio + from.getRed() * (1 - ratio), from.getRed(),
-                to.getRed());
-        int green = (int) DisplayMaths.smartClamp(to.getGreen() * ratio + from.getGreen() * (1 - ratio),
-                from.getGreen(), to.getGreen());
-        int blue = (int) DisplayMaths.smartClamp(to.getBlue() * ratio + from.getBlue() * (1 - ratio), from.getBlue(),
-                to.getBlue());
-        int alpha = (int) DisplayMaths.smartClamp(to.getAlpha() * ratio + from.getAlpha() * (1 - ratio),
-                from.getAlpha(), to.getAlpha());
+        int red = (int) Utils.smartClamp(to.getRed() * ratio + from.getRed() * (1 - ratio), from.getRed(), to.getRed());
+        int green = (int) Utils.smartClamp(to.getGreen() * ratio + from.getGreen() * (1 - ratio), from.getGreen(), to.getGreen());
+        int blue = (int) Utils.smartClamp(to.getBlue() * ratio + from.getBlue() * (1 - ratio), from.getBlue(), to.getBlue());
+        int alpha = (int) Utils.smartClamp(to.getAlpha() * ratio + from.getAlpha() * (1 - ratio), from.getAlpha(), to.getAlpha());
         return new Color(red, green, blue, alpha);
     }
 
@@ -292,8 +280,7 @@ public class Fragment {
     }
 
     public boolean isPosInFragment(int blockX, int blockZ) {
-        if (blockX < this.getX() || blockX >= this.getX() + this.getSize())
-            return false;
+        if (blockX < this.getX() || blockX >= this.getX() + this.getSize()) return false;
         return blockZ >= this.getZ() && blockZ < this.getZ() + this.getSize();
     }
 
@@ -303,17 +290,6 @@ public class Fragment {
 
     @Override
     public String toString() {
-        return "Fragment{" +
-                "blockX=" + blockX +
-                ", blockZ=" + blockZ +
-                ", regionSize=" + regionSize +
-                ", context=" + context +
-                ", layerIdCache=" + layerIdCache +
-                ", biomeCache=" + Arrays.toString(biomeCache) +
-                ", activeBiomesCache=" + activeBiomesCache +
-                ", imageCache=" + imageCache +
-                ", features=" + features +
-                ", hoveredPos=" + hoveredPos +
-                '}';
+        return "Fragment{" + "blockX=" + blockX + ", blockZ=" + blockZ + ", regionSize=" + regionSize + ", context=" + context + ", layerIdCache=" + layerIdCache + ", biomeCache=" + Arrays.toString(biomeCache) + ", activeBiomesCache=" + activeBiomesCache + ", imageCache=" + imageCache + ", features=" + features + ", hoveredPos=" + hoveredPos + '}';
     }
 }

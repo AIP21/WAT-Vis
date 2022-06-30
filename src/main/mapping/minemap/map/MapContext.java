@@ -12,14 +12,14 @@ import com.seedfinding.mccore.version.UnsupportedVersion;
 import com.seedfinding.mcfeature.Feature;
 import com.seedfinding.mcfeature.structure.RuinedPortal;
 import com.seedfinding.mcterrain.TerrainGenerator;
-import com.seedfinding.minemap.init.Configs;
-import com.seedfinding.minemap.init.Logger;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.function.Function;
 import java.util.logging.Level;
+
+import static src.main.util.Logger.LOGGER;
 
 public class MapContext {
     public final MCVersion version;
@@ -55,7 +55,7 @@ public class MapContext {
 
                     map.put(dim, biomeSource);
                 } catch (UnsupportedVersion e) {
-                    Logger.LOGGER.log(Level.WARNING,String.format("Biome source for the %s for version %s could not be initialized%n", dim.getName(), this.version.toString()));
+                    LOGGER.log(Level.WARNING, String.format("Biome source for the %s for version %s could not be initialized%n", dim.getName(), this.version.toString()));
                     throw e;
                 }
             }
@@ -80,7 +80,7 @@ public class MapContext {
     }
 
     public MapContext(MCVersion version, Dimension dimension, long worldSeed) {
-        this(worldSeed, Configs.USER_PROFILE.getMapSettingsCopy(version, dimension));
+        this(worldSeed, new MapSettings(version, dimension));
     }
 
     public CPos[] getStarts() {

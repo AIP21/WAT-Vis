@@ -165,4 +165,14 @@ public class Utils {
     public static double calculateAverage(ArrayList<Double> input) {
         return input.stream().mapToDouble(d -> d).average().orElse(0.0);
     }
+
+    public static double smartClamp(double value, double constraint1, double constraint2) {
+        double min = Math.min(constraint1, constraint2);
+        double max = Math.max(constraint1, constraint2);
+        if (value < min) {
+            return min;
+        } else {
+            return Math.min(value, max);
+        }
+    }
 }

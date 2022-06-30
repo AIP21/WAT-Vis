@@ -53,7 +53,7 @@ public class SettingsForm extends JDialog {
 
         initComponents();
 
-        LOGGER.info("Settings pane opened");
+        Logger.info("Settings pane opened");
     }
 
     private void initComponents() {
@@ -95,7 +95,7 @@ public class SettingsForm extends JDialog {
 
         debugModeToggle = new JRadioButton();
         debugModeToggle.setText("Debug Mode");
-        debugModeToggle.setSelected(PlayerTrackerDecoder.debugMode);
+        debugModeToggle.setSelected(PlayerTrackerDecoder.DEBUG);
         debugModeToggle.setToolTipText("Used for debugging, obviously. Debug mode makes logging more verbose, adds more info to the bottom toolbar, and does some other stuff.");
         settingsPanel.add(debugModeToggle, new GridConstraints(3, 0, 1, 1, 0, 0, 3, 0, null, null, null, 0, false));
 
@@ -159,7 +159,7 @@ public class SettingsForm extends JDialog {
             }
             revalidate();
 
-            LOGGER.info("Set the theme to light");
+            Logger.info("Set the theme to light");
         });
 
         darkThemeButton.addActionListener((event) -> {
@@ -173,7 +173,7 @@ public class SettingsForm extends JDialog {
             }
             revalidate();
 
-            LOGGER.info("Set the theme to dark");
+            Logger.info("Set the theme to dark");
         });
 
         fancyRenderingToggle.addItemListener((event) -> {
@@ -181,14 +181,14 @@ public class SettingsForm extends JDialog {
             settings.toggleRenderMode();
             settings.SaveSettings();
 
-            LOGGER.info("Toggled fancy rendering to: " + settings.fancyRendering);
+            Logger.info("Toggled fancy rendering to: " + settings.fancyRendering);
         });
 
         debugModeToggle.addItemListener((event) -> {
-            PlayerTrackerDecoder.debugMode = event.getStateChange() == ItemEvent.SELECTED;
+            PlayerTrackerDecoder.DEBUG = event.getStateChange() == ItemEvent.SELECTED;
             settings.SaveSettings();
 
-            LOGGER.info("Toggled the not-so-secret DEBUG MODE (oooooh) to: " + PlayerTrackerDecoder.debugMode);
+            Logger.info("Toggled the not-so-secret DEBUG MODE (oooooh) to: " + PlayerTrackerDecoder.DEBUG);
         });
 
         fpsLimitSlider.addChangeListener((e) -> {
@@ -196,7 +196,7 @@ public class SettingsForm extends JDialog {
             fpsLimitValue.setText(settings.fpsLimit + " FPS");
             settings.SaveSettings();
 
-            LOGGER.info("Changed framerate limit to: " + settings.fpsLimit);
+            Logger.info("Changed framerate limit to: " + settings.fpsLimit);
         });
 
         sensitivitySlider.addChangeListener((e) -> {
@@ -205,7 +205,7 @@ public class SettingsForm extends JDialog {
             settings.SaveSettings();
             main.mainPanel.sensitivity = (float) settings.mouseSensitivity / 100.0F;
 
-            LOGGER.info("Changed mouse sensitivity to: " + settings.mouseSensitivity);
+            Logger.info("Changed mouse sensitivity to: " + settings.mouseSensitivity);
         });
     }
 

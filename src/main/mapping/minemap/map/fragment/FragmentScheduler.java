@@ -1,12 +1,11 @@
 package src.main.mapping.minemap.map.fragment;
 
 import com.seedfinding.mccore.util.data.ThreadPool;
+import com.seedfinding.mccore.util.math.DistanceMetric;
 import com.seedfinding.mccore.util.pos.BPos;
 import com.seedfinding.mccore.util.pos.RPos;
-import com.seedfinding.minemap.init.Configs;
-import com.seedfinding.minemap.init.Logger;
-import com.seedfinding.minemap.map.MapPanel;
-import com.seedfinding.minemap.util.data.DrawInfo;
+import src.main.MainPanel;
+import src.main.mapping.minemap.util.data.DrawInfo;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,19 +16,22 @@ import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Consumer;
 
+import static src.main.util.Logger.LOGGER;
+
 public class FragmentScheduler {
 
     protected final Map<RPos, Fragment> fragments = new ConcurrentHashMap<>();
     private final AtomicBoolean scheduledModified = new AtomicBoolean(false);
     public static Fragment LOADING_FRAGMENT = new Fragment(0, 0, 0, null) {
         @Override
-        public void drawBiomes(Graphics graphics, DrawInfo info) {}
+        public void drawBiomes(Graphics graphics, DrawInfo info) {
+        }
     };
     public List<RPos> scheduledRegions = Collections.synchronizedList(new ArrayList<>());
     protected ThreadPool executor;
-    protected MapPanel listener;
+    protected MainPanel listener;
 
-    public FragmentScheduler(MapPanel listener, int threadCount) {
+    public FragmentScheduler(MainPanel listener, int threadCount) {
         this.listener = listener;
         this.executor = new ThreadPool(threadCount + 1);
 
@@ -94,9 +96,7 @@ public class FragmentScheduler {
     }
 
     public double distanceToCenter(RPos regionPos) {
-        return regionPos.distanceTo(this.listener.getManager().getCenterPos()
-                .toRegionPos(this.listener.getManager().blocksPerFragment),
-            Configs.USER_PROFILE.getUserSettings().getFragmentMetric());
+        return regionPos.distanceTo(this.listener.getManager().getCenterPos().toRegionPos(this.listener.getManager().blocksPerFragment), DistanceMetric.EUCLIDEAN_SQ);
     }
 
     public boolean isInBounds(RPos region) {

@@ -240,7 +240,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
                     curY = Utils.smoothStep(curY, yTarget, speed);
 
                     curZoomFactor = Utils.smoothStep(curZoomFactor, zoomFactor, speed);
-                    pixelsPerFragment = zoomFactor * blocksPerFragment;
+                    pixelsPerFragment = curZoomFactor * blocksPerFragment;
 
                     at = new AffineTransform();
                     at.translate(curX, curY);
@@ -1061,8 +1061,8 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
     public BPos getPos(double mouseX, double mouseY) {
         Vec3i screenSize = getScreenSize();
-        double x = (mouseX - screenSize.getX() / 2.0D - curX) / screenSize.getX();
-        double y = (mouseY - screenSize.getZ() / 2.0D - curY) / screenSize.getZ();
+        double x = (mouseX - curX) / screenSize.getX();
+        double y = (mouseY - curY) / screenSize.getZ();
         double blocksPerWidth = (screenSize.getX() / pixelsPerFragment) * (double) blocksPerFragment;
         double blocksPerHeight = (screenSize.getZ() / pixelsPerFragment) * (double) blocksPerFragment;
         x *= blocksPerWidth;

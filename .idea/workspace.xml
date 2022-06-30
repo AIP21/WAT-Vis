@@ -10,30 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="905aa98f-fc7e-4d94-81c1-b5629d46bbbc" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/TrackerDecoderApp/TrackerDecoderApp.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TrackerDecoderApp/TrackerDecoderApp.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/TrackerDecoderApp/com/intellij/uiDesigner/core/AbstractLayout.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/TrackerDecoderApp/com/intellij/uiDesigner/core/DimensionInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/TrackerDecoderApp/com/intellij/uiDesigner/core/GridConstraints.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/TrackerDecoderApp/com/intellij/uiDesigner/core/GridLayoutManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/TrackerDecoderApp/com/intellij/uiDesigner/core/HorizontalInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/TrackerDecoderApp/com/intellij/uiDesigner/core/LayoutState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/TrackerDecoderApp/com/intellij/uiDesigner/core/Spacer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/TrackerDecoderApp/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/TrackerDecoderApp/com/intellij/uiDesigner/core/SupportCode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/TrackerDecoderApp/com/intellij/uiDesigner/core/Util.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/TrackerDecoderApp/com/intellij/uiDesigner/core/VerticalInfo.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MainPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/PlayerTrackerDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/PlayerTrackerDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/config/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/config/Settings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/config/mapping/BiomeColorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/config/mapping/BiomeColorsConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/mapping/minemap/map/MapManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mapping/minemap/map/MapManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/mapping/minemap/map/MapSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mapping/minemap/map/MapSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/mapping/minemap/map/fragment/Fragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mapping/minemap/map/fragment/Fragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/mapping/minemap/map/fragment/FragmentScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mapping/minemap/map/fragment/FragmentScheduler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/util/Keyboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/util/Keyboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ui/Test.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/Test.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ui/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,22 +63,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/20ani/.gradle/caches/modules-2/files-2.1/com.seedfinding/mc_terrain/9e937ddb838e28e79423c287fa18b1ce66f061d7/e97af700203975b452266817ce25df51f3729f20/mc_terrain-9e937ddb838e28e79423c287fa18b1ce66f061d7.jar&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.14550781&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.33371693&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "143",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "248",
+    "last_opened_file_path": "C:/Users/20ani/.gradle/caches/modules-2/files-2.1/com.seedfinding/mc_terrain/9e937ddb838e28e79423c287fa18b1ce66f061d7/e97af700203975b452266817ce25df51f3729f20/mc_terrain-9e937ddb838e28e79423c287fa18b1ce66f061d7.jar",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.14550781",
+    "project.structure.side.proportion": "0.33371693",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\TrackerDecoderApp" />

@@ -1,11 +1,13 @@
 package src.main.ui;
 
+import com.seedfinding.mccore.version.MCVersion;
 import src.main.importing.filters.ImageFileFilter;
 import src.main.importing.filters.TextFileFilter;
 import src.main.PlayerTrackerDecoder;
 import src.main.config.Settings;
 import src.main.util.Logger;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.text.StyleContext;
@@ -15,9 +17,13 @@ import java.awt.dnd.DnDConstants;
 import java.awt.dnd.DropTarget;
 import java.awt.dnd.DropTargetDropEvent;
 import java.awt.event.ItemEvent;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.*;
+
+import com.seedfinding.mccore.state.Dimension;
 
 import static src.main.util.Logger.LOGGER;
 
@@ -31,8 +37,6 @@ public class ImportForm extends JDialog {
     private JButton removeFileButton;
     private JLabel fileSelectorTitle;
     private JPanel selectorButtons;
-    private JPanel importSettingsPanel;
-    private JLabel importSettingsTitle;
     private JProgressBar loadingProgressBar;
     private JButton importButton;
     private JButton appendButton;
@@ -48,16 +52,28 @@ public class ImportForm extends JDialog {
     private JSpinner imageZOffsetSpinner;
     private JButton addWorldImageButton;
     private JLabel fancyRenderingLabel;
-    private JLabel worldImageXOffset;
-    private JLabel worldImageZOffset;
+    private JLabel imageXOffsetLabel;
+    private JLabel imageZOffsetLabel;
     private JLabel worldImageLabel;
     private JComboBox<String> dimensionChooser;
     private JLabel dimensionChooserLabel;
+    public JPanel mainSettings;
+    public JPanel mapSettings;
+    public JTabbedPane settingsTabs;
+    public JPanel importSettingsPanel;
+    public JLabel importSettingsTitle;
+    public JComboBox backgroundTypeChooser;
+    public JLabel backgroundTypeLabel;
+    public JComboBox worldVersionChooser;
+    public JLabel worldVersionLabel;
+    public JTextField worldSeedTextField;
+    public JLabel worldSeedLabel;
 
     private PlayerTrackerDecoder main;
     private Settings settings;
 
     private ArrayList<File> currentFiles = new ArrayList<>();
+    private BufferedImage currentBackgroundImage;
 
     public ImportForm(PlayerTrackerDecoder main, Settings settings, boolean alreadyImported) {
         super(main, "Import Files");
@@ -69,7 +85,7 @@ public class ImportForm extends JDialog {
         this.main = main;
         this.settings = settings;
 
-        setSize(new Dimension(720, 480));
+        setSize(new java.awt.Dimension(720, 480));
         setResizable(false);
 
         initComponents(alreadyImported);
@@ -87,7 +103,7 @@ public class ImportForm extends JDialog {
         this.main = main;
         this.settings = settings;
 
-        setSize(new Dimension(720, 480));
+        setSize(new java.awt.Dimension(720, 480));
         setResizable(false);
 
         initComponents(alreadyImported);
@@ -101,6 +117,7 @@ public class ImportForm extends JDialog {
             }
             selectedFileList.setListData(currentFiles.toArray(new File[0]));
             importButton.setEnabled(currentFiles.size() > 0);
+            if (alreadyImported) appendButton.setEnabled(currentFiles.size() > 0);
         } catch (Exception e) {
             LOGGER.severe("Error dragging and dropping files onto import panel: " + Arrays.toString(e.getStackTrace()));
         }
@@ -109,56 +126,12 @@ public class ImportForm extends JDialog {
     }
 
     private void initComponents(boolean alreadyImported) {
-//        setLayout(new BorderLayout(0, 0));
         bottomPanel = new JPanel();
         bottomPanel.setLayout(new GridBagLayout());
         add(bottomPanel, BorderLayout.SOUTH);
-        bottomButtonPanel = new JPanel();
-        bottomButtonPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1));
-        GridBagConstraints gbc;
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 2;
-        gbc.weightx = 1.0;
-        gbc.weighty = 1.0;
-        gbc.fill = GridBagConstraints.BOTH;
-        bottomPanel.add(bottomButtonPanel, gbc);
-
-        cancelButton = new JButton();
-        cancelButton.setText("Cancel");
-        bottomButtonPanel.add(cancelButton, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-
-        importButton = new JButton();
-        importButton.setRolloverEnabled(true);
-        importButton.setEnabled(false);
-        importButton.setText("Import");
-        bottomButtonPanel.add(importButton, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-
-        if (alreadyImported) {
-            appendButton = new JButton();
-            appendButton.setRolloverEnabled(true);
-            appendButton.setEnabled(false);
-            appendButton.setText("Append");
-            importButton.setText("Overwrite");
-            bottomButtonPanel.add(appendButton, new com.intellij.uiDesigner.core.GridConstraints(0, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        }
-
-        loadingProgressBar = new JProgressBar();
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        gbc.weightx = 1.0;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        bottomPanel.add(loadingProgressBar, gbc);
-
-        final JPanel spacer1 = new JPanel();
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        bottomPanel.add(spacer1, gbc);
 
         titleText = new JLabel();
+        titleText.setEnabled(true);
         Font TitleFont = this.getFont(null, -1, 26, titleText.getFont());
         if (TitleFont != null) titleText.setFont(TitleFont);
         titleText.setHorizontalAlignment(0);
@@ -166,41 +139,115 @@ public class ImportForm extends JDialog {
         titleText.setText("Import Files");
         add(titleText, BorderLayout.NORTH);
 
+        bottomButtonPanel = new JPanel();
+        bottomButtonPanel.setLayout(new GridBagLayout());
+        GridBagConstraints gbc;
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.insets = new Insets(6, 6, 6, 6);
+        bottomPanel.add(bottomButtonPanel, gbc);
+
+        cancelButton = new JButton();
+        cancelButton.setText("Cancel");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weightx = 0.1;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        bottomButtonPanel.add(cancelButton, gbc);
+
+        importButton = new JButton();
+        importButton.setText("Import");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.weightx = 0.1;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        bottomButtonPanel.add(importButton, gbc);
+
+        if (alreadyImported) {
+            appendButton = new JButton();
+            appendButton.setText("Append");
+            importButton.setText("Overwrite");
+            gbc = new GridBagConstraints();
+            gbc.gridx = 2;
+            gbc.gridy = 0;
+            gbc.weightx = 0.1;
+            gbc.weighty = 1.0;
+            gbc.fill = GridBagConstraints.HORIZONTAL;
+            bottomButtonPanel.add(appendButton, gbc);
+        }
+
         mainSplitPane = new JSplitPane();
         mainSplitPane.setContinuousLayout(true);
-        mainSplitPane.setDividerLocation(275);
+        mainSplitPane.setDividerLocation(244);
         mainSplitPane.setDividerSize(9);
         mainSplitPane.setEnabled(true);
         add(mainSplitPane, BorderLayout.CENTER);
 
         fileSelectorPanel = new JPanel();
-        fileSelectorPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(3, 1, new Insets(0, 0, 0, 0), -1, -1));
+        fileSelectorPanel.setLayout(new GridBagLayout());
         mainSplitPane.setRightComponent(fileSelectorPanel);
 
+        fileSelectorTitle = new JLabel();
+        Font fileSelectorTitleFont = this.getFont(null, -1, 16, fileSelectorTitle.getFont());
+        if (fileSelectorTitleFont != null) fileSelectorTitle.setFont(fileSelectorTitleFont);
+        fileSelectorTitle.setText("Select Files");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weightx = 1.0;
+        fileSelectorPanel.add(fileSelectorTitle, gbc);
+
         selectorButtons = new JPanel();
-        selectorButtons.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1));
-        fileSelectorPanel.add(selectorButtons, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        selectorButtons.setLayout(new GridBagLayout());
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        gbc.weightx = 1.0;
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.insets = new Insets(3, 3, 3, 3);
+        fileSelectorPanel.add(selectorButtons, gbc);
 
         addFileButton = new JButton();
         addFileButton.setText("Add");
         addFileButton.setToolTipText("Add Files");
-        selectorButtons.add(addFileButton, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        selectorButtons.add(addFileButton, gbc);
 
         removeFileButton = new JButton();
         removeFileButton.setText("Remove");
         removeFileButton.setToolTipText("Remove Files");
-        selectorButtons.add(removeFileButton, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-
-        fileSelectorTitle = new JLabel();
-        Font FileSelectorTitleFont = this.getFont(null, -1, 16, fileSelectorTitle.getFont());
-        if (FileSelectorTitleFont != null) fileSelectorTitle.setFont(FileSelectorTitleFont);
-        fileSelectorTitle.setText("Select Files");
-        fileSelectorPanel.add(fileSelectorTitle, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        selectorButtons.add(removeFileButton, gbc);
 
         selectedFileListScrollPane = new JScrollPane();
-        fileSelectorPanel.add(selectedFileListScrollPane, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.insets = new Insets(3, 3, 3, 3);
+        fileSelectorPanel.add(selectedFileListScrollPane, gbc);
 
         selectedFileList = new JList<File>();
+
         selectedFileList.setListData(currentFiles.toArray(new File[0]));
         selectedFileListScrollPane.setViewportView(selectedFileList);
         selectedFileList.setDropTarget(new DropTarget() {
@@ -221,78 +268,240 @@ public class ImportForm extends JDialog {
         });
 
         importSettingsPanel = new JPanel();
-        importSettingsPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(8, 2, new Insets(0, 0, 0, 0), -1, -1));
+        importSettingsPanel.setLayout(new BorderLayout(0, 0));
         mainSplitPane.setLeftComponent(importSettingsPanel);
 
         importSettingsTitle = new JLabel();
-        Font ImportSettingsTitleFont = this.getFont(null, -1, 16, importSettingsTitle.getFont());
-        if (ImportSettingsTitleFont != null) importSettingsTitle.setFont(ImportSettingsTitleFont);
+        Font importSettingsTitleFont = this.getFont(null, -1, 16, importSettingsTitle.getFont());
+        if (importSettingsTitleFont != null) importSettingsTitle.setFont(importSettingsTitleFont);
+        importSettingsTitle.setHorizontalAlignment(0);
         importSettingsTitle.setText("Import Settings");
-        importSettingsPanel.add(importSettingsTitle, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        importSettingsPanel.add(importSettingsTitle, BorderLayout.NORTH);
+
+        settingsTabs = new JTabbedPane();
+        settingsTabs.setTabLayoutPolicy(0);
+        settingsTabs.setTabPlacement(1);
+        importSettingsPanel.add(settingsTabs, BorderLayout.CENTER);
+
+        mainSettings = new JPanel();
+        mainSettings.setLayout(new GridBagLayout());
+        settingsTabs.addTab("Main", mainSettings);
 
         convertChunksToggle = new JRadioButton();
-        convertChunksToggle.setSelected(settings.convertChunkPosToBlockPos);
         convertChunksToggle.setHideActionText(false);
         convertChunksToggle.setText("");
-        importSettingsPanel.add(convertChunksToggle, new com.intellij.uiDesigner.core.GridConstraints(3, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.anchor = GridBagConstraints.WEST;
+        convertChunksToggle.setSelected(settings.convertChunkPosToBlockPos);
+        mainSettings.add(convertChunksToggle, gbc);
+
+        convertChunksLabel = new JLabel();
+        convertChunksLabel.setText("Convert Chunks");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.weightx = 1.0;
+        mainSettings.add(convertChunksLabel, gbc);
 
         fancyRenderingToggle = new JRadioButton();
         fancyRenderingToggle.setHideActionText(true);
-        fancyRenderingToggle.setSelected(settings.fancyRendering);
+        fancyRenderingToggle.setSelected(true);
         fancyRenderingToggle.setText("");
-        importSettingsPanel.add(fancyRenderingToggle, new com.intellij.uiDesigner.core.GridConstraints(4, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-
-        convertChunksLabel = new JLabel();
-        convertChunksLabel.setText(" Convert Chunks");
-        importSettingsPanel.add(convertChunksLabel, new com.intellij.uiDesigner.core.GridConstraints(3, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 2;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.anchor = GridBagConstraints.WEST;
+        fancyRenderingToggle.setSelected(settings.fancyRendering);
+        mainSettings.add(fancyRenderingToggle, gbc);
 
         fancyRenderingLabel = new JLabel();
-        fancyRenderingLabel.setText(" Fancy Rendering");
-        importSettingsPanel.add(fancyRenderingLabel, new com.intellij.uiDesigner.core.GridConstraints(4, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        fancyRenderingLabel.setText("Fancy Rendering");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        mainSettings.add(fancyRenderingLabel, gbc);
 
         maxEntriesSpinner = new JSpinner();
         maxEntriesSpinner.setValue(settings.maxDataEntries);
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
         maxEntriesSpinner.setToolTipText("The maximum amount of data entries to decode. Set to 0 to disable");
-        importSettingsPanel.add(maxEntriesSpinner, new com.intellij.uiDesigner.core.GridConstraints(2, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        mainSettings.add(maxEntriesSpinner, gbc);
 
         maxEntriesSpinnerLabel = new JLabel();
-        maxEntriesSpinnerLabel.setText("Max Entries");
-        importSettingsPanel.add(maxEntriesSpinnerLabel, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        maxEntriesSpinnerLabel.setText("Max Entries To Decode");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        mainSettings.add(maxEntriesSpinnerLabel, gbc);
 
-        worldImageXOffset = new JLabel();
-        worldImageXOffset.setText("Image X Offset");
-        importSettingsPanel.add(worldImageXOffset, new com.intellij.uiDesigner.core.GridConstraints(6, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-
-        imageXOffsetSpinner = new JSpinner();
-        imageXOffsetSpinner.setToolTipText("How much to offset the x of image to center it on the world's (0,0). Can be changed later in the data settings.");
-        importSettingsPanel.add(imageXOffsetSpinner, new com.intellij.uiDesigner.core.GridConstraints(6, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-
-        imageZOffsetSpinner = new JSpinner();
-        imageZOffsetSpinner.setToolTipText("How much to offset the y of image to center it on the world's (0,0). Can be changed later in the data settings.");
-        importSettingsPanel.add(imageZOffsetSpinner, new com.intellij.uiDesigner.core.GridConstraints(7, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-
-        addWorldImageButton = new JButton();
-        addWorldImageButton.setText("Add World Image");
-        importSettingsPanel.add(addWorldImageButton, new com.intellij.uiDesigner.core.GridConstraints(5, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-
-        worldImageZOffset = new JLabel();
-        worldImageZOffset.setText("Image Y Offset");
-        importSettingsPanel.add(worldImageZOffset, new com.intellij.uiDesigner.core.GridConstraints(7, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-
-        worldImageLabel = new JLabel();
-        worldImageLabel.setText(" World Image");
-        importSettingsPanel.add(worldImageLabel, new com.intellij.uiDesigner.core.GridConstraints(5, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        mapSettings = new JPanel();
+        mapSettings.setLayout(new GridBagLayout());
+        settingsTabs.addTab("Background", mapSettings);
 
         dimensionChooserLabel = new JLabel();
         dimensionChooserLabel.setText("Dimension");
-        importSettingsPanel.add(dimensionChooserLabel, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        mapSettings.add(dimensionChooserLabel, gbc);
+
+        backgroundTypeChooser = new JComboBox<String>(new String[]{"Seed", "Image"});
+        backgroundTypeChooser.setSelectedItem("Seed");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        mapSettings.add(backgroundTypeChooser, gbc);
+
+        backgroundTypeLabel = new JLabel();
+        backgroundTypeLabel.setText("Background Type");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.ipadx = 20;
+        gbc.insets = new Insets(0, 3, 0, 0);
+        mapSettings.add(backgroundTypeLabel, gbc);
 
         dimensionChooser = new JComboBox<String>(new String[]{"Overworld", "Nether", "End"});
         dimensionChooser.setSelectedItem("Overworld");
-        importSettingsPanel.add(dimensionChooser, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        mapSettings.add(dimensionChooser, gbc);
+
+        worldSeedLabel = new JLabel();
+        worldSeedLabel.setText("World Seed");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        mapSettings.add(worldSeedLabel, gbc);
+
+        worldSeedTextField = new JTextField();
+        worldSeedTextField.setText("");
+        worldSeedTextField.setToolTipText("Seed");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 2;
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.insets = new Insets(3, 3, 3, 3);
+        mapSettings.add(worldSeedTextField, gbc);
+
+        worldVersionLabel = new JLabel();
+        worldVersionLabel.setText("World Version");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.ipadx = 20;
+        gbc.insets = new Insets(0, 3, 0, 0);
+        mapSettings.add(worldVersionLabel, gbc);
+
+        worldVersionChooser = new JComboBox<MCVersion>(MCVersion.values());
+        worldVersionChooser.setSelectedItem("Seed");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 3;
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        mapSettings.add(worldVersionChooser, gbc);
+
+        worldImageLabel = new JLabel();
+        worldImageLabel.setText("World Image");
+        worldImageLabel.setEnabled(false);
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 4;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        mapSettings.add(worldImageLabel, gbc);
+
+        addWorldImageButton = new JButton();
+        addWorldImageButton.setText("Add World Image");
+        addWorldImageButton.setEnabled(false);
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 4;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        mapSettings.add(addWorldImageButton, gbc);
+
+        imageXOffsetLabel = new JLabel();
+        imageXOffsetLabel.setText("Image X Offset");
+        imageXOffsetLabel.setEnabled(false);
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 5;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        mapSettings.add(imageXOffsetLabel, gbc);
+
+        imageXOffsetSpinner = new JSpinner();
+        imageXOffsetSpinner.setEnabled(false);
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 5;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        imageXOffsetSpinner.setToolTipText("How much to offset the x of image to center it on the world's (0,0). Can be changed later in the data settings.");
+        mapSettings.add(imageXOffsetSpinner, gbc);
+
+        imageZOffsetLabel = new JLabel();
+        imageZOffsetLabel.setText("Image Y Offset");
+        imageZOffsetLabel.setEnabled(false);
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 6;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        mapSettings.add(imageZOffsetLabel, gbc);
+
+        imageZOffsetSpinner = new JSpinner();
+        imageZOffsetSpinner.setEnabled(false);
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 6;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        imageZOffsetSpinner.setToolTipText("How much to offset the y of image to center it on the world's (0,0). Can be changed later in the data settings.");
+        mapSettings.add(imageZOffsetSpinner, gbc);
+
         maxEntriesSpinnerLabel.setLabelFor(maxEntriesSpinner);
-        worldImageXOffset.setLabelFor(imageXOffsetSpinner);
-        worldImageZOffset.setLabelFor(imageZOffsetSpinner);
+        imageXOffsetLabel.setLabelFor(imageXOffsetSpinner);
+        imageZOffsetLabel.setLabelFor(imageZOffsetSpinner);
 
         setCallbacks(alreadyImported);
     }
@@ -319,7 +528,11 @@ public class ImportForm extends JDialog {
         importButton.setEnabled(selectedFileList.getLastVisibleIndex() > 0);
 
         importButton.addActionListener(event -> {
-            main.ConfirmImport(currentFiles, true);
+            if (backgroundTypeChooser.getSelectedItem() == "Seed") {
+                main.ConfirmImport(currentFiles, (MCVersion) worldVersionChooser.getSelectedItem(), Dimension.fromId(dimensionChooser.getSelectedIndex()), worldSeedTextField.getText(), true);
+            } else {
+                main.ConfirmImport(currentFiles, currentBackgroundImage, true);
+            }
             this.setVisible(false);
         });
 
@@ -327,14 +540,14 @@ public class ImportForm extends JDialog {
             appendButton.setEnabled(selectedFileList.getLastVisibleIndex() > 0);
 
             appendButton.addActionListener(event -> {
-                main.ConfirmImport(currentFiles, false);
+                main.ConfirmImport(currentFiles, (MCVersion) worldVersionChooser.getSelectedItem(), Dimension.fromId(dimensionChooser.getSelectedIndex()), worldSeedTextField.getText(), false);
                 this.setVisible(false);
             });
         }
 
         addFileButton.addActionListener(event -> {
             JFileChooser chooser = new JFileChooser();
-            chooser.setCurrentDirectory(new File("inputs"));
+            chooser.setCurrentDirectory(new File(PlayerTrackerDecoder.DIR_INPUTS));
             chooser.setMultiSelectionEnabled(true);
             chooser.addChoosableFileFilter(new TextFileFilter());
             chooser.setAcceptAllFileFilterUsed(false);
@@ -348,6 +561,7 @@ public class ImportForm extends JDialog {
                 }
                 selectedFileList.setListData(currentFiles.toArray(new File[0]));
                 importButton.setEnabled(currentFiles.size() > 0);
+                if (appendButton != null) appendButton.setEnabled(currentFiles.size() > 0);
             } else if (returnVal == JFileChooser.ERROR_OPTION) {
                 LOGGER.severe("Error selecting input files");
             } else {
@@ -359,6 +573,7 @@ public class ImportForm extends JDialog {
             currentFiles.removeAll(selectedFileList.getSelectedValuesList());
             selectedFileList.setListData(currentFiles.toArray(new File[0]));
             importButton.setEnabled(currentFiles.size() > 0);
+            if (appendButton != null) appendButton.setEnabled(currentFiles.size() > 0);
         });
 
         if (PlayerTrackerDecoder.DEBUG) {
@@ -404,10 +619,27 @@ public class ImportForm extends JDialog {
             settings.SaveSettings();
         });
 
+        backgroundTypeChooser.addActionListener(event -> {
+            boolean isSeed = backgroundTypeChooser.getSelectedItem() == "Seed";
+
+            dimensionChooserLabel.setEnabled(isSeed);
+            dimensionChooser.setEnabled(isSeed);
+            worldSeedLabel.setEnabled(isSeed);
+            worldSeedTextField.setEnabled(isSeed);
+            worldVersionChooser.setEnabled(isSeed);
+
+            worldImageLabel.setEnabled(!isSeed);
+            addWorldImageButton.setEnabled(!isSeed);
+            imageZOffsetLabel.setEnabled(!isSeed);
+            imageXOffsetLabel.setEnabled(!isSeed);
+            imageZOffsetSpinner.setEnabled(!isSeed);
+            imageXOffsetSpinner.setEnabled(!isSeed);
+        });
+
         addWorldImageButton.addActionListener(event -> {
             Logger.info("Opening world background image dialog");
 
-            JFileChooser imgChooser = new JFileChooser("worldImages");
+            JFileChooser imgChooser = new JFileChooser(PlayerTrackerDecoder.DIR_WORLDIMAGES);
             imgChooser.setMultiSelectionEnabled(false);
             imgChooser.addChoosableFileFilter(new ImageFileFilter());
             imgChooser.setAcceptAllFileFilterUsed(false);
@@ -423,9 +655,9 @@ public class ImportForm extends JDialog {
                 toggleComponents(false);
 
                 File imgFile = imgChooser.getSelectedFile();
-                Logger.info("Selected world background image: " + imgFile);
+                Logger.info("Selected world background image");
 
-                main.LoadWorldImage(imgFile, worldImageLabel, addWorldImageButton, this);
+                loadWorldImage(imgFile);
             } else if (returnVal == JFileChooser.ERROR_OPTION) {
                 LOGGER.severe("Error selecting world background images");
             } else {
@@ -436,6 +668,35 @@ public class ImportForm extends JDialog {
         imageXOffsetSpinner.addChangeListener(e -> main.mainPanel.xBackgroundOffset = (int) ((JSpinner) e.getSource()).getValue());
 
         imageZOffsetSpinner.addChangeListener(e -> main.mainPanel.zBackgroundOffset = (int) ((JSpinner) e.getSource()).getValue());
+    }
+
+    public void loadWorldImage(File imgFile) {
+        Thread exec = new Thread(() -> {
+            try {
+                final long nowMs = System.currentTimeMillis();
+
+                currentBackgroundImage = ImageIO.read(imgFile);
+
+                final long durMs = System.currentTimeMillis() - nowMs;
+
+                Logger.info("Successfully loaded world background image in " + durMs + "ms.");
+            } catch (IOException e) {
+                LOGGER.severe("Error reading selected world background image:\n   " + Arrays.toString(e.getStackTrace()));
+            }
+
+            Toolkit.getDefaultToolkit().beep();
+            addWorldImageButton.setText("New World Image");
+            revalidate();
+            repaint();
+            main.setCursor(null);
+            setCursor(null);
+
+            toggleComponents(true);
+            revalidate();
+            repaint();
+        });
+
+        exec.start();
     }
 
     private Font getFont(String fontName, int style, int size, Font currentFont) {
@@ -458,7 +719,6 @@ public class ImportForm extends JDialog {
     }
 
     public void toggleComponents(boolean value) {
-        importButton.setEnabled(value);
         cancelButton.setEnabled(value);
         addWorldImageButton.setEnabled(value);
         selectedFileList.setEnabled(value);
@@ -470,6 +730,23 @@ public class ImportForm extends JDialog {
         mainSplitPane.setEnabled(value);
         addFileButton.setEnabled(value);
         removeFileButton.setEnabled(value);
-        dimensionChooser.setEnabled(value);
+        backgroundTypeChooser.setEnabled(value);
+        backgroundTypeLabel.setEnabled(value);
+        settingsTabs.setEnabled(value);
+
+        importButton.setEnabled(value && selectedFileList.getLastVisibleIndex() > 0);
+        if (appendButton != null) appendButton.setEnabled(value && selectedFileList.getLastVisibleIndex() > 0);
+        dimensionChooserLabel.setEnabled(value && backgroundTypeChooser.getSelectedItem() == "Seed");
+        dimensionChooser.setEnabled(value && backgroundTypeChooser.getSelectedItem() == "Seed");
+        worldSeedLabel.setEnabled(value && backgroundTypeChooser.getSelectedItem() == "Seed");
+        worldSeedTextField.setEnabled(value && backgroundTypeChooser.getSelectedItem() == "Seed");
+        worldVersionLabel.setEnabled(value && backgroundTypeChooser.getSelectedItem() == "Seed");
+        worldVersionChooser.setEnabled(value && backgroundTypeChooser.getSelectedItem() == "Seed");
+        worldImageLabel.setEnabled(value && backgroundTypeChooser.getSelectedItem() == "Image");
+        addWorldImageButton.setEnabled(value && backgroundTypeChooser.getSelectedItem() == "Image");
+        imageZOffsetLabel.setEnabled(value && backgroundTypeChooser.getSelectedItem() == "Image");
+        imageXOffsetLabel.setEnabled(value && backgroundTypeChooser.getSelectedItem() == "Image");
+        imageZOffsetSpinner.setEnabled(value && backgroundTypeChooser.getSelectedItem() == "Image");
+        imageXOffsetSpinner.setEnabled(value && backgroundTypeChooser.getSelectedItem() == "Image");
     }
 }

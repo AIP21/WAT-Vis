@@ -69,7 +69,7 @@
         <constraints border-constraint="Center"/>
         <properties>
           <continuousLayout value="true"/>
-          <dividerLocation value="221"/>
+          <dividerLocation value="244"/>
           <dividerSize value="9"/>
           <enabled value="true"/>
         </properties>
@@ -178,7 +178,7 @@
                           <text value=""/>
                         </properties>
                       </component>
-                      <component id="b8db2" class="javax.swing.JRadioButton" binding="AntialiasingToggle">
+                      <component id="b8db2" class="javax.swing.JRadioButton" binding="fancyRenderingToggle">
                         <constraints>
                           <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                           <gridbag weightx="1.0" weighty="1.0"/>
@@ -198,13 +198,13 @@
                           <text value=" Convert Chunks"/>
                         </properties>
                       </component>
-                      <component id="e4f1b" class="javax.swing.JLabel" binding="AntialiasingLabel">
+                      <component id="e4f1b" class="javax.swing.JLabel" binding="fancyRenderingLabel">
                         <constraints>
                           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                           <gridbag weightx="1.0" weighty="1.0"/>
                         </constraints>
                         <properties>
-                          <text value="Antialiasing"/>
+                          <text value="Fancy Rendering"/>
                         </properties>
                       </component>
                       <component id="5e45e" class="javax.swing.JSpinner" binding="MaxEntriesSelector">
@@ -221,7 +221,7 @@
                         </constraints>
                         <properties>
                           <labelFor value="5e45e"/>
-                          <text value="Max Entries"/>
+                          <text value="Max Entries To Decode"/>
                         </properties>
                       </component>
                     </children>
@@ -288,7 +288,7 @@
                       </component>
                       <component id="61c3c" class="javax.swing.JLabel" binding="WorldImageLabel">
                         <constraints>
-                          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                           <gridbag weightx="1.0" weighty="1.0"/>
                         </constraints>
                         <properties>
@@ -297,7 +297,7 @@
                       </component>
                       <component id="db06a" class="javax.swing.JLabel" binding="WIZOffset">
                         <constraints>
-                          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                           <gridbag weightx="1.0" weighty="1.0"/>
                         </constraints>
                         <properties>
@@ -307,7 +307,7 @@
                       </component>
                       <component id="ea1ab" class="javax.swing.JButton" binding="AddWorldImageButton">
                         <constraints>
-                          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                           <gridbag weightx="1.0" weighty="1.0"/>
                         </constraints>
                         <properties>
@@ -316,26 +316,42 @@
                       </component>
                       <component id="36647" class="javax.swing.JSpinner" binding="imageXOffsetSpinner" default-binding="true">
                         <constraints>
-                          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                           <gridbag weightx="1.0" weighty="1.0"/>
                         </constraints>
                         <properties/>
                       </component>
                       <component id="d6763" class="javax.swing.JSpinner" binding="imageYOffsetSpinner" default-binding="true">
                         <constraints>
-                          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                           <gridbag weightx="1.0" weighty="1.0"/>
                         </constraints>
                         <properties/>
                       </component>
                       <component id="5c5f1" class="javax.swing.JLabel" binding="WIXOffset">
                         <constraints>
-                          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                           <gridbag weightx="1.0" weighty="1.0"/>
                         </constraints>
                         <properties>
                           <labelFor value="d6763"/>
                           <text value="Image Y Offset"/>
+                        </properties>
+                      </component>
+                      <component id="ab4d" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+                        <constraints>
+                          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                          <gridbag weightx="0.0" weighty="0.0"/>
+                        </constraints>
+                        <properties/>
+                      </component>
+                      <component id="52e83" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                          <gridbag weightx="1.0" weighty="1.0"/>
+                        </constraints>
+                        <properties>
+                          <text value="World Seed"/>
                         </properties>
                       </component>
                     </children>

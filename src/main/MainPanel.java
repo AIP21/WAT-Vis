@@ -18,7 +18,6 @@ import java.awt.event.*;
 import java.awt.geom.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -158,14 +157,24 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
         Logger.info("Successfully initialized main display subsystem");
     }
 
-    public void setWorldMapInfo(MCVersion version, com.seedfinding.mccore.state.Dimension dimension, long worldSeed, int threadCount) {
+    public void setSeedMapInfo(MCVersion version, com.seedfinding.mccore.state.Dimension dimension, long worldSeed, int threadCount) {
         shouldDraw = false;
         this.threadCount = threadCount;
-        this.setLayout(new BorderLayout());
 
-        this.context = new MapContext(version, dimension, worldSeed);
+        context = new MapContext(version, dimension, worldSeed);
 
-        this.hasWorldMap = true;
+        hasWorldMap = true;
+
+        restart();
+        shouldDraw = true;
+    }
+
+    public void resetSeedMapInfo(){
+        shouldDraw = false;
+
+        this.context = null;
+
+        this.hasWorldMap = false;
 
         this.restart();
         shouldDraw = true;
@@ -176,18 +185,6 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
         addMouseMotionListener(this);
         addMouseListener(this);
         mousePosition = new Point();
-    }
-
-    public BufferedImage LoadBackgroundImage(File imageFile) throws IOException {
-        final long nowMs = System.currentTimeMillis();
-
-        BufferedImage image = ImageIO.read(imageFile);
-
-        final long durMs = System.currentTimeMillis() - nowMs;
-
-        Logger.info("Loading world background image took " + durMs + "ms.");
-
-        return image;
     }
 
     public void run() {
@@ -1120,13 +1117,13 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
         Logger.info("Starting to save the exported image file");
 
-        if (!new File("outputs").exists()) {
-            boolean val = new File("outputs").mkdir();
+        if (!new File(PlayerTrackerDecoder.DIR_OUTPUTS).exists()) {
+            boolean val = new File(PlayerTrackerDecoder.DIR_OUTPUTS).mkdir();
             LOGGER.warning("Outputs folder to save exported image didn't exist so it was just created with result: " + val);
         }
 
         String name = settings._drawType + "-" + (screenshot ? "screenshot" : "export") + "-" + _Decoder.dataWorld + "-" + _Decoder.dataDate;
-        File[] outFiles = new File("outputs/").listFiles();
+        File[] outFiles = new File(PlayerTrackerDecoder.DIR_OUTPUTS+File.separatorChar).listFiles();
         int count = 0;
 
         if (outFiles != null) {
@@ -1140,7 +1137,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
             try {
                 if (image != null) {
-                    ImageIO.write(image, "png", new File("outputs/" + name));
+                    ImageIO.write(image, "png", new File(PlayerTrackerDecoder.DIR_OUTPUTS+File.separatorChar + name));
                     Logger.info("Successfully saved current screen as an image");
                 } else {
                     LOGGER.severe("Image to save is null");

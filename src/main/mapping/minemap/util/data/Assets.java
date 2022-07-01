@@ -33,14 +33,13 @@ import java.util.stream.Stream;
 import static src.main.util.Logger.LOGGER;
 
 public class Assets {
-    public final static String DOWNLOAD_DIR_ICONS = PlayerTrackerDecoder.DIR_DL + File.separatorChar + "icons";
-    public final static String DOWNLOAD_DIR_VERSIONS = PlayerTrackerDecoder.DIR_DL + File.separatorChar + "versions";
-    public final static String DOWNLOAD_DIR_ASSETS = PlayerTrackerDecoder.DIR_DL + File.separatorChar + "assets";
+    public final static String DIR_DL_VERSIONS = PlayerTrackerDecoder.DIR_DL + File.separatorChar + "versions";
+    public final static String DIR_DL_ASSETS = PlayerTrackerDecoder.DIR_DL + File.separatorChar + "assets";
     private static final String MANIFEST_URL = "https://launchermeta.mojang.com/mc/game/version_manifest.json";
     private static final File MANIFEST_FILE = new File(PlayerTrackerDecoder.DIR_DL + File.separator + "version_manifest.json");
 
     public static void createDirs() throws IOException {
-        String[] dirs = {DOWNLOAD_DIR_ICONS, DOWNLOAD_DIR_VERSIONS, DOWNLOAD_DIR_ASSETS};
+        String[] dirs = {DIR_DL_VERSIONS, DIR_DL_ASSETS};
         for (String dir : dirs) {
             Files.createDirectories(Paths.get(dir));
         }
@@ -48,7 +47,7 @@ public class Assets {
 
     @SuppressWarnings("unchecked")
     public static HashMap<String, Pair<Pair<String, String>, String>> shouldUpdate() {
-        String data = getDataRestAPI("https://api.github.com/repos/hube12/MineMap/releases/latest");
+        String data = getDataRestAPI("https://api.github.com/repos/AIP21/TrackerDecoderApp/releases/latest");
         if (data == null) {
             return null;
         }
@@ -86,7 +85,7 @@ public class Assets {
         return null;
     }
 
-    public static String downloadLatestMinemap(String url, String filename) {
+    public static String downloadLatestVersion(String url, String filename) {
         if (download(url, new File(filename), null)) {
             return filename;
         }
@@ -132,7 +131,7 @@ public class Assets {
             LOGGER.severe(String.format("URL was not found for %s", version));
             return false;
         }
-        File versionManifest = new File(DOWNLOAD_DIR_VERSIONS + File.separator + version.name + ".json");
+        File versionManifest = new File(DIR_DL_VERSIONS + File.separator + version.name + ".json");
         if (!force && versionManifest.exists()) {
             return true;
         }
@@ -177,7 +176,7 @@ public class Assets {
             return null;
         }
         String name = urlSplit[urlSplit.length - 1];
-        File assetManifest = new File(DOWNLOAD_DIR_ASSETS + File.separator + name);
+        File assetManifest = new File(DIR_DL_ASSETS + File.separator + name);
         if (!force && assetManifest.exists() && compareSha1(assetManifest, assetIndexURL.getSecond())) {
             return name;
         }
@@ -203,7 +202,7 @@ public class Assets {
             return null;
         }
         String name = urlSplit[urlSplit.length - 1];
-        String versionDir = DOWNLOAD_DIR_VERSIONS + File.separator + version.name;
+        String versionDir = DIR_DL_VERSIONS + File.separator + version.name;
         try {
             Files.createDirectories(Paths.get(versionDir));
         } catch (IOException e) {
@@ -218,13 +217,13 @@ public class Assets {
     }
 
     public static boolean extractJar(MCVersion version, String filename, Predicate<JarEntry> jarEntryPredicate, boolean force) {
-        File clientJar = new File(DOWNLOAD_DIR_VERSIONS + File.separator + version.name + File.separator + filename);
+        File clientJar = new File(DIR_DL_VERSIONS + File.separator + version.name + File.separator + filename);
         if (!clientJar.exists()) {
             LOGGER.severe(String.format("Could not get client jar file for version %s", version));
             return false;
         }
         try {
-            extractFromJar(clientJar, DOWNLOAD_DIR_ASSETS + File.separator + version.name, jarEntryPredicate, force);
+            extractFromJar(clientJar, DIR_DL_ASSETS + File.separator + version.name, jarEntryPredicate, force);
         } catch (IOException e) {
             LOGGER.severe(String.format("Could not extract from jar file for version %s", version));
             return false;
@@ -279,7 +278,7 @@ public class Assets {
 
     @SuppressWarnings("unchecked")
     private static Pair<String, String> getAssetIndexURL(MCVersion version) {
-        JsonReader jsonReader = openJSON(new File(DOWNLOAD_DIR_VERSIONS + File.separator + version.name + ".json"));
+        JsonReader jsonReader = openJSON(new File(DIR_DL_VERSIONS + File.separator + version.name + ".json"));
         if (jsonReader == null) {
             return null;
         }
@@ -298,7 +297,7 @@ public class Assets {
 
     @SuppressWarnings("unchecked")
     private static Pair<String, String> getClientURL(MCVersion version) {
-        JsonReader jsonReader = openJSON(new File(DOWNLOAD_DIR_VERSIONS + File.separator + version.name + ".json"));
+        JsonReader jsonReader = openJSON(new File(DIR_DL_VERSIONS + File.separator + version.name + ".json"));
         if (jsonReader == null) {
             return null;
         }
@@ -355,7 +354,6 @@ public class Assets {
         }
         return new JsonReader(fileReader);
     }
-
 
     private static boolean manifestExists(MCVersion version) {
         if (MANIFEST_FILE.exists()) {
@@ -465,7 +463,6 @@ public class Assets {
         return list;
     }
 
-
     public static java.util.List<Pair<String, BufferedImage>> getAsset(Path dir, boolean isJar, String name, String extension, Function<Path, String> fnObjectStorage) {
         return getInputStream(dir, isJar, name, extension).stream().map(e -> {
             try {
@@ -511,5 +508,4 @@ public class Assets {
         }
         return null;
     }
-
 }

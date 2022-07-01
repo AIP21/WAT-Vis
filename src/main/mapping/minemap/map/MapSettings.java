@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 public class MapSettings {
     public static final boolean DEFAULT_SHOW_BIOMES = true;
-    public static final boolean DEFAULT_SHOW_GRID = true;
+    public static final boolean DEFAULT_SHOW_GRID = false;
     public static final int DEFAULT_BIOME_SIZE = OverworldBiomeSource.DEFAULT_BIOME_SIZE;
     public static final int DEFAULT_RIVER_SIZE = OverworldBiomeSource.DEFAULT_RIVER_SIZE;
 
@@ -21,7 +21,7 @@ public class MapSettings {
     @Expose
     public Boolean showBiomes = true;
     @Expose
-    public Boolean showGrid = true;
+    public Boolean showGrid = false;
     @Expose
     public Integer biomeSize = 4;
     @Expose

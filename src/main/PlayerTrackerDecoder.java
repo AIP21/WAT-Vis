@@ -2,6 +2,7 @@ package src.main;
 
 import com.formdev.flatlaf.FlatDarculaLaf;
 import com.formdev.flatlaf.FlatIntelliJLaf;
+import com.seedfinding.mccore.util.data.Pair;
 import com.seedfinding.mccore.version.MCVersion;
 import src.main.config.Settings;
 import src.main.config.mapping.Configs;
@@ -20,13 +21,18 @@ import java.awt.dnd.DnDConstants;
 import java.awt.dnd.DropTarget;
 import java.awt.dnd.DropTargetDropEvent;
 import java.awt.event.ItemEvent;
+import java.awt.geom.RoundRectangle2D;
+import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Objects;
 
 import static src.main.util.Logger.LOGGER;
@@ -34,6 +40,8 @@ import static src.main.util.Logger.LOGGER;
 public class PlayerTrackerDecoder extends JFrame {
     public static final String DIR_ROOT = System.getProperty("user.dir");
     public final static String DIR_LOGS = DIR_ROOT + File.separatorChar + "logs";
+    public final static String DIR_INPUTS = DIR_ROOT + File.separatorChar + "inputs";
+    public final static String DIR_OUTPUTS = DIR_ROOT + File.separatorChar + "outputs";
     public final static String DIR_WORLDIMAGES = DIR_ROOT + File.separatorChar + "worldImages";
     public final static String DIR_CONFIG = DIR_ROOT + File.separatorChar + "configs";
     public final static String DIR_DL = DIR_ROOT + File.separatorChar + ".downloads";
@@ -176,7 +184,7 @@ public class PlayerTrackerDecoder extends JFrame {
         initMainFrame();
 
         JFileChooser chooser = new JFileChooser();
-        chooser.setCurrentDirectory(new File("inputs"));
+        chooser.setCurrentDirectory(new File(PlayerTrackerDecoder.DIR_INPUTS));
         chooser.setMultiSelectionEnabled(true);
         chooser.addChoosableFileFilter(new TextFileFilter());
         chooser.setAcceptAllFileFilterUsed(false);
@@ -244,10 +252,18 @@ public class PlayerTrackerDecoder extends JFrame {
         Logger.info("Successfully initialized all subsystems");
     }
 
+    // TODO ADD CONTROL HINTS, GET RID OF INTELLIJ GRIDLAYOUT AND REPLACE THEM WITH GRIDBAGLAYOUT, ADD CREDITS TO MINEMAP AND MOJANG DISCLAIMER TO REAMDE
+
     public static void main(String[] args) {
         createDirectories();
         boolean debug = args.length > 0 && args[0].contains("-debug");
         Logger.registerLogger();
+        HashMap<String, Pair<Pair<String, String>, String>> updateInfo = Assets.shouldUpdate();
+        boolean noUpdate = Arrays.asList(args).contains("-no-update");
+        boolean update = Arrays.asList(args).contains("-update");
+        if (updateInfo != null && !noUpdate) {
+            updateApplication(updateInfo, !update);
+        }
         Configs.registerConfigs();
 
         if (debug) {
@@ -271,6 +287,99 @@ public class PlayerTrackerDecoder extends JFrame {
             LOGGER.severe(String.format("Failed to create a necessary directory: %s", e));
         }
     }
+
+    private static void updateApplication(HashMap<String, Pair<Pair<String, String>, String>> updateInfo, boolean prompt) {
+        Pair<Pair<String, String>, String> release = updateInfo.get("jar");
+        if (release == null) {
+            Logger.LOGGER.severe("Missing jar Entry");
+            return;
+        }
+        String OS = System.getProperty("os.name").toLowerCase();
+        boolean isWindows = (OS.contains("win"));
+        boolean isMax = (OS.contains("mac"));
+        boolean isUnix = (OS.contains("nix") || OS.contains("nux") || OS.contains("aix"));
+        boolean isSolaris = (OS.contains("sunos"));
+
+        boolean shouldUpdate = false;
+        Pair<Pair<String, String>, String> exeRelease = updateInfo.get("exe");
+        if (exeRelease != null && isWindows) {
+            release = exeRelease;
+            shouldUpdate = true;
+        }
+
+        if (prompt) {
+            int dialogResult = JOptionPane.showConfirmDialog(null, String.format("Update to the newest version (%s)?", release.getSecond()), "Update available!", JOptionPane.YES_NO_OPTION);
+            if (dialogResult != 0) {
+                return;
+            }
+        }
+
+        JDialog downloadPopup = new JDialog();
+        JPanel p1 = new JPanel(new GridBagLayout());
+        p1.add(new JLabel("<html><div style='text-align: center;'>Downloading new version<br>Please wait...</div></html>"));
+        downloadPopup.setUndecorated(true);
+        downloadPopup.getContentPane().add(p1);
+        downloadPopup.pack();
+        downloadPopup.setLocationRelativeTo(null);
+        downloadPopup.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+        downloadPopup.setModal(true);
+
+        downloadPopup.setSize(new Dimension(300, 50));
+        downloadPopup.setShape(new RoundRectangle2D.Double(0, 0, 300, 50, 50, 50));
+
+        SwingWorker<String, Void> downloadWorker = getDownloadWorker(downloadPopup, release.getFirst());
+        downloadWorker.execute();
+        downloadPopup.setVisible(true);
+
+        String newVersion = null;
+        try {
+            newVersion = downloadWorker.get(); // blocking wait (intended)
+        } catch (Exception e) {
+            Logger.LOGGER.severe(String.format("Failed to use the download worker, error %s", e));
+        }
+        downloadPopup.setVisible(false);
+        downloadPopup.dispose();
+
+        if (newVersion != null) {
+            Process ps;
+            try {
+                if (!shouldUpdate) {
+                    ps = Runtime.getRuntime().exec(new String[]{"java", "-jar", newVersion, "-no-update"});
+                } else {
+                    ps = Runtime.getRuntime().exec(new String[]{"./" + newVersion, "-no-update"});
+                }
+
+                Logger.LOGGER.info(String.format("Process exited with %s", ps.waitFor()));
+            } catch (Exception e) {
+                Logger.LOGGER.severe(String.format("Failed to start the new process, error %s", e));
+                return;
+            }
+
+            int exitValue = ps.exitValue();
+            if (exitValue != 0) {
+                Logger.LOGGER.severe("Failed to execute jar, " + Arrays.toString(new BufferedReader(new InputStreamReader(ps.getErrorStream())).lines().toArray()));
+            } else {
+                Logger.LOGGER.warning(String.format("Switching to newer version! %s", newVersion));
+                System.exit(0);
+            }
+        }
+    }
+
+    private static SwingWorker<String, Void> getDownloadWorker(JDialog parent, Pair<String, String> newVersion) {
+        return new SwingWorker<String, Void>() {
+            @Override
+            protected String doInBackground() {
+                return Assets.downloadLatestVersion(newVersion.getFirst(), newVersion.getSecond());
+            }
+
+            @Override
+            protected void done() {
+                super.done();
+                parent.dispose();
+            }
+        };
+    }
+
 
     private void initMainFrame() {
         Logger.info("Initializing primary frame subsystem");
@@ -329,7 +438,7 @@ public class PlayerTrackerDecoder extends JFrame {
         Logger.info("Successfully initialized primary frame subsystem");
     }
 
-    public void ConfirmImport(ArrayList<File> files, boolean overwrite) {
+    public void ConfirmImport(ArrayList<File> files, MCVersion worldVersion, com.seedfinding.mccore.state.Dimension dimension, String worldSeed, boolean overwrite) {
         this.files = files.toArray(new File[0]);
 
         try {
@@ -342,112 +451,113 @@ public class PlayerTrackerDecoder extends JFrame {
             LOGGER.severe("Error decoding the selected input log files:\n   " + Arrays.toString(e.getStackTrace()));
         }
 
-        mainPanel.setWorldMapInfo(MCVersion.v1_18_2, com.seedfinding.mccore.state.Dimension.OVERWORLD, 46456, 2);
+        long fixedSeed;
+        try {
+            fixedSeed = Long.parseLong(worldSeed);
+        } catch (NumberFormatException e) {
+            fixedSeed = worldSeed.hashCode();
+        }
+
+        mainPanel.setSeedMapInfo(worldVersion, dimension, fixedSeed, 2);
     }
 
-    public void LoadWorldImage(File imgFile, JLabel label, JButton button, ImportForm form) {
-        Thread exec = new Thread(() -> {
-            hasBackgroundImage = true;
+    public void ConfirmImport(ArrayList<File> files, BufferedImage worldImg, boolean overwrite) {
+        this.files = files.toArray(new File[0]);
+        initializeWorldImage(worldImg);
 
-            try {
-                mainPanel.backgroundImage = mainPanel.LoadBackgroundImage(imgFile);
-                mainPanel.backgroundImage.setAccelerationPriority(1);
-
-                backgroundImagePanel = new JPanel();
-                backgroundImagePanel.setLayout(new GridLayout(3, 5));
-
-                backgroundImagePanel.add(new JLabel("World Background Image Offset:   "));
-
-                int width = mainPanel.backgroundImage.getWidth();
-                int height = mainPanel.backgroundImage.getHeight();
-                int defaultX = Utils.clamp(mainPanel.xBackgroundOffset, -width, width);
-                int defaultZ = Utils.clamp(mainPanel.zBackgroundOffset, -height, height);
-
-                if (DEBUG) {
-                    backgroundImagePanel.add(new JLabel("Overworld offset: (-6384, -5376)  Nether offset: (-1008, -1969)"));
-                }
-
-                Logger.info(String.format("width: %d, height: %d", width, height));
-                Logger.info(String.format("defaultX: %d, defaultZ: %d", defaultX, defaultZ));
-
-                JSlider xOffsetSlider = new JSlider(0, -width, width, defaultX);
-                xOffsetSlider.setPreferredSize(new Dimension(100, 48));
-                xOffsetSlider.setPaintTicks(false);
-                xOffsetSlider.setMajorTickSpacing(1);
-                xOffsetSlider.setMinorTickSpacing(0);
-                xOffsetSlider.setPaintLabels(false);
-                mainPanel.xBackgroundOffset = defaultX;
-                xLabel = new JLabel("X Offset: " + defaultX);
-                xOffsetSlider.addChangeListener(e -> {
-                    JSlider source = (JSlider) e.getSource();
-                    int x = source.getValue();
-                    xLabel.setText("X Offset: " + x);
-                    mainPanel.xBackgroundOffset = x;
-                    mainPanel.repaint();
-
-                    Logger.info("Changed the world background image X offset to: " + x);
-                });
-                backgroundImagePanel.add(xOffsetSlider);
-                backgroundImagePanel.add(xLabel);
-
-                JSlider zOffsetSlider = new JSlider(0, -height, height, defaultZ);
-                zOffsetSlider.setPreferredSize(new Dimension(100, 48));
-                zOffsetSlider.setPaintTicks(false);
-                zOffsetSlider.setMajorTickSpacing(1);
-                zOffsetSlider.setMinorTickSpacing(0);
-                zOffsetSlider.setPaintLabels(false);
-                mainPanel.zBackgroundOffset = defaultZ;
-                zLabel = new JLabel("Y Offset: " + defaultZ);
-                zOffsetSlider.addChangeListener(e -> {
-                    JSlider source = (JSlider) e.getSource();
-                    int z = source.getValue();
-                    zLabel.setText("Y Offset: " + z);
-                    mainPanel.zBackgroundOffset = z;
-                    mainPanel.repaint();
-
-                    Logger.info("Changed the world background image Y offset to: " + z);
-                });
-                backgroundImagePanel.add(zOffsetSlider);
-                backgroundImagePanel.add(zLabel);
-
-                JSlider backgroundOpacitySlider = new JSlider(0, 0, 100, 50);
-                backgroundOpacitySlider.setPreferredSize(new Dimension(100, 48));
-                backgroundOpacitySlider.setPaintTicks(true);
-                backgroundOpacitySlider.setMajorTickSpacing(10);
-                backgroundOpacitySlider.setMinorTickSpacing(5);
-                backgroundOpacitySlider.setPaintLabels(true);
-                backgroundOpacityLabel = new JLabel("Opacity: " + 50 + "%");
-                backgroundOpacitySlider.addChangeListener(e -> {
-                    JSlider source = (JSlider) e.getSource();
-                    int opacity = source.getValue();
-                    backgroundOpacityLabel.setText("Opacity: " + opacity + "%");
-                    mainPanel.backgroundOpacity = opacity / 100.0F;
-                    mainPanel.repaint();
-
-                    Logger.info("Changed the world background image opacity to: " + opacity);
-                });
-                backgroundImagePanel.add(backgroundOpacitySlider);
-                backgroundImagePanel.add(backgroundOpacityLabel);
-
-                Logger.info("Successfully loaded world background image");
-            } catch (IOException e) {
-                LOGGER.severe("Error reading selected world background image:\n   " + Arrays.toString(e.getStackTrace()));
+        try {
+            if (alreadyImported && overwrite) {
+                mainPanel.Reset();
             }
 
-            Toolkit.getDefaultToolkit().beep();
-            label.setText("World Image [IMPORTED]");
-            button.setText("New World Image");
-            revalidate();
-            repaint();
-            form.setCursor(null);
-            setCursor(null);
+            decodeAndDisplay();
+        } catch (IOException e) {
+            LOGGER.severe("Error decoding the selected input log files:\n   " + Arrays.toString(e.getStackTrace()));
+        }
 
-            form.toggleComponents(true);
-            form.revalidate();
-            form.repaint();
+        mainPanel.resetSeedMapInfo();
+    }
+
+    public void initializeWorldImage(BufferedImage image) {
+        hasBackgroundImage = true;
+
+        mainPanel.backgroundImage = image;
+
+        mainPanel.backgroundImage.setAccelerationPriority(1);
+
+        backgroundImagePanel = new JPanel();
+        backgroundImagePanel.setLayout(new GridLayout(3, 5));
+
+        backgroundImagePanel.add(new JLabel("World Background Image Offset:   "));
+
+        int width = mainPanel.backgroundImage.getWidth();
+        int height = mainPanel.backgroundImage.getHeight();
+        int defaultX = Utils.clamp(mainPanel.xBackgroundOffset, -width, width);
+        int defaultZ = Utils.clamp(mainPanel.zBackgroundOffset, -height, height);
+
+        Logger.info(String.format("World Image: width: %d, height: %d", width, height));
+        Logger.info(String.format("World Image: defaultX: %d, defaultZ: %d", defaultX, defaultZ));
+
+        JSlider xOffsetSlider = new JSlider(0, -width, width, defaultX);
+        xOffsetSlider.setPreferredSize(new Dimension(100, 48));
+        xOffsetSlider.setPaintTicks(false);
+        xOffsetSlider.setMajorTickSpacing(1);
+        xOffsetSlider.setMinorTickSpacing(0);
+        xOffsetSlider.setPaintLabels(false);
+        mainPanel.xBackgroundOffset = defaultX;
+        xLabel = new JLabel("X Offset: " + defaultX);
+        xOffsetSlider.addChangeListener(e -> {
+            JSlider source = (JSlider) e.getSource();
+            int x = source.getValue();
+            xLabel.setText("X Offset: " + x);
+            mainPanel.xBackgroundOffset = x;
+            mainPanel.repaint();
+
+            Logger.info("Changed the world background image X offset to: " + x);
         });
+        backgroundImagePanel.add(xOffsetSlider);
+        backgroundImagePanel.add(xLabel);
 
-        exec.start();
+        JSlider zOffsetSlider = new JSlider(0, -height, height, defaultZ);
+        zOffsetSlider.setPreferredSize(new Dimension(100, 48));
+        zOffsetSlider.setPaintTicks(false);
+        zOffsetSlider.setMajorTickSpacing(1);
+        zOffsetSlider.setMinorTickSpacing(0);
+        zOffsetSlider.setPaintLabels(false);
+        mainPanel.zBackgroundOffset = defaultZ;
+        zLabel = new JLabel("Y Offset: " + defaultZ);
+        zOffsetSlider.addChangeListener(e -> {
+            JSlider source = (JSlider) e.getSource();
+            int z = source.getValue();
+            zLabel.setText("Y Offset: " + z);
+            mainPanel.zBackgroundOffset = z;
+            mainPanel.repaint();
+
+            Logger.info("Changed the world background image Y offset to: " + z);
+        });
+        backgroundImagePanel.add(zOffsetSlider);
+        backgroundImagePanel.add(zLabel);
+
+        JSlider backgroundOpacitySlider = new JSlider(0, 0, 100, 50);
+        backgroundOpacitySlider.setPreferredSize(new Dimension(100, 48));
+        backgroundOpacitySlider.setPaintTicks(true);
+        backgroundOpacitySlider.setMajorTickSpacing(10);
+        backgroundOpacitySlider.setMinorTickSpacing(5);
+        backgroundOpacitySlider.setPaintLabels(true);
+        backgroundOpacityLabel = new JLabel("Opacity: " + 50 + "%");
+        backgroundOpacitySlider.addChangeListener(e -> {
+            JSlider source = (JSlider) e.getSource();
+            int opacity = source.getValue();
+            backgroundOpacityLabel.setText("Opacity: " + opacity + "%");
+            mainPanel.backgroundOpacity = opacity / 100.0F;
+            mainPanel.repaint();
+
+            Logger.info("Changed the world background image opacity to: " + opacity);
+        });
+        backgroundImagePanel.add(backgroundOpacitySlider);
+        backgroundImagePanel.add(backgroundOpacityLabel);
+
+        Logger.info("Successfully initialized world background image");
     }
 
     public void ChangeTheme(PlayerTrackerDecoder.UITheme newTheme) {
@@ -521,11 +631,19 @@ public class PlayerTrackerDecoder extends JFrame {
         tabbedPane = new JTabbedPane();
         toolbar.add(tabbedPane);
 
+        GridBagConstraints gbc;
+
         //region Data
         JPanel dataPanel = new JPanel();
-        dataPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 4, new Insets(0, 0, 0, 0), -1, -1));
+        dataPanel.setLayout(new GridBagLayout());
 
-        dataPanel.add(new JLabel("Dates To Represent:   "), new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weightx = 0.2;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.BOTH;
+        dataPanel.add(new JLabel("Dates:   "), gbc);
 
         dateRangeSlider = new RangeSlider(0, logDates.size() - 1);
         dateRangeSlider.setPreferredSize(new Dimension(600, 48));
@@ -556,11 +674,27 @@ public class PlayerTrackerDecoder extends JFrame {
                 Logger.info("Changed date range slider: From " + startDate.toString() + " to " + endDate.toString());
             }
         });
-        dataPanel.add(startDateLabel, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        dataPanel.add(dateRangeSlider, new com.intellij.uiDesigner.core.GridConstraints(0, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        dataPanel.add(endDateLabel, new com.intellij.uiDesigner.core.GridConstraints(0, 3, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.weightx = 0.5;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.BOTH;
+        dataPanel.add(startDateLabel, gbc);
+        gbc.gridx = 2;
+        gbc.weightx = 1.0;
+        dataPanel.add(dateRangeSlider, gbc);
+        gbc.gridx = 3;
+        gbc.weightx = 0.5;
+        dataPanel.add(endDateLabel, gbc);
 
-        dataPanel.add(new JLabel("Animate:", JLabel.RIGHT), new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.BOTH;
+        dataPanel.add(new JLabel("Animate:", JLabel.RIGHT), gbc);
 
         animatePlayPause = new JToggleButton("", false);
         animatePlayPause.setIcon(mainPanel.isPlaying ? pauseIcon_L : playIcon_L);
@@ -580,9 +714,23 @@ public class PlayerTrackerDecoder extends JFrame {
             }
             Logger.info(mainPanel.isPlaying ? "Started playing animation" : "Stopped playing animation");
         });
-        dataPanel.add(animatePlayPause, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
 
-        dataPanel.add(new JLabel("Animation Speed:", JLabel.RIGHT), new com.intellij.uiDesigner.core.GridConstraints(1, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        gbc.weightx = 0.2;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.BOTH;
+        dataPanel.add(animatePlayPause, gbc);
+
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 2;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.EAST;
+        dataPanel.add(new JLabel("Animation Speed:", JLabel.RIGHT), gbc);
+
         JSpinner animSpeedSpinner = new JSpinner();
         animSpeedSpinner.setValue(mainPanel != null ? mainPanel.animationSpeed : 1);
         animSpeedSpinner.addChangeListener(e -> {
@@ -598,7 +746,15 @@ public class PlayerTrackerDecoder extends JFrame {
 
             Logger.info("Changed animation speed to: " + mainPanel.animationSpeed);
         });
-        dataPanel.add(animSpeedSpinner, new com.intellij.uiDesigner.core.GridConstraints(1, 3, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 3;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.WEST;
+        gbc.insets = new Insets(0, 0, 0, 0);
+        dataPanel.add(animSpeedSpinner, gbc);
 
         tabbedPane.addTab("Data", null, dataPanel, "Data range settings");
         //endregion

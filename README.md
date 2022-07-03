@@ -1,5 +1,5 @@
 # TrackerDecoderApp
-An app version of my player tracker decoder. It is an interactive and super configurable tool to visualize, analyze, and export the data created by my Player Tracker Mod.
+An app version of my player tracker decoder. It is an interactive and super configurable tool to visualize, analyze, and export the data created by my player tracker mod: WAT (Where are they?)
 
 Links to the Minecraft mod:
 [Modrinth](https://modrinth.com/mod/wat) or [Curseforge](https://www.curseforge.com/minecraft/mc-mods/wat-mod) or [Github](https://github.com/AIP21/WAT-mod)
@@ -12,18 +12,26 @@ I made this (and the minecraft mod) as a fun project to learn more about Java.
 TLDR: It's like [nocom](https://github.com/nerdsinspace/nocom-explanation/blob/main/README.md) but serverside.
 
 # Setup and running the program
-The program *should* do the following steps by itself, but its always better doing it yourself just in case. (My code tends to be unpredictable)
+The program does all setup by itself, if something goes wrong, create folders titled "configs", "inputs", "outputs", and "worldImages".
 1. Put the .jar file in an empty folder
-2. Create these folders "inputs", "outputs", and "worldImages"
+2. Run the .jar file
 
 Now you are good to go, just run the .jar file and import your data using the button on the top left!
+
+# Folder Setup
+There are four main folders that are created in the run directory:
+- "configs": Contains the config files
+- "inputs": Put any input data in this folder
+- "outputs": Any exported images are put in this folder
+- "worldImages": Put any world images in this folder
+- ".downloads": Contains the assets used for doing the seed mapping. They are downloaded from mojang.com and are the property of Mojang AB.
 
 # Features
 1. Display all the data that you imported.
 2. Display a desired date range or a single point in time.
 3. Animate the time to see players moving around as time passes.
-4. See a list of all the players in the data and either change their marker color or disable them entirely.
-5. Select individual or multiple points and see their information. This includes the date, player name, and position. Select every point with Control+A, drag right click to select an area, Shift+Click to select multiple points.
+4. See a list of all the players in the data, how many data entries they have, and either change their marker color or disable them entirely.
+5. Select individual or multiple points and see their information. This includes the date, player name, and position. Select every point with Control+A, drag right click to select an area, Shift+Click to select multiple points, Control+Click to select hidden points.
 6. Right click to open a menu to either hide or show selected points. Hold control to show hidden points.
 7. Represent the data in four ways: Pixels, Dots, Lines, or a Heatmap.
 8. Option to fade out data based on its age.
@@ -33,6 +41,8 @@ Now you are good to go, just run the .jar file and import your data using the bu
 12. **Extensive** configuration for almost everything
 13. Ability to export a view of all the data in one image or take a screenshot of the current view.
 14. Dark/Light mode so you don't burn your eyes.
+15. World mapping using a seed. Just input your world seed and version when importing data and it will map out the biomes for you.
+16. Automatically fetches updates from github and asks you if you want to update.
 15. And some other stuff I forgot to write here.
 
 #### CSV SUPPORT IS COMING SOON
@@ -79,3 +89,10 @@ Here are some screenshots from the program, using made-up data and data from my 
 
 **Exported image:**
 ![image](https://user-images.githubusercontent.com/44927160/171914953-4ca2684b-328a-4a4e-928e-016d6bf0b025.png)
+
+# Acknowledgements and Licenses
+- All icons used are sourced from Google Material Icons under the Apache Licence - 2.0
+- Seed Mapping code was originally sourced from [MineMap](https://github.com/hube12/Minemap) made by KaptainWutax under the MIT License. I modified it significantly in order to properly integrate it with this tool.
+- Auto-Updating code sourced from [MineMap](https://github.com/hube12/Minemap).
+
+**THIS IS NOT AN OFFICIAL MOJANG PRODUCT AND IS NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT**

@@ -16,7 +16,7 @@ The program does all setup by itself, if something goes wrong, create folders ti
 1. Put the .jar file in an empty folder
 2. Run the .jar file
 
-Now you are good to go, just run the .jar file and import your data using the button on the top left!
+Now you are good to go, just import your data using the button on the top left!
 
 # Folder Setup
 There are four main folders that are created in the run directory:

@@ -9,8 +9,6 @@ import com.seedfinding.mccore.util.data.Pair;
 import com.seedfinding.mccore.util.pos.CPos;
 import com.seedfinding.mccore.version.MCVersion;
 import com.seedfinding.mccore.version.UnsupportedVersion;
-import com.seedfinding.mcfeature.Feature;
-import com.seedfinding.mcfeature.structure.RuinedPortal;
 import com.seedfinding.mcterrain.TerrainGenerator;
 
 import java.util.HashMap;
@@ -122,38 +120,6 @@ public class MapContext {
 
     public TerrainGenerator getTerrainGenerator(Dimension dimension) {
         return this.chunkGenerators.get().get(dimension);
-    }
-
-    public Pair<TerrainGenerator, Function<CPos, CPos>> getTerrainGenerator(Feature<?, ?> feature) {
-        TerrainGenerator generator = null;
-        Function<CPos, CPos> f = e -> e;
-        if (feature instanceof RuinedPortal) {
-            RuinedPortal ruinedPortal = (RuinedPortal) feature;
-            Dimension dimension = ruinedPortal.getValidDimension();
-            return new Pair<>(this.getTerrainGenerator(dimension), getDimensionFunction(dimension));
-        }
-        if (feature.isValidDimension(this.getDimension())) {
-            generator = this.getTerrainGenerator();
-        } else {
-            for (Dimension dimension : Dimension.values()) {
-                if (feature.isValidDimension(dimension)) {
-                    generator = this.getTerrainGenerator(dimension);
-                    f = getDimensionFunction(dimension);
-                    break;
-                }
-            }
-        }
-        return new Pair<>(generator, f);
-    }
-
-    public Function<CPos, CPos> getDimensionFunction(Dimension dimension) {
-        Function<CPos, CPos> f = e -> e;
-        if (dimension == Dimension.NETHER && this.getDimension() == Dimension.OVERWORLD) {
-            f = e -> e.shr(3);
-        } else if (dimension == Dimension.OVERWORLD && this.getDimension() == Dimension.NETHER) {
-            f = e -> e.shl(3);
-        }
-        return f;
     }
 
     public LayeredBiomeSource<? extends BiomeLayer> getBiomeSource() {

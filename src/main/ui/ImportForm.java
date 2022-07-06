@@ -22,6 +22,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.*;
+import java.util.stream.IntStream;
 
 import com.seedfinding.mccore.state.Dimension;
 
@@ -66,7 +67,9 @@ public class ImportForm extends JDialog {
     public JLabel backgroundTypeLabel;
     public JComboBox worldVersionChooser;
     public JLabel worldVersionLabel;
-    public JTextField worldSeedTextField;
+    public JComboBox threadCountChooser;
+    public JLabel threadCountLabel;
+    public HintedInputField worldSeedTextField;
     public JLabel worldSeedLabel;
 
     private PlayerTrackerDecoder main;
@@ -403,9 +406,7 @@ public class ImportForm extends JDialog {
         gbc.weighty = 1.0;
         mapSettings.add(worldSeedLabel, gbc);
 
-        worldSeedTextField = new JTextField();
-        worldSeedTextField.setText("");
-        worldSeedTextField.setToolTipText("Seed");
+        worldSeedTextField = new HintedInputField("Enter seed...");
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 2;
@@ -425,8 +426,7 @@ public class ImportForm extends JDialog {
         gbc.insets = new Insets(0, 3, 0, 0);
         mapSettings.add(worldVersionLabel, gbc);
 
-        worldVersionChooser = new JComboBox<MCVersion>(MCVersion.values());
-        worldVersionChooser.setSelectedItem("Seed");
+        worldVersionChooser = new JComboBox<MCVersion>(Arrays.stream(MCVersion.values()).filter(v -> v.isNewerOrEqualTo(MCVersion.vb1_8_1)).toList().toArray(new MCVersion[0]));
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 3;
@@ -434,12 +434,31 @@ public class ImportForm extends JDialog {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         mapSettings.add(worldVersionChooser, gbc);
 
+        threadCountLabel = new JLabel();
+        threadCountLabel.setText("Thread Count");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 4;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.ipadx = 20;
+        gbc.insets = new Insets(0, 3, 0, 0);
+        mapSettings.add(threadCountLabel, gbc);
+
+        threadCountChooser = new JComboBox<Integer>(IntStream.rangeClosed(1, Runtime.getRuntime().availableProcessors()).boxed().toList().toArray(new Integer[0]));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 4;
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        mapSettings.add(threadCountChooser, gbc);
+
         worldImageLabel = new JLabel();
         worldImageLabel.setText("World Image");
         worldImageLabel.setEnabled(false);
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
-        gbc.gridy = 4;
+        gbc.gridy = 5;
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
         mapSettings.add(worldImageLabel, gbc);
@@ -449,7 +468,7 @@ public class ImportForm extends JDialog {
         addWorldImageButton.setEnabled(false);
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
-        gbc.gridy = 4;
+        gbc.gridy = 5;
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -460,7 +479,7 @@ public class ImportForm extends JDialog {
         imageXOffsetLabel.setEnabled(false);
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
-        gbc.gridy = 5;
+        gbc.gridy = 6;
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
         mapSettings.add(imageXOffsetLabel, gbc);
@@ -469,7 +488,7 @@ public class ImportForm extends JDialog {
         imageXOffsetSpinner.setEnabled(false);
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
-        gbc.gridy = 5;
+        gbc.gridy = 6;
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
         gbc.anchor = GridBagConstraints.WEST;
@@ -482,7 +501,7 @@ public class ImportForm extends JDialog {
         imageZOffsetLabel.setEnabled(false);
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
-        gbc.gridy = 6;
+        gbc.gridy = 7;
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
         mapSettings.add(imageZOffsetLabel, gbc);
@@ -491,7 +510,7 @@ public class ImportForm extends JDialog {
         imageZOffsetSpinner.setEnabled(false);
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
-        gbc.gridy = 6;
+        gbc.gridy = 7;
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
         gbc.anchor = GridBagConstraints.WEST;
@@ -529,7 +548,7 @@ public class ImportForm extends JDialog {
 
         importButton.addActionListener(event -> {
             if (backgroundTypeChooser.getSelectedItem() == "Seed") {
-                main.ConfirmImport(currentFiles, (MCVersion) worldVersionChooser.getSelectedItem(), Dimension.fromId(dimensionChooser.getSelectedIndex()), worldSeedTextField.getText(), true);
+                main.ConfirmImport(currentFiles, (MCVersion) worldVersionChooser.getSelectedItem(), dimFromString((String) dimensionChooser.getSelectedItem()), (Integer)threadCountChooser.getSelectedItem(), worldSeedTextField.getText(), true);
             } else {
                 main.ConfirmImport(currentFiles, currentBackgroundImage, true);
             }
@@ -540,7 +559,11 @@ public class ImportForm extends JDialog {
             appendButton.setEnabled(selectedFileList.getLastVisibleIndex() > 0);
 
             appendButton.addActionListener(event -> {
-                main.ConfirmImport(currentFiles, (MCVersion) worldVersionChooser.getSelectedItem(), Dimension.fromId(dimensionChooser.getSelectedIndex()), worldSeedTextField.getText(), false);
+                if (backgroundTypeChooser.getSelectedItem() == "Seed") {
+                    main.ConfirmImport(currentFiles, (MCVersion) worldVersionChooser.getSelectedItem(), dimFromString((String) dimensionChooser.getSelectedItem()), (Integer)threadCountChooser.getSelectedItem(), worldSeedTextField.getText(), true);
+                } else {
+                    main.ConfirmImport(currentFiles, currentBackgroundImage, true);
+                }
                 this.setVisible(false);
             });
         }
@@ -697,6 +720,15 @@ public class ImportForm extends JDialog {
         });
 
         exec.start();
+    }
+
+    private Dimension dimFromString(String input){
+        return switch (input) {
+            case "Overworld" -> Dimension.OVERWORLD;
+            case "Nether" -> Dimension.NETHER;
+            case "End" -> Dimension.END;
+            default -> null;
+        };
     }
 
     private Font getFont(String fontName, int style, int size, Font currentFont) {

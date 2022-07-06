@@ -5,7 +5,6 @@ import com.seedfinding.mcbiome.biome.Biomes;
 import com.seedfinding.mcbiome.layer.BiomeLayer;
 import com.seedfinding.mccore.util.pos.BPos;
 import com.seedfinding.mccore.util.pos.RPos;
-import com.seedfinding.mcfeature.Feature;
 import com.seedfinding.mcterrain.TerrainGenerator;
 import src.main.MainPanel;
 import src.main.PlayerTrackerDecoder;
@@ -38,7 +37,6 @@ public class Fragment {
     private boolean hasBiomeModified = false;
     private boolean hasHeightModified = false;
 
-    private Map<Feature<?, ?>, List<BPos>> features;
     private BPos hoveredPos;
     private BPos clickedPos;
 
@@ -278,6 +276,6 @@ public class Fragment {
 
     @Override
     public String toString() {
-        return "Fragment{" + "blockX=" + blockX + ", blockZ=" + blockZ + ", regionSize=" + regionSize + ", context=" + context + ", layerIdCache=" + layerIdCache + ", biomeCache=" + Arrays.toString(biomeCache) + ", imageCache=" + imageCache + ", features=" + features + ", hoveredPos=" + hoveredPos + '}';
+        return "Fragment{" + "blockX=" + blockX + ", blockZ=" + blockZ + ", regionSize=" + regionSize + ", context=" + context + ", layerIdCache=" + layerIdCache + ", biomeCache=" + Arrays.toString(biomeCache) + ", imageCache=" + imageCache + ", hoveredPos=" + hoveredPos + '}';
     }
 }

@@ -157,7 +157,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
         Logger.info("Successfully initialized main display subsystem");
     }
 
-    public void setSeedMapInfo(MCVersion version, com.seedfinding.mccore.state.Dimension dimension, long worldSeed, int threadCount) {
+    public void setSeedMapInfo(MCVersion version, com.seedfinding.mccore.state.Dimension dimension, int threadCount, long worldSeed) {
         shouldDraw = false;
         this.threadCount = threadCount;
 
@@ -169,7 +169,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
         shouldDraw = true;
     }
 
-    public void resetSeedMapInfo(){
+    public void resetSeedMapInfo() {
         shouldDraw = false;
 
         this.context = null;
@@ -419,6 +419,9 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
     }
 
     // region Drawing
+    private void drawControls(){
+        
+    }
     private void drawCrossHair(Graphics2D g2d, float x, float y, float size) {
         g2d.setStroke(new BasicStroke(5 * size));
         g2d.draw(new Ellipse2D.Float(x + (-25 * size), y + (-25 * size), 50 * size, 50 * size));
@@ -1123,7 +1126,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
         }
 
         String name = settings._drawType + "-" + (screenshot ? "screenshot" : "export") + "-" + _Decoder.dataWorld + "-" + _Decoder.dataDate;
-        File[] outFiles = new File(PlayerTrackerDecoder.DIR_OUTPUTS+File.separatorChar).listFiles();
+        File[] outFiles = new File(PlayerTrackerDecoder.DIR_OUTPUTS + File.separatorChar).listFiles();
         int count = 0;
 
         if (outFiles != null) {
@@ -1137,7 +1140,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
             try {
                 if (image != null) {
-                    ImageIO.write(image, "png", new File(PlayerTrackerDecoder.DIR_OUTPUTS+File.separatorChar + name));
+                    ImageIO.write(image, "png", new File(PlayerTrackerDecoder.DIR_OUTPUTS + File.separatorChar + name));
                     Logger.info("Successfully saved current screen as an image");
                 } else {
                     LOGGER.severe("Image to save is null");
@@ -1223,3 +1226,5 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
         selectedEntries.clear();
     }
 }
+
+// TODO Show controls, fix grid bug with seed map

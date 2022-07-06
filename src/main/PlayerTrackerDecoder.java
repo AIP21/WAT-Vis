@@ -438,7 +438,7 @@ public class PlayerTrackerDecoder extends JFrame {
         Logger.info("Successfully initialized primary frame subsystem");
     }
 
-    public void ConfirmImport(ArrayList<File> files, MCVersion worldVersion, com.seedfinding.mccore.state.Dimension dimension, String worldSeed, boolean overwrite) {
+    public void ConfirmImport(ArrayList<File> files, MCVersion worldVersion, com.seedfinding.mccore.state.Dimension dimension, int threadCount, String worldSeed, boolean overwrite) {
         this.files = files.toArray(new File[0]);
 
         try {
@@ -458,7 +458,7 @@ public class PlayerTrackerDecoder extends JFrame {
             fixedSeed = worldSeed.hashCode();
         }
 
-        mainPanel.setSeedMapInfo(worldVersion, dimension, fixedSeed, 2);
+        mainPanel.setSeedMapInfo(worldVersion, dimension, threadCount, fixedSeed);
     }
 
     public void ConfirmImport(ArrayList<File> files, BufferedImage worldImg, boolean overwrite) {
@@ -680,12 +680,14 @@ public class PlayerTrackerDecoder extends JFrame {
         gbc.weightx = 0.5;
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
+        gbc.anchor = GridBagConstraints.EAST;
         dataPanel.add(startDateLabel, gbc);
         gbc.gridx = 2;
         gbc.weightx = 1.0;
         dataPanel.add(dateRangeSlider, gbc);
         gbc.gridx = 3;
         gbc.weightx = 0.5;
+        gbc.insets = new Insets(0, 1, 0, 0);
         dataPanel.add(endDateLabel, gbc);
 
         gbc = new GridBagConstraints();
@@ -724,11 +726,12 @@ public class PlayerTrackerDecoder extends JFrame {
         dataPanel.add(animatePlayPause, gbc);
 
         gbc = new GridBagConstraints();
-        gbc.gridx = 1;
-        gbc.gridy = 2;
+        gbc.gridx = 2;
+        gbc.gridy = 1;
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
-        gbc.fill = GridBagConstraints.EAST;
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.anchor = GridBagConstraints.EAST;
         dataPanel.add(new JLabel("Animation Speed:", JLabel.RIGHT), gbc);
 
         JSpinner animSpeedSpinner = new JSpinner();
@@ -748,12 +751,12 @@ public class PlayerTrackerDecoder extends JFrame {
         });
 
         gbc = new GridBagConstraints();
-        gbc.gridx = 1;
-        gbc.gridy = 3;
+        gbc.gridx = 3;
+        gbc.gridy = 1;
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
-        gbc.fill = GridBagConstraints.WEST;
-        gbc.insets = new Insets(0, 0, 0, 0);
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.anchor = GridBagConstraints.WEST;
         dataPanel.add(animSpeedSpinner, gbc);
 
         tabbedPane.addTab("Data", null, dataPanel, "Data range settings");
@@ -856,7 +859,7 @@ public class PlayerTrackerDecoder extends JFrame {
 
         //region Render
         JPanel renderPanel = new JPanel();
-        renderPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(5, 2, new Insets(0, 0, 0, 0), -1, -1));
+        renderPanel.setLayout(new GridBagLayout());
 
         drawTypeChooser = new JComboBox<>(new Decoder.DrawType[]{Decoder.DrawType.Pixel, Decoder.DrawType.Dot, Decoder.DrawType.Line, Decoder.DrawType.Heat});
 //        drawTypeChooser.setPreferredSize(new Dimension(85, 24));
@@ -911,7 +914,13 @@ public class PlayerTrackerDecoder extends JFrame {
 
             Logger.info("Changed draw type to: " + settings._drawType);
         });
-        renderPanel.add(drawTypeChooser, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.BOTH;
+        renderPanel.add(drawTypeChooser, gbc);
 
         heatDrawTypeChooser = new JComboBox<>(new HeatDrawType[]{HeatDrawType.Size, HeatDrawType.Color});
 //        heatDrawTypeChooser.setPreferredSize(new Dimension(85, 24));
@@ -924,11 +933,24 @@ public class PlayerTrackerDecoder extends JFrame {
 
             Logger.info("Changed heat draw type to: " + settings._heatDrawType);
         });
-        renderPanel.add(heatDrawTypeChooser, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.BOTH;
+        renderPanel.add(heatDrawTypeChooser, gbc);
         heatDrawTypeChooser.setEnabled(settings._drawType == Decoder.DrawType.Heat);
 
         drawSizeComponent = new JPanel();
-        renderPanel.add(drawSizeComponent, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.BOTH;
+        renderPanel.add(drawSizeComponent, gbc);
+
         drawSizeTitle = new JLabel((settings._drawType == Decoder.DrawType.Dot) ? "Dot Radius" : ((settings._drawType == Decoder.DrawType.Pixel || settings._drawType == Decoder.DrawType.Heat) ? "Pixel Size" : ((settings._drawType == Decoder.DrawType.Line) ? "Line Thickness" : "-")));
         drawSizeComponent.add(drawSizeTitle);
 
@@ -953,7 +975,13 @@ public class PlayerTrackerDecoder extends JFrame {
         drawSizeComponent.add(drawSizeLabel);
 
         lineThresholdComponent = new JPanel();
-        renderPanel.add(lineThresholdComponent, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.BOTH;
+        renderPanel.add(lineThresholdComponent, gbc);
 
         lineThresholdTitle = new JLabel("Line Threshold");
         lineThresholdComponent.add(lineThresholdTitle);
@@ -982,7 +1010,13 @@ public class PlayerTrackerDecoder extends JFrame {
         lineThresholdComponent.add(lineThresholdLabel);
 
         heatMapComponent = new JPanel();
-        renderPanel.add(heatMapComponent, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 2;
+        gbc.gridy = 0;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.BOTH;
+        renderPanel.add(heatMapComponent, gbc);
 
         heatMapStrengthTitle = new JLabel("Activity Strength");
         heatMapStrengthSlider = new JSlider(0, -100, 100, Utils.clamp((int) (settings.heatMapStrength * 100), -100, 100));
@@ -1011,7 +1045,13 @@ public class PlayerTrackerDecoder extends JFrame {
         heatMapComponent.add(heatMapStrengthLabel);
 
         ageFadeComponent = new JPanel();
-        renderPanel.add(ageFadeComponent, new com.intellij.uiDesigner.core.GridConstraints(2, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 2;
+        gbc.gridy = 1;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.BOTH;
+        renderPanel.add(ageFadeComponent, gbc);
 
         ageFadeStrengthTitle = new JLabel("Age Fade Strength");
         ageFadeStrengthSlider = new JSlider(0, 0, 100, Utils.clamp((int) settings.ageFadeStrength * 100, 0, 100));
@@ -1046,7 +1086,13 @@ public class PlayerTrackerDecoder extends JFrame {
         ageFadeToggle.setBorder(BorderFactory.createEmptyBorder());
         ageFadeToggle.setBackground(new Color(0, 0, 0, 0));
         ageFadeToggle.setEnabled(settings._drawType != Decoder.DrawType.Heat);
-        renderPanel.add(ageFadeToggle, new com.intellij.uiDesigner.core.GridConstraints(3, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 3;
+        gbc.gridy = 0;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.BOTH;
+        renderPanel.add(ageFadeToggle, gbc);
 
         ageFadeToggle.addItemListener(ev -> {
             settings.ageFade = (ev.getStateChange() == ItemEvent.SELECTED);
@@ -1086,7 +1132,13 @@ public class PlayerTrackerDecoder extends JFrame {
             Logger.info("Toggled fancy lines to: " + settings.fancyLines);
         });
         fancyLinesToggle.setEnabled(settings._drawType == Decoder.DrawType.Line);
-        renderPanel.add(fancyLinesToggle, new com.intellij.uiDesigner.core.GridConstraints(3, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 3;
+        gbc.gridy = 1;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.BOTH;
+        renderPanel.add(fancyLinesToggle, gbc);
 
         terminusPointsToggle = new JToggleButton("Terminus Points", settings.terminusPoints);
         terminusPointsToggle.setIcon(settings.terminusPoints ? toggleIconON_L : toggleIconOFF_L);
@@ -1109,7 +1161,13 @@ public class PlayerTrackerDecoder extends JFrame {
             Logger.info("Toggled terminus points to: " + settings.terminusPoints);
         });
         terminusPointsToggle.setEnabled(settings._drawType == Decoder.DrawType.Line);
-        renderPanel.add(terminusPointsToggle, new com.intellij.uiDesigner.core.GridConstraints(4, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 4;
+        gbc.gridy = 0;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.BOTH;
+        renderPanel.add(terminusPointsToggle, gbc);
 
         showHiddenLinesToggle = new JToggleButton("Show Hidden Lines", settings.hiddenLines);
         showHiddenLinesToggle.setIcon(settings.hiddenLines ? toggleIconON_L : toggleIconOFF_L);
@@ -1132,7 +1190,13 @@ public class PlayerTrackerDecoder extends JFrame {
             Logger.info("Toggled hidden lines to: " + settings.hiddenLines);
         });
         showHiddenLinesToggle.setEnabled((settings._drawType == Decoder.DrawType.Line));
-        renderPanel.add(showHiddenLinesToggle, new com.intellij.uiDesigner.core.GridConstraints(4, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 4;
+        gbc.gridy = 1;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.BOTH;
+        renderPanel.add(showHiddenLinesToggle, gbc);
 
 //        EventQueue.invokeLater(() -> {
 //            drawSizeComponent.updateUI();
@@ -1209,6 +1273,8 @@ public class PlayerTrackerDecoder extends JFrame {
     }
 
     private void decodeAndDisplay() throws IOException {
+        files = Arrays.stream(files).distinct().toList().toArray(new File[0]);
+
         Logger.info("Selected files: " + files.length);
         Logger.info("Decoding process started");
 

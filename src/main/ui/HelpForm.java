@@ -1,6 +1,5 @@
 package src.main.ui;
 
-import com.seedfinding.mccore.state.Dimension;
 import com.seedfinding.mccore.version.MCVersion;
 import src.main.PlayerTrackerDecoder;
 import src.main.config.Settings;
@@ -28,9 +27,6 @@ import java.util.*;
 import java.util.stream.IntStream;
 
 public class HelpForm extends JDialog {
-    private JPanel bottomPanel;
-    private JLabel titleText;
-    private JLabel helpText;
     private JButton closeButton;
 
     public HelpForm(PlayerTrackerDecoder main) {
@@ -49,7 +45,11 @@ public class HelpForm extends JDialog {
     }
 
     private void initComponents() {
-        titleText = new JLabel();
+        setLayout(new BorderLayout());
+
+        GridBagConstraints gbc = new GridBagConstraints();
+
+        JLabel titleText = new JLabel();
         Font TitleFont = this.getFont(null, -1, 26, titleText.getFont());
         if (TitleFont != null) titleText.setFont(TitleFont);
         titleText.setHorizontalAlignment(0);
@@ -57,31 +57,87 @@ public class HelpForm extends JDialog {
         titleText.setText("Help");
         add(titleText, BorderLayout.NORTH);
 
-        helpText = new JLabel();
-        helpText.setBorder(BorderFactory.createTitledBorder(null, "Controls", 0, 0, null, null));
-        helpText.setText(Utils.convertToMultiline("""
-                Pan: Left Click + Drag
-                                
-                Zoom: Scroll Wheel
-                                
-                Select Point: Left Click
-                                
-                Select Area: Right Click
-                                
-                 - [Modifier] Select Multiple: Shift
-                 
-                 - [Modifier] Select Hidden: Control
-                 
-                Show Hidden Points: Control
-                                
-                Select All Points: Control + A
-                """));
-        add(helpText, BorderLayout.CENTER);
+        JPanel helpPanel = new JPanel();
+        helpPanel.setLayout(new GridBagLayout());
+        add(helpPanel, BorderLayout.CENTER);
+
+        JTextPane helpText = new JTextPane();
+        helpText.setBorder(BorderFactory.createTitledBorder(null, "", 0, 0, null, null));
+        helpText.setContentType("text/html");
+        helpText.setEditable(false);
+        helpText.setText("""
+                <html>
+                  <head>
+                    <center>
+                      <h2>
+                        <font face="Segoe UI">
+                          Controls
+                        </font>
+                      </h2>
+                    </center>
+                  </head>
+                  <body>
+                    <center>
+                      Pan: Left Click + Drag<br>
+                      Zoom: Scroll Wheel<br>
+                      Select Point: Left Click<br>
+                      Select Area: Right Click<br>
+                      [Modifier] Select Multiple: Shift<br>
+                      [Modifier] Select Hidden: Control<br>
+                      Show Hidden Points: Control<br>
+                      Select All Points: Control + A<br>
+                    </center>
+                  </body>
+                </html>
+                """);
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.anchor = GridBagConstraints.WEST;
+        helpPanel.add(helpText, gbc);
+
+        JTextPane aboutText = new JTextPane();
+        aboutText.setBorder(BorderFactory.createTitledBorder((Border) null, "", 0, 0, (Font) null, (Color) null));
+        aboutText.setContentType("text/html");
+        aboutText.setEditable(false);
+        aboutText.setText("""
+                <html>
+                  <head>
+                    <center>
+                      <h2>
+                        <font face="Segoe UI">
+                          About
+                        </font>
+                      </h2>
+                    </center>
+                  </head>
+                  <body>
+                    <center>
+                      <font face="Segoe UI">
+                        <b>Player Tracker Decoder</b> is a tool to decode the data logged in the format used by the Minecraft mod WAT (Where are they?)<br>
+                        <a href="https://github.com/AIP21/TrackerDecoderApp">Github Page</a><br>
+                        <a href="https://github.com/AIP21/WAT-mod">WAT mod Github Page</a><br>
+                        <a href="https://modrinth.com/mod/wat">WAT mod Modrinth Page</a><br>
+                        <br>
+                """ + String.format("Version %s with build id %s, built on %s<br> <a href=\"%s\">Release URL</a><br> Release notes: %s <br>", PlayerTrackerDecoder.VERSION, PlayerTrackerDecoder.BUILD_INFO[0], PlayerTrackerDecoder.BUILD_INFO[1], PlayerTrackerDecoder.BUILD_INFO[2], PlayerTrackerDecoder.BUILD_INFO[3]) + """
+                      </font>
+                    </center>
+                  </body>
+                </html>
+                """);
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.anchor = GridBagConstraints.WEST;
+        helpPanel.add(aboutText, gbc);
 
         closeButton = new JButton();
-        closeButton.setText("Got it!");
-        closeButton.setHorizontalAlignment(0);
-        closeButton.setHorizontalTextPosition(0);
+        closeButton.setText("Got it");
+        closeButton.setMargin(new Insets(30, 60, 30, 60));
         add(closeButton, BorderLayout.SOUTH);
 
         setCallbacks();

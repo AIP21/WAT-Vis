@@ -1234,4 +1234,4 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
     }
 }
 
-// TODO fix grid bug with seed map
+// TODO FIX GRID BUG WITH SEED MAP

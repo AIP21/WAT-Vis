@@ -31,8 +31,6 @@ public class SettingsForm extends JDialog {
     public JLabel sensitivityLabel;
     public JLabel sensitivityValue;
     public JSlider sensitivitySlider;
-    public JPanel aboutPanel;
-    public JTextPane aboutText;
     private PlayerTrackerDecoder main;
     private Settings settings;
 
@@ -131,15 +129,6 @@ public class SettingsForm extends JDialog {
         sensitivityValue = new JLabel(settings.mouseSensitivity + "%");
         mouseSensitivityContainer.add(sensitivityValue, new GridConstraints(0, 2, 1, 1, 8, 0, 0, 0, null, null, null, 0, false));
 
-        aboutPanel = new JPanel();
-        aboutPanel.setLayout(new GridLayoutManager(1, 1, new Insets(0, 25, 0, 25), -1, -1));
-        panel1.add(aboutPanel, new GridConstraints(2, 0, 1, 1, 0, 3, 3, 3, null, null, null, 0, false));
-        aboutPanel.setBorder(BorderFactory.createTitledBorder((Border) null, "", 0, 0, (Font) null, (Color) null));
-        aboutText = new JTextPane();
-        aboutText.setContentType("text/html");
-        aboutText.setEditable(false);
-        aboutText.setText("<html>\n  <head>\n    \n  </head>\n  <body>\n    <center>\n      <h2>\n        <font face=\"Segoe UI\">ABOUT </font>\n      </h2>\n      <font face=\"Segoe UI\"><b>Player Tracker Decoder</b> is a tool to decode \n      the data logged in the format used by the Minecraft mod WAT (Where are \n      they?)<br><a href=\"https://github.com/AIP21/TrackerDecoderApp\">Github \n      Page</a><br><a href=\"https://github.com/AIP21/WAT-mod\">WAT mod Github \n      Page</a><br><a href=\"https://github.com/AIP21/WAT-mod\">WAT mod Modrinth \n      Page</a><br></font>\n    </center>\n  </body>\n</html>\n");
-        aboutPanel.add(aboutText, new GridConstraints(0, 0, 1, 1, 0, 3, 4, 4, null, new Dimension(150, 50), null, 0, false));
         add(panel1);
 
         setCallbacks();

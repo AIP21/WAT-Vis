@@ -51,13 +51,13 @@ public class Assets {
         }
         Map<String, Object> map = new Gson().fromJson(data, Map.class);
         if (map.containsKey("tag_name")) {
-            String tagName = (String) map.get("tag_name");
+            String tagName = ((String) map.get("tag_name")).replace("v", "");
             if (!tagName.equals(PlayerTrackerDecoder.VERSION)) {
                 if (map.containsKey("assets")) {
                     ArrayList<Map<String, Object>> assets = (ArrayList<Map<String, Object>>) map.get("assets");
                     HashMap<String, Pair<Pair<String, String>, String>> versionToDownload = new LinkedHashMap<>();
                     for (Map<String, Object> asset : assets) {
-                        if (asset.containsKey("browser_download_url") && asset.containsKey("name") && ((String) asset.get("name")).startsWith("MineMap-")) {
+                        if (asset.containsKey("browser_download_url") && asset.containsKey("name") && ((String) asset.get("name")).startsWith("PlayerTrackerDecoder-")) {
                             String url = (String) asset.get("browser_download_url");
                             String filename = (String) asset.get("name");
                             String[] split = filename.split("\\.");
@@ -66,19 +66,36 @@ public class Assets {
                             }
                         }
                     }
+
                     if (versionToDownload.isEmpty() || !versionToDownload.containsKey("jar")) {
-                        Logger.warn("Github release does not contain a correct release.");
+                        Logger.warn("Github release does not contain a correct release");
                     } else {
                         return versionToDownload;
                     }
                 } else {
-                    Logger.warn("Github release does not contain a assets key.");
+                    Logger.warn("Github release does not contain a assets key");
                 }
             } else {
                 Logger.info(String.format("Version match so we are not updating current :%s, github :%s", PlayerTrackerDecoder.VERSION, tagName));
             }
         } else {
-            Logger.warn("Github release does not contain a tag_name key.");
+            Logger.warn("Github release does not contain a tag_name key");
+        }
+        return null;
+    }
+
+    @SuppressWarnings("unchecked")
+    public static String[] getCurrentBuildInfo() {
+        String data = getDataRestAPI("https://api.github.com/repos/AIP21/TrackerDecoderApp/releases/v" + PlayerTrackerDecoder.VERSION);
+        if (data == null) {
+            return null;
+        }
+        Map<String, Object> map = new Gson().fromJson(data, Map.class);
+        if (map.containsKey("tag_name")) {
+            String tagName = ((String) map.get("tag_name")).replace("v", "");
+            if (tagName.equals(PlayerTrackerDecoder.VERSION)) {
+                return new String[]{(String) map.get("node_id"), (String) map.get("published_at"), (String) map.get("html_url"), (String) map.get("release_notes"), (String) map.get("name")};
+            }
         }
         return null;
     }
@@ -214,7 +231,8 @@ public class Assets {
         return download(clientURL.getFirst(), clientJar, clientURL.getSecond()) ? name : null;
     }
 
-    public static boolean extractJar(MCVersion version, String filename, Predicate<JarEntry> jarEntryPredicate, boolean force) {
+    public static boolean extractJar(MCVersion version, String
+            filename, Predicate<JarEntry> jarEntryPredicate, boolean force) {
         File clientJar = new File(DIR_DL_VERSIONS + File.separator + version.name + File.separator + filename);
         if (!clientJar.exists()) {
             Logger.err(String.format("Could not get client jar file for version %s", version));
@@ -229,7 +247,8 @@ public class Assets {
         return true;
     }
 
-    private static void extractFromJar(File jarFile, String pathPrefix, Predicate<JarEntry> jarEntryPredicate, boolean force) throws IOException {
+    private static void extractFromJar(File jarFile, String
+            pathPrefix, Predicate<JarEntry> jarEntryPredicate, boolean force) throws IOException {
         JarFile jar = new JarFile(jarFile);
         Enumeration<JarEntry> enumEntries = jar.entries();
         while (enumEntries.hasMoreElements()) {
@@ -427,13 +446,13 @@ public class Assets {
         return fileStream;
     }
 
-    public static java.util.List<Path> getFileHierarchical(Path dir, String fileName, String extension) throws IOException {
-        return Files.walk(dir).
-                filter(file -> Files.isRegularFile(file) && file.toAbsolutePath().getFileName().toString().equals(fileName + extension)).
-                collect(Collectors.toList());
+    public static java.util.List<Path> getFileHierarchical(Path dir, String fileName, String extension) throws
+            IOException {
+        return Files.walk(dir).filter(file -> Files.isRegularFile(file) && file.toAbsolutePath().getFileName().toString().equals(fileName + extension)).collect(Collectors.toList());
     }
 
-    public static java.util.List<Pair<Path, InputStream>> getInputStream(Path dir, boolean isJar, String name, String extension) {
+    public static java.util.List<Pair<Path, InputStream>> getInputStream(Path dir, boolean isJar, String
+            name, String extension) {
         java.util.List<Path> paths;
         java.util.List<Pair<Path, InputStream>> list = new ArrayList<>();
         try {
@@ -461,7 +480,8 @@ public class Assets {
         return list;
     }
 
-    public static java.util.List<Pair<String, BufferedImage>> getAsset(Path dir, boolean isJar, String name, String extension, Function<Path, String> fnObjectStorage) {
+    public static java.util.List<Pair<String, BufferedImage>> getAsset(Path dir, boolean isJar, String
+            name, String extension, Function<Path, String> fnObjectStorage) {
         return getInputStream(dir, isJar, name, extension).stream().map(e -> {
             try {
                 return new Pair<>(fnObjectStorage.apply(e.getFirst()), ImageIO.read(e.getSecond()));

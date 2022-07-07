@@ -37,6 +37,9 @@ import java.util.HashMap;
 import java.util.Objects;
 
 public class PlayerTrackerDecoder extends JFrame {
+    public static final String VERSION = "1.3.1-FR";
+    public static String[] BUILD_INFO = new String[]{"NULL", "NULL", "NULL", "NULL", "NULL"};
+
     public static final String DIR_ROOT = System.getProperty("user.dir");
     public final static String DIR_LOGS = DIR_ROOT + File.separatorChar + "logs";
     public final static String DIR_INPUTS = DIR_ROOT + File.separatorChar + "inputs";
@@ -145,10 +148,11 @@ public class PlayerTrackerDecoder extends JFrame {
     public static ImageIcon darkThemeIcon;
     //endregion
 
-    public static final String VERSION = "1.3.1-FR";
-
     public PlayerTrackerDecoder(boolean debug) {
         DEBUG = debug;
+        String[] buildInfo = Assets.getCurrentBuildInfo();
+        if (buildInfo != null)
+            BUILD_INFO = buildInfo;
 
         Logger.info("Initializing primary subsystems");
         settings = new Settings();
@@ -156,7 +160,6 @@ public class PlayerTrackerDecoder extends JFrame {
 
         ClassLoader classLoader = getClass().getClassLoader();
 
-        // FIX ICONS NOT SHOWING AND TEST IF INVERTING WORKS!!!!
         try {
             Logger.info("Loading resources");
             playIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/play.png"))).getScaledInstance(24, 24, 4), "Play");
@@ -197,10 +200,10 @@ public class PlayerTrackerDecoder extends JFrame {
         chooser.setAcceptAllFileFilterUsed(false);
 
         menuBar = new JMenuBar();
-        add(menuBar, "North");
+        add(menuBar, BorderLayout.NORTH);
 
         JPanel menuButtons = new JPanel();
-        menuBar.add(menuButtons, "West");
+        menuBar.add(menuButtons, BorderLayout.WEST);
 
         dataFileImportButton = new JMenuItem("");
         dataFileImportButton.setToolTipText("Import Data");
@@ -267,9 +270,9 @@ public class PlayerTrackerDecoder extends JFrame {
         toolbar.setVisible(false);
         toolbar.setCursor(null);
 
-        menuBar.add(toolbar, "Center");
+        menuBar.add(toolbar, BorderLayout.CENTER);
         JMenuBar bottomMenuBar = new JMenuBar();
-        add(bottomMenuBar, "South");
+        add(bottomMenuBar, BorderLayout.SOUTH);
 
         JLabel renderInfoLabel = new JLabel();
         mainPanel.renderedPointsLabel = renderInfoLabel;
@@ -281,18 +284,20 @@ public class PlayerTrackerDecoder extends JFrame {
         Logger.info("Successfully initialized all subsystems");
     }
 
-    // TODO ADD CONTROL HINTS, GET RID OF INTELLIJ GRIDLAYOUT AND REPLACE THEM WITH GRIDBAGLAYOUT, ADD CREDITS TO MINEMAP AND MOJANG DISCLAIMER TO REAMDE
+    // TODO GET RID OF INTELLIJ GRIDLAYOUT AND REPLACE THEM WITH GRIDBAGLAYOUT, ADD CREDITS TO MINEMAP AND MOJANG DISCLAIMER TO REAMDE
 
     public static void main(String[] args) {
         createDirectories();
         boolean debug = args.length > 0 && args[0].contains("-debug");
         Logger.registerLogger();
+
         HashMap<String, Pair<Pair<String, String>, String>> updateInfo = Assets.shouldUpdate();
         boolean noUpdate = Arrays.asList(args).contains("-no-update");
         boolean update = Arrays.asList(args).contains("-update");
         if (updateInfo != null && !noUpdate) {
             updateApplication(updateInfo, !update);
         }
+
         Configs.registerConfigs();
 
         if (debug) {

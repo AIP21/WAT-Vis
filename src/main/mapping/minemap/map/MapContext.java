@@ -10,14 +10,13 @@ import com.seedfinding.mccore.util.pos.CPos;
 import com.seedfinding.mccore.version.MCVersion;
 import com.seedfinding.mccore.version.UnsupportedVersion;
 import com.seedfinding.mcterrain.TerrainGenerator;
+import src.main.util.Logger;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.function.Function;
 import java.util.logging.Level;
-
-import static src.main.util.Logger.LOGGER;
 
 public class MapContext {
     public final MCVersion version;
@@ -53,7 +52,7 @@ public class MapContext {
 
                     map.put(dim, biomeSource);
                 } catch (UnsupportedVersion e) {
-                    LOGGER.log(Level.WARNING, String.format("Biome source for the %s for version %s could not be initialized%n", dim.getName(), this.version.toString()));
+                    Logger.info(String.format("Biome source for the %s for version %s could not be initialized%n", dim.getName(), this.version.toString()));
                     throw e;
                 }
             }

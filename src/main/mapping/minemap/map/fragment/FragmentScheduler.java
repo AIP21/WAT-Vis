@@ -6,6 +6,7 @@ import com.seedfinding.mccore.util.pos.BPos;
 import com.seedfinding.mccore.util.pos.RPos;
 import src.main.MainPanel;
 import src.main.mapping.minemap.util.data.DrawInfo;
+import src.main.util.Logger;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,8 +16,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Consumer;
-
-import static src.main.util.Logger.LOGGER;
 
 public class FragmentScheduler {
 
@@ -43,8 +42,7 @@ public class FragmentScheduler {
                     try {
                         Thread.sleep(1);
                     } catch (InterruptedException e) {
-                        LOGGER.severe(e.toString());
-                        e.printStackTrace();
+                        Logger.err("Error sleeping fragment scheduler thread:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
                     }
                     continue;
                 } else if (!this.isInBounds(nearest)) {

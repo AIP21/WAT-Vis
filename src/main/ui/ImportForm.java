@@ -26,8 +26,6 @@ import java.util.stream.IntStream;
 
 import com.seedfinding.mccore.state.Dimension;
 
-import static src.main.util.Logger.LOGGER;
-
 public class ImportForm extends JDialog {
     private JPanel bottomPanel;
     private JLabel titleText;
@@ -38,7 +36,6 @@ public class ImportForm extends JDialog {
     private JButton removeFileButton;
     private JLabel fileSelectorTitle;
     private JPanel selectorButtons;
-    private JProgressBar loadingProgressBar;
     private JButton importButton;
     private JButton appendButton;
     private JButton cancelButton;
@@ -122,7 +119,7 @@ public class ImportForm extends JDialog {
             importButton.setEnabled(currentFiles.size() > 0);
             if (alreadyImported) appendButton.setEnabled(currentFiles.size() > 0);
         } catch (Exception e) {
-            LOGGER.severe("Error dragging and dropping files onto import panel: " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Error dragging and dropping files onto import panel:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
         }
 
         Logger.info("File import pane opened from drag and drop");
@@ -264,8 +261,8 @@ public class ImportForm extends JDialog {
                     }
                     selectedFileList.setListData(currentFiles.toArray(new File[0]));
                     importButton.setEnabled(currentFiles.size() > 0);
-                } catch (Exception ex) {
-                    LOGGER.severe("Error dragging and dropping files onto import panel: " + Arrays.toString(ex.getStackTrace()));
+                } catch (Exception e) {
+                    Logger.err("Error dragging and dropping files onto import panel:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
                 }
             }
         });
@@ -586,9 +583,9 @@ public class ImportForm extends JDialog {
                 importButton.setEnabled(currentFiles.size() > 0);
                 if (appendButton != null) appendButton.setEnabled(currentFiles.size() > 0);
             } else if (returnVal == JFileChooser.ERROR_OPTION) {
-                LOGGER.severe("Error selecting input files");
+                Logger.err("Error selecting input files");
             } else {
-                LOGGER.warning("No input files selected");
+                Logger.warn("No input files selected");
             }
         });
 
@@ -682,9 +679,9 @@ public class ImportForm extends JDialog {
 
                 loadWorldImage(imgFile);
             } else if (returnVal == JFileChooser.ERROR_OPTION) {
-                LOGGER.severe("Error selecting world background images");
+                Logger.err("Error selecting world background images");
             } else {
-                LOGGER.warning("No world background images selected");
+                Logger.warn("No world background images selected");
             }
         });
 
@@ -704,7 +701,7 @@ public class ImportForm extends JDialog {
 
                 Logger.info("Successfully loaded world background image in " + durMs + "ms.");
             } catch (IOException e) {
-                LOGGER.severe("Error reading selected world background image:\n   " + Arrays.toString(e.getStackTrace()));
+                Logger.err("Error reading selected world background image:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
             }
 
             Toolkit.getDefaultToolkit().beep();

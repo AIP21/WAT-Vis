@@ -15,8 +15,6 @@ import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.util.Locale;
 
-import static src.main.util.Logger.LOGGER;
-
 public class SettingsForm extends JDialog {
     public JLabel settingsTitle;
     public JPanel settingsPanel;

@@ -6,11 +6,10 @@ import com.seedfinding.mccore.version.MCVersion;
 import src.main.PlayerTrackerDecoder;
 import src.main.config.Config;
 import src.main.mapping.minemap.map.MapSettings;
+import src.main.util.Logger;
 
 import java.io.IOException;
 import java.util.*;
-
-import static src.main.util.Logger.LOGGER;
 
 public class UserProfileConfig extends Config {
     @Expose
@@ -92,8 +91,7 @@ public class UserProfileConfig extends Config {
         try {
             this.writeConfig();
         } catch (IOException e) {
-            LOGGER.severe(e.toString());
-            e.printStackTrace();
+            Logger.err("Error flushing user config:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
         }
     }
 

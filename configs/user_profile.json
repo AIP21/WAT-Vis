@@ -1,7 +1,8 @@
 {
   "t_h_r_e_a_d__c_o_u_n_t": 1,
   "m_c__v_e_r_s_i_o_n": "v1_18_2",
-  "a_p_p__v_e_r_s_i_o_n": "1.3.0-FR",
+  "a_p_p__v_e_r_s_i_o_n": "1.3.1-FR",
+  "o_l_d__a_p_p__v_e_r_s_i_o_n": "1.3.0-FR",
   "d_i_m_e_n_s_i_o_n_s": {
     "overworld": true,
     "the_nether": true,

@@ -16,8 +16,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
-import static src.main.util.Logger.LOGGER;
-
 public class Decoder {
     public PlayerTrackerDecoder main;
     private final Settings settings;
@@ -63,7 +61,7 @@ public class Decoder {
         final long nowMs = System.currentTimeMillis();
 
         if (files == null || files.length == 0) {
-            LOGGER.severe("Error parsing log files and decoding data. They must be in the folder called \"inputs\" in the run directory");
+            Logger.err("Error parsing log files and decoding data. They must be in the folder called \"inputs\" in the run directory");
             return;
         }
 
@@ -77,7 +75,7 @@ public class Decoder {
                 }
             }
         } catch (Exception e) {
-            LOGGER.severe("Error fetching text log files:\n   " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Error fetching text log files:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
         }
 
         inputFiles.sort(new Comparator<>() {
@@ -145,11 +143,11 @@ public class Decoder {
                 }
                 br.close();
             } catch (IOException e) {
-                LOGGER.severe("Error reading input file:\n   " + Arrays.toString(e.getStackTrace()));
+                Logger.err("Error reading input file:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
             }
 
             if (maxCheck && logEntries.size() > settings.maxDataEntries) {
-                LOGGER.warning("Max configured data entries reached, decoding aborted");
+                Logger.warn("Max configured data entries reached, decoding aborted");
                 break;
             }
         }

@@ -12,7 +12,9 @@ import src.main.mapping.minemap.util.data.DrawInfo;
 import src.main.util.*;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.Control;
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.*;
@@ -20,8 +22,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.time.LocalDateTime;
 import java.util.*;
-
-import static src.main.util.Logger.LOGGER;
 
 public class MainPanel extends JPanel implements MouseWheelListener, MouseListener, MouseMotionListener, Runnable {
     private final Settings settings;
@@ -97,6 +97,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
     // endregion
 
     // region UI variables
+    private final Font mainFont = new Font("Arial", Font.PLAIN, 15);
     private final Font smallFont = new Font("Arial", Font.PLAIN, 12);
 
     public JLabel coordinateLabel;
@@ -149,6 +150,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
         Logger.info("Initializing main display subsystem");
 
         initComponents();
+        initCommands();
 
         if (settings.fancyRendering) {
             Logger.info("Fancy rendering initialized on main display panel");
@@ -185,6 +187,22 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
         addMouseMotionListener(this);
         addMouseListener(this);
         mousePosition = new Point();
+    }
+
+    private void initCommands() {
+        Keyboard.registerTypedAction(KeyEvent.VK_CONTROL, KeyEvent.VK_A, i -> {
+            if (selectedEntries.size() != logEntries.size()) {
+                for (LogEntry entry : logEntries) {
+                    if (!selectedEntries.contains(entry)) {
+                        selectedEntries.add(entry);
+                    }
+                }
+            } else {
+                for (LogEntry entry : logEntries) {
+                    selectedEntries.remove(entry);
+                }
+            }
+        });
     }
 
     public void run() {
@@ -256,8 +274,8 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
                 try {
                     inverse = at.createInverse();
-                } catch (NoninvertibleTransformException nte) {
-                    LOGGER.severe("Error inverting rendering transformation:\n   " + Arrays.toString(nte.getStackTrace()));
+                } catch (NoninvertibleTransformException e) {
+                    Logger.err("Error inverting rendering transformation:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
                 }
 
                 // if (!isPlaying && Utils.approximately(curX, xTarget, 0.001f) &&
@@ -419,9 +437,6 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
     }
 
     // region Drawing
-    private void drawControls(){
-        
-    }
     private void drawCrossHair(Graphics2D g2d, float x, float y, float size) {
         g2d.setStroke(new BasicStroke(5 * size));
         g2d.draw(new Ellipse2D.Float(x + (-25 * size), y + (-25 * size), 50 * size, 50 * size));
@@ -506,7 +521,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
                                 g2d.setColor(Utils.lerpColor(Color.lightGray, Color.getHSBColor(0.93f, 0.68f, 0.55f), Math.min(1, (posActivityMap.get(entry.position) * Math.abs(settings.heatMapStrength)) / (float) (maxActivity))));
                             }
                         } catch (IllegalArgumentException e) {
-                            LOGGER.severe("Something wrong happened when lerping colors for the heatmap color (Probably the stupid negative input error): " + Arrays.toString(e.getStackTrace()));
+                            Logger.err("Something wrong happened when lerping colors for the heatmap color (Probably the stupid negative input error):\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
                         }
 
                         drawRectangle(g2d, x, y, settings.size, true);
@@ -569,7 +584,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
         }
 
         // if control key is pressed, draw the hidden entries
-        if (Keyboard.isKeyPressed(KeyEvent.VK_CONTROL)) {
+        if (Keyboard.getKeyPressed(KeyEvent.VK_CONTROL)) {
             g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.5f));
 
             for (LogEntry entry : hiddenEntries) {
@@ -616,7 +631,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
                                     g2d.setColor(Utils.lerpColor(Color.lightGray, Color.getHSBColor(0.93f, 0.68f, 0.55f), Math.min(1, (posActivityMap.get(entry.position) * Math.abs(settings.heatMapStrength)) / (float) (maxActivity))));
                                 }
                             } catch (IllegalArgumentException e) {
-                                LOGGER.severe("Something wrong happened when lerping colors for the heatmap color (Probably the stupid negative input error): " + Arrays.toString(e.getStackTrace()));
+                                Logger.err("Something wrong happened when lerping colors for the heatmap color (Probably the stupid negative input error):\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
                             }
 
                             drawRectangle(g2d, x, y, settings.size, true);
@@ -662,14 +677,6 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
             }
 
             g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1));
-
-            if (Keyboard.isKeyPressed(KeyEvent.VK_A)) {
-                for (LogEntry entry : logEntries) {
-                    if (!selectedEntries.contains(entry)) {
-                        selectedEntries.add(entry);
-                    }
-                }
-            }
         }
     }
 
@@ -1114,15 +1121,15 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
             drawImg(g2d, image.getWidth(), image.getHeight(), screenshot);
 
             g2d.dispose();
-        } catch (OutOfMemoryError ex) {
-            LOGGER.severe("Error preparing the image to export (Out of memory):\n   " + Arrays.toString(ex.getStackTrace()));
+        } catch (OutOfMemoryError e) {
+            Logger.err("Error preparing the image to export (Out of memory):\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
         }
 
         Logger.info("Starting to save the exported image file");
 
         if (!new File(PlayerTrackerDecoder.DIR_OUTPUTS).exists()) {
             boolean val = new File(PlayerTrackerDecoder.DIR_OUTPUTS).mkdir();
-            LOGGER.warning("Outputs folder to save exported image didn't exist so it was just created with result: " + val);
+            Logger.warn("Outputs folder to save exported image didn't exist so it was just created with result: " + val);
         }
 
         String name = settings._drawType + "-" + (screenshot ? "screenshot" : "export") + "-" + _Decoder.dataWorld + "-" + _Decoder.dataDate;
@@ -1143,10 +1150,10 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
                     ImageIO.write(image, "png", new File(PlayerTrackerDecoder.DIR_OUTPUTS + File.separatorChar + name));
                     Logger.info("Successfully saved current screen as an image");
                 } else {
-                    LOGGER.severe("Image to save is null");
+                    Logger.err("Image to save is null");
                 }
             } catch (Exception e) {
-                LOGGER.severe("Error saving current screen as an image:\n   " + Arrays.toString(e.getStackTrace()));
+                Logger.err("Error saving current screen as an image:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
             }
 
             imageExportStatus.setText("   Done!");
@@ -1227,4 +1234,4 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
     }
 }
 
-// TODO Show controls, fix grid bug with seed map
+// TODO fix grid bug with seed map

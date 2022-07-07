@@ -13,8 +13,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-import static src.main.util.Logger.LOGGER;
-
 public class Settings {
     public UITheme uiTheme = UITheme.Light;
     public float size = 1.0f;
@@ -37,30 +35,29 @@ public class Settings {
 
     private final int settingCount = 16;
 
-
     public Settings() {
         Logger.info("Initializing settings subsystem");
 
         try {
             if (!(new File(PlayerTrackerDecoder.DIR_CONFIG + File.separatorChar + "config.txt")).exists()) {
-                LOGGER.warning("Config file does not exist, creating it");
+                Logger.warn("Config file does not exist, creating it");
 
                 try {
-                    (new File(PlayerTrackerDecoder.DIR_CONFIG + File.separatorChar +"config.txt")).createNewFile();
+                    (new File(PlayerTrackerDecoder.DIR_CONFIG + File.separatorChar + "config.txt")).createNewFile();
 
                     Logger.info("Successfully created config file");
                     SaveSettings();
                     Logger.info("Successfully saved and wrote default settings to config file");
                 } catch (Exception e) {
-                    LOGGER.severe("Error creating/saving/writing to config file:\n   " + Arrays.toString(e.getStackTrace()));
+                    Logger.err("Error creating/saving/writing to config file:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
                 }
             }
 
             Logger.info("Fetching and parsing settings from config file");
-            getFromFile(new File(PlayerTrackerDecoder.DIR_CONFIG + File.separatorChar +"config.txt"));
+            getFromFile(new File(PlayerTrackerDecoder.DIR_CONFIG + File.separatorChar + "config.txt"));
             Logger.info("Successfully fetched and parsed settings from config file");
         } catch (IOException e) {
-            LOGGER.severe("Error fetching and parsing settings from config file:\n   " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Error fetching and parsing settings from config file:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
         }
 
         Logger.info("Successfully initialized settings subsystem");
@@ -70,7 +67,7 @@ public class Settings {
         Logger.info("Saving and writing settings to config file");
 
         try {
-            PrintWriter writer = new PrintWriter(PlayerTrackerDecoder.DIR_CONFIG + File.separatorChar +"config.txt", StandardCharsets.UTF_8);
+            PrintWriter writer = new PrintWriter(PlayerTrackerDecoder.DIR_CONFIG + File.separatorChar + "config.txt", StandardCharsets.UTF_8);
             writer.println("/// Player Tracker Decoder v" + PlayerTrackerDecoder.VERSION + " - CONFIG \\\\\\");
             writer.println("/// Delete this config file to reset values to their default settings \\\\\\\n");
 
@@ -94,7 +91,7 @@ public class Settings {
 
             Logger.info("Successfully saved and wrote settings to config file");
         } catch (Exception e) {
-            LOGGER.severe("Error saving and writing settings to config file:\n   " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Error saving and writing settings to config file:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
         }
 
     }
@@ -131,6 +128,8 @@ public class Settings {
         ArrayList<String> args = new ArrayList<>();
         BufferedReader br = new BufferedReader(new FileReader(inputFile));
 
+        Logger.info("\n********BEGIN SETTINGS********\n");
+
         try {
             String line;
             while ((line = br.readLine()) != null) {
@@ -155,7 +154,7 @@ public class Settings {
 
                     if (!str.equals(PlayerTrackerDecoder.VERSION)) {
                         SaveSettings();
-                        LOGGER.warning("Updating log file version");
+                        Logger.warn("Updating log file version");
                     }
                 } else {
                     int val;
@@ -286,8 +285,10 @@ public class Settings {
         }
 
         Logger.info("Settings count: " + count);
+        Logger.info("\n********END SETTINGS********\n");
+
         if (count != settingCount) {
-            LOGGER.warning("Incomplete or old config file, updating the config file. Counted: " + count + " settings, expected: " + settingCount + ". Updating config file");
+            Logger.warn("Incomplete or old config file, updating the config file. Counted: " + count + " settings, expected: " + settingCount + ". Updating config file");
             SaveSettings();
         }
     }
@@ -301,7 +302,6 @@ public class Settings {
             renderingHints.put(RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_ON);
             renderingHints.put(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
             renderingHints.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
-            renderingHints.put(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         } else {
             renderingHints.put(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_SPEED);
             renderingHints.put(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
@@ -310,7 +310,8 @@ public class Settings {
             renderingHints.put(RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_OFF);
             renderingHints.put(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_NEAREST_NEIGHBOR);
             renderingHints.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_SPEED);
-            renderingHints.put(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_OFF);
         }
+
+        renderingHints.put(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
     }
 }

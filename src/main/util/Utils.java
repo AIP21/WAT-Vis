@@ -2,6 +2,7 @@ package src.main.util;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
@@ -129,8 +130,7 @@ public class Utils {
     }
 
     public static float moveTo(float cur, float goal, float maxDelta) {
-        if (Math.abs(goal - cur) <= maxDelta)
-            return goal;
+        if (Math.abs(goal - cur) <= maxDelta) return goal;
         return cur + sign(goal - cur) * maxDelta;
     }
 
@@ -139,26 +139,20 @@ public class Utils {
     }
 
     public static int clamp(int v, int min, int max) {
-        if (v < min)
-            v = min;
-        else if (v > max)
-            v = max;
+        if (v < min) v = min;
+        else if (v > max) v = max;
         return v;
     }
 
     public static float clamp(float v, float min, float max) {
-        if (v < min)
-            v = min;
-        else if (v > max)
-            v = max;
+        if (v < min) v = min;
+        else if (v > max) v = max;
         return v;
     }
 
     public static float clamp01(float v) {
-        if (v < 0)
-            v = 0;
-        else if (v > 1)
-            v = 1;
+        if (v < 0) v = 0;
+        else if (v > 1) v = 1;
         return v;
     }
 
@@ -174,5 +168,71 @@ public class Utils {
         } else {
             return Math.min(value, max);
         }
+    }
+
+    public static String convertToMultiline(String orig) {
+        return "<html>" + orig.replaceAll("\n", "<br>");
+    }
+
+    /**
+     * Inverts the colors of a given BufferedImage
+     *
+     * @param inputImage The Image to be inverted
+     * @return The converted BufferedImage
+     */
+    public static BufferedImage invertImage(BufferedImage inputImage) {
+        BufferedImage newImg = new BufferedImage(inputImage.getWidth(), inputImage.getHeight(), BufferedImage.TYPE_INT_ARGB);
+        for (int x = 0; x < inputImage.getWidth(); x++) {
+            for (int y = 0; y < inputImage.getHeight(); y++) {
+                int rgba = inputImage.getRGB(x, y);
+                Color col = new Color(rgba, true);
+                col = new Color(255 - col.getRed(), 255 - col.getGreen(), 255 - col.getBlue(), col.getAlpha());
+                newImg.setRGB(x, y, col.getRGB());
+            }
+        }
+        return newImg;
+    }
+
+    /**
+     * Inverts the colors of a given Image
+     *
+     * @param inputImage The Image to be inverted
+     * @return The inverted BufferedImage
+     */
+    public static BufferedImage invertImage(Image inputImage) {
+        BufferedImage buffImage = toBufferedImage(inputImage);
+        BufferedImage newImg = new BufferedImage(buffImage.getWidth(), buffImage.getHeight(), BufferedImage.TYPE_INT_ARGB);
+        for (int x = 0; x < buffImage.getWidth(); x++) {
+            for (int y = 0; y < buffImage.getHeight(); y++) {
+                int rgba = buffImage.getRGB(x, y);
+                Color col = new Color(rgba, true);
+                col = new Color(255 - col.getRed(), 255 - col.getGreen(), 255 - col.getBlue(), col.getAlpha());
+                newImg.setRGB(x, y, col.getRGB());
+            }
+        }
+        return newImg;
+    }
+
+    /**
+     * Converts a given Image into a BufferedImage
+     *
+     * @param img The Image to be converted
+     * @return The converted BufferedImage
+     */
+    public static BufferedImage toBufferedImage(Image img) {
+        if (img instanceof BufferedImage) {
+            return (BufferedImage) img;
+        }
+
+        // Create a buffered image with transparency
+        BufferedImage buffImage = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+
+        // Draw the image on to the buffered image
+        Graphics2D bGr = buffImage.createGraphics();
+        bGr.drawImage(img, 0, 0, null);
+        bGr.dispose();
+
+        // Return the buffered image
+        return buffImage;
     }
 }

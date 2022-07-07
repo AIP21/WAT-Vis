@@ -30,8 +30,6 @@ import java.util.jar.JarFile;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static src.main.util.Logger.LOGGER;
-
 public class Assets {
     public final static String DIR_DL_VERSIONS = PlayerTrackerDecoder.DIR_DL + File.separatorChar + "versions";
     public final static String DIR_DL_ASSETS = PlayerTrackerDecoder.DIR_DL + File.separatorChar + "assets";
@@ -69,18 +67,18 @@ public class Assets {
                         }
                     }
                     if (versionToDownload.isEmpty() || !versionToDownload.containsKey("jar")) {
-                        LOGGER.warning("Github release does not contain a correct release.");
+                        Logger.warn("Github release does not contain a correct release.");
                     } else {
                         return versionToDownload;
                     }
                 } else {
-                    LOGGER.warning("Github release does not contain a assets key.");
+                    Logger.warn("Github release does not contain a assets key.");
                 }
             } else {
                 Logger.info(String.format("Version match so we are not updating current :%s, github :%s", PlayerTrackerDecoder.VERSION, tagName));
             }
         } else {
-            LOGGER.warning("Github release does not contain a tag_name key.");
+            Logger.warn("Github release does not contain a tag_name key.");
         }
         return null;
     }
@@ -89,7 +87,7 @@ public class Assets {
         if (download(url, new File(filename), null)) {
             return filename;
         }
-        LOGGER.warning(String.format("Failed to download jar from url %s with filename %s", url, filename));
+        Logger.warn(String.format("Failed to download jar from url %s with filename %s", url, filename));
         return null;
     }
 
@@ -111,9 +109,9 @@ public class Assets {
                 String version = latest.get("release");
                 return MCVersion.fromString(version);
             }
-            LOGGER.warning("Manifest does not contain a release key");
+            Logger.warn("Manifest does not contain a release key");
         } else {
-            LOGGER.warning("Manifest does not contain a latest key");
+            Logger.warn("Manifest does not contain a latest key");
         }
         return null;
     }
@@ -128,7 +126,7 @@ public class Assets {
     public static boolean downloadVersionManifest(MCVersion version, boolean force) {
         String versionManifestUrl = getVersionManifestUrl(version);
         if (versionManifestUrl == null) {
-            LOGGER.severe(String.format("URL was not found for %s", version));
+            Logger.err(String.format("URL was not found for %s", version));
             return false;
         }
         File versionManifest = new File(DIR_DL_VERSIONS + File.separator + version.name + ".json");
@@ -150,7 +148,7 @@ public class Assets {
                 return false;
             }
             if (version != null && !manifestExists(version)) {
-                LOGGER.severe(String.format("Manifest was incorrectly downloaded or the version does not exists yet %s %s", MANIFEST_FILE.getAbsolutePath(), version));
+                Logger.err(String.format("Manifest was incorrectly downloaded or the version does not exists yet %s %s", MANIFEST_FILE.getAbsolutePath(), version));
                 return false;
             }
         }
@@ -167,12 +165,12 @@ public class Assets {
     public static String downloadVersionAssets(MCVersion version, boolean force) {
         Pair<String, String> assetIndexURL = getAssetIndexURL(version);
         if (assetIndexURL == null) {
-            LOGGER.severe(String.format("Could not get asset url for version %s", version));
+            Logger.err(String.format("Could not get asset url for version %s", version));
             return null;
         }
         String[] urlSplit = assetIndexURL.getFirst().split("/");
         if (urlSplit.length < 2) {
-            LOGGER.severe(String.format("Could not get name of asset from url %s for version %s", assetIndexURL, version));
+            Logger.err(String.format("Could not get name of asset from url %s for version %s", assetIndexURL, version));
             return null;
         }
         String name = urlSplit[urlSplit.length - 1];
@@ -193,12 +191,12 @@ public class Assets {
     public static String downloadClientJar(MCVersion version, boolean force) {
         Pair<String, String> clientURL = getClientURL(version);
         if (clientURL == null) {
-            LOGGER.severe(String.format("Could not get client url for version %s", version));
+            Logger.err(String.format("Could not get client url for version %s", version));
             return null;
         }
         String[] urlSplit = clientURL.getFirst().split("/");
         if (urlSplit.length < 2) {
-            LOGGER.severe(String.format("Could not get name of client from url %s for version %s", clientURL, version));
+            Logger.err(String.format("Could not get name of client from url %s for version %s", clientURL, version));
             return null;
         }
         String name = urlSplit[urlSplit.length - 1];
@@ -206,7 +204,7 @@ public class Assets {
         try {
             Files.createDirectories(Paths.get(versionDir));
         } catch (IOException e) {
-            LOGGER.severe(String.format("Could not make the directory for the client.jar for version %s", version));
+            Logger.err("Could not make the directory for the client.jar for version " + version + ". Error:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
             return null;
         }
         File clientJar = new File(versionDir + File.separator + name);
@@ -219,13 +217,13 @@ public class Assets {
     public static boolean extractJar(MCVersion version, String filename, Predicate<JarEntry> jarEntryPredicate, boolean force) {
         File clientJar = new File(DIR_DL_VERSIONS + File.separator + version.name + File.separator + filename);
         if (!clientJar.exists()) {
-            LOGGER.severe(String.format("Could not get client jar file for version %s", version));
+            Logger.err(String.format("Could not get client jar file for version %s", version));
             return false;
         }
         try {
             extractFromJar(clientJar, DIR_DL_ASSETS + File.separator + version.name, jarEntryPredicate, force);
         } catch (IOException e) {
-            LOGGER.severe(String.format("Could not extract from jar file for version %s", version));
+            Logger.err("Could not extract from jar file for version. Version " + version + ". Error:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
             return false;
         }
         return true;
@@ -261,7 +259,7 @@ public class Assets {
         try {
             rbc = Channels.newChannel(new URL(url).openStream());
         } catch (IOException e) {
-            LOGGER.severe(String.format("Could not open channel to url %s, error: %s", url, e));
+            Logger.err(String.format("Could not open channel to url %s, Error:\n %s", url, e.getMessage() + "\n " + Arrays.toString(e.getStackTrace())));
             return false;
         }
         try {
@@ -269,7 +267,7 @@ public class Assets {
             fileOutputStream.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
             fileOutputStream.close();
         } catch (IOException e) {
-            LOGGER.severe(String.format("Could not download from channel to url %s for file %s, error: %s", url, out.getAbsolutePath(), e));
+            Logger.err(String.format("Could not download from channel to url %s for file %s, Error:\n %s", url, out.getAbsolutePath(), e.getMessage() + "\n " + Arrays.toString(e.getStackTrace())));
             return false;
         }
         return sha1 == null || compareSha1(out, sha1);
@@ -288,9 +286,9 @@ public class Assets {
             if (assets.containsKey("url") && assets.containsKey("sha1")) {
                 return new Pair<>(assets.get("url"), assets.get("sha1"));
             }
-            LOGGER.warning(String.format("Version manifest does not contain a asset url/sha1 key for %s", version));
+            Logger.warn(String.format("Version manifest does not contain a asset url/sha1 key for %s", version));
         } else {
-            LOGGER.warning(String.format("Version manifest does not contain a assetIndex key for %s", version));
+            Logger.warn(String.format("Version manifest does not contain a assetIndex key for %s", version));
         }
         return null;
     }
@@ -309,12 +307,12 @@ public class Assets {
                 if (client.containsKey("url") && client.containsKey("sha1")) {
                     return new Pair<>(client.get("url"), client.get("sha1"));
                 }
-                LOGGER.warning(String.format("Version manifest does not contain a client url/sha1 key for %s", version));
+                Logger.warn(String.format("Version manifest does not contain a client url/sha1 key for %s", version));
             } else {
-                LOGGER.warning(String.format("Version manifest does not contain a client key for %s", version));
+                Logger.warn(String.format("Version manifest does not contain a client key for %s", version));
             }
         } else {
-            LOGGER.warning(String.format("Version manifest does not contain a downloads key for %s", version));
+            Logger.warn(String.format("Version manifest does not contain a downloads key for %s", version));
         }
         return null;
     }
@@ -333,12 +331,12 @@ public class Assets {
                 if (versionMap.get().containsKey("url")) {
                     return versionMap.get().get("url");
                 }
-                LOGGER.warning(String.format("Manifest does not contain the url/sha1 key for %s", version));
+                Logger.warn(String.format("Manifest does not contain the url/sha1 key for %s", version));
             } else {
-                LOGGER.warning(String.format("Manifest does not contain the version array key for %s", version));
+                Logger.warn(String.format("Manifest does not contain the version array key for %s", version));
             }
         } else {
-            LOGGER.warning("Manifest does not contain a versions key");
+            Logger.warn("Manifest does not contain a versions key");
         }
         return null;
     }
@@ -349,7 +347,7 @@ public class Assets {
         try {
             fileReader = new FileReader(file);
         } catch (FileNotFoundException e) {
-            LOGGER.severe(String.format("Could not open file at %s, error: %s", file.getAbsolutePath(), e));
+            Logger.err(String.format("Could not open file at %s, Error:\n %s", file.getAbsolutePath(), e.getMessage() + "\n " + Arrays.toString(e.getStackTrace())));
             return null;
         }
         return new JsonReader(fileReader);
@@ -366,7 +364,7 @@ public class Assets {
                     return true;
                 }
             } catch (IOException e) {
-                LOGGER.severe(String.format("JSON file had an issue %s, error: %s", MANIFEST_FILE.getAbsolutePath(), e));
+                Logger.err(String.format("JSON file had an issue %s, Error:\n %s", MANIFEST_FILE.getAbsolutePath(), e.getMessage() + "\n " + Arrays.toString(e.getStackTrace())));
                 return false;
             }
         }
@@ -388,7 +386,7 @@ public class Assets {
             try {
                 return getFileChecksum(MessageDigest.getInstance("SHA-1"), file).equals(sha1);
             } catch (NoSuchAlgorithmException e) {
-                LOGGER.severe("Could not compute sha1 since algorithm does not exists");
+                Logger.err("Could not compute sha1 since algorithm does not exists. Error:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
             }
         }
         return false;
@@ -405,7 +403,7 @@ public class Assets {
             }
             fis.close();
         } catch (IOException e) {
-            LOGGER.severe(String.format("Failed to read file for checksum, error : %s", e));
+            Logger.err(String.format("Failed to read file for checksum, Error:\n %s", e.getMessage() + "\n " + Arrays.toString(e.getStackTrace())));
             return "";
         }
         byte[] bytes = digest.digest();
@@ -441,23 +439,23 @@ public class Assets {
         try {
             paths = Assets.getFileHierarchical(dir, name, extension);
         } catch (IOException e) {
-            LOGGER.severe(String.format("Exception while screening the files for '%s%s' from root %s with error %s", name, extension, dir.toString(), e));
+            Logger.err(String.format("Exception while screening the files for '%s%s' from root %s with error:\n %s", name, extension, dir.toString(), e.getMessage() + "\n " + Arrays.toString(e.getStackTrace())));
             return list;
         }
         for (Path path : paths) {
             try {
                 InputStream inputStream = isJar ? Config.class.getResourceAsStream(path.toString()) : new FileInputStream(path.toString());
                 if (inputStream == null) {
-                    LOGGER.severe(String.format("Input stream is null, %s", path));
+                    Logger.err(String.format("Input stream is null, %s", path));
                     return list;
                 }
                 list.add(new Pair<>(path, inputStream));
             } catch (IOException e) {
-                LOGGER.severe(String.format("Exception while  getting the file input for %s at %s with error %s", name, dir.toString(), e));
+                Logger.err(String.format("Exception while  getting the file input for %s at %s with error:\n %s", name, dir.toString(), e.getMessage() + "\n " + Arrays.toString(e.getStackTrace())));
             }
         }
         if (list.isEmpty()) {
-            LOGGER.severe(String.format("File not found for %s", name));
+            Logger.err(String.format("File not found for %s", name));
         }
 
         return list;
@@ -467,8 +465,8 @@ public class Assets {
         return getInputStream(dir, isJar, name, extension).stream().map(e -> {
             try {
                 return new Pair<>(fnObjectStorage.apply(e.getFirst()), ImageIO.read(e.getSecond()));
-            } catch (IOException ioException) {
-                LOGGER.severe(String.format("Exception while reading the file input stream for %s at %s with error %s", name, dir.toString(), e));
+            } catch (IOException ex) {
+                Logger.err(String.format("Exception while reading the file input stream for %s at %s with error:\n %s", name, dir.toString(), ex.getMessage() + "\n " + Arrays.toString(ex.getStackTrace())));
             }
             return null;
         }).filter(Objects::nonNull).collect(Collectors.toList());
@@ -492,7 +490,7 @@ public class Assets {
             conn.connect();
             int responseCode = conn.getResponseCode();
             if (responseCode != 200) {
-                LOGGER.severe(String.format("Failed to fetch URL %s, errorcode : %s", apiUrl, responseCode));
+                Logger.err(String.format("Failed to fetch URL %s, errorcode : %s", apiUrl, responseCode));
             } else {
 
                 StringBuilder inline = new StringBuilder();
@@ -504,7 +502,7 @@ public class Assets {
                 return inline.toString();
             }
         } catch (Exception e) {
-            LOGGER.severe(String.format("Failed to fetch URL %s, error : %s", apiUrl, e));
+            Logger.err(String.format("Failed to fetch URL %s, error:\n %s", apiUrl, e.getMessage() + "\n " + Arrays.toString(e.getStackTrace())));
         }
         return null;
     }

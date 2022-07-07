@@ -8,6 +8,7 @@ import src.main.config.Settings;
 import src.main.config.mapping.Configs;
 import src.main.importing.filters.TextFileFilter;
 import src.main.mapping.minemap.util.data.Assets;
+import src.main.ui.HelpForm;
 import src.main.ui.RangedSlider.RangeSlider;
 import src.main.ui.ImportForm;
 import src.main.ui.SettingsForm;
@@ -35,8 +36,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Objects;
 
-import static src.main.util.Logger.LOGGER;
-
 public class PlayerTrackerDecoder extends JFrame {
     public static final String DIR_ROOT = System.getProperty("user.dir");
     public final static String DIR_LOGS = DIR_ROOT + File.separatorChar + "logs";
@@ -58,6 +57,7 @@ public class PlayerTrackerDecoder extends JFrame {
     private JMenuBar menuBar;
     private JMenuItem dataFileImportButton;
     private JMenuItem settingsButton;
+    private JMenuItem helpButton;
     private final JToolBar toolbar;
     private JTabbedPane tabbedPane;
 
@@ -110,8 +110,9 @@ public class PlayerTrackerDecoder extends JFrame {
     private File[] files;
     private ArrayList<LocalDateTime> logDates;
 
-    private SettingsForm settingsForm;
     private ImportForm importForm;
+    private SettingsForm settingsForm;
+    private HelpForm helpForm;
 
     private JLabel playerPageLabel;
     private int currentPlayerPageIndex = 0;
@@ -138,11 +139,13 @@ public class PlayerTrackerDecoder extends JFrame {
     public static ImageIcon toggleIconOFF_D;
     public static ImageIcon settingsIcon_L;
     public static ImageIcon settingsIcon_D;
-    public ImageIcon lightThemeIcon;
-    public ImageIcon darkThemeIcon;
+    public static ImageIcon helpIcon_L;
+    public static ImageIcon helpIcon_D;
+    public static ImageIcon lightThemeIcon;
+    public static ImageIcon darkThemeIcon;
     //endregion
 
-    public static final String VERSION = "1.3.0-FR";
+    public static final String VERSION = "1.3.1-FR";
 
     public PlayerTrackerDecoder(boolean debug) {
         DEBUG = debug;
@@ -153,32 +156,36 @@ public class PlayerTrackerDecoder extends JFrame {
 
         ClassLoader classLoader = getClass().getClassLoader();
 
+        // FIX ICONS NOT SHOWING AND TEST IF INVERTING WORKS!!!!
         try {
             Logger.info("Loading resources");
             playIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/play.png"))).getScaledInstance(24, 24, 4), "Play");
-            playIcon_D = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/playD.png"))).getScaledInstance(24, 24, 4), "Play");
+            playIcon_D = new ImageIcon(Utils.invertImage(playIcon_L.getImage()), "Play");
             pauseIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/pause.png"))).getScaledInstance(24, 24, 4), "Pause");
-            pauseIcon_D = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/pauseD.png"))).getScaledInstance(24, 24, 4), "Pause");
+            pauseIcon_D = new ImageIcon(Utils.invertImage(pauseIcon_L.getImage()), "Pause");
             replayIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/replay.png"))).getScaledInstance(24, 24, 4), "Replay");
-            replayIcon_D = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/replayD.png"))).getScaledInstance(24, 24, 4), "Replay");
+            replayIcon_D = new ImageIcon(Utils.invertImage(replayIcon_L.getImage()), "Replay");
             speedIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/fastForward.png"))).getScaledInstance(24, 24, 4), "Fast Forward");
-            speedIcon_D = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/fastForwardD.png"))).getScaledInstance(24, 24, 4), "Fast Forward");
+            speedIcon_D = new ImageIcon(Utils.invertImage(speedIcon_L.getImage()), "Fast Forward");
             importIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/import.png"))).getScaledInstance(24, 24, 4), "Import");
-            importIcon_D = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/importD.png"))).getScaledInstance(24, 24, 4), "Import");
+            importIcon_D = new ImageIcon(Utils.invertImage(importIcon_L.getImage()), "Import");
             exportIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/export.png"))).getScaledInstance(24, 24, 4), "Export Image");
-            exportIcon_D = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/exportD.png"))).getScaledInstance(24, 24, 4), "Export Image");
+            exportIcon_D = new ImageIcon(Utils.invertImage(exportIcon_L.getImage()), "Export Image");
             screenshotIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/screenshot.png"))).getScaledInstance(24, 24, 4), "Take Screenshot");
-            screenshotIcon_D = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/screenshotD.png"))).getScaledInstance(24, 24, 4), "Take Screenshot");
+            screenshotIcon_D = new ImageIcon(Utils.invertImage(screenshotIcon_L.getImage()), "Take Screenshot");
             toggleIconON_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/toggle-true.png"))).getScaledInstance(24, 24, 4), "Disable");
-            toggleIconON_D = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/toggle-trueD.png"))).getScaledInstance(24, 24, 4), "Disable");
+            toggleIconON_D = new ImageIcon(Utils.invertImage(toggleIconON_L.getImage()), "Disable");
             toggleIconOFF_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/toggle-false.png"))).getScaledInstance(24, 24, 4), "Enable");
-            toggleIconOFF_D = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/toggle-falseD.png"))).getScaledInstance(24, 24, 4), "Enable");
+            toggleIconOFF_D = new ImageIcon(Utils.invertImage(toggleIconOFF_L.getImage()), "Enable");
             settingsIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/settings.png"))).getScaledInstance(24, 24, 4), "Off");
-            settingsIcon_D = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/settingsD.png"))).getScaledInstance(24, 24, 4), "Off");
+            settingsIcon_D = new ImageIcon(Utils.invertImage(settingsIcon_L.getImage()), "Off");
+            helpIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/help.png"))).getScaledInstance(24, 24, 4), "Help");
+            helpIcon_D = new ImageIcon(Utils.invertImage(helpIcon_L.getImage()), "Help");
             lightThemeIcon = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/lightThemeIcon.png"))).getScaledInstance(177, 118, 4), "Off");
             darkThemeIcon = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/darkThemeIcon.png"))).getScaledInstance(177, 118, 4), "Off");
+            Logger.info("Successfully loaded resources");
         } catch (Exception e) {
-            LOGGER.severe("Error loading icon resources:\n   " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Error loading icon resources:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
         }
 
         initMainFrame();
@@ -224,6 +231,8 @@ public class PlayerTrackerDecoder extends JFrame {
         menuButtons.add(settingsButton);
         settingsButton.addActionListener((event) -> {
             mainPanel.isPlaying = false;
+            if (animatePlayPause != null) animatePlayPause.setEnabled(false);
+
             if (settingsForm != null) {
                 settingsForm.setVisible(false);
                 settingsForm = null;
@@ -232,6 +241,26 @@ public class PlayerTrackerDecoder extends JFrame {
             settingsForm = new SettingsForm(this, settings);
             settingsForm.setLocationRelativeTo(this);
             settingsForm.setVisible(true);
+        });
+
+        helpButton = new JMenuItem("");
+        helpButton.setToolTipText("Open Help Pane");
+        helpButton.setIcon(helpIcon_L);
+        helpButton.setPreferredSize(new Dimension(48, 48));
+        helpButton.setMinimumSize(new Dimension(47, 47));
+        menuButtons.add(helpButton);
+        helpButton.addActionListener((event) -> {
+            mainPanel.isPlaying = false;
+            if (animatePlayPause != null) animatePlayPause.setEnabled(false);
+
+            if (helpForm != null) {
+                helpForm.setVisible(false);
+                helpForm = null;
+            }
+
+            helpForm = new HelpForm(this);
+            helpForm.setLocationRelativeTo(this);
+            helpForm.setVisible(true);
         });
 
         toolbar = new JToolBar("Toolbar");
@@ -267,7 +296,7 @@ public class PlayerTrackerDecoder extends JFrame {
         Configs.registerConfigs();
 
         if (debug) {
-            LOGGER.warning("DEBUG MODE IS ON, PERFORMANCE MAY BE IMPACTED");
+            Logger.warn("DEBUG MODE IS ON, PERFORMANCE MAY BE IMPACTED");
         }
 
         EventQueue.invokeLater(() -> {
@@ -284,14 +313,14 @@ public class PlayerTrackerDecoder extends JFrame {
             }
             Assets.createDirs();
         } catch (IOException e) {
-            LOGGER.severe(String.format("Failed to create a necessary directory: %s", e));
+            Logger.err("Failed to create a necessary directory:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
         }
     }
 
     private static void updateApplication(HashMap<String, Pair<Pair<String, String>, String>> updateInfo, boolean prompt) {
         Pair<Pair<String, String>, String> release = updateInfo.get("jar");
         if (release == null) {
-            Logger.LOGGER.severe("Missing jar Entry");
+            Logger.err("Missing jar Entry");
             return;
         }
         String OS = System.getProperty("os.name").toLowerCase();
@@ -335,7 +364,7 @@ public class PlayerTrackerDecoder extends JFrame {
         try {
             newVersion = downloadWorker.get(); // blocking wait (intended)
         } catch (Exception e) {
-            Logger.LOGGER.severe(String.format("Failed to use the download worker, error %s", e));
+            Logger.err("Failed to use the download worker:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
         }
         downloadPopup.setVisible(false);
         downloadPopup.dispose();
@@ -349,17 +378,17 @@ public class PlayerTrackerDecoder extends JFrame {
                     ps = Runtime.getRuntime().exec(new String[]{"./" + newVersion, "-no-update"});
                 }
 
-                Logger.LOGGER.info(String.format("Process exited with %s", ps.waitFor()));
+                Logger.info(String.format("Process exited with %s", ps.waitFor()));
             } catch (Exception e) {
-                Logger.LOGGER.severe(String.format("Failed to start the new process, error %s", e));
+                Logger.err("Failed to start the new process, error:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
                 return;
             }
 
             int exitValue = ps.exitValue();
             if (exitValue != 0) {
-                Logger.LOGGER.severe("Failed to execute jar, " + Arrays.toString(new BufferedReader(new InputStreamReader(ps.getErrorStream())).lines().toArray()));
+                Logger.err("Failed to execute jar:\n " + Arrays.toString(new BufferedReader(new InputStreamReader(ps.getErrorStream())).lines().toArray()));
             } else {
-                Logger.LOGGER.warning(String.format("Switching to newer version! %s", newVersion));
+                Logger.warn(String.format("Switching to newer version! %s", newVersion));
                 System.exit(0);
             }
         }
@@ -391,7 +420,7 @@ public class PlayerTrackerDecoder extends JFrame {
                 UIManager.setLookAndFeel(new FlatDarculaLaf());
             }
         } catch (UnsupportedLookAndFeelException e) {
-            LOGGER.severe("Error setting system look and feel for UI:\n   " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Error setting system look and feel for UI:\n " + Arrays.toString(e.getStackTrace()));
         }
 
         setTitle("Player Tracker Decoder App - v" + VERSION);
@@ -418,9 +447,8 @@ public class PlayerTrackerDecoder extends JFrame {
                     importForm = new ImportForm(PlayerTrackerDecoder.this, settings, evt, alreadyImported);
                     importForm.setLocationRelativeTo(PlayerTrackerDecoder.this);
                     importForm.setVisible(true);
-                } catch (Exception ex) {
-                    LOGGER.severe(ex.toString());
-                    ex.printStackTrace();
+                } catch (Exception e) {
+                    Logger.err("Error doing drag and drop on main frame:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
                 }
             }
         });
@@ -448,17 +476,19 @@ public class PlayerTrackerDecoder extends JFrame {
 
             decodeAndDisplay();
         } catch (IOException e) {
-            LOGGER.severe("Error decoding the selected input log files:\n   " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Error decoding the selected input log files:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
         }
 
-        long fixedSeed;
-        try {
-            fixedSeed = Long.parseLong(worldSeed);
-        } catch (NumberFormatException e) {
-            fixedSeed = worldSeed.hashCode();
-        }
+        if (!worldSeed.isBlank()) {
+            long fixedSeed;
+            try {
+                fixedSeed = Long.parseLong(worldSeed);
+            } catch (NumberFormatException e) {
+                fixedSeed = worldSeed.hashCode();
+            }
 
-        mainPanel.setSeedMapInfo(worldVersion, dimension, threadCount, fixedSeed);
+            mainPanel.setSeedMapInfo(worldVersion, dimension, threadCount, fixedSeed);
+        }
     }
 
     public void ConfirmImport(ArrayList<File> files, BufferedImage worldImg, boolean overwrite) {
@@ -472,7 +502,7 @@ public class PlayerTrackerDecoder extends JFrame {
 
             decodeAndDisplay();
         } catch (IOException e) {
-            LOGGER.severe("Error decoding the selected input log files:\n   " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Error decoding the selected input log files:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
         }
 
         mainPanel.resetSeedMapInfo();
@@ -566,6 +596,7 @@ public class PlayerTrackerDecoder extends JFrame {
 
         dataFileImportButton.setIcon(newTheme == PlayerTrackerDecoder.UITheme.Light ? importIcon_L : importIcon_D);
         settingsButton.setIcon(newTheme == PlayerTrackerDecoder.UITheme.Light ? settingsIcon_L : settingsIcon_D);
+        helpButton.setIcon(newTheme == PlayerTrackerDecoder.UITheme.Light ? helpIcon_L : helpIcon_D);
 
         if (exportAsImageButton != null) {
             exportAsImageButton.setIcon(newTheme == PlayerTrackerDecoder.UITheme.Light ? exportIcon_L : exportIcon_D);
@@ -614,7 +645,7 @@ public class PlayerTrackerDecoder extends JFrame {
                 UIManager.setLookAndFeel(new FlatDarculaLaf());
             }
         } catch (UnsupportedLookAndFeelException e) {
-            LOGGER.severe("Error setting system look and feel for UI:\n   " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Error setting system look and feel for UI:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
         }
 
         SwingUtilities.updateComponentTreeUI(this);

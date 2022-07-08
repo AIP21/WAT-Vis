@@ -188,7 +188,7 @@ public class PlayerTrackerDecoder extends JFrame {
             darkThemeIcon = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/darkThemeIcon.png"))).getScaledInstance(177, 118, 4), "Off");
             Logger.info("Successfully loaded resources");
         } catch (Exception e) {
-            Logger.err("Error loading icon resources:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Error loading icon resources:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
 
         initMainFrame();
@@ -284,7 +284,7 @@ public class PlayerTrackerDecoder extends JFrame {
         Logger.info("Successfully initialized all subsystems");
     }
 
-    // TODO GET RID OF INTELLIJ GRIDLAYOUT AND REPLACE THEM WITH GRIDBAGLAYOUT, ADD CREDITS TO MINEMAP AND MOJANG DISCLAIMER TO REAMDE
+    // TODO SHOW THE LATEST POSITION, JUST TERMINUS POINTS BUT AS A STANDALONE MODE, GET RID OF INTELLIJ GRIDLAYOUT AND REPLACE THEM WITH GRIDBAGLAYOUT (thus allowing me to use maven), ADD CREDITS TO MINEMAP AND MOJANG DISCLAIMER TO REAMDE
 
     public static void main(String[] args) {
         createDirectories();
@@ -318,7 +318,7 @@ public class PlayerTrackerDecoder extends JFrame {
             }
             Assets.createDirs();
         } catch (IOException e) {
-            Logger.err("Failed to create a necessary directory:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Failed to create a necessary directory:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
     }
 
@@ -369,7 +369,7 @@ public class PlayerTrackerDecoder extends JFrame {
         try {
             newVersion = downloadWorker.get(); // blocking wait (intended)
         } catch (Exception e) {
-            Logger.err("Failed to use the download worker:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Failed to use the download worker:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
         downloadPopup.setVisible(false);
         downloadPopup.dispose();
@@ -385,7 +385,7 @@ public class PlayerTrackerDecoder extends JFrame {
 
                 Logger.info(String.format("Process exited with %s", ps.waitFor()));
             } catch (Exception e) {
-                Logger.err("Failed to start the new process, error:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
+                Logger.err("Failed to start the new process, error:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
                 return;
             }
 
@@ -453,7 +453,7 @@ public class PlayerTrackerDecoder extends JFrame {
                     importForm.setLocationRelativeTo(PlayerTrackerDecoder.this);
                     importForm.setVisible(true);
                 } catch (Exception e) {
-                    Logger.err("Error doing drag and drop on main frame:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
+                    Logger.err("Error doing drag and drop on main frame:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
                 }
             }
         });
@@ -481,7 +481,7 @@ public class PlayerTrackerDecoder extends JFrame {
 
             decodeAndDisplay();
         } catch (IOException e) {
-            Logger.err("Error decoding the selected input log files:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Error decoding the selected input log files:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
 
         if (!worldSeed.isBlank()) {
@@ -507,7 +507,7 @@ public class PlayerTrackerDecoder extends JFrame {
 
             decodeAndDisplay();
         } catch (IOException e) {
-            Logger.err("Error decoding the selected input log files:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Error decoding the selected input log files:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
 
         mainPanel.resetSeedMapInfo();
@@ -650,7 +650,7 @@ public class PlayerTrackerDecoder extends JFrame {
                 UIManager.setLookAndFeel(new FlatDarculaLaf());
             }
         } catch (UnsupportedLookAndFeelException e) {
-            Logger.err("Error setting system look and feel for UI:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Error setting system look and feel for UI:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
 
         SwingUtilities.updateComponentTreeUI(this);

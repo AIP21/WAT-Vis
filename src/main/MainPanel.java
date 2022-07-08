@@ -275,7 +275,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
                 try {
                     inverse = at.createInverse();
                 } catch (NoninvertibleTransformException e) {
-                    Logger.err("Error inverting rendering transformation:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
+                    Logger.err("Error inverting rendering transformation:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
                 }
 
                 // if (!isPlaying && Utils.approximately(curX, xTarget, 0.001f) &&
@@ -521,7 +521,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
                                 g2d.setColor(Utils.lerpColor(Color.lightGray, Color.getHSBColor(0.93f, 0.68f, 0.55f), Math.min(1, (posActivityMap.get(entry.position) * Math.abs(settings.heatMapStrength)) / (float) (maxActivity))));
                             }
                         } catch (IllegalArgumentException e) {
-                            Logger.err("Something wrong happened when lerping colors for the heatmap color (Probably the stupid negative input error):\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
+                            Logger.err("Something wrong happened when lerping colors for the heatmap color (Probably the stupid negative input error):\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
                         }
 
                         drawRectangle(g2d, x, y, settings.size, true);
@@ -631,7 +631,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
                                     g2d.setColor(Utils.lerpColor(Color.lightGray, Color.getHSBColor(0.93f, 0.68f, 0.55f), Math.min(1, (posActivityMap.get(entry.position) * Math.abs(settings.heatMapStrength)) / (float) (maxActivity))));
                                 }
                             } catch (IllegalArgumentException e) {
-                                Logger.err("Something wrong happened when lerping colors for the heatmap color (Probably the stupid negative input error):\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
+                                Logger.err("Something wrong happened when lerping colors for the heatmap color (Probably the stupid negative input error):\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
                             }
 
                             drawRectangle(g2d, x, y, settings.size, true);
@@ -1122,7 +1122,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
             g2d.dispose();
         } catch (OutOfMemoryError e) {
-            Logger.err("Error preparing the image to export (Out of memory):\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Error preparing the image to export (Out of memory):\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
 
         Logger.info("Starting to save the exported image file");
@@ -1153,7 +1153,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
                     Logger.err("Image to save is null");
                 }
             } catch (Exception e) {
-                Logger.err("Error saving current screen as an image:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
+                Logger.err("Error saving current screen as an image:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
             }
 
             imageExportStatus.setText("   Done!");

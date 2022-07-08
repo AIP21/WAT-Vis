@@ -55,7 +55,7 @@ public abstract class Config {
         try {
             this.writeConfig();
         } catch (IOException e) {
-            Logger.err("Error generating config:\n "+ e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Error generating config:\n "+ e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
     }
 
@@ -89,7 +89,7 @@ public abstract class Config {
         try {
             this.writeConfig();
         } catch (IOException e) {
-            Logger.err("Error updating config:\n "+ e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Error updating config:\n "+ e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
     }
 

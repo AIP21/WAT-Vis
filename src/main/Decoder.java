@@ -75,7 +75,7 @@ public class Decoder {
                 }
             }
         } catch (Exception e) {
-            Logger.err("Error fetching text log files:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Error fetching text log files:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
 
         inputFiles.sort(new Comparator<>() {
@@ -143,7 +143,7 @@ public class Decoder {
                 }
                 br.close();
             } catch (IOException e) {
-                Logger.err("Error reading input file:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
+                Logger.err("Error reading input file:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
             }
 
             if (maxCheck && logEntries.size() > settings.maxDataEntries) {
@@ -172,7 +172,7 @@ public class Decoder {
     }
 
     private Color randomColor(int iter) {
-        Color col = new Color(rand.nextFloat(), rand.nextFloat(), rand.nextFloat());
+        Color col = Utils.randColor();
         if (settings.uiTheme == PlayerTrackerDecoder.UITheme.Light) {
             col = col.darker();
         } else {

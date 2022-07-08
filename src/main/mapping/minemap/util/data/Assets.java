@@ -86,7 +86,7 @@ public class Assets {
 
     @SuppressWarnings("unchecked")
     public static String[] getCurrentBuildInfo() {
-        String data = getDataRestAPI("https://api.github.com/repos/AIP21/TrackerDecoderApp/releases/v" + PlayerTrackerDecoder.VERSION);
+        String data = getDataRestAPI("https://api.github.com/repos/AIP21/TrackerDecoderApp/releases/tags/v" + PlayerTrackerDecoder.VERSION);
         if (data == null) {
             return null;
         }
@@ -221,7 +221,7 @@ public class Assets {
         try {
             Files.createDirectories(Paths.get(versionDir));
         } catch (IOException e) {
-            Logger.err("Could not make the directory for the client.jar for version " + version + ". Error:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Could not make the directory for the client.jar for version " + version + ". Error:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
             return null;
         }
         File clientJar = new File(versionDir + File.separator + name);
@@ -241,7 +241,7 @@ public class Assets {
         try {
             extractFromJar(clientJar, DIR_DL_ASSETS + File.separator + version.name, jarEntryPredicate, force);
         } catch (IOException e) {
-            Logger.err("Could not extract from jar file for version. Version " + version + ". Error:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Could not extract from jar file for version. Version " + version + ". Error:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
             return false;
         }
         return true;
@@ -278,7 +278,7 @@ public class Assets {
         try {
             rbc = Channels.newChannel(new URL(url).openStream());
         } catch (IOException e) {
-            Logger.err(String.format("Could not open channel to url %s, Error:\n %s", url, e.getMessage() + "\n " + Arrays.toString(e.getStackTrace())));
+            Logger.err(String.format("Could not open channel to url %s, Error:\n %s", url, e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace())));
             return false;
         }
         try {
@@ -286,7 +286,7 @@ public class Assets {
             fileOutputStream.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
             fileOutputStream.close();
         } catch (IOException e) {
-            Logger.err(String.format("Could not download from channel to url %s for file %s, Error:\n %s", url, out.getAbsolutePath(), e.getMessage() + "\n " + Arrays.toString(e.getStackTrace())));
+            Logger.err(String.format("Could not download from channel to url %s for file %s, Error:\n %s", url, out.getAbsolutePath(), e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace())));
             return false;
         }
         return sha1 == null || compareSha1(out, sha1);
@@ -366,7 +366,7 @@ public class Assets {
         try {
             fileReader = new FileReader(file);
         } catch (FileNotFoundException e) {
-            Logger.err(String.format("Could not open file at %s, Error:\n %s", file.getAbsolutePath(), e.getMessage() + "\n " + Arrays.toString(e.getStackTrace())));
+            Logger.err(String.format("Could not open file at %s, Error:\n %s", file.getAbsolutePath(), e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace())));
             return null;
         }
         return new JsonReader(fileReader);
@@ -383,7 +383,7 @@ public class Assets {
                     return true;
                 }
             } catch (IOException e) {
-                Logger.err(String.format("JSON file had an issue %s, Error:\n %s", MANIFEST_FILE.getAbsolutePath(), e.getMessage() + "\n " + Arrays.toString(e.getStackTrace())));
+                Logger.err(String.format("JSON file had an issue %s, Error:\n %s", MANIFEST_FILE.getAbsolutePath(), e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace())));
                 return false;
             }
         }
@@ -405,7 +405,7 @@ public class Assets {
             try {
                 return getFileChecksum(MessageDigest.getInstance("SHA-1"), file).equals(sha1);
             } catch (NoSuchAlgorithmException e) {
-                Logger.err("Could not compute sha1 since algorithm does not exists. Error:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
+                Logger.err("Could not compute sha1 since algorithm does not exists. Error:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
             }
         }
         return false;
@@ -422,7 +422,7 @@ public class Assets {
             }
             fis.close();
         } catch (IOException e) {
-            Logger.err(String.format("Failed to read file for checksum, Error:\n %s", e.getMessage() + "\n " + Arrays.toString(e.getStackTrace())));
+            Logger.err(String.format("Failed to read file for checksum, Error:\n %s", e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace())));
             return "";
         }
         byte[] bytes = digest.digest();
@@ -458,7 +458,7 @@ public class Assets {
         try {
             paths = Assets.getFileHierarchical(dir, name, extension);
         } catch (IOException e) {
-            Logger.err(String.format("Exception while screening the files for '%s%s' from root %s with error:\n %s", name, extension, dir.toString(), e.getMessage() + "\n " + Arrays.toString(e.getStackTrace())));
+            Logger.err(String.format("Exception while screening the files for '%s%s' from root %s with error:\n %s", name, extension, dir.toString(), e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace())));
             return list;
         }
         for (Path path : paths) {
@@ -470,7 +470,7 @@ public class Assets {
                 }
                 list.add(new Pair<>(path, inputStream));
             } catch (IOException e) {
-                Logger.err(String.format("Exception while  getting the file input for %s at %s with error:\n %s", name, dir.toString(), e.getMessage() + "\n " + Arrays.toString(e.getStackTrace())));
+                Logger.err(String.format("Exception while  getting the file input for %s at %s with error:\n %s", name, dir.toString(), e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace())));
             }
         }
         if (list.isEmpty()) {
@@ -486,7 +486,7 @@ public class Assets {
             try {
                 return new Pair<>(fnObjectStorage.apply(e.getFirst()), ImageIO.read(e.getSecond()));
             } catch (IOException ex) {
-                Logger.err(String.format("Exception while reading the file input stream for %s at %s with error:\n %s", name, dir.toString(), ex.getMessage() + "\n " + Arrays.toString(ex.getStackTrace())));
+                Logger.err(String.format("Exception while reading the file input stream for %s at %s with error:\n %s", name, dir.toString(), ex.getMessage() + "\n Stacktrace:\n " + Arrays.toString(ex.getStackTrace())));
             }
             return null;
         }).filter(Objects::nonNull).collect(Collectors.toList());
@@ -510,7 +510,7 @@ public class Assets {
             conn.connect();
             int responseCode = conn.getResponseCode();
             if (responseCode != 200) {
-                Logger.err(String.format("Failed to fetch URL %s, errorcode : %s", apiUrl, responseCode));
+                Logger.err(String.format("Failed to fetch URL %s. Errorcode : %s", apiUrl, responseCode));
             } else {
 
                 StringBuilder inline = new StringBuilder();
@@ -522,7 +522,7 @@ public class Assets {
                 return inline.toString();
             }
         } catch (Exception e) {
-            Logger.err(String.format("Failed to fetch URL %s, error:\n %s", apiUrl, e.getMessage() + "\n " + Arrays.toString(e.getStackTrace())));
+            Logger.err(String.format("Failed to fetch URL %s. Error:\n %s", apiUrl, e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace())));
         }
         return null;
     }

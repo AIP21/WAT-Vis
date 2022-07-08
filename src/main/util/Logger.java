@@ -55,7 +55,7 @@ public class Logger {
 
             Logger.info("\n*********END DEVICE INFO*********\n");
         } catch (IOException e) {
-            Logger.err("Error:\n F"+e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Error:\n F"+e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
 
         Logger.info("Logger successfully initialized");

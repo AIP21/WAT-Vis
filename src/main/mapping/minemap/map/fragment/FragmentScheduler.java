@@ -42,7 +42,7 @@ public class FragmentScheduler {
                     try {
                         Thread.sleep(1);
                     } catch (InterruptedException e) {
-                        Logger.err("Error sleeping fragment scheduler thread:\n " + e.getMessage() + "\n " + Arrays.toString(e.getStackTrace()));
+                        Logger.err("Error sleeping fragment scheduler thread:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
                     }
                     continue;
                 } else if (!this.isInBounds(nearest)) {

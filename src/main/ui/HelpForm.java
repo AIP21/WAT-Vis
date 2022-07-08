@@ -133,6 +133,7 @@ public class HelpForm extends JDialog {
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
         gbc.anchor = GridBagConstraints.WEST;
+        gbc.insets = new Insets(30, 30, 30, 30);
         helpPanel.add(aboutText, gbc);
 
         closeButton = new JButton();

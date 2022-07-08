@@ -400,6 +400,6 @@ public class Test {
     }
 
     private void createUIComponents() {
-        // TODO: place custom component creation code here
+        // place custom component creation code here
     }
 }

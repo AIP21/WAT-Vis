@@ -4,7 +4,6 @@ import com.formdev.flatlaf.FlatDarculaLaf;
 import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.seedfinding.mccore.util.data.Pair;
 import com.seedfinding.mccore.version.MCVersion;
-import IO.MultiIconLoader;
 import config.Settings;
 import config.mapping.Configs;
 import IO.filters.TextFileFilter;
@@ -40,7 +39,7 @@ import java.util.stream.Collectors;
 public class PlayerTrackerDecoder extends JFrame {
     public static PlayerTrackerDecoder INSTANCE;
 
-    public static final String VERSION = "1.4.1-FR";
+    public static final String VERSION = "1.3.2-FR";
     public static String[] BUILD_INFO = new String[]{"NULL", "NULL", "NULL", "NULL", "NULL"};
 
     public static final String DIR_ROOT = System.getProperty("user.dir");
@@ -150,19 +149,15 @@ public class PlayerTrackerDecoder extends JFrame {
     public PlayerTrackerDecoder(boolean debug) {
         DEBUG = debug;
         String[] buildInfo = Assets.getCurrentBuildInfo();
-        if (buildInfo != null) BUILD_INFO = buildInfo;
+        if (buildInfo != null)
+            BUILD_INFO = buildInfo;
 
         Logger.info("Initializing primary subsystems");
         settings = new Settings();
 
-        try {
-            Logger.info("Loading resources");
+        ClassLoader classLoader = getClass().getClassLoader();
 
-            new MultiIconLoader(new String[]{"play.png", "pause.png", "replay.png", "fastForward.png", "import.png", "export.png", "screenshot.png", "toggle-true.png", "toggle-false.png", "settings.png", "help.png"}, 24, 24, new String[]{"Play", "Pause", "Replay", "Fast Forward", "Import", "Export Image", "Take Screenshot", "Disable", "Enable", "Settings", "Help"}).execute();
-            new MultiIconLoader(new String[]{"lightThemeIcon.png", "darkThemeIcon.png"}, 177, 118, new String[]{"Light Theme", "Dark Theme"}).execute();
-        } catch (Exception e) {
-            Logger.err("Error loading icon resources:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
-        }
+        loadResources();
 
         initMainFrame();
 
@@ -283,42 +278,50 @@ public class PlayerTrackerDecoder extends JFrame {
             Logger.warn("DEBUG MODE IS ON, PERFORMANCE MAY BE AFFECTED");
         }
 
-        SwingUtilities.invokeLater(() -> {
-            INSTANCE = new PlayerTrackerDecoder(debug);
-            INSTANCE.setVisible(true);
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                INSTANCE = new PlayerTrackerDecoder(debug);
+                INSTANCE.setVisible(true);
+            }
         });
     }
 
-    public void setIcons(ImageIcon[] icons, boolean themeIcons) {
-        if (!themeIcons) {
-            playIcon_L = icons[0];
-            playIcon_D = new ImageIcon(Utils.invertImage(playIcon_L.getImage()), "Play");
-            pauseIcon_L = icons[1];
-            pauseIcon_D = new ImageIcon(Utils.invertImage(pauseIcon_L.getImage()), "Pause");
-            replayIcon_L = icons[2];
-            replayIcon_D = new ImageIcon(Utils.invertImage(replayIcon_L.getImage()), "Replay");
-            speedIcon_L = icons[3];
-            speedIcon_D = new ImageIcon(Utils.invertImage(speedIcon_L.getImage()), "Fast Forward");
-            importIcon_L = icons[4];
-            importIcon_D = new ImageIcon(Utils.invertImage(importIcon_L.getImage()), "Import");
-            exportIcon_L = icons[5];
-            exportIcon_D = new ImageIcon(Utils.invertImage(exportIcon_L.getImage()), "Export Image");
-            screenshotIcon_L = icons[6];
-            screenshotIcon_D = new ImageIcon(Utils.invertImage(screenshotIcon_L.getImage()), "Take Screenshot");
-            toggleIconON_L = icons[7];
-            toggleIconON_D = new ImageIcon(Utils.invertImage(toggleIconON_L.getImage()), "Disable");
-            toggleIconOFF_L = icons[8];
-            toggleIconOFF_D = new ImageIcon(Utils.invertImage(toggleIconOFF_L.getImage()), "Enable");
-            settingsIcon_L = icons[9];
-            settingsIcon_D = new ImageIcon(Utils.invertImage(settingsIcon_L.getImage()), "Off");
-            helpIcon_L = icons[10];
-            helpIcon_D = new ImageIcon(Utils.invertImage(helpIcon_L.getImage()), "Help");
-        } else {
-            lightThemeIcon = icons[0];
-            darkThemeIcon = icons[1];
-        }
+    private void loadResources(){
+        try {
+            Logger.info("Loading resources");
+            final long nowMs = System.currentTimeMillis();
 
-        Logger.info("Successfully loaded resources");
+            playIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("icons/play.png"))).getScaledInstance(24, 24, 4), "Play");
+            playIcon_D = new ImageIcon(Utils.invertImage(playIcon_L.getImage()), "Play");
+            pauseIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("icons/pause.png"))).getScaledInstance(24, 24, 4), "Pause");
+            pauseIcon_D = new ImageIcon(Utils.invertImage(pauseIcon_L.getImage()), "Pause");
+            replayIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("icons/replay.png"))).getScaledInstance(24, 24, 4), "Replay");
+            replayIcon_D = new ImageIcon(Utils.invertImage(replayIcon_L.getImage()), "Replay");
+            speedIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("icons/fastForward.png"))).getScaledInstance(24, 24, 4), "Fast Forward");
+            speedIcon_D = new ImageIcon(Utils.invertImage(speedIcon_L.getImage()), "Fast Forward");
+            importIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("icons/import.png"))).getScaledInstance(24, 24, 4), "Import");
+            importIcon_D = new ImageIcon(Utils.invertImage(importIcon_L.getImage()), "Import");
+            exportIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("icons/export.png"))).getScaledInstance(24, 24, 4), "Export Image");
+            exportIcon_D = new ImageIcon(Utils.invertImage(exportIcon_L.getImage()), "Export Image");
+            screenshotIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("icons/screenshot.png"))).getScaledInstance(24, 24, 4), "Take Screenshot");
+            screenshotIcon_D = new ImageIcon(Utils.invertImage(screenshotIcon_L.getImage()), "Take Screenshot");
+            toggleIconON_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("icons/toggle-true.png"))).getScaledInstance(24, 24, 4), "Disable");
+            toggleIconON_D = new ImageIcon(Utils.invertImage(toggleIconON_L.getImage()), "Disable");
+            toggleIconOFF_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("icons/toggle-false.png"))).getScaledInstance(24, 24, 4), "Enable");
+            toggleIconOFF_D = new ImageIcon(Utils.invertImage(toggleIconOFF_L.getImage()), "Enable");
+            settingsIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("icons/settings.png"))).getScaledInstance(24, 24, 4), "Off");
+            settingsIcon_D = new ImageIcon(Utils.invertImage(settingsIcon_L.getImage()), "Off");
+            helpIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("icons/help.png"))).getScaledInstance(24, 24, 4), "Help");
+            helpIcon_D = new ImageIcon(Utils.invertImage(helpIcon_L.getImage()), "Help");
+            lightThemeIcon = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("icons/lightThemeIcon.png"))).getScaledInstance(177, 118, 4), "Off");
+            darkThemeIcon = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("icons/darkThemeIcon.png"))).getScaledInstance(177, 118, 4), "Off");
+
+            final long durMs = System.currentTimeMillis() - nowMs;
+
+            Logger.info("Successfully loaded resources in " + durMs + "ms");
+        } catch (Exception e) {
+            Logger.err("Error loading icon resources:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+        }
     }
 
     public static void createDirectories() {

@@ -155,8 +155,6 @@ public class PlayerTrackerDecoder extends JFrame {
         Logger.info("Initializing primary subsystems");
         settings = new Settings();
 
-        ClassLoader classLoader = getClass().getClassLoader();
-
         loadResources();
 
         initMainFrame();
@@ -287,6 +285,8 @@ public class PlayerTrackerDecoder extends JFrame {
     }
 
     private void loadResources(){
+        ClassLoader classLoader = getClass().getClassLoader();
+
         try {
             Logger.info("Loading resources");
             final long nowMs = System.currentTimeMillis();

@@ -10,25 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="905aa98f-fc7e-4d94-81c1-b5629d46bbbc" name="Changes" comment="Changes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrackerDecoderApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TrackerDecoderApp.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs/user_profile.json" beforeDir="false" afterPath="$PROJECT_DIR$/configs/user_profile.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TrackerDecoderApp/TrackerDecoderApp.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TrackerDecoderApp/TrackerDecoderApp.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/IO/MultiIconLoader.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/PlayerTrackerDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/PlayerTrackerDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/IO/MultiIconLoader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config/Settings.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/Settings.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config/mapping/Configs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/mapping/Configs.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config/mapping/UserProfileConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/mapping/UserProfileConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/PlayerTrackerDecoder$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/PlayerTrackerDecoder$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/PlayerTrackerDecoder$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/PlayerTrackerDecoder$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/PlayerTrackerDecoder$DrawType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/PlayerTrackerDecoder$DrawType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/PlayerTrackerDecoder$HeatDrawType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/PlayerTrackerDecoder$HeatDrawType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/PlayerTrackerDecoder$UITheme.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/PlayerTrackerDecoder$UITheme.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/PlayerTrackerDecoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/PlayerTrackerDecoder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ui/HelpForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ui/HelpForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/util/Assets.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/Assets.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/util/Logger.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/Logger.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

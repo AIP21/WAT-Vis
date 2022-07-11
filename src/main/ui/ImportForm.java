@@ -115,8 +115,8 @@ public class ImportForm extends JDialog {
         titleText.setEnabled(true);
         Font TitleFont = Utils.getFont(null, Font.BOLD, 26, titleText.getFont());
         if (TitleFont != null) titleText.setFont(TitleFont);
-        titleText.setHorizontalAlignment(0);
-        titleText.setHorizontalTextPosition(0);
+        titleText.setHorizontalAlignment(SwingConstants.CENTER);
+        titleText.setHorizontalTextPosition(SwingConstants.CENTER);
         titleText.setText("Import Files");
         add(titleText, BorderLayout.NORTH);
 

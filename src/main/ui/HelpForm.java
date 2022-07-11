@@ -47,35 +47,26 @@ public class HelpForm extends JDialog {
     private void initComponents() {
         setLayout(new BorderLayout());
 
-        GridBagConstraints gbc = new GridBagConstraints();
+        GridBagConstraints gbc;
 
-        JLabel titleText = new JLabel();
-        Font TitleFont = this.getFont(null, -1, 26, titleText.getFont());
+        JLabel titleText = new JLabel("Help");
+        Font TitleFont = Utils.getFont(null, Font.BOLD, 26, titleText.getFont());
         if (TitleFont != null) titleText.setFont(TitleFont);
         titleText.setHorizontalAlignment(0);
         titleText.setHorizontalTextPosition(0);
-        titleText.setText("Help");
         add(titleText, BorderLayout.NORTH);
 
+        //region Help Text
         JPanel helpPanel = new JPanel();
         helpPanel.setLayout(new GridBagLayout());
         add(helpPanel, BorderLayout.CENTER);
 
         JTextPane helpText = new JTextPane();
-        helpText.setBorder(BorderFactory.createTitledBorder(null, "", 0, 0, null, null));
+        helpText.setBorder(BorderFactory.createTitledBorder(null, "Controls", 0, 0, null, null));
         helpText.setContentType("text/html");
         helpText.setEditable(false);
         helpText.setText("""
                 <html>
-                  <head>
-                    <center>
-                      <h2>
-                        <font face="Segoe UI">
-                          Controls
-                        </font>
-                      </h2>
-                    </center>
-                  </head>
                   <body>
                     <center>
                       Pan: Left Click + Drag<br>
@@ -90,29 +81,22 @@ public class HelpForm extends JDialog {
                   </body>
                 </html>
                 """);
+        gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.weightx = 1.0;
-        gbc.weighty = 1.0;
+        gbc.weightx = 1;
+        gbc.weighty = 1;
         gbc.fill = GridBagConstraints.BOTH;
         gbc.anchor = GridBagConstraints.WEST;
+        gbc.insets = new Insets(10, 10, 10, 5);
         helpPanel.add(helpText, gbc);
 
         JTextPane aboutText = new JTextPane();
-        aboutText.setBorder(BorderFactory.createTitledBorder((Border) null, "", 0, 0, (Font) null, (Color) null));
+        aboutText.setBorder(BorderFactory.createTitledBorder( null, "About", 0, 0,  null, (Color) null));
         aboutText.setContentType("text/html");
         aboutText.setEditable(false);
         aboutText.setText("""
                 <html>
-                  <head>
-                    <center>
-                      <h2>
-                        <font face="Segoe UI">
-                          About
-                        </font>
-                      </h2>
-                    </center>
-                  </head>
                   <body>
                     <center>
                       <font face="Segoe UI">
@@ -127,45 +111,10 @@ public class HelpForm extends JDialog {
                   </body>
                 </html>
                 """);
-        gbc.gridx = 1;
-        gbc.gridy = 0;
-        gbc.weightx = 1.0;
-        gbc.weighty = 1.0;
-        gbc.fill = GridBagConstraints.BOTH;
-        gbc.anchor = GridBagConstraints.WEST;
-        gbc.insets = new Insets(30, 30, 30, 30);
+        gbc.gridx++;
+        gbc.anchor = GridBagConstraints.EAST;
+        gbc.insets = new Insets(10, 5, 10, 10);
         helpPanel.add(aboutText, gbc);
-
-        closeButton = new JButton();
-        closeButton.setText("Got it");
-        closeButton.setMargin(new Insets(30, 60, 30, 60));
-        add(closeButton, BorderLayout.SOUTH);
-
-        setCallbacks();
-    }
-
-    private void setCallbacks() {
-        closeButton.addActionListener(event -> {
-            this.setVisible(false);
-        });
-    }
-
-    private Font getFont(String fontName, int style, int size, Font currentFont) {
-        if (currentFont == null) return null;
-        String resultName;
-        if (fontName == null) {
-            resultName = currentFont.getName();
-        } else {
-            Font testFont = new Font(fontName, Font.PLAIN, 10);
-            if (testFont.canDisplay('a') && testFont.canDisplay('1')) {
-                resultName = fontName;
-            } else {
-                resultName = currentFont.getName();
-            }
-        }
-        Font font = new Font(resultName, style >= 0 ? style : currentFont.getStyle(), size >= 0 ? size : currentFont.getSize());
-        boolean isMac = System.getProperty("os.name", "").toLowerCase(Locale.ENGLISH).startsWith("mac");
-        Font fontWithFallback = isMac ? new Font(font.getFamily(), font.getStyle(), font.getSize()) : new StyleContext().getFont(font.getFamily(), font.getStyle(), font.getSize());
-        return fontWithFallback instanceof FontUIResource ? fontWithFallback : new FontUIResource(fontWithFallback);
+        //endregion
     }
 }

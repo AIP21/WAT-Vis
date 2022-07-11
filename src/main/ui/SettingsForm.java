@@ -1,38 +1,27 @@
 package src.main.ui;
 
-import com.intellij.uiDesigner.core.GridConstraints;
-import com.intellij.uiDesigner.core.GridLayoutManager;
 import src.main.PlayerTrackerDecoder;
 import src.main.PlayerTrackerDecoder.UITheme;
 import src.main.config.Settings;
 import src.main.util.Logger;
+import src.main.util.Utils;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.plaf.FontUIResource;
-import javax.swing.text.StyleContext;
 import java.awt.*;
 import java.awt.event.ItemEvent;
-import java.util.Locale;
 
 public class SettingsForm extends JDialog {
-    public JLabel settingsTitle;
-    public JPanel settingsPanel;
+    public JLabel settingsTitleText;
     public JToggleButton lightThemeButton;
     public JToggleButton darkThemeButton;
-    public JPanel themeButtonContainer;
-    public JRadioButton fancyRenderingToggle;
-    public JRadioButton debugModeToggle;
-    public JSlider fpsLimitSlider;
-    public JPanel fpsLimitContainer;
-    public JLabel fpsLimitLabel;
-    public JLabel fpsLimitValue;
-    public JPanel mouseSensitivityContainer;
-    public JLabel sensitivityLabel;
-    public JLabel sensitivityValue;
-    public JSlider sensitivitySlider;
-    private PlayerTrackerDecoder main;
-    private Settings settings;
+    public LabeledComponent<JRadioButton> fancyRendering;
+    public LabeledComponent<JRadioButton> debugMode;
+    public LabeledComponent<JSlider> fpsLimit;
+    public LabeledComponent<JSlider> mouseSensitivity;
+    private Font settingsTitleFont;
+
+    private final PlayerTrackerDecoder main;
+    private final Settings settings;
 
     public SettingsForm(PlayerTrackerDecoder main, Settings settings) {
         super(main, "Settings");
@@ -53,83 +42,103 @@ public class SettingsForm extends JDialog {
     }
 
     private void initComponents() {
-        JPanel panel1 = new JPanel();
-        panel1.setLayout(new GridLayoutManager(3, 1, new Insets(0, 0, 0, 0), -1, -1));
-        settingsTitle = new JLabel("App Settings");
-        Font settingsTitleFont = getFont(null, -1, 26, settingsTitle.getFont());
+        setLayout(new BorderLayout());
+
+        settingsTitleText = new JLabel("Settings");
+        settingsTitleFont = Utils.getFont(null, Font.BOLD, 26, settingsTitleText.getFont());
         if (settingsTitleFont != null) {
-            settingsTitle.setFont(settingsTitleFont);
+            settingsTitleText.setFont(settingsTitleFont);
         }
-        panel1.add(settingsTitle, new GridConstraints(0, 0, 1, 1, 0, 0, 0, 0, null, null, null, 0, false));
+        settingsTitleText.setHorizontalAlignment(SwingConstants.CENTER);
+        settingsTitleText.setHorizontalTextPosition(SwingConstants.CENTER);
+        add(settingsTitleText, BorderLayout.NORTH);
 
-        settingsPanel = new JPanel();
-        settingsPanel.setLayout(new GridLayoutManager(6, 1, new Insets(0, 0, 0, 0), -1, -1));
-        settingsPanel.setBorder(BorderFactory.createTitledBorder(null, "", 0, 0, (Font) null, (Color) null));
-        panel1.add(settingsPanel, new GridConstraints(1, 0, 1, 1, 0, 3, 3, 3, null, null, null, 0, false));
+        JPanel settingsPanel = new JPanel();
+        settingsPanel.setLayout(new GridBagLayout());
+        add(settingsPanel, BorderLayout.CENTER);
 
-        JLabel label1 = new JLabel("Theme");
-        settingsPanel.add(label1, new GridConstraints(0, 0, 1, 1, 0, 0, 0, 0, null, null, null, 0, false));
+        GridBagConstraints gbc;
 
-        themeButtonContainer = new JPanel();
-        themeButtonContainer.setLayout(new GridLayoutManager(1, 2, new Insets(0, 25, 0, 25), -1, -1));
-        settingsPanel.add(themeButtonContainer, new GridConstraints(1, 0, 1, 1, 0, 3, 3, 3, null, null, null, 0, false));
+        JLabel themeTitle = new JLabel("Theme");
+        themeTitle.setHorizontalAlignment(SwingConstants.CENTER);
+        themeTitle.setHorizontalTextPosition(SwingConstants.CENTER);
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weightx = 1;
+        gbc.weighty = 1;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.insets = new Insets(10, 0, 0, 0);
+        settingsPanel.add(themeTitle, gbc);
+
+        //region Theme buttons
+        JPanel themeButtonContainer = new JPanel();
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.weightx = 1;
+        gbc.weighty = 1;
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.insets = new Insets(0, 10, 0, 10);
+        themeButtonContainer.setLayout(new GridBagLayout());
+        settingsPanel.add(themeButtonContainer, gbc);
 
         lightThemeButton = new JToggleButton("", settings.uiTheme == UITheme.Light);
         lightThemeButton.setIcon(main.lightThemeIcon);
         lightThemeButton.setToolTipText("Use a light ui theme");
-        themeButtonContainer.add(lightThemeButton, new GridConstraints(0, 0, 1, 1, 0, 1, 3, 0, null, null, null, 0, false));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weightx = 1;
+        gbc.weighty = 1;
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.anchor = GridBagConstraints.WEST;
+        themeButtonContainer.add(lightThemeButton, gbc);
+
         darkThemeButton = new JToggleButton("", settings.uiTheme == UITheme.Dark);
         darkThemeButton.setIcon(main.darkThemeIcon);
         darkThemeButton.setToolTipText("Use a dark ui theme");
-        themeButtonContainer.add(darkThemeButton, new GridConstraints(0, 1, 1, 1, 0, 1, 3, 0, null, null, null, 0, false));
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.weightx = 1;
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.anchor = GridBagConstraints.EAST;
+        themeButtonContainer.add(darkThemeButton, gbc);
+        //endregion
 
-        fancyRenderingToggle = new JRadioButton();
-        fancyRenderingToggle.setText("Fancy Rendering");
-        fancyRenderingToggle.setSelected(settings.fancyRendering);
-        fancyRenderingToggle.setToolTipText("Use fancy rendering to improve visual fidelity at the cost of performance");
-        settingsPanel.add(fancyRenderingToggle, new GridConstraints(2, 0, 1, 1, 0, 0, 3, 0, null, null, null, 0, false));
+        fancyRendering = new LabeledComponent<>("Fancy Rendering", new JRadioButton("", settings.fancyRendering));
+        fancyRendering.setToolTipText("Use fancy rendering to improve visual fidelity at the cost of performance");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        gbc.weightx = 1;
+        gbc.weighty = 1;
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.insets = new Insets(10, 0, 0, 10);
+        settingsPanel.add(fancyRendering, gbc);
 
-        debugModeToggle = new JRadioButton();
-        debugModeToggle.setText("Debug Mode");
-        debugModeToggle.setSelected(PlayerTrackerDecoder.DEBUG);
-        debugModeToggle.setToolTipText("Used for debugging, obviously. Debug mode makes logging more verbose, adds more info to the bottom toolbar, and does some other stuff.");
-        settingsPanel.add(debugModeToggle, new GridConstraints(3, 0, 1, 1, 0, 0, 3, 0, null, null, null, 0, false));
+        debugMode = new LabeledComponent<>("Debug Mode", new JRadioButton("", PlayerTrackerDecoder.DEBUG));
+        debugMode.setToolTipText("Used for debugging, obviously. Debug mode makes logging more verbose, adds more info to the bottom toolbar, and does some other stuff.");
+        gbc.gridy++;
+        settingsPanel.add(debugMode, gbc);
 
-        fpsLimitContainer = new JPanel();
-        fpsLimitContainer.setLayout(new GridLayoutManager(1, 3, new Insets(0, 25, 0, 25), -1, -1, true, false));
-        settingsPanel.add(fpsLimitContainer, new GridConstraints(4, 0, 1, 1, 0, 3, 3, 3, null, null, null, 0, false));
+        fpsLimit = new LabeledComponent<>(String.format("Target Framerate: %d FPS", settings.fpsLimit), new JSlider(0, 1, 255, settings.fpsLimit), LabeledComponent.LEFT, 0.5, 1);
+        fpsLimit.setToolTipText("The maximum framerate to render at");
+        gbc.gridy++;
+        gbc.anchor = GridBagConstraints.WEST;
 
-        fpsLimitLabel = new JLabel("Target Framerate");
-        fpsLimitContainer.add(fpsLimitLabel, new GridConstraints(0, 0, 1, 1, 4, 0, 0, 0, null, null, null, 0, false));
-        fpsLimitSlider = new JSlider(0, 1, 255, settings.fpsLimit);
-        fpsLimitSlider.setMajorTickSpacing(30);
-        fpsLimitSlider.setMinorTickSpacing(10);
-        fpsLimitSlider.setPaintLabels(false);
-        fpsLimitSlider.setPaintTicks(true);
+        JSlider fpsLimitSlider = fpsLimit.getComponent();
         fpsLimitSlider.setSnapToTicks(true);
-        fpsLimitSlider.setToolTipText("The maximum framerate to render at");
-        fpsLimitContainer.add(fpsLimitSlider, new GridConstraints(0, 1, 1, 1, 0, 1, 4, 0, null, null, null, 0, false));
-        fpsLimitValue = new JLabel(settings.fpsLimit + " FPS");
-        fpsLimitContainer.add(fpsLimitValue, new GridConstraints(0, 2, 1, 1, 8, 0, 0, 0, null, null, null, 0, false));
 
-        mouseSensitivityContainer = new JPanel();
-        mouseSensitivityContainer.setLayout(new GridLayoutManager(1, 3, new Insets(0, 25, 0, 25), -1, -1, true, false));
-        settingsPanel.add(mouseSensitivityContainer, new GridConstraints(5, 0, 1, 1, 0, 3, 3, 3, null, null, null, 0, false));
+        settingsPanel.add(fpsLimit, gbc);
 
-        sensitivityLabel = new JLabel("Mouse Sensitivity");
-        mouseSensitivityContainer.add(sensitivityLabel, new GridConstraints(0, 0, 1, 1, 4, 0, 0, 0, null, null, null, 0, false));
-        sensitivitySlider = new JSlider(0, 0, 200, settings.mouseSensitivity);
-        sensitivitySlider.setMajorTickSpacing(50);
-        sensitivitySlider.setMinorTickSpacing(25);
-        sensitivitySlider.setPaintLabels(false);
-        sensitivitySlider.setPaintTicks(true);
+        mouseSensitivity = new LabeledComponent<>(String.format("Mouse Sensitivity: %d%%", settings.mouseSensitivity), new JSlider(0, 0, 200, settings.mouseSensitivity), LabeledComponent.LEFT, 0.5, 1);
+        mouseSensitivity.setToolTipText("How sensitive mouse inputs should be");
+        gbc.gridy++;
+
+        JSlider sensitivitySlider = mouseSensitivity.getComponent();
         sensitivitySlider.setSnapToTicks(true);
-        sensitivitySlider.setToolTipText("The maximum framerate to render at");
-        mouseSensitivityContainer.add(sensitivitySlider, new GridConstraints(0, 1, 1, 1, 8, 1, 4, 0, null, null, null, 0, false));
-        sensitivityValue = new JLabel(settings.mouseSensitivity + "%");
-        mouseSensitivityContainer.add(sensitivityValue, new GridConstraints(0, 2, 1, 1, 8, 0, 0, 0, null, null, null, 0, false));
 
-        add(panel1);
+        settingsPanel.add(mouseSensitivity, gbc);
 
         setCallbacks();
     }
@@ -140,10 +149,7 @@ public class SettingsForm extends JDialog {
             SwingUtilities.updateComponentTreeUI(this);
             lightThemeButton.setSelected(true);
             darkThemeButton.setSelected(false);
-            Font settingsTitleFont = getFont(null, -1, 26, settingsTitle.getFont());
-            if (settingsTitleFont != null) {
-                settingsTitle.setFont(settingsTitleFont);
-            }
+            settingsTitleText.setFont(settingsTitleFont);
             revalidate();
 
             Logger.info("Set the theme to light");
@@ -154,16 +160,13 @@ public class SettingsForm extends JDialog {
             SwingUtilities.updateComponentTreeUI(this);
             lightThemeButton.setSelected(false);
             darkThemeButton.setSelected(true);
-            Font settingsTitleFont = getFont(null, -1, 26, settingsTitle.getFont());
-            if (settingsTitleFont != null) {
-                settingsTitle.setFont(settingsTitleFont);
-            }
+            settingsTitleText.setFont(settingsTitleFont);
             revalidate();
 
             Logger.info("Set the theme to dark");
         });
 
-        fancyRenderingToggle.addItemListener((event) -> {
+        fancyRendering.getComponent().addItemListener((event) -> {
             settings.fancyRendering = event.getStateChange() == ItemEvent.SELECTED;
             settings.toggleRenderMode();
             settings.SaveSettings();
@@ -171,52 +174,28 @@ public class SettingsForm extends JDialog {
             Logger.info("Toggled fancy rendering to: " + settings.fancyRendering);
         });
 
-        debugModeToggle.addItemListener((event) -> {
+        debugMode.getComponent().addItemListener((event) -> {
             PlayerTrackerDecoder.DEBUG = event.getStateChange() == ItemEvent.SELECTED;
             settings.SaveSettings();
 
             Logger.info("Toggled the not-so-secret DEBUG MODE (oooooh) to: " + PlayerTrackerDecoder.DEBUG);
         });
 
-        fpsLimitSlider.addChangeListener((e) -> {
+        fpsLimit.getComponent().addChangeListener((e) -> {
             settings.fpsLimit = ((JSlider) e.getSource()).getValue();
-            fpsLimitValue.setText(settings.fpsLimit + " FPS");
+            fpsLimit.setLabelText(String.format("Target Framerate: %d FPS", settings.fpsLimit));
             settings.SaveSettings();
 
             Logger.info("Changed framerate limit to: " + settings.fpsLimit);
         });
 
-        sensitivitySlider.addChangeListener((e) -> {
+        fpsLimit.getComponent().addChangeListener((e) -> {
             settings.mouseSensitivity = ((JSlider) e.getSource()).getValue();
-            sensitivityValue.setText(settings.mouseSensitivity + "%");
+            fpsLimit.setLabelText(String.format("Mouse Sensitivity: %d%%", settings.mouseSensitivity));
             settings.SaveSettings();
             main.mainPanel.sensitivity = (float) settings.mouseSensitivity / 100.0F;
 
             Logger.info("Changed mouse sensitivity to: " + settings.mouseSensitivity);
         });
-    }
-
-    private Font getFont(String fontName, int style, int size, Font currentFont) {
-        if (currentFont == null) {
-            return null;
-        } else {
-            String resultName;
-            Font font;
-            if (fontName == null) {
-                resultName = currentFont.getName();
-            } else {
-                font = new Font(fontName, Font.PLAIN, 10);
-                if (font.canDisplay('a') && font.canDisplay('1')) {
-                    resultName = fontName;
-                } else {
-                    resultName = currentFont.getName();
-                }
-            }
-
-            font = new Font(resultName, style >= 0 ? style : currentFont.getStyle(), size >= 0 ? size : currentFont.getSize());
-            boolean isMac = System.getProperty("os.name", "").toLowerCase(Locale.ENGLISH).startsWith("mac");
-            Font fontWithFallback = isMac ? new Font(font.getFamily(), font.getStyle(), font.getSize()) : (new StyleContext()).getFont(font.getFamily(), font.getStyle(), font.getSize());
-            return fontWithFallback instanceof FontUIResource ? fontWithFallback : new FontUIResource(fontWithFallback);
-        }
     }
 }

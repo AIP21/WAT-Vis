@@ -12,10 +12,10 @@ public class LabeledComponent<T extends Component> extends JPanel {
     private final T component;
     private int side;
 
-    private final static int LEFT = 0;
-    private final static int RIGHT = 1;
+    public final static int LEFT = 0;
+    public final static int RIGHT = 1;
 
-    public LabeledComponent(String labelText, T component, int side) {
+    public LabeledComponent(String labelText, T component, int side, double leftWeight, double rightWeight) {
         super();
         setLayout(new GridBagLayout());
         boolean left = side == LEFT;
@@ -31,19 +31,25 @@ public class LabeledComponent<T extends Component> extends JPanel {
         }
 
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.weightx = 1.0;
-        gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
         gbc.anchor = left ? GridBagConstraints.EAST : GridBagConstraints.WEST;
         gbc.gridx = left ? 0 : 1;
+        gbc.weightx = leftWeight;
+        gbc.weighty = leftWeight;
         gbc.insets = new Insets(0, left ? 0 : 10, 0, left ? 10 : 0);
         add(label, gbc);
 
         gbc.anchor = left ? GridBagConstraints.WEST : GridBagConstraints.EAST;
         gbc.gridx = left ? 1 : 0;
+        gbc.weightx = rightWeight;
+        gbc.weighty = rightWeight;
         gbc.insets = new Insets(0, 0, 0, 0);
         add(component, gbc);
+    }
+
+    public LabeledComponent(String labelText, T component, int side) {
+        this(labelText, component, side, 1, 1);
     }
 
     public LabeledComponent(String label, T component) {

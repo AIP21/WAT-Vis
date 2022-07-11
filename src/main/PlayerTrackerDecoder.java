@@ -159,6 +159,8 @@ public class PlayerTrackerDecoder extends JFrame {
 
         try {
             Logger.info("Loading resources");
+            final long nowMs = System.currentTimeMillis();
+
             playIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/play.png"))).getScaledInstance(24, 24, 4), "Play");
             playIcon_D = new ImageIcon(Utils.invertImage(playIcon_L.getImage()), "Play");
             pauseIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/pause.png"))).getScaledInstance(24, 24, 4), "Pause");
@@ -183,7 +185,10 @@ public class PlayerTrackerDecoder extends JFrame {
             helpIcon_D = new ImageIcon(Utils.invertImage(helpIcon_L.getImage()), "Help");
             lightThemeIcon = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/lightThemeIcon.png"))).getScaledInstance(177, 118, 4), "Off");
             darkThemeIcon = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("src/resources/icons/darkThemeIcon.png"))).getScaledInstance(177, 118, 4), "Off");
-            Logger.info("Successfully loaded resources");
+
+            final long durMs = System.currentTimeMillis() - nowMs;
+
+            Logger.info("Successfully loaded resources in " + durMs + "ms");
         } catch (Exception e) {
             Logger.err("Error loading icon resources:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
@@ -243,9 +248,8 @@ public class PlayerTrackerDecoder extends JFrame {
             settingsForm.setVisible(true);
         });
 
-        helpButton = new JMenuItem("");
+        helpButton = new JMenuItem(helpIcon_L);
         helpButton.setToolTipText("Open Help Pane");
-        helpButton.setIcon(helpIcon_L);
         helpButton.setPreferredSize(new Dimension(48, 48));
         helpButton.setMinimumSize(new Dimension(47, 47));
         menuButtons.add(helpButton);
@@ -281,6 +285,52 @@ public class PlayerTrackerDecoder extends JFrame {
         Logger.info("Successfully initialized all subsystems");
     }
 
+    private SwingWorker<Void, ImageIcon> loadIcons = new SwingWorker<Void, ImageIcon>() {
+
+        /**
+         * Creates full size and thumbnail versions of the target image files.
+         */
+        @Override
+        protected Void doInBackground() throws Exception {
+            for (int i = 0; i < imageCaptions.length; i++) {
+                ImageIcon icon;
+                icon = createImageIcon(imagedir + imageFileNames[i], imageCaptions[i]);
+
+                ThumbnailAction thumbAction;
+                if (icon != null) {
+
+                    ImageIcon thumbnailIcon = new
+                            ImageIcon(getScaledImage(icon.getImage(), 32, 32));
+
+
+                    thumbAction = new ThumbnailAction(icon, thumbnailIcon, imageCaptions[i]);
+
+                } else {
+                    // the image failed to load for some reason
+                    // so load a placeholder instead
+                    thumbAction = new ThumbnailAction(placeholderIcon, placeholderIcon, imageCaptions[i]);
+                }
+                publish(thumbAction);
+            }
+            // unfortunately we must return something, and only null is valid to
+            // return when the return type is void.
+            return null;
+        }
+
+        /**
+         * Process all loaded images.
+         */
+        @Override
+        protected void process(List<ThumbnailAction> chunks) {
+            for (ThumbnailAction thumbAction : chunks) {
+                JButton thumbButton = new JButton(thumbAction);
+                // add the new button BEFORE the last glue
+                // this centers the buttons in the toolbar
+                buttonBar.add(thumbButton, buttonBar.getComponentCount() - 1);
+            }
+        }
+    };
+
     // TODO:
     //  SHOW THE LATEST POSITION, JUST TERMINUS POINTS BUT AS A STANDALONE MODE
     //  GET RID OF INTELLIJ GRIDLAYOUT AND REPLACE THEM WITH GRIDBAGLAYOUT (thus allowing me to use maven)
@@ -288,6 +338,7 @@ public class PlayerTrackerDecoder extends JFrame {
     //  ADD CREDITS TO THE ABOUT PAGE
     //  ADD ACTIVITY GRAPHS
     //  FIX ISSUE WHERE THE HYPIXEL DATA IS READ BUT NOT ACTUALLY USED, PROB DUPLICATE DATA?
+    //  ADD PLAYER NAME LABELS OVER MOST RECENT PLAYER POINT
 
     public static void main(String[] args) {
         createDirectories();
@@ -307,9 +358,11 @@ public class PlayerTrackerDecoder extends JFrame {
             Logger.warn("DEBUG MODE IS ON, PERFORMANCE MAY BE AFFECTED");
         }
 
-        EventQueue.invokeLater(() -> {
-            INSTANCE = new PlayerTrackerDecoder(debug);
-            INSTANCE.setVisible(true);
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                INSTANCE = new PlayerTrackerDecoder(debug);
+                INSTANCE.setVisible(true);
+            }
         });
     }
 

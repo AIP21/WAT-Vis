@@ -267,4 +267,10 @@ public class Utils {
     public static Color randColor() {
         return new Color(random.nextFloat(), random.nextFloat(), random.nextFloat());
     }
+
+    public static boolean approximately(Color a, Color b) {
+        return (Utils.approximately(a.getRed(), b.getRed(), 20.0F) &&
+                Utils.approximately(a.getGreen(), b.getGreen(), 20.0F) &&
+                Utils.approximately(a.getBlue(), b.getBlue(), 20.0F));
+    }
 }

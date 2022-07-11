@@ -5,7 +5,7 @@ import com.seedfinding.mccore.util.math.DistanceMetric;
 import com.seedfinding.mccore.util.pos.BPos;
 import com.seedfinding.mccore.util.pos.RPos;
 import src.main.MainPanel;
-import src.main.mapping.minemap.util.data.DrawInfo;
+import src.main.util.objects.DrawInfo;
 import src.main.util.Logger;
 
 import javax.swing.*;

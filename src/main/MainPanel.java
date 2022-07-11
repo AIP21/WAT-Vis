@@ -8,13 +8,14 @@ import src.main.config.Settings;
 import src.main.mapping.minemap.map.MapContext;
 import src.main.mapping.minemap.map.fragment.Fragment;
 import src.main.mapping.minemap.map.fragment.FragmentScheduler;
-import src.main.mapping.minemap.util.data.DrawInfo;
+import src.main.util.objects.DrawInfo;
 import src.main.util.*;
+import src.main.util.objects.DecodedData;
+import src.main.util.objects.LogEntry;
+import src.main.util.objects.Vector3;
 
 import javax.imageio.ImageIO;
-import javax.sound.sampled.Control;
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.*;
@@ -22,10 +23,11 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class MainPanel extends JPanel implements MouseWheelListener, MouseListener, MouseMotionListener, Runnable {
     private final Settings settings;
-    public Decoder _Decoder;
 
     // region Status variables
     private boolean isRunning = true;
@@ -42,13 +44,11 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
     // endregion
 
     // region Data variables
-    public ArrayList<LogEntry> logEntries = new ArrayList<>();
-    public ArrayList<LocalDateTime> logDates = new ArrayList<>();
-    private int totalData;
-
-    // private Map<LocalDateTime, ArrayList<LogEntry>> logEntriesGroupedByTime = new
-    // LinkedHashMap<>();
-    public int timesCount;
+    public LinkedHashMap<LocalDateTime, LogEntry> logEntriesByTime = new LinkedHashMap<>();
+    public LocalDateTime[] logTimes;
+    private int totalTimes = 0;
+    private int totalData = 0;
+    public String dataWorld;
 
     public Map<String, Color> playerNameColorMap = new LinkedHashMap<>();
     public Map<String, Vector3> playerLastPosMap = new LinkedHashMap<>();
@@ -58,9 +58,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
     public ArrayList<LogEntry> enabledEntries = new ArrayList<>();
     public Map<String, Boolean> playerNameEnabledMap = new LinkedHashMap<>();
 
-    private ArrayList<LogEntry> hiddenEntries = new ArrayList<>();
-
-    private ArrayList<LogEntry> selectedEntries = new ArrayList<>();
+    private HashSet<LogEntry> selectedEntries = new HashSet<>();
 
     public int renderedPoints = 0;
 
@@ -111,8 +109,8 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
     public float backgroundOpacity = 0.5f;
 
     public int dateTimeIndex = 0;
-    public LocalDateTime startDate;
-    public LocalDateTime endDate;
+    public LocalDateTime startTime;
+    public LocalDateTime endTime;
 
     public int upscale = 1;
     public JLabel imageExportStatus;
@@ -191,14 +189,14 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
     private void initCommands() {
         Keyboard.registerTypedAction(KeyEvent.VK_CONTROL, KeyEvent.VK_A, i -> {
-            if (selectedEntries.size() != logEntries.size()) {
-                for (LogEntry entry : logEntries) {
+            if (selectedEntries.size() != logEntriesByTime.size()) {
+                for (LogEntry entry : logEntriesByTime.values()) {
                     if (!selectedEntries.contains(entry)) {
                         selectedEntries.add(entry);
                     }
                 }
             } else {
-                for (LogEntry entry : logEntries) {
+                for (LogEntry entry : logEntriesByTime.values()) {
                     selectedEntries.remove(entry);
                 }
             }
@@ -225,13 +223,13 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
                 // if (ShouldTick) {
                 // System.out.println("thread run");
                 if (!exporting && isPlaying) {
-                    if (dateTimeIndex < timesCount) {
-                        endDate = logDates.get(dateTimeIndex);
+                    if (dateTimeIndex < totalTimes) {
+                        endTime = logTimes[dateTimeIndex];
                         queuePointUpdate(false);
-                        if (dateTimeIndex + animationSpeed < timesCount) {
+                        if (dateTimeIndex + animationSpeed < totalTimes) {
                             dateTimeIndex += animationSpeed;
                         } else {
-                            dateTimeIndex = timesCount;
+                            dateTimeIndex = totalTimes;
                         }
                         // ShouldTick = true;
 
@@ -244,9 +242,9 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
                         Logger.info("Finished playing");
                     }
 
-                    PlayerTrackerDecoder.INSTANCE.dateRangeSlider.setUpperValue(dateTimeIndex);
-                    PlayerTrackerDecoder.INSTANCE.startDateLabel.setText(startDate.toString().replace("T", "; "));
-                    PlayerTrackerDecoder.INSTANCE.endDateLabel.setText(endDate.toString().replace("T", "; "));
+                    PlayerTrackerDecoder.INSTANCE.timeRangeSlider.setUpperValue(dateTimeIndex);
+                    PlayerTrackerDecoder.INSTANCE.startTimeLabel.setText(startTime.toString().replace("T", "; "));
+                    PlayerTrackerDecoder.INSTANCE.endTimeLabel.setText(endTime.toString().replace("T", "; "));
                 }
 
                 if (!exporting) {
@@ -437,26 +435,6 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
     }
 
     // region Drawing
-    private void drawCrossHair(Graphics2D g2d, float x, float y, float size) {
-        g2d.setStroke(new BasicStroke(5 * size));
-        g2d.draw(new Ellipse2D.Float(x + (-25 * size), y + (-25 * size), 50 * size, 50 * size));
-        g2d.draw(new Line2D.Float(x, y + (10 * size), x, y + (30 * size)));
-        g2d.draw(new Line2D.Float(x, y + (-10 * size), x, y + (-30 * size)));
-        g2d.draw(new Line2D.Float(x + (-10 * size), y, x + (-30 * size), y));
-        g2d.draw(new Line2D.Float(x + (10 * size), y, x + (30 * size), y));
-    }
-
-    private void drawCrossHair(Graphics2D g2d, float x, float y, float size, String label) {
-        g2d.setFont(smallFont);
-        g2d.drawString(label, (int) x + (25 * size) + 10, (int) y + (25 * size) + 10);
-        g2d.setStroke(new BasicStroke(5 * size));
-        g2d.draw(new Ellipse2D.Float(x + (-25 * size), y + (-25 * size), 50 * size, 50 * size));
-        g2d.draw(new Line2D.Float(x, y + (10 * size), x, y + (30 * size)));
-        g2d.draw(new Line2D.Float(x, y + (-10 * size), x, y + (-30 * size)));
-        g2d.draw(new Line2D.Float(x + (-10 * size), y, x + (-30 * size), y));
-        g2d.draw(new Line2D.Float(x + (10 * size), y, x + (30 * size), y));
-    }
-
     private BasicStroke stroke;
     private BasicStroke dashedStroke;
     private ArrayList<String> playerFirst = new ArrayList<>();
@@ -476,101 +454,126 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
         g2d.setColor(Color.black);
 
-        // ArrayList<LogEntry> entries = (ArrayList<LogEntry>) enabledEntries.clone();
+        boolean ctrlDown = Keyboard.getKeyPressed(KeyEvent.VK_CONTROL);
         for (LogEntry entry : enabledEntries) {
-            if (settings.ageFade) {
-                if (!playerOccurrences.containsKey(entry.playerName)) {
-                    playerOccurrences.put(entry.playerName, 1);
-                } else {
-                    playerOccurrences.put(entry.playerName, playerOccurrences.get(entry.playerName) + 1);
-                }
-            }
+            if (entry.show || ctrlDown) {
+                if (settings._drawType == PlayerTrackerDecoder.DrawType.Fast) {
+                    if (at != null) at.transform(entry.position.point, pt);
 
-            if (at != null) at.transform(entry.position.toPoint(), pt);
+                    int x = (int) ((entry.position.x + offsetX) * upscale);
 
-            float x = (entry.position.x + offsetX) * upscale;
-            float y = (entry.position.z + offsetY) * upscale;
+                    int y = (int) ((entry.position.z + offsetY) * upscale);
 
-            if (settings.terminusPoints && settings._drawType == Decoder.DrawType.Line && !playerFirst.contains(entry.playerName)) {
-                playerFirst.add(entry.playerName);
-                g2d.setColor(playerNameColorMap.get(entry.playerName));
-                drawDot(g2d, x, y, settings.size + 7, false);
-            }
-
-            if (!useCulling || (pt.x >= -50 && pt.x <= screenSize.width + 50 && pt.y >= -50 && pt.y <= screenSize.height + 50)) {
-                Color col = playerNameColorMap.get(entry.playerName);
-                int val = 255;
-                if (settings.ageFade) {
-                    int markerCount = playerMarkerCount.get(entry.playerName);
-                    val = Utils.clamp(Utils.lerp(255, 0, Math.min(markerCount, playerOccurrences.get(entry.playerName) * settings.ageFadeStrength) / (float) markerCount), 0, 255);
-                }
-                g2d.setColor(new Color(col.getRed(), col.getGreen(), col.getBlue(), val));
-
-                if (settings._drawType == Decoder.DrawType.Pixel) {
-                    drawRectangle(g2d, x, y, settings.size, true);
-                    renderedPoints++;
-                } else if (settings._drawType == Decoder.DrawType.Dot) {
-                    drawDot(g2d, x, y, settings.size, true);
-                    renderedPoints++;
-                } else if (settings._drawType == Decoder.DrawType.Heat) {
-                    if (settings._heatDrawType == PlayerTrackerDecoder.HeatDrawType.Color) {
-                        try {
-                            if (settings.uiTheme == PlayerTrackerDecoder.UITheme.Light) {
-                                g2d.setColor(Utils.lerpColor(Color.darkGray, Color.getHSBColor(0.93f, 0.68f, 0.55f), Math.min(1, (posActivityMap.get(entry.position) * Math.abs(settings.heatMapStrength)) / (float) (maxActivity))));
-                            } else {
-                                g2d.setColor(Utils.lerpColor(Color.lightGray, Color.getHSBColor(0.93f, 0.68f, 0.55f), Math.min(1, (posActivityMap.get(entry.position) * Math.abs(settings.heatMapStrength)) / (float) (maxActivity))));
-                            }
-                        } catch (IllegalArgumentException e) {
-                            Logger.err("Something wrong happened when lerping colors for the heatmap color (Probably the stupid negative input error):\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
-                        }
-
-                        drawRectangle(g2d, x, y, settings.size, true);
-                    } else {
+                    if (!useCulling || (pt.x >= -50 && pt.x <= screenSize.width + 50 && pt.y >= -50 && pt.y <= screenSize.height + 50)) {
                         g2d.setColor(playerNameColorMap.get(entry.playerName));
-                        drawRectangle(g2d, x, y, settings.size * Math.min((float) posActivityMap.get(entry.position) * (settings.heatMapStrength / 50.0f) + 0.5f, maxActivity + 0.5f), true);
-                    }
-                    renderedPoints++;
-                }
-            }
+                        g2d.drawRect(x, y, 1, 1);
 
-            if (settings._drawType == Decoder.DrawType.Line) {
-                Vector3 lastPos = playerLastPosMap.get(entry.playerName);
-
-                if (!useCulling || (pt.x >= -50 && pt.x <= screenSize.width + 50 && pt.y >= -50 && pt.y <= screenSize.height + 50)) {
-                    Color col = playerNameColorMap.get(entry.playerName);
-                    int val = 255;
-                    if (settings.ageFade) {
-                        int markerCount = playerMarkerCount.get(entry.playerName);
-                        val = Utils.clamp(Utils.lerp(255, 0, Math.min(markerCount, playerOccurrences.get(entry.playerName) * settings.ageFadeStrength) / (float) markerCount), 0, 255);
-                    }
-
-                    g2d.setColor(new Color(col.getRed(), col.getGreen(), col.getBlue(), val));
-
-                    if (lastPos != null && (settings.hiddenLines || (Math.abs(entry.position.x - lastPos.x) <= settings.lineThreshold && Math.abs(entry.position.z - lastPos.z) <= settings.lineThreshold))) {
-                        if (settings.hiddenLines && (Math.abs(entry.position.x - lastPos.x) > settings.lineThreshold || Math.abs(entry.position.z - lastPos.z) > settings.lineThreshold)) {
-                            g2d.setStroke(dashedStroke);
-                        } else {
-                            g2d.setStroke(stroke);
-                        }
-
-                        if (settings.fancyLines) {
-                            drawArrowLine(g2d, x, y, (lastPos.x + offsetX) * upscale, (lastPos.z + offsetY) * upscale, settings.size * 2, settings.size * 2);
-                        } else {
-                            drawLine(g2d, x, y, (lastPos.x + offsetX) * upscale, (lastPos.z + offsetY) * upscale, settings.size);
-                        }
                         renderedPoints++;
                     }
-                }
+                } else {
+                    if (!entry.show) {
+                        g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.5f));
+                    }
 
-                playerLastPosMap.put(entry.playerName, entry.position);
+                    if (settings.ageFade) {
+                        if (!playerOccurrences.containsKey(entry.playerName)) {
+                            playerOccurrences.put(entry.playerName, 1);
+                        } else {
+                            playerOccurrences.put(entry.playerName, playerOccurrences.get(entry.playerName) + 1);
+                        }
+                    }
+
+                    if (at != null) at.transform(entry.position.point, pt);
+
+                    float x = (entry.position.x + offsetX) * upscale;
+                    float y = (entry.position.z + offsetY) * upscale;
+
+                    if (settings.terminusPoints && settings._drawType == PlayerTrackerDecoder.DrawType.Line && !playerFirst.contains(entry.playerName)) {
+                        playerFirst.add(entry.playerName);
+                        g2d.setColor(playerNameColorMap.get(entry.playerName));
+                        drawDot(g2d, x, y, settings.size + 7, false);
+                    }
+
+                    if (!useCulling || (pt.x >= -50 && pt.x <= screenSize.width + 50 && pt.y >= -50 && pt.y <= screenSize.height + 50)) {
+                        Color col = playerNameColorMap.get(entry.playerName);
+                        int val = 255;
+                        if (settings.ageFade) {
+                            int markerCount = playerMarkerCount.get(entry.playerName);
+                            val = Utils.clamp(Utils.lerp(255, 0, Math.min(markerCount, playerOccurrences.get(entry.playerName) * settings.ageFadeStrength) / (float) markerCount), 0, 255);
+                        }
+                        g2d.setColor(new Color(col.getRed(), col.getGreen(), col.getBlue(), val));
+
+                        if (settings._drawType == PlayerTrackerDecoder.DrawType.Pixel) {
+                            drawRectangle(g2d, x, y, settings.size, true);
+                            renderedPoints++;
+                        } else if (settings._drawType == PlayerTrackerDecoder.DrawType.Dot) {
+                            drawDot(g2d, x, y, settings.size, true);
+                            renderedPoints++;
+                        } else if (settings._drawType == PlayerTrackerDecoder.DrawType.Heat) {
+                            if (settings._heatDrawType == PlayerTrackerDecoder.HeatDrawType.Color) {
+                                try {
+                                    if (settings.uiTheme == PlayerTrackerDecoder.UITheme.Light) {
+                                        g2d.setColor(Utils.lerpColor(Color.darkGray, Color.getHSBColor(0.93f, 0.68f, 0.55f), Math.min(1, (posActivityMap.get(entry.position) * Math.abs(settings.heatMapStrength)) / (float) (maxActivity))));
+                                    } else {
+                                        g2d.setColor(Utils.lerpColor(Color.lightGray, Color.getHSBColor(0.93f, 0.68f, 0.55f), Math.min(1, (posActivityMap.get(entry.position) * Math.abs(settings.heatMapStrength)) / (float) (maxActivity))));
+                                    }
+                                } catch (IllegalArgumentException e) {
+                                    Logger.err("Something wrong happened when lerping colors for the heatmap color (Probably the stupid negative input error):\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+                                }
+
+                                drawRectangle(g2d, x, y, settings.size, true);
+                            } else {
+                                g2d.setColor(playerNameColorMap.get(entry.playerName));
+                                drawRectangle(g2d, x, y, settings.size * Math.min((float) posActivityMap.get(entry.position) * (settings.heatMapStrength / 50.0f) + 0.5f, maxActivity + 0.5f), true);
+                            }
+                            renderedPoints++;
+                        }
+                    }
+
+                    if (settings._drawType == PlayerTrackerDecoder.DrawType.Line) {
+                        Vector3 lastPos = playerLastPosMap.get(entry.playerName);
+
+                        if (!useCulling || (pt.x >= -50 && pt.x <= screenSize.width + 50 && pt.y >= -50 && pt.y <= screenSize.height + 50)) {
+                            Color col = playerNameColorMap.get(entry.playerName);
+                            int val = 255;
+                            if (settings.ageFade) {
+                                int markerCount = playerMarkerCount.get(entry.playerName);
+                                val = Utils.clamp(Utils.lerp(255, 0, Math.min(markerCount, playerOccurrences.get(entry.playerName) * settings.ageFadeStrength) / (float) markerCount), 0, 255);
+                            }
+
+                            g2d.setColor(new Color(col.getRed(), col.getGreen(), col.getBlue(), val));
+
+                            if (lastPos != null && (settings.hiddenLines || (Math.abs(entry.position.x - lastPos.x) <= settings.lineThreshold && Math.abs(entry.position.z - lastPos.z) <= settings.lineThreshold))) {
+                                if (settings.hiddenLines && (Math.abs(entry.position.x - lastPos.x) > settings.lineThreshold || Math.abs(entry.position.z - lastPos.z) > settings.lineThreshold)) {
+                                    g2d.setStroke(dashedStroke);
+                                } else {
+                                    g2d.setStroke(stroke);
+                                }
+
+                                if (settings.fancyLines) {
+                                    drawArrowLine(g2d, x, y, (lastPos.x + offsetX) * upscale, (lastPos.z + offsetY) * upscale, settings.size * 2, settings.size * 2);
+                                } else {
+                                    drawLine(g2d, x, y, (lastPos.x + offsetX) * upscale, (lastPos.z + offsetY) * upscale, settings.size);
+                                }
+                                renderedPoints++;
+                            }
+                        }
+
+                        playerLastPosMap.put(entry.playerName, entry.position);
+                    }
+
+                    if (!entry.show) {
+                        g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1));
+                    }
+                }
             }
         }
 
-        if (settings.terminusPoints && settings._drawType == Decoder.DrawType.Line) {
+        if (settings._drawType == PlayerTrackerDecoder.DrawType.Line && settings.terminusPoints) {
             for (String name : playerLastPosMap.keySet()) {
                 if (playerNameEnabledMap.get(name)) {
                     Vector3 pos = playerLastPosMap.get(name);
-                    if (at != null) at.transform(pos.toPoint(), pt);
+                    if (at != null) at.transform(pos.point, pt);
 
                     float x = (pos.x + offsetX) * upscale;
                     float y = (pos.z + offsetY) * upscale;
@@ -581,102 +584,6 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
                     }
                 }
             }
-        }
-
-        // if control key is pressed, draw the hidden entries
-        if (Keyboard.getKeyPressed(KeyEvent.VK_CONTROL)) {
-            g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.5f));
-
-            for (LogEntry entry : hiddenEntries) {
-                if (settings.ageFade) {
-                    if (!playerOccurrences.containsKey(entry.playerName)) {
-                        playerOccurrences.put(entry.playerName, 1);
-                    } else {
-                        playerOccurrences.put(entry.playerName, playerOccurrences.get(entry.playerName) + 1);
-                    }
-                }
-
-                if (at != null) at.transform(entry.position.toPoint(), pt);
-
-                float x = (entry.position.x + offsetX) * upscale;
-                float y = (entry.position.z + offsetY) * upscale;
-
-                if (settings.terminusPoints && settings._drawType == Decoder.DrawType.Line && !playerFirst.contains(entry.playerName)) {
-                    playerFirst.add(entry.playerName);
-                    g2d.setColor(playerNameColorMap.get(entry.playerName));
-                    drawDot(g2d, x, y, settings.size + 7, false);
-                }
-
-                if (!useCulling || (pt.x >= -50 && pt.x <= screenSize.width + 50 && pt.y >= -50 && pt.y <= screenSize.height + 50)) {
-                    Color col = playerNameColorMap.get(entry.playerName);
-                    int val = 255;
-                    if (settings.ageFade) {
-                        int markerCount = playerMarkerCount.get(entry.playerName);
-                        val = Utils.clamp(Utils.lerp(255, 0, Math.min(markerCount, playerOccurrences.get(entry.playerName) * settings.ageFadeStrength) / (float) markerCount), 0, 255);
-                    }
-                    g2d.setColor(new Color(col.getRed(), col.getGreen(), col.getBlue(), val));
-
-                    if (settings._drawType == Decoder.DrawType.Pixel) {
-                        drawRectangle(g2d, x, y, settings.size, true);
-                        renderedPoints++;
-                    } else if (settings._drawType == Decoder.DrawType.Dot) {
-                        drawDot(g2d, x, y, settings.size, true);
-                        renderedPoints++;
-                    } else if (settings._drawType == Decoder.DrawType.Heat) {
-                        if (settings._heatDrawType == PlayerTrackerDecoder.HeatDrawType.Color) {
-                            try {
-                                if (settings.uiTheme == PlayerTrackerDecoder.UITheme.Light) {
-                                    g2d.setColor(Utils.lerpColor(Color.darkGray, Color.getHSBColor(0.93f, 0.68f, 0.55f), Math.min(1, (posActivityMap.get(entry.position) * Math.abs(settings.heatMapStrength)) / (float) (maxActivity))));
-                                } else {
-                                    g2d.setColor(Utils.lerpColor(Color.lightGray, Color.getHSBColor(0.93f, 0.68f, 0.55f), Math.min(1, (posActivityMap.get(entry.position) * Math.abs(settings.heatMapStrength)) / (float) (maxActivity))));
-                                }
-                            } catch (IllegalArgumentException e) {
-                                Logger.err("Something wrong happened when lerping colors for the heatmap color (Probably the stupid negative input error):\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
-                            }
-
-                            drawRectangle(g2d, x, y, settings.size, true);
-                        } else {
-                            g2d.setColor(playerNameColorMap.get(entry.playerName));
-                            drawRectangle(g2d, x, y, settings.size * Math.min((float) posActivityMap.get(entry.position) * (settings.heatMapStrength / 50.0f) + 0.5f, maxActivity + 0.5f), true);
-                        }
-                        renderedPoints++;
-                    }
-                }
-
-                if (settings._drawType == Decoder.DrawType.Line) {
-                    Vector3 lastPos = playerLastPosMap.get(entry.playerName);
-
-                    if (!useCulling || (pt.x >= -50 && pt.x <= screenSize.width + 50 && pt.y >= -50 && pt.y <= screenSize.height + 50)) {
-                        Color col = playerNameColorMap.get(entry.playerName);
-                        int val = 255;
-                        if (settings.ageFade) {
-                            int markerCount = playerMarkerCount.get(entry.playerName);
-                            val = Utils.clamp(Utils.lerp(255, 0, Math.min(markerCount, playerOccurrences.get(entry.playerName) * settings.ageFadeStrength) / (float) markerCount), 0, 255);
-                        }
-
-                        g2d.setColor(new Color(col.getRed(), col.getGreen(), col.getBlue(), val));
-
-                        if (lastPos != null && (settings.hiddenLines || (Math.abs(entry.position.x - lastPos.x) <= settings.lineThreshold && Math.abs(entry.position.z - lastPos.z) <= settings.lineThreshold))) {
-                            if (settings.hiddenLines && (Math.abs(entry.position.x - lastPos.x) > settings.lineThreshold || Math.abs(entry.position.z - lastPos.z) > settings.lineThreshold)) {
-                                g2d.setStroke(dashedStroke);
-                            } else {
-                                g2d.setStroke(stroke);
-                            }
-
-                            if (settings.fancyLines) {
-                                drawArrowLine(g2d, x, y, (lastPos.x + offsetX) * upscale, (lastPos.z + offsetY) * upscale, settings.size * 2, settings.size * 2);
-                            } else {
-                                drawLine(g2d, x, y, (lastPos.x + offsetX) * upscale, (lastPos.z + offsetY) * upscale, settings.size);
-                            }
-                            renderedPoints++;
-                        }
-                    }
-
-                    playerLastPosMap.put(entry.playerName, entry.position);
-                }
-            }
-
-            g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1));
         }
     }
 
@@ -726,6 +633,26 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
         drawLine(g2d, x1, y1, x2, y2, settings.size);
         g2d.fillPolygon(new int[]{(int) x2, (int) xm, (int) xn}, new int[]{(int) y2, (int) ym, (int) yn}, 3);
     }
+
+    private void drawCrossHair(Graphics2D g2d, float x, float y, float size) {
+        g2d.setStroke(new BasicStroke(5 * size));
+        g2d.draw(new Ellipse2D.Float(x + (-25 * size), y + (-25 * size), 50 * size, 50 * size));
+        g2d.draw(new Line2D.Float(x, y + (10 * size), x, y + (30 * size)));
+        g2d.draw(new Line2D.Float(x, y + (-10 * size), x, y + (-30 * size)));
+        g2d.draw(new Line2D.Float(x + (-10 * size), y, x + (-30 * size), y));
+        g2d.draw(new Line2D.Float(x + (10 * size), y, x + (30 * size), y));
+    }
+
+    private void drawCrossHair(Graphics2D g2d, float x, float y, float size, String label) {
+        g2d.setFont(smallFont);
+        g2d.drawString(label, (int) x + (25 * size) + 10, (int) y + (25 * size) + 10);
+        g2d.setStroke(new BasicStroke(5 * size));
+        g2d.draw(new Ellipse2D.Float(x + (-25 * size), y + (-25 * size), 50 * size, 50 * size));
+        g2d.draw(new Line2D.Float(x, y + (10 * size), x, y + (30 * size)));
+        g2d.draw(new Line2D.Float(x, y + (-10 * size), x, y + (-30 * size)));
+        g2d.draw(new Line2D.Float(x + (-10 * size), y, x + (-30 * size), y));
+        g2d.draw(new Line2D.Float(x + (10 * size), y, x + (30 * size), y));
+    }
     // endregion
 
     // region Data
@@ -745,22 +672,22 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
         enabledEntries.clear();
         maxActivity = 0;
 
-        for (LogEntry entry : logEntries) {
-            if ((entry.time.isAfter(startDate) && entry.time.isBefore(endDate)) || entry.time.equals(startDate) || entry.time.equals(endDate)) {
-                if (playerNameEnabledMap.get(entry.playerName) && !hiddenEntries.contains(entry)) {
-                    enabledEntries.add(entry);
+        for (Map.Entry<LocalDateTime, LogEntry> entry : logEntriesByTime.entrySet()) {
+            if ((entry.getKey().isAfter(startTime) && entry.getKey().isBefore(endTime)) || entry.getKey().equals(startTime) || entry.getKey().equals(endTime)) {
+                if (playerNameEnabledMap.get(entry.getValue().playerName) && entry.getValue().show) {
+                    enabledEntries.add(entry.getValue());
 
-                    if (!playerMarkerCount.containsKey(entry.playerName)) {
-                        playerMarkerCount.put(entry.playerName, 1);
+                    if (!playerMarkerCount.containsKey(entry.getValue().playerName)) {
+                        playerMarkerCount.put(entry.getValue().playerName, 1);
                     } else {
-                        playerMarkerCount.put(entry.playerName, playerMarkerCount.get(entry.playerName) + 1);
+                        playerMarkerCount.put(entry.getValue().playerName, playerMarkerCount.get(entry.getValue().playerName) + 1);
                     }
 
-                    if (!posActivityMap.containsKey(entry.position)) {
-                        posActivityMap.put(entry.position, 1);
+                    if (!posActivityMap.containsKey(entry.getValue().position)) {
+                        posActivityMap.put(entry.getValue().position, 1);
                     } else {
-                        int val = posActivityMap.get(entry.position) + 1;
-                        posActivityMap.put(entry.position, val);
+                        int val = posActivityMap.get(entry.getValue().position) + 1;
+                        posActivityMap.put(entry.getValue().position, val);
 
                         if (maxActivity < val) {
                             maxActivity = val;
@@ -770,48 +697,51 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
             }
         }
 
-        // repaint();
-
         shouldDraw = start;
 
-        if (shouldUpdateLog) Logger.info("Updated points: " + logEntries.size());
+        if (shouldUpdateLog) Logger.info("Updated points: " + logEntriesByTime.size());
     }
 
-    public void setData(Decoder dec) {
+    public void setData(DecodedData data) {
         Logger.info("Setting data to display");
 
-        _Decoder = dec;
-        logEntries = _Decoder.logEntries;
-        logDates = _Decoder.logDates;
-        timesCount = logDates.size();
+        startTime = data.startTime;
+        endTime = data.endTime;
 
-        Logger.info("Passed time getting");
+        logEntriesByTime = data.logEntriesByTime;
+        playerNameColorMap = data.playerNameColorMap;
+        playerLastPosMap = data.playerLastPosMap;
+        playerNameEnabledMap = data.playerNameEnabledMap;
 
-        // logEntriesGroupedByTime.clear();
+        logTimes = logEntriesByTime.keySet().toArray(new LocalDateTime[0]);
+        totalTimes = logTimes.length;
 
-        playerNameColorMap = _Decoder.playerNameColorMap;
+        minX = data.minX;
+        minY = data.minY;
+        maxX = data.maxX;
+        maxY = data.maxY;
+        xRange = data.xRange;
+        yRange = data.yRange;
 
-        playerLastPosMap = _Decoder.playerLastPosMap;
-        playerNameEnabledMap = _Decoder.playerNameEnabledMap;
-
-        minX = _Decoder.minX;
-        minY = _Decoder.minY;
-        maxX = _Decoder.maxX;
-        maxY = _Decoder.maxY;
-        xRange = _Decoder.xRange;
-        yRange = _Decoder.yRange;
         setPreferredSize(new Dimension(xRange, yRange));
 
-        zoomFactor = 0.5;
-        prevZoomFactor = 0.5;
-        curZoomFactor = 0.5;
+        zoomFactor = 1;
+        prevZoomFactor = 1;
+        curZoomFactor = 1;
+        curX = 0;
+        curY = 0;
+        xTarget = 0;
+        yTarget = 0;
 
-        totalData = logEntries.size();
-        Collections.sort(logEntries);
-        Logger.info("Passed sorting");
+        dataWorld = data.dataWorld;
+
+        totalData = logEntriesByTime.size();
 
         selectedEntryLabel.setText("Nothing Selected");
         selectedEntries.clear();
+
+        setCursor(Cursor.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR));
+        updatePoints();
 
         Logger.info("Successfully set data to display");
     }
@@ -894,7 +824,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
             if (selectedEntries.size() > 1) {
                 selectedEntryLabel.setText("Selected " + selectedEntries.size() + " points");
             } else if (selectedEntries.size() != 0) {
-                selectedEntryLabel.setText(selectedEntries.get(0).toString());
+                selectedEntryLabel.setText(selectedEntries.iterator().next().toString());
             }
         } else if (SwingUtilities.isRightMouseButton(e)) {
             showRightClickMenu(e.getPoint());
@@ -945,7 +875,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
         int selectedCount = 0;
         if (ctrlDown) {
-            for (LogEntry entry : logEntries) {
+            for (LogEntry entry : logEntriesByTime.values()) {
                 if ((shiftDown || !selectedEntries.contains(entry)) && entry.position.insideBounds(selectionStart, selectionEnd)) {
                     selectedEntries.add(entry);
 
@@ -973,33 +903,32 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
         rightClickMenu.add(hideButton);
         // add selected entries to the hidden entries list
-        hideButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        hideButton.addActionListener(e -> {
+            Executor executor = Executors.newSingleThreadExecutor();
+            executor.execute(() -> {
                 if (selectedEntries.size() == 0) {
-                    hiddenEntries.clear();
-                    hiddenEntries.addAll(enabledEntries);
+                    enabledEntries.forEach(entry -> entry.show = false);
                 } else {
-                    hiddenEntries.addAll(selectedEntries);
+                    selectedEntries.forEach(entry -> entry.show = false);
                 }
                 queuePointUpdate(true);
-            }
+            });
         });
 
         JMenuItem showButton = new JMenuItem("Show Points");
 
         rightClickMenu.add(showButton);
         // remove selected entries from the hidden entries list
-        showButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        showButton.addActionListener(e -> {
+            Executor executor = Executors.newSingleThreadExecutor();
+            executor.execute(() -> {
                 if (selectedEntries.size() == 0) {
-                    hiddenEntries.clear();
+                    enabledEntries.forEach(entry -> entry.show = true);
                 } else {
-                    hiddenEntries.removeAll(selectedEntries);
+                    selectedEntries.forEach(entry -> entry.show = true);
                 }
                 queuePointUpdate(true);
-            }
+            });
         });
 
         rightClickMenu.show(this, pos.x, pos.y);
@@ -1132,7 +1061,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
             Logger.warn("Outputs folder to save exported image didn't exist so it was just created with result: " + val);
         }
 
-        String name = settings._drawType + "-" + (screenshot ? "screenshot" : "export") + "-" + _Decoder.dataWorld + "-" + _Decoder.dataDate;
+        String name = settings._drawType + "-" + (screenshot ? "screenshot" : "export") + "-" + dataWorld;
         File[] outFiles = new File(PlayerTrackerDecoder.DIR_OUTPUTS + File.separatorChar).listFiles();
         int count = 0;
 
@@ -1216,10 +1145,8 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
     // endregion
 
     public void Reset() {
-        logEntries.clear();
-        logDates.clear();
-
-        // logEntriesGroupedByTime.clear();
+        logEntriesByTime.clear();
+        logTimes = new LocalDateTime[]{};
 
         playerNameColorMap.clear();
         playerLastPosMap.clear();

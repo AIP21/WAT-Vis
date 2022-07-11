@@ -1,10 +1,11 @@
 package src.main;
 
 import src.main.config.Settings;
-import src.main.util.LogEntry;
+import src.main.util.objects.DecodedData;
+import src.main.util.objects.LogEntry;
 import src.main.util.Logger;
 import src.main.util.Utils;
-import src.main.util.Vector3;
+import src.main.util.objects.Vector3;
 
 import java.awt.*;
 import java.io.BufferedReader;
@@ -17,67 +18,25 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Decoder {
-    public PlayerTrackerDecoder main;
-    private final Settings settings;
+    private static ArrayList<Color> generatedColors = new ArrayList<>();
 
-    private final Random rand = new Random();
+    public static DecodedData Decode(ArrayList<File> inputFiles, int maxEntries, boolean convertChunkPositions) {
+        Logger.info("Initializing new decoding process");
 
-    private final ArrayList<File> inputFiles = new ArrayList<>();
-    private final ArrayList<Color> generatedColors = new ArrayList<>();
-
-    public ArrayList<LogEntry> logEntries = new ArrayList<>();
-    public Map<String, Color> playerNameColorMap = new LinkedHashMap<>();
-    public Map<String, Boolean> playerNameEnabledMap = new LinkedHashMap<>();
-    public Map<String, Vector3> playerLastPosMap = new LinkedHashMap<>();
-    public Map<String, Integer> playerCountMap = new LinkedHashMap<>();
-    public ArrayList<LocalDateTime> logDates = new ArrayList<>();
-
-    public int minX;
-    public int maxX;
-    public int minY;
-    public int maxY;
-    public int xRange;
-    public int yRange;
-
-    public String dataWorld;
-    public String dataDate;
-
-    public File[] files;
-
-    private final boolean maxCheck;
-
-    public Decoder(Settings set) {
-
-        Logger.info("Initializing decoder subsystem");
-
-        settings = set;
-
-        maxCheck = settings.maxDataEntries != 0;
-
-        Logger.info("Successfully initialized decoder subsystem");
-    }
-
-    public void decode() {
         final long nowMs = System.currentTimeMillis();
+        final boolean limitEntries = maxEntries > 0;
 
-        if (files == null || files.length == 0) {
-            Logger.err("Error parsing log files and decoding data. They must be in the folder called \"inputs\" in the run directory");
-            return;
+        // Check if there are actually any input files
+        if (inputFiles == null || inputFiles.size() == 0) {
+            Logger.warn("Unable to load log files, no input files supplied.");
+            return null;
         }
 
-        Logger.info("Decoding data");
+        // Remove all directories and non .txt files
+        inputFiles.removeIf(file -> file.isDirectory() || (file.isFile() && !file.getName().endsWith(".txt")));
+        Logger.info("Pruned input data");
 
-        try {
-            for (File file : files) {
-                if (file.isFile() && file.getName().endsWith(".txt")) {
-                    inputFiles.add(file);
-//                        String str = file.getName().substring(file.getName().lastIndexOf('-') - 7, file.getName().lastIndexOf('-') + 3);
-                }
-            }
-        } catch (Exception e) {
-            Logger.err("Error fetching text log files:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
-        }
-
+        // Sort files by date
         inputFiles.sort(new Comparator<>() {
             @Override
             public int compare(File o1, File o2) {
@@ -90,116 +49,139 @@ public class Decoder {
                 return LocalDate.parse(name.substring(name.lastIndexOf('-') - 7, name.lastIndexOf('-') + 3), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
             }
         });
+        Logger.info("Sorted input data");
 
-        for (File inputFile : inputFiles) {
-            Logger.info("Decoding input file: " + inputFile.getName());
+        Logger.info("Successfully initialized new decoding process");
+
+        Logger.info("Decoding data...");
+
+        LinkedHashMap<LocalDateTime, LogEntry> logEntriesByTime = new LinkedHashMap<>();
+        HashMap<String, Color> playerNameColorMap = new HashMap<>();
+        HashMap<String, Boolean> playerNameEnabledMap = new HashMap<>();
+        HashMap<String, Vector3> playerLastPosMap = new HashMap<>();
+        HashMap<String, Integer> playerCountMap = new HashMap<>();
+        generatedColors.clear();
+        String dataWorld = null;
+        int minX = 0;
+        int maxX = 0;
+        int minY = 0;
+        int maxY = 0;
+
+        LocalDateTime startTime = null;
+        LocalDateTime endTime = null;
+
+        boolean reachedLimit = false;
+
+        int lines = 0;
+
+        for (File file : inputFiles) {
+//            if (PlayerTrackerDecoder.DEBUG) {
+            Logger.info("Decoding input file: " + file.getName());
+//            }
+
+            String fileDate = file.getName().substring(file.getName().lastIndexOf('-') - 7, file.getName().lastIndexOf('-') + 3) + ":";
+            if (dataWorld == null) {
+                dataWorld = file.getName().substring(0, file.getName().indexOf('-'));
+                Logger.info("Data world: " + dataWorld);
+            }
 
             try {
-                BufferedReader br = new BufferedReader(new FileReader(inputFile));
+                BufferedReader br = new BufferedReader(new FileReader(file));
                 String line;
-                while ((!maxCheck || logEntries.size() <= settings.maxDataEntries) && (line = br.readLine()) != null) {
+                while ((line = br.readLine()) != null) {
+                    if (limitEntries && logEntriesByTime.size() > maxEntries) {
+                        Logger.warn("Max configured data entries reached, stopped decoding");
+                        reachedLimit = true;
+                        break;
+                    }
+
                     if (line.charAt(line.length() - 1) != ';')
-                        line = line + ";";
+                        line += ';';
 
                     String[] items = line.split(";");
 
-                    LocalDateTime date;
+                    LocalDateTime dateTime;
                     if (items[0].length() < 8) {
-                        date = LocalDateTime.parse(inputFile.getName().substring(inputFile.getName().lastIndexOf('-') - 7, inputFile.getName().lastIndexOf('-') + 3) + ":" + items[0], DateTimeFormatter.ofPattern("yyyy-MM-dd:HH:mm"));
+                        dateTime = LocalDateTime.parse(fileDate + items[0], DateTimeFormatter.ofPattern("yyyy-MM-dd:HH:mm"));
                     } else {
-                        date = LocalDateTime.parse(inputFile.getName().substring(inputFile.getName().lastIndexOf('-') - 7, inputFile.getName().lastIndexOf('-') + 3) + ":" + items[0], DateTimeFormatter.ofPattern("yyyy-MM-dd:HH:mm:ss"));
+                        dateTime = LocalDateTime.parse(fileDate + items[0], DateTimeFormatter.ofPattern("yyyy-MM-dd:HH:mm:ss"));
                     }
 
-                    Vector3 position = items[2].contains("(") ? Vector3.parseVector3(items[2]) : Vector3.parseVector3FromChunk(items[2], settings.convertChunkPosToBlockPos);
+                    if (startTime == null) {
+                        startTime = dateTime;
+                    }
+                    endTime = dateTime;
 
-                    logEntries.add(new LogEntry(date, items[1], position));
-                    logDates.add(date);
+                    Vector3 position = Vector3.parseVector3(items[2], convertChunkPositions);
 
-                    String player = items[1];
+                    String playerName = items[1];
 
-                    playerNameColorMap.putIfAbsent(player, randomColor(0));
+                    logEntriesByTime.put(dateTime, new LogEntry(dateTime, playerName, position));
 
-                    playerNameEnabledMap.putIfAbsent(player, true);
-
-                    playerLastPosMap.putIfAbsent(player, logEntries.get(logEntries.size() - 1).position);
-
-                    if (!playerCountMap.containsKey(player))
-                        playerCountMap.put(player, 1);
-                    else {
-                        playerCountMap.put(player, playerCountMap.get(player) + 1);
+                    if (!playerNameColorMap.containsKey(playerName)) {
+                        playerNameColorMap.put(playerName, randomColor(0));
                     }
 
-                    if (logEntries.get(logEntries.size() - 1).position.x < minX)
-                        minX = logEntries.get(logEntries.size() - 1).position.x;
+                    playerNameEnabledMap.putIfAbsent(playerName, true);
 
-                    if (logEntries.get(logEntries.size() - 1).position.x > maxX)
-                        maxX = logEntries.get(logEntries.size() - 1).position.x;
+                    playerLastPosMap.putIfAbsent(playerName, position);
 
-                    if (logEntries.get(logEntries.size() - 1).position.z < minY)
-                        minY = logEntries.get(logEntries.size() - 1).position.z;
+                    playerCountMap.merge(playerName, 1, Integer::sum);
 
-                    if (logEntries.get(logEntries.size() - 1).position.z > maxY)
-                        maxY = logEntries.get(logEntries.size() - 1).position.z;
+                    if (position.x < minX)
+                        minX = position.x;
+
+                    if (position.x > maxX)
+                        maxX = position.x;
+
+                    if (position.z < minY)
+                        minY = position.z;
+
+                    if (position.z > maxY)
+                        maxY = position.z;
+
+                    lines++;
                 }
                 br.close();
             } catch (IOException e) {
                 Logger.err("Error reading input file:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
             }
 
-            if (maxCheck && logEntries.size() > settings.maxDataEntries) {
-                Logger.warn("Max configured data entries reached, decoding aborted");
+            if (reachedLimit)
                 break;
-            }
         }
 
-        Logger.info("dates: " + logDates.size());
+        Logger.info("Lines decoded: " + lines);
 
-        dataWorld = "";
-        String[] split = inputFiles.get(0).getName().split("-");
-        dataDate = inputFiles.get(0).getName().substring(inputFiles.get(0).getName().indexOf("-log-") + 5, inputFiles.get(0).getName().length() - 4) + " to " + inputFiles.get(inputFiles.size() - 1).getName().substring(inputFiles.get(inputFiles.size() - 1).getName().indexOf("-log-") + 5, inputFiles.get(inputFiles.size() - 1).getName().length() - 4);
-        if (split.length > 1) {
-            dataWorld = split[1];
-        }
-
-        xRange = maxX - minX;
-        yRange = maxY - minY;
+        int xRange = maxX - minX;
+        int yRange = maxY - minY;
         Logger.info("maxX: " + maxX + " minX: " + minX + "; maxY: " + maxY + " minY: " + minY);
-        Logger.info("xRange: " + xRange + " yRange: " + yRange);
+        Logger.info("xRange: " + xRange + ", yRange: " + yRange);
 
         final long durMs = System.currentTimeMillis() - nowMs;
 
-        Logger.info("Successfully decoded data. Loaded: " + logEntries.size() + " entries. Took " + durMs + "ms.");
+        Logger.info("Successfully decoded " + logEntriesByTime.size() + " entries. Took " + durMs + "ms");
+
+        return new DecodedData(logEntriesByTime, playerNameColorMap, playerNameEnabledMap, playerLastPosMap, playerCountMap, minX, maxX, minY, maxY, xRange, yRange, dataWorld, startTime, endTime);
     }
 
-    private Color randomColor(int iter) {
+    private static Color randomColor(int iter) {
         Color col = Utils.randColor();
-        if (settings.uiTheme == PlayerTrackerDecoder.UITheme.Light) {
+
+        // Modify the color to better fit the current ui theme
+        if (Settings.INSTANCE.uiTheme == PlayerTrackerDecoder.UITheme.Light) {
             col = col.darker();
         } else {
             col = col.brighter();
             col = col.brighter(); // Intentionally done twice
         }
-        if (containsSimilarColor(generatedColors, col) && iter < 100)
+
+        // Make sure that the color is not too similar to any other color
+        Color finalCol = col;
+        if (generatedColors.stream().anyMatch(x -> Utils.approximately(x, finalCol)) && iter < 100)
             return randomColor(iter + 1);
+
         generatedColors.add(col);
         return col;
-    }
-
-    private boolean containsSimilarColor(ArrayList<Color> listToCheck, Color colorToCheck) {
-        for (Color col : listToCheck) {
-            if (isSimilarColor(col, colorToCheck))
-                return true;
-        }
-        return false;
-    }
-
-    private boolean isSimilarColor(Color a, Color b) {
-        return (Utils.approximately(a.getRed(), b.getRed(), 20.0F) &&
-                Utils.approximately(a.getGreen(), b.getGreen(), 20.0F) &&
-                Utils.approximately(a.getBlue(), b.getBlue(), 20.0F));
-    }
-
-    public enum DrawType {
-        Pixel, Dot, Line, Heat
     }
 }

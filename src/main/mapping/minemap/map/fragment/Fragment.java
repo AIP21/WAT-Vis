@@ -11,15 +11,12 @@ import src.main.PlayerTrackerDecoder;
 import src.main.config.mapping.BiomeColorsConfig;
 import src.main.config.mapping.Configs;
 import src.main.mapping.minemap.map.MapContext;
-import src.main.mapping.minemap.util.data.DrawInfo;
+import src.main.util.objects.DrawInfo;
 import src.main.util.Utils;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 import java.util.function.Consumer;
 
 public class Fragment {

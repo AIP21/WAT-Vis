@@ -7,7 +7,7 @@ import com.seedfinding.mccore.version.MCVersion;
 import src.main.config.Settings;
 import src.main.config.mapping.Configs;
 import src.main.importing.filters.TextFileFilter;
-import src.main.mapping.minemap.util.data.Assets;
+import src.main.util.Assets;
 import src.main.ui.HelpForm;
 import src.main.ui.RangedSlider.RangeSlider;
 import src.main.ui.ImportForm;
@@ -30,14 +30,16 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class PlayerTrackerDecoder extends JFrame {
-    public static final String VERSION = "1.3.1-FR";
+    public static PlayerTrackerDecoder INSTANCE;
+
+    public static final String VERSION = "1.3.2-FR";
     public static String[] BUILD_INFO = new String[]{"NULL", "NULL", "NULL", "NULL", "NULL"};
 
     public static final String DIR_ROOT = System.getProperty("user.dir");
@@ -50,9 +52,6 @@ public class PlayerTrackerDecoder extends JFrame {
 
     public static boolean DEBUG = true;
 
-    public static PlayerTrackerDecoder INSTANCE;
-
-    private final Decoder decoder;
     public final Settings settings;
 
     public MainPanel mainPanel;
@@ -67,15 +66,14 @@ public class PlayerTrackerDecoder extends JFrame {
     private boolean alreadyImported = false;
     private boolean hasBackgroundImage = false;
 
-    public RangeSlider dateRangeSlider;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
-    public JLabel startDateLabel;
-    public JLabel endDateLabel;
+    //region UI elements
+    public RangeSlider timeRangeSlider;
+    public JLabel startTimeLabel;
+    public JLabel endTimeLabel;
     public JToggleButton animatePlayPause;
 
-    private JComboBox<Decoder.DrawType> drawTypeChooser;
-    private JComboBox<PlayerTrackerDecoder.HeatDrawType> heatDrawTypeChooser;
+    private JComboBox<DrawType> drawTypeChooser;
+    private JComboBox<HeatDrawType> heatDrawTypeChooser;
 
     private JPanel drawSizeComponent;
     private JLabel drawSizeTitle;
@@ -110,16 +108,16 @@ public class PlayerTrackerDecoder extends JFrame {
     private JLabel backgroundOpacityLabel;
     private JPanel backgroundImagePanel;
 
-    private File[] files;
-    private ArrayList<LocalDateTime> logDates;
+    //region Player pages
+    private JLabel playerPageLabel;
+    private int currentPlayerPageIndex = 0;
+    private int PLAYER_PAGE_CAPACITY = 12;
+    //endregion
+    //endregion
 
     private ImportForm importForm;
     private SettingsForm settingsForm;
     private HelpForm helpForm;
-
-    private JLabel playerPageLabel;
-    private int currentPlayerPageIndex = 0;
-    private int PLAYER_PAGE_CAPACITY = 12;
 
     //region Icons
     public static ImageIcon playIcon_L;
@@ -156,7 +154,6 @@ public class PlayerTrackerDecoder extends JFrame {
 
         Logger.info("Initializing primary subsystems");
         settings = new Settings();
-        decoder = new Decoder(settings);
 
         ClassLoader classLoader = getClass().getClassLoader();
 
@@ -284,7 +281,13 @@ public class PlayerTrackerDecoder extends JFrame {
         Logger.info("Successfully initialized all subsystems");
     }
 
-    // TODO SHOW THE LATEST POSITION, JUST TERMINUS POINTS BUT AS A STANDALONE MODE, GET RID OF INTELLIJ GRIDLAYOUT AND REPLACE THEM WITH GRIDBAGLAYOUT (thus allowing me to use maven), ADD CREDITS TO MINEMAP AND MOJANG DISCLAIMER TO REAMDE
+    // TODO:
+    //  SHOW THE LATEST POSITION, JUST TERMINUS POINTS BUT AS A STANDALONE MODE
+    //  GET RID OF INTELLIJ GRIDLAYOUT AND REPLACE THEM WITH GRIDBAGLAYOUT (thus allowing me to use maven)
+    //  ADD ABILITY TO SELECT A SINGLE ENTRY AND SEE ITS DATA IN A POPUP OVER THE POINT
+    //  ADD CREDITS TO THE ABOUT PAGE
+    //  ADD ACTIVITY GRAPHS
+    //  FIX ISSUE WHERE THE HYPIXEL DATA IS READ BUT NOT ACTUALLY USED, PROB DUPLICATE DATA?
 
     public static void main(String[] args) {
         createDirectories();
@@ -301,7 +304,7 @@ public class PlayerTrackerDecoder extends JFrame {
         Configs.registerConfigs();
 
         if (debug) {
-            Logger.warn("DEBUG MODE IS ON, PERFORMANCE MAY BE IMPACTED");
+            Logger.warn("DEBUG MODE IS ON, PERFORMANCE MAY BE AFFECTED");
         }
 
         EventQueue.invokeLater(() -> {
@@ -377,11 +380,11 @@ public class PlayerTrackerDecoder extends JFrame {
         if (newVersion != null) {
             Process ps;
             try {
-                if (!shouldUpdate) {
-                    ps = Runtime.getRuntime().exec(new String[]{"java", "-jar", newVersion, "-no-update"});
-                } else {
-                    ps = Runtime.getRuntime().exec(new String[]{"./" + newVersion, "-no-update"});
-                }
+//                if (!shouldUpdate) {
+                ps = Runtime.getRuntime().exec(new String[]{"java", "-jar", newVersion, "-no-update"});
+//                } else {
+//                    ps = Runtime.getRuntime().exec(new String[]{"./" + newVersion, "-no-update"});
+//                }
 
                 Logger.info(String.format("Process exited with %s", ps.waitFor()));
             } catch (Exception e) {
@@ -413,7 +416,6 @@ public class PlayerTrackerDecoder extends JFrame {
             }
         };
     }
-
 
     private void initMainFrame() {
         Logger.info("Initializing primary frame subsystem");
@@ -472,14 +474,12 @@ public class PlayerTrackerDecoder extends JFrame {
     }
 
     public void ConfirmImport(ArrayList<File> files, MCVersion worldVersion, com.seedfinding.mccore.state.Dimension dimension, int threadCount, String worldSeed, boolean overwrite) {
-        this.files = files.toArray(new File[0]);
-
         try {
             if (alreadyImported && overwrite) {
                 mainPanel.Reset();
             }
 
-            decodeAndDisplay();
+            decodeAndDisplay(files);
         } catch (IOException e) {
             Logger.err("Error decoding the selected input log files:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
@@ -497,7 +497,6 @@ public class PlayerTrackerDecoder extends JFrame {
     }
 
     public void ConfirmImport(ArrayList<File> files, BufferedImage worldImg, boolean overwrite) {
-        this.files = files.toArray(new File[0]);
         initializeWorldImage(worldImg);
 
         try {
@@ -505,7 +504,7 @@ public class PlayerTrackerDecoder extends JFrame {
                 mainPanel.Reset();
             }
 
-            decodeAndDisplay();
+            decodeAndDisplay(files);
         } catch (IOException e) {
             Logger.err("Error decoding the selected input log files:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
@@ -679,35 +678,33 @@ public class PlayerTrackerDecoder extends JFrame {
         gbc.weightx = 0.2;
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
-        dataPanel.add(new JLabel("Dates:   "), gbc);
+        dataPanel.add(new JLabel("Times:   "), gbc);
 
-        dateRangeSlider = new RangeSlider(0, logDates.size() - 1);
-        dateRangeSlider.setPreferredSize(new Dimension(600, 48));
-        dateRangeSlider.setValue(0);
-        dateRangeSlider.setUpperValue(logDates.size() - 1);
-        dateRangeSlider.setPaintTicks(false);
-        dateRangeSlider.setMajorTickSpacing(0);
-        dateRangeSlider.setMinorTickSpacing(0);
-        dateRangeSlider.setPaintLabels(false);
-        dateRangeSlider.setSnapToTicks(false);
-        startDate = logDates.get(0);
-        endDate = logDates.get(logDates.size() - 1);
-        startDateLabel = new JLabel(startDate.toString().replace("T", "; "));
-        endDateLabel = new JLabel(endDate.toString().replace("T", "; "));
-        dateRangeSlider.addChangeListener(e -> {
+        System.out.println(mainPanel.logTimes.length - 1);
+        timeRangeSlider = new RangeSlider(0, mainPanel.logTimes.length - 1);
+        timeRangeSlider.setPreferredSize(new Dimension(600, 48));
+        timeRangeSlider.setValue(0);
+        timeRangeSlider.setUpperValue(mainPanel.logTimes.length - 1);
+        timeRangeSlider.setPaintTicks(false);
+        timeRangeSlider.setMajorTickSpacing(0);
+        timeRangeSlider.setMinorTickSpacing(0);
+        timeRangeSlider.setPaintLabels(false);
+        timeRangeSlider.setSnapToTicks(false);
+
+        startTimeLabel = new JLabel(mainPanel.startTime.toString().replace("T", "; "));
+        endTimeLabel = new JLabel(mainPanel.endTime.toString().replace("T", "; "));
+        timeRangeSlider.addChangeListener(e -> {
             RangeSlider source = (RangeSlider) e.getSource();
             int value1 = source.getValue();
             int value2 = source.getUpperValue();
-            startDate = logDates.get(value1);
-            endDate = logDates.get(value2);
-            mainPanel.startDate = startDate;
-            mainPanel.endDate = endDate;
-            startDateLabel.setText(startDate.toString().replace("T", "; "));
-            endDateLabel.setText(endDate.toString().replace("T", "; "));
+            mainPanel.startTime = mainPanel.logTimes[value1];
+            mainPanel.endTime = mainPanel.logTimes[value2];
+            startTimeLabel.setText(mainPanel.startTime.toString().replace("T", "; "));
+            endTimeLabel.setText(mainPanel.endTime.toString().replace("T", "; "));
 
             if (!mainPanel.isPlaying) {
                 mainPanel.queuePointUpdate(true);
-                Logger.info("Changed date range slider: From " + startDate.toString() + " to " + endDate.toString());
+                Logger.info("Changed date range slider: From " + startTimeLabel.getText() + " to " + endTimeLabel.getText());
             }
         });
         gbc = new GridBagConstraints();
@@ -717,14 +714,14 @@ public class PlayerTrackerDecoder extends JFrame {
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
         gbc.anchor = GridBagConstraints.EAST;
-        dataPanel.add(startDateLabel, gbc);
+        dataPanel.add(startTimeLabel, gbc);
         gbc.gridx = 2;
         gbc.weightx = 1.0;
-        dataPanel.add(dateRangeSlider, gbc);
+        dataPanel.add(timeRangeSlider, gbc);
         gbc.gridx = 3;
         gbc.weightx = 0.5;
         gbc.insets = new Insets(0, 1, 0, 0);
-        dataPanel.add(endDateLabel, gbc);
+        dataPanel.add(endTimeLabel, gbc);
 
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
@@ -743,7 +740,7 @@ public class PlayerTrackerDecoder extends JFrame {
 
         animatePlayPause.addItemListener(ev -> {
             mainPanel.isPlaying = (ev.getStateChange() == ItemEvent.SELECTED);
-            mainPanel.dateTimeIndex = dateRangeSlider.getUpperValue();
+            mainPanel.dateTimeIndex = timeRangeSlider.getUpperValue();
 
             if (settings.uiTheme == UITheme.Light) {
                 animatePlayPause.setIcon(mainPanel.isPlaying ? pauseIcon_L : playIcon_L);
@@ -897,51 +894,58 @@ public class PlayerTrackerDecoder extends JFrame {
         JPanel renderPanel = new JPanel();
         renderPanel.setLayout(new GridBagLayout());
 
-        drawTypeChooser = new JComboBox<>(new Decoder.DrawType[]{Decoder.DrawType.Pixel, Decoder.DrawType.Dot, Decoder.DrawType.Line, Decoder.DrawType.Heat});
+        drawTypeChooser = new JComboBox<>(new DrawType[]{DrawType.Pixel, DrawType.Dot, DrawType.Line, DrawType.Heat, DrawType.Fast});
 //        drawTypeChooser.setPreferredSize(new Dimension(85, 24));
         drawTypeChooser.setSelectedItem(settings._drawType);
         drawTypeChooser.addActionListener(event -> {
-            settings._drawType = (Decoder.DrawType) drawTypeChooser.getSelectedItem();
+            settings._drawType = (DrawType) drawTypeChooser.getSelectedItem();
 //            if (drawSizeComponent != null) {
-//                drawSizeTitle.setEnabled(settings._drawType == Decoder.DrawType.Line || settings._drawType == Decoder.DrawType.Heat);
-//                drawSizeSlider.setEnabled(settings._drawType == Decoder.DrawType.Line || settings._drawType == Decoder.DrawType.Heat);
-//                drawSizeLabel.setEnabled(settings._drawType == Decoder.DrawType.Line || settings._drawType == Decoder.DrawType.Heat);
+//                drawSizeTitle.setEnabled(settings._drawType == DrawType.Line || settings._drawType == DrawType.Heat);
+//                drawSizeSlider.setEnabled(settings._drawType == DrawType.Line || settings._drawType == DrawType.Heat);
+//                drawSizeLabel.setEnabled(settings._drawType == DrawType.Line || settings._drawType == DrawType.Heat);
 //            }
             if (lineThresholdComponent != null) {
-                lineThresholdTitle.setEnabled(settings._drawType == Decoder.DrawType.Line);
-                lineThresholdSlider.setEnabled(settings._drawType == Decoder.DrawType.Line);
-                lineThresholdLabel.setEnabled(settings._drawType == Decoder.DrawType.Line);
+                lineThresholdTitle.setEnabled(settings._drawType == DrawType.Line);
+                lineThresholdSlider.setEnabled(settings._drawType == DrawType.Line);
+                lineThresholdLabel.setEnabled(settings._drawType == DrawType.Line);
             }
             if (terminusPointsToggle != null) {
-                terminusPointsToggle.setEnabled(settings._drawType == Decoder.DrawType.Line);
+                terminusPointsToggle.setEnabled(settings._drawType == DrawType.Line);
             }
             if (fancyLinesToggle != null) {
-                fancyLinesToggle.setEnabled(settings._drawType == Decoder.DrawType.Line);
+                fancyLinesToggle.setEnabled(settings._drawType == DrawType.Line);
             }
             if (showHiddenLinesToggle != null) {
-                showHiddenLinesToggle.setEnabled(settings._drawType == Decoder.DrawType.Line);
+                showHiddenLinesToggle.setEnabled(settings._drawType == DrawType.Line);
             }
 
             if (ageFadeToggle != null) {
-                ageFadeToggle.setEnabled(settings._drawType != Decoder.DrawType.Heat);
+                ageFadeToggle.setEnabled(settings._drawType != DrawType.Heat && settings._drawType != DrawType.Fast);
             }
             if (ageFadeComponent != null) {
-                ageFadeStrengthTitle.setEnabled(settings.ageFade && settings._drawType != Decoder.DrawType.Heat);
-                ageFadeStrengthSlider.setEnabled(settings.ageFade && settings._drawType != Decoder.DrawType.Heat);
-                ageFadeStrengthLabel.setEnabled(settings.ageFade && settings._drawType != Decoder.DrawType.Heat);
+                ageFadeStrengthTitle.setEnabled(settings.ageFade && settings._drawType != DrawType.Heat && settings._drawType != DrawType.Fast);
+                ageFadeStrengthSlider.setEnabled(settings.ageFade && settings._drawType != DrawType.Heat && settings._drawType != DrawType.Fast);
+                ageFadeStrengthLabel.setEnabled(settings.ageFade && settings._drawType != DrawType.Heat && settings._drawType != DrawType.Fast);
             }
 
             if (heatDrawTypeChooser != null) {
-                heatDrawTypeChooser.setEnabled(settings._drawType == Decoder.DrawType.Heat);
+                heatDrawTypeChooser.setEnabled(settings._drawType == DrawType.Heat);
             }
             if (heatMapComponent != null) {
-                heatMapStrengthTitle.setEnabled(settings._drawType == Decoder.DrawType.Heat);
-                heatMapStrengthSlider.setEnabled(settings._drawType == Decoder.DrawType.Heat);
-                heatMapStrengthLabel.setEnabled(settings._drawType == Decoder.DrawType.Heat);
+                heatMapStrengthTitle.setEnabled(settings._drawType == DrawType.Heat);
+                heatMapStrengthSlider.setEnabled(settings._drawType == DrawType.Heat);
+                heatMapStrengthLabel.setEnabled(settings._drawType == DrawType.Heat);
+            }
+
+            if (drawSizeSlider != null) {
+                drawSizeSlider.setEnabled(settings._drawType != DrawType.Fast);
+            }
+            if (drawSizeComponent != null) {
+                drawSizeComponent.setEnabled(settings._drawType != DrawType.Fast);
             }
 
 //            mainPanel.updatePoints(true);
-            drawSizeTitle.setText((settings._drawType == Decoder.DrawType.Dot) ? "Dot Radius" : ((settings._drawType == Decoder.DrawType.Pixel || settings._drawType == Decoder.DrawType.Heat) ? "Pixel Size" : ((settings._drawType == Decoder.DrawType.Line) ? "Line Thickness" : "   -")));
+            drawSizeTitle.setText((settings._drawType == DrawType.Dot) ? "Dot Radius" : ((settings._drawType == DrawType.Pixel || settings._drawType == DrawType.Heat) ? "Pixel Size" : ((settings._drawType == DrawType.Line) ? "Line Thickness" : "   ---")));
             settings.SaveSettings();
             mainPanel.repaint();
 
@@ -976,7 +980,7 @@ public class PlayerTrackerDecoder extends JFrame {
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
         renderPanel.add(heatDrawTypeChooser, gbc);
-        heatDrawTypeChooser.setEnabled(settings._drawType == Decoder.DrawType.Heat);
+        heatDrawTypeChooser.setEnabled(settings._drawType == DrawType.Heat);
 
         drawSizeComponent = new JPanel();
         gbc = new GridBagConstraints();
@@ -987,7 +991,7 @@ public class PlayerTrackerDecoder extends JFrame {
         gbc.fill = GridBagConstraints.BOTH;
         renderPanel.add(drawSizeComponent, gbc);
 
-        drawSizeTitle = new JLabel((settings._drawType == Decoder.DrawType.Dot) ? "Dot Radius" : ((settings._drawType == Decoder.DrawType.Pixel || settings._drawType == Decoder.DrawType.Heat) ? "Pixel Size" : ((settings._drawType == Decoder.DrawType.Line) ? "Line Thickness" : "-")));
+        drawSizeTitle = new JLabel((settings._drawType == DrawType.Dot) ? "Dot Radius" : ((settings._drawType == DrawType.Pixel || settings._drawType == DrawType.Heat) ? "Pixel Size" : ((settings._drawType == DrawType.Line) ? "Line Thickness" : "-")));
         drawSizeComponent.add(drawSizeTitle);
 
         drawSizeSlider = new JSlider(0, 0, 75, Utils.clamp((int) settings.size * 10, 0, 75)); //  Math.max(1, settings.size > 50 ? (int) (settings.size + (settings.size * 0.1f)) : 50)
@@ -1039,9 +1043,9 @@ public class PlayerTrackerDecoder extends JFrame {
 
             Logger.info("Changed line threshold to: " + settings.lineThreshold);
         });
-        lineThresholdTitle.setEnabled(settings._drawType == Decoder.DrawType.Line);
-        lineThresholdSlider.setEnabled(settings._drawType == Decoder.DrawType.Line);
-        lineThresholdLabel.setEnabled(settings._drawType == Decoder.DrawType.Line);
+        lineThresholdTitle.setEnabled(settings._drawType == DrawType.Line);
+        lineThresholdSlider.setEnabled(settings._drawType == DrawType.Line);
+        lineThresholdLabel.setEnabled(settings._drawType == DrawType.Line);
         lineThresholdComponent.add(lineThresholdSlider);
         lineThresholdComponent.add(lineThresholdLabel);
 
@@ -1073,9 +1077,9 @@ public class PlayerTrackerDecoder extends JFrame {
 
             Logger.info("Changed activity strength to: " + settings.heatMapStrength);
         });
-        heatMapStrengthTitle.setEnabled(settings._drawType == Decoder.DrawType.Heat);
-        heatMapStrengthSlider.setEnabled(settings._drawType == Decoder.DrawType.Heat);
-        heatMapStrengthLabel.setEnabled(settings._drawType == Decoder.DrawType.Heat);
+        heatMapStrengthTitle.setEnabled(settings._drawType == DrawType.Heat);
+        heatMapStrengthSlider.setEnabled(settings._drawType == DrawType.Heat);
+        heatMapStrengthLabel.setEnabled(settings._drawType == DrawType.Heat);
         heatMapComponent.add(heatMapStrengthTitle);
         heatMapComponent.add(heatMapStrengthSlider);
         heatMapComponent.add(heatMapStrengthLabel);
@@ -1108,9 +1112,9 @@ public class PlayerTrackerDecoder extends JFrame {
 
             Logger.info("Changed age fade strength to: " + settings.ageFadeStrength);
         });
-        ageFadeStrengthSlider.setEnabled(settings.ageFade && settings._drawType != Decoder.DrawType.Heat);
-        ageFadeStrengthTitle.setEnabled(settings.ageFade && settings._drawType != Decoder.DrawType.Heat);
-        ageFadeStrengthLabel.setEnabled(settings.ageFade && settings._drawType != Decoder.DrawType.Heat);
+        ageFadeStrengthSlider.setEnabled(settings.ageFade && settings._drawType != DrawType.Heat);
+        ageFadeStrengthTitle.setEnabled(settings.ageFade && settings._drawType != DrawType.Heat);
+        ageFadeStrengthLabel.setEnabled(settings.ageFade && settings._drawType != DrawType.Heat);
         ageFadeComponent.add(ageFadeStrengthTitle);
         ageFadeComponent.add(ageFadeStrengthSlider);
         ageFadeComponent.add(ageFadeStrengthLabel);
@@ -1121,7 +1125,7 @@ public class PlayerTrackerDecoder extends JFrame {
         ageFadeToggle.setMargin(new Insets(2, 2, 2, 2));
         ageFadeToggle.setBorder(BorderFactory.createEmptyBorder());
         ageFadeToggle.setBackground(new Color(0, 0, 0, 0));
-        ageFadeToggle.setEnabled(settings._drawType != Decoder.DrawType.Heat);
+        ageFadeToggle.setEnabled(settings._drawType != DrawType.Heat);
         gbc = new GridBagConstraints();
         gbc.gridx = 3;
         gbc.gridy = 0;
@@ -1140,9 +1144,9 @@ public class PlayerTrackerDecoder extends JFrame {
             } else {
                 ageFadeToggle.setIcon(settings.ageFade ? toggleIconON_D : toggleIconOFF_D);
             }
-            ageFadeStrengthSlider.setEnabled(settings.ageFade && settings._drawType != Decoder.DrawType.Heat);
-            ageFadeStrengthTitle.setEnabled(settings.ageFade && settings._drawType != Decoder.DrawType.Heat);
-            ageFadeStrengthLabel.setEnabled(settings.ageFade && settings._drawType != Decoder.DrawType.Heat);
+            ageFadeStrengthSlider.setEnabled(settings.ageFade && settings._drawType != DrawType.Heat);
+            ageFadeStrengthTitle.setEnabled(settings.ageFade && settings._drawType != DrawType.Heat);
+            ageFadeStrengthLabel.setEnabled(settings.ageFade && settings._drawType != DrawType.Heat);
 
             Logger.info("Toggled age fade to: " + settings.ageFade);
         });
@@ -1167,7 +1171,7 @@ public class PlayerTrackerDecoder extends JFrame {
 
             Logger.info("Toggled fancy lines to: " + settings.fancyLines);
         });
-        fancyLinesToggle.setEnabled(settings._drawType == Decoder.DrawType.Line);
+        fancyLinesToggle.setEnabled(settings._drawType == DrawType.Line);
         gbc = new GridBagConstraints();
         gbc.gridx = 3;
         gbc.gridy = 1;
@@ -1196,7 +1200,7 @@ public class PlayerTrackerDecoder extends JFrame {
 
             Logger.info("Toggled terminus points to: " + settings.terminusPoints);
         });
-        terminusPointsToggle.setEnabled(settings._drawType == Decoder.DrawType.Line);
+        terminusPointsToggle.setEnabled(settings._drawType == DrawType.Line);
         gbc = new GridBagConstraints();
         gbc.gridx = 4;
         gbc.gridy = 0;
@@ -1225,7 +1229,7 @@ public class PlayerTrackerDecoder extends JFrame {
 
             Logger.info("Toggled hidden lines to: " + settings.hiddenLines);
         });
-        showHiddenLinesToggle.setEnabled((settings._drawType == Decoder.DrawType.Line));
+        showHiddenLinesToggle.setEnabled((settings._drawType == DrawType.Line));
         gbc = new GridBagConstraints();
         gbc.gridx = 4;
         gbc.gridy = 1;
@@ -1308,40 +1312,23 @@ public class PlayerTrackerDecoder extends JFrame {
         Logger.info("Successfully initialized toolbar subsystem");
     }
 
-    private void decodeAndDisplay() throws IOException {
-        files = Arrays.stream(files).distinct().toList().toArray(new File[0]);
+    private void decodeAndDisplay(ArrayList<File> inputFiles) throws IOException {
+        ArrayList<File> files = (ArrayList<File>) inputFiles.stream().distinct().collect(Collectors.toList());
 
-        Logger.info("Selected files: " + files.length);
-        Logger.info("Decoding process started");
-
-        decoder.files = files;
-        decoder.main = this;
+        Logger.info("Selected files: " + files.size());
 
         Thread exec = new Thread(() -> {
             setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-            decoder.decode();
 
-            mainPanel.setSize(new Dimension(decoder.xRange, decoder.yRange));
+            mainPanel.setData(Objects.requireNonNull(Decoder.Decode(files, settings.maxDataEntries, settings.convertChunkPosToBlockPos)));
 
             setCursor(Cursor.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR));
-
-            logDates = decoder.logDates;
-            startDate = logDates.get(0);
-            endDate = logDates.get(logDates.size() - 1);
-
-            mainPanel.startDate = startDate;
-            mainPanel.endDate = endDate;
-            //mainPanel.selectedDate = selectedDate;
-            mainPanel.setData(decoder);
-            mainPanel.queuePointUpdate(true);
 
             initDataSettingsToolBar(alreadyImported);
             toolbar.setVisible(true);
             mainPanel.selectedEntryLabel.setVisible(true);
 
             mainPanel.shouldDraw = true;
-
-            Logger.info("Selected files: " + files.length);
 
             alreadyImported = true;
 
@@ -1353,6 +1340,10 @@ public class PlayerTrackerDecoder extends JFrame {
 
     public enum UITheme {
         Light, Dark
+    }
+
+    public enum DrawType {
+        Pixel, Dot, Line, Heat, Fast
     }
 
     public enum HeatDrawType {

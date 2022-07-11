@@ -1,6 +1,6 @@
 package src.main.config;
 
-import src.main.Decoder.DrawType;
+import src.main.PlayerTrackerDecoder.DrawType;
 import src.main.PlayerTrackerDecoder;
 import src.main.PlayerTrackerDecoder.HeatDrawType;
 import src.main.PlayerTrackerDecoder.UITheme;
@@ -14,11 +14,13 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 public class Settings {
+    public static Settings INSTANCE;
+
     public UITheme uiTheme = UITheme.Light;
     public float size = 1.0f;
     public boolean convertChunkPosToBlockPos = true;
     public int maxDataEntries = 0;
-    public DrawType _drawType = DrawType.Pixel;
+    public PlayerTrackerDecoder.DrawType _drawType = PlayerTrackerDecoder.DrawType.Pixel;
     public HeatDrawType _heatDrawType = HeatDrawType.Size;
     public float heatMapStrength = 1.0f;
     public int lineThreshold = 200;
@@ -37,6 +39,7 @@ public class Settings {
 
     public Settings() {
         Logger.info("Initializing settings subsystem");
+        INSTANCE = this;
 
         try {
             if (!(new File(PlayerTrackerDecoder.DIR_CONFIG + File.separatorChar + "config.txt")).exists()) {
@@ -71,11 +74,11 @@ public class Settings {
             writer.println("/// Player Tracker Decoder v" + PlayerTrackerDecoder.VERSION + " - CONFIG \\\\\\");
             writer.println("/// Delete this config file to reset values to their default settings \\\\\\\n");
 
-            writer.println("theme: " + themeToInt(uiTheme) + " // Change the UI theme (Light = 0, Dark = 1)");
+            writer.println("theme: " + themeToInt(uiTheme) + " // The UI theme (Light = 0, Dark = 1)");
             writer.println("fpsLimit: " + fpsLimit + " // The framerate limit");
-            writer.println("size: " + size + " // Change the position marker or line size");
+            writer.println("size: " + size + " // Change the marker size");
             writer.println("convertChunkPositions: " + convertChunkPosToBlockPos + " // Convert logged chunk positions into block positions, this is done by multiplying the chunk position by 16");
-            writer.println("maxEntries: " + maxDataEntries + " // The limit to the amount of data entries to compile into the final image or gif, useful when wanting a less-detailed, but quick output or when with low memory. Set to 0 to disable");
+            writer.println("maxEntries: " + maxDataEntries + " // The limit to the amount of data entries to decode and display. Set to 0 to disable");
             writer.println("drawType: " + drawTypeToInt(_drawType) + " // The way to represent the positions. 0 = Pixel, 1 = Dot, 2 = Lines, 3 = Heatmap");
             writer.println("lineThreshold: " + lineThreshold + " // The maximum distance a player can move until its position change doesn't draw a line. This is to fix issues where massive lines are drawn across the map when players nether travel or die.");
             writer.println("fancyLines: " + fancyLines + " // Show arrows at data points when drawing using lines");
@@ -96,15 +99,15 @@ public class Settings {
 
     }
 
-    private int drawTypeToInt(DrawType dt) {
-        if (dt == DrawType.Pixel) {
+    private int drawTypeToInt(PlayerTrackerDecoder.DrawType dt) {
+        if (dt == PlayerTrackerDecoder.DrawType.Pixel) {
             return 0;
-        } else if (dt == DrawType.Dot) {
+        } else if (dt == PlayerTrackerDecoder.DrawType.Dot) {
             return 1;
-        } else if (dt == DrawType.Line) {
+        } else if (dt == PlayerTrackerDecoder.DrawType.Line) {
             return 2;
         } else {
-            return dt == DrawType.Heat ? 3 : -1;
+            return dt == PlayerTrackerDecoder.DrawType.Heat ? 3 : -1;
         }
     }
 
@@ -199,13 +202,13 @@ public class Settings {
                         str = str.substring(0, str.indexOf(" //"));
                         val = Integer.parseInt(str);
                         if (val == 0) {
-                            _drawType = DrawType.Pixel;
+                            _drawType = PlayerTrackerDecoder.DrawType.Pixel;
                         } else if (val == 1) {
-                            _drawType = DrawType.Dot;
+                            _drawType = PlayerTrackerDecoder.DrawType.Dot;
                         } else if (val == 2) {
-                            _drawType = DrawType.Line;
+                            _drawType = PlayerTrackerDecoder.DrawType.Line;
                         } else if (val == 3) {
-                            _drawType = DrawType.Heat;
+                            _drawType = PlayerTrackerDecoder.DrawType.Heat;
                         }
 
                         count++;

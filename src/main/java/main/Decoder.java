@@ -18,7 +18,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Decoder {
-    private static ArrayList<Color> generatedColors = new ArrayList<>();
+    private static final ArrayList<Color> generatedColors = new ArrayList<>();
 
     public static DecodedData Decode(ArrayList<File> inputFiles, int maxEntries, boolean convertChunkPositions) {
         Logger.info("Initializing new decoding process");

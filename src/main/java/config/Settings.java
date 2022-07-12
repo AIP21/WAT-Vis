@@ -71,7 +71,7 @@ public class Settings {
 
         try {
             PrintWriter writer = new PrintWriter(PlayerTrackerDecoder.DIR_CONFIG + File.separatorChar + "config.txt", StandardCharsets.UTF_8);
-            writer.println("/// Player Tracker Decoder v" + PlayerTrackerDecoder.VERSION + " - CONFIG \\\\\\");
+            writer.println("/// WAT:Vis v" + PlayerTrackerDecoder.VERSION + " - CONFIG \\\\\\");
             writer.println("/// Delete this config file to reset values to their default settings \\\\\\\n");
 
             writer.println("theme: " + themeToInt(uiTheme) + " // The UI theme (Light = 0, Dark = 1)");
@@ -150,8 +150,8 @@ public class Settings {
         if (args.size() != 0) {
             for (String arg : args) {
                 String str;
-                if (arg.contains("/// Player Tracker Decoder v")) {
-                    str = arg.replace("/// Player Tracker Decoder v", "");
+                if (arg.contains("/// WAT:Vis v")) {
+                    str = arg.replace("/// WAT:Vis v", "");
                     str = str.substring(0, str.indexOf(" - "));
                     Logger.info(str + ", " + count);
 

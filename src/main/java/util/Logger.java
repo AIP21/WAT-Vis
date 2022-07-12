@@ -35,7 +35,7 @@ public class Logger {
 
             Logger.info("Initialing logger");
 
-            Logger.info(String.format("Player Tracker Decoder App v%s ; %s", PlayerTrackerDecoder.VERSION, new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z").format(new Date(System.currentTimeMillis()))));
+            Logger.info(String.format("WAT:Vis - v%s; %s", PlayerTrackerDecoder.VERSION, new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z").format(new Date(System.currentTimeMillis()))));
 
             RuntimeMXBean runtimeBean = ManagementFactory.getRuntimeMXBean();
 

@@ -5,12 +5,20 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>anipGames</groupId>
-    <artifactId>WAT</artifactId>
+    <artifactId>WAT-Vis</artifactId>
     <version>1.4.0</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
-    
+
+    <name>WAT:Vis</name>
+    <description>WAT:Vis (Where are they? : Visualizer) is a tool to decode player positional data and visualize it in an intuitive and interactive way while also providing incredibly useful analytical insights for game developers and game server owners.</description>
+    <url>https://github.com/AIP21/WAT-Vis</url>
+    <licenses>
+        <license>
+            <name>MIT License</name>
+        </license>
+    </licenses>
 </project>

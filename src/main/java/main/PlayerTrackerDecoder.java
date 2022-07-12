@@ -1,5 +1,6 @@
 package main;
 
+import IO.Icons;
 import com.formdev.flatlaf.FlatDarculaLaf;
 import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.seedfinding.mccore.util.data.Pair;
@@ -15,7 +16,6 @@ import ui.SettingsForm;
 import util.Logger;
 import util.Utils;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.dnd.DnDConstants;
@@ -38,7 +38,11 @@ import java.util.stream.Collectors;
 
 public class PlayerTrackerDecoder extends JFrame {
     public static PlayerTrackerDecoder INSTANCE;
+    public final Settings settings;
 
+    public MainPanel mainPanel;
+
+    //region Static variables
     public static final String VERSION = "1.3.2-FR";
     public static String[] BUILD_INFO = new String[]{"NULL", "NULL", "NULL", "NULL", "NULL"};
 
@@ -51,17 +55,17 @@ public class PlayerTrackerDecoder extends JFrame {
     public final static String DIR_DL = DIR_ROOT + File.separatorChar + ".downloads";
 
     public static boolean DEBUG = true;
+    //endregion
 
-    public final Settings settings;
-
-    public MainPanel mainPanel;
-
+    //region Menus
     private JMenuBar menuBar;
     private JMenuItem dataFileImportButton;
+    private JMenuItem insightsButton;
     private JMenuItem settingsButton;
     private JMenuItem helpButton;
     private final JToolBar toolbar;
     private JTabbedPane tabbedPane;
+    //endregion
 
     private boolean alreadyImported = false;
     private boolean hasBackgroundImage = false;
@@ -115,47 +119,21 @@ public class PlayerTrackerDecoder extends JFrame {
     //endregion
     //endregion
 
+    //region Forms
     private ImportForm importForm;
     private SettingsForm settingsForm;
     private HelpForm helpForm;
-
-    //region Icons
-    public static ImageIcon playIcon_L;
-    public static ImageIcon playIcon_D;
-    public static ImageIcon replayIcon_L;
-    public static ImageIcon replayIcon_D;
-    public static ImageIcon speedIcon_L;
-    public static ImageIcon speedIcon_D;
-    public static ImageIcon pauseIcon_L;
-    public static ImageIcon pauseIcon_D;
-    public static ImageIcon importIcon_L;
-    public static ImageIcon importIcon_D;
-    public static ImageIcon exportIcon_L;
-    public static ImageIcon exportIcon_D;
-    public static ImageIcon screenshotIcon_L;
-    public static ImageIcon screenshotIcon_D;
-    public static ImageIcon toggleIconON_L;
-    public static ImageIcon toggleIconON_D;
-    public static ImageIcon toggleIconOFF_L;
-    public static ImageIcon toggleIconOFF_D;
-    public static ImageIcon settingsIcon_L;
-    public static ImageIcon settingsIcon_D;
-    public static ImageIcon helpIcon_L;
-    public static ImageIcon helpIcon_D;
-    public static ImageIcon lightThemeIcon;
-    public static ImageIcon darkThemeIcon;
     //endregion
 
     public PlayerTrackerDecoder(boolean debug) {
         DEBUG = debug;
         String[] buildInfo = Assets.getCurrentBuildInfo();
-        if (buildInfo != null)
-            BUILD_INFO = buildInfo;
+        if (buildInfo != null) BUILD_INFO = buildInfo;
 
         Logger.info("Initializing primary subsystems");
         settings = new Settings();
 
-        loadResources();
+        Icons iconManager = new Icons();
 
         initMainFrame();
 
@@ -173,7 +151,7 @@ public class PlayerTrackerDecoder extends JFrame {
 
         dataFileImportButton = new JMenuItem("");
         dataFileImportButton.setToolTipText("Import Data");
-        dataFileImportButton.setIcon(importIcon_L);
+        dataFileImportButton.setIcon(Icons.getIcon("import"));
         dataFileImportButton.setPreferredSize(new Dimension(48, 48));
         dataFileImportButton.setMinimumSize(new Dimension(47, 47));
         menuButtons.add(dataFileImportButton);
@@ -192,9 +170,23 @@ public class PlayerTrackerDecoder extends JFrame {
             importForm.setVisible(true);
         });
 
+        insightsButton = new JMenuItem("");
+        insightsButton.setToolTipText("Show Insights Dashboard");
+        insightsButton.setIcon(Icons.getIcon("insights"));
+        insightsButton.setPreferredSize(new Dimension(48, 48));
+        insightsButton.setMinimumSize(new Dimension(47, 47));
+        menuButtons.add(insightsButton);
+        insightsButton.addActionListener((event) -> {
+            mainPanel.isPlaying = false;
+
+            importForm = new ImportForm(this, settings, alreadyImported);
+            importForm.setLocationRelativeTo(this);
+            importForm.setVisible(true);
+        });
+
         settingsButton = new JMenuItem("");
         settingsButton.setToolTipText("Open Settings Pane");
-        settingsButton.setIcon(settingsIcon_L);
+        settingsButton.setIcon(Icons.getIcon("settings"));
         settingsButton.setPreferredSize(new Dimension(48, 48));
         settingsButton.setMinimumSize(new Dimension(47, 47));
         menuButtons.add(settingsButton);
@@ -212,7 +204,7 @@ public class PlayerTrackerDecoder extends JFrame {
             settingsForm.setVisible(true);
         });
 
-        helpButton = new JMenuItem(helpIcon_L);
+        helpButton = new JMenuItem(Icons.getIcon("help"));
         helpButton.setToolTipText("Open Help Pane");
         helpButton.setPreferredSize(new Dimension(48, 48));
         helpButton.setMinimumSize(new Dimension(47, 47));
@@ -282,46 +274,6 @@ public class PlayerTrackerDecoder extends JFrame {
                 INSTANCE.setVisible(true);
             }
         });
-    }
-
-    private void loadResources(){
-        ClassLoader classLoader = getClass().getClassLoader();
-
-        try {
-            Logger.info("Loading resources");
-            final long nowMs = System.currentTimeMillis();
-
-            playIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("icons/play.png"))).getScaledInstance(24, 24, 4), "Play");
-            playIcon_D = new ImageIcon(Utils.invertImage(playIcon_L.getImage()), "Play");
-            pauseIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("icons/pause.png"))).getScaledInstance(24, 24, 4), "Pause");
-            pauseIcon_D = new ImageIcon(Utils.invertImage(pauseIcon_L.getImage()), "Pause");
-            replayIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("icons/replay.png"))).getScaledInstance(24, 24, 4), "Replay");
-            replayIcon_D = new ImageIcon(Utils.invertImage(replayIcon_L.getImage()), "Replay");
-            speedIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("icons/fastForward.png"))).getScaledInstance(24, 24, 4), "Fast Forward");
-            speedIcon_D = new ImageIcon(Utils.invertImage(speedIcon_L.getImage()), "Fast Forward");
-            importIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("icons/import.png"))).getScaledInstance(24, 24, 4), "Import");
-            importIcon_D = new ImageIcon(Utils.invertImage(importIcon_L.getImage()), "Import");
-            exportIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("icons/export.png"))).getScaledInstance(24, 24, 4), "Export Image");
-            exportIcon_D = new ImageIcon(Utils.invertImage(exportIcon_L.getImage()), "Export Image");
-            screenshotIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("icons/screenshot.png"))).getScaledInstance(24, 24, 4), "Take Screenshot");
-            screenshotIcon_D = new ImageIcon(Utils.invertImage(screenshotIcon_L.getImage()), "Take Screenshot");
-            toggleIconON_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("icons/toggle-true.png"))).getScaledInstance(24, 24, 4), "Disable");
-            toggleIconON_D = new ImageIcon(Utils.invertImage(toggleIconON_L.getImage()), "Disable");
-            toggleIconOFF_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("icons/toggle-false.png"))).getScaledInstance(24, 24, 4), "Enable");
-            toggleIconOFF_D = new ImageIcon(Utils.invertImage(toggleIconOFF_L.getImage()), "Enable");
-            settingsIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("icons/settings.png"))).getScaledInstance(24, 24, 4), "Off");
-            settingsIcon_D = new ImageIcon(Utils.invertImage(settingsIcon_L.getImage()), "Off");
-            helpIcon_L = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("icons/help.png"))).getScaledInstance(24, 24, 4), "Help");
-            helpIcon_D = new ImageIcon(Utils.invertImage(helpIcon_L.getImage()), "Help");
-            lightThemeIcon = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("icons/lightThemeIcon.png"))).getScaledInstance(177, 118, 4), "Off");
-            darkThemeIcon = new ImageIcon(ImageIO.read(Objects.requireNonNull(classLoader.getResource("icons/darkThemeIcon.png"))).getScaledInstance(177, 118, 4), "Off");
-
-            final long durMs = System.currentTimeMillis() - nowMs;
-
-            Logger.info("Successfully loaded resources in " + durMs + "ms");
-        } catch (Exception e) {
-            Logger.err("Error loading icon resources:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
-        }
     }
 
     public static void createDirectories() {
@@ -441,7 +393,7 @@ public class PlayerTrackerDecoder extends JFrame {
             Logger.err("Error setting system look and feel for UI:\n " + Arrays.toString(e.getStackTrace()));
         }
 
-        setTitle("Player Tracker Decoder App - v" + VERSION);
+        setTitle("WAT:Vis - v" + VERSION);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(new Dimension(1280, 720));
         setMinimumSize(new Dimension(1280, 720));
@@ -609,46 +561,47 @@ public class PlayerTrackerDecoder extends JFrame {
         settings.uiTheme = newTheme;
         settings.SaveSettings();
 
-        dataFileImportButton.setIcon(newTheme == PlayerTrackerDecoder.UITheme.Light ? importIcon_L : importIcon_D);
-        settingsButton.setIcon(newTheme == PlayerTrackerDecoder.UITheme.Light ? settingsIcon_L : settingsIcon_D);
-        helpButton.setIcon(newTheme == PlayerTrackerDecoder.UITheme.Light ? helpIcon_L : helpIcon_D);
+        dataFileImportButton.setIcon(Icons.getIcon("import"));
+        insightsButton.setIcon(Icons.getIcon("insights"));
+        settingsButton.setIcon(Icons.getIcon("settings"));
+        helpButton.setIcon(Icons.getIcon("help"));
 
         if (exportAsImageButton != null) {
-            exportAsImageButton.setIcon(newTheme == PlayerTrackerDecoder.UITheme.Light ? exportIcon_L : exportIcon_D);
+            exportAsImageButton.setIcon(Icons.getIcon("export"));
         }
 
         if (screenshotButton != null) {
-            screenshotButton.setIcon(newTheme == PlayerTrackerDecoder.UITheme.Light ? screenshotIcon_L : screenshotIcon_D);
+            screenshotButton.setIcon(Icons.getIcon("screenshot"));
         }
 
         if (mainPanel.isPlaying && animatePlayPause != null) {
-            animatePlayPause.setIcon(newTheme == PlayerTrackerDecoder.UITheme.Light ? pauseIcon_L : pauseIcon_D);
+            animatePlayPause.setIcon(Icons.getIcon("pause"));
         } else if (animatePlayPause != null) {
-            animatePlayPause.setIcon(newTheme == PlayerTrackerDecoder.UITheme.Light ? playIcon_L : playIcon_D);
+            animatePlayPause.setIcon(Icons.getIcon("play"));
         }
 
         if (settings.terminusPoints && terminusPointsToggle != null) {
-            terminusPointsToggle.setIcon(newTheme == PlayerTrackerDecoder.UITheme.Light ? toggleIconON_L : toggleIconON_D);
+            terminusPointsToggle.setIcon(Icons.getIcon("toggle-true"));
         } else if (terminusPointsToggle != null) {
-            terminusPointsToggle.setIcon(newTheme == PlayerTrackerDecoder.UITheme.Light ? toggleIconOFF_L : toggleIconOFF_D);
+            terminusPointsToggle.setIcon(Icons.getIcon("toggle-false"));
         }
 
         if (settings.hiddenLines && terminusPointsToggle != null) {
-            showHiddenLinesToggle.setIcon(newTheme == PlayerTrackerDecoder.UITheme.Light ? toggleIconON_L : toggleIconON_D);
+            showHiddenLinesToggle.setIcon(Icons.getIcon("toggle-true"));
         } else if (showHiddenLinesToggle != null) {
-            showHiddenLinesToggle.setIcon(newTheme == PlayerTrackerDecoder.UITheme.Light ? toggleIconOFF_L : toggleIconOFF_D);
+            showHiddenLinesToggle.setIcon(Icons.getIcon("toggle-false"));
         }
 
         if (settings.fancyLines && fancyLinesToggle != null) {
-            fancyLinesToggle.setIcon(newTheme == PlayerTrackerDecoder.UITheme.Light ? toggleIconON_L : toggleIconON_D);
+            fancyLinesToggle.setIcon(Icons.getIcon("toggle-true"));
         } else if (fancyLinesToggle != null) {
-            fancyLinesToggle.setIcon(newTheme == PlayerTrackerDecoder.UITheme.Light ? toggleIconOFF_L : toggleIconOFF_D);
+            fancyLinesToggle.setIcon(Icons.getIcon("toggle-false"));
         }
 
         if (settings.ageFade && terminusPointsToggle != null) {
-            ageFadeToggle.setIcon(newTheme == PlayerTrackerDecoder.UITheme.Light ? toggleIconON_L : toggleIconON_D);
+            ageFadeToggle.setIcon(Icons.getIcon("toggle-true"));
         } else if (ageFadeToggle != null) {
-            ageFadeToggle.setIcon(newTheme == PlayerTrackerDecoder.UITheme.Light ? toggleIconOFF_L : toggleIconOFF_D);
+            ageFadeToggle.setIcon(Icons.getIcon("toggle-false"));
         }
 
         try {
@@ -743,7 +696,7 @@ public class PlayerTrackerDecoder extends JFrame {
         dataPanel.add(new JLabel("Animate:", JLabel.RIGHT), gbc);
 
         animatePlayPause = new JToggleButton("", false);
-        animatePlayPause.setIcon(mainPanel.isPlaying ? pauseIcon_L : playIcon_L);
+        animatePlayPause.setIcon(mainPanel.isPlaying ? Icons.getIcon("pause") : Icons.getIcon("play"));
         animatePlayPause.setPreferredSize(new Dimension(24, 24));
         animatePlayPause.setMargin(new Insets(2, 2, 2, 2));
         animatePlayPause.setBorder(BorderFactory.createEmptyBorder());
@@ -753,11 +706,7 @@ public class PlayerTrackerDecoder extends JFrame {
             mainPanel.isPlaying = (ev.getStateChange() == ItemEvent.SELECTED);
             mainPanel.dateTimeIndex = timeRangeSlider.getUpperValue();
 
-            if (settings.uiTheme == UITheme.Light) {
-                animatePlayPause.setIcon(mainPanel.isPlaying ? pauseIcon_L : playIcon_L);
-            } else {
-                animatePlayPause.setIcon(mainPanel.isPlaying ? pauseIcon_D : playIcon_D);
-            }
+            animatePlayPause.setIcon(mainPanel.isPlaying ? Icons.getIcon("pause") : Icons.getIcon("play"));
             Logger.info(mainPanel.isPlaying ? "Started playing animation" : "Stopped playing animation");
         });
 
@@ -1131,7 +1080,7 @@ public class PlayerTrackerDecoder extends JFrame {
         ageFadeComponent.add(ageFadeStrengthLabel);
 
         ageFadeToggle = new JToggleButton("Age Fade", settings.ageFade);
-        ageFadeToggle.setIcon(settings.ageFade ? toggleIconON_L : toggleIconOFF_L);
+        ageFadeToggle.setIcon(settings.ageFade ? Icons.getIcon("toggle-true") : Icons.getIcon("toggle-false"));
 //        ageFadeToggle.setPreferredSize(new Dimension(24, 24));
         ageFadeToggle.setMargin(new Insets(2, 2, 2, 2));
         ageFadeToggle.setBorder(BorderFactory.createEmptyBorder());
@@ -1150,11 +1099,8 @@ public class PlayerTrackerDecoder extends JFrame {
             mainPanel.repaint();
             settings.SaveSettings();
 
-            if (settings.uiTheme == UITheme.Light) {
-                ageFadeToggle.setIcon(settings.ageFade ? toggleIconON_L : toggleIconOFF_L);
-            } else {
-                ageFadeToggle.setIcon(settings.ageFade ? toggleIconON_D : toggleIconOFF_D);
-            }
+            ageFadeToggle.setIcon(settings.ageFade ? Icons.getIcon("toggle-true") : Icons.getIcon("toggle-false"));
+
             ageFadeStrengthSlider.setEnabled(settings.ageFade && settings._drawType != DrawType.Heat);
             ageFadeStrengthTitle.setEnabled(settings.ageFade && settings._drawType != DrawType.Heat);
             ageFadeStrengthLabel.setEnabled(settings.ageFade && settings._drawType != DrawType.Heat);
@@ -1163,7 +1109,7 @@ public class PlayerTrackerDecoder extends JFrame {
         });
 
         fancyLinesToggle = new JToggleButton("Fancy Lines", settings.fancyLines);
-        fancyLinesToggle.setIcon(settings.fancyLines ? toggleIconON_L : toggleIconOFF_L);
+        fancyLinesToggle.setIcon(settings.fancyLines ? Icons.getIcon("toggle-true") : Icons.getIcon("toggle-false"));
 //        fancyLinesToggle.setPreferredSize(new Dimension(24, 24));
         fancyLinesToggle.setMargin(new Insets(2, 2, 2, 2));
         fancyLinesToggle.setBorder(BorderFactory.createEmptyBorder());
@@ -1174,11 +1120,7 @@ public class PlayerTrackerDecoder extends JFrame {
             mainPanel.repaint();
             settings.SaveSettings();
 
-            if (settings.uiTheme == UITheme.Light) {
-                fancyLinesToggle.setIcon(settings.fancyLines ? toggleIconON_L : toggleIconOFF_L);
-            } else {
-                fancyLinesToggle.setIcon(settings.fancyLines ? toggleIconON_D : toggleIconOFF_D);
-            }
+            fancyLinesToggle.setIcon(settings.fancyLines ? Icons.getIcon("toggle-true") : Icons.getIcon("toggle-false"));
 
             Logger.info("Toggled fancy lines to: " + settings.fancyLines);
         });
@@ -1192,7 +1134,7 @@ public class PlayerTrackerDecoder extends JFrame {
         renderPanel.add(fancyLinesToggle, gbc);
 
         terminusPointsToggle = new JToggleButton("Terminus Points", settings.terminusPoints);
-        terminusPointsToggle.setIcon(settings.terminusPoints ? toggleIconON_L : toggleIconOFF_L);
+        terminusPointsToggle.setIcon(settings.terminusPoints ? Icons.getIcon("toggle-true") : Icons.getIcon("toggle-false"));
 //        terminusPointsToggle.setPreferredSize(new Dimension(24, 24));
         terminusPointsToggle.setMargin(new Insets(2, 2, 2, 2));
         terminusPointsToggle.setBorder(BorderFactory.createEmptyBorder());
@@ -1203,11 +1145,7 @@ public class PlayerTrackerDecoder extends JFrame {
             mainPanel.repaint();
             settings.SaveSettings();
 
-            if (settings.uiTheme == UITheme.Light) {
-                terminusPointsToggle.setIcon(settings.terminusPoints ? toggleIconON_L : toggleIconOFF_L);
-            } else {
-                terminusPointsToggle.setIcon(settings.terminusPoints ? toggleIconON_D : toggleIconOFF_D);
-            }
+            terminusPointsToggle.setIcon(settings.terminusPoints ? Icons.getIcon("toggle-true") : Icons.getIcon("toggle-false"));
 
             Logger.info("Toggled terminus points to: " + settings.terminusPoints);
         });
@@ -1221,7 +1159,7 @@ public class PlayerTrackerDecoder extends JFrame {
         renderPanel.add(terminusPointsToggle, gbc);
 
         showHiddenLinesToggle = new JToggleButton("Show Hidden Lines", settings.hiddenLines);
-        showHiddenLinesToggle.setIcon(settings.hiddenLines ? toggleIconON_L : toggleIconOFF_L);
+        showHiddenLinesToggle.setIcon(settings.hiddenLines ? Icons.getIcon("toggle-true") : Icons.getIcon("toggle-false"));
 //        showHiddenLinesToggle.setPreferredSize(new Dimension(24, 24));
         showHiddenLinesToggle.setMargin(new Insets(2, 2, 2, 2));
         showHiddenLinesToggle.setBorder(BorderFactory.createEmptyBorder());
@@ -1232,11 +1170,7 @@ public class PlayerTrackerDecoder extends JFrame {
             mainPanel.repaint();
             settings.SaveSettings();
 
-            if (settings.uiTheme == UITheme.Light) {
-                showHiddenLinesToggle.setIcon(settings.hiddenLines ? toggleIconON_L : toggleIconOFF_L);
-            } else {
-                showHiddenLinesToggle.setIcon(settings.hiddenLines ? toggleIconON_D : toggleIconOFF_D);
-            }
+            showHiddenLinesToggle.setIcon(settings.hiddenLines ? Icons.getIcon("toggle-true") : Icons.getIcon("toggle-false"));
 
             Logger.info("Toggled hidden lines to: " + settings.hiddenLines);
         });
@@ -1268,7 +1202,7 @@ public class PlayerTrackerDecoder extends JFrame {
         exportPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
         screenshotButton = new JButton();
-        screenshotButton.setIcon(screenshotIcon_L);
+        screenshotButton.setIcon(Icons.getIcon("screenshot"));
         screenshotButton.setBackground(new Color(0, 0, 0, 0));
         screenshotButton.setPreferredSize(new Dimension(48, 48));
         screenshotButton.setMargin(new Insets(2, 2, 2, 2));
@@ -1278,7 +1212,7 @@ public class PlayerTrackerDecoder extends JFrame {
         exportPanel.add(screenshotButton);
 
         exportAsImageButton = new JButton();
-        exportAsImageButton.setIcon(exportIcon_L);
+        exportAsImageButton.setIcon(Icons.getIcon("export"));
         exportAsImageButton.setBackground(new Color(0, 0, 0, 0));
         exportAsImageButton.setPreferredSize(new Dimension(48, 48));
         exportAsImageButton.setMargin(new Insets(2, 2, 2, 2));

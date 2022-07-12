@@ -79,10 +79,10 @@ public class HelpForm extends JDialog {
                   <body>
                     <center>
                       <font face="Segoe UI">
-                        <b>Player Tracker Decoder</b> is a tool to decode the data logged in the format used by the Minecraft mod WAT (Where are they?)<br>
-                        <a href="https://github.com/AIP21/TrackerDecoderApp">Github Page</a><br>
-                        <a href="https://github.com/AIP21/WAT-mod">WAT mod Github Page</a><br>
-                        <a href="https://modrinth.com/mod/wat">WAT mod Modrinth Page</a><br>
+                        <b>WAT:Vis (Where are they? : Visualizer)</b> is a tool to decode player positional data and visualize it in an intuitive and interactive way while also providing incredibly useful analytical insights for game developers and game server owners.<br>
+                        <a href="https://github.com/AIP21/WAT-Vis">Github page for this tool</a><br>
+                        <br>
+                        <a href="https://github.com/AIP21/WAT-mod">Github page for the WAT Logging Minecraft mod, which produces data that this tool can visualize.</a><br>
                         <br>
                 """ + String.format("Version %s with build id %s, built on %s<br> <a href=\"%s\">Release URL</a><br> Release notes: %s <br>", PlayerTrackerDecoder.VERSION, PlayerTrackerDecoder.BUILD_INFO[0], PlayerTrackerDecoder.BUILD_INFO[1], PlayerTrackerDecoder.BUILD_INFO[2], PlayerTrackerDecoder.BUILD_INFO[3]) + """
                       </font>

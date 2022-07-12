@@ -1,5 +1,6 @@
 package ui;
 
+import IO.Icons;
 import main.PlayerTrackerDecoder;
 import main.PlayerTrackerDecoder.UITheme;
 import config.Settings;
@@ -83,7 +84,7 @@ public class SettingsForm extends JDialog {
         settingsPanel.add(themeButtonContainer, gbc);
 
         lightThemeButton = new JToggleButton("", settings.uiTheme == UITheme.Light);
-        lightThemeButton.setIcon(main.lightThemeIcon);
+        lightThemeButton.setIcon(Icons.getIcon("lightThemePreview"));
         lightThemeButton.setToolTipText("Use a light ui theme");
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
@@ -95,7 +96,7 @@ public class SettingsForm extends JDialog {
         themeButtonContainer.add(lightThemeButton, gbc);
 
         darkThemeButton = new JToggleButton("", settings.uiTheme == UITheme.Dark);
-        darkThemeButton.setIcon(main.darkThemeIcon);
+        darkThemeButton.setIcon(Icons.getIcon("darkThemePreview"));
         darkThemeButton.setToolTipText("Use a dark ui theme");
         gbc.gridx = 1;
         gbc.gridy = 0;

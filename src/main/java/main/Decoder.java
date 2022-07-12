@@ -8,10 +8,7 @@ import util.Utils;
 import util.objects.Vector3;
 
 import java.awt.*;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -22,7 +19,13 @@ public class Decoder {
 
     public static DecodedData Decode(ArrayList<File> inputFiles, int maxEntries, boolean convertChunkPositions) {
         Logger.info("Initializing new decoding process");
-
+        Logger.info("Sending data to data.txt for use by Python script");
+        try (PrintWriter pw = new PrintWriter(new File(PlayerTrackerDecoder.DIR_DATA))) {
+            pw.println(inputFiles);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
         final long nowMs = System.currentTimeMillis();
         final boolean limitEntries = maxEntries > 0;
 
@@ -161,7 +164,28 @@ public class Decoder {
         final long durMs = System.currentTimeMillis() - nowMs;
 
         Logger.info("Successfully decoded " + logEntriesByTime.size() + " entries. Took " + durMs + "ms");
-
+//        try (PrintWriter clear = new PrintWriter(new File(PlayerTrackerDecoder.DIR_DATA))) {
+//            clear.flush();
+//            clear.close();
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//            System.exit(1);
+//        }
+//        Logger.info("Successfully flushed previous data.txt file");
+//        try (FileWriter fw = new FileWriter(PlayerTrackerDecoder.DIR_DATA, true);
+//            BufferedWriter bw = new BufferedWriter(fw);
+//            PrintWriter out = new PrintWriter(bw))
+//        {
+//            Object[] obj = {logEntriesByTime, playerNameColorMap, playerNameEnabledMap, playerLastPosMap, playerCountMap, minX, maxX, minY, maxY, xRange, yRange, dataWorld, startTime, endTime};
+//            for (Object o : obj) {
+//                out.println(o.toString());
+//            }
+//            out.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            System.exit(1);
+//        }
+//        Logger.info("Successfully wrote data to data.txt for use by Python script");
         return new DecodedData(logEntriesByTime, playerNameColorMap, playerNameEnabledMap, playerLastPosMap, playerCountMap, minX, maxX, minY, maxY, xRange, yRange, dataWorld, startTime, endTime);
     }
 

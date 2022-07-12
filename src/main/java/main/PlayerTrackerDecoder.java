@@ -28,6 +28,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -49,6 +50,7 @@ public class PlayerTrackerDecoder extends JFrame {
     public final static String DIR_WORLDIMAGES = DIR_ROOT + File.separatorChar + "worldImages";
     public final static String DIR_CONFIG = DIR_ROOT + File.separatorChar + "configs";
     public final static String DIR_DL = DIR_ROOT + File.separatorChar + ".downloads";
+    public final static String DIR_DATA = DIR_ROOT + File.separatorChar + "src" + File.separatorChar + "main" + File.separatorChar + "java" + File.separatorChar + "ServerStatsAI" + File.separatorChar + "data.txt";
 
     public static boolean DEBUG = true;
 

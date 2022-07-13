@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/WAT_Vis.iml" filepath="$PROJECT_DIR$/.idea/modules/WAT_Vis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/WAT_Vis.main.iml" filepath="$PROJECT_DIR$/.idea/modules/WAT_Vis.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/WAT_Vis.test.iml" filepath="$PROJECT_DIR$/.idea/modules/WAT_Vis.test.iml" />
+    </modules>
+  </component>
+</project>

@@ -15,6 +15,7 @@ import ui.ImportForm;
 import ui.SettingsForm;
 import util.Logger;
 import util.Utils;
+import util.VersionGetter;
 
 import javax.swing.*;
 import java.awt.*;
@@ -43,7 +44,8 @@ public class PlayerTrackerDecoder extends JFrame {
     public MainPanel mainPanel;
 
     //region Static variables
-    public static final String VERSION = "1.3.2-FR";
+    public static final String VERSION = VersionGetter.getVersion();
+    public static boolean DEBUG = true;
     public static String[] BUILD_INFO = new String[]{"NULL", "NULL", "NULL", "NULL", "NULL"};
 
     public static final String DIR_ROOT = System.getProperty("user.dir");
@@ -53,8 +55,6 @@ public class PlayerTrackerDecoder extends JFrame {
     public final static String DIR_WORLDIMAGES = DIR_ROOT + File.separatorChar + "worldImages";
     public final static String DIR_CONFIG = DIR_ROOT + File.separatorChar + "configs";
     public final static String DIR_DL = DIR_ROOT + File.separatorChar + ".downloads";
-
-    public static boolean DEBUG = true;
     //endregion
 
     //region Menus
@@ -127,13 +127,14 @@ public class PlayerTrackerDecoder extends JFrame {
 
     public PlayerTrackerDecoder(boolean debug) {
         DEBUG = debug;
+
         String[] buildInfo = Assets.getCurrentBuildInfo();
         if (buildInfo != null) BUILD_INFO = buildInfo;
 
         Logger.info("Initializing primary subsystems");
         settings = new Settings();
 
-        Icons iconManager = new Icons();
+        new Icons();
 
         initMainFrame();
 

@@ -10,69 +10,90 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="905aa98f-fc7e-4d94-81c1-b5629d46bbbc" name="Changes" comment="Changes">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/IO/Icons.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/IO/filters/ImageFileFilter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/IO/filters/TextFileFilter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/config/Config$LocaleAgnosticFieldNamingStrategy.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/config/Config.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/config/Settings.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/config/mapping/BiomeColorsConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/config/mapping/Configs.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/config/mapping/UserProfileConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/main/Decoder$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/main/Decoder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/main/MainPanel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/main/PlayerTrackerDecoder$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/main/PlayerTrackerDecoder$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/main/PlayerTrackerDecoder$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/main/PlayerTrackerDecoder$DrawType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/main/PlayerTrackerDecoder$HeatDrawType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/main/PlayerTrackerDecoder$UITheme.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/main/PlayerTrackerDecoder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/mapping/minemap/map/MapContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/mapping/minemap/map/MapSettings.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/mapping/minemap/map/fragment/Fragment.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/mapping/minemap/map/fragment/FragmentScheduler$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/mapping/minemap/map/fragment/FragmentScheduler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ui/HelpForm.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ui/HintedInputField.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ui/ImportForm$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ui/ImportForm.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ui/LabeledComponent.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ui/RangedSlider/RangeSlider.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ui/RangedSlider/RangeSliderUI$ChangeHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ui/RangedSlider/RangeSliderUI$RangeTrackListener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ui/RangedSlider/RangeSliderUI.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ui/SettingsForm.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/util/Assets.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/util/DualMap.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/util/Keyboard.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/util/Logger$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/util/Logger.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/util/Utils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/util/objects/DecodedData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/util/objects/DrawInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/util/objects/LogEntry.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/util/objects/Vector2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/util/objects/Vector3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/GoogleMaterialIcons-LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/darkThemePreview.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/download.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/export.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/fastForward.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/help.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/import.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/lightThemePreview.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/pause.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/play.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/replay.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/screenshot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/settings.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/toggle-false.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/toggle-true.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/util/VersionGetter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/TrackerDecoderApp.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/TrackerDecoderApp.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/formdev_flatlaf.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/google_code_gson.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/WAT-Vis.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/WAT-Vis.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/WAT-Vis.test.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/IO/Icons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IO/Icons.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/IO/filters/ImageFileFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IO/filters/ImageFileFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/IO/filters/TextFileFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IO/filters/TextFileFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/config/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/Settings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/config/mapping/BiomeColorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/mapping/BiomeColorsConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/config/mapping/Configs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/mapping/Configs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/config/mapping/UserProfileConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/mapping/UserProfileConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/main/Decoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Decoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/main/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/MainPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/main/PlayerTrackerDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/PlayerTrackerDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/mapping/minemap/map/MapContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapping/minemap/map/MapContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/mapping/minemap/map/MapSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapping/minemap/map/MapSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/mapping/minemap/map/fragment/Fragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapping/minemap/map/fragment/Fragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/mapping/minemap/map/fragment/FragmentScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapping/minemap/map/fragment/FragmentScheduler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/new database idea" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/new database idea" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/ui/HelpForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/HelpForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/ui/HintedInputField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/HintedInputField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/ui/ImportForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/ImportForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/ui/LabeledComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/LabeledComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/ui/RangedSlider/RangeSlider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/RangedSlider/RangeSlider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/ui/RangedSlider/RangeSliderUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/RangedSlider/RangeSliderUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/ui/SettingsForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/SettingsForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/util/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/Assets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/util/Keyboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/Keyboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/util/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/Logger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/util/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/util/objects/DecodedData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/objects/DecodedData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/util/objects/DrawInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/objects/DrawInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/util/objects/LogEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/objects/LogEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/util/objects/Vector2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/objects/Vector2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/java/util/objects/Vector3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/objects/Vector3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/resources/icons/GoogleMaterialIcons-LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/GoogleMaterialIcons-LICENSE.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/resources/icons/darkThemePreview.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/darkThemePreview.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/resources/icons/download.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/download.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/resources/icons/export.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/export.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/resources/icons/fastForward.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/fastForward.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/resources/icons/help.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/help.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/resources/icons/import.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/import.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/resources/icons/lightThemePreview.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/lightThemePreview.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/resources/icons/pause.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/pause.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/resources/icons/play.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/play.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/resources/icons/replay.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/replay.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/resources/icons/screenshot.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/screenshot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/resources/icons/settings.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/settings.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/resources/icons/toggle-false.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/toggle-false.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WAT-Vis/resources/icons/toggle-true.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/toggle-true.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/user_profile.json" beforeDir="false" afterPath="$PROJECT_DIR$/configs/user_profile.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/config/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/Settings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/PlayerTrackerDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/PlayerTrackerDecoder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,16 +119,16 @@
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="WAT-Vis" type="f1a62948:ProjectNode" />
+                <item name="WAT_Vis" type="f1a62948:ProjectNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="WAT-Vis" type="f1a62948:ProjectNode" />
+                <item name="WAT_Vis" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="WAT-Vis" type="f1a62948:ProjectNode" />
+                <item name="WAT_Vis" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="application" type="c8890929:TasksNode$1" />
               </path>
@@ -197,6 +218,9 @@
       <recent name="E:\TrackerDecoderApp\src\ui" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">

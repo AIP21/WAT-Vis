@@ -1,6 +1,5 @@
 package config;
 
-import main.PlayerTrackerDecoder.DrawType;
 import main.PlayerTrackerDecoder;
 import main.PlayerTrackerDecoder.HeatDrawType;
 import main.PlayerTrackerDecoder.UITheme;

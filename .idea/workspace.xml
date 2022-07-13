@@ -9,70 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="905aa98f-fc7e-4d94-81c1-b5629d46bbbc" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/IO/Icons.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/IO/filters/ImageFileFilter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/IO/filters/TextFileFilter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/config/Config$LocaleAgnosticFieldNamingStrategy.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/config/Config.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/config/Settings.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/config/mapping/BiomeColorsConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/config/mapping/Configs.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/config/mapping/UserProfileConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/main/Decoder$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/main/Decoder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/main/MainPanel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/main/PlayerTrackerDecoder$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/main/PlayerTrackerDecoder$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/main/PlayerTrackerDecoder$3.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/main/PlayerTrackerDecoder$DrawType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/main/PlayerTrackerDecoder$HeatDrawType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/main/PlayerTrackerDecoder$UITheme.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/main/PlayerTrackerDecoder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/mapping/minemap/map/MapContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/mapping/minemap/map/MapSettings.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/mapping/minemap/map/fragment/Fragment.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/mapping/minemap/map/fragment/FragmentScheduler$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/mapping/minemap/map/fragment/FragmentScheduler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ui/HelpForm.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ui/HintedInputField.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ui/ImportForm$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ui/ImportForm.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ui/LabeledComponent.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ui/RangedSlider/RangeSlider.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ui/RangedSlider/RangeSliderUI$ChangeHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ui/RangedSlider/RangeSliderUI$RangeTrackListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ui/RangedSlider/RangeSliderUI.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ui/SettingsForm.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/util/Assets.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/util/DualMap.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/util/Keyboard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/util/Logger$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/util/Logger.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/util/Utils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/util/objects/DecodedData.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/util/objects/DrawInfo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/util/objects/LogEntry.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/util/objects/Vector2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/util/objects/Vector3.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/GoogleMaterialIcons-LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/darkThemePreview.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/export.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/fastForward.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/help.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/import.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/lightThemePreview.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/pause.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/play.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/replay.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/screenshot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/settings.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/toggle-false.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/icons/toggle-true.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/util/VersionGetter.java" afterDir="false" />
+    <list default="true" id="60778c97-1d1f-46d2-9108-b90bdcf714d5" name="Changes" comment="commit from intellij???">
+      <change afterPath="$PROJECT_DIR$/.idea/modules/WAT-Vis.test.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
@@ -81,19 +20,22 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/WAT-Vis.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/WAT-Vis.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/WAT-Vis.test.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/WAT_Vis.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/WAT_Vis.main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs/user_profile.json" beforeDir="false" afterPath="$PROJECT_DIR$/configs/user_profile.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/config/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/Settings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/PlayerTrackerDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/PlayerTrackerDecoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/IO/Icons.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/IO/Icons.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/version.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/version.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/configs/config.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/IO/Icons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IO/Icons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ServerStatsAI/AvgPlayerCount.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ServerStatsAI/OnlinePlayerCount.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ServerStatsAI/data.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ServerStatsAI/playerdata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/version.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/version.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +44,9 @@
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -144,7 +89,19 @@
       <list>
         <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="Python Script" />
       </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
     </option>
   </component>
   <component name="Git.Settings">
@@ -159,12 +116,12 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/java/main/Decoder.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/main/MainPanel.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/main/PlayerTrackerDecoder.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/main/MainPanel.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/main/Decoder.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/util/Assets.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/ui/HelpForm.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/ui/ImportForm.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/util/Assets.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -182,27 +139,15 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "143",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "235",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "create.test.in.the.same.root": "true",
-    "last_opened_file_path": "C:/Users/20ani/Downloads/gesturefx-0.7.1.jar",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.14550781",
-    "project.structure.side.proportion": "0.3249428",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\TrackerDecoderApp" />
@@ -232,10 +177,9 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.TrackerDecoderApp [run]">
+  <component name="RunManager" selected="Python.OnlinePlayers">
     <configuration name="PlayerTrackerDecoder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.PlayerTrackerDecoder" />
-      <module name="TrackerDecoderApp" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="main.*" />
@@ -251,7 +195,7 @@
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -267,23 +211,101 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="AvgPlayerCount" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/local/bin/python3.8" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/main/java/ServerStatsAI" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/main/java/ServerStatsAI/AvgPlayerCount.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="OnlinePlayers" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/main/java/ServerStatsAI" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/main/java/ServerStatsAI/OnlinePlayers.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="WAT-Vis" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.PlayerTrackerDecoder" />
+      <item itemvalue="Gradle.TrackerDecoderApp [run]" />
+      <item itemvalue="Python.AvgPlayerCount" />
+      <item itemvalue="Python.OnlinePlayers" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.TrackerDecoderApp [run]" />
         <item itemvalue="Application.PlayerTrackerDecoder" />
+        <item itemvalue="Gradle.TrackerDecoderApp [run]" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="905aa98f-fc7e-4d94-81c1-b5629d46bbbc" name="Changes" comment="" />
+      <changelist id="60778c97-1d1f-46d2-9108-b90bdcf714d5" name="Changes" comment="" />
       <created>1649258841417</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1649258841417</updated>
+      <workItem from="1657747435713" duration="202000" />
+      <workItem from="1657747736764" duration="367000" />
+      <workItem from="1657754752533" duration="355000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ID_ORDER">
@@ -311,5 +333,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="commit from intellij???" />
     <option name="LAST_COMMIT_MESSAGE" value="commit from intellij???" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/WAT_Vis$AvgPlayerCount.coverage" NAME="AvgPlayerCount Coverage Results" MODIFIED="1657735348021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/main/java/ServerStatsAI" />
   </component>
 </project>

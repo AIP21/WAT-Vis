@@ -65,9 +65,9 @@ application {
     mainClass.set("src/main/java/main/PlayerTrackerDecoder.java")
 }
 
-//tasks.withType(JavaCompile) {
-//    options.compilerArgs += ['-Xlint:unchecked', '-Xlint:deprecation']
-//}
+tasks.withType(JavaCompile) {
+    options.compilerArgs += ['-Xlint:unchecked', '-Xlint:deprecation']
+}
 
 dependencies {
     implementation('com.seedfinding:mc_core:706e4f1b7aa6b42b3627f682a311d06280d80b5c') { transitive = false }

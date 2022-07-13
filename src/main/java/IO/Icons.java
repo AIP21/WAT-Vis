@@ -30,7 +30,7 @@ public class Icons {
                 long nowMs = System.currentTimeMillis();
 
                 try (Stream<Path> paths = Files.walk(Path.of(Objects.requireNonNull(classLoader.getResource("icons/")).getPath()))) {
-                    ArrayList<File> iconFiles = (ArrayList<File>) paths.filter(Files::isRegularFile).map(Path::toFile).toList();
+                    ArrayList<File> iconFiles = new ArrayList<>(paths.filter(Files::isRegularFile).map(Path::toFile).toList());
                     for (File file : iconFiles) {
                         if (!file.getName().toLowerCase().contains("license")) {
                             String name = file.getName().substring(0, file.getName().indexOf('.'));

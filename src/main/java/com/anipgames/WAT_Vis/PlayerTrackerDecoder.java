@@ -1,11 +1,11 @@
 package com.anipgames.WAT_Vis;
 
 import com.anipgames.WAT_Vis.IO.Icons;
+import com.anipgames.WAT_Vis.util.VersionGetter;
 import com.formdev.flatlaf.FlatDarculaLaf;
 import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.seedfinding.mccore.util.data.Pair;
 import com.seedfinding.mccore.version.MCVersion;
-<<<<<<<< HEAD:src/main/java/com/anipgames/WAT_Vis/PlayerTrackerDecoder.java
 import com.anipgames.WAT_Vis.config.Settings;
 import com.anipgames.WAT_Vis.config.mapping.Configs;
 import com.anipgames.WAT_Vis.util.Assets;
@@ -15,19 +15,6 @@ import com.anipgames.WAT_Vis.ui.ImportForm;
 import com.anipgames.WAT_Vis.ui.SettingsForm;
 import com.anipgames.WAT_Vis.util.Logger;
 import com.anipgames.WAT_Vis.util.Utils;
-========
-import config.Settings;
-import config.mapping.Configs;
-import IO.filters.TextFileFilter;
-import util.Assets;
-import ui.HelpForm;
-import ui.RangedSlider.RangeSlider;
-import ui.ImportForm;
-import ui.SettingsForm;
-import util.Logger;
-import util.Utils;
-import util.VersionGetter;
->>>>>>>> 928798169df9c48c86c34063bee561be1de3ef18:src/main/java/main/PlayerTrackerDecoder.java
 
 import javax.swing.*;
 import java.awt.*;
@@ -35,7 +22,6 @@ import java.awt.dnd.DnDConstants;
 import java.awt.dnd.DropTarget;
 import java.awt.dnd.DropTargetDropEvent;
 import java.awt.event.ItemEvent;
-import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
@@ -56,15 +42,9 @@ public class PlayerTrackerDecoder extends JFrame {
     public MainPanel mainPanel;
 
     //region Static variables
-<<<<<<<< HEAD:src/main/java/com/anipgames/WAT_Vis/PlayerTrackerDecoder.java
-    public static final String VERSION = "1.3.2-FR";
-    // build id, build date, build url, build release notes, build name
-    public static String[] BUILD_INFO = new String[]{"null/experimental", "null/experimental", "null/experimental", "null/experimental", "null/experimental"};
-========
     public static final String VERSION = VersionGetter.getVersion();
     public static boolean DEBUG = true;
     public static String[] BUILD_INFO = new String[]{"NULL", "NULL", "NULL", "NULL", "NULL"};
->>>>>>>> 928798169df9c48c86c34063bee561be1de3ef18:src/main/java/main/PlayerTrackerDecoder.java
 
     public static final String DIR_ROOT = System.getProperty("user.dir");
     public final static String DIR_LOGS = DIR_ROOT + File.separatorChar + "logs";

@@ -1,16 +1,9 @@
 package com.anipgames.WAT_Vis.config;
 
-<<<<<<<< HEAD:src/main/java/com/anipgames/WAT_Vis/config/Settings.java
 import com.anipgames.WAT_Vis.PlayerTrackerDecoder;
 import com.anipgames.WAT_Vis.PlayerTrackerDecoder.HeatDrawType;
 import com.anipgames.WAT_Vis.PlayerTrackerDecoder.UITheme;
 import com.anipgames.WAT_Vis.util.Logger;
-========
-import main.PlayerTrackerDecoder;
-import main.PlayerTrackerDecoder.HeatDrawType;
-import main.PlayerTrackerDecoder.UITheme;
-import util.Logger;
->>>>>>>> 928798169df9c48c86c34063bee561be1de3ef18:src/main/java/config/Settings.java
 
 import java.awt.*;
 import java.io.*;

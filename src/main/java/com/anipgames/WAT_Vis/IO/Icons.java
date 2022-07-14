@@ -28,17 +28,11 @@ public class Icons {
                 Logger.info("Loading resources");
                 long nowMs = System.currentTimeMillis();
 
-<<<<<<<< HEAD:src/main/java/com/anipgames/WAT_Vis/IO/Icons.java
                 File iconsDir = new File(Objects.requireNonNull(getClass().getClassLoader().getResource("icons")).getFile());
 
                 try (Stream<Path> paths = Files.walk(iconsDir.getAbsoluteFile().toPath())) {
                     paths.filter(Files::isRegularFile).forEach(e -> {
                         File file = e.toFile();
-========
-                try (Stream<Path> paths = Files.walk(Path.of(Objects.requireNonNull(classLoader.getResource("icons/")).getPath()))) {
-                    ArrayList<File> iconFiles = new ArrayList<>(paths.filter(Files::isRegularFile).map(Path::toFile).toList());
-                    for (File file : iconFiles) {
->>>>>>>> 928798169df9c48c86c34063bee561be1de3ef18:src/main/java/IO/Icons.java
                         if (!file.getName().toLowerCase().contains("license")) {
                             String name = file.getName().substring(0, file.getName().indexOf('.'));
                             try {

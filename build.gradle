@@ -1,21 +1,15 @@
-buildscript {
-    repositories {
-        mavenLocal()
-        mavenCentral()
-        google()
-    }
-}
-
 plugins {
     id 'java'
-    id "application"
-    id 'edu.sc.seis.launch4j' version '2.5.3'
-    id "com.github.johnrengelman.shadow" version "7.1.2"
+    id 'application'
+
+    id "org.panteleyev.jpackageplugin" version "1.3.1"
 }
+
+group 'com.anipgames'
+version '1.5.0'
 
 repositories {
     mavenCentral()
-    google()
     maven {
         url "https://maven.latticg.com/"
     }
@@ -27,82 +21,130 @@ repositories {
     }
 }
 
-defaultTasks("clean", "release")
+dependencies {
+    implementation 'com.formdev:flatlaf:2.3'
+    implementation 'com.google.code.gson:gson:2.9.0'
+
+    implementation('com.seedfinding:mc_math:d73ac7cc644c67628ade0effd7136e11eb00bb76') { transitive = false }
+    implementation('com.seedfinding:mc_seed:5518e3ba3ee567fb0b51c15958967f70a6a19e02') { transitive = false }
+    implementation('com.seedfinding:mc_core:706e4f1b7aa6b42b3627f682a311d06280d80b5c') { transitive = false }
+    implementation('com.seedfinding:mc_noise:a6ab8e6c688491829f8d2adf845392da22ef8e9c') { transitive = false }
+    implementation('com.seedfinding:mc_biome:b2271807a047bb43ac60c8c20ad47e315f19b9a6') { transitive = false }
+    implementation('com.seedfinding:mc_terrain:9e937ddb838e28e79423c287fa18b1ce66f061d7') { transitive = false }
+
+    implementation('com.seedfinding:latticg:1.06')
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}
+
+test {
+    useJUnitPlatform()
+}
 
 java {
+    // very important ByteBuffer does not have flip in java 1.8
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(16))
     }
 }
 
-task createProperties() {
-    doLast {
-        new File("$buildDir/resources/main/version.properties").withWriter { w ->
-            Properties p = new Properties()
-            p['version'] = project.version.toString()
-            p.store w, null
-        }
-        // copy needed, otherwise the bean VersionController can't load the file at startup when running complete-app tests.
-        copy {
-            from "$buildDir/resources/main/version.properties"
-            into "src/main/resources"
-        }
-    }
-}
-
-classes {
-    dependsOn createProperties
-}
-
-task("release") {
-    dependsOn(createProperties)
-    dependsOn(clean)
-    dependsOn(shadowJar)
-    dependsOn(createExe)
-}
-
 application {
-    mainClass.set("src/main/java/main/PlayerTrackerDecoder.java")
+    mainClassName = 'com.anipgames.WAT_Vis.PlayerTrackerDecoder'
 }
 
-//tasks.withType(JavaCompile) {
-//    options.compilerArgs += ['-Xlint:unchecked', '-Xlint:deprecation']
-//}
+jar {
+    manifest {
+        attributes "Main-Class": "com.anipgames.WAT_Vis.PlayerTrackerDecoder"
+    }
 
-dependencies {
-    implementation('com.seedfinding:mc_core:706e4f1b7aa6b42b3627f682a311d06280d80b5c') { transitive = false }
-    implementation('com.seedfinding:mc_seed:5518e3ba3ee567fb0b51c15958967f70a6a19e02') { transitive = false }
-    implementation('com.seedfinding:mc_biome:b2271807a047bb43ac60c8c20ad47e315f19b9a6') { transitive = false }
-    implementation('com.seedfinding:mc_terrain:9e937ddb838e28e79423c287fa18b1ce66f061d7') { transitive = false }
-    implementation('com.seedfinding:mc_noise:a6ab8e6c688491829f8d2adf845392da22ef8e9c') { transitive = false }
-    implementation('com.seedfinding:mc_math:d73ac7cc644c67628ade0effd7136e11eb00bb76') { transitive = false }
-
-    implementation('com.seedfinding:latticg:1.06')
-
-    implementation('com.formdev:flatlaf:2.3')
-    implementation('com.google.code.gson:gson:2.9.0')
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
 
 run {
     args "-no-update"
 }
 
-shadowJar {
-    archiveFileName = "${project.name}-${project.version}-FR.jar"
-}
-
-launch4j {
+/*launch4j {
     outfile = "${project.name}-${project.version}-FR.exe"
     icon = "${projectDir}/icon.ico"
-    splashFileName = "${projectDir}/splashImg.bmp"
 
     productName = "WAT:Vis"
-    fileDescription = "A tool for game developers and server owners to decode, visualize, and analyze player positional data."
+    fileDescription = ""
+
+    outputDir = "libs"
 
     jvmOptions = ["-Xms1G", "-Xmx8G"]
 
+    copyConfigurable = []
+    libraryDir= "ignore_libs"
+
+    jreMaxVersion=JavaVersion.VERSION_HIGHER
+    jreMinVersion=JavaVersion.VERSION_16
+
+    bundledJrePath ="%JAVA_HOME%;%PATH%"
+
     jarTask = project.tasks.shadowJar
-    jreMaxVersion = JavaVersion.VERSION_HIGHER
-    jreMinVersion = JavaVersion.VERSION_16
-    bundledJrePath = "%JAVA_HOME%;%PATH%"
+}*/
+
+task copyDependencies(type: Copy) {
+    from(configurations.runtimeClasspath).into("$buildDir/jmods")
 }
+
+task copyJar(type: Copy) {
+    from(tasks.jar).into("$buildDir/jmods")
+}
+
+tasks.jpackage {
+    dependsOn("build", "copyDependencies", "copyJar")
+
+    appName = "WAT:Vis"
+    appDescription = "A tool for game developers and server owners to decode, visualize, and analyze player positional data."
+    appVersion = project.version.toString()
+    vendor = "Anip Games (Alexander Irausquin-Petit)"
+    copyright = "Copyright © 2022 Alexander Irausquin-Petit"
+    runtimeImage = System.getProperty("java.home")
+    module = "com.anipgames.WAT_Vis/com.anipgames.WAT_Vis.PlayerTrackerDecoder"
+    modulePaths = Arrays.asList(file("$buildDir/jmods"))
+    destination = "$buildDir/dist"
+    javaOptions = Arrays.asList("-Dfile.encoding=UTF-8")
+
+    mac {
+        icon = "icons/icons.icns"
+    }
+
+    windows {
+        icon = "icons/icons.ico"
+        winMenu = true
+        winDirChooser = true
+    }
+}
+
+/*
+type	ImageType	--type <type>
+appName	String	--name <name>
+appVersion	String	--app-version <version>
+copyright	String	--copyright <copyright string>
+appDescription	String	--description <description string>
+vendor	String	--vendor <vendor string>
+installDir	String	--install-dir <file path>
+module	String	--module <module name>[/<main class>]
+mainClass	String	--main-class <class name>
+mainJar	String	--main-jar <main jar file>
+verbose	Boolean	--verbose
+arguments	String	--arguments <main class arguments>
+addModules	String	--add-modules <module>[,<module>]
+appImage	String (*)	--app-image <name>
+destination	String (*)	--dest <destination path>
+fileAssociations	String (*)	--file-associations <file association property file>
+icon	String (*)	--icon <icon file path>
+input	String (*)	--input <input path>
+licenseFile	String (*)	--license-file <license file path>
+modulePaths	String (*)	--module-path <module path>
+resourceDir	String (*)	--resource-dir <resource dir path>
+runtimeImage	String (*)	--runtime-image <file path>
+temp	String (*)	--temp <temp dir path>
+launchers	Launcher (*)	--add-launcher <name>=<property file>
+ */

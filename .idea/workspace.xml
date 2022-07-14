@@ -4,45 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="525b62f3-92ad-45d4-b5d0-7d3b91350c1b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/graphing/OnlinePlayers.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/python/PlayerCounter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/python/PythonIntegration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/python/OnlinePlayerCount.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/python/other/hello.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/PythonIntegrationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/hello.py" afterDir="false" />
+    <list default="true" id="525b62f3-92ad-45d4-b5d0-7d3b91350c1b" name="Changes" comment="commit from intellij???">
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/md5-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/configs/config.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inputs/client/hypixel overnight - skyblock/172.65.245.94_25565-overworld-log-2022-07-08.txt" beforeDir="false" afterPath="$PROJECT_DIR$/inputs/client/hypixel overnight - skyblock/172.65.245.94_25565-overworld-log-2022-07-08.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/Decoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/Decoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/IO/Icons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/IO/Icons.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/MainPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/PlayerTrackerDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/PlayerTrackerDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/ServerStatsAI/AvgPlayerCount.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/python/AvgPlayerCount.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/ServerStatsAI/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/python/data.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/ServerStatsAI/playerdata.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/python/playerdata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/config/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/config/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/config/Settings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/config/mapping/UserProfileConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/config/mapping/UserProfileConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/mapping/minemap/map/fragment/FragmentScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/mapping/minemap/map/fragment/FragmentScheduler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/ui/ImportForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/ui/ImportForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/Assets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/Logger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/VersionGetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/VersionGetter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,23 +82,6 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "last_opened_file_path": "C:/Users/20ani/Documents/Code/WAT-Vis/src/main/resources/python/other",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.14550781",
-    "project.structure.side.proportion": "0.41408116",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "CodeWithMe"
-  }
-}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\20ani\Documents\Code\WAT-Vis\src\main\resources\python\other" />
@@ -257,6 +210,13 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Gradle.PythonIntegration.givenPythonScript_whenPythonProcessInvoked_thenSuccess" />
+      <item itemvalue="Gradle.PythonIntegrationTest.givenPythonScript_whenPythonProcessInvoked_thenSuccess (1)" />
+      <item itemvalue="Gradle.PythonIntegrationTest.testPythonScript" />
+      <item itemvalue="Gradle.WAT-Vis [run]" />
+      <item itemvalue="Gradle.WAT-Vis [test]" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.WAT-Vis [run]" />
@@ -295,5 +255,8 @@
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/WAT_Vis$AvgPlayerCount.coverage" NAME="AvgPlayerCount Coverage Results" MODIFIED="1657775487823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/main/java/ServerStatsAI" />
   </component>
 </project>

@@ -91,7 +91,7 @@ public class UserProfileConfig extends Config {
         try {
             this.writeConfig();
         } catch (IOException e) {
-            Logger.err("Error flushing user config:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+            Logger.error("Error flushing user config:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
     }
 

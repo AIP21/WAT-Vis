@@ -102,7 +102,7 @@ public class ImportForm extends JDialog {
             importButton.setEnabled(currentFiles.size() > 0);
             if (alreadyImported) appendButton.setEnabled(currentFiles.size() > 0);
         } catch (Exception e) {
-            Logger.err("Error dragging and dropping files onto import panel:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+            Logger.error("Error dragging and dropping files onto import panel:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
 
         Logger.info("File import pane opened from drag and drop");
@@ -302,7 +302,7 @@ public class ImportForm extends JDialog {
                     importButton.setEnabled(currentFiles.size() > 0);
                     if (alreadyImported) appendButton.setEnabled(currentFiles.size() > 0);
                 } catch (Exception e) {
-                    Logger.err("Error dragging and dropping files onto import panel:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+                    Logger.error("Error dragging and dropping files onto import panel:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
                 }
             }
         });
@@ -391,7 +391,7 @@ public class ImportForm extends JDialog {
                 importButton.setEnabled(currentFiles.size() > 0);
                 if (appendButton != null) appendButton.setEnabled(currentFiles.size() > 0);
             } else if (returnVal == JFileChooser.ERROR_OPTION) {
-                Logger.err("Error selecting input files");
+                Logger.error("Error selecting input files");
             } else {
                 Logger.warn("No input files selected");
             }
@@ -450,7 +450,7 @@ public class ImportForm extends JDialog {
 
                 loadWorldImage(imgFile);
             } else if (returnVal == JFileChooser.ERROR_OPTION) {
-                Logger.err("Error selecting world background images");
+                Logger.error("Error selecting world background images");
             } else {
                 Logger.warn("No world background images selected");
             }
@@ -472,7 +472,7 @@ public class ImportForm extends JDialog {
 
                 Logger.info("Successfully loaded world background image in " + durMs + "ms.");
             } catch (IOException e) {
-                Logger.err("Error reading selected world background image:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+                Logger.error("Error reading selected world background image:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
             }
 
             Toolkit.getDefaultToolkit().beep();

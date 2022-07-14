@@ -75,11 +75,9 @@ public class Decoder {
         int lines = 0;
 
         for (File file : inputFiles) {
-//            if (PlayerTrackerDecoder.DEBUG) {
             Logger.info("Decoding input file: " + file.getName());
-//            }
 
-            String fileDate = file.getName().substring(file.getName().lastIndexOf('-') - 7, file.getName().lastIndexOf('-') + 3) + ":";
+            String fileDate = file.getName().substring(file.getName().lastIndexOf('-') - 7, file.getName().lastIndexOf('-') + 3) + ";";
             if (dataWorld == null) {
                 dataWorld = file.getName().substring(0, file.getName().indexOf('-'));
                 Logger.info("Data world: " + dataWorld);
@@ -102,9 +100,9 @@ public class Decoder {
 
                     LocalDateTime dateTime;
                     if (items[0].length() < 8) {
-                        dateTime = LocalDateTime.parse(fileDate + items[0], DateTimeFormatter.ofPattern("yyyy-MM-dd:HH:mm"));
+                        dateTime = LocalDateTime.parse(fileDate + items[0], DateTimeFormatter.ofPattern("yyyy-MM-dd;HH:mm"));
                     } else {
-                        dateTime = LocalDateTime.parse(fileDate + items[0], DateTimeFormatter.ofPattern("yyyy-MM-dd:HH:mm:ss"));
+                        dateTime = LocalDateTime.parse(fileDate + items[0], DateTimeFormatter.ofPattern("yyyy-MM-dd;HH:mm:ss"));
                     }
 
                     if (startTime == null) {
@@ -116,6 +114,7 @@ public class Decoder {
 
                     String playerName = items[1];
 
+                    // TODO: FIX NOT ADDING WHEN USING THE HYPIXEL DATA (LIMITED BY SIZE???)
                     logEntriesByTime.put(dateTime, new LogEntry(dateTime, playerName, position));
 
                     if (!playerNameColorMap.containsKey(playerName)) {
@@ -141,10 +140,15 @@ public class Decoder {
                         maxY = position.z;
 
                     lines++;
+
+                    int size = logEntriesByTime.size();
+                    if (size % 1000 == 0) {
+                        System.out.println(size);
+                    }
                 }
                 br.close();
             } catch (IOException e) {
-                Logger.err("Error reading input file:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+                Logger.error("Error reading input file:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
             }
 
             if (reachedLimit)

@@ -1,5 +1,7 @@
 package com.anipgames.WAT_Vis;
 
+import com.anipgames.WAT_Vis.python.PlayerCounter;
+import com.anipgames.WAT_Vis.python.PythonIntegration;
 import com.anipgames.WAT_Vis.util.Keyboard;
 import com.anipgames.WAT_Vis.util.Logger;
 import com.anipgames.WAT_Vis.util.Utils;
@@ -108,7 +110,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
     // region Rendering variables
     public BufferedImage backgroundImage;
     public int xBackgroundOffset,
-    zBackgroundOffset;
+            zBackgroundOffset;
     public float backgroundOpacity = 0.5f;
 
     public int dateTimeIndex = 0;
@@ -276,7 +278,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
                 try {
                     inverse = at.createInverse();
                 } catch (NoninvertibleTransformException e) {
-                    Logger.err("Error inverting rendering transformation:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+                    Logger.error("Error inverting rendering transformation:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
                 }
 
                 // if (!isPlaying && Utils.approximately(curX, xTarget, 0.001f) &&
@@ -521,7 +523,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
                                         g2d.setColor(Utils.lerpColor(Color.lightGray, Color.getHSBColor(0.93f, 0.68f, 0.55f), Math.min(1, (posActivityMap.get(entry.position) * Math.abs(settings.heatMapStrength)) / (float) (maxActivity))));
                                     }
                                 } catch (IllegalArgumentException e) {
-                                    Logger.err("Something wrong happened when lerping colors for the heatmap color (Probably the stupid negative input error):\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+                                    Logger.error("Something wrong happened when lerping colors for the heatmap color (Probably the stupid negative input error):\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
                                 }
 
                                 drawRectangle(g2d, x, y, settings.size, true);
@@ -710,6 +712,20 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
         startTime = data.startTime;
         endTime = data.endTime;
+
+        PlayerCounter pc = new PlayerCounter(data);
+        // Run a python script
+        try {
+            PythonIntegration.executePython("OnlinePlayerCount.py", "data.txt",
+                    String.format("""
+                            {
+                                "daily": %s,
+                                "periods": %s,
+                            }
+                            """, pc.analyzeDaily().toString(), pc.analyzePerPeriod().toString()));
+        } catch (Exception e) {
+            Logger.error("Error running python file:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+        }
 
         logEntriesByTime = data.logEntriesByTime;
         playerNameColorMap = data.playerNameColorMap;
@@ -1054,7 +1070,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
             g2d.dispose();
         } catch (OutOfMemoryError e) {
-            Logger.err("Error preparing the image to export (Out of memory):\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+            Logger.error("Error preparing the image to export (Out of memory):\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
 
         Logger.info("Starting to save the exported image file");
@@ -1082,10 +1098,10 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
                     ImageIO.write(image, "png", new File(PlayerTrackerDecoder.DIR_OUTPUTS + File.separatorChar + name));
                     Logger.info("Successfully saved current screen as an image");
                 } else {
-                    Logger.err("Image to save is null");
+                    Logger.error("Image to save is null");
                 }
             } catch (Exception e) {
-                Logger.err("Error saving current screen as an image:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+                Logger.error("Error saving current screen as an image:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
             }
 
             imageExportStatus.setText("   Done!");

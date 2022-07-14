@@ -43,7 +43,7 @@ public class Icons {
                                     iconsLight.put(name, new ImageIcon(ImageIO.read(file)));
                                 }
                             } catch (IOException ex) {
-                                Logger.err("Error reading icon file:\n " + ex.getMessage() + "\n Stacktrace:\n " + Arrays.toString(ex.getStackTrace()));
+                                Logger.error("Error reading icon file:\n " + ex.getMessage() + "\n Stacktrace:\n " + Arrays.toString(ex.getStackTrace()));
                             }
                         }
                     });
@@ -64,7 +64,7 @@ public class Icons {
 
                 Logger.info("Successfully created inverted icons in " + durMs + "ms");
             } catch (Exception e) {
-                Logger.err("Error loading icon resources:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+                Logger.error("Error loading icon resources:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
             }
         });
 

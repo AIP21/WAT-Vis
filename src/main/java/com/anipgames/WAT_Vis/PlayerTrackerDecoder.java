@@ -44,7 +44,8 @@ public class PlayerTrackerDecoder extends JFrame {
     //region Static variables
     public static final String VERSION = VersionGetter.getVersion();
     public static boolean DEBUG = true;
-    public static String[] BUILD_INFO = new String[]{"NULL", "NULL", "NULL", "NULL", "NULL"};
+    // build id, build date, build url, build release notes, build name
+    public static String[] BUILD_INFO = new String[]{"null/experimental", "null/experimental", "null/experimental", "null/experimental", "null/experimental"};
 
     public static final String DIR_ROOT = System.getProperty("user.dir");
     public final static String DIR_LOGS = DIR_ROOT + File.separatorChar + "logs";
@@ -275,14 +276,14 @@ public class PlayerTrackerDecoder extends JFrame {
             }
             Assets.createDirs();
         } catch (IOException e) {
-            Logger.err("Failed to create a necessary directory:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+            Logger.error("Failed to create a necessary directory:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
     }
 
     private static void updateApplication(HashMap<String, Pair<Pair<String, String>, String>> updateInfo, boolean prompt) {
         Pair<Pair<String, String>, String> release = updateInfo.get("jar");
         if (release == null) {
-            Logger.err("Missing jar Entry");
+            Logger.error("Missing jar Entry");
             return;
         }
         String OS = System.getProperty("os.name").toLowerCase();
@@ -329,7 +330,7 @@ public class PlayerTrackerDecoder extends JFrame {
         try {
             newVersion = downloadWorker.get(); // blocking wait (intended)
         } catch (Exception e) {
-            Logger.err("Failed to use the download worker:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+            Logger.error("Failed to use the download worker:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
         downloadPopup.setVisible(false);
         downloadPopup.dispose();
@@ -345,13 +346,13 @@ public class PlayerTrackerDecoder extends JFrame {
 
                 Logger.info(String.format("Process exited with %s", ps.waitFor()));
             } catch (Exception e) {
-                Logger.err("Failed to start the new process, error:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+                Logger.error("Failed to start the new process, error:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
                 return;
             }
 
             int exitValue = ps.exitValue();
             if (exitValue != 0) {
-                Logger.err("Failed to execute jar:\n " + Arrays.toString(new BufferedReader(new InputStreamReader(ps.getErrorStream())).lines().toArray()));
+                Logger.error("Failed to execute jar:\n " + Arrays.toString(new BufferedReader(new InputStreamReader(ps.getErrorStream())).lines().toArray()));
             } else {
                 Logger.warn(String.format("Switching to newer version! %s", newVersion));
                 System.exit(0);
@@ -384,7 +385,7 @@ public class PlayerTrackerDecoder extends JFrame {
                 UIManager.setLookAndFeel(new FlatDarculaLaf());
             }
         } catch (UnsupportedLookAndFeelException e) {
-            Logger.err("Error setting system look and feel for UI:\n " + Arrays.toString(e.getStackTrace()));
+            Logger.error("Error setting system look and feel for UI:\n " + Arrays.toString(e.getStackTrace()));
         }
 
         setTitle("WAT:Vis - v" + VERSION);
@@ -412,7 +413,7 @@ public class PlayerTrackerDecoder extends JFrame {
                     importForm.setLocationRelativeTo(PlayerTrackerDecoder.this);
                     importForm.setVisible(true);
                 } catch (Exception e) {
-                    Logger.err("Error doing drag and drop on main frame:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+                    Logger.error("Error doing drag and drop on main frame:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
                 }
             }
         });
@@ -438,7 +439,7 @@ public class PlayerTrackerDecoder extends JFrame {
 
             decodeAndDisplay(files);
         } catch (IOException e) {
-            Logger.err("Error decoding the selected input log files:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+            Logger.error("Error decoding the selected input log files:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
 
         if (!worldSeed.isBlank()) {
@@ -463,7 +464,7 @@ public class PlayerTrackerDecoder extends JFrame {
 
             decodeAndDisplay(files);
         } catch (IOException e) {
-            Logger.err("Error decoding the selected input log files:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+            Logger.error("Error decoding the selected input log files:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
 
         mainPanel.resetSeedMapInfo();
@@ -607,7 +608,7 @@ public class PlayerTrackerDecoder extends JFrame {
                 UIManager.setLookAndFeel(new FlatDarculaLaf());
             }
         } catch (UnsupportedLookAndFeelException e) {
-            Logger.err("Error setting system look and feel for UI:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+            Logger.error("Error setting system look and feel for UI:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
 
         SwingUtilities.updateComponentTreeUI(this);

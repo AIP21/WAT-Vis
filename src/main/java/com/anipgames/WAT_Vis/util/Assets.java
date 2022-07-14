@@ -97,7 +97,7 @@ public class Assets {
         try {
             rbc = Channels.newChannel(new URL(url).openStream());
         } catch (IOException e) {
-            Logger.err(String.format("Could not open channel to url %s, Error:\n %s", url, e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace())));
+            Logger.error(String.format("Could not open channel to url %s, Error:\n %s", url, e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace())));
             return false;
         }
         try {
@@ -105,7 +105,7 @@ public class Assets {
             fileOutputStream.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
             fileOutputStream.close();
         } catch (IOException e) {
-            Logger.err(String.format("Could not download from channel to url %s for file %s, Error:\n %s", url, out.getAbsolutePath(), e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace())));
+            Logger.error(String.format("Could not download from channel to url %s for file %s, Error:\n %s", url, out.getAbsolutePath(), e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace())));
             return false;
         }
         return sha1 == null || compareSha1(out, sha1);
@@ -116,7 +116,7 @@ public class Assets {
             try {
                 return getFileChecksum(MessageDigest.getInstance("SHA-1"), file).equals(sha1);
             } catch (NoSuchAlgorithmException e) {
-                Logger.err("Could not compute sha1 since algorithm does not exists. Error:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+                Logger.error("Could not compute sha1 since algorithm does not exists. Error:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
             }
         }
         return false;
@@ -133,7 +133,7 @@ public class Assets {
             }
             fis.close();
         } catch (IOException e) {
-            Logger.err(String.format("Failed to read file for checksum, Error:\n %s", e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace())));
+            Logger.error(String.format("Failed to read file for checksum, Error:\n %s", e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace())));
             return "";
         }
         byte[] bytes = digest.digest();
@@ -152,7 +152,7 @@ public class Assets {
             conn.connect();
             int responseCode = conn.getResponseCode();
             if (responseCode != 200) {
-                Logger.err(String.format("Failed to fetch URL %s. Errorcode : %s", apiUrl, responseCode));
+                Logger.error(String.format("Failed to fetch URL %s. Errorcode : %s", apiUrl, responseCode));
             } else {
 
                 StringBuilder inline = new StringBuilder();
@@ -164,7 +164,7 @@ public class Assets {
                 return inline.toString();
             }
         } catch (Exception e) {
-            Logger.err(String.format("Failed to fetch URL %s. Error:\n %s", apiUrl, e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace())));
+            Logger.error(String.format("Failed to fetch URL %s. Error:\n %s", apiUrl, e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace())));
         }
         return null;
     }

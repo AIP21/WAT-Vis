@@ -50,19 +50,29 @@ There are four main folders that are created in the run directory:
 The data is formatted in a specific way, and can only be read in that way (for now, this will change). Here is an example line of data:
 > 21:25:29; Player24; (-98, 65, -1460);
 
+
 Each "chunk" of data (excluding the last chunk) is separated by a semicolon and a space ("; ").
+
 The first chunk of data, 21:25:29, is the time of the entry, formatted in "HH:mm:ss" (hours, minutes, seconds). It uses the local time of the server or computer that logged this data, NOT the player's local time.
+
 The second chunk of data, Player24, is the name of the player whom this log is of. It could be the player name, their account or player id, or anything else that identifies them.
+
 The third chunk of data, (-98, 65, -1460), is the position of the player in the environment. There are currently two formats for the position: 1) As an integer 3-dimensional vector, formatted and ordered in (x, y, z). Or, 2) As an integer 2-dimensional vector, formatted and ordered in [x, z]. The first format must use parenthesis and the second one must use brackets, this is how the code differentiates between the two formats.
+
 The entry ends in a semicolon and a line break (new line).
 
 The naming of an input file is also important since it (currently) must be formatted in a specific way. They (currently) have to be a .txt file. Here is an example file name:
 > MyServer-overworld-log-2022-04-23.txt
 
+
 Each part of the name is separated by a hyphen ("-").
+
 The first part is the source name, such as the world/server/map name. This can be anything, it is only for you to know where the data is from.
+
 The second part is the data dimension, it can be either "overworld", "nether", or "the-end".
+
 The third part is just indicating that it is a log file. Once again, this can be anything you choose.
+
 The fourth part is the date, separated by hyphens. It is formatted in "YYYY-MM-dd" (year, month, day of month).
 
 # Images

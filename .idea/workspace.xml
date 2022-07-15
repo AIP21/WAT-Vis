@@ -5,44 +5,171 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="525b62f3-92ad-45d4-b5d0-7d3b91350c1b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/graphing/OnlinePlayers.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/python/PlayerCounter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/python/PythonIntegration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/python/OnlinePlayerCount.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/python/other/hello.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/PythonIntegrationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/hello.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/sha1-checksums.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/ui/Dashboard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/ui/graphs/AbstractGraph.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/ui/graphs/LineGraph.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/themes/CustomTheme.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/themes/FlatLaf.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/addChart#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/analytics#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/areaChart#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/autoGraph#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/barChart#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/dataExploration#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/dataQuery#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/database#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/displaySettings#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/download#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/export#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/fastForward#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/help#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/import#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/info#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/insights#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/leaderboard#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/legend#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/lineChart#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/monitor#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/multLineChart#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/pause#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/pieChart#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/play#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/replay#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/scatterChart#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/schema#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/screenshot#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/settings#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/tableChart#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/tips#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/toggle-false#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/toggle-true#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/tree#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/trendDown#30x30&amp;.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/trendUp#30x30&amp;.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/Decoder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/IO/Icons.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/IO/Icons.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/IO/filters/ImageFileFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/IO/filters/ImageFileFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/IO/filters/TextFileFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/IO/filters/TextFileFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/MainPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/PlayerTrackerDecoder$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/PlayerTrackerDecoder$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/PlayerTrackerDecoder$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/PlayerTrackerDecoder$DrawType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/PlayerTrackerDecoder$HeatDrawType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/PlayerTrackerDecoder$UITheme.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/PlayerTrackerDecoder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/graphing/OnlinePlayers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/python/PlayerCounter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/python/PlayerCounter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/ui/HelpForm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/ui/ImportForm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/ui/SettingsForm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/util/objects/DecodedData.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/util/objects/DecodedData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/addChart#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/analytics#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/areaChart#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/autoGraph#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/barChart#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/darkThemePreview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/dataExploration#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/dataQuery#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/database#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/displaySettings#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/download#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/export#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/fastForward#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/help#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/import#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/info#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/insights#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/leaderboard#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/legend#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/lightThemePreview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/lineChart#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/monitor#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/multLineChart#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/pause#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/pieChart#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/play#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/replay#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/scatterChart#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/schema#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/screenshot#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/settings#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/tableChart#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/tips#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/toggle-false#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/toggle-true#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/tree#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/trendDown#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/icons/trendUp#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/python/OnlinePlayerCount.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/python/OnlinePlayerCount.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/python/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/python/data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/configs/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/configs/config.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inputs/client/hypixel overnight - skyblock/172.65.245.94_25565-overworld-log-2022-07-08.txt" beforeDir="false" afterPath="$PROJECT_DIR$/inputs/client/hypixel overnight - skyblock/172.65.245.94_25565-overworld-log-2022-07-08.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/Decoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/Decoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/IO/Icons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/IO/Icons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/IO/Icons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/io/Icons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/IO/filters/ImageFileFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/io/filters/ImageFileFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/IO/filters/TextFileFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/io/filters/TextFileFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/MainPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/PlayerTrackerDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/PlayerTrackerDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/ServerStatsAI/AvgPlayerCount.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/python/AvgPlayerCount.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/ServerStatsAI/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/python/data.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/ServerStatsAI/playerdata.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/python/playerdata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/config/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/config/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/config/Settings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/config/mapping/UserProfileConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/config/mapping/UserProfileConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/mapping/minemap/map/fragment/FragmentScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/mapping/minemap/map/fragment/FragmentScheduler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/graphing/OnlinePlayers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/OnlinePlayers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/python/PlayerCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/python/PlayerCounter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/ui/HelpForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/ui/HelpForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/ui/ImportForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/ui/ImportForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/Assets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/Logger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/VersionGetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/VersionGetter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/ui/SettingsForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/ui/SettingsForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/objects/DecodedData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/objects/DecodedData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/addChart#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/analytics#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/areaChart#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/autoGraph#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/barChart#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/darkThemePreview.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/darkThemePreview#177x118.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/dataExploration#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/dataQuery#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/database#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/displaySettings#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/download#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/export#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/fastForward#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/help#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/import#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/info#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/insights#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/leaderboard#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/legend#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/lightThemePreview.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/lightThemePreview#177x118.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/lineChart#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/monitor#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/multLineChart#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/pause#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/pieChart#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/play#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/replay#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/scatterChart#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/schema#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/screenshot#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/settings#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/tableChart#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/tips#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/toggle-false#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/toggle-true#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/tree#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/trendDown#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/trendUp#48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/python/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/python/data.txt" afterDir="false" />
+    </list>
+    <list id="ee70ad11-2732-4ab8-8533-4370a967ef85" name="Changes by jayding" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/Dict.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/python/PlayerCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/python/PlayerCounter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/python/OnlinePlayerCount.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/python/OnlinePlayerCount.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,13 +221,27 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Python Script" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/python/PlayerCounter.java">
+      <ranges>
+        <range start1="6" end1="6" start2="6" end2="7" changelist="ee70ad11-2732-4ab8-8533-4370a967ef85" />
+        <range start1="26" end1="27" start2="27" end2="28" changelist="ee70ad11-2732-4ab8-8533-4370a967ef85" />
+        <range start1="29" end1="32" start2="30" end2="33" changelist="525b62f3-92ad-45d4-b5d0-7d3b91350c1b" />
+        <range start1="50" end1="51" start2="51" end2="51" changelist="ee70ad11-2732-4ab8-8533-4370a967ef85" />
+        <range start1="62" end1="63" start2="62" end2="63" changelist="ee70ad11-2732-4ab8-8533-4370a967ef85" />
+        <range start1="65" end1="68" start2="65" end2="70" changelist="525b62f3-92ad-45d4-b5d0-7d3b91350c1b" />
+        <range start1="74" end1="75" start2="76" end2="77" changelist="ee70ad11-2732-4ab8-8533-4370a967ef85" />
+        <range start1="97" end1="97" start2="99" end2="111" changelist="ee70ad11-2732-4ab8-8533-4370a967ef85" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -121,7 +262,7 @@
     "Repository.Attach.Sources": "false",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "last_opened_file_path": "C:/Users/20ani/Documents/Code/WAT-Vis/src/main/resources/python/other",
+    "last_opened_file_path": "C:/Users/20ani/Documents/Code/WAT-Vis/inputs/client/hypixel overnight - skyblock",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.14550781",
     "project.structure.side.proportion": "0.41408116",
@@ -131,15 +272,16 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\20ani\Documents\Code\WAT-Vis\inputs\client\hypixel overnight - skyblock" />
       <recent name="C:\Users\20ani\Documents\Code\WAT-Vis\src\main\resources\python\other" />
       <recent name="C:\Users\20ani\Documents\Code\WAT-Vis\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\20ani\Documents\Code\WAT-Vis\src\main\java\com\anipgames\WAT_Vis\themes" />
       <recent name="C:\Users\20ani\Documents\Code\WAT-Vis\src\main\resources\python" />
       <recent name="C:\Users\20ani\Documents\Code\WAT-Vis\src\main\resources\python\tensorflow" />
       <recent name="C:\Users\20ani\Documents\Code\WAT-Vis\src\main\java\com\anipgames\WAT_Vis\python" />
       <recent name="C:\Users\20ani\Documents\Code\WAT-Vis\src\test\resources" />
-      <recent name="C:\Users\20ani\Documents\Code\WAT-Vis\inputs\client\hypixel overnight - skyblock" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />

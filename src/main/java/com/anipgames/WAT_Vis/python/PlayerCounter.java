@@ -4,6 +4,7 @@ import com.anipgames.WAT_Vis.util.Logger;
 import com.anipgames.WAT_Vis.util.objects.DecodedData;
 import com.anipgames.WAT_Vis.util.objects.LogEntry;
 import com.seedfinding.latticg.util.Pair;
+import com.anipgames.WAT_Vis.util.Dict;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -24,12 +25,12 @@ public class PlayerCounter {
     }
 
     // A: Date, B: List of players for that day
-    public HashMap<String, Integer> analyzeDaily() {
+    public Dict analyzeDaily() {
         long cur = System.currentTimeMillis();
 
-        HashMap<String, Integer> playerCounts = new HashMap<>();
-        HashMap<String, HashSet<String>> playersPerDay = new HashMap<>();
-        for (LogEntry entry : data.logEntriesByTime.values()) {
+        Dict<String, Integer> playerCounts = new Dict<>();
+        Dict<String, HashSet<String>> playersPerDay = new Dict<>();
+        for (LogEntry entry : data.logEntries) {
             String playerName = entry.playerName;
             String date = entry.time.toLocalDate().toString();
 
@@ -48,7 +49,6 @@ public class PlayerCounter {
 
         return playerCounts;
     }
-
     // A: Date and its period, B: Avg player count during the morning, midday, afternoon, and evening, night
     /*
     Periods:
@@ -60,19 +60,21 @@ public class PlayerCounter {
      */
     // Long: Date hashcode
     // Integer #1: Period
-    public HashMap<Pair<Integer, Integer>, Integer> analyzePerPeriod() {
+    public Dict<Integer, Integer> analyzePerPeriod() {
         long cur = System.currentTimeMillis();
 
-        HashMap<Pair<Integer, Integer>, Integer> playerCounts = new HashMap<>();
-        for (LocalDateTime time : data.logEntriesByTime.keySet()) {
-            playerCounts.merge(new Pair<>(hashLocalDate(time.toLocalDate()), getPeriod(time.toLocalTime())), 1, Integer::sum);
+//        Dict<Pair<Integer, Integer>, Integer> playerCounts = new Dict<>();
+        Dict<Integer, Integer> playerCounts2 = new Dict<>();
+        for (LocalDateTime time : data.logTimes) {
+//            playerCounts.merge(new Pair<>((24 * getWeekdayNumber(time.toLocalDate()) - 1) + time.getHour(), getPeriod(time.toLocalTime())), 1, Integer::sum);
+            playerCounts2.merge((24 * getWeekdayNumber(time.toLocalDate()) - 1) + time.getHour(), 1, Integer::sum);
         }
 
         long diff = System.currentTimeMillis() - cur;
 
         Logger.info(String.format("Finished analyzing day period player counts in: %d ms", diff));
 
-        return playerCounts;
+        return playerCounts2;
     }
 
     private int getPeriod(LocalTime time) {
@@ -94,5 +96,17 @@ public class PlayerCounter {
 
     private int hashLocalDate(LocalDate date) {
         return Integer.parseInt(date.format(DateTimeFormatter.ofPattern("yyyyMMdd")));
+    }
+
+    private int getWeekdayNumber(LocalDate date) {
+        return switch (date.getDayOfWeek()) {
+            case MONDAY -> 1;
+            case TUESDAY -> 2;
+            case WEDNESDAY -> 3;
+            case THURSDAY -> 4;
+            case FRIDAY -> 5;
+            case SATURDAY -> 6;
+            case SUNDAY -> 7;
+        };
     }
 }

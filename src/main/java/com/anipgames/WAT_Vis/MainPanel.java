@@ -48,7 +48,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
     // endregion
 
     // region Data variables
-    public LinkedHashMap<LocalDateTime, LogEntry> logEntriesByTime = new LinkedHashMap<>();
+    public HashSet<LogEntry> logEntries = new HashSet<>();
     public LocalDateTime[] logTimes;
     private int totalTimes = 0;
     private int totalData = 0;
@@ -194,14 +194,10 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
     private void initCommands() {
         Keyboard.registerTypedAction(KeyEvent.VK_CONTROL, KeyEvent.VK_A, i -> {
-            if (selectedEntries.size() != logEntriesByTime.size()) {
-                for (LogEntry entry : logEntriesByTime.values()) {
-                    if (!selectedEntries.contains(entry)) {
-                        selectedEntries.add(entry);
-                    }
-                }
+            if (selectedEntries.size() != logEntries.size()) {
+                selectedEntries.addAll(logEntries);
             } else {
-                for (LogEntry entry : logEntriesByTime.values()) {
+                for (LogEntry entry : logEntries) {
                     selectedEntries.remove(entry);
                 }
             }
@@ -677,22 +673,22 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
         enabledEntries.clear();
         maxActivity = 0;
 
-        for (Map.Entry<LocalDateTime, LogEntry> entry : logEntriesByTime.entrySet()) {
-            if ((entry.getKey().isAfter(startTime) && entry.getKey().isBefore(endTime)) || entry.getKey().equals(startTime) || entry.getKey().equals(endTime)) {
-                if (playerNameEnabledMap.get(entry.getValue().playerName) && entry.getValue().show) {
-                    enabledEntries.add(entry.getValue());
+        for (LogEntry entry : logEntries) {
+            if ((entry.time.isAfter(startTime) && entry.time.isBefore(endTime)) || entry.time.equals(startTime) || entry.time.equals(endTime)) {
+                if (playerNameEnabledMap.get(entry.playerName) && entry.show) {
+                    enabledEntries.add(entry);
 
-                    if (!playerMarkerCount.containsKey(entry.getValue().playerName)) {
-                        playerMarkerCount.put(entry.getValue().playerName, 1);
+                    if (!playerMarkerCount.containsKey(entry.playerName)) {
+                        playerMarkerCount.put(entry.playerName, 1);
                     } else {
-                        playerMarkerCount.put(entry.getValue().playerName, playerMarkerCount.get(entry.getValue().playerName) + 1);
+                        playerMarkerCount.put(entry.playerName, playerMarkerCount.get(entry.playerName) + 1);
                     }
 
-                    if (!posActivityMap.containsKey(entry.getValue().position)) {
-                        posActivityMap.put(entry.getValue().position, 1);
+                    if (!posActivityMap.containsKey(entry.position)) {
+                        posActivityMap.put(entry.position, 1);
                     } else {
-                        int val = posActivityMap.get(entry.getValue().position) + 1;
-                        posActivityMap.put(entry.getValue().position, val);
+                        int val = posActivityMap.get(entry.position) + 1;
+                        posActivityMap.put(entry.position, val);
 
                         if (maxActivity < val) {
                             maxActivity = val;
@@ -704,7 +700,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
         shouldDraw = start;
 
-        if (shouldUpdateLog) Logger.info("Updated points: " + logEntriesByTime.size());
+        if (shouldUpdateLog) Logger.info("Updated points: " + logEntries.size());
     }
 
     public void setData(DecodedData data) {
@@ -727,12 +723,12 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
             Logger.error("Error running python file:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
 
-        logEntriesByTime = data.logEntriesByTime;
+        logEntries = data.logEntries;
         playerNameColorMap = data.playerNameColorMap;
         playerLastPosMap = data.playerLastPosMap;
         playerNameEnabledMap = data.playerNameEnabledMap;
 
-        logTimes = logEntriesByTime.keySet().toArray(new LocalDateTime[0]);
+        logTimes = data.logTimes.toArray(new LocalDateTime[0]);
         totalTimes = logTimes.length;
 
         minX = data.minX;
@@ -754,7 +750,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
         dataWorld = data.dataWorld;
 
-        totalData = logEntriesByTime.size();
+        totalData = logEntries.size();
 
         selectedEntryLabel.setText("Nothing Selected");
         selectedEntries.clear();
@@ -894,7 +890,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
         int selectedCount = 0;
         if (ctrlDown) {
-            for (LogEntry entry : logEntriesByTime.values()) {
+            for (LogEntry entry : logEntries) {
                 if ((shiftDown || !selectedEntries.contains(entry)) && entry.position.insideBounds(selectionStart, selectionEnd)) {
                     selectedEntries.add(entry);
 
@@ -1164,7 +1160,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
     // endregion
 
     public void Reset() {
-        logEntriesByTime.clear();
+        logEntries.clear();
         logTimes = new LocalDateTime[]{};
 
         playerNameColorMap.clear();

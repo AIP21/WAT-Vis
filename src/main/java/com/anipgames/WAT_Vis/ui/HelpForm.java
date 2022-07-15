@@ -9,7 +9,7 @@ import java.awt.*;
 
 public class HelpForm extends JDialog {
     public HelpForm(PlayerTrackerDecoder main) {
-        super(main, "Help");
+        super(main);
 
         setModal(true);
         setModalityType(ModalityType.DOCUMENT_MODAL);
@@ -29,8 +29,8 @@ public class HelpForm extends JDialog {
         GridBagConstraints gbc;
 
         JLabel titleText = new JLabel("Help");
-        Font TitleFont = Utils.getFont(null, Font.BOLD, 26, titleText.getFont());
-        if (TitleFont != null) titleText.setFont(TitleFont);
+        Font titleFont = Utils.getFont(null, Font.BOLD, 26, titleText.getFont());
+        if (titleFont != null) titleText.setFont(titleFont);
         titleText.setHorizontalAlignment(0);
         titleText.setHorizontalTextPosition(0);
         add(titleText, BorderLayout.NORTH);
@@ -85,6 +85,8 @@ public class HelpForm extends JDialog {
                         <a href="https://github.com/AIP21/WAT-mod">Github page for the WAT Logging Minecraft mod, which produces data that this tool can visualize.</a><br>
                         <br>
                 """ + String.format("Version %s with build id %s, built on %s<br> <a href=\"%s\">Release URL</a><br> Release notes: %s <br>", PlayerTrackerDecoder.VERSION, PlayerTrackerDecoder.BUILD_INFO[0], PlayerTrackerDecoder.BUILD_INFO[1], PlayerTrackerDecoder.BUILD_INFO[2], PlayerTrackerDecoder.BUILD_INFO[3]) + """
+                        <br>
+                        Copyright © 2022 Alexander Irausquin-Petit
                       </font>
                     </center>
                   </body>

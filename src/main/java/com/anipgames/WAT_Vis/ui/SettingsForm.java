@@ -1,6 +1,6 @@
 package com.anipgames.WAT_Vis.ui;
 
-import com.anipgames.WAT_Vis.IO.Icons;
+import com.anipgames.WAT_Vis.io.Icons;
 import com.anipgames.WAT_Vis.PlayerTrackerDecoder;
 import com.anipgames.WAT_Vis.PlayerTrackerDecoder.UITheme;
 import com.anipgames.WAT_Vis.config.Settings;
@@ -19,13 +19,13 @@ public class SettingsForm extends JDialog {
     public LabeledComponent<JRadioButton> debugMode;
     public LabeledComponent<JSlider> fpsLimit;
     public LabeledComponent<JSlider> mouseSensitivity;
-    private Font settingsTitleFont;
+    private Font settingstitleFont;
 
     private final PlayerTrackerDecoder main;
     private final Settings settings;
 
     public SettingsForm(PlayerTrackerDecoder main, Settings settings) {
-        super(main, "Settings");
+        super(main);
 
         setModal(true);
         setModalityType(ModalityType.DOCUMENT_MODAL);
@@ -46,9 +46,9 @@ public class SettingsForm extends JDialog {
         setLayout(new BorderLayout());
 
         settingsTitleText = new JLabel("Settings");
-        settingsTitleFont = Utils.getFont(null, Font.BOLD, 26, settingsTitleText.getFont());
-        if (settingsTitleFont != null) {
-            settingsTitleText.setFont(settingsTitleFont);
+        settingstitleFont = Utils.getFont(null, Font.BOLD, 26, settingsTitleText.getFont());
+        if (settingstitleFont != null) {
+            settingsTitleText.setFont(settingstitleFont);
         }
         settingsTitleText.setHorizontalAlignment(SwingConstants.CENTER);
         settingsTitleText.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -68,7 +68,7 @@ public class SettingsForm extends JDialog {
         gbc.gridy = 0;
         gbc.weightx = 1;
         gbc.weighty = 1;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.fill = GridBagConstraints.BOTH;
         gbc.insets = new Insets(10, 0, 0, 0);
         settingsPanel.add(themeTitle, gbc);
 
@@ -128,6 +128,9 @@ public class SettingsForm extends JDialog {
         gbc.anchor = GridBagConstraints.WEST;
 
         JSlider fpsLimitSlider = fpsLimit.getComponent();
+        fpsLimitSlider.setMajorTickSpacing(50);
+        fpsLimitSlider.setMinorTickSpacing(10);
+        fpsLimitSlider.setPaintTicks(true);
         fpsLimitSlider.setSnapToTicks(true);
 
         settingsPanel.add(fpsLimit, gbc);
@@ -137,6 +140,9 @@ public class SettingsForm extends JDialog {
         gbc.gridy++;
 
         JSlider sensitivitySlider = mouseSensitivity.getComponent();
+        sensitivitySlider.setMajorTickSpacing(50);
+        sensitivitySlider.setMinorTickSpacing(10);
+        sensitivitySlider.setPaintTicks(true);
         sensitivitySlider.setSnapToTicks(true);
 
         settingsPanel.add(mouseSensitivity, gbc);
@@ -150,7 +156,7 @@ public class SettingsForm extends JDialog {
             SwingUtilities.updateComponentTreeUI(this);
             lightThemeButton.setSelected(true);
             darkThemeButton.setSelected(false);
-            settingsTitleText.setFont(settingsTitleFont);
+            settingsTitleText.setFont(settingstitleFont);
             revalidate();
 
             Logger.info("Set the theme to light");
@@ -161,7 +167,7 @@ public class SettingsForm extends JDialog {
             SwingUtilities.updateComponentTreeUI(this);
             lightThemeButton.setSelected(false);
             darkThemeButton.setSelected(true);
-            settingsTitleText.setFont(settingsTitleFont);
+            settingsTitleText.setFont(settingstitleFont);
             revalidate();
 
             Logger.info("Set the theme to dark");

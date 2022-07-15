@@ -712,13 +712,17 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
         PlayerCounter pc = new PlayerCounter(data);
         // Run a python script
         try {
-            PythonIntegration.executePython("OnlinePlayerCount.py", "data.txt",
+            PythonIntegration.executePython("OnlinePlayerCount.py", "",
                     String.format("""
                             {
                                 "daily": %s,
                                 "periods": %s,
                             }
-                            """, pc.analyzeDaily().toString(), pc.analyzePerPeriod().toString()));
+                            """,
+                            pc.analyzeDaily().toString(),
+                            pc.analyzePerPeriod().toString()
+                    )
+            );
         } catch (Exception e) {
             Logger.error("Error running python file:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }

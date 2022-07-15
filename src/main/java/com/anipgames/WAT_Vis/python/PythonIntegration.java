@@ -20,8 +20,8 @@ public class PythonIntegration {
     public static ArrayList<String> executePython(String pythonFile, String arguments, String writeToFile) throws Exception {
         long start = System.currentTimeMillis();
 
-        ProcessBuilder processBuilder = new ProcessBuilder("python", DIR_PY + File.separatorChar + pythonFile, arguments);
-        try (PrintWriter pw = new PrintWriter(DIR_PY + File.separatorChar + "data.txt", StandardCharsets.UTF_8)) {
+        ProcessBuilder processBuilder = new ProcessBuilder("python3", DIR_PY + pythonFile, arguments);
+        try (PrintWriter pw = new PrintWriter(DIR_PY + "data.txt", StandardCharsets.UTF_8)) {
             pw.println(writeToFile);
         } catch (Exception e) {
             System.err.println("Error writing to file for python script");

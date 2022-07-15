@@ -25,23 +25,23 @@ public class PlayerCounter {
     }
 
     // A: Date, B: List of players for that day
-    public Dict analyzeDaily() {
+    public Dict<String, Integer> analyzeDaily() {
         long cur = System.currentTimeMillis();
 
         Dict<String, Integer> playerCounts = new Dict<>();
-        Dict<String, HashSet<String>> playersPerDay = new Dict<>();
-        for (LogEntry entry : data.logEntries) {
-            String playerName = entry.playerName;
-            String date = entry.time.toLocalDate().toString();
+                 Dict<String, HashSet<String>> playersPerDay = new Dict<>();
+                 for (LogEntry entry : data.logEntries) {
+                     String playerName = entry.playerName;
+                     String date = entry.time.toLocalDate().toString();
 
-            playersPerDay.putIfAbsent(date, new HashSet<>());
+                     playersPerDay.putIfAbsent(date, new HashSet<>());
 
-            if (!playersPerDay.get(date).contains(playerName)) {
-                playerCounts.merge(date, 1, Integer::sum);
-            }
+                     if (!playersPerDay.get(date).contains(playerName)) {
+                         playerCounts.merge(date, 1, Integer::sum);
+                     }
 
-            playersPerDay.get(date).add(playerName);
-        }
+                     playersPerDay.get(date).add(playerName);
+                 }
 
         long diff = System.currentTimeMillis() - cur;
 
@@ -49,6 +49,7 @@ public class PlayerCounter {
 
         return playerCounts;
     }
+
     // A: Date and its period, B: Avg player count during the morning, midday, afternoon, and evening, night
     /*
     Periods:
@@ -60,21 +61,29 @@ public class PlayerCounter {
      */
     // Long: Date hashcode
     // Integer #1: Period
-    public Dict<Integer, Integer> analyzePerPeriod() {
+    public Dict<String, Integer> analyzePerPeriod() {
         long cur = System.currentTimeMillis();
 
-//        Dict<Pair<Integer, Integer>, Integer> playerCounts = new Dict<>();
-        Dict<Integer, Integer> playerCounts2 = new Dict<>();
-        for (LocalDateTime time : data.logTimes) {
-//            playerCounts.merge(new Pair<>((24 * getWeekdayNumber(time.toLocalDate()) - 1) + time.getHour(), getPeriod(time.toLocalTime())), 1, Integer::sum);
-            playerCounts2.merge((24 * getWeekdayNumber(time.toLocalDate()) - 1) + time.getHour(), 1, Integer::sum);
+        Dict<String, Integer> playerCounts = new Dict<>();
+        Dict<String, HashSet<String>> playersPerDay = new Dict<>();
+        for (LogEntry entry : data.logEntries) {
+            String playerName = entry.playerName;
+            LocalDateTime dateTime = entry.time;
+
+            playersPerDay.putIfAbsent(dateTime.toString(), new HashSet<>());
+
+            if (!playersPerDay.get(dateTime.toString()).contains(playerName)) {
+                playerCounts.merge(String.valueOf((24 * getWeekdayNumber(dateTime.toLocalDate()) - 1) + dateTime.getHour()), 1, Integer::sum);
+            }
+
+            playersPerDay.get(dateTime.toString()).add(playerName);
         }
 
         long diff = System.currentTimeMillis() - cur;
 
         Logger.info(String.format("Finished analyzing day period player counts in: %d ms", diff));
 
-        return playerCounts2;
+        return playerCounts;
     }
 
     private int getPeriod(LocalTime time) {

@@ -55,8 +55,7 @@ public class Decoder {
 
         Logger.info("Decoding data...");
 
-        HashSet<LogEntry> logEntriesByTime = new HashSet<>();
-        HashSet<LocalDateTime> logTimes = new HashSet<>();
+        LinkedHashMap<LocalDateTime, LogEntry> logEntriesByTime = new LinkedHashMap<>();
         HashMap<String, Color> playerNameColorMap = new HashMap<>();
         HashMap<String, Boolean> playerNameEnabledMap = new HashMap<>();
         HashMap<String, Vector3> playerLastPosMap = new HashMap<>();
@@ -116,9 +115,8 @@ public class Decoder {
 
                     String playerName = items[1];
 
-                    logEntriesByTime.add(new LogEntry(dateTime, playerName, position));
+                    logEntriesByTime.put(dateTime, new LogEntry(dateTime, playerName, position));
 
-                    logTimes.add(dateTime);
                     playerNameColorMap.putIfAbsent(playerName, randomColor(0));
                     playerNameEnabledMap.putIfAbsent(playerName, true);
                     playerLastPosMap.putIfAbsent(playerName, position);
@@ -158,7 +156,7 @@ public class Decoder {
 
         Logger.info("Successfully decoded " + logEntriesByTime.size() + " entries. Took " + durMs + "ms");
 
-        return new DecodedData(logEntriesByTime, logTimes, playerNameColorMap, playerNameEnabledMap, playerLastPosMap, playerCountMap, minX, maxX, minY, maxY, xRange, yRange, dataWorld, startTime, endTime);
+        return new DecodedData(logEntriesByTime, playerNameColorMap, playerNameEnabledMap, playerLastPosMap, playerCountMap, minX, maxX, minY, maxY, xRange, yRange, dataWorld, startTime, endTime);
     }
 
     private static Color randomColor(int iter) {

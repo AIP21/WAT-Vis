@@ -1,30 +1,39 @@
 package com.anipgames.WAT_Vis.analysis.ui;
 
-import com.anipgames.WAT_Vis.PlayerTrackerDecoder;
-import com.anipgames.WAT_Vis.analysis.ui.graphs.AbstractGraph;
-import com.anipgames.WAT_Vis.analysis.ui.graphs.LineGraph;
+import com.anipgames.WAT_Vis.python.PlayerCounter;
 import com.anipgames.WAT_Vis.util.Logger;
 import com.anipgames.WAT_Vis.util.Utils;
+import com.anipgames.WAT_Vis.util.objects.DecodedData;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.knowm.xchart.XChartPanel;
+import org.knowm.xchart.XYChart;
+import org.knowm.xchart.XYChartBuilder;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.AffineTransform;
-import java.awt.geom.NoninvertibleTransformException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class Dashboard extends JInternalFrame implements Runnable {
+public class Dashboard extends JFrame implements Runnable {
+    private DecodedData data;
+
     //region Graphs
     private final JPanel graphsPanel;
-    private final ArrayList<AbstractGraph> graphs = new ArrayList<>();
+    private final ArrayList<JPanel> graphs = new ArrayList<>();
     //endregion
 
     //region Updating
     private boolean isRunning = true;
     //endregion
 
-    public Dashboard() {
-        this.setTitle("Analysis Dashboard");
+    public Dashboard(DecodedData data) {
+        super("Analysis Dashboard");
+        setLayout(new BorderLayout());
+
+        this.data = data;
+
+        JPanel panel = new JPanel(new BorderLayout());
+        this.getContentPane().add(panel, BorderLayout.CENTER);
+
         this.setMinimumSize(new Dimension(720, 480));
 
         JLabel titleText = new JLabel("Analysis Dashboard");
@@ -32,10 +41,10 @@ public class Dashboard extends JInternalFrame implements Runnable {
         if (titleFont != null) titleText.setFont(titleFont);
         titleText.setHorizontalAlignment(0);
         titleText.setHorizontalTextPosition(0);
-        add(titleText, BorderLayout.NORTH);
+        panel.add(titleText, BorderLayout.NORTH);
 
         graphsPanel = new JPanel(new FlowLayout());
-        add(graphsPanel, BorderLayout.CENTER);
+        panel.add(graphsPanel, BorderLayout.CENTER);
 
         createGraphs();
     }
@@ -61,10 +70,45 @@ public class Dashboard extends JInternalFrame implements Runnable {
     }
 
     private void createGraphs() {
-        graphs.add(new LineGraph("Test", "X", "Y"));
+        XYChart allActivityChart = new XYChartBuilder().width(500).height(200).title("Activity (All)").xAxisTitle("Day").yAxisTitle("Players").build();
 
-        for (AbstractGraph graph : graphs) {
+        ImmutablePair<ArrayList<String>, ArrayList<Integer>> allActivity = PlayerCounter.analyzeActivityAll(data);
+        allActivityChart.addSeries("Players", allActivity.getRight());
+
+        graphs.add(new XChartPanel<>(allActivityChart));
+
+        XYChart weekActivityChart = new XYChartBuilder().width(500).height(200).title("Activity (Week)").xAxisTitle("Day of Week").yAxisTitle("Players").build();
+
+        ImmutablePair<ArrayList<String>, ArrayList<Integer>> weekActivity = PlayerCounter.analyzeActivityWeek(data);
+        weekActivityChart.addSeries("Players", weekActivity.getRight());
+
+        graphs.add(new XChartPanel<>(weekActivityChart));
+
+        XYChart dayActivityChart = new XYChartBuilder().width(500).height(200).title("Activity (Day)").xAxisTitle("Hour of Day").yAxisTitle("Players").build();
+
+        ImmutablePair<ArrayList<String>, ArrayList<Integer>> dayActivity = PlayerCounter.analyzeActivityDay(data);
+        dayActivityChart.addSeries("Players", dayActivity.getRight());
+
+        graphs.add(new XChartPanel<>(dayActivityChart));
+
+        XYChart dailyEntriesChart = new XYChartBuilder().width(500).height(200).title("Daily Logged Entries").xAxisTitle("Day").yAxisTitle("Logged Entries").build();
+
+        ImmutablePair<ArrayList<String>, ArrayList<Integer>> dailyEntries = PlayerCounter.analyzeDailyEntries(data);
+        dailyEntriesChart.addSeries("Entries", dailyEntries.getRight());
+
+        graphs.add(new XChartPanel<>(dailyEntriesChart));
+
+        for (JPanel graph : graphs) {
             graphsPanel.add(graph);
         }
+    }
+
+    private static int[] getRandomWalk(int numPoints) {
+        int[] y = new int[numPoints];
+        y[0] = 0;
+        for (int i = 1; i < numPoints; i++) {
+            y[i] = (int) (y[i - 1] + (Math.random() * 10) - 5);
+        }
+        return y;
     }
 }

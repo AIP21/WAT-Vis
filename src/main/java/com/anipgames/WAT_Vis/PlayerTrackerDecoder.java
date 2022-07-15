@@ -181,7 +181,7 @@ public class PlayerTrackerDecoder extends JFrame {
         insightsButton.setMinimumSize(new Dimension(41, 41));
         menuButtons.add(insightsButton);
         insightsButton.addActionListener((event) -> {
-            dashboard = new Dashboard();
+            dashboard = new Dashboard(mainPanel.decodedData);
             dashboard.setVisible(true);
         });
 
@@ -225,10 +225,12 @@ public class PlayerTrackerDecoder extends JFrame {
             helpForm.setLocationRelativeTo(this);
             helpForm.setVisible(true);
         });
+        //endregion
 
         toolBar = new JToolBar("Toolbar");
         toolBar.setVisible(false);
         toolBar.setCursor(null);
+        toolBar.setRollover(true);
         menuBar.add(toolBar, BorderLayout.CENTER);
 
         JMenuBar bottomMenuBar = new JMenuBar();
@@ -428,15 +430,7 @@ public class PlayerTrackerDecoder extends JFrame {
         mainPanel.coordinateLabel.setText("");
         mainPanel.selectedEntryLabel = new JLabel("Nothing Selected");
         mainPanel.selectedEntryLabel.setVisible(false);
-
-        JSplitPane centerSplit = new JSplitPane();
-        add(centerSplit, BorderLayout.CENTER);
-
-        dashboardToolBar = new JToolBar();
-
-        centerSplit.setRightComponent(dashboardToolBar);
-
-        centerSplit.setLeftComponent(mainPanel);
+        add(mainPanel, BorderLayout.CENTER);
         mainPanel.setVisible(true);
         mainPanel.repaint();
         revalidate();

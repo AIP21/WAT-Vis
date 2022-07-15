@@ -1,8 +1,8 @@
 package com.anipgames.WAT_Vis.ui;
 
 import com.seedfinding.mccore.version.MCVersion;
-import com.anipgames.WAT_Vis.IO.filters.ImageFileFilter;
-import com.anipgames.WAT_Vis.IO.filters.TextFileFilter;
+import com.anipgames.WAT_Vis.io.filters.ImageFileFilter;
+import com.anipgames.WAT_Vis.io.filters.TextFileFilter;
 import com.anipgames.WAT_Vis.PlayerTrackerDecoder;
 import com.anipgames.WAT_Vis.config.Settings;
 import com.anipgames.WAT_Vis.util.Logger;
@@ -59,7 +59,7 @@ public class ImportForm extends JDialog {
     private JButton addFileButton;
 
     public ImportForm(PlayerTrackerDecoder main, Settings settings, boolean alreadyImported) {
-        super(main, "Import Files");
+        super(main);
 
         setModal(true);
         setModalityType(ModalityType.DOCUMENT_MODAL);
@@ -113,8 +113,8 @@ public class ImportForm extends JDialog {
 
         JLabel titleText = new JLabel();
         titleText.setEnabled(true);
-        Font TitleFont = Utils.getFont(null, Font.BOLD, 26, titleText.getFont());
-        if (TitleFont != null) titleText.setFont(TitleFont);
+        Font titleFont = Utils.getFont(null, Font.BOLD, 26, titleText.getFont());
+        if (titleFont != null) titleText.setFont(titleFont);
         titleText.setHorizontalAlignment(SwingConstants.CENTER);
         titleText.setHorizontalTextPosition(SwingConstants.CENTER);
         titleText.setText("Import Files");
@@ -159,8 +159,8 @@ public class ImportForm extends JDialog {
         mainSplitPane.setLeftComponent(importSettingsPanel);
 
         JLabel importSettingsTitle = new JLabel();
-        Font importSettingsTitleFont = Utils.getFont(null, Font.PLAIN, 16, importSettingsTitle.getFont());
-        if (importSettingsTitleFont != null) importSettingsTitle.setFont(importSettingsTitleFont);
+        Font importSettingstitleFont = Utils.getFont(null, Font.PLAIN, 16, importSettingsTitle.getFont());
+        if (importSettingstitleFont != null) importSettingsTitle.setFont(importSettingstitleFont);
         importSettingsTitle.setHorizontalAlignment(SwingConstants.CENTER);
         importSettingsTitle.setText("Options");
         gbc = new GridBagConstraints();
@@ -268,8 +268,8 @@ public class ImportForm extends JDialog {
         mainSplitPane.setRightComponent(fileSelectorPanel);
 
         JLabel fileSelectorTitle = new JLabel();
-        Font fileSelectorTitleFont = Utils.getFont(null, Font.PLAIN, 16, fileSelectorTitle.getFont());
-        if (fileSelectorTitleFont != null) fileSelectorTitle.setFont(fileSelectorTitleFont);
+        Font fileSelectortitleFont = Utils.getFont(null, Font.PLAIN, 16, fileSelectorTitle.getFont());
+        if (fileSelectortitleFont != null) fileSelectorTitle.setFont(fileSelectortitleFont);
         fileSelectorTitle.setHorizontalAlignment(SwingConstants.CENTER);
         fileSelectorTitle.setText("Select Files");
         gbc = new GridBagConstraints();

@@ -20,7 +20,7 @@ import java.util.*;
 public class Decoder {
     private static final ArrayList<Color> generatedColors = new ArrayList<>();
 
-    public static DecodedData Decode(ArrayList<File> inputFiles, int maxEntries, boolean convertChunkPositions) {
+    public static DecodedData Decode(PlayerTrackerDecoder main, ArrayList<File> inputFiles, int maxEntries, boolean convertChunkPositions) {
         Logger.info("Initializing new decoding process");
 
         final long nowMs = System.currentTimeMillis();
@@ -55,12 +55,14 @@ public class Decoder {
 
         Logger.info("Decoding data...");
 
-        LinkedHashMap<LocalDateTime, LogEntry> logEntriesByTime = new LinkedHashMap<>();
+        HashSet<LogEntry> logEntriesByTime = new HashSet<>();
+        HashSet<LocalDateTime> logTimes = new HashSet<>();
         HashMap<String, Color> playerNameColorMap = new HashMap<>();
         HashMap<String, Boolean> playerNameEnabledMap = new HashMap<>();
         HashMap<String, Vector3> playerLastPosMap = new HashMap<>();
         HashMap<String, Integer> playerCountMap = new HashMap<>();
         generatedColors.clear();
+
         String dataWorld = null;
         int minX = 0;
         int maxX = 0;
@@ -114,17 +116,12 @@ public class Decoder {
 
                     String playerName = items[1];
 
-                    // TODO: FIX NOT ADDING WHEN USING THE HYPIXEL DATA (LIMITED BY SIZE???)
-                    logEntriesByTime.put(dateTime, new LogEntry(dateTime, playerName, position));
+                    logEntriesByTime.add(new LogEntry(dateTime, playerName, position));
 
-                    if (!playerNameColorMap.containsKey(playerName)) {
-                        playerNameColorMap.put(playerName, randomColor(0));
-                    }
-
+                    logTimes.add(dateTime);
+                    playerNameColorMap.putIfAbsent(playerName, randomColor(0));
                     playerNameEnabledMap.putIfAbsent(playerName, true);
-
                     playerLastPosMap.putIfAbsent(playerName, position);
-
                     playerCountMap.merge(playerName, 1, Integer::sum);
 
                     if (position.x < minX)
@@ -140,11 +137,6 @@ public class Decoder {
                         maxY = position.z;
 
                     lines++;
-
-                    int size = logEntriesByTime.size();
-                    if (size % 1000 == 0) {
-                        System.out.println(size);
-                    }
                 }
                 br.close();
             } catch (IOException e) {
@@ -166,7 +158,7 @@ public class Decoder {
 
         Logger.info("Successfully decoded " + logEntriesByTime.size() + " entries. Took " + durMs + "ms");
 
-        return new DecodedData(logEntriesByTime, playerNameColorMap, playerNameEnabledMap, playerLastPosMap, playerCountMap, minX, maxX, minY, maxY, xRange, yRange, dataWorld, startTime, endTime);
+        return new DecodedData(logEntriesByTime, logTimes, playerNameColorMap, playerNameEnabledMap, playerLastPosMap, playerCountMap, minX, maxX, minY, maxY, xRange, yRange, dataWorld, startTime, endTime);
     }
 
     private static Color randomColor(int iter) {

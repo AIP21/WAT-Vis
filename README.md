@@ -90,5 +90,6 @@ Here are some screenshots from the program, using made-up data and data from my 
 - All icons used are sourced from Google Material Icons under the Apache Licence - 2.0 (The license file is inside the icons directory)
 - Seed Mapping code was originally sourced from [MineMap](https://github.com/hube12/Minemap) made by KaptainWutax under the MIT License. I modified it significantly in order to properly integrate it with this tool.
 - Auto-Updating code sourced from [MineMap](https://github.com/hube12/Minemap) but is also modified.
+- XChart is used under the Apache License 2.0 license
 
 **THIS IS NOT AN OFFICIAL MOJANG PRODUCT AND IS NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT**

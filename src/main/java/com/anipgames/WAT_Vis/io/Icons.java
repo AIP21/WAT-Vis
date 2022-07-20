@@ -10,6 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
@@ -28,15 +29,16 @@ public class Icons {
     private void loadIcons() {
         Thread loadThread = new Thread(() -> {
             try {
-                Logger.info("Loading resources");
+                Logger.info("Loading icons");
                 long nowMs = System.currentTimeMillis();
 
                 HashMap<String, Boolean> inverts = new HashMap<>();
 
-                File iconsDir = new File(Objects.requireNonNull(getClass().getClassLoader().getResource("icons")).getFile());
-                try (Stream<Path> paths = Files.walk(iconsDir.getAbsoluteFile().toPath())) {
-                    paths.filter(Files::isRegularFile).forEach(e -> {
-                        File file = e.toFile();
+                File[] iconFiles = new File(Thread.currentThread().getContextClassLoader().getResource("icons").getPath()).listFiles();
+
+                if (iconFiles != null) {
+                    Logger.info("Loading resources");
+                    for (File file : iconFiles) {
                         if (!file.getName().toLowerCase().contains("license")) {
                             String name = file.getName().substring(0, file.getName().indexOf('.'));
                             try {
@@ -55,7 +57,9 @@ public class Icons {
                                 Logger.error("Error reading icon file:\n " + ex.getMessage() + "\n Stacktrace:\n " + Arrays.toString(ex.getStackTrace()));
                             }
                         }
-                    });
+                    }
+
+                    Logger.info(String.format("Successully loaded %d icons", iconsLight.size()));
                 }
 
                 long durMs = System.currentTimeMillis() - nowMs;

@@ -61,6 +61,15 @@ application {
 }
 
 jar {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+
+    exclude 'LICENSE.txt'
+    exclude 'META-INF/LICENSE'
+    exclude 'META-INF/LICENSE.txt'
+    exclude 'NOTICE.txt'
+    exclude 'META-INF/NOTICE'
+    exclude 'META-INF/NOTICE.txt'
+
     manifest {
         attributes "Main-Class": "com.anipgames.WAT_Vis.PlayerTrackerDecoder"
     }
@@ -75,10 +84,14 @@ run {
 }
 
 task copyDependencies(type: Copy) {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+
     from(configurations.runtimeClasspath).into("$buildDir/jmods")
 }
 
 task copyJar(type: Copy) {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+
     from(tasks.jar).into("$buildDir/jmods")
 }
 

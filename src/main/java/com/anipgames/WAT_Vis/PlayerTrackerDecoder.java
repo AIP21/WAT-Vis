@@ -150,12 +150,12 @@ public class PlayerTrackerDecoder extends JFrame {
         JPanel menuButtons = new JPanel();
         menuBar.add(menuButtons, BorderLayout.WEST);
 
-        JMenuItem dataFileImportButton = new JMenuItem();
+        JMenuItem dataFileImportButton = new JMenuItem("Import");
         Icons.setIcon(dataFileImportButton, "import");
         dataFileImportButton.setToolTipText("Import Data");
         dataFileImportButton.setFocusPainted(false);
-        dataFileImportButton.setPreferredSize(new Dimension(42, 42));
-        dataFileImportButton.setMinimumSize(new Dimension(41, 41));
+//        dataFileImportButton.setPreferredSize(new Dimension(42, 42));
+//        dataFileImportButton.setMinimumSize(new Dimension(41, 41));
         menuButtons.add(dataFileImportButton);
         dataFileImportButton.addActionListener((event) -> {
             hasBackgroundImage = false;
@@ -172,24 +172,24 @@ public class PlayerTrackerDecoder extends JFrame {
             importForm.setVisible(true);
         });
 
-        insightsButton = new JMenuItem();
+        insightsButton = new JMenuItem("Insights");
         insightsButton.setEnabled(false);
         Icons.setIcon(insightsButton, "insights");
         insightsButton.setToolTipText("Show Insights Dashboard");
         insightsButton.setFocusPainted(false);
-        insightsButton.setPreferredSize(new Dimension(42, 42));
-        insightsButton.setMinimumSize(new Dimension(41, 41));
+//        insightsButton.setPreferredSize(new Dimension(42, 42));
+//        insightsButton.setMinimumSize(new Dimension(41, 41));
         menuButtons.add(insightsButton);
         insightsButton.addActionListener((event) -> {
             dashboard = new Dashboard(mainPanel.decodedData);
             dashboard.setVisible(true);
         });
 
-        JMenuItem settingsButton = new JMenuItem();
+        JMenuItem settingsButton = new JMenuItem("Settings");
         Icons.setIcon(settingsButton, "settings");
         settingsButton.setToolTipText("Open Settings Pane");
-        settingsButton.setPreferredSize(new Dimension(42, 42));
-        settingsButton.setMinimumSize(new Dimension(41, 41));
+//        settingsButton.setPreferredSize(new Dimension(42, 42));
+//        settingsButton.setMinimumSize(new Dimension(41, 41));
         menuButtons.add(settingsButton);
         settingsButton.addActionListener((event) -> {
             mainPanel.isPlaying = false;
@@ -205,12 +205,12 @@ public class PlayerTrackerDecoder extends JFrame {
             settingsForm.setVisible(true);
         });
 
-        JMenuItem helpButton = new JMenuItem();
+        JMenuItem helpButton = new JMenuItem("Help");
         Icons.setIcon(helpButton, "help");
         helpButton.setToolTipText("Open Help Pane");
         helpButton.setFocusPainted(false);
-        helpButton.setPreferredSize(new Dimension(42, 42));
-        helpButton.setMinimumSize(new Dimension(41, 41));
+//        helpButton.setPreferredSize(new Dimension(42, 42));
+//        helpButton.setMinimumSize(new Dimension(41, 41));
         menuButtons.add(helpButton);
         helpButton.addActionListener((event) -> {
             mainPanel.isPlaying = false;

@@ -1,5 +1,5 @@
 # WAT:Vis *(Where are they? : Visualizer)*
-**WAT:Vis** is a tool to decode player positional data and visualize it in an intuitive and interactive way while also providing incredibly useful analytical insights for game developers and game server owners. Currently it supports only data in a .txt file but .csv support is coming soon and custom format support is planned.
+**WAT:Vis** is a tool to decode player positional data and visualize it in an intuitive and interactive way while also providing incredibly useful analytical insights for game developers and game server owners using artificial intelligence and machine learning algorithms. Currently it supports only data in a .txt file but .csv support is coming soon and custom format support is planned.
 Originally, this tool was made to visualize data from the game Minecraft, but this project has grown to be more useful for more broader applications than just Minecraft.
 
 Links to the original Minecraft mod:
@@ -100,5 +100,6 @@ Here are some screenshots from the program, using made-up data and data from my 
 - All icons used are sourced from Google Material Icons under the Apache Licence - 2.0 (The license file is inside the icons directory)
 - Seed Mapping code was originally sourced from [MineMap](https://github.com/hube12/Minemap) made by KaptainWutax under the MIT License. I modified it significantly in order to properly integrate it with this tool.
 - Auto-Updating code sourced from [MineMap](https://github.com/hube12/Minemap) but is also modified.
+- XChart is used under the Apache License 2.0 license
 
 **THIS IS NOT AN OFFICIAL MOJANG PRODUCT AND IS NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT**

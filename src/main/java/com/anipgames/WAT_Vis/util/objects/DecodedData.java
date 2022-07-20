@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 public class DecodedData {
-    public LinkedHashMap<LocalDateTime, LogEntry> logEntriesByTime;
+    public LinkedHashMap<LocalDateTime, LogEntry> logEntries;
     public HashMap<String, Color> playerNameColorMap;
     public HashMap<String, Boolean> playerNameEnabledMap;
     public HashMap<String, Vector3> playerLastPosMap;
@@ -22,8 +22,8 @@ public class DecodedData {
 
     public String dataWorld;
 
-    public DecodedData(LinkedHashMap<LocalDateTime, LogEntry> logEntriesByTime, HashMap<String, Color> playerNameColorMap, HashMap<String, Boolean> playerNameEnabledMap, HashMap<String, Vector3> playerLastPosMap, HashMap<String, Integer> playerCountMap, int minX, int maxX, int minY, int maxY, int xRange, int yRange, String dataWorld, LocalDateTime startTime, LocalDateTime endTime) {
-        this.logEntriesByTime = logEntriesByTime;
+    public DecodedData(LinkedHashMap<LocalDateTime, LogEntry> logEntries, HashMap<String, Color> playerNameColorMap, HashMap<String, Boolean> playerNameEnabledMap, HashMap<String, Vector3> playerLastPosMap, HashMap<String, Integer> playerCountMap, int minX, int maxX, int minY, int maxY, int xRange, int yRange, String dataWorld, LocalDateTime startTime, LocalDateTime endTime) {
+        this.logEntries = logEntries;
         this.playerNameColorMap = playerNameColorMap;
         this.playerNameEnabledMap = playerNameEnabledMap;
         this.playerLastPosMap = playerLastPosMap;

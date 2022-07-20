@@ -1,4 +1,4 @@
-/// WAT:Vis v1.3.2-FR - CONFIG \\\
+/// WAT:Vis v1.5.0 - CONFIG \\\
 /// Delete this config file to reset values to their default settings \\\
 
 theme: 0 // The UI theme (Light = 0, Dark = 1)
@@ -14,6 +14,6 @@ hiddenLines: false // Show lines that were hidden for being above the threshold
 terminusPoints: true // Show dots at the start and end of lines
 ageFade: false // Fade out older log markers, showing the age of the marker
 ageFadeStrength: 1.0 // How much to fade out older log markers. If 0, then it uses the max amount of log markers
-heatDrawType: 1 // The way to represent the heatmap. 0 = Change size, 1 = Change color
+heatDrawType: 0 // The way to represent the heatmap. 0 = Change size, 1 = Change color
 heatMapStrength: 1.0 // How much to change colors on the heatmap
 mouseSensitivity: 61 // How sensitive mouse inputs should be

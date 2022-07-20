@@ -1,20 +1,22 @@
 package com.anipgames.WAT_Vis;
 
-import com.anipgames.WAT_Vis.IO.Icons;
+import com.anipgames.WAT_Vis.analysis.ui.Dashboard;
+import com.anipgames.WAT_Vis.config.Settings;
+import com.anipgames.WAT_Vis.config.mapping.Configs;
+import com.anipgames.WAT_Vis.io.Icons;
+import com.anipgames.WAT_Vis.ui.HelpForm;
+import com.anipgames.WAT_Vis.ui.ImportForm;
+import com.anipgames.WAT_Vis.ui.RangedSlider.RangeSlider;
+import com.anipgames.WAT_Vis.ui.SettingsForm;
+import com.anipgames.WAT_Vis.util.Assets;
+import com.anipgames.WAT_Vis.util.Logger;
+import com.anipgames.WAT_Vis.util.Utils;
 import com.anipgames.WAT_Vis.util.VersionGetter;
 import com.formdev.flatlaf.FlatDarculaLaf;
 import com.formdev.flatlaf.FlatIntelliJLaf;
+import com.formdev.flatlaf.FlatLaf;
 import com.seedfinding.mccore.util.data.Pair;
 import com.seedfinding.mccore.version.MCVersion;
-import com.anipgames.WAT_Vis.config.Settings;
-import com.anipgames.WAT_Vis.config.mapping.Configs;
-import com.anipgames.WAT_Vis.util.Assets;
-import com.anipgames.WAT_Vis.ui.HelpForm;
-import com.anipgames.WAT_Vis.ui.RangedSlider.RangeSlider;
-import com.anipgames.WAT_Vis.ui.ImportForm;
-import com.anipgames.WAT_Vis.ui.SettingsForm;
-import com.anipgames.WAT_Vis.util.Logger;
-import com.anipgames.WAT_Vis.util.Utils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -44,7 +46,8 @@ public class PlayerTrackerDecoder extends JFrame {
     //region Static variables
     public static final String VERSION = VersionGetter.getVersion();
     public static boolean DEBUG = true;
-    public static String[] BUILD_INFO = new String[]{"NULL", "NULL", "NULL", "NULL", "NULL"};
+    // build id, build date, build url, build release notes, build name
+    public static String[] BUILD_INFO = new String[]{"null/experimental", "null/experimental", "null/experimental", "null/experimental", "null/experimental"};
 
     public static final String DIR_ROOT = System.getProperty("user.dir");
     public final static String DIR_LOGS = DIR_ROOT + File.separatorChar + "logs";
@@ -55,20 +58,17 @@ public class PlayerTrackerDecoder extends JFrame {
     public final static String DIR_DL = DIR_ROOT + File.separatorChar + ".downloads";
     //endregion
 
-    //region Menus
-    private JMenuBar menuBar;
-    private JMenuItem dataFileImportButton;
-    private JMenuItem insightsButton;
-    private JMenuItem settingsButton;
-    private JMenuItem helpButton;
-    private final JToolBar toolbar;
-    private JTabbedPane tabbedPane;
+    private final JToolBar toolBar;
+
+    private JToolBar dashboardToolBar;
     //endregion
 
     private boolean alreadyImported = false;
     private boolean hasBackgroundImage = false;
 
     //region UI elements
+    private JMenuItem insightsButton;
+
     public RangeSlider timeRangeSlider;
     public JLabel startTimeLabel;
     public JLabel endTimeLabel;
@@ -102,8 +102,6 @@ public class PlayerTrackerDecoder extends JFrame {
     private JToggleButton terminusPointsToggle;
     private JToggleButton showHiddenLinesToggle;
 
-    private JButton exportAsImageButton;
-    private JButton screenshotButton;
     private JLabel exportUpscaleLabel;
     private JLabel xLabel;
     private JLabel zLabel;
@@ -113,12 +111,13 @@ public class PlayerTrackerDecoder extends JFrame {
     //region Player pages
     private JLabel playerPageLabel;
     private int currentPlayerPageIndex = 0;
-    private int PLAYER_PAGE_CAPACITY = 12;
+    private final int PLAYER_PAGE_CAPACITY = 12;
     //endregion
     //endregion
 
-    //region Forms
+    //region Forms and panes
     private ImportForm importForm;
+    private Dashboard dashboard;
     private SettingsForm settingsForm;
     private HelpForm helpForm;
     //endregion
@@ -134,18 +133,29 @@ public class PlayerTrackerDecoder extends JFrame {
 
         new Icons();
 
+        FlatLaf.registerCustomDefaultsSource("com.anipgames.WAT_Vis.themes");
+
+        if (settings.uiTheme == UITheme.Light) {
+            FlatIntelliJLaf.setup();
+        } else {
+            FlatDarculaLaf.setup();
+        }
+
         initMainFrame();
 
-        menuBar = new JMenuBar();
+        //region Menus
+        JMenuBar menuBar = new JMenuBar();
         add(menuBar, BorderLayout.NORTH);
 
         JPanel menuButtons = new JPanel();
         menuBar.add(menuButtons, BorderLayout.WEST);
 
-        dataFileImportButton = new JMenuItem(Icons.getIcon("import"));
+        JMenuItem dataFileImportButton = new JMenuItem("Import");
+        Icons.setIcon(dataFileImportButton, "import");
         dataFileImportButton.setToolTipText("Import Data");
-        dataFileImportButton.setPreferredSize(new Dimension(48, 48));
-        dataFileImportButton.setMinimumSize(new Dimension(47, 47));
+        dataFileImportButton.setFocusPainted(false);
+//        dataFileImportButton.setPreferredSize(new Dimension(42, 42));
+//        dataFileImportButton.setMinimumSize(new Dimension(41, 41));
         menuButtons.add(dataFileImportButton);
         dataFileImportButton.addActionListener((event) -> {
             hasBackgroundImage = false;
@@ -162,23 +172,24 @@ public class PlayerTrackerDecoder extends JFrame {
             importForm.setVisible(true);
         });
 
-        insightsButton = new JMenuItem(Icons.getIcon("insights"));
+        insightsButton = new JMenuItem("Insights");
+        insightsButton.setEnabled(false);
+        Icons.setIcon(insightsButton, "insights");
         insightsButton.setToolTipText("Show Insights Dashboard");
-        insightsButton.setPreferredSize(new Dimension(48, 48));
-        insightsButton.setMinimumSize(new Dimension(47, 47));
+        insightsButton.setFocusPainted(false);
+//        insightsButton.setPreferredSize(new Dimension(42, 42));
+//        insightsButton.setMinimumSize(new Dimension(41, 41));
         menuButtons.add(insightsButton);
         insightsButton.addActionListener((event) -> {
-            mainPanel.isPlaying = false;
-
-            importForm = new ImportForm(this, settings, alreadyImported);
-            importForm.setLocationRelativeTo(this);
-            importForm.setVisible(true);
+            dashboard = new Dashboard(mainPanel.decodedData);
+            dashboard.setVisible(true);
         });
 
-        settingsButton = new JMenuItem(Icons.getIcon("settings"));
+        JMenuItem settingsButton = new JMenuItem("Settings");
+        Icons.setIcon(settingsButton, "settings");
         settingsButton.setToolTipText("Open Settings Pane");
-        settingsButton.setPreferredSize(new Dimension(48, 48));
-        settingsButton.setMinimumSize(new Dimension(47, 47));
+//        settingsButton.setPreferredSize(new Dimension(42, 42));
+//        settingsButton.setMinimumSize(new Dimension(41, 41));
         menuButtons.add(settingsButton);
         settingsButton.addActionListener((event) -> {
             mainPanel.isPlaying = false;
@@ -194,10 +205,12 @@ public class PlayerTrackerDecoder extends JFrame {
             settingsForm.setVisible(true);
         });
 
-        helpButton = new JMenuItem(Icons.getIcon("help"));
+        JMenuItem helpButton = new JMenuItem("Help");
+        Icons.setIcon(helpButton, "help");
         helpButton.setToolTipText("Open Help Pane");
-        helpButton.setPreferredSize(new Dimension(48, 48));
-        helpButton.setMinimumSize(new Dimension(47, 47));
+        helpButton.setFocusPainted(false);
+//        helpButton.setPreferredSize(new Dimension(42, 42));
+//        helpButton.setMinimumSize(new Dimension(41, 41));
         menuButtons.add(helpButton);
         helpButton.addActionListener((event) -> {
             mainPanel.isPlaying = false;
@@ -212,12 +225,14 @@ public class PlayerTrackerDecoder extends JFrame {
             helpForm.setLocationRelativeTo(this);
             helpForm.setVisible(true);
         });
+        //endregion
 
-        toolbar = new JToolBar("Toolbar");
-        toolbar.setVisible(false);
-        toolbar.setCursor(null);
+        toolBar = new JToolBar("Toolbar");
+        toolBar.setVisible(false);
+        toolBar.setCursor(null);
+        toolBar.setRollover(true);
+        menuBar.add(toolBar, BorderLayout.CENTER);
 
-        menuBar.add(toolbar, BorderLayout.CENTER);
         JMenuBar bottomMenuBar = new JMenuBar();
         add(bottomMenuBar, BorderLayout.SOUTH);
 
@@ -229,7 +244,7 @@ public class PlayerTrackerDecoder extends JFrame {
 
         ChangeTheme(settings.uiTheme);
 
-        Logger.info("Successfully initialized all subsystems");
+        Logger.info("Successfully initialized toolbar subsystems");
     }
 
     // TODO:
@@ -267,6 +282,7 @@ public class PlayerTrackerDecoder extends JFrame {
         });
     }
 
+    //region Directory management and updating
     public static void makeDirectories() {
         try {
             String[] dirs = {DIR_INPUTS, DIR_OUTPUTS, DIR_WORLDIMAGES, DIR_CONFIG, DIR_DL, DIR_LOGS};
@@ -275,14 +291,14 @@ public class PlayerTrackerDecoder extends JFrame {
             }
             Assets.createDirs();
         } catch (IOException e) {
-            Logger.err("Failed to create a necessary directory:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+            Logger.error("Failed to create a necessary directory:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
     }
 
     private static void updateApplication(HashMap<String, Pair<Pair<String, String>, String>> updateInfo, boolean prompt) {
         Pair<Pair<String, String>, String> release = updateInfo.get("jar");
         if (release == null) {
-            Logger.err("Missing jar Entry");
+            Logger.error("Missing jar Entry");
             return;
         }
         String OS = System.getProperty("os.name").toLowerCase();
@@ -329,7 +345,7 @@ public class PlayerTrackerDecoder extends JFrame {
         try {
             newVersion = downloadWorker.get(); // blocking wait (intended)
         } catch (Exception e) {
-            Logger.err("Failed to use the download worker:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+            Logger.error("Failed to use the download worker:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
         downloadPopup.setVisible(false);
         downloadPopup.dispose();
@@ -345,13 +361,13 @@ public class PlayerTrackerDecoder extends JFrame {
 
                 Logger.info(String.format("Process exited with %s", ps.waitFor()));
             } catch (Exception e) {
-                Logger.err("Failed to start the new process, error:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+                Logger.error("Failed to start the new process, error:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
                 return;
             }
 
             int exitValue = ps.exitValue();
             if (exitValue != 0) {
-                Logger.err("Failed to execute jar:\n " + Arrays.toString(new BufferedReader(new InputStreamReader(ps.getErrorStream())).lines().toArray()));
+                Logger.error("Failed to execute jar:\n " + Arrays.toString(new BufferedReader(new InputStreamReader(ps.getErrorStream())).lines().toArray()));
             } else {
                 Logger.warn(String.format("Switching to newer version! %s", newVersion));
                 System.exit(0);
@@ -373,24 +389,15 @@ public class PlayerTrackerDecoder extends JFrame {
             }
         };
     }
+    //endregion
 
     private void initMainFrame() {
         Logger.info("Initializing primary frame subsystem");
 
-        try {
-            if (settings.uiTheme == PlayerTrackerDecoder.UITheme.Light) {
-                UIManager.setLookAndFeel(new FlatIntelliJLaf());
-            } else {
-                UIManager.setLookAndFeel(new FlatDarculaLaf());
-            }
-        } catch (UnsupportedLookAndFeelException e) {
-            Logger.err("Error setting system look and feel for UI:\n " + Arrays.toString(e.getStackTrace()));
-        }
-
         setTitle("WAT:Vis - v" + VERSION);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(new Dimension(1280, 720));
-        setMinimumSize(new Dimension(1280, 720));
+        setMinimumSize(new Dimension(720, 480));
         setLayout(new BorderLayout());
         setLocationRelativeTo(null);
         getContentPane().setBackground(Color.DARK_GRAY);
@@ -412,7 +419,7 @@ public class PlayerTrackerDecoder extends JFrame {
                     importForm.setLocationRelativeTo(PlayerTrackerDecoder.this);
                     importForm.setVisible(true);
                 } catch (Exception e) {
-                    Logger.err("Error doing drag and drop on main frame:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+                    Logger.error("Error doing drag and drop on main frame:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
                 }
             }
         });
@@ -438,7 +445,7 @@ public class PlayerTrackerDecoder extends JFrame {
 
             decodeAndDisplay(files);
         } catch (IOException e) {
-            Logger.err("Error decoding the selected input log files:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+            Logger.error("Error decoding the selected input log files:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
 
         if (!worldSeed.isBlank()) {
@@ -463,7 +470,7 @@ public class PlayerTrackerDecoder extends JFrame {
 
             decodeAndDisplay(files);
         } catch (IOException e) {
-            Logger.err("Error decoding the selected input log files:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+            Logger.error("Error decoding the selected input log files:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
 
         mainPanel.resetSeedMapInfo();
@@ -551,63 +558,18 @@ public class PlayerTrackerDecoder extends JFrame {
         Logger.info("Successfully initialized world background image");
     }
 
-    public void ChangeTheme(PlayerTrackerDecoder.UITheme newTheme) {
+    public void ChangeTheme(UITheme newTheme) {
         settings.uiTheme = newTheme;
         settings.SaveSettings();
 
-        dataFileImportButton.setIcon(Icons.getIcon("import"));
-        insightsButton.setIcon(Icons.getIcon("insights"));
-        settingsButton.setIcon(Icons.getIcon("settings"));
-        helpButton.setIcon(Icons.getIcon("help"));
+        Icons.changeIconTheme(newTheme);
 
-        if (exportAsImageButton != null) {
-            exportAsImageButton.setIcon(Icons.getIcon("export"));
-        }
-
-        if (screenshotButton != null) {
-            screenshotButton.setIcon(Icons.getIcon("screenshot"));
-        }
-
-        if (mainPanel.isPlaying && animatePlayPause != null) {
-            animatePlayPause.setIcon(Icons.getIcon("pause"));
-        } else if (animatePlayPause != null) {
-            animatePlayPause.setIcon(Icons.getIcon("play"));
-        }
-
-        if (settings.terminusPoints && terminusPointsToggle != null) {
-            terminusPointsToggle.setIcon(Icons.getIcon("toggle-true"));
-        } else if (terminusPointsToggle != null) {
-            terminusPointsToggle.setIcon(Icons.getIcon("toggle-false"));
-        }
-
-        if (settings.hiddenLines && terminusPointsToggle != null) {
-            showHiddenLinesToggle.setIcon(Icons.getIcon("toggle-true"));
-        } else if (showHiddenLinesToggle != null) {
-            showHiddenLinesToggle.setIcon(Icons.getIcon("toggle-false"));
-        }
-
-        if (settings.fancyLines && fancyLinesToggle != null) {
-            fancyLinesToggle.setIcon(Icons.getIcon("toggle-true"));
-        } else if (fancyLinesToggle != null) {
-            fancyLinesToggle.setIcon(Icons.getIcon("toggle-false"));
-        }
-
-        if (settings.ageFade && terminusPointsToggle != null) {
-            ageFadeToggle.setIcon(Icons.getIcon("toggle-true"));
-        } else if (ageFadeToggle != null) {
-            ageFadeToggle.setIcon(Icons.getIcon("toggle-false"));
-        }
-
-        try {
-            if (newTheme == PlayerTrackerDecoder.UITheme.Light) {
-                mainPanel.setBackground(Color.lightGray);
-                UIManager.setLookAndFeel(new FlatIntelliJLaf());
-            } else {
-                mainPanel.setBackground(Color.darkGray);
-                UIManager.setLookAndFeel(new FlatDarculaLaf());
-            }
-        } catch (UnsupportedLookAndFeelException e) {
-            Logger.err("Error setting system look and feel for UI:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+        if (newTheme == UITheme.Light) {
+            mainPanel.setBackground(Color.lightGray);
+            FlatIntelliJLaf.setup();
+        } else {
+            mainPanel.setBackground(Color.darkGray);
+            FlatDarculaLaf.setup();
         }
 
         SwingUtilities.updateComponentTreeUI(this);
@@ -616,13 +578,15 @@ public class PlayerTrackerDecoder extends JFrame {
     private void initDataSettingsToolBar(boolean remove) {
         Logger.info("Initializing toolbar subsystem");
 
-        toolbar.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        insightsButton.setEnabled(true);
 
-        if (remove) toolbar.removeAll();
-        toolbar.setDoubleBuffered(true);
+        toolBar.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-        tabbedPane = new JTabbedPane();
-        toolbar.add(tabbedPane);
+        if (remove) toolBar.removeAll();
+        toolBar.setDoubleBuffered(true);
+
+        JTabbedPane tabbedPane = new JTabbedPane();
+        toolBar.add(tabbedPane);
 
         GridBagConstraints gbc;
 
@@ -690,7 +654,7 @@ public class PlayerTrackerDecoder extends JFrame {
         dataPanel.add(new JLabel("Animate:", JLabel.RIGHT), gbc);
 
         animatePlayPause = new JToggleButton("", false);
-        animatePlayPause.setIcon(mainPanel.isPlaying ? Icons.getIcon("pause") : Icons.getIcon("play"));
+        Icons.setIcon(animatePlayPause, mainPanel.isPlaying ? "pause" : "play");
         animatePlayPause.setPreferredSize(new Dimension(24, 24));
         animatePlayPause.setMargin(new Insets(2, 2, 2, 2));
         animatePlayPause.setBorder(BorderFactory.createEmptyBorder());
@@ -700,7 +664,7 @@ public class PlayerTrackerDecoder extends JFrame {
             mainPanel.isPlaying = (ev.getStateChange() == ItemEvent.SELECTED);
             mainPanel.dateTimeIndex = timeRangeSlider.getUpperValue();
 
-            animatePlayPause.setIcon(mainPanel.isPlaying ? Icons.getIcon("pause") : Icons.getIcon("play"));
+            Icons.setIcon(animatePlayPause, mainPanel.isPlaying ? "pause" : "play");
             Logger.info(mainPanel.isPlaying ? "Started playing animation" : "Stopped playing animation");
         });
 
@@ -903,8 +867,8 @@ public class PlayerTrackerDecoder extends JFrame {
             settings.SaveSettings();
             mainPanel.repaint();
 
-            toolbar.validate();
-            toolbar.repaint();
+            toolBar.validate();
+            toolBar.repaint();
 
             Logger.info("Changed draw type to: " + settings._drawType);
         });
@@ -1074,7 +1038,7 @@ public class PlayerTrackerDecoder extends JFrame {
         ageFadeComponent.add(ageFadeStrengthLabel);
 
         ageFadeToggle = new JToggleButton("Age Fade", settings.ageFade);
-        ageFadeToggle.setIcon(settings.ageFade ? Icons.getIcon("toggle-true") : Icons.getIcon("toggle-false"));
+        Icons.setIcon(ageFadeToggle, settings.ageFade ? "toggle-true" : "toggle-false");
 //        ageFadeToggle.setPreferredSize(new Dimension(24, 24));
         ageFadeToggle.setMargin(new Insets(2, 2, 2, 2));
         ageFadeToggle.setBorder(BorderFactory.createEmptyBorder());
@@ -1093,7 +1057,7 @@ public class PlayerTrackerDecoder extends JFrame {
             mainPanel.repaint();
             settings.SaveSettings();
 
-            ageFadeToggle.setIcon(settings.ageFade ? Icons.getIcon("toggle-true") : Icons.getIcon("toggle-false"));
+            Icons.setIcon(ageFadeToggle, settings.ageFade ? "toggle-true" : "toggle-false");
 
             ageFadeStrengthSlider.setEnabled(settings.ageFade && settings._drawType != DrawType.Heat);
             ageFadeStrengthTitle.setEnabled(settings.ageFade && settings._drawType != DrawType.Heat);
@@ -1103,7 +1067,7 @@ public class PlayerTrackerDecoder extends JFrame {
         });
 
         fancyLinesToggle = new JToggleButton("Fancy Lines", settings.fancyLines);
-        fancyLinesToggle.setIcon(settings.fancyLines ? Icons.getIcon("toggle-true") : Icons.getIcon("toggle-false"));
+        Icons.setIcon(fancyLinesToggle, settings.fancyLines ? "toggle-true" : "toggle-false");
 //        fancyLinesToggle.setPreferredSize(new Dimension(24, 24));
         fancyLinesToggle.setMargin(new Insets(2, 2, 2, 2));
         fancyLinesToggle.setBorder(BorderFactory.createEmptyBorder());
@@ -1114,7 +1078,7 @@ public class PlayerTrackerDecoder extends JFrame {
             mainPanel.repaint();
             settings.SaveSettings();
 
-            fancyLinesToggle.setIcon(settings.fancyLines ? Icons.getIcon("toggle-true") : Icons.getIcon("toggle-false"));
+            Icons.setIcon(fancyLinesToggle, settings.fancyLines ? "toggle-true" : "toggle-false");
 
             Logger.info("Toggled fancy lines to: " + settings.fancyLines);
         });
@@ -1128,7 +1092,7 @@ public class PlayerTrackerDecoder extends JFrame {
         renderPanel.add(fancyLinesToggle, gbc);
 
         terminusPointsToggle = new JToggleButton("Terminus Points", settings.terminusPoints);
-        terminusPointsToggle.setIcon(settings.terminusPoints ? Icons.getIcon("toggle-true") : Icons.getIcon("toggle-false"));
+        Icons.setIcon(terminusPointsToggle, settings.terminusPoints ? "toggle-true" : "toggle-false");
 //        terminusPointsToggle.setPreferredSize(new Dimension(24, 24));
         terminusPointsToggle.setMargin(new Insets(2, 2, 2, 2));
         terminusPointsToggle.setBorder(BorderFactory.createEmptyBorder());
@@ -1139,7 +1103,7 @@ public class PlayerTrackerDecoder extends JFrame {
             mainPanel.repaint();
             settings.SaveSettings();
 
-            terminusPointsToggle.setIcon(settings.terminusPoints ? Icons.getIcon("toggle-true") : Icons.getIcon("toggle-false"));
+            Icons.setIcon(terminusPointsToggle, settings.terminusPoints ? "toggle-true" : "toggle-false");
 
             Logger.info("Toggled terminus points to: " + settings.terminusPoints);
         });
@@ -1153,7 +1117,7 @@ public class PlayerTrackerDecoder extends JFrame {
         renderPanel.add(terminusPointsToggle, gbc);
 
         showHiddenLinesToggle = new JToggleButton("Show Hidden Lines", settings.hiddenLines);
-        showHiddenLinesToggle.setIcon(settings.hiddenLines ? Icons.getIcon("toggle-true") : Icons.getIcon("toggle-false"));
+        Icons.setIcon(showHiddenLinesToggle, settings.hiddenLines ? "toggle-true" : "toggle-false");
 //        showHiddenLinesToggle.setPreferredSize(new Dimension(24, 24));
         showHiddenLinesToggle.setMargin(new Insets(2, 2, 2, 2));
         showHiddenLinesToggle.setBorder(BorderFactory.createEmptyBorder());
@@ -1164,7 +1128,7 @@ public class PlayerTrackerDecoder extends JFrame {
             mainPanel.repaint();
             settings.SaveSettings();
 
-            showHiddenLinesToggle.setIcon(settings.hiddenLines ? Icons.getIcon("toggle-true") : Icons.getIcon("toggle-false"));
+            Icons.setIcon(showHiddenLinesToggle, settings.hiddenLines ? "toggle-true" : "toggle-false");
 
             Logger.info("Toggled hidden lines to: " + settings.hiddenLines);
         });
@@ -1195,20 +1159,20 @@ public class PlayerTrackerDecoder extends JFrame {
         JPanel exportPanel = new JPanel();
         exportPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-        screenshotButton = new JButton();
-        screenshotButton.setIcon(Icons.getIcon("screenshot"));
+        JButton screenshotButton = new JButton();
+        Icons.setIcon(screenshotButton, "screenshot");
         screenshotButton.setBackground(new Color(0, 0, 0, 0));
-        screenshotButton.setPreferredSize(new Dimension(48, 48));
+        screenshotButton.setPreferredSize(new Dimension(42, 42));
         screenshotButton.setMargin(new Insets(2, 2, 2, 2));
         screenshotButton.setBorder(BorderFactory.createEmptyBorder());
 
         screenshotButton.addActionListener(event -> mainPanel.SaveAsImage(true));
         exportPanel.add(screenshotButton);
 
-        exportAsImageButton = new JButton();
-        exportAsImageButton.setIcon(Icons.getIcon("export"));
+        JButton exportAsImageButton = new JButton();
+        Icons.setIcon(exportAsImageButton, "export");
         exportAsImageButton.setBackground(new Color(0, 0, 0, 0));
-        exportAsImageButton.setPreferredSize(new Dimension(48, 48));
+        exportAsImageButton.setPreferredSize(new Dimension(42, 42));
         exportAsImageButton.setMargin(new Insets(2, 2, 2, 2));
         exportAsImageButton.setBorder(BorderFactory.createEmptyBorder());
 
@@ -1242,7 +1206,7 @@ public class PlayerTrackerDecoder extends JFrame {
         tabbedPane.addTab("Export", null, exportPanel, "Export data as an image");
         //endregion
 
-        toolbar.add(tabbedPane);
+        toolBar.add(tabbedPane);
 
         revalidate();
 
@@ -1259,12 +1223,12 @@ public class PlayerTrackerDecoder extends JFrame {
         Thread exec = new Thread(() -> {
             setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 
-            mainPanel.setData(Objects.requireNonNull(Decoder.Decode(files, settings.maxDataEntries, settings.convertChunkPosToBlockPos)));
+            mainPanel.setData(Objects.requireNonNull(Decoder.Decode(this, files, settings.maxDataEntries, settings.convertChunkPosToBlockPos)));
 
             setCursor(Cursor.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR));
 
             initDataSettingsToolBar(alreadyImported);
-            toolbar.setVisible(true);
+            toolBar.setVisible(true);
             mainPanel.selectedEntryLabel.setVisible(true);
 
             mainPanel.shouldDraw = true;

@@ -20,7 +20,7 @@ import java.util.*;
 public class Decoder {
     private static final ArrayList<Color> generatedColors = new ArrayList<>();
 
-    public static DecodedData Decode(ArrayList<File> inputFiles, int maxEntries, boolean convertChunkPositions) {
+    public static DecodedData Decode(PlayerTrackerDecoder main, ArrayList<File> inputFiles, int maxEntries, boolean convertChunkPositions) {
         Logger.info("Initializing new decoding process");
 
         final long nowMs = System.currentTimeMillis();
@@ -61,6 +61,7 @@ public class Decoder {
         HashMap<String, Vector3> playerLastPosMap = new HashMap<>();
         HashMap<String, Integer> playerCountMap = new HashMap<>();
         generatedColors.clear();
+
         String dataWorld = null;
         int minX = 0;
         int maxX = 0;
@@ -75,11 +76,9 @@ public class Decoder {
         int lines = 0;
 
         for (File file : inputFiles) {
-//            if (PlayerTrackerDecoder.DEBUG) {
             Logger.info("Decoding input file: " + file.getName());
-//            }
 
-            String fileDate = file.getName().substring(file.getName().lastIndexOf('-') - 7, file.getName().lastIndexOf('-') + 3) + ":";
+            String fileDate = file.getName().substring(file.getName().lastIndexOf('-') - 7, file.getName().lastIndexOf('-') + 3) + ";";
             if (dataWorld == null) {
                 dataWorld = file.getName().substring(0, file.getName().indexOf('-'));
                 Logger.info("Data world: " + dataWorld);
@@ -102,9 +101,9 @@ public class Decoder {
 
                     LocalDateTime dateTime;
                     if (items[0].length() < 8) {
-                        dateTime = LocalDateTime.parse(fileDate + items[0], DateTimeFormatter.ofPattern("yyyy-MM-dd:HH:mm"));
+                        dateTime = LocalDateTime.parse(fileDate + items[0], DateTimeFormatter.ofPattern("yyyy-MM-dd;HH:mm"));
                     } else {
-                        dateTime = LocalDateTime.parse(fileDate + items[0], DateTimeFormatter.ofPattern("yyyy-MM-dd:HH:mm:ss"));
+                        dateTime = LocalDateTime.parse(fileDate + items[0], DateTimeFormatter.ofPattern("yyyy-MM-dd;HH:mm:ss"));
                     }
 
                     if (startTime == null) {
@@ -118,14 +117,9 @@ public class Decoder {
 
                     logEntriesByTime.put(dateTime, new LogEntry(dateTime, playerName, position));
 
-                    if (!playerNameColorMap.containsKey(playerName)) {
-                        playerNameColorMap.put(playerName, randomColor(0));
-                    }
-
+                    playerNameColorMap.putIfAbsent(playerName, randomColor(0));
                     playerNameEnabledMap.putIfAbsent(playerName, true);
-
                     playerLastPosMap.putIfAbsent(playerName, position);
-
                     playerCountMap.merge(playerName, 1, Integer::sum);
 
                     if (position.x < minX)
@@ -144,7 +138,7 @@ public class Decoder {
                 }
                 br.close();
             } catch (IOException e) {
-                Logger.err("Error reading input file:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+                Logger.error("Error reading input file:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
             }
 
             if (reachedLimit)

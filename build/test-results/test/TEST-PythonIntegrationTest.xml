@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="PythonIntegrationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-07-15T17:01:37" hostname="TABLET-F4U1E7IV" time="1.959">
+  <properties/>
+  <testcase name="testPythonScript()" classname="PythonIntegrationTest" time="1.959"/>
+  <system-out><![CDATA[Python code finished in 1894ms
+[Traceback (most recent call last):,   File "C:\Users\20ani\Documents\Code\WAT-Vis\src\main\resources\python\OnlinePlayerCount.py", line 4, in <module>,     import matplotlib.pyplot as plt, ModuleNotFoundError: No module named 'matplotlib']
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

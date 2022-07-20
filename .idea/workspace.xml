@@ -4,11 +4,48 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="525b62f3-92ad-45d4-b5d0-7d3b91350c1b" name="Changes" comment="">
+    <list default="true" id="62be0571-d44b-4e35-ba44-d67cb5e30164" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/md5-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/sha1-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/dependencies-accessors/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/IO/Icons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/IO/Icons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/MainPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/MainPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/PlayerTrackerDecoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/PlayerTrackerDecoder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/ui/HelpForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/ui/HelpForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/PythonIntegrationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/PythonIntegrationTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/WAT-Vis-1.5.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/WAT-Vis-1.5.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/PythonIntegrationTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/PythonIntegrationTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/python/OnlinePlayerCount.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/python/OnlinePlayerCount.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/pythondata.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/pythondata.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-PythonIntegrationTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-PythonIntegrationTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/configs/config.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/PlayerTrackerDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/PlayerTrackerDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/config/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/config/Settings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/io/Icons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/io/Icons.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +94,14 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -68,34 +113,70 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/20ani/Documents/Code/WAT-Vis/src/main/resources"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/20ani/Documents/Code/WAT-Vis/inputs/client/hypixel overnight - skyblock&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.14550781&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.41408116&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\20ani\Documents\Code\WAT-Vis\inputs\client\hypixel overnight - skyblock" />
+      <recent name="C:\Users\20ani\Documents\Code\WAT-Vis\src\main\resources\python\other" />
       <recent name="C:\Users\20ani\Documents\Code\WAT-Vis\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\20ani\Documents\Code\WAT-Vis\src\main\resources\icons" />
-      <recent name="C:\Users\20ani\Documents\Code\WAT-Vis\src\main\java\com\anipgames\WAT_Vis" />
-      <recent name="C:\Users\20ani\Documents\Code\WAT-Vis\src\main\java" />
-      <recent name="C:\Users\20ani\Documents\Code\WAT-Vis" />
+      <recent name="C:\Users\20ani\Documents\Code\WAT-Vis\src\main\java\com\anipgames\WAT_Vis\themes" />
+      <recent name="C:\Users\20ani\Documents\Code\WAT-Vis\src\main\resources\python" />
+      <recent name="C:\Users\20ani\Documents\Code\WAT-Vis\src\main\resources\python\tensorflow" />
+      <recent name="C:\Users\20ani\Documents\Code\WAT-Vis\src\main\java\com\anipgames\WAT_Vis\python" />
+      <recent name="C:\Users\20ani\Documents\Code\WAT-Vis\src\test\resources" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.WAT-Vis [run]">
-    <configuration name="WAT-Vis [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.WAT-Vis [build]">
+    <configuration name="WAT-Vis [assembleDist]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="assembleDist" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="WAT-Vis [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--stacktrace" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -111,7 +192,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="WAT-Vis [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="WAT-Vis [distZip]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -122,7 +203,28 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="clean" />
+            <option value="distZip" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="WAT-Vis [installDist]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="installDist" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -155,9 +257,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.WAT-Vis [run]" />
-        <item itemvalue="Gradle.WAT-Vis [clean]" />
         <item itemvalue="Gradle.WAT-Vis [build]" />
+        <item itemvalue="Gradle.WAT-Vis [run]" />
+        <item itemvalue="Gradle.WAT-Vis [installDist]" />
+        <item itemvalue="Gradle.WAT-Vis [distZip]" />
+        <item itemvalue="Gradle.WAT-Vis [assembleDist]" />
       </list>
     </recent_temporary>
   </component>
@@ -185,5 +289,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

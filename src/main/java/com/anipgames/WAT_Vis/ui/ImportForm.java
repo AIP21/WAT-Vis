@@ -1,8 +1,8 @@
 package com.anipgames.WAT_Vis.ui;
 
 import com.seedfinding.mccore.version.MCVersion;
-import com.anipgames.WAT_Vis.IO.filters.ImageFileFilter;
-import com.anipgames.WAT_Vis.IO.filters.TextFileFilter;
+import com.anipgames.WAT_Vis.io.filters.ImageFileFilter;
+import com.anipgames.WAT_Vis.io.filters.TextFileFilter;
 import com.anipgames.WAT_Vis.PlayerTrackerDecoder;
 import com.anipgames.WAT_Vis.config.Settings;
 import com.anipgames.WAT_Vis.util.Logger;
@@ -59,7 +59,7 @@ public class ImportForm extends JDialog {
     private JButton addFileButton;
 
     public ImportForm(PlayerTrackerDecoder main, Settings settings, boolean alreadyImported) {
-        super(main, "Import Files");
+        super(main);
 
         setModal(true);
         setModalityType(ModalityType.DOCUMENT_MODAL);
@@ -102,7 +102,7 @@ public class ImportForm extends JDialog {
             importButton.setEnabled(currentFiles.size() > 0);
             if (alreadyImported) appendButton.setEnabled(currentFiles.size() > 0);
         } catch (Exception e) {
-            Logger.err("Error dragging and dropping files onto import panel:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+            Logger.error("Error dragging and dropping files onto import panel:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
 
         Logger.info("File import pane opened from drag and drop");
@@ -113,8 +113,8 @@ public class ImportForm extends JDialog {
 
         JLabel titleText = new JLabel();
         titleText.setEnabled(true);
-        Font TitleFont = Utils.getFont(null, Font.BOLD, 26, titleText.getFont());
-        if (TitleFont != null) titleText.setFont(TitleFont);
+        Font titleFont = Utils.getFont(null, Font.BOLD, 26, titleText.getFont());
+        if (titleFont != null) titleText.setFont(titleFont);
         titleText.setHorizontalAlignment(SwingConstants.CENTER);
         titleText.setHorizontalTextPosition(SwingConstants.CENTER);
         titleText.setText("Import Files");
@@ -159,8 +159,8 @@ public class ImportForm extends JDialog {
         mainSplitPane.setLeftComponent(importSettingsPanel);
 
         JLabel importSettingsTitle = new JLabel();
-        Font importSettingsTitleFont = Utils.getFont(null, Font.PLAIN, 16, importSettingsTitle.getFont());
-        if (importSettingsTitleFont != null) importSettingsTitle.setFont(importSettingsTitleFont);
+        Font importSettingstitleFont = Utils.getFont(null, Font.PLAIN, 16, importSettingsTitle.getFont());
+        if (importSettingstitleFont != null) importSettingsTitle.setFont(importSettingstitleFont);
         importSettingsTitle.setHorizontalAlignment(SwingConstants.CENTER);
         importSettingsTitle.setText("Options");
         gbc = new GridBagConstraints();
@@ -268,8 +268,8 @@ public class ImportForm extends JDialog {
         mainSplitPane.setRightComponent(fileSelectorPanel);
 
         JLabel fileSelectorTitle = new JLabel();
-        Font fileSelectorTitleFont = Utils.getFont(null, Font.PLAIN, 16, fileSelectorTitle.getFont());
-        if (fileSelectorTitleFont != null) fileSelectorTitle.setFont(fileSelectorTitleFont);
+        Font fileSelectortitleFont = Utils.getFont(null, Font.PLAIN, 16, fileSelectorTitle.getFont());
+        if (fileSelectortitleFont != null) fileSelectorTitle.setFont(fileSelectortitleFont);
         fileSelectorTitle.setHorizontalAlignment(SwingConstants.CENTER);
         fileSelectorTitle.setText("Select Files");
         gbc = new GridBagConstraints();
@@ -302,7 +302,7 @@ public class ImportForm extends JDialog {
                     importButton.setEnabled(currentFiles.size() > 0);
                     if (alreadyImported) appendButton.setEnabled(currentFiles.size() > 0);
                 } catch (Exception e) {
-                    Logger.err("Error dragging and dropping files onto import panel:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+                    Logger.error("Error dragging and dropping files onto import panel:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
                 }
             }
         });
@@ -391,7 +391,7 @@ public class ImportForm extends JDialog {
                 importButton.setEnabled(currentFiles.size() > 0);
                 if (appendButton != null) appendButton.setEnabled(currentFiles.size() > 0);
             } else if (returnVal == JFileChooser.ERROR_OPTION) {
-                Logger.err("Error selecting input files");
+                Logger.error("Error selecting input files");
             } else {
                 Logger.warn("No input files selected");
             }
@@ -450,7 +450,7 @@ public class ImportForm extends JDialog {
 
                 loadWorldImage(imgFile);
             } else if (returnVal == JFileChooser.ERROR_OPTION) {
-                Logger.err("Error selecting world background images");
+                Logger.error("Error selecting world background images");
             } else {
                 Logger.warn("No world background images selected");
             }
@@ -472,7 +472,7 @@ public class ImportForm extends JDialog {
 
                 Logger.info("Successfully loaded world background image in " + durMs + "ms.");
             } catch (IOException e) {
-                Logger.err("Error reading selected world background image:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+                Logger.error("Error reading selected world background image:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
             }
 
             Toolkit.getDefaultToolkit().beep();

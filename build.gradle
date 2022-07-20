@@ -33,9 +33,16 @@ dependencies {
     implementation('com.seedfinding:mc_terrain:9e937ddb838e28e79423c287fa18b1ce66f061d7') { transitive = false }
 
     implementation('com.seedfinding:latticg:1.06')
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+    implementation 'commons-io:commons-io:2.11.0'
 
+    implementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    implementation 'org.knowm.xchart:xchart:3.8.1'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+
+    testImplementation 'junit:junit:4.13.2'
+    implementation 'junit:junit:4.13.2'
 }
 
 test {
@@ -54,6 +61,15 @@ application {
 }
 
 jar {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+
+    exclude 'LICENSE.txt'
+    exclude 'META-INF/LICENSE'
+    exclude 'META-INF/LICENSE.txt'
+    exclude 'NOTICE.txt'
+    exclude 'META-INF/NOTICE'
+    exclude 'META-INF/NOTICE.txt'
+
     manifest {
         attributes "Main-Class": "com.anipgames.WAT_Vis.PlayerTrackerDecoder"
     }
@@ -67,33 +83,15 @@ run {
     args "-no-update"
 }
 
-/*launch4j {
-    outfile = "${project.name}-${project.version}-FR.exe"
-    icon = "${projectDir}/icon.ico"
-
-    productName = "WAT:Vis"
-    fileDescription = ""
-
-    outputDir = "libs"
-
-    jvmOptions = ["-Xms1G", "-Xmx8G"]
-
-    copyConfigurable = []
-    libraryDir= "ignore_libs"
-
-    jreMaxVersion=JavaVersion.VERSION_HIGHER
-    jreMinVersion=JavaVersion.VERSION_16
-
-    bundledJrePath ="%JAVA_HOME%;%PATH%"
-
-    jarTask = project.tasks.shadowJar
-}*/
-
 task copyDependencies(type: Copy) {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+
     from(configurations.runtimeClasspath).into("$buildDir/jmods")
 }
 
 task copyJar(type: Copy) {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+
     from(tasks.jar).into("$buildDir/jmods")
 }
 

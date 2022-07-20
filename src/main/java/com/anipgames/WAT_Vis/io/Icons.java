@@ -7,14 +7,9 @@ import com.anipgames.WAT_Vis.util.Utils;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.*;
-import java.util.stream.Stream;
 
 public class Icons {
     private static final HashMap<String, ImageIcon> iconsLight = new HashMap<>();

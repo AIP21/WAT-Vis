@@ -1,7 +1,5 @@
 package com.anipgames.WAT_Vis;
 
-import com.anipgames.WAT_Vis.python.PlayerCounter;
-import com.anipgames.WAT_Vis.python.PythonIntegration;
 import com.anipgames.WAT_Vis.util.Keyboard;
 import com.anipgames.WAT_Vis.util.Logger;
 import com.anipgames.WAT_Vis.util.Utils;
@@ -163,29 +161,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
         Logger.info("Successfully initialized main display subsystem");
     }
 
-    public void setSeedMapInfo(MCVersion version, com.seedfinding.mccore.state.Dimension dimension, int threadCount, long worldSeed) {
-        shouldDraw = false;
-        this.threadCount = threadCount;
-
-        context = new MapContext(version, dimension, worldSeed);
-
-        hasWorldMap = true;
-
-        restart();
-        shouldDraw = true;
-    }
-
-    public void resetSeedMapInfo() {
-        shouldDraw = false;
-
-        this.context = null;
-
-        this.hasWorldMap = false;
-
-        this.restart();
-        shouldDraw = true;
-    }
-
+    //region Initialization
     private void initComponents() {
         addMouseWheelListener(this);
         addMouseMotionListener(this);
@@ -204,6 +180,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
             }
         });
     }
+    //endregion
 
     public void run() {
         long lastTime = System.nanoTime();
@@ -273,7 +250,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
                 try {
                     inverse = at.createInverse();
                 } catch (NoninvertibleTransformException e) {
-                    Logger.error("Error inverting rendering transformation:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+                    Logger.err("Error inverting rendering transformation:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
                 }
 
                 // if (!isPlaying && Utils.approximately(curX, xTarget, 0.001f) &&
@@ -518,7 +495,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
                                         g2d.setColor(Utils.lerpColor(Color.lightGray, Color.getHSBColor(0.93f, 0.68f, 0.55f), Math.min(1, (posActivityMap.get(entry.position) * Math.abs(settings.heatMapStrength)) / (float) (maxActivity))));
                                     }
                                 } catch (IllegalArgumentException e) {
-                                    Logger.error("Something wrong happened when lerping colors for the heatmap color (Probably the stupid negative input error):\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+                                    Logger.err("Something wrong happened when lerping colors for the heatmap color (Probably the stupid negative input error):\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
                                 }
 
                                 drawRectangle(g2d, x, y, settings.size, true);
@@ -720,7 +697,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 //                    }
 //                    """, pc.analyzeActivityWeek().toString(), pc.analyzePerPeriod().toString()));
 //        } catch (Exception e) {
-//            Logger.error("Error running python file:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+//            Logger.err("Error running python file:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
 //        }
 
         logEntries = data.logEntries;
@@ -951,6 +928,31 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
     }
     // endregion
 
+    //region Seed mapping
+    public void setSeedMapInfo(MCVersion version, com.seedfinding.mccore.state.Dimension dimension, int threadCount, long worldSeed) {
+        shouldDraw = false;
+        this.threadCount = threadCount;
+
+        context = new MapContext(version, dimension, worldSeed);
+
+        hasWorldMap = true;
+
+        restart();
+        shouldDraw = true;
+    }
+
+    public void resetSeedMapInfo() {
+        shouldDraw = false;
+
+        this.context = null;
+
+        this.hasWorldMap = false;
+
+        this.restart();
+        shouldDraw = true;
+    }
+    //endregion
+
     // region World Map
     public MapContext getContext() {
         return this.context;
@@ -1067,7 +1069,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
             g2d.dispose();
         } catch (OutOfMemoryError e) {
-            Logger.error("Error preparing the image to export (Out of memory):\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Error preparing the image to export (Out of memory):\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
 
         Logger.info("Starting to save the exported image file");
@@ -1095,10 +1097,10 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
                     ImageIO.write(image, "png", new File(PlayerTrackerDecoder.DIR_OUTPUTS + File.separatorChar + name));
                     Logger.info("Successfully saved current screen as an image");
                 } else {
-                    Logger.error("Image to save is null");
+                    Logger.err("Image to save is null");
                 }
             } catch (Exception e) {
-                Logger.error("Error saving current screen as an image:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+                Logger.err("Error saving current screen as an image:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
             }
 
             imageExportStatus.setText("   Done!");
@@ -1177,4 +1179,4 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
     }
 }
 
-// TODO FIX GRID BUG WITH SEED MAP
+// TODO: FIX GRID BUG WITH SEED MAP

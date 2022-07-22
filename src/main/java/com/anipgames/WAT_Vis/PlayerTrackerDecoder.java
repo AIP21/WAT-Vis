@@ -291,14 +291,14 @@ public class PlayerTrackerDecoder extends JFrame {
             }
             Assets.createDirs();
         } catch (IOException e) {
-            Logger.error("Failed to create a necessary directory:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Failed to create a necessary directory:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
     }
 
     private static void updateApplication(HashMap<String, Pair<Pair<String, String>, String>> updateInfo, boolean prompt) {
         Pair<Pair<String, String>, String> release = updateInfo.get("jar");
         if (release == null) {
-            Logger.error("Missing jar Entry");
+            Logger.err("Missing jar Entry");
             return;
         }
         String OS = System.getProperty("os.name").toLowerCase();
@@ -345,7 +345,7 @@ public class PlayerTrackerDecoder extends JFrame {
         try {
             newVersion = downloadWorker.get(); // blocking wait (intended)
         } catch (Exception e) {
-            Logger.error("Failed to use the download worker:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Failed to use the download worker:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
         downloadPopup.setVisible(false);
         downloadPopup.dispose();
@@ -361,13 +361,13 @@ public class PlayerTrackerDecoder extends JFrame {
 
                 Logger.info(String.format("Process exited with %s", ps.waitFor()));
             } catch (Exception e) {
-                Logger.error("Failed to start the new process, error:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+                Logger.err("Failed to start the new process, error:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
                 return;
             }
 
             int exitValue = ps.exitValue();
             if (exitValue != 0) {
-                Logger.error("Failed to execute jar:\n " + Arrays.toString(new BufferedReader(new InputStreamReader(ps.getErrorStream())).lines().toArray()));
+                Logger.err("Failed to execute jar:\n " + Arrays.toString(new BufferedReader(new InputStreamReader(ps.getErrorStream())).lines().toArray()));
             } else {
                 Logger.warn(String.format("Switching to newer version! %s", newVersion));
                 System.exit(0);
@@ -419,7 +419,7 @@ public class PlayerTrackerDecoder extends JFrame {
                     importForm.setLocationRelativeTo(PlayerTrackerDecoder.this);
                     importForm.setVisible(true);
                 } catch (Exception e) {
-                    Logger.error("Error doing drag and drop on main frame:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+                    Logger.err("Error doing drag and drop on main frame:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
                 }
             }
         });
@@ -445,7 +445,7 @@ public class PlayerTrackerDecoder extends JFrame {
 
             decodeAndDisplay(files);
         } catch (IOException e) {
-            Logger.error("Error decoding the selected input log files:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Error decoding the selected input log files:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
 
         if (!worldSeed.isBlank()) {
@@ -470,7 +470,7 @@ public class PlayerTrackerDecoder extends JFrame {
 
             decodeAndDisplay(files);
         } catch (IOException e) {
-            Logger.error("Error decoding the selected input log files:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Error decoding the selected input log files:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
 
         mainPanel.resetSeedMapInfo();
@@ -572,7 +572,7 @@ public class PlayerTrackerDecoder extends JFrame {
             FlatDarculaLaf.setup();
         }
 
-        SwingUtilities.updateComponentTreeUI(this);
+        SwingUtilities.updateComponentTreeUI(this); // Maybe get rid of this
     }
 
     private void initDataSettingsToolBar(boolean remove) {

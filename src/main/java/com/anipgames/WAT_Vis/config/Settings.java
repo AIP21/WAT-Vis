@@ -51,7 +51,7 @@ public class Settings {
                     SaveSettings();
                     Logger.info("Successfully saved and wrote default settings to config file");
                 } catch (Exception e) {
-                    Logger.error("Error creating/saving/writing to config file:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+                    Logger.err("Error creating/saving/writing to config file:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
                 }
             }
 
@@ -59,7 +59,7 @@ public class Settings {
             getFromFile(new File(PlayerTrackerDecoder.DIR_CONFIG + File.separatorChar + "config.txt"));
             Logger.info("Successfully fetched and parsed settings from config file");
         } catch (IOException e) {
-            Logger.error("Error fetching and parsing settings from config file:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Error fetching and parsing settings from config file:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
 
         Logger.info("Successfully initialized settings subsystem");
@@ -93,7 +93,7 @@ public class Settings {
 
             Logger.info("Successfully saved and wrote settings to config file");
         } catch (Exception e) {
-            Logger.error("Error saving and writing settings to config file:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Error saving and writing settings to config file:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
 
     }

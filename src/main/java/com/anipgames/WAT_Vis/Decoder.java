@@ -94,9 +94,6 @@ public class Decoder {
                         break;
                     }
 
-                    if (line.charAt(line.length() - 1) != ';')
-                        line += ';';
-
                     String[] items = line.split(";");
 
                     LocalDateTime dateTime;
@@ -117,9 +114,16 @@ public class Decoder {
 
                     logEntriesByTime.put(dateTime, new LogEntry(dateTime, playerName, position));
 
-                    playerNameColorMap.putIfAbsent(playerName, randomColor(0));
-                    playerNameEnabledMap.putIfAbsent(playerName, true);
-                    playerLastPosMap.putIfAbsent(playerName, position);
+                    if (!playerNameColorMap.containsKey(playerName)) {
+                        playerNameColorMap.put(playerName, randomColor(0));
+                    } // For some reason putIfAbsent is just obscenely slow here
+
+                    if (!playerNameEnabledMap.containsKey(playerName)) {
+                        playerNameEnabledMap.put(playerName, true);
+                    }
+
+                    playerLastPosMap.put(playerName, position);
+
                     playerCountMap.merge(playerName, 1, Integer::sum);
 
                     if (position.x < minX)
@@ -138,7 +142,7 @@ public class Decoder {
                 }
                 br.close();
             } catch (IOException e) {
-                Logger.error("Error reading input file:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+                Logger.err("Error reading input file:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
             }
 
             if (reachedLimit)

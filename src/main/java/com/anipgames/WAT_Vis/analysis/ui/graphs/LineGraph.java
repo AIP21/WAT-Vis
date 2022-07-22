@@ -1,21 +1,21 @@
 package com.anipgames.WAT_Vis.analysis.ui.graphs;
 
-import com.anipgames.WAT_Vis.util.Logger;
 import com.anipgames.WAT_Vis.util.Utils;
-import org.apache.commons.lang3.tuple.ImmutablePair;
-import org.apache.commons.lang3.tuple.Pair;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.awt.geom.Line2D;
 
 public class LineGraph extends AbstractGraph {
-    public LineGraph(ArrayList<Integer> values, String graphName, String xLabel, String yLabel) {
+    public LineGraph(float[] values, String graphName, String xLabel, String yLabel, boolean drawGrid, boolean drawAxes, boolean drawLabels) {
+        super(values, graphName, xLabel, yLabel, drawGrid, drawAxes, drawLabels);
+    }
+
+    public LineGraph(float[] values, String graphName, String xLabel, String yLabel) {
         super(values, graphName, xLabel, yLabel);
     }
 
     public LineGraph(String graphName, String xLabel, String yLabel) {
-        this(null, graphName, xLabel, yLabel);
+        super(graphName, xLabel, yLabel);
     }
 
     @Override
@@ -24,34 +24,55 @@ public class LineGraph extends AbstractGraph {
     }
 
     @Override
-    public void drawGraph(Graphics g) {
-        Graphics2D g2d = (Graphics2D) g;
+    public void drawGraph(Graphics2D g2d) {
+//        g2d.setColor(Color.red);
+//
+//        final int xOffset = 20;
+//        final int yOffset = 20;
+//
+//        final float yMax = Utils.max(values);
+//        final int width = getHeight() - 20;
+//        final int height = getHeight() - 20;
 
-        g2d.setColor(Color.red);
+//        int xLength = values.length;
+//        for (int i = 0; i < xLength; i++) {
+//            if (i != 0) {
+//                float x1 = xOffset + fixPos(i - 1, width, xLength);
+//                float y1 = yOffset + values[i - 1];
+//                float x2 = xOffset + fixPos(i, width, xLength);
+//                float y2 = yOffset + values[i];
+//
+//                Logger.info(x2 + ", " + y2);
+//
+//                g2d.draw(new Line2D.Float(x1, y1, x2, y2));
+//            }
+//        }
 
-        final int xOffset = 20;
-        final int yOffset = 20;
-
-        final int yMax = Collections.max(values);
-        final int width = getHeight() - 20;
-        final int height = getHeight() - 20;
-
-        int xLength = values.size();
-        for (int i = 0; i < xLength; i++) {
+        g2d.setColor(Color.RED);
+        float prevX = 20;
+        float prevY = 20;
+        for (int i = 0; i < valuesCount; i++) {
             if (i != 0) {
-                float x1 = xOffset + fixPos(i - 1, width, xLength);
-                int y1 = yOffset + values.get(i - 1);
-                float x2 = xOffset + fixPos(i, width, xLength);
-                int y2 = yOffset + values.get(i);
-
-                Logger.info(x2 + ", " + y2);
-
-                g2d.drawLine((int) x1, y1, (int) x2, y2);
+                g2d.draw(new Line2D.Float(prevX, prevY, prevX += xUnits, prevY = Utils.scale((max + 20) - (values[i] * yUnits), 0, getHeight(), 20, getHeight() - 20)));
             }
         }
-    }
 
-    private float fixPos(int x, int size, int max) {
-        return Utils.lerp(20f, (float) size, (float) x / (float) max);
+        g2d.setColor(Color.BLUE);
+        prevX = 20;
+        prevY = values[0];
+        for (int i = 0; i < valuesCount; i++) {
+            if (i != 0) {
+                g2d.draw(new Line2D.Float(prevX, prevY, prevX+=xUnits, prevY = Utils.scale(values[i], min, max, 20, getHeight()-20)));
+            }
+        }
+
+        g2d.setColor(Color.GREEN);
+        prevX = 20;
+        prevY = values[0];
+        for (int i = 0; i < valuesCount; i++) {
+            if (i != 0) {
+                g2d.draw(new Line2D.Float(prevX, prevY, prevX += xUnits, prevY = max - values[i]));
+            }
+        }
     }
 }

@@ -54,14 +54,13 @@ public class Logger {
 
             Logger.info("\n*********END DEVICE INFO*********\n");
         } catch (IOException e) {
-            Logger.error("Error:\n F"+e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Error:\n F"+e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
 
         Logger.info("Logger successfully initialized");
     }
 
     public static void info(Object message) {
-        System.out.println(message.toString());
         LOGGER.info(message.toString());
     }
 
@@ -70,7 +69,7 @@ public class Logger {
         LOGGER.warning(message.toString());
     }
 
-    public static void error(Object message) {
+    public static void err(Object message) {
         String msg = message.toString().replace(", ", "\n ");
         System.err.println(msg);
         LOGGER.severe(msg);

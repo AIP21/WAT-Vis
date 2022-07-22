@@ -19,14 +19,14 @@ public class VersionGetter {
             try {
                 inputStream = new FileInputStream("src/main/resources/version.properties");
             } catch (FileNotFoundException e) {
-                Logger.error("Could not create input stream for project version:\n Message: " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+                Logger.err("Could not create input stream for project version:\n Message: " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
             }
         }
 
         try {
             versionProperties.load(inputStream);
         } catch (IOException e) {
-            Logger.error("Could not load classpath:/version.properties\n Message: " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+            Logger.err("Could not load classpath:/version.properties\n Message: " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
         }
 
         return versionProperties.getProperty("version");

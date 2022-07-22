@@ -261,4 +261,26 @@ public class Utils {
         g2d.dispose();
         return bi;
     }
+
+    public static float max(float[] input) {
+        float max = Float.NEGATIVE_INFINITY;
+        for (float v : input)
+            if (v > max)
+                max = v;
+
+        return max;
+    }
+
+    public static float min(float[] input) {
+        float max = Float.POSITIVE_INFINITY;
+        for (float v : input)
+            if (v < max)
+                max = v;
+
+        return max;
+    }
+
+    public static float scale(float input, float min1, float max1,float min2, float max2) {
+        return (input - min1) * (max2 - min2) / (max1 - min1) + min2;
+    }
 }

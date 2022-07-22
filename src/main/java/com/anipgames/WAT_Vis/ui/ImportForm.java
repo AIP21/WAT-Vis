@@ -91,19 +91,24 @@ public class ImportForm extends JDialog {
 
         initComponents(alreadyImported);
 
-        try {
-            evt.acceptDrop(DnDConstants.ACTION_REFERENCE);
-            List<File> files = (List<File>) evt.getTransferable().getTransferData(DataFlavor.javaFileListFlavor);
+        setDropTarget(new DropTarget() {
+            public synchronized void drop(DropTargetDropEvent evt) {
+                try {
+                    evt.acceptDrop(DnDConstants.ACTION_REFERENCE);
+                    List<File> files = (List<File>) evt.getTransferable().getTransferData(DataFlavor.javaFileListFlavor);
 
-            for (File file : files) {
-                handleFile(file);
+                    for (File file : files) {
+                        handleFile(file);
+                    }
+
+                    selectedFileList.setListData(currentFiles.toArray(new File[0]));
+                    importButton.setEnabled(currentFiles.size() > 0);
+                    if (alreadyImported) appendButton.setEnabled(currentFiles.size() > 0);
+                } catch (Exception e) {
+                    Logger.err("Error dragging and dropping files onto import panel:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+                }
             }
-            selectedFileList.setListData(currentFiles.toArray(new File[0]));
-            importButton.setEnabled(currentFiles.size() > 0);
-            if (alreadyImported) appendButton.setEnabled(currentFiles.size() > 0);
-        } catch (Exception e) {
-            Logger.error("Error dragging and dropping files onto import panel:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
-        }
+        });
 
         Logger.info("File import pane opened from drag and drop");
     }
@@ -268,8 +273,8 @@ public class ImportForm extends JDialog {
         mainSplitPane.setRightComponent(fileSelectorPanel);
 
         JLabel fileSelectorTitle = new JLabel();
-        Font fileSelectortitleFont = Utils.getFont(null, Font.PLAIN, 16, fileSelectorTitle.getFont());
-        if (fileSelectortitleFont != null) fileSelectorTitle.setFont(fileSelectortitleFont);
+        Font fileSelectorTitleFont = Utils.getFont(null, Font.PLAIN, 16, fileSelectorTitle.getFont());
+        if (fileSelectorTitleFont != null) fileSelectorTitle.setFont(fileSelectorTitleFont);
         fileSelectorTitle.setHorizontalAlignment(SwingConstants.CENTER);
         fileSelectorTitle.setText("Select Files");
         gbc = new GridBagConstraints();
@@ -286,26 +291,11 @@ public class ImportForm extends JDialog {
         gbc.insets = new Insets(10, 0, 0, 10);
         fileSelectorPanel.add(selectedFileListScrollPane, gbc);
 
-        selectedFileList = new JList<>(currentFiles.toArray(new File[0]));
+        selectedFileList = new JList<>();
+        if(currentFiles.size() !=0){
+            selectedFileList.setListData(currentFiles.toArray(new File[0]));
+        }
         selectedFileListScrollPane.setViewportView(selectedFileList);
-        selectedFileList.setDropTarget(new DropTarget() {
-            public synchronized void drop(DropTargetDropEvent evt) {
-                try {
-                    evt.acceptDrop(DnDConstants.ACTION_REFERENCE);
-                    List<File> files = (List<File>) evt.getTransferable().getTransferData(DataFlavor.javaFileListFlavor);
-
-                    for (File file : files) {
-                        handleFile(file);
-                    }
-
-                    selectedFileList.setListData(currentFiles.toArray(new File[0]));
-                    importButton.setEnabled(currentFiles.size() > 0);
-                    if (alreadyImported) appendButton.setEnabled(currentFiles.size() > 0);
-                } catch (Exception e) {
-                    Logger.error("Error dragging and dropping files onto import panel:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
-                }
-            }
-        });
 
         JPanel selectorButtons = new JPanel(new GridBagLayout());
         gbc.gridy++;
@@ -391,7 +381,7 @@ public class ImportForm extends JDialog {
                 importButton.setEnabled(currentFiles.size() > 0);
                 if (appendButton != null) appendButton.setEnabled(currentFiles.size() > 0);
             } else if (returnVal == JFileChooser.ERROR_OPTION) {
-                Logger.error("Error selecting input files");
+                Logger.err("Error selecting input files");
             } else {
                 Logger.warn("No input files selected");
             }
@@ -450,7 +440,7 @@ public class ImportForm extends JDialog {
 
                 loadWorldImage(imgFile);
             } else if (returnVal == JFileChooser.ERROR_OPTION) {
-                Logger.error("Error selecting world background images");
+                Logger.err("Error selecting world background images");
             } else {
                 Logger.warn("No world background images selected");
             }
@@ -472,7 +462,7 @@ public class ImportForm extends JDialog {
 
                 Logger.info("Successfully loaded world background image in " + durMs + "ms.");
             } catch (IOException e) {
-                Logger.error("Error reading selected world background image:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
+                Logger.err("Error reading selected world background image:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
             }
 
             Toolkit.getDefaultToolkit().beep();

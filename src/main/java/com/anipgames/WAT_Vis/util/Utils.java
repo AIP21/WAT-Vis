@@ -7,10 +7,13 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.MathContext;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Locale;
 import java.util.Random;
 
@@ -271,16 +274,75 @@ public class Utils {
         return max;
     }
 
-    public static float min(float[] input) {
-        float max = Float.POSITIVE_INFINITY;
-        for (float v : input)
-            if (v < max)
+    public static int max(Collection<Integer> input) {
+        int max = Integer.MIN_VALUE;
+        for (int v : input)
+            if (v > max)
                 max = v;
 
         return max;
     }
 
-    public static float scale(float input, float min1, float max1,float min2, float max2) {
+    public static int max(int[] input) {
+        int max = Integer.MIN_VALUE;
+        for (int v : input)
+            if (v > max)
+                max = v;
+
+        return max;
+    }
+
+    public static float min(float[] input) {
+        float min = Float.POSITIVE_INFINITY;
+        for (float v : input)
+            if (v < min)
+                min = v;
+
+        return min;
+    }
+
+    public static int min(Collection<Integer> input) {
+        int min = Integer.MAX_VALUE;
+        for (int v : input)
+            if (v < min)
+                min = v;
+
+        return min;
+    }
+
+    public static int min(int[] input) {
+        int min = Integer.MAX_VALUE;
+        for (int v : input)
+            if (v < min)
+                min = v;
+
+        return min;
+    }
+
+    public static float scale(float input, float min1, float max1, float min2, float max2) {
         return (input - min1) * (max2 - min2) / (max1 - min1) + min2;
+    }
+
+    public static int scale(int input, int min1, int max1, int min2, int max2) {
+        return (int) ((input - min1) * (max2 - min2) / (max1 - min1) + min2);
+    }
+
+    public static String formatPretty(double d) {
+        if (d == (long) d)
+
+            return String.format("%d", (long) d);
+
+        else
+
+            return String.format("%s", d);
+    }
+
+    public static double roundToSigFigs(double input, int digits) {
+        BigDecimal bd = new BigDecimal(input).round(new MathContext(digits));
+        return bd.doubleValue();
+    }
+
+    public static double roundToSigFigs(double input) {
+        return roundToSigFigs(input, 3);
     }
 }

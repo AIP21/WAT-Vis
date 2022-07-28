@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62be0571-d44b-4e35-ba44-d67cb5e30164" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/ui/graphs/OtherGraph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
@@ -13,53 +14,16 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/Decoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/Decoder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/IO/Icons.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/IO/Icons.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/MainPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/MainPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/PlayerTrackerDecoder$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/PlayerTrackerDecoder$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/PlayerTrackerDecoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/PlayerTrackerDecoder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/OnlinePlayers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/ui/Dashboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/ui/Dashboard.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/ui/graphs/AbstractGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/ui/graphs/AbstractGraph.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/ui/graphs/LineGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/ui/graphs/LineGraph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/config/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/config/Config.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/config/Settings.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/config/Settings.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/config/mapping/UserProfileConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/config/mapping/UserProfileConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/mapping/minemap/map/fragment/FragmentScheduler.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/mapping/minemap/map/fragment/FragmentScheduler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/python/PlayerCounter$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/python/PlayerCounter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/python/PythonIntegration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/ui/ImportForm$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/ui/ImportForm$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/ui/ImportForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/ui/ImportForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/ui/SettingsForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/ui/SettingsForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/util/Assets.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/util/Assets.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/util/Logger.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/util/Logger.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/util/Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/util/Utils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/util/VersionGetter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/util/VersionGetter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/configs/config.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/Decoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/Decoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/MainPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/PlayerTrackerDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/PlayerTrackerDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/OnlinePlayers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/PlayerCounter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/ui/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/ui/Dashboard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/ui/graphs/AbstractGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/ui/graphs/AbstractGraph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/ui/graphs/LineGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/ui/graphs/LineGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/config/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/config/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/config/Settings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/config/mapping/UserProfileConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/config/mapping/UserProfileConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/io/Icons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/io/Icons.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/mapping/minemap/map/fragment/FragmentScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/mapping/minemap/map/fragment/FragmentScheduler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/new database idea" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/new database idea" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/python/PlayerCounter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/python/PythonIntegration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/python/playerdata.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/ui/ImportForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/ui/ImportForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/ui/SettingsForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/ui/SettingsForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/Assets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/Logger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/VersionGetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/VersionGetter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,6 +128,19 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Dashboard">
+    <configuration name="BarChartTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.anipgames.WAT_Vis.analysis.ui.graphs.BarChartTest" />
+      <module name="WAT-Vis.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.anipgames.WAT_Vis.analysis.ui.graphs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Dashboard" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.anipgames.WAT_Vis.analysis.ui.Dashboard" />
       <module name="WAT-Vis.main" />
@@ -189,27 +166,6 @@
         <option name="taskNames">
           <list>
             <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="WAT-Vis [distZip]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="distZip" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -263,11 +219,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.BarChartTest" />
         <item itemvalue="Application.Dashboard" />
         <item itemvalue="Gradle.WAT-Vis [run]" />
         <item itemvalue="Gradle.WAT-Vis [build]" />
         <item itemvalue="Gradle.WAT-Vis [installDist]" />
-        <item itemvalue="Gradle.WAT-Vis [distZip]" />
       </list>
     </recent_temporary>
   </component>

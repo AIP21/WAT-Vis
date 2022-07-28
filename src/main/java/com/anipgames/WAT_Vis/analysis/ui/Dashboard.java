@@ -1,20 +1,22 @@
 package com.anipgames.WAT_Vis.analysis.ui;
 
+import com.anipgames.WAT_Vis.analysis.ui.graphs.AbstractGraph;
 import com.anipgames.WAT_Vis.analysis.ui.graphs.LineGraph;
 import com.anipgames.WAT_Vis.util.Utils;
 import com.anipgames.WAT_Vis.util.objects.DecodedData;
+import com.formdev.flatlaf.FlatDarculaLaf;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.function.Function;
 
-public class Dashboard extends JFrame {//implements Runnable {
+public class Dashboard extends JFrame implements Runnable {
     private DecodedData data;
 
     //region Graphs
     private final JPanel graphsPanel;
-    private ArrayList<JPanel> graphs = new ArrayList<>();
+    private ArrayList<AbstractGraph> graphs = new ArrayList<>();
     //endregion
 
     //region Updating
@@ -22,16 +24,20 @@ public class Dashboard extends JFrame {//implements Runnable {
     //endregion
 
     public static void main(String[] args) {
-        Dashboard dash = new Dashboard(null);
-        dash.setVisible(true);
+        SwingUtilities.invokeLater(() -> {
+            FlatDarculaLaf.setup();
+            Dashboard dash = new Dashboard(null);
+            dash.setVisible(true);
+
+            (new Thread(dash)).start();
+        });
     }
 
     public Dashboard(DecodedData data) {
         super("Analysis Dashboard");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(new Dimension(720, 480));
+        setSize(new Dimension(720, 600));
         setLocationRelativeTo(null);
-        getContentPane().setBackground(Color.LIGHT_GRAY);
 
         setLayout(new BorderLayout());
 
@@ -44,88 +50,107 @@ public class Dashboard extends JFrame {//implements Runnable {
         titleText.setHorizontalTextPosition(0);
         add(titleText, BorderLayout.NORTH);
 
-        graphsPanel = new JPanel(new FlowLayout());
-        graphsPanel.setBackground(Color.LIGHT_GRAY);
+        graphsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
         add(graphsPanel, BorderLayout.CENTER);
 
         createGraphs();
     }
 
-//    public void run() {
-//        long lastTime = System.nanoTime();
-//        double ns = 1000000000;
-//        long start;
-//        double delta = 0;
-//
-//        while (isRunning) {
-//            start = System.nanoTime();
-//            delta += (start - lastTime) / ns;
-//            lastTime = start;
-//
-//            if (delta >= 1) {
-//                Logger.info("Dashboard ticked (1 sec interval)");
-//                float[] arr = new float[1000];
-//                int e = arr.length;
-//
-//                delta--;
-//            }
-//        }
-//    }
+    public void run() {
+        long lastTime = System.nanoTime();
+        double ns = 1000000000/10;
+        long start;
+        double delta = 0;
+
+        while (isRunning) {
+            start = System.nanoTime();
+            delta += (start - lastTime) / ns;
+            lastTime = start;
+
+            if (delta >= 1) {
+                AbstractGraph gp1 = graphs.get(0);
+
+                Function<Integer, Float> sinFunc = a -> (float) Math.sin((float) a / 10f) * 10;
+                gp1.addData(Math.round(sinFunc.apply(gp1.getData().size())));
+
+                AbstractGraph gp2 = graphs.get(1);
+                Function<Integer, Float> cosFunc = a -> (float) Math.cos((float) a / 10f) * 10;
+                gp2.addData(Math.round(cosFunc.apply(gp2.getData().size())));
+
+                AbstractGraph gp3 = graphs.get(2);
+                Function<Integer, Float> expFunc = a -> (float) Math.pow((float) a / 3f, 2) + 1;
+                gp3.addData(Math.round(expFunc.apply(gp3.getData().size())));
+
+                AbstractGraph gp4 = graphs.get(3);
+                ArrayList<Integer> data4 = gp4.getData();
+
+                Function<Integer, Float> randWalkFunc = a -> (float) (data4.get(a - 1) + (Math.random() - 0.5f) * 10f);
+                gp4.addData(Math.round(randWalkFunc.apply(gp4.getData().size())));
+
+                delta--;
+            }
+        }
+    }
 
     private void createGraphs() {
         graphs = new ArrayList<>();
-//        XYChart allActivityChart = new XYChartBuilder().width(500).height(200).title("Activity (All)").xAxisTitle("Day").yAxisTitle("Players").build();
+        Function<Integer, Float> sinFunc = a -> (float) Math.sin((float) a / 10f) * 10;
+        LineGraph sineGraph = new LineGraph("Sine", new Color(255, 211, 0));
+        sineGraph.setGridSize(5, 4);
+        sineGraph.setGridDrawPrefs(true, true);
+        sineGraph.setValueDrawPrefs(true, true);
+        sineGraph.setData(getFunctionPointsInt(180, sinFunc));
+        graphs.add(sineGraph);
 
-//        ImmutablePair<ArrayList<String>, ArrayList<Integer>> allActivity = PlayerCounter.analyzeActivityAll(data);
-//        allActivityChart.addSeries("Players", allActivity.getRight());
-//
-//        graphs.add(new XChartPanel<>(allActivityChart));
-//
-//        XYChart weekActivityChart = new XYChartBuilder().width(500).height(200).title("Activity (Week)").xAxisTitle("Day of Week").yAxisTitle("Players").build();
-//
-//        ImmutablePair<ArrayList<String>, ArrayList<Integer>> weekActivity = PlayerCounter.analyzeActivityWeek(data);
-//        weekActivityChart.addSeries("Players", weekActivity.getRight());
-//
-//        graphs.add(new XChartPanel<>(weekActivityChart));
-//
-//        XYChart dayActivityChart = new XYChartBuilder().width(500).height(200).title("Activity (Day)").xAxisTitle("Hour of Day").yAxisTitle("Players").build();
-//
-//        ImmutablePair<ArrayList<String>, ArrayList<Integer>> dayActivity = PlayerCounter.analyzeActivityDay(data);
-//        dayActivityChart.addSeries("Players", dayActivity.getRight());
-//
-//        graphs.add(new XChartPanel<>(dayActivityChart));
-//
-//        XYChart dailyEntriesChart = new XYChartBuilder().width(500).height(200).title("Daily Logged Entries").xAxisTitle("Day").yAxisTitle("Logged Entries").build();
-//
-//        ImmutablePair<ArrayList<String>, ArrayList<Integer>> dailyEntries = PlayerCounter.analyzeDailyEntries(data);
-//        dailyEntriesChart.addSeries("Entries", dailyEntries.getRight());
-//
-//        graphs.add(new XChartPanel<>(dailyEntriesChart));
+        Function<Integer, Float> cosFunc = a -> (float) Math.cos((float) a / 10f) * 10;
+        LineGraph cosGraph = new LineGraph("Cosine", new Color(255, 211, 0));
+        cosGraph.setGridSize(5, 4);
+        cosGraph.setGridDrawPrefs(true, true);
+        cosGraph.setValueDrawPrefs(true, true);
+        cosGraph.setData(getFunctionPointsInt(53, cosFunc));
+        graphs.add(cosGraph);
 
+        Function<Integer, Float> expFunc = a -> (float) Math.pow((float) a / 3f, 2) + 1;
+        LineGraph expGraph = new LineGraph("Exponential", new Color(255, 211, 0));
+        expGraph.setGridSize(10, 5);
+        expGraph.setGridDrawPrefs(true, false);
+        expGraph.setValueDrawPrefs(true, true);
+        expGraph.setData(getFunctionPointsInt(100, expFunc));
+        graphs.add(expGraph);
 
-//        LineGraph testLineGraph = new LineGraph(getRandomWalk(100, 10.0F), "Test Line", "X", "Y");
-        Function<Float, Float> y2xFunc = a -> (float) Math.sin(a);
-        LineGraph testLineGraph = new LineGraph(getFunctionPoints(10, y2xFunc), "Test Line", "X", "Y");
-        graphs.add(testLineGraph);
+        LineGraph randWalkGraph = new LineGraph("Random Walk", new Color(255, 211, 0));
+        randWalkGraph.setGridSize(10, 5);
+        randWalkGraph.setGridDrawPrefs(true, false);
+        randWalkGraph.setValueDrawPrefs(true, true);
+        randWalkGraph.setData(getRandomWalk(100, 10));
+        graphs.add(randWalkGraph);
 
         for (JPanel graph : graphs) {
             graphsPanel.add(graph);
         }
     }
 
-    private static float[] getRandomWalk(int numPoints, float scale) {
-        float[] y = new float[numPoints];
-        y[0] = 0;
+    private ArrayList<Integer> getRandomWalk(int numPoints, float scale) {
+        ArrayList<Integer> y = new ArrayList<>();
+        y.add(0);
         for (int i = 1; i < numPoints; i++) {
-            y[i] = (float) (y[i - 1] + (Math.random() - 0.5) * scale);
+            y.add((int) (y.get(i - 1) + (Math.random() - 0.5f) * scale));
         }
         return y;
     }
 
-    private static float[] getFunctionPoints(int numPoints, Function<Float, Float> function) {
-        float[] y = new float[numPoints];
+    private ArrayList<Float> getFunctionPoints(int numPoints, Function<Integer, Float> function) {
+        ArrayList<Float> y = new ArrayList<>();
         for (int i = 0; i < numPoints; i++) {
-            y[i] = function.apply((float) i);
+            y.add(function.apply(i));
+        }
+        return y;
+    }
+
+    private ArrayList<Integer> getFunctionPointsInt(int numPoints, Function<Integer, Float> function) {
+        ArrayList<Integer> y = new ArrayList<>();
+        for (int i = 0; i < numPoints; i++) {
+            y.add(Math.round(function.apply(i)));
         }
         return y;
     }

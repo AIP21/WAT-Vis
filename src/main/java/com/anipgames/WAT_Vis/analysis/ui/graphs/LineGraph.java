@@ -3,19 +3,22 @@ package com.anipgames.WAT_Vis.analysis.ui.graphs;
 import com.anipgames.WAT_Vis.util.Utils;
 
 import java.awt.*;
-import java.awt.geom.Line2D;
+import java.awt.geom.*;
 
 public class LineGraph extends AbstractGraph {
-    public LineGraph(float[] values, String graphName, String xLabel, String yLabel, boolean drawGrid, boolean drawAxes, boolean drawLabels) {
-        super(values, graphName, xLabel, yLabel, drawGrid, drawAxes, drawLabels);
+    private Color lineColor = new Color(255, 211, 0); // new Color(44, 102, 230)
+    private Color dotColor = new Color(255, 211, 0); // new Color(44, 102, 230)
+    private boolean drawDots = false;
+    private final int dotSize = 3;
+
+    public LineGraph(String graphName, Color lineColor) {
+        super(graphName);
+
+        this.lineColor = lineColor;
     }
 
-    public LineGraph(float[] values, String graphName, String xLabel, String yLabel) {
-        super(values, graphName, xLabel, yLabel);
-    }
-
-    public LineGraph(String graphName, String xLabel, String yLabel) {
-        super(graphName, xLabel, yLabel);
+    public LineGraph(String graphName) {
+        super(graphName);
     }
 
     @Override
@@ -25,54 +28,26 @@ public class LineGraph extends AbstractGraph {
 
     @Override
     public void drawGraph(Graphics2D g2d) {
-//        g2d.setColor(Color.red);
-//
-//        final int xOffset = 20;
-//        final int yOffset = 20;
-//
-//        final float yMax = Utils.max(values);
-//        final int width = getHeight() - 20;
-//        final int height = getHeight() - 20;
+        float xInterval = (float) (graphArea.right - graphArea.left) / (float) valuesCount;
 
-//        int xLength = values.length;
-//        for (int i = 0; i < xLength; i++) {
-//            if (i != 0) {
-//                float x1 = xOffset + fixPos(i - 1, width, xLength);
-//                float y1 = yOffset + values[i - 1];
-//                float x2 = xOffset + fixPos(i, width, xLength);
-//                float y2 = yOffset + values[i];
-//
-//                Logger.info(x2 + ", " + y2);
-//
-//                g2d.draw(new Line2D.Float(x1, y1, x2, y2));
-//            }
-//        }
+        int newMax = max % yGridSpacing == 0 ? max : (int) (max + yGridSpacing);
 
-        g2d.setColor(Color.RED);
-        float prevX = 20;
-        float prevY = 20;
+        Path2D polyline = new Path2D.Float();
+        polyline.moveTo(graphArea.left, Utils.scale(values.get(0), min, newMax, graphArea.bottom, graphArea.top));
         for (int i = 0; i < valuesCount; i++) {
+            float x = graphArea.left + (i * xInterval);
+            float y = Utils.scale(values.get(i), min, newMax, graphArea.bottom, graphArea.top);
+
             if (i != 0) {
-                g2d.draw(new Line2D.Float(prevX, prevY, prevX += xUnits, prevY = Utils.scale((max + 20) - (values[i] * yUnits), 0, getHeight(), 20, getHeight() - 20)));
+                polyline.lineTo(x, y);
+            }
+
+            if (drawDots && valuesCount <= 200) {
+                g2d.setColor(dotColor);
+                g2d.fillOval((int) (x - (dotSize / 2)), (int) (y - (dotSize / 2)), dotSize, dotSize);
             }
         }
-
-        g2d.setColor(Color.BLUE);
-        prevX = 20;
-        prevY = values[0];
-        for (int i = 0; i < valuesCount; i++) {
-            if (i != 0) {
-                g2d.draw(new Line2D.Float(prevX, prevY, prevX+=xUnits, prevY = Utils.scale(values[i], min, max, 20, getHeight()-20)));
-            }
-        }
-
-        g2d.setColor(Color.GREEN);
-        prevX = 20;
-        prevY = values[0];
-        for (int i = 0; i < valuesCount; i++) {
-            if (i != 0) {
-                g2d.draw(new Line2D.Float(prevX, prevY, prevX += xUnits, prevY = max - values[i]));
-            }
-        }
+        g2d.setColor(lineColor);
+        g2d.draw(polyline);
     }
 }

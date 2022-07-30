@@ -1,6 +1,6 @@
 package com.anipgames.WAT_Vis.ui;
 
-import com.anipgames.WAT_Vis.PlayerTrackerDecoder;
+import com.anipgames.WAT_Vis.WatVis;
 import com.anipgames.WAT_Vis.util.Logger;
 import com.anipgames.WAT_Vis.util.Utils;
 
@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class HelpForm extends JDialog {
-    public HelpForm(PlayerTrackerDecoder main) {
+    public HelpForm(WatVis main) {
         super(main);
 
         setModal(true);
@@ -84,7 +84,7 @@ public class HelpForm extends JDialog {
                         <br>
                         <a href="https://github.com/AIP21/WAT-mod">Github page for the WAT Logging Minecraft mod, which produces data that this tool can visualize.</a><br>
                         <br>
-                """ + String.format("Version %s with build id %s, built on %s<br> <a href=\"%s\">Release URL</a><br> Release notes: %s <br>", PlayerTrackerDecoder.VERSION, PlayerTrackerDecoder.BUILD_INFO[0], PlayerTrackerDecoder.BUILD_INFO[1], PlayerTrackerDecoder.BUILD_INFO[2], PlayerTrackerDecoder.BUILD_INFO[3]) + """
+                """ + String.format("Version %s with build id %s, built on %s<br> <a href=\"%s\">Release URL</a><br> Release notes: %s <br>", WatVis.VERSION, WatVis.BUILD_INFO[0], WatVis.BUILD_INFO[1], WatVis.BUILD_INFO[2], WatVis.BUILD_INFO[3]) + """
                         <br>
                         Copyright © 2022 Alexander Irausquin-Petit
                       </font>

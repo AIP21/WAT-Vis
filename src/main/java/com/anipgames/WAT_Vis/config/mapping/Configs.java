@@ -1,6 +1,6 @@
 package com.anipgames.WAT_Vis.config.mapping;
 
-import com.anipgames.WAT_Vis.PlayerTrackerDecoder;
+import com.anipgames.WAT_Vis.WatVis;
 
 public class Configs {
 
@@ -17,7 +17,7 @@ public class Configs {
         if (USER_PROFILE == null) USER_PROFILE = (UserProfileConfig) new UserProfileConfig().forceGenerateConfig();
         if (BIOME_COLORS == null) BIOME_COLORS = (BiomeColorsConfig) new BiomeColorsConfig().forceGenerateConfig();
 
-        if (USER_PROFILE.getAppVersion() == null || !USER_PROFILE.getAppVersion().equals(PlayerTrackerDecoder.VERSION)) {
+        if (USER_PROFILE.getAppVersion() == null || !USER_PROFILE.getAppVersion().equals(WatVis.VERSION)) {
             USER_PROFILE.updateConfig();
             BIOME_COLORS.updateConfig();
         }

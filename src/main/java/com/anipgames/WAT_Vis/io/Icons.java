@@ -1,7 +1,7 @@
 package com.anipgames.WAT_Vis.io;
 
 import com.anipgames.WAT_Vis.config.Settings;
-import com.anipgames.WAT_Vis.PlayerTrackerDecoder;
+import com.anipgames.WAT_Vis.WatVis;
 import com.anipgames.WAT_Vis.util.Logger;
 import com.anipgames.WAT_Vis.util.Utils;
 
@@ -82,7 +82,7 @@ public class Icons {
     }
 
     public static ImageIcon getIcon(String name) {
-        if (Settings.INSTANCE.uiTheme == PlayerTrackerDecoder.UITheme.Light) {
+        if (Settings.INSTANCE.uiTheme == WatVis.UITheme.Light) {
             return iconsLight.get(name);
         } else {
             return iconsDark.get(name);
@@ -92,15 +92,15 @@ public class Icons {
     public static void setIcon(AbstractButton toSet, String iconName) {
         iconifiedButtons.put(toSet, iconName);
 
-        if (Settings.INSTANCE.uiTheme == PlayerTrackerDecoder.UITheme.Light) {
+        if (Settings.INSTANCE.uiTheme == WatVis.UITheme.Light) {
             toSet.setIcon(iconsLight.get(iconName));
         } else {
             toSet.setIcon(iconsDark.get(iconName));
         }
     }
 
-    public static void changeIconTheme(PlayerTrackerDecoder.UITheme newTheme) {
-        boolean dark = newTheme == PlayerTrackerDecoder.UITheme.Dark;
+    public static void changeIconTheme(WatVis.UITheme newTheme) {
+        boolean dark = newTheme == WatVis.UITheme.Dark;
 
         for (AbstractButton button : iconifiedButtons.keySet()) {
             if (dark) {

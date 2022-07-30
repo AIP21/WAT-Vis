@@ -37,8 +37,8 @@ import java.util.HashMap;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class PlayerTrackerDecoder extends JFrame {
-    public static PlayerTrackerDecoder INSTANCE;
+public class WatVis extends JFrame {
+    public static WatVis INSTANCE;
     public final Settings settings;
 
     public MainPanel mainPanel;
@@ -47,7 +47,7 @@ public class PlayerTrackerDecoder extends JFrame {
     public static final String VERSION = VersionGetter.getVersion();
     public static boolean DEBUG = true;
     // build id, build date, build url, build release notes, build name
-    public static String[] BUILD_INFO = new String[]{"null/experimental", "null/experimental", "null/experimental", "null/experimental", "null/experimental"};
+    public static String[] BUILD_INFO = new String[]{"null/dev", "null/dev", "null/dev", "null/dev", "null/dev"};
 
     public static final String DIR_ROOT = System.getProperty("user.dir");
     public final static String DIR_LOGS = DIR_ROOT + File.separatorChar + "logs";
@@ -122,7 +122,7 @@ public class PlayerTrackerDecoder extends JFrame {
     private HelpForm helpForm;
     //endregion
 
-    public PlayerTrackerDecoder(boolean debug) {
+    public WatVis(boolean debug) {
         DEBUG = debug;
 
         String[] buildInfo = Assets.getCurrentBuildInfo();
@@ -276,7 +276,7 @@ public class PlayerTrackerDecoder extends JFrame {
 
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                INSTANCE = new PlayerTrackerDecoder(debug);
+                INSTANCE = new WatVis(debug);
                 INSTANCE.setVisible(true);
             }
         });
@@ -415,8 +415,8 @@ public class PlayerTrackerDecoder extends JFrame {
                         importForm = null;
                     }
 
-                    importForm = new ImportForm(PlayerTrackerDecoder.this, settings, evt, alreadyImported);
-                    importForm.setLocationRelativeTo(PlayerTrackerDecoder.this);
+                    importForm = new ImportForm(WatVis.this, settings, evt, alreadyImported);
+                    importForm.setLocationRelativeTo(WatVis.this);
                     importForm.setVisible(true);
                 } catch (Exception e) {
                     Logger.err("Error doing drag and drop on main frame:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
@@ -743,7 +743,7 @@ public class PlayerTrackerDecoder extends JFrame {
             playerPages[index].add(panel);
 
             colButton.addActionListener(event -> {
-                Color selectedColor = JColorChooser.showDialog(PlayerTrackerDecoder.this, "Select player color", mainPanel.playerNameColorMap.get(player));
+                Color selectedColor = JColorChooser.showDialog(WatVis.this, "Select player color", mainPanel.playerNameColorMap.get(player));
                 colButton.setForeground(selectedColor);
                 mainPanel.playerNameColorMap.put(player, selectedColor);
                 mainPanel.repaint();

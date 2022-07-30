@@ -1,6 +1,6 @@
 package com.anipgames.WAT_Vis.util;
 
-import com.anipgames.WAT_Vis.PlayerTrackerDecoder;
+import com.anipgames.WAT_Vis.WatVis;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,11 +16,11 @@ import java.util.Set;
 import java.util.logging.*;
 
 public class Logger {
-    private static final java.util.logging.Logger LOGGER = java.util.logging.Logger.getLogger(PlayerTrackerDecoder.class.getName());
+    private static final java.util.logging.Logger LOGGER = java.util.logging.Logger.getLogger(WatVis.class.getName());
 
     public static void registerLogger() {
         try {
-            FileHandler handler = new FileHandler(PlayerTrackerDecoder.DIR_LOGS + File.separatorChar + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) + " %u%g.log", 1000000, 10);
+            FileHandler handler = new FileHandler(WatVis.DIR_LOGS + File.separatorChar + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) + " %u%g.log", 1000000, 10);
             LOGGER.addHandler(handler);
             LOGGER.setUseParentHandlers(false);
 
@@ -35,7 +35,7 @@ public class Logger {
 
             Logger.info("Initialing logger");
 
-            Logger.info(String.format("WAT:Vis - v%s; %s", PlayerTrackerDecoder.VERSION, new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z").format(new Date(System.currentTimeMillis()))));
+            Logger.info(String.format("WAT:Vis - v%s; %s", WatVis.VERSION, new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z").format(new Date(System.currentTimeMillis()))));
 
             RuntimeMXBean runtimeBean = ManagementFactory.getRuntimeMXBean();
 

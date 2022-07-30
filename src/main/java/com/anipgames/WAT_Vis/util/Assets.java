@@ -2,7 +2,7 @@ package com.anipgames.WAT_Vis.util;
 
 import com.google.gson.Gson;
 import com.seedfinding.mccore.util.data.Pair;
-import com.anipgames.WAT_Vis.PlayerTrackerDecoder;
+import com.anipgames.WAT_Vis.WatVis;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -16,8 +16,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.*;
 
 public class Assets {
-    public final static String DIR_DL_VERSIONS = PlayerTrackerDecoder.DIR_DL + File.separatorChar + "versions";
-    public final static String DIR_DL_ASSETS = PlayerTrackerDecoder.DIR_DL + File.separatorChar + "assets";
+    public final static String DIR_DL_VERSIONS = WatVis.DIR_DL + File.separatorChar + "versions";
+    public final static String DIR_DL_ASSETS = WatVis.DIR_DL + File.separatorChar + "assets";
 
     public static void createDirs() throws IOException {
         String[] dirs = {DIR_DL_VERSIONS, DIR_DL_ASSETS};
@@ -35,7 +35,7 @@ public class Assets {
         Map<String, Object> map = new Gson().fromJson(data, Map.class);
         if (map.containsKey("tag_name")) {
             String tagName = ((String) map.get("tag_name")).replace("v", "");
-            if (!tagName.equals(PlayerTrackerDecoder.VERSION)) {
+            if (!tagName.equals(WatVis.VERSION)) {
                 if (map.containsKey("assets")) {
                     ArrayList<Map<String, Object>> assets = (ArrayList<Map<String, Object>>) map.get("assets");
                     HashMap<String, Pair<Pair<String, String>, String>> versionToDownload = new LinkedHashMap<>();
@@ -59,7 +59,7 @@ public class Assets {
                     Logger.warn("Github release does not contain a assets key");
                 }
             } else {
-                Logger.info(String.format("Version match so we are not updating current :%s, github :%s", PlayerTrackerDecoder.VERSION, tagName));
+                Logger.info(String.format("Version match so we are not updating current :%s, github :%s", WatVis.VERSION, tagName));
             }
         } else {
             Logger.warn("Github release does not contain a tag_name key");
@@ -69,14 +69,14 @@ public class Assets {
 
     @SuppressWarnings("unchecked")
     public static String[] getCurrentBuildInfo() {
-        String data = getDataRestAPI("https://api.github.com/repos/AIP21/TrackerDecoderApp/releases/tags/v" + PlayerTrackerDecoder.VERSION);
+        String data = getDataRestAPI("https://api.github.com/repos/AIP21/TrackerDecoderApp/releases/tags/v" + WatVis.VERSION);
         if (data == null) {
             return null;
         }
         Map<String, Object> map = new Gson().fromJson(data, Map.class);
         if (map.containsKey("tag_name")) {
             String tagName = ((String) map.get("tag_name")).replace("v", "");
-            if (tagName.equals(PlayerTrackerDecoder.VERSION)) {
+            if (tagName.equals(WatVis.VERSION)) {
                 return new String[]{(String) map.get("node_id"), (String) map.get("published_at"), (String) map.get("html_url"), (String) map.get("release_notes"), (String) map.get("name")};
             }
         }

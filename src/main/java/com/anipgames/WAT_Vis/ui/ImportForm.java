@@ -3,7 +3,7 @@ package com.anipgames.WAT_Vis.ui;
 import com.seedfinding.mccore.version.MCVersion;
 import com.anipgames.WAT_Vis.io.filters.ImageFileFilter;
 import com.anipgames.WAT_Vis.io.filters.TextFileFilter;
-import com.anipgames.WAT_Vis.PlayerTrackerDecoder;
+import com.anipgames.WAT_Vis.WatVis;
 import com.anipgames.WAT_Vis.config.Settings;
 import com.anipgames.WAT_Vis.util.Logger;
 
@@ -26,7 +26,7 @@ import com.seedfinding.mccore.state.Dimension;
 import com.anipgames.WAT_Vis.util.Utils;
 
 public class ImportForm extends JDialog {
-    private final PlayerTrackerDecoder main;
+    private final WatVis main;
     private final Settings settings;
 
     private final ArrayList<File> currentFiles = new ArrayList<>();
@@ -58,7 +58,7 @@ public class ImportForm extends JDialog {
     private JButton removeFileButton;
     private JButton addFileButton;
 
-    public ImportForm(PlayerTrackerDecoder main, Settings settings, boolean alreadyImported) {
+    public ImportForm(WatVis main, Settings settings, boolean alreadyImported) {
         super(main);
 
         setModal(true);
@@ -76,7 +76,7 @@ public class ImportForm extends JDialog {
         Logger.info("File import pane opened");
     }
 
-    public ImportForm(PlayerTrackerDecoder main, Settings settings, DropTargetDropEvent evt, boolean alreadyImported) {
+    public ImportForm(WatVis main, Settings settings, DropTargetDropEvent evt, boolean alreadyImported) {
         super(main, "Import Files");
 
         setModal(true);
@@ -364,7 +364,7 @@ public class ImportForm extends JDialog {
 
         addFileButton.addActionListener(event -> {
             JFileChooser chooser = new JFileChooser();
-            chooser.setCurrentDirectory(new File(PlayerTrackerDecoder.DIR_INPUTS));
+            chooser.setCurrentDirectory(new File(WatVis.DIR_INPUTS));
             chooser.setMultiSelectionEnabled(true);
             chooser.addChoosableFileFilter(new TextFileFilter());
             chooser.setAcceptAllFileFilterUsed(false);
@@ -420,7 +420,7 @@ public class ImportForm extends JDialog {
         addWorldImageButton.addActionListener(event -> {
             Logger.info("Opening world background image dialog");
 
-            JFileChooser imgChooser = new JFileChooser(PlayerTrackerDecoder.DIR_WORLDIMAGES);
+            JFileChooser imgChooser = new JFileChooser(WatVis.DIR_WORLDIMAGES);
             imgChooser.setMultiSelectionEnabled(false);
             imgChooser.addChoosableFileFilter(new ImageFileFilter());
             imgChooser.setAcceptAllFileFilterUsed(false);

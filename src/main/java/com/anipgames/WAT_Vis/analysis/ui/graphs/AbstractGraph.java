@@ -1,5 +1,7 @@
 package com.anipgames.WAT_Vis.analysis.ui.graphs;
 
+import com.anipgames.WAT_Vis.WatVis;
+import com.anipgames.WAT_Vis.util.ColorPalette;
 import com.anipgames.WAT_Vis.util.Utils;
 
 import javax.swing.*;
@@ -8,11 +10,11 @@ import java.util.ArrayList;
 
 public abstract class AbstractGraph extends JPanel {
     //region Data Variables
-    protected ArrayList<Integer> values;
+    protected ArrayList<GraphData> data = new ArrayList<>();
 
-    public int valuesCount;
-    public int max;
-    public int min;
+    public int highestCount;
+    public int highestMax;
+    public int lowestMin;
 
     public int xGridSize = 1;
     public int yGridSize = 1;
@@ -22,6 +24,8 @@ public abstract class AbstractGraph extends JPanel {
 
     //region Display Variables
     private final String graphName;
+
+    private ColorPalette colorPalette = ColorPalette.PALETTE_A;
 
     private String[] xNames;
 
@@ -48,6 +52,13 @@ public abstract class AbstractGraph extends JPanel {
     private Stroke thickerStroke = new BasicStroke(2);
     //endregion
 
+    //region Timings
+    private long processTime;
+    private long frameTime;
+    private long gridTime;
+    private long graphTime;
+    //endregion
+
     public AbstractGraph(String graphName) {
         super(true);
 
@@ -59,16 +70,44 @@ public abstract class AbstractGraph extends JPanel {
         this.graphName = graphName;
     }
 
-    public abstract void processData();
+    public void processData() {
+        long start = System.currentTimeMillis();
+
+        highestCount = 0;
+        highestMax = Integer.MIN_VALUE;
+        lowestMin = Integer.MAX_VALUE;
+
+        for (GraphData gd : data) {
+            if (gd.valuesCount > highestCount) {
+                highestCount = gd.valuesCount;
+            }
+
+            if (gd.max > highestMax) {
+                highestMax = gd.max;
+            }
+
+            if (gd.min < lowestMin) {
+                lowestMin = gd.min;
+            }
+        }
+
+        xGridSpacing = (float) Math.round((float) highestCount / (float) xGridSize);
+        yGridSpacing = (float) Math.round((float) (highestMax - lowestMin) / (float) yGridSize);
+
+        processTime = System.currentTimeMillis() - start;
+    }
 
     //region Drawing
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
+        long start = System.currentTimeMillis();
+
         graphArea.set(outerPadding.top, outerPadding.left, getHeight() - outerPadding.bottom, getWidth() - outerPadding.right);
 
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
         // Draw the rounded background
         g2d.setColor(backgroundColor);
@@ -81,12 +120,26 @@ public abstract class AbstractGraph extends JPanel {
         g2d.drawString(graphName, graphArea.left + 5, titleHeight + outerPadding.top);
         graphArea.top = titleHeight + g2d.getFontMetrics(labelFont).getHeight() + outerPadding.top + 5; // Using a fixed value (10) instead of doubling outerPadding.top because if you ever increase the outerPadding.top then it will pad the title A LOT
 
-        if (values != null) {
+        frameTime = System.currentTimeMillis() - start;
+
+        if (data != null) {
+            start = System.currentTimeMillis();
+
             drawGrid(g2d);
 
+            gridTime = System.currentTimeMillis() - start;
+            start = System.currentTimeMillis();
+
             drawGraph(g2d);
+
+            graphTime = System.currentTimeMillis() - start;
         } else {
             g2d.drawString("No data to display", getWidth() / 2, getHeight() / 2);
+        }
+
+        if(WatVis.DEBUG){
+            g2d.setColor(Color.white);
+            g2d.drawString(String.format("data %dms, frame %dms, grid %dms, rend %dms", processTime, frameTime, gridTime, graphTime), 10, 12);
         }
     }
 
@@ -102,17 +155,14 @@ public abstract class AbstractGraph extends JPanel {
 
         // Draw the horizontal x-axis lines
         if (drawXGrid) {
-            for (int i = min; i <= max + yGridSpacing; i += yGridSpacing) {
+            for (int i = lowestMin; i <= highestMax + yGridSpacing; i += yGridSpacing) {
                 g2d.setColor(xGridColor);
 
-                int yVal = (int) Utils.scale(i, min, max + yGridSpacing, graphArea.bottom, graphArea.top);
+                int yVal = (int) Utils.scale(i, lowestMin, highestMax + yGridSpacing, graphArea.bottom, graphArea.top);
 
                 if (i == 0) {
                     g2d.setStroke(thickerStroke);
                 }
-
-                FIX FLICKERING THING WHEN ADDING DATA, IT IS WITH THE LAST VERTICAL BAR AND WITH THE MODULO MOVING THE GRAPHED LINE UP AND DOWN (JUST CHOOSE ONE WAY FOR IT TO WORK AND REMOVE THE ALTERNATION)
-                ADD MULTIPLE LINES TO A SINGLE GRAPH
 
                 g2d.drawLine(graphArea.left, yVal, graphArea.right, yVal);
                 g2d.setStroke(normalStroke);
@@ -134,26 +184,27 @@ public abstract class AbstractGraph extends JPanel {
 
         // Draw the vertical y-axis lines
         if (drawYGrid) {
-            for (int i = 0; i <= valuesCount; i += xGridSpacing) {
+            for (int i = 0; i <= highestCount; i += xGridSpacing) {
                 g2d.setColor(yGridColor);
 
-                int xVal = Utils.scale(i, 0, valuesCount, graphArea.left, graphArea.right);
-                if (i != valuesCount)
-                    g2d.drawLine(xVal, graphArea.top - fontHeight, xVal, graphArea.bottom);
+                if (highestCount != 0) {
+                    int xVal = Utils.scale(i, 0, highestCount, graphArea.left, graphArea.right);
+                    if (i != highestCount)
+                        g2d.drawLine(xVal, graphArea.top - fontHeight, xVal, graphArea.bottom);
 
-                // Values
-                if (drawXValues) {
-                    g2d.setColor(textColor);
-                    String xLabel = String.format("%s%s", xNames == null ? i : xNames[i], ySuffix);
-                    if(i!=valuesCount){
-                        g2d.drawString(xLabel, xVal - (fm.stringWidth(xLabel) / 2), graphArea.bottom + fontHeight);
-                    }else{
-                        g2d.drawString(xLabel, xVal - (fm.stringWidth(xLabel) + 5), graphArea.bottom + fontHeight);
+                    // Values
+                    if (drawXValues) {
+                        g2d.setColor(textColor);
+                        String xLabel = String.format("%s%s", xNames == null ? i : xNames[i], ySuffix);
+                        if (i != highestCount) {
+                            g2d.drawString(xLabel, xVal - (fm.stringWidth(xLabel) / 2), graphArea.bottom + fontHeight);
+                        } else {
+                            g2d.drawString(xLabel, xVal - (fm.stringWidth(xLabel) + 5), graphArea.bottom + fontHeight);
+                        }
                     }
                 }
             }
         }
-
     }
 
     public abstract void drawGraph(Graphics2D g2d);
@@ -164,36 +215,28 @@ public abstract class AbstractGraph extends JPanel {
         return graphName;
     }
 
-    public ArrayList<Integer> getData() {
-        return values;
+    public ArrayList<Integer> getData(int index) {
+        return data.get(index).values;
     }
 
-    public void setData(ArrayList<Integer> values) {
-        this.values = values;
-        if (values != null) {
-            this.valuesCount = values.size();
-            this.max = Utils.max(values);
-            this.min = Utils.min(values);
-            this.min = Math.min(this.min, 0);
-            this.xGridSpacing = (float) Math.round((float) valuesCount / (float) xGridSize);
-            this.yGridSpacing = (float) Math.round((float) (max - min) / (float) yGridSize);
+    public void setData(int index, ArrayList<Integer> values) {
+        if (data.size() <= index) {
+            data.add(new GraphData(values, getNextColorFromPalette()));
+        } else {
+            data.get(index).setData(values);
         }
+        processData();
 
         repaint();
     }
 
-    public void addData(int value) {
-        if (values != null)
-            this.values.add(value);
-        else
-            this.values = new ArrayList<>();
-
-        this.valuesCount = values.size();
-        this.max = Utils.max(values);
-        this.min = Utils.min(values);
-        this.min = Math.min(this.min, 0);
-        this.xGridSpacing = (float) Math.round((float) valuesCount / (float) xGridSize);
-        this.yGridSpacing = (float) Math.round((float) (max - min) / (float) yGridSize);
+    public void addData(int index, int value) {
+        if (data.size() <= index) {
+            data.add(new GraphData(value, getNextColorFromPalette()));
+        } else {
+            data.get(index).addData(value);
+        }
+        processData();
 
         repaint();
     }
@@ -258,5 +301,64 @@ public abstract class AbstractGraph extends JPanel {
         this.xGridSize = x;
         this.yGridSize = y;
     }
+
+    public ColorPalette getColorPalette() {
+        return colorPalette;
+    }
+
+    public void setColorPalette(ColorPalette colorPalette) {
+        this.colorPalette = colorPalette;
+    }
+
+    private int colorPaletteIndex;
+
+    private Color getNextColorFromPalette() {
+        int index = colorPaletteIndex + 1 >= colorPalette.getColorsCount() ? 0 : colorPaletteIndex++;
+
+        return colorPalette.getColor(index);
+    }
     //endregion
+}
+
+class GraphData {
+    public ArrayList<Integer> values;
+    public int valuesCount;
+    public int max;
+    public int min;
+
+    public Color color;
+
+    public GraphData(ArrayList<Integer> values, Color color) {
+        setData(values);
+        this.color = color;
+    }
+
+    public GraphData(int value, Color color) {
+        addData(value);
+        this.color = color;
+    }
+
+    public void setData(ArrayList<Integer> values) {
+        this.values = values;
+        if (this.values != null) {
+            valuesCount = values.size();
+            max = Utils.max(values);
+            min = Utils.min(values);
+            min = Math.min(min, 0);
+        } else {
+            this.values = new ArrayList<>();
+        }
+    }
+
+    public void addData(int value) {
+        if (values != null)
+            values.add(value);
+        else
+            values = new ArrayList<>();
+
+        valuesCount = values.size();
+        max = Utils.max(values);
+        min = Utils.min(values);
+        min = Math.min(min, 0);
+    }
 }

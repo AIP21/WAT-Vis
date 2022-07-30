@@ -58,7 +58,7 @@ public class Dashboard extends JFrame implements Runnable {
 
     public void run() {
         long lastTime = System.nanoTime();
-        double ns = 1000000000/10;
+        double ns = 1000000000 / 60;
         long start;
         double delta = 0;
 
@@ -68,24 +68,11 @@ public class Dashboard extends JFrame implements Runnable {
             lastTime = start;
 
             if (delta >= 1) {
-                AbstractGraph gp1 = graphs.get(0);
-
-                Function<Integer, Float> sinFunc = a -> (float) Math.sin((float) a / 10f) * 10;
-                gp1.addData(Math.round(sinFunc.apply(gp1.getData().size())));
-
-                AbstractGraph gp2 = graphs.get(1);
-                Function<Integer, Float> cosFunc = a -> (float) Math.cos((float) a / 10f) * 10;
-                gp2.addData(Math.round(cosFunc.apply(gp2.getData().size())));
-
-                AbstractGraph gp3 = graphs.get(2);
-                Function<Integer, Float> expFunc = a -> (float) Math.pow((float) a / 3f, 2) + 1;
-                gp3.addData(Math.round(expFunc.apply(gp3.getData().size())));
-
-                AbstractGraph gp4 = graphs.get(3);
-                ArrayList<Integer> data4 = gp4.getData();
+                AbstractGraph gp4 = graphs.get(1);
+                ArrayList<Integer> data4 = gp4.getData(0);
 
                 Function<Integer, Float> randWalkFunc = a -> (float) (data4.get(a - 1) + (Math.random() - 0.5f) * 10f);
-                gp4.addData(Math.round(randWalkFunc.apply(gp4.getData().size())));
+                gp4.addData(0, Math.round(randWalkFunc.apply(gp4.getData(0).size())));
 
                 delta--;
             }
@@ -94,35 +81,26 @@ public class Dashboard extends JFrame implements Runnable {
 
     private void createGraphs() {
         graphs = new ArrayList<>();
+
         Function<Integer, Float> sinFunc = a -> (float) Math.sin((float) a / 10f) * 10;
-        LineGraph sineGraph = new LineGraph("Sine", new Color(255, 211, 0));
-        sineGraph.setGridSize(5, 4);
-        sineGraph.setGridDrawPrefs(true, true);
-        sineGraph.setValueDrawPrefs(true, true);
-        sineGraph.setData(getFunctionPointsInt(180, sinFunc));
-        graphs.add(sineGraph);
-
         Function<Integer, Float> cosFunc = a -> (float) Math.cos((float) a / 10f) * 10;
-        LineGraph cosGraph = new LineGraph("Cosine", new Color(255, 211, 0));
-        cosGraph.setGridSize(5, 4);
-        cosGraph.setGridDrawPrefs(true, true);
-        cosGraph.setValueDrawPrefs(true, true);
-        cosGraph.setData(getFunctionPointsInt(53, cosFunc));
-        graphs.add(cosGraph);
+        Function<Integer, Float> sin2Func = a -> (float) Math.cos((float) a);
+        Function<Integer, Float> cos2Func = a -> (float) Math.cos((float) a);
+        LineGraph sinCosGraph = new LineGraph("Sine and Cosine");
+        sinCosGraph.setGridSize(5, 4);
+        sinCosGraph.setGridDrawPrefs(true, true);
+        sinCosGraph.setValueDrawPrefs(true, true);
+        sinCosGraph.setData(0, getFunctionPointsInt(180, sinFunc));
+        sinCosGraph.setData(1, getFunctionPointsInt(180, cosFunc));
+        sinCosGraph.setData(2, getFunctionPointsInt(180, sin2Func));
+        sinCosGraph.setData(3, getFunctionPointsInt(180, cos2Func));
+        graphs.add(sinCosGraph);
 
-        Function<Integer, Float> expFunc = a -> (float) Math.pow((float) a / 3f, 2) + 1;
-        LineGraph expGraph = new LineGraph("Exponential", new Color(255, 211, 0));
-        expGraph.setGridSize(10, 5);
-        expGraph.setGridDrawPrefs(true, false);
-        expGraph.setValueDrawPrefs(true, true);
-        expGraph.setData(getFunctionPointsInt(100, expFunc));
-        graphs.add(expGraph);
-
-        LineGraph randWalkGraph = new LineGraph("Random Walk", new Color(255, 211, 0));
+        LineGraph randWalkGraph = new LineGraph("Random Walk");
         randWalkGraph.setGridSize(10, 5);
         randWalkGraph.setGridDrawPrefs(true, false);
         randWalkGraph.setValueDrawPrefs(true, true);
-        randWalkGraph.setData(getRandomWalk(100, 10));
+        randWalkGraph.setData(0, getRandomWalk(1000, 10));
         graphs.add(randWalkGraph);
 
         for (JPanel graph : graphs) {

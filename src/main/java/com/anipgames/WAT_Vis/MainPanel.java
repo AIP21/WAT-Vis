@@ -145,7 +145,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
         this.blocksPerFragment = blocksPerFragment;
         pixelsPerFragment = (int) (DEFAULT_PIXELS_PER_FRAGMENT * (this.blocksPerFragment / DEFAULT_REGION_SIZE));
 
-        setBackground(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? Color.lightGray : Color.darkGray);
+        setBackground(settings.uiTheme == WatVis.UITheme.Light ? Color.lightGray : Color.darkGray);
 
         this.settings = settings;
 
@@ -214,14 +214,14 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
                     } else {
                         isPlaying = false;
                         // ShouldTick = false;
-                        PlayerTrackerDecoder.INSTANCE.animatePlayPause.setSelected(isPlaying);
+                        WatVis.INSTANCE.animatePlayPause.setSelected(isPlaying);
 
                         Logger.info("Finished playing");
                     }
 
-                    PlayerTrackerDecoder.INSTANCE.timeRangeSlider.setUpperValue(dateTimeIndex);
-                    PlayerTrackerDecoder.INSTANCE.startTimeLabel.setText(startTime.toString().replace("T", "; "));
-                    PlayerTrackerDecoder.INSTANCE.endTimeLabel.setText(endTime.toString().replace("T", "; "));
+                    WatVis.INSTANCE.timeRangeSlider.setUpperValue(dateTimeIndex);
+                    WatVis.INSTANCE.startTimeLabel.setText(startTime.toString().replace("T", "; "));
+                    WatVis.INSTANCE.endTimeLabel.setText(endTime.toString().replace("T", "; "));
                 }
 
                 if (!exporting) {
@@ -316,7 +316,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
             }
         }
 
-        if (PlayerTrackerDecoder.DEBUG) {
+        if (WatVis.DEBUG) {
             g2.setColor(Color.blue.brighter());
 
             Dimension size = getSize();
@@ -329,7 +329,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
         g2.transform(at);
 
         if (selecting) {
-            g2.setColor(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? new Color(167, 210, 255) : new Color(33, 65, 130));
+            g2.setColor(settings.uiTheme == WatVis.UITheme.Light ? new Color(167, 210, 255) : new Color(33, 65, 130));
             drawRectangle(g2, selectionStart.x - 0.5f, selectionStart.y - 0.5f, selectionEnd.x - 0.5f, selectionEnd.y - 0.5f, true, false);
         }
 
@@ -348,22 +348,22 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
         drawPoints(g2, true, getSize(), 0, 0, 1);
 
-        g2.setColor(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? Color.black : Color.white);
+        g2.setColor(settings.uiTheme == WatVis.UITheme.Light ? Color.black : Color.white);
         g2.setStroke(new BasicStroke(1));
         float padding = 1.25F;
         g2.drawRect((int) (minX * padding), (int) (minY * padding), (int) (xRange * padding), (int) (yRange * padding));
 
-        g2.setColor(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? Color.black : Color.white);
+        g2.setColor(settings.uiTheme == WatVis.UITheme.Light ? Color.black : Color.white);
         g2.setStroke(new BasicStroke(0.25f));
         for (LogEntry selectedEntry : selectedEntries) {
             drawRectangle(g2, selectedEntry.position.x, selectedEntry.position.z, 3, false);
         }
 
-        if (PlayerTrackerDecoder.DEBUG) {
+        if (WatVis.DEBUG) {
             g2.setColor(Color.magenta);
             drawCrossHair(g2, mousePosition.x, mousePosition.y, 0.25f);
 
-            g2.setColor(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? Color.black : Color.white);
+            g2.setColor(settings.uiTheme == WatVis.UITheme.Light ? Color.black : Color.white);
             drawCrossHair(g2, 0, 0, 2, "Origin");
             drawCrossHair(g2, 500, 0, 1, "500");
             drawCrossHair(g2, -500, 0, 1, "500");
@@ -434,7 +434,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
         boolean ctrlDown = Keyboard.getKeyPressed(KeyEvent.VK_CONTROL);
         for (LogEntry entry : enabledEntries) {
             if (entry.show || ctrlDown) {
-                if (settings._drawType == PlayerTrackerDecoder.DrawType.Fast) {
+                if (settings._drawType == WatVis.DrawType.Fast) {
                     if (at != null) at.transform(entry.position.point, pt);
 
                     int x = (int) ((entry.position.x + offsetX) * upscale);
@@ -465,7 +465,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
                     float x = (entry.position.x + offsetX) * upscale;
                     float y = (entry.position.z + offsetY) * upscale;
 
-                    if (settings.terminusPoints && settings._drawType == PlayerTrackerDecoder.DrawType.Line && !playerFirst.contains(entry.playerName)) {
+                    if (settings.terminusPoints && settings._drawType == WatVis.DrawType.Line && !playerFirst.contains(entry.playerName)) {
                         playerFirst.add(entry.playerName);
                         g2d.setColor(playerNameColorMap.get(entry.playerName));
                         drawDot(g2d, x, y, settings.size + 7, false);
@@ -480,16 +480,16 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
                         }
                         g2d.setColor(new Color(col.getRed(), col.getGreen(), col.getBlue(), val));
 
-                        if (settings._drawType == PlayerTrackerDecoder.DrawType.Pixel) {
+                        if (settings._drawType == WatVis.DrawType.Pixel) {
                             drawRectangle(g2d, x, y, settings.size, true);
                             renderedPoints++;
-                        } else if (settings._drawType == PlayerTrackerDecoder.DrawType.Dot) {
+                        } else if (settings._drawType == WatVis.DrawType.Dot) {
                             drawDot(g2d, x, y, settings.size, true);
                             renderedPoints++;
-                        } else if (settings._drawType == PlayerTrackerDecoder.DrawType.Heat) {
-                            if (settings._heatDrawType == PlayerTrackerDecoder.HeatDrawType.Color) {
+                        } else if (settings._drawType == WatVis.DrawType.Heat) {
+                            if (settings._heatDrawType == WatVis.HeatDrawType.Color) {
                                 try {
-                                    if (settings.uiTheme == PlayerTrackerDecoder.UITheme.Light) {
+                                    if (settings.uiTheme == WatVis.UITheme.Light) {
                                         g2d.setColor(Utils.lerpColor(Color.darkGray, Color.getHSBColor(0.93f, 0.68f, 0.55f), Math.min(1, (posActivityMap.get(entry.position) * Math.abs(settings.heatMapStrength)) / (float) (maxActivity))));
                                     } else {
                                         g2d.setColor(Utils.lerpColor(Color.lightGray, Color.getHSBColor(0.93f, 0.68f, 0.55f), Math.min(1, (posActivityMap.get(entry.position) * Math.abs(settings.heatMapStrength)) / (float) (maxActivity))));
@@ -507,7 +507,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
                         }
                     }
 
-                    if (settings._drawType == PlayerTrackerDecoder.DrawType.Line) {
+                    if (settings._drawType == WatVis.DrawType.Line) {
                         Vector3 lastPos = playerLastPosMap.get(entry.playerName);
 
                         if (!useCulling || (pt.x >= -50 && pt.x <= screenSize.width + 50 && pt.y >= -50 && pt.y <= screenSize.height + 50)) {
@@ -546,7 +546,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
             }
         }
 
-        if (settings._drawType == PlayerTrackerDecoder.DrawType.Line && settings.terminusPoints) {
+        if (settings._drawType == WatVis.DrawType.Line && settings.terminusPoints) {
             for (String name : playerLastPosMap.keySet()) {
                 if (playerNameEnabledMap.get(name)) {
                     Vector3 pos = playerLastPosMap.get(name);
@@ -1046,11 +1046,11 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
         isPlaying = false;
         Logger.info("Started saving current screen as an image. Currently preparing the image");
         imageExportStatus.setText("  Processing...");
-        PlayerTrackerDecoder.INSTANCE.revalidate();
-        PlayerTrackerDecoder.INSTANCE.repaint();
+        WatVis.INSTANCE.revalidate();
+        WatVis.INSTANCE.repaint();
 
         setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        PlayerTrackerDecoder.INSTANCE.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        WatVis.INSTANCE.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         exporting = true;
 
         System.gc();
@@ -1074,13 +1074,13 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
         Logger.info("Starting to save the exported image file");
 
-        if (!new File(PlayerTrackerDecoder.DIR_OUTPUTS).exists()) {
-            boolean val = new File(PlayerTrackerDecoder.DIR_OUTPUTS).mkdir();
+        if (!new File(WatVis.DIR_OUTPUTS).exists()) {
+            boolean val = new File(WatVis.DIR_OUTPUTS).mkdir();
             Logger.warn("Outputs folder to save exported image didn't exist so it was just created with result: " + val);
         }
 
         String name = settings._drawType + "-" + (screenshot ? "screenshot" : "export") + "-" + dataWorld;
-        File[] outFiles = new File(PlayerTrackerDecoder.DIR_OUTPUTS + File.separatorChar).listFiles();
+        File[] outFiles = new File(WatVis.DIR_OUTPUTS + File.separatorChar).listFiles();
         int count = 0;
 
         if (outFiles != null) {
@@ -1094,7 +1094,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
             try {
                 if (image != null) {
-                    ImageIO.write(image, "png", new File(PlayerTrackerDecoder.DIR_OUTPUTS + File.separatorChar + name));
+                    ImageIO.write(image, "png", new File(WatVis.DIR_OUTPUTS + File.separatorChar + name));
                     Logger.info("Successfully saved current screen as an image");
                 } else {
                     Logger.err("Image to save is null");
@@ -1108,7 +1108,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
 
         Toolkit.getDefaultToolkit().beep();
         setCursor(Cursor.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR));
-        PlayerTrackerDecoder.INSTANCE.setCursor(Cursor.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR));
+        WatVis.INSTANCE.setCursor(Cursor.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR));
         exporting = false;
         isPlaying = playing;
     }
@@ -1117,7 +1117,7 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
         int _minX = Math.abs(minX);
         int _minY = Math.abs(minY);
 
-        g2d.setColor(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? Color.white : Color.darkGray);
+        g2d.setColor(settings.uiTheme == WatVis.UITheme.Light ? Color.white : Color.darkGray);
         g2d.fillRect(0, 0, width, height);
 
         if (screenshot) {
@@ -1142,12 +1142,12 @@ public class MainPanel extends JPanel implements MouseWheelListener, MouseListen
         } else {
             drawPoints(g2d, false, getSize(), _minX, _minY, 1);
 
-            g2d.setColor(settings.uiTheme == PlayerTrackerDecoder.UITheme.Light ? Color.black : Color.white);
+            g2d.setColor(settings.uiTheme == WatVis.UITheme.Light ? Color.black : Color.white);
             g2d.setFont(new Font("Arial", Font.PLAIN, 24 * upscale));
             g2d.drawString(String.format("Scale: 1 pixel = %.1f block(s)", (1.0f / (float) upscale)), 24, 24 + (24 * upscale));
         }
 
-        if (PlayerTrackerDecoder.DEBUG) {
+        if (WatVis.DEBUG) {
             drawCrossHair(g2d, _minX, _minY, 2, "Origin");
             drawCrossHair(g2d, _minX + 500, _minY, 1, "500");
             drawCrossHair(g2d, _minX + -500, _minY, 1, "500");

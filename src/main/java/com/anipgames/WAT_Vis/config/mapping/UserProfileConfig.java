@@ -3,7 +3,7 @@ package com.anipgames.WAT_Vis.config.mapping;
 import com.google.gson.annotations.Expose;
 import com.seedfinding.mccore.state.Dimension;
 import com.seedfinding.mccore.version.MCVersion;
-import com.anipgames.WAT_Vis.PlayerTrackerDecoder;
+import com.anipgames.WAT_Vis.WatVis;
 import com.anipgames.WAT_Vis.config.Config;
 import com.anipgames.WAT_Vis.mapping.minemap.map.MapSettings;
 import com.anipgames.WAT_Vis.util.Logger;
@@ -99,7 +99,7 @@ public class UserProfileConfig extends Config {
     protected void resetConfig() {
         this.THREAD_COUNT = 1;
         this.MC_VERSION = MCVersion.values()[0];
-        this.APP_VERSION = PlayerTrackerDecoder.VERSION;
+        this.APP_VERSION = WatVis.VERSION;
         this.ASSETS_VERSION = null; // allowed since I use null as an invalid version
 
         for (Dimension dimension : Dimension.values()) {
@@ -120,7 +120,7 @@ public class UserProfileConfig extends Config {
         this.MC_VERSION = this.MC_VERSION == null ? MCVersion.values()[0] : this.MC_VERSION;
         this.OLD_APP_VERSION = this.OLD_APP_VERSION == null ? this.APP_VERSION : this.OLD_APP_VERSION;
         String previousVersion = this.APP_VERSION;
-        this.APP_VERSION = PlayerTrackerDecoder.VERSION;
+        this.APP_VERSION = WatVis.VERSION;
 
         //this.ASSET_VERSION=this.ASSET_VERSION; // allowed since I use null as an invalid version
         for (Dimension dimension : Dimension.values()) {

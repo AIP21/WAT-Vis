@@ -1,8 +1,8 @@
 package com.anipgames.WAT_Vis.config;
 
-import com.anipgames.WAT_Vis.PlayerTrackerDecoder;
-import com.anipgames.WAT_Vis.PlayerTrackerDecoder.HeatDrawType;
-import com.anipgames.WAT_Vis.PlayerTrackerDecoder.UITheme;
+import com.anipgames.WAT_Vis.WatVis;
+import com.anipgames.WAT_Vis.WatVis.HeatDrawType;
+import com.anipgames.WAT_Vis.WatVis.UITheme;
 import com.anipgames.WAT_Vis.util.Logger;
 
 import java.awt.*;
@@ -15,11 +15,11 @@ import java.util.HashMap;
 public class Settings {
     public static Settings INSTANCE;
 
-    public PlayerTrackerDecoder.UITheme uiTheme = UITheme.Light;
+    public WatVis.UITheme uiTheme = UITheme.Light;
     public float size = 1.0f;
     public boolean convertChunkPosToBlockPos = true;
     public int maxDataEntries = 0;
-    public PlayerTrackerDecoder.DrawType _drawType = PlayerTrackerDecoder.DrawType.Pixel;
+    public WatVis.DrawType _drawType = WatVis.DrawType.Pixel;
     public HeatDrawType _heatDrawType = HeatDrawType.Size;
     public float heatMapStrength = 1.0f;
     public int lineThreshold = 200;
@@ -41,11 +41,11 @@ public class Settings {
         INSTANCE = this;
 
         try {
-            if (!(new File(PlayerTrackerDecoder.DIR_CONFIG + File.separatorChar + "config.txt")).exists()) {
+            if (!(new File(WatVis.DIR_CONFIG + File.separatorChar + "config.txt")).exists()) {
                 Logger.warn("Config file does not exist, creating it");
 
                 try {
-                    (new File(PlayerTrackerDecoder.DIR_CONFIG + File.separatorChar + "config.txt")).createNewFile();
+                    (new File(WatVis.DIR_CONFIG + File.separatorChar + "config.txt")).createNewFile();
 
                     Logger.info("Successfully created config file");
                     SaveSettings();
@@ -56,7 +56,7 @@ public class Settings {
             }
 
             Logger.info("Fetching and parsing settings from config file");
-            getFromFile(new File(PlayerTrackerDecoder.DIR_CONFIG + File.separatorChar + "config.txt"));
+            getFromFile(new File(WatVis.DIR_CONFIG + File.separatorChar + "config.txt"));
             Logger.info("Successfully fetched and parsed settings from config file");
         } catch (IOException e) {
             Logger.err("Error fetching and parsing settings from config file:\n " + e.getMessage() + "\n Stacktrace:\n " + Arrays.toString(e.getStackTrace()));
@@ -69,8 +69,8 @@ public class Settings {
         Logger.info("Saving and writing settings to config file");
 
         try {
-            PrintWriter writer = new PrintWriter(PlayerTrackerDecoder.DIR_CONFIG + File.separatorChar + "config.txt", StandardCharsets.UTF_8);
-            writer.println("/// WAT:Vis v" + PlayerTrackerDecoder.VERSION + " - CONFIG \\\\\\");
+            PrintWriter writer = new PrintWriter(WatVis.DIR_CONFIG + File.separatorChar + "config.txt", StandardCharsets.UTF_8);
+            writer.println("/// WAT:Vis v" + WatVis.VERSION + " - CONFIG \\\\\\");
             writer.println("/// Delete this config file to reset values to their default settings \\\\\\\n");
 
             writer.println("theme: " + themeToInt(uiTheme) + " // The UI theme (Light = 0, Dark = 1)");
@@ -98,15 +98,15 @@ public class Settings {
 
     }
 
-    private int drawTypeToInt(PlayerTrackerDecoder.DrawType dt) {
-        if (dt == PlayerTrackerDecoder.DrawType.Pixel) {
+    private int drawTypeToInt(WatVis.DrawType dt) {
+        if (dt == WatVis.DrawType.Pixel) {
             return 0;
-        } else if (dt == PlayerTrackerDecoder.DrawType.Dot) {
+        } else if (dt == WatVis.DrawType.Dot) {
             return 1;
-        } else if (dt == PlayerTrackerDecoder.DrawType.Line) {
+        } else if (dt == WatVis.DrawType.Line) {
             return 2;
         } else {
-            return dt == PlayerTrackerDecoder.DrawType.Heat ? 3 : -1;
+            return dt == WatVis.DrawType.Heat ? 3 : -1;
         }
     }
 
@@ -154,7 +154,7 @@ public class Settings {
                     str = str.substring(0, str.indexOf(" - "));
                     Logger.info(str + ", " + count);
 
-                    if (!str.equals(PlayerTrackerDecoder.VERSION)) {
+                    if (!str.equals(WatVis.VERSION)) {
                         SaveSettings();
                         Logger.warn("Updating log file version");
                     }
@@ -201,13 +201,13 @@ public class Settings {
                         str = str.substring(0, str.indexOf(" //"));
                         val = Integer.parseInt(str);
                         if (val == 0) {
-                            _drawType = PlayerTrackerDecoder.DrawType.Pixel;
+                            _drawType = WatVis.DrawType.Pixel;
                         } else if (val == 1) {
-                            _drawType = PlayerTrackerDecoder.DrawType.Dot;
+                            _drawType = WatVis.DrawType.Dot;
                         } else if (val == 2) {
-                            _drawType = PlayerTrackerDecoder.DrawType.Line;
+                            _drawType = WatVis.DrawType.Line;
                         } else if (val == 3) {
-                            _drawType = PlayerTrackerDecoder.DrawType.Heat;
+                            _drawType = WatVis.DrawType.Heat;
                         }
 
                         count++;

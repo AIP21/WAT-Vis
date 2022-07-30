@@ -12,10 +12,7 @@ import java.math.MathContext;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Locale;
-import java.util.Random;
+import java.util.*;
 
 public class Utils {
     public final static Random random = new Random();
@@ -251,9 +248,7 @@ public class Utils {
     }
 
     public static boolean approximately(Color a, Color b) {
-        return (Utils.approximately(a.getRed(), b.getRed(), 20.0F) &&
-                Utils.approximately(a.getGreen(), b.getGreen(), 20.0F) &&
-                Utils.approximately(a.getBlue(), b.getBlue(), 20.0F));
+        return (Utils.approximately(a.getRed(), b.getRed(), 20.0F) && Utils.approximately(a.getGreen(), b.getGreen(), 20.0F) && Utils.approximately(a.getBlue(), b.getBlue(), 20.0F));
     }
 
     public static BufferedImage resize(BufferedImage image, int width, int height) {
@@ -268,8 +263,7 @@ public class Utils {
     public static float max(float[] input) {
         float max = Float.NEGATIVE_INFINITY;
         for (float v : input)
-            if (v > max)
-                max = v;
+            if (v > max) max = v;
 
         return max;
     }
@@ -277,8 +271,7 @@ public class Utils {
     public static int max(Collection<Integer> input) {
         int max = Integer.MIN_VALUE;
         for (int v : input)
-            if (v > max)
-                max = v;
+            if (v > max) max = v;
 
         return max;
     }
@@ -286,8 +279,7 @@ public class Utils {
     public static int max(int[] input) {
         int max = Integer.MIN_VALUE;
         for (int v : input)
-            if (v > max)
-                max = v;
+            if (v > max) max = v;
 
         return max;
     }
@@ -295,8 +287,7 @@ public class Utils {
     public static float min(float[] input) {
         float min = Float.POSITIVE_INFINITY;
         for (float v : input)
-            if (v < min)
-                min = v;
+            if (v < min) min = v;
 
         return min;
     }
@@ -304,8 +295,7 @@ public class Utils {
     public static int min(Collection<Integer> input) {
         int min = Integer.MAX_VALUE;
         for (int v : input)
-            if (v < min)
-                min = v;
+            if (v < min) min = v;
 
         return min;
     }
@@ -313,8 +303,7 @@ public class Utils {
     public static int min(int[] input) {
         int min = Integer.MAX_VALUE;
         for (int v : input)
-            if (v < min)
-                min = v;
+            if (v < min) min = v;
 
         return min;
     }
@@ -324,17 +313,12 @@ public class Utils {
     }
 
     public static int scale(int input, int min1, int max1, int min2, int max2) {
-        return (int) ((input - min1) * (max2 - min2) / (max1 - min1) + min2);
+        return Math.round((float) (input - min1) * (float) (max2 - min2) / (float) (max1 - min1) + min2);
     }
 
     public static String formatPretty(double d) {
-        if (d == (long) d)
-
-            return String.format("%d", (long) d);
-
-        else
-
-            return String.format("%s", d);
+        if (d == (long) d) return String.format("%d", (long) d);
+        else return String.format("%s", d);
     }
 
     public static double roundToSigFigs(double input, int digits) {

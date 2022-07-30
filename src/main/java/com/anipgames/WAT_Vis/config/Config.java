@@ -3,7 +3,7 @@ package com.anipgames.WAT_Vis.config;
 import com.google.gson.FieldNamingStrategy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.anipgames.WAT_Vis.PlayerTrackerDecoder;
+import com.anipgames.WAT_Vis.WatVis;
 import com.anipgames.WAT_Vis.util.Logger;
 
 import java.io.File;
@@ -42,7 +42,7 @@ public abstract class Config {
             .setPrettyPrinting()
             .enableComplexMapKeySerialization()
             .create();
-    protected String root = PlayerTrackerDecoder.DIR_CONFIG;
+    protected String root = WatVis.DIR_CONFIG;
     protected String extension = ".json";
 
     public void generateConfig() {

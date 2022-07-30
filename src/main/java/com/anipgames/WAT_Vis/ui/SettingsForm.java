@@ -1,8 +1,8 @@
 package com.anipgames.WAT_Vis.ui;
 
 import com.anipgames.WAT_Vis.io.Icons;
-import com.anipgames.WAT_Vis.PlayerTrackerDecoder;
-import com.anipgames.WAT_Vis.PlayerTrackerDecoder.UITheme;
+import com.anipgames.WAT_Vis.WatVis;
+import com.anipgames.WAT_Vis.WatVis.UITheme;
 import com.anipgames.WAT_Vis.config.Settings;
 import com.anipgames.WAT_Vis.util.Logger;
 import com.anipgames.WAT_Vis.util.Utils;
@@ -21,10 +21,10 @@ public class SettingsForm extends JDialog {
     public LabeledComponent<JSlider> mouseSensitivity;
     private Font settingsTitleFont;
 
-    private final PlayerTrackerDecoder main;
+    private final WatVis main;
     private final Settings settings;
 
-    public SettingsForm(PlayerTrackerDecoder main, Settings settings) {
+    public SettingsForm(WatVis main, Settings settings) {
         super(main, "Settings");
 
         setModal(true);
@@ -117,7 +117,7 @@ public class SettingsForm extends JDialog {
         gbc.insets = new Insets(10, 0, 0, 10);
         settingsPanel.add(fancyRendering, gbc);
 
-        debugMode = new LabeledComponent<>("Debug Mode", new JRadioButton("", PlayerTrackerDecoder.DEBUG));
+        debugMode = new LabeledComponent<>("Debug Mode", new JRadioButton("", WatVis.DEBUG));
         debugMode.setToolTipText("Used for debugging, obviously. Debug mode makes logging more verbose, adds more info to the bottom toolbar, and does some other stuff.");
         gbc.gridy++;
         settingsPanel.add(debugMode, gbc);
@@ -176,10 +176,10 @@ public class SettingsForm extends JDialog {
         });
 
         debugMode.getComponent().addItemListener((event) -> {
-            PlayerTrackerDecoder.DEBUG = event.getStateChange() == ItemEvent.SELECTED;
+            WatVis.DEBUG = event.getStateChange() == ItemEvent.SELECTED;
             settings.SaveSettings();
 
-            Logger.info("Toggled the not-so-secret DEBUG MODE (oooooh) to: " + PlayerTrackerDecoder.DEBUG);
+            Logger.info("Toggled the not-so-secret DEBUG MODE (oooooh) to: " + WatVis.DEBUG);
         });
 
         fpsLimit.getComponent().addChangeListener((e) -> {

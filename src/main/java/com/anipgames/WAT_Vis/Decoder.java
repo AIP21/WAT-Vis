@@ -20,7 +20,7 @@ import java.util.*;
 public class Decoder {
     private static final ArrayList<Color> generatedColors = new ArrayList<>();
 
-    public static DecodedData Decode(PlayerTrackerDecoder main, ArrayList<File> inputFiles, int maxEntries, boolean convertChunkPositions) {
+    public static DecodedData Decode(WatVis main, ArrayList<File> inputFiles, int maxEntries, boolean convertChunkPositions) {
         Logger.info("Initializing new decoding process");
 
         final long nowMs = System.currentTimeMillis();
@@ -167,7 +167,7 @@ public class Decoder {
         Color col = Utils.randColor();
 
         // Modify the color to better fit the current ui theme
-        if (Settings.INSTANCE.uiTheme == PlayerTrackerDecoder.UITheme.Light) {
+        if (Settings.INSTANCE.uiTheme == WatVis.UITheme.Light) {
             col = col.darker();
         } else {
             col = col.brighter();

@@ -7,7 +7,7 @@ import com.seedfinding.mccore.util.pos.BPos;
 import com.seedfinding.mccore.util.pos.RPos;
 import com.seedfinding.mcterrain.TerrainGenerator;
 import com.anipgames.WAT_Vis.MainPanel;
-import com.anipgames.WAT_Vis.PlayerTrackerDecoder;
+import com.anipgames.WAT_Vis.WatVis;
 import com.anipgames.WAT_Vis.config.mapping.BiomeColorsConfig;
 import com.anipgames.WAT_Vis.config.mapping.Configs;
 import com.anipgames.WAT_Vis.mapping.minemap.map.MapContext;
@@ -118,7 +118,7 @@ public class Fragment {
     }
 
     private void refreshHeightCache() {
-        MainPanel panel = PlayerTrackerDecoder.INSTANCE.mainPanel;
+        MainPanel panel = WatVis.INSTANCE.mainPanel;
         int cheating;
         if (panel != null && panel != null) {
             cheating = Math.max(2, (int) (panel.blocksPerFragment / 2 / panel.pixelsPerFragment));
@@ -164,7 +164,7 @@ public class Fragment {
     }
 
     private void refreshBiomeCache() {
-        MainPanel panel = PlayerTrackerDecoder.INSTANCE.mainPanel;
+        MainPanel panel = WatVis.INSTANCE.mainPanel;
         int cheating;
         if (panel != null && panel != null) {
             cheating = Math.max(1, (int) (panel.blocksPerFragment / 16 / panel.pixelsPerFragment));

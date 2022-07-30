@@ -1,6 +1,6 @@
 package com.anipgames.WAT_Vis.ui;
 
-import com.anipgames.WAT_Vis.PlayerTrackerDecoder;
+import com.anipgames.WAT_Vis.WatVis;
 import com.anipgames.WAT_Vis.util.Utils;
 
 import javax.swing.*;
@@ -25,7 +25,7 @@ public class LabeledComponent<T extends Component> extends JPanel {
 
         this.label.setLabelFor(component);
 
-        if (PlayerTrackerDecoder.DEBUG) {
+        if (WatVis.DEBUG) {
             setBackground(Utils.randColor());
         }
 

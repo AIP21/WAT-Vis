@@ -1,9 +1,12 @@
 package com.anipgames.WAT_Vis.util;
 
+import com.anipgames.WAT_Vis.util.objects.Vector2;
+
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.text.StyleContext;
 import java.awt.*;
+import java.awt.font.LineMetrics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -328,5 +331,9 @@ public class Utils {
 
     public static double roundToSigFigs(double input) {
         return roundToSigFigs(input, 3);
+    }
+
+    public static float getTextHeight(Graphics2D g, String string, Font font) {
+        return font.getLineMetrics(string, g.getFontRenderContext()).getHeight();
     }
 }

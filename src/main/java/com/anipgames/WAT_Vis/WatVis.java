@@ -45,7 +45,7 @@ public class WatVis extends JFrame {
 
     //region Static variables
     public static final String VERSION = VersionGetter.getVersion();
-    public static boolean DEBUG = true;
+    public static boolean DEBUG = false;
     // build id, build date, build url, build release notes, build name
     public static String[] BUILD_INFO = new String[]{"null/dev", "null/dev", "null/dev", "null/dev", "null/dev"};
 

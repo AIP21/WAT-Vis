@@ -9,6 +9,10 @@ public class LineGraph extends AbstractGraph {
     private boolean drawDots = false;
     private int dotSize = 3;
 
+    private float xInterval;
+    private int curMax;
+    private int curMin;
+
     public LineGraph(String graphName, boolean drawDots, int dotSize) {
         super(graphName);
 
@@ -27,54 +31,41 @@ public class LineGraph extends AbstractGraph {
 
     @Override
     public void drawGraph(Graphics2D g2d) {
-        for (GraphData gd : data) {
-            float xInterval = (float) (graphArea.right - graphArea.left) / (float) gd.valuesCount;
+        for (GraphData gd : data.values()) {
 
-            int newMax = gd.max % yGridSpacing == 0 ? gd.max : (int) (gd.max + yGridSpacing);
+            xInterval = (float) (graphArea.right - graphArea.left) / (float) gd.valuesCount;
 
-            boolean useCurves = true;
-            if (useCurves) {
-                Path2D curve = new Path2D.Float();
-                curve.moveTo(graphArea.left, Utils.scale(gd.values.get(0), gd.min, newMax, graphArea.bottom, graphArea.top));
+            curMax = gd.max % yGridSpacing == 0 ? gd.max : (int) (gd.max + yGridSpacing);
+            curMin = gd.min;
 
-                for (int i = 2; i < gd.valuesCount; i += 3) {
-                    float x = graphArea.left + (i * xInterval);
-                    float y = Utils.scale(gd.values.get(i), gd.min, newMax, graphArea.bottom, graphArea.top);
-                    float ctrl1x = graphArea.left + ((i - 1) * xInterval);
-                    float ctrl1y = Utils.scale(gd.values.get(i - 1), gd.min, newMax, graphArea.bottom, graphArea.top);
-                    float ctrl2x = graphArea.left + ((i - 2) * xInterval);
-                    float ctrl2y = Utils.scale(gd.values.get(i - 2), gd.min, newMax, graphArea.bottom, graphArea.top);
+            //TODO: ADD CURVED RENDERING TO LINE GRAPH?
 
-                    curve.curveTo(ctrl1x, ctrl1y, ctrl2x, ctrl2y, x, y);
+            Path2D polyline = new Path2D.Float();
+            polyline.moveTo(graphArea.left, remapY(gd.values.get(0)));
 
-                    // TODO: ADD KEY FOR GRAPH COLORS AND THEIR NAMES
+            for (int i = 0; i < gd.valuesCount; i++) {
+                float x = remapX(i);
+                float y = remapY(gd.values.get(i));
 
-                    if (drawDots && gd.valuesCount <= 200) {
-                        g2d.setColor(gd.color.darker());
-                        g2d.fillOval((int) (x - (dotSize / 2)), (int) (y - (dotSize / 2)), dotSize, dotSize);
-                    }
+                if (i != 0) {
+                    polyline.lineTo(x, y);
                 }
-                g2d.setColor(gd.color);
-                g2d.draw(curve);
-            } else {
-                Path2D polyline = new Path2D.Float();
-                polyline.moveTo(graphArea.left, Utils.scale(gd.values.get(0), gd.min, newMax, graphArea.bottom, graphArea.top));
-                for (int i = 0; i < gd.valuesCount; i++) {
-                    float x = graphArea.left + (i * xInterval);
-                    float y = Utils.scale(gd.values.get(i), gd.min, newMax, graphArea.bottom, graphArea.top);
 
-                    if (i != 0) {
-                        polyline.lineTo(x, y);
-                    }
-
-                    if (drawDots && gd.valuesCount <= 200) {
-                        g2d.setColor(gd.color.darker());
-                        g2d.fillOval((int) (x - (dotSize / 2)), (int) (y - (dotSize / 2)), dotSize, dotSize);
-                    }
+                if (drawDots && gd.valuesCount <= 200) {
+                    g2d.setColor(gd.color.darker());
+                    g2d.fillOval((int) (x - (dotSize / 2)), (int) (y - (dotSize / 2)), dotSize, dotSize);
                 }
-                g2d.setColor(gd.color);
-                g2d.draw(polyline);
             }
+            g2d.setColor(gd.color);
+            g2d.draw(polyline);
         }
+    }
+
+    private float remapX(float x) {
+        return graphArea.left + (x * xInterval);
+    }
+
+    private float remapY(float y) {
+        return Utils.scale(y, curMin, curMax, graphArea.bottom, graphArea.top);
     }
 }

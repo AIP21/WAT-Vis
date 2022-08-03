@@ -190,9 +190,9 @@ public class SettingsForm extends JDialog {
             Logger.info("Changed framerate limit to: " + settings.fpsLimit);
         });
 
-        fpsLimit.getComponent().addChangeListener((e) -> {
+        mouseSensitivity.getComponent().addChangeListener((e) -> {
             settings.mouseSensitivity = ((JSlider) e.getSource()).getValue();
-            fpsLimit.setLabelText(String.format("Mouse Sensitivity: %d%%", settings.mouseSensitivity));
+            mouseSensitivity.setLabelText(String.format("Mouse Sensitivity: %d%%", settings.mouseSensitivity));
             settings.SaveSettings();
             main.mainPanel.sensitivity = (float) settings.mouseSensitivity / 100.0F;
 

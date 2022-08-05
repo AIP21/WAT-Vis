@@ -31,9 +31,9 @@ public class LineGraph extends AbstractGraph {
 
     @Override
     public void drawGraph(Graphics2D g2d) {
+        g2d.setStroke(thickerStroke);
         for (GraphData gd : data.values()) {
-
-            xInterval = (float) (graphArea.right - graphArea.left) / (float) gd.valuesCount;
+            xInterval = (float) (getWidth()) / (float) gd.valuesCount;
 
             curMax = gd.max % yGridSpacing == 0 ? gd.max : (int) (gd.max + yGridSpacing);
             curMin = gd.min;
@@ -41,10 +41,10 @@ public class LineGraph extends AbstractGraph {
             //TODO: ADD CURVED RENDERING TO LINE GRAPH?
 
             Path2D polyline = new Path2D.Float();
-            polyline.moveTo(graphArea.left, remapY(gd.values.get(0)));
+            polyline.moveTo(0, remapY(gd.values.get(0)));
 
             for (int i = 0; i < gd.valuesCount; i++) {
-                float x = remapX(i);
+                float x = i * xInterval;
                 float y = remapY(gd.values.get(i));
 
                 if (i != 0) {
@@ -59,13 +59,29 @@ public class LineGraph extends AbstractGraph {
             g2d.setColor(gd.color);
             g2d.draw(polyline);
         }
-    }
 
-    private float remapX(float x) {
-        return graphArea.left + (x * xInterval);
+        g2d.setStroke(normalStroke);
     }
 
     private float remapY(float y) {
-        return Utils.scale(y, curMin, curMax, graphArea.bottom, graphArea.top);
+        return Utils.scale(y, curMin, curMax, 0, getHeight());
     }
+
+    //region Getters and Setters
+    public boolean isDrawDots() {
+        return drawDots;
+    }
+
+    public void setDrawDots(boolean drawDots) {
+        this.drawDots = drawDots;
+    }
+
+    public int getDotSize() {
+        return dotSize;
+    }
+
+    public void setDotSize(int dotSize) {
+        this.dotSize = dotSize;
+    }
+    //endregion
 }

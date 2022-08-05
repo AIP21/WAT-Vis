@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62be0571-d44b-4e35-ba44-d67cb5e30164" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/ui/graphs/BarGraph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
@@ -14,24 +13,17 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/WatVis.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/WatVis.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/ui/Dashboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/ui/Dashboard.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/ui/graphs/AbstractGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/ui/graphs/AbstractGraph.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/ui/graphs/BarGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/ui/graphs/BarGraph.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/ui/graphs/GraphData.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/ui/graphs/GraphData.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/ui/graphs/LineGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/ui/graphs/LineGraph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/ui/graphs/OtherGraph.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/ui/SettingsForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/ui/SettingsForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/util/Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/util/Utils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/util/objects/Vector2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/util/objects/Vector2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/WatVis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/WatVis.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/ui/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/ui/Dashboard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/ui/graphs/AbstractGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/ui/graphs/AbstractGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/ui/graphs/BarGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/ui/graphs/BarGraph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/ui/graphs/LineGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/ui/graphs/LineGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/ui/graphs/OtherGraph.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/ui/SettingsForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/ui/SettingsForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/objects/Vector2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/objects/Vector2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,23 +93,23 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "last_opened_file_path": "C:/Users/20ani/Documents/Code/WAT-Vis/inputs/client/hypixel overnight - skyblock",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.14550781",
-    "project.structure.side.proportion": "0.41408116",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "editor.preferences.gutterIcons"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/20ani/Documents/Code/WAT-Vis/inputs/client/hypixel overnight - skyblock&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.14550781&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.41408116&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.gutterIcons&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\20ani\Documents\Code\WAT-Vis\inputs\client\hypixel overnight - skyblock" />

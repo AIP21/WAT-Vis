@@ -336,4 +336,11 @@ public class Utils {
     public static float getTextHeight(Graphics2D g, String string, Font font) {
         return font.getLineMetrics(string, g.getFontRenderContext()).getHeight();
     }
+
+    public static float getStrokeWidth(final Stroke s) {
+        if (s instanceof final BasicStroke bs) {
+            return bs.getLineWidth();
+        }
+        return 1;
+    }
 }

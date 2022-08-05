@@ -4,10 +4,17 @@ import com.anipgames.WAT_Vis.util.Utils;
 
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
+import java.awt.geom.RoundRectangle2D;
 
 public class BarGraph extends AbstractGraph {
+    private int[] colRanges;
+    private int[] colCounts;
+
     private int barWidth;
 
+    private boolean stackBars = true;
+    private boolean roundBarTops = true;
+    private int barRounding = 10;
     // maybe??? wider the larger its value
     private boolean barWidthByValue;
 
@@ -30,30 +37,55 @@ public class BarGraph extends AbstractGraph {
         newBarWidth = (float) barWidth / (float) data.size();
 
         xStartOffset = barWidth / 2;
+
+        colRanges = new int[highestCount];
+        colCounts = new int[highestCount];
+
+        for (int i = 0; i < highestCount; i++) {
+            for (GraphData gd : data.values()) {
+                colRanges[i] += Math.abs(gd.values.get(i));
+            }
+        }
     }
 
     @Override
     public void drawGraph(Graphics2D g2d) {
-        float dataIndex = (float) data.values().size() / 2f;
-        for (GraphData gd : data.values()) {
-            xInterval = ((float) (graphArea.right - (graphArea.left + xStartOffset)) / (float) gd.valuesCount);
+        xInterval = ((float) (getWidth() + xStartOffset) / (float) highestCount);
 
-            g2d.setColor(gd.color);
+        for (int i = 0; i < highestCount; i++) {
+            float dataIndex = (float) data.values().size() / 2f;
+            int prevBarSegmentVal = 0;
 
-            for (int i = 0; i < gd.valuesCount; i++) {
-                float y = remapY(gd.values.get(i), gd);
-                g2d.fill(new Rectangle2D.Float(remapX(i) - (newBarWidth * dataIndex), y, newBarWidth, remapY(0, gd) - y));
+            for (GraphData gd : data.values()) {
+                if (i < gd.valuesCount) {
+                    g2d.setColor(gd.color);
+                    float y = remapY(gd.values.get(i), i);
+
+                    if (stackBars && data.size() > 1) {
+                        float startY = remapY(prevBarSegmentVal, i);
+
+                        g2d.fill(new Rectangle2D.Float(remapX(i) - (barWidth / 2f), startY, barWidth, y - startY));
+                        prevBarSegmentVal += gd.values.get(i);
+                    } else {
+                        if (y < 5 || !roundBarTops) {
+                            g2d.fill(new Rectangle2D.Float(remapX(i) - (newBarWidth * dataIndex), 0, newBarWidth, y));
+                        } else { // Draw with rounded top if the bar is tall enough and if rounding is enabled
+                            g2d.fill(new Rectangle2D.Float(remapX(i) - (newBarWidth * dataIndex), 0, newBarWidth, y - barRounding));
+                            g2d.fill(new RoundRectangle2D.Float(remapX(i) - (newBarWidth * dataIndex), y - (barRounding * 2), newBarWidth, (barRounding * 2), barRounding, barRounding));
+                        }
+                        dataIndex--;
+                    }
+                }
             }
-
-            dataIndex--;
         }
+
     }
 
     private float remapX(float x) {
-        return graphArea.left + xStartOffset + (x * xInterval);
+        return xStartOffset + (x * xInterval);
     }
 
-    private float remapY(float y, GraphData gd) {
-        return (Utils.scale(y, lowestMin, highestMax, graphArea.bottom, graphArea.top));
+    private float remapY(float y, int index) {
+        return Utils.scale(y, lowestMin, highestMax, 0, getHeight());
     }
 }

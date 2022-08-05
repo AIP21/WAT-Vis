@@ -97,7 +97,7 @@ public class Dashboard extends JFrame implements Runnable {
         long start;
         double delta = 0;
 
-        AbstractGraph gp4 = graphs.get(3);
+        AbstractGraph gp4 = graphs.get(4);
         Function<Integer, Float> randWalkFunc = a -> (float) (gp4.getData().get(a - 1) + (Math.random() - 0.5f) * 10f);
 
         while (isRunning) {
@@ -116,22 +116,29 @@ public class Dashboard extends JFrame implements Runnable {
     private void createGraphs() {
         graphs = new ArrayList<>();
 
+        BarGraph testBarGraph = new BarGraph("Test Bar");
+        testBarGraph.setGridDrawPrefs(true, true);
+        testBarGraph.setValueDrawPrefs(true, true);
+        testBarGraph.setData(new ArrayList<>(List.of(1, 2, 2, 3, 4, 3, 2, 3, 1, 2, 6)));
+        testBarGraph.setGridSpacing(1, 1);
+        graphs.add(testBarGraph);
+
+        BarGraph testMultiDataBarGraph = new BarGraph("Test Multi Data Bar");
+        testMultiDataBarGraph.setGridDrawPrefs(true, true);
+        testMultiDataBarGraph.setValueDrawPrefs(true, true);
+        testMultiDataBarGraph.setData("A", new ArrayList<>(List.of(1, 2, 2, 3, 4, 3, 2, 3, 1, 2, 6)));
+        testMultiDataBarGraph.setData("B", new ArrayList<>(List.of(2, 1, 1, 2, 5, 4, 1, 2, 4, 3, 5)));
+        testMultiDataBarGraph.setData("C", new ArrayList<>(List.of(1, 5, 3, 1, 4, 1, 3, 5, 4, 2, 6)));
+//        testMultiDataBarGraph.setData("D", new ArrayList<>(List.of(2, 1, 1, 2, 5, 4, 1, 2, 4, 3, 5)));
+        testMultiDataBarGraph.setGridSpacing(1, 1);
+        graphs.add(testMultiDataBarGraph);
+
         LineGraph testLineGraph = new LineGraph("Test Line");
-        testLineGraph.setGridDrawPrefs(true, true);
+        testLineGraph.setGridDrawPrefs(true, false);
         testLineGraph.setValueDrawPrefs(true, true);
         testLineGraph.setData(new ArrayList<>(List.of(0, 2, 2, 3, 4, 3, 2, 3, 1, 2, 1)));
         testLineGraph.setGridSpacing(1, 2);
         graphs.add(testLineGraph);
-
-        BarGraph testBarGraph = new BarGraph("Test Bar");
-        testBarGraph.setGridDrawPrefs(true, true);
-        testBarGraph.setValueDrawPrefs(true, true);
-        testBarGraph.setData("A", new ArrayList<>(List.of(1, 2, 2, 3, 4, 3, 2, 3, 1, 2, 6)));
-        testBarGraph.setData("B", new ArrayList<>(List.of(2, 1, 1, 2, 5, 4, 1, 2, 4, 3, 5)));
-        testBarGraph.setData("C", new ArrayList<>(List.of(1, 2, 2, 3, 4, 3, 2, 3, 1, 2, 6)));
-        testBarGraph.setData("D", new ArrayList<>(List.of(2, 1, 1, 2, 5, 4, 1, 2, 4, 3, 5)));
-        testBarGraph.setGridSpacing(1, 1);
-        graphs.add(testBarGraph);
 
         Function<Integer, Float> sinFunc = a -> (float) Math.sin((float) a / 10f) * 10;
         Function<Integer, Float> cosFunc = a -> (float) Math.cos((float) a / 10f) * 10;
@@ -139,7 +146,7 @@ public class Dashboard extends JFrame implements Runnable {
         Function<Integer, Float> cos2Func = a -> (float) Math.cos((float) a);
         LineGraph sinCosGraph = new LineGraph("Sine and Cosine");
         sinCosGraph.setGridSize(5, 4);
-        sinCosGraph.setGridDrawPrefs(true, true);
+        sinCosGraph.setGridDrawPrefs(true, false);
         sinCosGraph.setValueDrawPrefs(true, true);
         sinCosGraph.setData("Sine / 10", getFunctionPointsInt(180, sinFunc));
         sinCosGraph.setData("Cosine / 10", getFunctionPointsInt(180, cosFunc));

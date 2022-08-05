@@ -6,6 +6,8 @@ import com.anipgames.WAT_Vis.util.Utils;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 import java.awt.geom.RoundRectangle2D;
 import java.util.ArrayList;
@@ -45,16 +47,21 @@ public abstract class AbstractGraph extends JPanel {
     private boolean drawXValues = true;
     private boolean drawYValues = true;
     private Color backgroundColor = new Color(77, 77, 77);
-    private Color textColor = new Color(187, 187, 187);
-    private Color xGridColor = new Color(200, 200, 200, 131);
-    private Color yGridColor = new Color(200, 200, 200, 200);
+    private Color textColor = new Color(229, 229, 229);
+    private Color primaryXGridColor = new Color(255, 255, 255, 153);
+    private Color secondaryXGridColor = new Color(255, 255, 255, 79);
+    private Color primaryYGridColor = new Color(255, 255, 255, 153);
+    private Color secondaryYGridColor = new Color(255, 255, 255, 79);
 
     private Font titleFont = new Font("Roboto", Font.BOLD, 16);
     private Font labelFont = new Font("Arial", Font.PLAIN, 12);
     private Font keyFont = new Font("Arial", Font.PLAIN, 10);
 
-    private Stroke normalStroke = new BasicStroke(1);
-    private Stroke thickerStroke = new BasicStroke(2);
+    protected Stroke normalStroke = new BasicStroke(1);
+    private float normalStrokeWidth;
+    protected Stroke thickerStroke = new BasicStroke(2);
+    private float thickerStrokeWidth;
+
     //region Positions
     protected Point titlePosition = new Point(5, 0);
     protected Point graphPosition = new Point(0, 0);
@@ -79,6 +86,9 @@ public abstract class AbstractGraph extends JPanel {
         this.setOpaque(false);
 
         this.graphName = graphName;
+
+        this.normalStrokeWidth = (Utils.getStrokeWidth(normalStroke) / 2f) - 0.5f;
+        this.thickerStrokeWidth = (Utils.getStrokeWidth(thickerStroke) / 2f) - 0.5f;
     }
 
     //region Data
@@ -120,7 +130,7 @@ public abstract class AbstractGraph extends JPanel {
 
         long start = System.currentTimeMillis();
 
-        graphArea.set(graphPosition.y + outerPadding.top, graphPosition.x + outerPadding.left, graphPosition.y + (getHeight() - outerPadding.bottom), graphPosition.x + (getWidth() - outerPadding.right));
+        graphArea.set(graphPosition.y + outerPadding.top, graphPosition.x + outerPadding.left, graphPosition.y + outerPadding.bottom, graphPosition.x + outerPadding.right);
 
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -135,10 +145,10 @@ public abstract class AbstractGraph extends JPanel {
         g2d.setFont(titleFont);
         FontMetrics fm = g2d.getFontMetrics();
 
-        g2d.drawString(graphName, graphArea.left + 5 + titlePosition.x, outerPadding.top + fm.getAscent() + titlePosition.y);
+        g2d.drawString(graphName, outerPadding.left + 5 + titlePosition.x, outerPadding.top + fm.getAscent() + titlePosition.y);
 
         // Offset graph area to accommodate for title (and for x-axis overflow)
-        graphArea.top = outerPadding.top + fm.getHeight() + titlePosition.y + g2d.getFontMetrics(labelFont).getHeight() + 7;
+        graphArea.top += fm.getHeight() + titlePosition.y + g2d.getFontMetrics(labelFont).getHeight() + 7;
 
         long frameTime = System.currentTimeMillis() - start;
 
@@ -150,34 +160,41 @@ public abstract class AbstractGraph extends JPanel {
 
             keyTime = System.currentTimeMillis() - start;
 
-            if (WatVis.DEBUG) {
-                // Draw drawArea rect
-                g2d.setColor(Color.white);
-//                g2d.drawRect(graphArea.left, graphArea.top, graphArea.right - graphArea.left, graphArea.bottom - graphArea.top);
-            }
-
             // Draw grid
             start = System.currentTimeMillis();
+            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
 
             drawGrid(g2d);
 
+            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
             gridTime = System.currentTimeMillis() - start;
 
             // Draw a graph for every dataset
             start = System.currentTimeMillis();
 
+            AffineTransform atOrig = g2d.getTransform();
+            AffineTransform at = new AffineTransform();
+            at.translate(graphArea.left, graphArea.top);
+            at.scale((float) (getWidth() - (graphArea.left + graphArea.right)) / (float) getWidth(), -((float) (getHeight() - (graphArea.top + graphArea.bottom)) / (float) getHeight()));
+            at.translate(0, -getHeight());
+            g2d.transform(at);
             drawGraph(g2d);
-
             graphTime = System.currentTimeMillis() - start;
+
+            if (WatVis.DEBUG) {
+                // Draw drawArea rectangle
+                g2d.setColor(Color.white);
+                g2d.drawRect(0, 0, getWidth(), getHeight());
+
+                g2d.transform(atOrig);
+
+                // Draw timing info
+                g2d.setColor(Color.white);
+                g2d.drawString(String.format("data %dms, frame %dms, key %dms, grid %dms, rend %dms", processTime, frameTime, keyTime, gridTime, graphTime), 10, 12);
+            }
         } else {
             // Show a fallback message if there is no data to graph
             g2d.drawString("No data to display", getWidth() / 2, getHeight() / 2);
-        }
-
-        if (WatVis.DEBUG) {
-            // Draw timing info
-            g2d.setColor(Color.white);
-            g2d.drawString(String.format("data %dms, frame %dms, key %dms, grid %dms, rend %dms", processTime, frameTime, keyTime, gridTime, graphTime), 10, 12);
         }
     }
 
@@ -188,24 +205,31 @@ public abstract class AbstractGraph extends JPanel {
         int fontHeight = fm.getHeight();
         int yLabelWidth = 0;
 
-        if (drawYGrid || drawXValues)
-            graphArea.bottom -= fontHeight;
+        if (drawYGrid || drawXValues) graphArea.bottom += fontHeight;
 
         // Draw the horizontal x-axis lines
         for (int y = lowestMin; y <= highestMax; y += yGridSpacing) {
-            int yVal = Math.round(Utils.scale((float) y, lowestMin, highestMax, graphArea.bottom, graphArea.top));
+            int yVal = Math.round(Utils.scale((float) y, lowestMin, highestMax, getHeight() - graphArea.bottom, graphArea.top));
 
-            // Line
-            if (drawXGrid && y == 0) {
-                g2d.setColor(xGridColor);
+            // Lines
+            if (drawXGrid) {
+                if (y == 0) {
+                    g2d.setColor(primaryXGridColor);
+                    g2d.setStroke(thickerStroke);
+                    g2d.draw(new Line2D.Float(graphArea.left, yVal + thickerStrokeWidth, getWidth() - graphArea.right, yVal + thickerStrokeWidth));
+                    g2d.setStroke(normalStroke);
+                } else {
+                    g2d.setColor(secondaryXGridColor);
+                    g2d.drawLine(graphArea.left, yVal, getWidth() - graphArea.right, yVal);
+                }
+            }else {
                 g2d.setStroke(thickerStroke);
-                g2d.drawLine(graphArea.left, yVal, graphArea.right, yVal);
+                g2d.setColor(backgroundColor);
+                g2d.drawLine(graphArea.left, yVal, getWidth() - graphArea.right, yVal);
                 g2d.setStroke(normalStroke);
-            } else {
-                g2d.drawLine(graphArea.left, yVal, graphArea.right, yVal);
             }
 
-            // TODO: MAKE IT HIGHLIGHT NOT 0 BUT THE CLOSEST VALUE TO 0
+            // TODO: MAKE IT HIGHLIGHT THE CLOSEST VALUE TO 0 INSTEAD OF ONLY 0
 
             // Values
             if (drawYValues) {
@@ -226,18 +250,24 @@ public abstract class AbstractGraph extends JPanel {
         // Draw the vertical y-axis lines
         for (int x = 0; x <= highestCount; x += xGridSpacing) {
             if (highestCount != 0 && x != highestCount) {
-                int xVal = Utils.scale(x, 0, highestCount, graphArea.left + xStartOffset, graphArea.right);
+                int xVal = Utils.scale(x, 0, highestCount, graphArea.left + xStartOffset, getWidth() - graphArea.right);
 
-                // Line
+                // Lines
                 if (drawYGrid) {
-                    g2d.setColor(yGridColor);
                     if (x == 0) {
+                        g2d.setColor(primaryYGridColor);
                         g2d.setStroke(thickerStroke);
-                        g2d.drawLine(xVal, graphArea.top - fontHeight, xVal, graphArea.bottom);
+                        g2d.draw(new Line2D.Float(xVal, graphArea.top - fontHeight - thickerStrokeWidth, xVal, getHeight() - graphArea.bottom - thickerStrokeWidth));
                         g2d.setStroke(normalStroke);
                     } else {
-                        g2d.drawLine(xVal, graphArea.top - fontHeight, xVal, graphArea.bottom);
+                        g2d.setColor(secondaryYGridColor);
+                        g2d.drawLine(xVal, graphArea.top - fontHeight, xVal, getHeight() - graphArea.bottom);
                     }
+                } else {
+                    g2d.setStroke(thickerStroke);
+                    g2d.setColor(backgroundColor);
+                    g2d.drawLine(xVal, graphArea.top - fontHeight, xVal, getHeight() - graphArea.bottom);
+                    g2d.setStroke(normalStroke);
                 }
 
                 // Value
@@ -245,9 +275,9 @@ public abstract class AbstractGraph extends JPanel {
                     g2d.setColor(textColor);
                     String xLabel = String.format("%s%s", xNames == null ? x : xNames[x], xSuffix);
                     if (x != highestCount) {
-                        g2d.drawString(xLabel, xVal - (fm.stringWidth(xLabel) / 2), graphArea.bottom + fontHeight);
+                        g2d.drawString(xLabel, xVal - (fm.stringWidth(xLabel) / 2), getHeight() - (graphArea.bottom - fontHeight));
                     } else {
-                        g2d.drawString(xLabel, xVal - (fm.stringWidth(xLabel) + 5), graphArea.bottom + fontHeight);
+                        g2d.drawString(xLabel, xVal - (fm.stringWidth(xLabel) + 5), getHeight() - (graphArea.bottom - fontHeight));
                     }
                 }
             }
@@ -260,12 +290,12 @@ public abstract class AbstractGraph extends JPanel {
             FontMetrics fm = g2d.getFontMetrics();
             int xPos = 0;
             float textHeight = fm.getAscent() + fm.getDescent();
-            graphArea.bottom -= textHeight + 5;
+            graphArea.bottom += textHeight + 5;
 
-            int y = keyPosition.y + (getHeight() - outerPadding.bottom - 5);
+            int y = keyPosition.y + ((getHeight() - outerPadding.bottom) - 5);
 
             for (GraphData gd : data.values()) {
-                int x = (keyPosition.x + outerPadding.left) + xPos;
+                int x = (keyPosition.x + (getWidth() / 2)) + xPos;
 
                 // Draw color key
                 g2d.setColor(gd.color);
@@ -476,20 +506,36 @@ public abstract class AbstractGraph extends JPanel {
         this.textColor = textColor;
     }
 
-    public Color getXGridColor() {
-        return xGridColor;
+    public Color getPrimaryXGridColor() {
+        return primaryXGridColor;
     }
 
-    public void setXGridColor(Color xGridColor) {
-        this.xGridColor = xGridColor;
+    public void setPrimaryXGridColor(Color primaryXGridColor) {
+        this.primaryXGridColor = primaryXGridColor;
     }
 
-    public Color getYGridColor() {
-        return yGridColor;
+    public Color getSecondaryXGridColor() {
+        return secondaryXGridColor;
     }
 
-    public void setYGridColor(Color yGridColor) {
-        this.yGridColor = yGridColor;
+    public void setSecondaryXGridColor(Color secondaryXGridColor) {
+        this.secondaryXGridColor = secondaryXGridColor;
+    }
+
+    public Color getPrimaryYGridColor() {
+        return primaryYGridColor;
+    }
+
+    public void setPrimaryYGridColor(Color primaryYGridColor) {
+        this.primaryYGridColor = primaryYGridColor;
+    }
+
+    public Color getSecondaryYGridColor() {
+        return secondaryYGridColor;
+    }
+
+    public void setSecondaryYGridColor(Color secondaryYGridColor) {
+        this.secondaryYGridColor = secondaryYGridColor;
     }
 
     public Font getTitleFont() {
@@ -602,10 +648,8 @@ class GraphData {
     }
 
     public void addData(int value) {
-        if (values != null)
-            values.add(value);
-        else
-            values = new ArrayList<>();
+        if (values != null) values.add(value);
+        else values = new ArrayList<>();
 
         valuesCount = values.size();
         max = Utils.max(values);

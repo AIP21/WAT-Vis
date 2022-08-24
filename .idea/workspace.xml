@@ -4,27 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62be0571-d44b-4e35-ba44-d67cb5e30164" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/ui/Dashboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/ui/Dashboard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/ui/graphs/AbstractGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/ui/graphs/AbstractGraph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/ui/graphs/BarGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/ui/graphs/BarGraph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/ui/graphs/GraphData.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/ui/graphs/GraphData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/ui/graphs/LineGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/anipgames/WAT_Vis/analysis/ui/graphs/LineGraph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/ui/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/ui/Dashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/ui/graphs/AbstractGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/ui/graphs/AbstractGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/ui/graphs/BarGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/ui/graphs/BarGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/ui/graphs/LineGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/analysis/ui/graphs/LineGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anipgames/WAT_Vis/util/Utils.java" afterDir="false" />
-    </list>
+    <list default="true" id="62be0571-d44b-4e35-ba44-d67cb5e30164" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
